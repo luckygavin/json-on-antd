@@ -1,0 +1,25 @@
+.uf-form {
+    .header {
+        h5 {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 0;
+            border-top: 1px solid #eeeeee;
+        }
+    }
+    .form-buttons {
+        button:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+    .ant-form-item-label {
+        line-height: initial;
+    }
+    .ant-form-item .ant-form-item {
+        margin-bottom: 12px;
+    }
+}

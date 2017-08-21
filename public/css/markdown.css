@@ -1,0 +1,283 @@
+code, kbd, pre, samp {
+    font-family: Consolas, Menlo, Courier, monospace;
+}
+.markdown {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(0, 0, 0, .65);
+}
+.highlight {
+    line-height: 1.5;
+}
+.markdown img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+.markdown h1 {
+    margin-top: 8px;
+    margin-bottom: 24px;
+    font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+    font-weight: 500;
+    line-height: 40px;
+    color: rgba(0, 0, 0, .75);
+}
+.markdown h1 .subtitle {
+    margin-left: 12px;
+    font-size: 90%;
+    font-weight: normal;
+}
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+    clear: both;
+    color: rgba(0, 0, 0, .75);
+    margin: 1.6em 0 .6em 0;
+    font-family: Lato, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimSun, sans-serif;
+    font-weight: 500;
+}
+.markdown h1 {
+    font-size: 24px;
+}
+.markdown h2 {
+    font-size: 20px;
+}
+.markdown h3 {
+    font-size: 18px;
+}
+.markdown h4 {
+    font-size: 16px;
+}
+.markdown h5 {
+    font-size: 14px;
+}
+.markdown h6 {
+    font-size: 12px;
+}
+.markdown hr {
+    clear: both;
+    height: 1px;
+    margin: 16px 0;
+    border: 0;
+    background: #e9e9e9;
+}
+.markdown p,
+.markdown pre {
+    margin: 1em 0;
+}
+.markdown ul > li {
+    list-style: circle;
+}
+.markdown ul > li:empty {
+    display: none;
+}
+.markdown > div > ul li,
+.markdown blockquote ul > li {
+    margin-left: 20px;
+    padding-left: 4px;
+}
+.markdown > div > ul li > p,
+.markdown > div > ol li > p {
+    margin: .2em 0;
+}
+.markdown ol > li {
+    list-style: decimal;
+}
+.markdown > div > ol li,
+.markdown blockquote ol > li {
+    margin-left: 20px;
+    padding-left: 4px;
+}
+.markdown code {
+    display: inline;
+    margin: 0 1px;
+    padding: .2em .4em;
+    border: 1px solid #eee;
+    font-size: .9em;
+    border-radius: 3px;
+    background: #f7f7f7;
+}
+.markdown pre,
+.markdown pre[class*="language-"] {
+    position: relative;
+    font-family: "Lucida Console", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+    margin: 1.2em 0;
+    /*padding: 1em;*/
+    padding: 0;
+    overflow: auto;
+    border-radius: 4px;
+    background: #f7f7f7 !important;
+    border-width: 0;
+}
+.markdown pre:hover::before {
+    content: "\f07d";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ccc;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+.markdown pre code {
+    display: block;
+    max-height: 430px;
+    overflow: auto;
+    margin: 0;
+    padding: 1em;
+    border: none;
+    font-size: 13px;
+    color: rgba(0, 0, 0, .65);
+    background: transparent;
+}
+.markdown strong,
+.markdown b {
+    font-weight: 600;
+}
+.markdown > div > table {
+    width: 100%;
+    margin: 16px 0;
+    border: 1px solid #e9e9e9;
+    empty-cells: show;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+.markdown > div > table th {
+    font-weight: 600;
+    white-space: nowrap;
+    color: #5c6b77;
+}
+.markdown > div > table th,
+.markdown > div > table td {
+    padding: 8px 16px;
+    border: 1px solid #e9e9e9;
+    text-align: left;
+}
+.markdown > div > table th {
+    background: #f7f7f7;
+}
+.markdown blockquote {
+    margin: 1em 0;
+    padding-left: .8em;
+    border-left: 4px solid #e9e9e9;
+    font-size: 90%;
+    color: #999;
+}
+.markdown blockquote p {
+    margin: 0;
+}
+.markdown .anchor {
+    margin-left: 8px;
+    opacity: 0;
+    -webkit-transition: opacity .3s ease;
+            transition: opacity .3s ease;
+}
+.markdown .waiting {
+    color: #ccc;
+    cursor: not-allowed;
+}
+.markdown a.edit-button {
+    display: inline-block;
+    height: 12px;
+    margin-left: 10px;
+    line-height: 12px;
+}
+.markdown a.edit-button i {
+    color: #999;
+}
+.markdown a.edit-button i:hover {
+    color: #108ee9;
+}
+.markdown a.edit-button .anticon {
+    display: block;
+    font-size: 16px;
+}
+.markdown h1:hover .anchor,
+.markdown h2:hover .anchor,
+.markdown h3:hover .anchor,
+.markdown h4:hover .anchor,
+.markdown h5:hover .anchor,
+.markdown h6:hover .anchor {
+    display: inline-block;
+    opacity: 1;
+}
+.markdown > div > br,
+.markdown > div > p > br {
+    clear: both;
+}
+.markdown table {
+    font-size: 13px;
+}
+.markdown table td:first-child {
+    width: 20%;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-weight: 500;
+    background: #fcfcfc;
+}
+.markdown table td:nth-child(3) {
+    width: 22%;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: 12px;
+}
+.markdown table td:last-child {
+    width: 13%;
+    font-family: "Lucida Console", Consolas, Menlo, Courier, monospace;
+    font-size: 12px;
+}
+.markdown .toc {
+    border-left: 2px solid #eee;
+    background: #fbfbfb;
+}
+.markdown ul.ant-timeline li.ant-timeline-item {
+    margin: 0;
+    padding: 0 0 30px 0;
+    list-style: none;
+}
+.markdown ul.ant-timeline li.ant-timeline-item .ant-timeline-item-content {
+    position: relative;
+    top: -14px;
+    padding-left: 32px;
+    font-size: 14px;
+}
+.markdown ul.ant-timeline li.ant-timeline-item .ant-timeline-item-content > h2 {
+    margin-top: 0;
+    padding-top: .5px;
+}
+.markdown ul.ant-timeline li.ant-timeline-item:first-child {
+    margin-top: 40px;
+}
+
+/* 更新日志特殊样式 */
+.markdown.log {
+    position: relative;
+}
+.markdown.log hr ~ h3,
+.markdown.log hr ~ ul {
+    margin-left: 40px;
+}
+.markdown.log hr ~ h3::before {
+    position: absolute;
+    content: '';
+    height: 100%;
+    border-left: 2px solid #e9e9e9;
+    margin-top: 3px;
+    margin-left: -34px;
+}
+.markdown.log hr ~ h3::after {
+    position: absolute;
+    content: '';
+    left: 1px;
+    margin-top: 3px;
+    width: 12px;
+    height: 12px;
+    color: #108ee9;
+    background-color: #fff;
+    border-radius: 100px;
+    border: 2px solid #108ee9;
+}

@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Table from 'uf/table';
-import BaseDoc from './BaseDoc.js';
+import BaseDoc from 'docs/app/BaseDoc.js';
 
 const tableCfg = {
     config: {

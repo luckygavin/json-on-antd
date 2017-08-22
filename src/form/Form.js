@@ -2,14 +2,11 @@
  * @file 可配置表单
  * @author liuzechun
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
+import {BaseComponent} from 'uf/component';
+import {Utils, Ajax} from 'uf/utils';
 import moment from 'moment';
 import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
 import {Input, Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
-
-import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
 
 import Ueditor from 'uf/ueditor';
 
@@ -487,6 +484,9 @@ class OriginForm extends BaseComponent {
                 break;
             case 'delete':
                 handleClick = this.deleteClick.bind(this, item.onClick, key)
+                break;
+            case 'submit':
+                handleClick = this.handleSubmit.bind(this, null, item.onClick, key)
                 break;
             default:
                 handleClick = this.othersClick.bind(this, item.onClick)

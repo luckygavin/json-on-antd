@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from 'uf/form';
 
-import BaseDoc from './BaseDoc.js';
+import BaseDoc from 'docs/app/BaseDoc.js';
 
 const Step1 = {
     title: '新增专线 - 第1步',

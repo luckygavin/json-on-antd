@@ -3,6 +3,9 @@
  * @author liuzechun@baidu.com
  */
 
+// antd 样式
+require('root/theme/index.less');
+
 // 公共库
 window.DLL = {
     React: require('react'),

@@ -38,8 +38,10 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.(css|scss)$/,
-                // loader: 'style!css!sass'
+                test: /\.(css)$/,
+                loader: cssBuilder.extract('style', 'css') // 分离css和js文件
+            }, {
+                test: /\.(scss)$/,
                 loader: cssBuilder.extract('style', 'css!sass') // 分离css和js文件
             }, {
                 test: /\.(js|jsx)$/,
@@ -48,7 +50,8 @@ module.exports = {
                 query: {
                     presets: ['react', 'es2015'],
                     // antd 按需加载
-                    plugins: [['import', {libraryName: 'antd', style: 'css'}]],
+                    // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
+                    plugins: [['import', {libraryName: 'antd'}]],
                     compact: false
                 }
             }, {
@@ -70,7 +73,8 @@ module.exports = {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
             'uf': __dirname + '/src',
-            'docs': __dirname + '/docs'
+            'docs': __dirname + '/docs',
+            'root': __dirname
         }
     },
     externals: {

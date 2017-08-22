@@ -3,7 +3,7 @@
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, hashHistory, IndexRedirect} from 'react-router';
+import {Router, Route, hashHistory, IndexRedirect, Redirect} from 'react-router';
 import {Row, Col} from 'antd';
 
 import Header from './Header.js';
@@ -16,6 +16,7 @@ const CommonList = [
     {path: 'Introduction', name: '简要介绍', component: null},
     {path: 'Install', name: '快速上手', component: null},
     {path: 'ChangeLog', name: '更新日志', component: null},
+    {path: 'Info', name: '配置化', component: require('./app/configure').default},
     {path: 'Global', name: 'Global', children: [
         {path: 'Api', name: '通用API', component: null},
         {path: 'Template', name: '模板', component: null},
@@ -83,6 +84,7 @@ let Routes = (
                         component={second.component}/>
                 )
             )}
+            <Redirect path="Component" to={`Component/Table`}/>
             <Route path="*" component={null}/>
         </Route>
     </Router>

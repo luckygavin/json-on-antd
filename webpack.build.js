@@ -19,8 +19,7 @@ var jsBuilder = new webpack.optimize.UglifyJsPlugin({
         drop_console: true
     }
 });
-var plugins = [];
-plugins.push(cssBuilder);
+var plugins = [cssBuilder];
 if (production) {
     plugins.push(jsBuilder);
 }
@@ -58,9 +57,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
-            uf: __dirname + '/src',
-            component: __dirname + '/src/component',
-            utils: __dirname + '/src/utils'
+            'uf': __dirname + '/src',
+            'root': __dirname
         }
     },
     externals: {

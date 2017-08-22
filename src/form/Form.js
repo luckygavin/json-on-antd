@@ -2,6 +2,8 @@
  * @file 可配置表单
  * @author liuzechun
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
 import {Utils, Ajax} from 'uf/utils';
 import moment from 'moment';

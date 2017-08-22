@@ -13,9 +13,9 @@ export default class BaseComponent extends Component {
     // 供子组件调用初始化 使用子组件this调用
     __init(props) {
         this._transmitComponent(props);
-        let tempUnmount = this.componentWillUnmount;
+        let originUnmount = this.componentWillUnmount;
         this.componentWillUnmount = function () {
-            tempUnmount.call(this);
+            originUnmount && originUnmount.call(this);
             this._unsetTransmitComponent();
         };
     }

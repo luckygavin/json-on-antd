@@ -29,6 +29,7 @@ const ComponentList = [
         {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: null},
+        {path: 'Tree', name: 'Tree 树形控件', component: require('./app/tree').default},
         {path: 'Tabs', name: 'Tabs 标签页', component: null},
         {path: 'Modal', name: 'Modal 弹框', component: null},
         {path: 'Message', name: 'Message 提示消息', component: null},

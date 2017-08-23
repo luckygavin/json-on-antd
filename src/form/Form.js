@@ -2,6 +2,8 @@
  * @file 可配置表单
  * @author liuzechun
  */
+import React from 'react';
+import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
 import {Utils, Ajax} from 'uf/utils';
 import moment from 'moment';
@@ -32,24 +34,23 @@ class OriginForm extends BaseComponent {
         //     deleteClick: this.deleteClick.bind(this),
         //     othersClick: this.othersClick.bind(this),
         // };
+        this.config = {
+            title: '新增',
+            items: [],
+            buttons: null,
+            layout: {
+                type: 'horizontal',
+                labelCol: 6,
+                wrapperCol: 14
+            }
+        };
         this.init();
         this.itemsCache = {};
         // this.setItemsCache(this.config.items);
     }
     init(nextProps) {
         let props = nextProps || this.props;
-        let config = props.config;
-        this.config = Object.assign({
-            title: '新增',
-            items: [],
-            buttons: null
-        }, config, {
-            layout: Object.assign({
-                type: 'horizontal',
-                labelCol: 6,
-                wrapperCol: 14
-            }, config.layout)
-        });
+        this.config = this.__mergeProps(this.config, props.config);
         this.formItemLayout = this.getLayout(this.config.layout);
         // 是之成为受控组件，实现Form嵌套
         if ('params' in props && !Utils.equals(this.defaultValues, props.params)) {

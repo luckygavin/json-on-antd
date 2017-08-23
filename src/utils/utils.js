@@ -92,6 +92,21 @@ const Utils = {
     clone(obj) {
         return JSON.parse(JSON.stringify(obj));
     },
+    // 把第二个对象merge到第一个对象上去，支持深层merge
+    mergeObj(obj1, obj2) {
+        for (let i in obj2) {
+            if (obj2.hasOwnProperty(i)) {
+                if (obj1[i] === undefined || obj1[i] === null) {
+                    obj1[i] = obj2[i];
+                } else if (obj2[i] instanceof Object) {
+                    obj1[i] = this.mergeObj(obj1[i], obj2[i]);
+                } else {
+                    obj1[i] = obj2[i];
+                }
+            }
+        }
+        return obj1;
+    },
     // 对比两个对象是否相等
     equals(obj1, obj2) {
         return JSON.stringify(obj1) === JSON.stringify(obj2);

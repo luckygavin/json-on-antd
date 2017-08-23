@@ -3,7 +3,7 @@
  * Created by xuziqian on 2017/8/4.
  */
 import React, {Component} from 'react';
-import {Cache} from 'uf/utils';
+import {Cache, Utils} from 'uf/utils';
 export default class BaseComponent extends Component {
     constructor(props) {
         super(props);
@@ -29,6 +29,12 @@ export default class BaseComponent extends Component {
     __setCache(key, component) {
         key = this._keyPrefix + key;
         Cache.set(key, component);
+    }
+
+    // 把默认配置和当前用户传入配置进行合并
+    // 叫props但不一定要用来合并props，比如合并 config
+    __mergeProps(defaultProps, props) {
+        return Utils.mergeObj(defaultProps, props);
     }
 
     // 共享组件

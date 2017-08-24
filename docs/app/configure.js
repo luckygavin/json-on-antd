@@ -10,59 +10,52 @@ const Config = [
     {
         type: 'form',
         name: 'search-form',
-        config: {
-            title: '新增专线 - 第1步',
-            layout: {
-                type: 'horizontal',
-                labelCol: 6,
-                wrapperCol: 14
-            },
-            items: [
+        title: '新增专线 - 第1步',
+        items: [
+            [
+                {
+                    type: 'input',
+                    label: '姓名',
+                    name: 'endpoint_users_name',
+                    rules: [{required: true, message: '姓名不能为空'}],
+                    cfg: {
+                        placeholder: '张三'
+                    }
+                },
+                {
+                    type: 'input',
+                    label: '电话',
+                    name: 'endpoint_phone',
+                    cfg: {
+                        placeholder: '131xxxx5555'
+                    }
+                },
                 [
                     {
-                        type: 'input',
-                        label: '姓名',
-                        name: 'endpoint_users_name',
-                        rules: [{required: true, message: '姓名不能为空'}],
+                        type: 'button',
+                        label: '提交',
+                        action: 'submit',
+                        name: 'submit',
                         cfg: {
-                            placeholder: '张三'
-                        }
-                    },
-                    {
-                        type: 'input',
-                        label: '电话',
-                        name: 'endpoint_phone',
-                        cfg: {
-                            placeholder: '131xxxx5555'
-                        }
-                    },
-                    [
-                        {
-                            type: 'button',
-                            label: '提交',
-                            action: 'submit',
-                            name: 'submit',
-                            cfg: {
-                                type: 'primary'
-                            },
-                            onClick: values=>{
-                                // console.log(form.getFieldsValue());
-                                // console.log(values);
-                                return JSON.stringify(values);
-                            },
-                            // join: 'onClick',
-                            target: 'plain'
-                        }
-                    ]
+                            type: 'primary'
+                        },
+                        onClick: values=>{
+                            // console.log(form.getFieldsValue());
+                            // console.log(values);
+                            return JSON.stringify(values);
+                        },
+                        // join: 'onClick',
+                        target: 'plain'
+                    }
                 ]
             ]
-        }
+        ]
     },
-    {
+    /* {
         type: 'plain',
         name: 'plain',
         data: 'test'
-    }
+    } */
 ];
 
 export default class Info extends BaseDoc {

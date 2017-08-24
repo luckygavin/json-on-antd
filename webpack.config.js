@@ -51,8 +51,8 @@ module.exports = {
                     presets: ['react', 'es2015'],
                     // antd 按需加载
                     // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
-                    plugins: [['import', {libraryName: 'antd'}]],
-                    compact: false
+                    // plugins: [['import', {libraryName: 'antd'}]],
+                    // compact: false
                 }
             }, {
                 test: /\.(png|jpg)$/,
@@ -82,7 +82,8 @@ module.exports = {
         'react-dom': 'window.DLL.ReactDOM',
         'react-router': 'window.DLL.ReactRouter',
         'immutable': 'window.DLL.Immutable',
-        'reqwest': 'window.DLL.reqwest'
+        'reqwest': 'window.DLL.reqwest',
+        'antd': 'window.DLL.Antd'
     },
     plugins: plugins
 };

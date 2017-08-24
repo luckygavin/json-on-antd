@@ -10,7 +10,7 @@ const s4 = () => {
 };
 
 const Utils = {
-    // 数字前面补充0, num: 数字；n: 数字的位数
+    // 数字前面补充0
     padNum(num, n) {
         let len = ('' + num).length;
         return Array(n > len ? (n - len + 1) : 0).join(0) + num;
@@ -90,22 +90,34 @@ const Utils = {
     },
     // 复制对象，仅能复制对象属性，不能复制对象的方法
     clone(obj) {
+        // return this.mergeObj({}, obj);
         return JSON.parse(JSON.stringify(obj));
+    },
+    // 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
+    mergeObj(obj1, obj2) {
+        for (let i in obj2) {
+            if (obj2.hasOwnProperty(i)) {
+                if (obj1[i] === undefined || obj1[i] === null) {
+                    obj1[i] = obj2[i];
+                } else if (obj2[i] instanceof Object) {
+                    obj1[i] = this.mergeObj(obj1[i], obj2[i]);
+                } else {
+                    obj1[i] = obj2[i];
+                }
+            }
+        }
+        return obj1;
     },
     // 对比两个对象是否相等
     equals(obj1, obj2) {
         return JSON.stringify(obj1) === JSON.stringify(obj2);
     },
-    // 是否处于字符串最末尾
+    // 子串是否处于字符串最末尾
     isLast(sub, str) {
         return str.lastIndexOf(sub) === str.length - sub.length;
     },
-    /**
-     * each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
-     * @param {Object} obj 需遍历的对象
-     * @param {Function} callback 为回调函数，支持三个参数：依次是 item, index, obj
-     * @return {Array} 返回值为一个数组
-     */
+    // each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
+    // callback 为回调函数，支持三个参数：依次是 item, index, obj
     each(obj, callback) {
         let result = [];
         for (let i in obj) {
@@ -113,12 +125,9 @@ const Utils = {
         }
         return result;
     },
-    /**
-     * 根据路由模式生成真实的链接
-     * @param {string} pattern  路由模式，如：#/visual/room/:room/realMode/:rack_col/:sn
-     * @param {Object} data 真实数据，模式中的:room即在data中取room字段的值
-     * @return {string}
-     */
+    // 根据路由模式生成真实的链接
+    // pattern  路由模式，如：#/visual/room/:room/realMode/:rack_col/:sn
+    // data 真实数据，模式中的:room即在data中取room字段的值
     getPathFromPattern(pattern, data) {
         let path = '#';
         if (pattern) {
@@ -136,7 +145,7 @@ const Utils = {
         }
         return path;
     },
-    // 页面跳转工具
+    // 跳转链接，router的调整组件会刷新两次，不过也不建议使用此函数，可以使用a标签代替
     goto(path) {
         // 如果path不是已#/开头，且不是/开头，则加上#/
         path = path.indexOf('#/') !== 0
@@ -148,8 +157,9 @@ const Utils = {
             window.location.href = path;
         }
     },
-    get(url) {
-        
+    // 把中横线命名的字符串转换成帕斯卡命名形式
+    toPascal(str) {
+        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     }
 };
 

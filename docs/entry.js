@@ -73,21 +73,27 @@ class Doc extends React.Component {
         );
     }
 }
-let Routes = (
-    <Router history={hashHistory}>
-        <Route path="/" component={Doc}>
-            <IndexRedirect to="Introduction"/>
-            {RouteList.map(first=>!first.children
-                ? <Route key={first.path} path={first.path} component={first.component}/>
-                : first.children.map(second=>
-                    <Route key={`${first.path}/${second.path}`}
-                        path={`${first.path}/${second.path}`}
-                        component={second.component}/>
-                )
-            )}
-            <Redirect path="Component" to={`Component/Table`}/>
-            <Route path="*" component={null}/>
-        </Route>
-    </Router>
-);
-ReactDOM.render(Routes, document.getElementById('container'));
+class Routes extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    render() {
+        return <Router history={hashHistory}>
+            <Route path="/" component={Doc}>
+                <IndexRedirect to="Introduction"/>
+                {RouteList.map(first=>!first.children
+                    ? <Route key={first.path} path={first.path} component={first.component}/>
+                    : first.children.map(second=>
+                        <Route key={`${first.path}/${second.path}`}
+                            path={`${first.path}/${second.path}`}
+                            component={second.component}/>
+                    )
+                )}
+                <Redirect path="Component" to={`Component/Table`}/>
+                <Route path="*" component={null}/>
+            </Route>
+        </Router>;
+    }
+}
+
+ReactDOM.render(<Routes />, document.getElementById('container'));

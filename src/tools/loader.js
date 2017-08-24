@@ -5,29 +5,13 @@
  */
 import Uf from 'uf';
 
-const List = Object.assign({
-    
-}, Uf);
-
-const Loader = {
-    existing: {},
+export default {
+    component: Object.assign(Uf),
     add(components) {
-        Object.assign(this.existing, components);
+        Object.assign(this.component, components);
     },
-    get(tag) {
-        let Com = this.existing;
-        if (Com[tag]) {
-            return Com[tag];
-        } else if (eval('Com.' + tag)) {
-            return eval('Com.' + tag);
-        } else {
-            if (Uf[tag] || Antd[tag]) {
-                return Uf[tag] || Antd[tag];
-            } else {
-                return eval(tag);
-            }
-        }
+    get(type) {
+        let name = type.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join();
+        return this.component[name];
     }
 };
-
-export default Loader;

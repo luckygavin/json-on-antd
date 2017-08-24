@@ -1,75 +1,50 @@
 /**
- * @file 解析配置，生成组件
+ * @file 解析配置，生成一个组件
  * @author liuzechun
  */
-
+import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import Loader from './loader.js';
 
-// 1、Loader 中注册一个真正的组件
-// 2、返回一个可以 new 一个新组件的对象
-export class Factory {
-    constructor(obj) {
-        let jsx = obj.template;
-        let tpl = document.querySelector(jsx);
-        if (tpl) {
-            jsx = tpl.innerHTML;
-        }
-        this.jsx = jsx;
-        this.proto = obj;
-        this.template = new Template(jsx).template;
-
-        let component = this.generateComponent();
-
-        if (!!obj.name) {
-            Loader.add({
-                [obj.name]: component
-            });
-        }
-
-        return component;
+class Factory extends Component {
+    constructor(props) {
+        super(props);
     }
-    generateComponent() {
-        let self = this;
-        let comp = React.createClass(Object.assign({}, this.proto, {
-            render: function() {
-                return self.generateElement(self.template, this);
-            }
-        }));
-        this.component = comp;
-        return comp;
-    }
-    generateElement(obj, env) {
-        let tag;
-        // 如果能在DOM中找到，说明是普通元素；否则为自定义元素，需配合Loader使用
-        if (React.DOM.hasOwnProperty(obj.tag)) {
-            tag = obj.tag;
+    getConfig(item) {
+        if (item.config) {
+            return item.config;
         } else {
-            tag = Loader.get(obj.tag);
+            let config = Object.assign({}, item);
+            // delete config['name'];
+            // delete config['type'];
+            return config;
         }
-        // console.log(obj);
-        let attr = {};
-        // 解析属性 - 函数及表达式需执行
-        for (let key in obj.attribute) {
-            let content = obj.attribute[key];
-            if (typeof content === 'function') {
-                attr[key] = content.call(env);
-            } else {
-                attr[key] = content;
+    }
+    // 解析组件配置，生成组件
+    generateItem(item) {
+        let name = item.name;
+        let type = item.type;
+        let Item = Loader.get(type);
+        let config = this.getConfig(item);
+        return <Item config={config}/>;
+    }
+    // 拆分多个config，分离成组件的配置
+    generateElement(config) {
+        config = config || this.props.config;
+        let result;
+        if (config instanceof Array) {
+            result = [];
+            for (let item of config) {
+                result.push(this.generateElement(item));
             }
+        } else {
+            result = this.generateItem(config);
         }
-        let arr = [tag, attr];
-        if (!!obj.children) {
-            // 对children进行遍历，处理
-            for (let v of obj.children) {
-                if (typeof v === 'string') {
-                    arr.push(v);
-                } else if (typeof v === 'function') {
-                    arr.push(v.call(env));
-                } else {
-                    arr.push(this.generateElement(v, env));
-                }
-            }
-        }
-        return React.createElement.apply(null, arr);
+        return result;
+    }
+    render() {
+        return <div>{this.generateElement()}</div>;
     }
 }
+
+export default Factory;

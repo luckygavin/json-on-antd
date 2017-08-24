@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Factory from './factory.js';
 
 export default {
     init(config, selector) {
-        let target = document.getElementById(selector);
-
-
-        
-        return ReactDOM.render(config, target);
+        return ReactDOM.render(
+            <Factory config={config} />,
+            document.getElementById(selector));
     }
 };

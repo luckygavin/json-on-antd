@@ -36,7 +36,7 @@ const getParentNode = (value, tree, isRoot = false) => {
     }
     return node;
 };
-const children = [
+const demoChildren = [
     {
         name: '0-0-2',
         key: '0-0-2',
@@ -66,22 +66,13 @@ const errorHandler = error => {
         description: error.msg
     }));
 };
-const getChildren = (params, url, callback, error = errorHandler) => {
-    // reqwest({
-    //     url: url,
-    //     method: 'get',
-    //     data: params,
-    //     success: res => {
-    //         if (res.status === 0) {
-    //             callback(res.data, res);
-    //         } else {
-    //             error({msg: res.msg});
-    //         }
-    //     },
-    //     error: error
-    // });
-    callback(children);
-
+const getChildren = (params, url, callback, error = errorHandler, demo) => {
+    if (url === '示例展示异步请求') {
+        callback(demoChildren);
+    }
+    else {
+        this.__getData(url, params, null, error, callback);
+    }
 };
 const defaultConfig = {
     style: {},
@@ -89,13 +80,13 @@ const defaultConfig = {
         defaultExpandAll: false,
         defaultExpandedKeys: [],
         expandToLeaval: null,
-        expandedKeys: [],
+        expandedKeys: null,
         autoExpandParent: true,
         onExpand: () => {} 
     },
     checkBox: {
         checkable: false,
-        checkedKeys: [],
+        checkedKeys: null,
         checkStrictly: false,
         defaultCheckedKeys: [],
         onCheck: () => {}
@@ -103,13 +94,13 @@ const defaultConfig = {
     search: false,
     select: {
         defaultSelectedKeys: [],
-        selectedKeys: [],
+        selectedKeys: null,
         multiple: false,
         onSelect: () => {}
     },
     loadData: {
         enable: false,
-        url: '',
+        source: '',
         params: {}
     },
     widthResize: {
@@ -130,7 +121,7 @@ export default class OriginTree extends BaseComponent {
     initTree(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
         let config = objProps.config;
-        let propsData = objProps.content;
+        let propsData = Utils.clone(objProps.data);
         // console.log("props.config:", config);
         // 对用户未配置的项使用默认配置
         this.style = Object.assign({}, defaultConfig.style, config.style);
@@ -149,7 +140,7 @@ export default class OriginTree extends BaseComponent {
             expandedKeys: this.expand.expandedKeys,
             autoExpandParent: this.expand.autoExpandParent,
             checkedKeys: this.checkBox.checkedKeys, // 受控选择复选框
-            selectedKeys: this.select['defaultSelectedKeys'], // 受控选择
+            selectedKeys: this.select.selectedKeys, // 受控选择
             searchValue: '', // 搜索框中输入内容
             searchTip: '' // 搜索结果提示
         };
@@ -161,7 +152,7 @@ export default class OriginTree extends BaseComponent {
         }
     }
     componentDidMount() {
-        this.initTree();
+        // this.initTree();
     }
     onExpand(expandedKeys, e) {
         // if not set autoExpandParent to false, if children expanded, parent can not collapse.
@@ -267,8 +258,8 @@ export default class OriginTree extends BaseComponent {
                 // 没有children数据又非叶子节点的时候需要去异步请求
                 let params = {};
                 let url = '';
-                if (this.loadData['params'].length > 0 && this.loadData['url'].length > 0) {
-                    url = this.loadData['url'];
+                if (this.loadData['params'].length > 0 && this.loadData['source'].length > 0) {
+                    url = this.loadData['source'];
                     this.loadData['params'].map(ele => {
                         if (nodeData[ele]) {
                             params[ele] = nodeData[ele];
@@ -385,6 +376,7 @@ export default class OriginTree extends BaseComponent {
     }
     render() {
         const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, searchTip} = this.state;
+        console.log();
         return (
             <div className="uf-tree" style={this.style} ref="tree">
             {this.search
@@ -400,7 +392,7 @@ export default class OriginTree extends BaseComponent {
             }
             <Tree
                 // 与树形图展开相关的配置
-                {...(!!expandedKeys.length > 0 ? {expandedKeys: expandedKeys} : null)}
+                {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
                 {...{
                     defaultExpandAll: this.expand['expandToLeaval'] ? false : this.expand['defaultExpandAll'],
                     defaultExpandKeys: this.expand['expandToLeaval'] ? [] : (this.expand['defaultExpandedKeys']),
@@ -414,13 +406,14 @@ export default class OriginTree extends BaseComponent {
                     checkStrictly: this.checkBox['checkStrictly'],
                     onCheck: this.onCheck.bind(this)
                 }}
-                {...(!!checkedKeys.length > 0 ? {checkedKeys: checkedKeys} : null)}
+                {...(!!checkedKeys ? {checkedKeys: checkedKeys} : null)}
                 // 与点选相关的配置
                 {...{
+                        defaultSelectedKeys: this.select['defaultSelectedKeys'],
                         multiple: this.select['multiple'],
-                        onSelect: this.onSelect.bind(this)
+                        onSelect: this.onSelect.bind(this),
                 }}
-                {...(!!selectedKeys.length > 0 ? {selectedKeys: selectedKeys} : null)}
+                {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
                 // 与异步加载相关的配置
                 {...(this.loadData['enable'] ? {loadData: this.onLoadData.bind(this)} : null)}
                 // 是否显示连接线和显示图标

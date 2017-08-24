@@ -16,24 +16,23 @@ const treeConfig = {
     },
     expand: {
         // 全部为可选项，可写可不写
-        defaultExpandAll: true, // 默认展开所有树节点，默认值为false
+        defaultExpandAll: false, // 默认展开所有树节点，默认值为false
         // defaultExpandedKeys: [], // 默认展开指定的树节点，默认值为[],数组不为空时屏蔽defaultExpandAll
         // expandToLeaval: 'leval2', // 展开到哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
         expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
         autoExpandParent: true, // 是否自动展开父节点，默认值为true,ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况
         onExpand: (expandedKeys, e) => {
-            console.log('onExpand:', expandedKeys);
+            // console.log('onExpand:', expandedKeys);
         }
     },
     checkBox: {
         // 全部为可选项
-        checkable: false, // 显示多选框,默认为false
+        checkable: true, // 显示多选框,默认为false
         // checkedKeys: ['0-0-1-0', '0-1'], // 默认为空, 配置此项之后会屏蔽defaultCheckedKeys属性
         checkStrictly: false, // 父子之间的选中是否受关联, 默认值为false：true->不关联，此时必须要设定checkedKeys，否则会报错,false->关联
         defaultCheckedKeys: ['0-0-1-1'], // 默认选中选框，只有在不舍得checedKeys时有用
         onCheck: (checkedKeys, e) => {
             console.log('onCheck:', checkedKeys);
-            // console.log(e);
         }
     },
     select: {
@@ -47,7 +46,7 @@ const treeConfig = {
     search: true, // 树搜索功能，默认值为false
     loadData: {
         enable: true, // 开启异步请求功能，默认为false，只有为true时以下几项配置才有效
-        url: '1', // 异步请求地址
+        source: '示例展示异步请求', // 异步请求地址
         params: ['key', 'type'] // 异步请求所需要的各种参数，这些参数要在数据中包含
         // 请求回来的数据格式必须是
         // {
@@ -71,20 +70,20 @@ const treeConfig2 = {
     },
     expand: {
         // 全部为可选项，可写可不写
-        defaultExpandAll: true, // 默认展开所有树节点，默认值为false
+        defaultExpandAll: false, // 默认展开所有树节点，默认值为false
         // defaultExpandedKeys: [], // 默认展开指定的树节点，默认值为[],数组不为空时屏蔽defaultExpandAll
         // expandToLeaval: 'leval2', // 展开到哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
         expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
         autoExpandParent: true, // 是否自动展开父节点，默认值为true,ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况
         onExpand: (expandedKeys, e) => {
-            console.log('onExpand:', expandedKeys);
+            // console.log('onExpand:', expandedKeys);
         }
     },
     select: {
         defaultSelectedKeys: ['0-1'], // 默认选中节点，默认为[]
         // selectedKeys: [],// 受控选中节点，此配置项将屏蔽defaultSelectedKeys配置, 默认不配置
         onSelect: (selectedKeys, e) => {
-            console.log('onSelect', e);
+            // console.log('onSelect', selectedKeys);
         }
     },
     showLine: true,
@@ -169,11 +168,11 @@ export default class TreeApp extends BaseDoc {
                 <h1 className="umpui-layer umpui-title">Tree 树形控件</h1>
                 <h2 className="umpui-layer umpui-title">示例1</h2>
                 <div className="umpui-block">
-                    <Tree ref="tree" config={treeConfig} content={treeData} />
+                    <Tree ref="tree" config={treeConfig} data={treeData} />
                 </div>
                 <h2 className="umpui-layer umpui-title">示例2</h2>
-                <div className="umpui-block" id="components-tree-demo-customized-icon">
-                    <Tree ref="tree" config={treeConfig2} content={treeData} />
+                <div className="umpui-block" id="uf-tree-demo-customized-icon">
+                    <Tree ref="tree" config={treeConfig2} data={treeData} />
                 </div>
                 {this.__getDoc()}
             </div>

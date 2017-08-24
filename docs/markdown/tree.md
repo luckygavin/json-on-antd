@@ -15,7 +15,7 @@
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | config | 表格的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
-| content | 外部传入数据，需要按照一定的格式书写 | Object |  | . |
+| data | 外部传入数据，需要按照一定的格式书写 | Object |  | . |
 
 ### # config
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -28,7 +28,7 @@
 | loadData | 异步加载功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | showLine | 是否展示连接线 | Boolean | false |  |
-| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | Boolean | false | . |
+| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式，下方有CSS添加图标的样式书写，注意将id换为你的树形图id | Boolean | false | . |
 
 ### # config.expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -61,7 +61,7 @@
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |
-| url | 异步请求地址 | String | - |  |
+| source | 异步请求地址 | String | - |  |
 | params | 异步请求所需要的各种参数，这些参数要在数据中包含 | Object | - | . |
 > 请求回来的数据格式必须是：`{ status: 0/1, data: [], msg: ''}`
 > `status`为0时，请求数据成功，1失败(注意是number类型);
@@ -77,10 +77,10 @@
 
 
 ### 源代码 - React用法
-```
+```javascript
     import React from 'react';
     import ReactDOM from 'react-dom';
-    import ReactTree from 'uf';
+    import Tree from 'uf/tree';
     const config = {
         // 见下方树形图展示2配置
     };
@@ -95,13 +95,23 @@
         }
         render() {
             return (
-                <ReactTree config={config} data = {data} />
+                <Tree config={config} data={data} />
             );
         }
     }
 ```
-### 树形图展示2配置
+## 源代码 - 原生JS用法
+html:
+```html
+    
 ```
+js:
+```javascript
+    
+
+```
+### 示例1配置
+```javascript
     {
         style: {
             width: '300px',
@@ -109,10 +119,10 @@
             backgroundColor: '#f2f2f2'
         },
         expand: {
-            expandedKeys: ['0-0-0', '0-0-1', '0-1'],
+            expandedKeys: ['0-0-1', '0-1'],
             autoExpandParent: true,
             onExpand: (expandedKeys, e) => {
-                // console.log('onExpand:', e);
+                console.log('onExpand:', e);
             }
         },
         checkBox: {
@@ -120,21 +130,20 @@
             checkStrictly: false,
             defaultCheckedKeys: ['0-0-1-1'],
             onCheck: (checkedKeys, e) => {
-                // console.log('oncheck:', checkedKeys);
-                // console.log(e);
+                console.log('onCheck:', checkedKeys);
             }
         },
         select: {
             defaultSelectedKeys: ['0-1'],
             multiple: true,
             onSelect: (selectedKeys, e) => {
-                // console.log('onSelect', e);
+                console.log('onSelect', e);
             }
         },
         search: true,
         loadData: {
             enable: true,
-            url: '',
+            source: '',
             params: ['key', 'type']
         },
         widthResize: {
@@ -144,8 +153,72 @@
         }
     }
 ```
-### 数据格式说明
+
+### 示例2配置
+```javascript
+    {
+        style: {
+        width: '300px',
+        padding: '10px',
+        border: '1px dashed #eaeaea'
+    },
+    expand: {
+        expandedKeys: ['0-0-1', '0-1'],
+        autoExpandParent: true,
+        onExpand: (expandedKeys, e) => {
+            console.log('onExpand:', expandedKeys);
+        }
+    },
+    select: {
+        defaultSelectedKeys: ['0-1'],
+        onSelect: (selectedKeys, e) => {
+            console.log('onSelect', e);
+        }
+    },
+    showLine: true,
+    showIcon: true
+    }
 ```
+### 示例2自定义图标
+```css
+
+    #uf-tree-demo-customized-icon .ant-tree-iconEle {
+        position: absolute;
+        left: 0;
+        background: #fff;
+    }
+    #uf-tree-demo-customized-icon .ant-tree-iconEle::after {
+        font-size: 12px;
+        zoom: 1;
+        display: inline-block;
+        font-family: 'anticon';
+        text-rendering: optimizeLegibility;
+        color: #999;
+        transition: transform .3s ease;
+        margin-top: 2px;
+        background: #fff;
+    }
+    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__docu::after {
+        content: "\E664";
+    }
+    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__open::after {
+        content: "\E699";
+    }
+    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__close::after {
+        content: "\E662";
+    }
+    #uf-tree-demo-customized-icon .ant-tree-switcher {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+    }
+    #uf-tree-demo-customized-icon .ant-tree-switcher::after {
+        opacity: 0;
+    }
+```
+
+### 数据格式说明
+```json
     {
         name: '0-0',
         key: '0-0',

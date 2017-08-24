@@ -531,7 +531,7 @@ export default class Table extends React.Component {
         }
         // onCheckRow为勾选行变化时触发的函数，可返回勾选的全部数据
         this.props.onCheckRow && this.props.onCheckRow(this.selectedData);
-        this.isCheckAll(this.state.currPageData)
+        this.isCheckAll(this.state.currPageData);
     }
     // 判断是否全部选中了，全部选中需要更新选中按钮，thGenerator也需要单独拿出来
     isCheckAll(curData) {

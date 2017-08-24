@@ -5,15 +5,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
+import {Utils} from 'uf/utils';
 import {Layout} from 'antd';
 
 import './style.scss';
 
-class NewLayout extends BaseComponent {
+export default class NewLayout extends BaseComponent {
     constructor(props) {
         super(props);
         this.__init();
-        
     }
     init(nextProps) {
         let props = nextProps || this.props;
@@ -28,5 +28,3 @@ class NewLayout extends BaseComponent {
         return;
     }
 }
-
-export default NewLayout;

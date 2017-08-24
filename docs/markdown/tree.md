@@ -5,21 +5,32 @@
 * 配置`select`实现点击选择功能
 * 配置`loadData`实现异步加载功能
 * 配置`widthResize`实现右边缘拖动加宽功能
+* 配置`showLine`实现带连接线的树
+* 配置`showIcon`实现不同节点自定义图标
 * 若没有进行任何配置，则为树形图展示1中的样式
 
 ## 配置参数
 
-### config的基本参数
+### 基本参数
+| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
+| ---- | ---- | ----- | ----- | ----- |
+| config | 表格的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
+| content | 外部传入数据，需要按照一定的格式书写 | Object |  | . |
+
+### # config
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |
 | expand | 节点展开功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | checkBox | 复选框功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | search | 搜索功能 | Boolean | false |  |
+| select | 点选功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | loadData | 异步加载功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - | . |
+| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - |  |
+| showLine | 是否展示连接线 | Boolean | false |  |
+| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式 | Boolean | false | . |
 
-### config.expand
+### # config.expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |
@@ -29,24 +40,24 @@
 | autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |
 | onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |
 
-### config.checkBox
+### # config.checkBox
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |
-| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable`和`checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |
+| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |
 | checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |
 | defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |
 | onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |
 
-### config.select
+### # config.select
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | defaultSelectedKeys | 默认选中节点 | Array | [] |  |
-| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | - |  |
+| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |
 | multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |
 | onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |
 
-### config.loadData
+### # config.loadData
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |
@@ -57,7 +68,7 @@
 > `data`为请求回来的数据;
 > `msg`为请求结果文字表述。
 
-### config.widthResize
+### # config.widthResize
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |
@@ -65,7 +76,7 @@
 | maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |
 
 
-### 源代码  
+### 源代码 - React用法
 ```
     import React from 'react';
     import ReactDOM from 'react-dom';

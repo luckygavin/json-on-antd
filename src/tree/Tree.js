@@ -122,7 +122,6 @@ export default class OriginTree extends BaseComponent {
         let objProps = nextProps ? nextProps : this.props;
         let config = objProps.config;
         let propsData = Utils.clone(objProps.data);
-        // console.log("props.config:", config);
         // 对用户未配置的项使用默认配置
         this.style = Object.assign({}, defaultConfig.style, config.style);
         this.expand = Object.assign({}, defaultConfig.expand, config.expand);
@@ -133,7 +132,6 @@ export default class OriginTree extends BaseComponent {
         this.widthResize = Object.assign({}, defaultConfig.widthResize, config.widthResize);
         this.showLine = !!config.showLine ? config.showLine : defaultConfig.showLine;
         this.showIcon = !!config.showIcon ? config.showIcon : defaultConfig.showIcon;
-        // console.log("checkBox:", this.checkBox);
         let state = {
             treeData: propsData,
             completeTree: propsData,
@@ -340,8 +338,6 @@ export default class OriginTree extends BaseComponent {
         return false;
     }
     stopResize() {
-        // console.log('click');
-        // let oBox = ReactDOM.findDOMNode(this.refs['tree']);
         document.onmouseup = null;
         document.onmousemove = null;
     }
@@ -376,7 +372,6 @@ export default class OriginTree extends BaseComponent {
     }
     render() {
         const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, searchTip} = this.state;
-        console.log();
         return (
             <div className="uf-tree" style={this.style} ref="tree">
             {this.search

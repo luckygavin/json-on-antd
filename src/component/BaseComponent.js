@@ -3,7 +3,7 @@
  * Created by xuziqian on 2017/8/4.
  */
 import React, {Component} from 'react';
-import {Cache, Utils} from 'uf/utils';
+import {Cache, Utils, Ajax} from 'uf/utils';
 export default class BaseComponent extends Component {
     constructor(props) {
         super(props);
@@ -35,6 +35,18 @@ export default class BaseComponent extends Component {
     // 叫props但不一定要用来合并props，比如合并 config
     __mergeProps(defaultProps, props) {
         return Utils.mergeObj(defaultProps, props);
+    }
+
+    // ajax的get方法
+    __getData(url, ...params) {
+        const ajax = Ajax(url, 'get');
+        ajax(...params);
+    }
+
+    // ajax的post方法
+    __postData(url, ...params) {
+        const ajax = Ajax(url, 'post');
+        ajax(...params);
     }
 
     // 共享组件

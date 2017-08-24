@@ -39,10 +39,11 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
-    "build": "webpack --config webpack.build.js --watch",
-    "dll": "webpack --config webpack.dll.js",
-    "check-js": "fecs check resources/assets/js/ --type=js",
-    "check": "npm run check-js",
+    "build": "webpack --config dist/config/webpack.build.js",
+    "antd": "webpack --config dist/config/webpack.antd.js",
+    "dll": "webpack --config dist/config/webpack.dll.js",
+
+    "check": "fecs check ./ --type=js",
     "start": "webpack --watch"
   }
 }

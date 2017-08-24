@@ -91,7 +91,7 @@ section {
   margin: 10px 0; }
 
 .umpui-title {
-  margin-bottom: 10px; }
+  margin-bottom: 26px; }
 
 .am-btn {
   font-size: 1rem !important; }
@@ -107,9 +107,6 @@ section {
 
 .uf-form .form-buttons button:not(:last-child) {
   margin-right: 10px; }
-
-.uf-form .ant-form-item-label {
-  line-height: initial; }
 
 .uf-form .ant-form-item .ant-form-item {
   margin-bottom: 12px; }

@@ -23,7 +23,7 @@ const pagerInfo = total => {
     return <span>{'共' + total + '条数据'}</span>;
 };
 
-export default class Table extends BaseComponent {
+export default class Table extends React.Component {
     // 以下是函数定义
     constructor(props) {
         super(props);
@@ -60,6 +60,9 @@ export default class Table extends BaseComponent {
 
         // 存储当前tablet选中的数据,key为id, value为行数据
         this.selectedData = {};
+        // 把content数组转换成根据id一一映射的map
+        this.contentMap = {};
+        // 行选中状态
         this.rowState = {};
         // 存储当前编辑的table数据
         this.editData = {};
@@ -69,7 +72,7 @@ export default class Table extends BaseComponent {
         let data = [];
         let content = [];
         if (!tableCfg.url) {
-            content = objProps.content ? objProps.content : [];
+            content = objProps.data ? objProps.data : [];
             this.generateRowId(content);
             if (this.pager) {
                 data = content.slice(0, this.pager.pageSize);
@@ -146,9 +149,9 @@ export default class Table extends BaseComponent {
             this.initTable(nextProps);
         }
         // 针对传数据进来的方式
-        let currentTableDatas = Utils.clone(nextProps.content);
+        let currentTableDatas = Utils.clone(nextProps.data);
         if (currentTableDatas && !Utils.equals(currentTableDatas, this.tableDatas)) {
-            let content = this.generateRowId(nextProps.content);
+            let content = this.generateRowId(nextProps.data);
             let data;
             if (this.pager) {
                 data = content.slice(0, this.pager.pageSize);
@@ -212,7 +215,7 @@ export default class Table extends BaseComponent {
         if (!tableCfg.url || this.pager.pageType !== 'server') {
             return {
                 headers: objHeaders,
-                data: this.state && this.state.content ? this.state.content : (this.props.content || []),
+                data: this.state && this.state.content ? this.state.content : (this.props.data || []),
                 total: this.state.count
             };
         }
@@ -275,11 +278,10 @@ export default class Table extends BaseComponent {
     generateRowId(arrDatas) {
         let i = 0;
         for (let obj of arrDatas) {
-            if (obj[this.key] || obj[this.key] === 0) {
-                continue;
-            } else {
+            if (!obj[this.key] && obj[this.key] !== 0) {
                 obj[this.key] = Utils.uniqueId();
             }
+            this.contentMap[obj[this.key]] = obj;
         }
         return arrDatas;
     }
@@ -308,11 +310,8 @@ export default class Table extends BaseComponent {
             } else {
                 curData = this.state.content.slice(startPos, endPos);
             }
-            let isCheckAll = this.isCheckAll(curData);
-            this.setState({
-                currPageData: Utils.clone(curData),
-                checkAll: isCheckAll
-            });
+            this.setState({currPageData: Utils.clone(curData)});
+            this.isCheckAll(curData);
         }
     }
 
@@ -410,10 +409,10 @@ export default class Table extends BaseComponent {
                     };
                     self.setState({spinning: false, spinTip: ''});
                     self.createModalCon();
+                    let divCon = document.getElementById('modalDiv');
                     ReactDOM.render(<ReactModal modalCon={modalCon}
                             handleModalClick={self.clearModalCon.bind(self)}
-                            handleCancel={self.clearModalCon.bind(self)}/>,
-                            document.getElementById('modalDiv'));
+                            handleCancel={self.clearModalCon.bind(self)}/>, divCon);
                 }
             });
         }
@@ -521,31 +520,31 @@ export default class Table extends BaseComponent {
                 handleCancel={this.clearModalCon.bind(this)}/>,
                 document.getElementById('modalDiv'));
     }
-    checkRow(id, value, row) {
-        this.rowState[id] = value;
-        if (value) {
-            this.selectedData[id] = row;
+    checkRow(id) {
+        let checked = !this.rowState[id];
+        this.rowState[id] = checked;
+        // 可以吧selectedData干掉，只存id
+        if (checked) {
+            this.selectedData[id] = this.contentMap[id];
         } else {
             delete this.selectedData[id];
         }
         // onCheckRow为勾选行变化时触发的函数，可返回勾选的全部数据
         this.props.onCheckRow && this.props.onCheckRow(this.selectedData);
-        // 判断是否全部选中了， 全部选中需要更新选中按钮，thGenerator也需要单独拿出来
-        if (this.isCheckAll(this.state.currPageData)) {
-            this.setState({checkAll: true});
-        } else {
-            this.setState({checkAll: false});
-        }
+        this.isCheckAll(this.state.currPageData);
     }
+    // 判断是否全部选中了，全部选中需要更新选中按钮，thGenerator也需要单独拿出来
     isCheckAll(curData) {
         let rowState = this.rowState;
         let pageData = curData;
+        let result = true;
         for (let i = 0, len = pageData.length; i < len; i++) {
             if (!rowState.hasOwnProperty(pageData[i][this.key]) || rowState[pageData[i][this.key]] === false) {
-                return false;
+                result = false;
+                break;
             }
         }
-        return true;
+        this.setState({checkAll: result});
     }
     checkAll(val = true) {
         // 只能是当前页的数据
@@ -613,9 +612,9 @@ export default class Table extends BaseComponent {
     }
     // tr上的单击事件
     // event为与触发的tr上事件相关的一个对象
-    handleTrClick(row, index, id, checked, event) {
+    handleTrClick(row, index, id, event) {
         // 只有展示勾选框的Table才会执行checkRow函数
-        this.cfg.checkBox && this.checkRow(id, !checked, row);
+        this.cfg.checkBox && this.checkRow(id);
         this.props.onTrClick && this.props.onTrClick(row, index, event);
     }
     // tr上的双击事件
@@ -727,7 +726,7 @@ export default class Table extends BaseComponent {
                     setEditTableData={this.setEditTableData.bind(this)}
                     onHover={this.handleTrHover.bind(this, row, index)}
                     onLeave={this.handleTrLeave.bind(this, row, index)}
-                    onClick={this.handleTrClick.bind(this, row, index, row[this.key], checked)}
+                    onClick={this.handleTrClick.bind(this, row, index, row[this.key])}
                     onDoubleClick={this.handleTrDoubleClick.bind(this, row, index)}
                     expandExtraInfo={this.expandExtraInfo.bind(this)}/>
                 );

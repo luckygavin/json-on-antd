@@ -10,16 +10,25 @@ const s4 = () => {
 };
 
 const Utils = {
-    // 数字前面补充0, num: 数字；n: 数字的位数
+    /**
+     * 数字前面补充0
+     * @param {Number} num  数字
+     * @param {Number} n    数字的位数
+     */
     padNum(num, n) {
         let len = ('' + num).length;
         return Array(n > len ? (n - len + 1) : 0).join(0) + num;
     },
-    // 生成随机唯一ID
+    /**
+     * 生成随机唯一ID
+     */
     uniqueId() {
         return (s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4());
     },
-    // 字符串哈希
+    /**
+     * 字符串哈希
+     * @param {String} text 
+     */
     hash(text) {
         let hash = 5381;
         text = JSON.stringify(text);
@@ -65,7 +74,10 @@ const Utils = {
         }
         return interArray;
     },
-    // 对象转数组
+    /**
+     * 对象转数组
+     * @param {Object} obj 
+     */
     objToArr(obj) {
         let arr = [];
         for (let i in obj) {
@@ -73,7 +85,10 @@ const Utils = {
         }
         return arr;
     },
-    // 数组转对象
+    /**
+     * 数组转对象
+     * @param {Array} arr 
+     */
     arrToObj(arr) {
         let obj = {};
         for (let i in arr) {
@@ -81,18 +96,29 @@ const Utils = {
         }
         return obj;
     },
-    // 判断数组或对象是否为空
+    /**
+     * 判断数组或对象是否为空
+     * @param {Object} obj 
+     */
     empty(obj) {
         for (let t in obj) {
             return false;
         }
         return true;
     },
-    // 复制对象，仅能复制对象属性，不能复制对象的方法
+    /**
+     * 复制对象，仅能复制对象属性，不能复制对象的方法
+     * @param {Object} obj 
+     */
     clone(obj) {
+        // return this.mergeObj({}, obj);
         return JSON.parse(JSON.stringify(obj));
     },
-    // 把第二个对象merge到第一个对象上去，支持深层merge
+    /**
+     * 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
+     * @param {Object} obj1 
+     * @param {Object} obj2 
+     */
     mergeObj(obj1, obj2) {
         for (let i in obj2) {
             if (obj2.hasOwnProperty(i)) {
@@ -107,11 +133,19 @@ const Utils = {
         }
         return obj1;
     },
-    // 对比两个对象是否相等
+    /**
+     * 对比两个对象是否相等
+     * @param {Object} obj1 
+     * @param {Object} obj2 
+     */
     equals(obj1, obj2) {
         return JSON.stringify(obj1) === JSON.stringify(obj2);
     },
-    // 是否处于字符串最末尾
+    /**
+     * 子串是否处于字符串最末尾
+     * @param {String} sub 子串
+     * @param {String} str 
+     */
     isLast(sub, str) {
         return str.lastIndexOf(sub) === str.length - sub.length;
     },
@@ -151,7 +185,10 @@ const Utils = {
         }
         return path;
     },
-    // 页面跳转工具
+    /**
+     * 跳转链接，router的调整组件会刷新两次，不过也不建议使用此函数，可以使用a标签代替
+     * @param {*string} path 
+     */
     goto(path) {
         // 如果path不是已#/开头，且不是/开头，则加上#/
         path = path.indexOf('#/') !== 0
@@ -163,8 +200,12 @@ const Utils = {
             window.location.href = path;
         }
     },
-    get(url) {
-        
+    /**
+     * 把中横线命名的字符串转换成帕斯卡命名形式
+     * @param {*string} str
+     */
+    toPascal(str) {
+        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     }
 };
 

@@ -110,6 +110,13 @@ content     子内容
 `__mergeProps(obj1, obj2)`
 > 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在
 
+`__getData(url, params, success, error, callback)`
+> 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传
+
+`__postData(url, params, success, error, callback)`
+> 使用 `post` 的方式向后端发送请求，除url外，其他参数可以不传
+
+
 ---
 ## 文档编写规范
 1. 每个文档至少包含 4/5 部分

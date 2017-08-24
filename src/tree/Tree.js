@@ -9,15 +9,13 @@ import {Utils, Ajax} from 'uf/utils';
 import moment from 'moment';
 import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
 import {Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
-
 import {Tree, Input, notification} from 'antd';
 import reqwest from 'reqwest';
+import Ueditor from 'uf/ueditor';
+import './style.scss';
+
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
-
-import Ueditor from 'uf/ueditor';
-
-import './style.scss';
 
 let uuid = 0;
 
@@ -82,7 +80,7 @@ const defaultConfig = {
         expandToLeaval: null,
         expandedKeys: null,
         autoExpandParent: true,
-        onExpand: () => {} 
+        onExpand: () => {}
     },
     checkBox: {
         checkable: false,
@@ -387,13 +385,13 @@ export default class OriginTree extends BaseComponent {
             }
             <Tree
                 // 与树形图展开相关的配置
-                {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
                 {...{
                     defaultExpandAll: this.expand['expandToLeaval'] ? false : this.expand['defaultExpandAll'],
                     defaultExpandKeys: this.expand['expandToLeaval'] ? [] : (this.expand['defaultExpandedKeys']),
                     autoExpandParent: autoExpandParent,
                     onExpand: this.onExpand.bind(this)
                 }}
+                {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
                 // 与复选框相关的配置
                 {...{
                     checkable: this.checkBox['checkable'],
@@ -404,9 +402,9 @@ export default class OriginTree extends BaseComponent {
                 {...(!!checkedKeys ? {checkedKeys: checkedKeys} : null)}
                 // 与点选相关的配置
                 {...{
-                        defaultSelectedKeys: this.select['defaultSelectedKeys'],
-                        multiple: this.select['multiple'],
-                        onSelect: this.onSelect.bind(this),
+                    defaultSelectedKeys: this.select['defaultSelectedKeys'],
+                    multiple: this.select['multiple'],
+                    onSelect: this.onSelect.bind(this)
                 }}
                 {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
                 // 与异步加载相关的配置

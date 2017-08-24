@@ -9,7 +9,7 @@
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | config | 表格的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
-| content | 外部传入数据。也就是说Table为静态数据，content中有多少数据，Table中数据的总条数就是多少。（一般config中设置了url，也就是数据从后端获取，则不需设置content ）| Array |  | |
+| data | 外部传入数据。也就是说Table为静态数据，content中有多少数据，Table中数据的总条数就是多少。（一般config中设置了url，也就是数据从后端获取，则不需设置content ）| Array |  | |
 | params | 通过url向后端请求时传的参数（一般用于外部搜索） | Object |  | . |
 
 ### # config

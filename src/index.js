@@ -4,6 +4,7 @@
  */
 
 module.exports = {
-    Table: require('./table').default,
-    Form: require('./form').default,
+    // Table: require('./table').default,
+    Form: require('./form'),
+    Antd: require('./antd')
 };

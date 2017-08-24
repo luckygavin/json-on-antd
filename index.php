@@ -5,7 +5,7 @@
         <meta name="viewporti" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable">
         <meta charset = "utf-8">
         <link rel="icon" href="public/img/logo.svg" type="image/x-icon" rel="bookmark" />
-        <link rel="stylesheet" href="dist/css/antd.min.css" />
+        <link rel="stylesheet" href="dist/css/antd.css" />
         <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
         <link rel="stylesheet" href="public/css/markdown.css" />
         <link rel="stylesheet" href="public/highlight/prism.css" />
@@ -15,7 +15,9 @@
     <body>
         <div id="container"></div>
         <script src="dist/js/dll.js"></script> 
-        <script src="public/js/doc.js?s=<?php echo rand();?>"></script> 
+         <script src="dist/js/antd.js"></script>  
+        <!-- <script src="public/js/doc.js?s=<?php echo rand();?>"></script>  -->
+        <script src="public/js/doc.js"></script> 
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
             // makdown代码收/放

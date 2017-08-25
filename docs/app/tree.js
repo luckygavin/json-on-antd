@@ -18,11 +18,11 @@ const treeConfig = {
         // 全部为可选项，可写可不写
         defaultExpandAll: false, // 默认展开所有树节点，默认值为false
         // defaultExpandedKeys: [], // 默认展开指定的树节点，默认值为[],数组不为空时屏蔽defaultExpandAll
-        // expandToLeaval: 'leval2', // 展开到哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
-        expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
+        expandToLeaval: 'leval2', // 展开哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
+        // expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
         autoExpandParent: true, // 是否自动展开父节点，默认值为true,ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况
         onExpand: (expandedKeys, e) => {
-            // console.log('onExpand:', expandedKeys);
+            console.log('onExpand:', expandedKeys);
         }
     },
     checkBox: {
@@ -168,11 +168,11 @@ export default class TreeApp extends BaseDoc {
                 <h1 className="umpui-layer umpui-title">Tree 树形控件</h1>
                 <h2 className="umpui-layer umpui-title">示例1</h2>
                 <div className="umpui-block">
-                    <Tree ref="tree" config={treeConfig} data={treeData} />
+                    {<Tree ref="tree" config={treeConfig} data={treeData} />}
                 </div>
                 <h2 className="umpui-layer umpui-title">示例2</h2>
                 <div className="umpui-block" id="uf-tree-demo-customized-icon">
-                    <Tree ref="tree" config={treeConfig2} data={treeData} />
+                    {<Tree ref="tree" config={treeConfig2} data={treeData} />}
                 </div>
                 {this.__getDoc()}
             </div>

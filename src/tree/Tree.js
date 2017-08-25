@@ -10,7 +10,6 @@ import moment from 'moment';
 import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
 import {Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
 import {Tree, Input, notification} from 'antd';
-import reqwest from 'reqwest';
 import Ueditor from 'uf/ueditor';
 import './style.scss';
 
@@ -52,84 +51,96 @@ const demoChildren = [
         isLeaf: true
     }
 ];
-const errorMsg = {
-    top: 24,
-    message: '出错:',
-    description: '请求数据时出错，请重试。',
-    duration: 5
-};
-// 请求出错的处理函数
-const errorHandler = error => {
-    notification.error(Object.assign({}, errorMsg, !error.msg ? null : {
-        description: error.msg
-    }));
-};
-const getChildren = (params, url, callback, error = errorHandler, demo) => {
+const getChildren = (params, url, callback) => {
     if (url === '示例展示异步请求') {
         callback(demoChildren);
     }
     else {
-        this.__getData(url, params, null, error, callback);
+        this.__getData(url, params, callback, null);
     }
 };
-const defaultConfig = {
-    style: {},
-    expand: {
-        defaultExpandAll: false,
-        defaultExpandedKeys: [],
-        expandToLeaval: null,
-        expandedKeys: null,
-        autoExpandParent: true,
-        onExpand: () => {}
-    },
-    checkBox: {
-        checkable: false,
-        checkedKeys: null,
-        checkStrictly: false,
-        defaultCheckedKeys: [],
-        onCheck: () => {}
-    },
-    search: false,
-    select: {
-        defaultSelectedKeys: [],
-        selectedKeys: null,
-        multiple: false,
-        onSelect: () => {}
-    },
-    loadData: {
-        enable: false,
-        source: '',
-        params: {}
-    },
-    widthResize: {
-        resizeAble: false,
-        minWidth: '',
-        maxWidth: ''
-    },
-    showLine: false,
-    showIcon: false
-};
+
+
 export default class OriginTree extends BaseComponent {
     constructor(props) {
         super(props);
+        this.__init();
+        this.config = {
+            style: {},
+            expand: {
+                defaultExpandAll: false,
+                defaultExpandedKeys: [],
+                expandToLeaval: null,
+                expandedKeys: null,
+                autoExpandParent: true,
+                onExpand: null
+            },
+            checkBox: {
+                checkable: false,
+                checkedKeys: null,
+                checkStrictly: false,
+                defaultCheckedKeys: [],
+                onCheck: null
+            },
+            search: false,
+            select: {
+                defaultSelectedKeys: [],
+                selectedKeys: null,
+                multiple: false,
+                onSelect: null
+            },
+            loadData: {
+                enable: false,
+                source: '',
+                params: []
+            },
+            widthResize: {
+                resizeAble: false,
+                minWidth: '',
+                maxWidth: ''
+            },
+            showLine: false,
+            showIcon: false
+        };
         this.initTree();
         this.timer = 0;
-        this.__init();
     }
     initTree(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
-        let config = objProps.config;
+        // let config = objProps.config;
         let propsData = Utils.clone(objProps.data);
+        // 生成指针树，便于快速定位树节点
+        this.pointerTree = {};
+        this.completePointerTree = {};
+        this.createPointerTree(propsData, this.pointerTree);
+        this.createPointerTree(propsData, this.completePointerTree);
+        // 生成层级树，包含每层可展开的父节点的key
+        this.levalPointerTree = {};
+        this.createLevalTree(propsData, this.levalPointerTree);
         // 对用户未配置的项使用默认配置
-        this.style = Object.assign({}, defaultConfig.style, config.style);
-        this.expand = Object.assign({}, defaultConfig.expand, config.expand);
-        this.checkBox = Object.assign({}, defaultConfig.checkBox, config.checkBox);
-        this.search = !!config.search ? config.search : defaultConfig.search;
-        this.select = Object.assign({}, defaultConfig.select, config.select);
-        this.loadData = Object.assign({}, defaultConfig.loadData, config.loadData);
-        this.widthResize = Object.assign({}, defaultConfig.widthResize, config.widthResize);
-        this.showLine = !!config.showLine ? config.showLine : defaultConfig.showLine;
-        this.showIcon = !!config.showIcon ? config.showIcon : defaultConfig.showIcon;
+        this.config = this.__mergeProps(this.config, objProps.config);
+        this.style = this.config.style;
+        this.expand = this.config.expand;
+        this.checkBox = this.config.checkBox;
+        this.search = this.config.search;
+        this.select = this.config.select;
+        this.loadData = this.config.loadData;
+        this.widthResize = this.config.widthResize;
+        this.showLine = this.config.showLine;
+        this.showIcon = this.config.showIcon;
+        // console.log('objProps.config.expand:', objProps.config.expand);
+        // console.log('this.expand:', this.expand);
+        this.antdConfig = {
+            defaultExpandAll: this.expand['expandToLeaval'] ? false : this.expand['defaultExpandAll'],
+            defaultExpandedKeys: this.expand['expandToLeaval'] ? [] : this.expand['defaultExpandedKeys'],
+            checkable: this.checkBox['checkable'],
+            defaultCheckedKeys: this.checkBox['defaultCheckedKeys'],
+            checkStrictly: this.checkBox['checkStrictly'],
+            defaultSelectedKeys: this.select['defaultSelectedKeys'],
+            multiple: this.select['multiple'],
+            showLine: this.showLine,
+            showIcon: this.showIcon
+        };
         let state = {
             treeData: propsData,
             completeTree: propsData,
@@ -140,15 +151,48 @@ export default class OriginTree extends BaseComponent {
             searchValue: '', // 搜索框中输入内容
             searchTip: '' // 搜索结果提示
         };
-        // this.setState(state);
-        this.state = state;
-        // 具有expand，及expandToLeaval配置，且没有配置expandedKeys时才按照用户要求展开到某一层
-        if (this.expand.expandToLeaval && this.expand.expandedKeys.length === 0) {
-            this.showToLeval(propsData, this.expand.expandToLeaval);
+        if (!!nextProps) {
+            this.setState(state);
+            // 重置Table后要手动触发componentDidMount函数中的逻辑来加载数据
+            this.componentDidMount();
+        } else {
+            this.state = state;
         }
     }
     componentDidMount() {
-        // this.initTree();
+        // 具有expand，及expandToLeaval配置，且没有配置expandedKeys时才按照用户要求展开到某一层
+        if (this.expand.expandToLeaval && !this.expand.expandedKeys) {
+            this.showToLeval(this.expand.expandToLeaval);
+        }
+    }
+    componentWillReceiveProps(nextProps) {
+        // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
+        if (!Utils.equals(this.props.config, nextProps.config)) {
+            this.initTable(nextProps);
+        }
+    }
+    // 创建指针树，创建之后，this.pointerTree的每个元素都能指向树的一个节点
+    createPointerTree(nodes, pointerTree) {
+        for (let v of nodes) {
+            let key = v.key;
+            pointerTree[key] = v;
+            if (v.children && v.children.length > 0) {
+                this.createPointerTree(v.children, pointerTree);
+            }
+        }
+    }
+    // 生成一个层级树，记录每层可展开的有子节点的父节点
+    createLevalTree(tree, levalPointerTree) {
+        for (let v of tree) {
+            let type = v.type;
+            if (!levalPointerTree[type]) {
+                levalPointerTree[type] = [];
+            }
+            if (v.children && v.children.length > 0) {
+                levalPointerTree[type].push(v.key);
+                this.createLevalTree(v.children, levalPointerTree);
+            }
+        }
     }
     onExpand(expandedKeys, e) {
         // if not set autoExpandParent to false, if children expanded, parent can not collapse.
@@ -173,23 +217,18 @@ export default class OriginTree extends BaseComponent {
     }
     // 展示树形到哪一层
     // tree为指定树，expandToLeaval为展示到哪一层
-    showToLeval(tree = this.state.completeTree, expandToLeaval) {
-        let treeData = tree;
+    showToLeval(expandToLeaval) {
         let keys = [];
-        const loop = data => data.map(item => {
-            // 只放指定节点的父节点，即父节点展开，指定节点及指定节点以下都不参与循环
-            if (item.type !== expandToLeaval) {
-                if (item.children && item.children.length > 0) {
-                    keys[keys.length] = item.key;
-                    {loop(item.children);}
-                }
-            } else {
-                return;
+        if (expandToLeaval === null) {
+            // 展示所有节点
+            for (let v in this.levalPointerTree) {
+                keys = keys.concat(this.levalPointerTree[v]);
             }
-        });
-        loop(treeData);
+        }
+        else {
+            keys = this.levalPointerTree[expandToLeaval];
+        }
         this.setState({
-            treeData: treeData,
             expandedKeys: keys
         });
     }
@@ -203,19 +242,26 @@ export default class OriginTree extends BaseComponent {
         }, 200);
     }
     handleSearch(value) {
+        let treeData = this.state.completeTree;
         if (value.length < 1) {
-        // 搜索框中无内容，数据展示情况分类讨论
-            if (this.props.config.expand['expandedKeys']) {
+            // 搜索框中无内容，数据展示情况分类讨论
+            // 需要将指针树更新为完整树的指针树
+            this.pointerTree = {};
+            this.createPointerTree(treeData, this.pointerTree);
+            this.levalPointerTree = {};
+            this.createLevalTree(treeData, this.levalPointerTree);
+
+            if (this.expand['expandedKeys']) {
                 // 展开用户说明的指定节点
                 this.setState({
-                    expandedKeys: this.props.config.expand['expandedKeys']
+                    expandedKeys: this.expand['expandedKeys']
                 });
-            } else if (this.props.config.expand['expandToLeaval']) {
+            } else if (this.expand['expandToLeaval']) {
                 // 根据用户最初定义进行展示
-                this.showToLeval(this.state.completeTree, this.props.config.expand['expandToLeaval']);
-            } else if (this.props.config.expand['defaultExpandAll']) {
+                this.showToLeval(this.expand['expandToLeaval']);
+            } else if (this.expand['defaultExpandAll']) {
                 // 全部展开
-                this.showToLeval(this.state.completeTree, null);
+                this.showToLeval(null);
             }
             this.setState({
                 searchValue: value,
@@ -224,7 +270,6 @@ export default class OriginTree extends BaseComponent {
             });
         }
         else {
-            let treeData = this.state.completeTree;
             // 根据搜索结果建立新树
             let newTree = getParentNode(value, treeData);
             if (newTree.length === 0) {
@@ -236,8 +281,13 @@ export default class OriginTree extends BaseComponent {
                 });
                 return;
             } else {
-                // 找到与搜索相匹配结果
-                this.showToLeval(newTree, null);
+                // 找到与搜索相匹配结果,则需要对展示树对应的指针树，和层级树进行更新
+                this.pointerTree = {};
+                this.createPointerTree(newTree, this.pointerTree);
+                this.levalPointerTree = {};
+                this.createLevalTree(newTree, this.levalPointerTree);
+
+                this.showToLeval(null);
                 this.setState({
                     searchValue: value,
                     treeData: newTree,
@@ -277,22 +327,10 @@ export default class OriginTree extends BaseComponent {
     insertData(curKey, type, nodeData) {
         let treeData = this.state.treeData;
         let completeTree = this.state.completeTree;
-        const loop = data => data.map(item => {
-            if (item.isLeaf === false) {
-                // if (item.type === type) {
-                if (item.key === curKey) {
-                    item.children = nodeData;
-                    return;
-                }
-                // }
-                else if (item.children && item.children.length > 0) {
-                    {loop(item.children);}
-                }
-            }
-        });
-        loop(treeData);
-        // 放回完整数据一份
-        loop(completeTree);
+        // 通过树指针向展示数据中插入一份数据
+        this.pointerTree[curKey].children = nodeData;
+        // 通过完整树指针向完整数据中插入一分数据
+        this.completePointerTree[curKey].children = nodeData;
         this.setState({
             treeData: treeData,
             completeTree: completeTree
@@ -384,34 +422,15 @@ export default class OriginTree extends BaseComponent {
                 </div>
             }
             <Tree
-                // 与树形图展开相关的配置
-                {...{
-                    defaultExpandAll: this.expand['expandToLeaval'] ? false : this.expand['defaultExpandAll'],
-                    defaultExpandKeys: this.expand['expandToLeaval'] ? [] : (this.expand['defaultExpandedKeys']),
-                    autoExpandParent: autoExpandParent,
-                    onExpand: this.onExpand.bind(this)
-                }}
+                {...this.antdConfig}
+                autoExpandParent = {autoExpandParent}
+                onExpand = {this.onExpand.bind(this)}
+                onSelect = {this.onSelect.bind(this)}
+                onCheck = {this.onCheck.bind(this)}
                 {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
-                // 与复选框相关的配置
-                {...{
-                    checkable: this.checkBox['checkable'],
-                    defaultCheckedKeys: this.checkBox['defaultCheckedKeys'],
-                    checkStrictly: this.checkBox['checkStrictly'],
-                    onCheck: this.onCheck.bind(this)
-                }}
                 {...(!!checkedKeys ? {checkedKeys: checkedKeys} : null)}
-                // 与点选相关的配置
-                {...{
-                    defaultSelectedKeys: this.select['defaultSelectedKeys'],
-                    multiple: this.select['multiple'],
-                    onSelect: this.onSelect.bind(this)
-                }}
                 {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
-                // 与异步加载相关的配置
-                {...(this.loadData['enable'] ? {loadData: this.onLoadData.bind(this)} : null)}
-                // 是否显示连接线和显示图标
-                showIcon = {this.showLine}
-                showLine = {this.showLine}
+                {...(!!this.loadData['enable'] ? {loadData: this.onLoadData.bind(this)} : null)}
             >
                 {this.renderTreeNode(this.state.treeData)}
             </Tree>

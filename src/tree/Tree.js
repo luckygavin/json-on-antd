@@ -70,24 +70,24 @@ export default class OriginTree extends BaseComponent {
             expand: {
                 defaultExpandAll: false,
                 defaultExpandedKeys: [],
-                expandToLeaval: null,
+                expandLeavals: null,
                 expandedKeys: null,
                 autoExpandParent: true,
-                onExpand: null
+                onExpand: () => {}
             },
             checkBox: {
                 checkable: false,
                 checkedKeys: null,
                 checkStrictly: false,
                 defaultCheckedKeys: [],
-                onCheck: null
+                onCheck: () => {}
             },
             search: false,
             select: {
                 defaultSelectedKeys: [],
                 selectedKeys: null,
                 multiple: false,
-                onSelect: null
+                onSelect: () => {}
             },
             loadData: {
                 enable: false,
@@ -128,11 +128,9 @@ export default class OriginTree extends BaseComponent {
         this.widthResize = this.config.widthResize;
         this.showLine = this.config.showLine;
         this.showIcon = this.config.showIcon;
-        // console.log('objProps.config.expand:', objProps.config.expand);
-        // console.log('this.expand:', this.expand);
         this.antdConfig = {
-            defaultExpandAll: this.expand['expandToLeaval'] ? false : this.expand['defaultExpandAll'],
-            defaultExpandedKeys: this.expand['expandToLeaval'] ? [] : this.expand['defaultExpandedKeys'],
+            defaultExpandAll: this.expand['expandLeavals'] ? false : this.expand['defaultExpandAll'],
+            defaultExpandedKeys: this.expand['expandLeavals'] ? [] : this.expand['defaultExpandedKeys'],
             checkable: this.checkBox['checkable'],
             defaultCheckedKeys: this.checkBox['defaultCheckedKeys'],
             checkStrictly: this.checkBox['checkStrictly'],
@@ -160,9 +158,9 @@ export default class OriginTree extends BaseComponent {
         }
     }
     componentDidMount() {
-        // 具有expand，及expandToLeaval配置，且没有配置expandedKeys时才按照用户要求展开到某一层
-        if (this.expand.expandToLeaval && !this.expand.expandedKeys) {
-            this.showToLeval(this.expand.expandToLeaval);
+        // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
+        if (this.expand.expandLeavals && !this.expand.expandedKeys) {
+            this.showToLeval(this.expand.expandLeavals);
         }
     }
     componentWillReceiveProps(nextProps) {
@@ -215,18 +213,19 @@ export default class OriginTree extends BaseComponent {
         });
         this.select.onSelect(selectedKeys, e);
     }
-    // 展示树形到哪一层
-    // tree为指定树，expandToLeaval为展示到哪一层
-    showToLeval(expandToLeaval) {
+    // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
+    showToLeval(expandLeavals) {
         let keys = [];
-        if (expandToLeaval === null) {
+        if (expandLeavals === null) {
             // 展示所有节点
             for (let v in this.levalPointerTree) {
                 keys = keys.concat(this.levalPointerTree[v]);
             }
         }
         else {
-            keys = this.levalPointerTree[expandToLeaval];
+            for (let e in expandLeavals) {
+                keys = keys.concat(this.levalPointerTree[expandLeavals[e]]);
+            }
         }
         this.setState({
             expandedKeys: keys
@@ -256,9 +255,9 @@ export default class OriginTree extends BaseComponent {
                 this.setState({
                     expandedKeys: this.expand['expandedKeys']
                 });
-            } else if (this.expand['expandToLeaval']) {
+            } else if (this.expand['expandLeavals']) {
                 // 根据用户最初定义进行展示
-                this.showToLeval(this.expand['expandToLeaval']);
+                this.showToLeval(this.expand['expandLeavals']);
             } else if (this.expand['defaultExpandAll']) {
                 // 全部展开
                 this.showToLeval(null);

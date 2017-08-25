@@ -35,8 +35,8 @@
 | ---- | ---- | ----- | ----- | ----- |
 | defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |
 | defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |
-| expandToLeaval | 对哪一类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys`，如果要该层以上的层都展开，请配置`autoExpandParent`为`true` | String | - |  |
-| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandToLeaval` | Array | [] |  |
+| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |
+| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |
 | autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |
 | onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |
 
@@ -119,7 +119,7 @@ js:
             backgroundColor: '#f2f2f2'
         },
         expand: {
-            expandedKeys: ['0-0-1', '0-1'],
+            expandLeavals: ['leval1', 'leval2'],
             autoExpandParent: true,
             onExpand: (expandedKeys, e) => {
                 console.log('onExpand:', e);

@@ -99,7 +99,7 @@ const Utils = {
             if (obj2.hasOwnProperty(i)) {
                 if (obj1[i] === undefined || obj1[i] === null) {
                     obj1[i] = obj2[i];
-                } else if (obj2[i] instanceof Object) {
+                } else if (this.typeof(obj2[i], ['array', 'object'])) {
                     obj1[i] = this.mergeObj(obj1[i], obj2[i]);
                 } else {
                     obj1[i] = obj2[i];
@@ -160,6 +160,22 @@ const Utils = {
     // 把中横线命名的字符串转换成帕斯卡命名形式
     toPascal(str) {
         return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
+    },
+    // 获取数据的类型，返回的类型名称为全小写
+    // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
+    getType(value) {
+        return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    },
+    // 判断 value 是否为指定类型
+    // type 可以为一个字符串或者一个数组
+    typeof(value, type) {
+        if (this.getType(type) === 'string') {
+            return this.getType(value) === type;
+        } else if (this.getType(type) === 'array') {
+            return type.indexOf(this.getType(value)) !== -1;
+        } else {
+            return false;
+        }
     }
 };
 

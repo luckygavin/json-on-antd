@@ -45,10 +45,14 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'es2015', 'stage-0'],
-                    compact: false
+                    presets: ['react', 'es2015'],
+                    plugins: ["transform-object-rest-spread"]
+                    // antd 按需加载
+                    // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
+                    // plugins: [['import', {libraryName: 'antd'}]],
+                    // compact: false
                 }
-            }
+            }, 
         ],
         noParse: ['react', 'react-dom', 'antd', 'react-router']
     },

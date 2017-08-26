@@ -49,6 +49,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['react', 'es2015'],
+                    plugins: ["transform-object-rest-spread"]
                     // antd 按需加载
                     // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
                     // plugins: [['import', {libraryName: 'antd'}]],

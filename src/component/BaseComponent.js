@@ -11,12 +11,12 @@ export default class BaseComponent extends Component {
     }
 
     // 供子组件调用初始化 使用子组件this调用
-    __init(props) {
-        this._transmitComponent(props);
+    __init() {
+        this._transmitComponent();
         let originUnmount = this.componentWillUnmount;
         this.componentWillUnmount = function () {
-            originUnmount && originUnmount.call(this);
             this._unsetTransmitComponent();
+            originUnmount && originUnmount.call(this);
         };
     }
 
@@ -50,8 +50,8 @@ export default class BaseComponent extends Component {
     }
 
     // 共享组件
-    _transmitComponent(props) {
-        let key = this._getTransmitName(props);
+    _transmitComponent() {
+        let key = this._getTransmitName();
         if (!!key) {
             Cache.set(key, this);
         }
@@ -66,8 +66,8 @@ export default class BaseComponent extends Component {
     }
 
     // 获取key的名称
-    _getTransmitName(props) {
-        let key = !!props ? props.__cache : this.props.__cache;
+    _getTransmitName() {
+        let key = this.props.__cache;
         if (!!this.props.route && this.props.route.__cache) {
             key = this.props.route.transmitName;
         }

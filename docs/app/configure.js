@@ -9,7 +9,7 @@ import Uf from 'uf/tools';
 const Config = [
     {
         type: 'form',
-        name: 'search-form',
+        name: 'myForm',
         title: '新增专线 - 第1步',
         items: [
             [
@@ -51,6 +51,32 @@ const Config = [
             ]
         ]
     },
+    {
+        type: 'input',
+        name: 'myInput',
+    },
+    {
+        type: 'button',
+        name: 'myButton',
+
+        // target: 'myInput:getValue',
+        // join: 'onClick',
+        // connect: '',
+
+        mode: 'primary',
+        content: [
+            {
+                type: 'icon',
+                mode: 'cloud'
+            },
+            '确定'
+        ],
+        onClick: ()=>{
+            console.log('click')
+            // let result = $myInput.getValue();
+            // console.log(result);
+        }
+    }
     /* {
         type: 'plain',
         name: 'plain',

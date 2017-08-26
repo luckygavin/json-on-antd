@@ -24,9 +24,7 @@ uf
 |   `-- 其他组件         // 其他组件
 |-- index.php           // 页面入口
 |-- package.json
-|-- webpack.build.js    // 构建dist里面的文件
-|-- webpack.config.js
-`-- webpack.dll.js      // 构建公共库文件
+`-- webpack.config.js   // 构建公共库文件
 
 ```
 
@@ -86,10 +84,34 @@ content     子内容
 
 ---
 ## BaseComponent 开发及使用
+这里的规范不仅限于BaseComponent，其他基础抽象类也使用以下规范
 
 ### 开发规范
+开发时难免会遇到需要覆盖父类函数的情况，比如要在父类定义过的`__init`函数上追加处理逻辑，则需要即执行父类的原函数（super），又要执行新写入的逻辑，用法如下：  
+```javascript
+__init() {
+    super.__init.call(this);
+    this._setProps();
+}
+```
+需要在子类或者用户定义可能使用的函数上增加处理逻辑时，比如在`componentWillReceiveProps`加一些默认逻辑，用法如下：  
+```javascript
+const originRecieiveProps = this.componentWillReceiveProps;
+this.componentWillReceiveProps = (nextProps, ...params) => {
+    this._antdComponentWillReceiveProps(nextProps);
+    originRecieiveProps && originRecieiveProps(nextProps, ...params);
+}
+```
+> 需要注意的有两点： 
+> * 主要保证吧全部参数传递给原函数  
+> * 调用顺序为 父类函数 > 当前函数 > 子类函数
 
-为了防止基础类里面的函数及变量被子组件覆盖，全部变量和函数需用特殊的命名方式，如下：  
+### 命名规范  
+直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  
+`property`、`function`  
+> 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()
+
+为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  
 `_property`、`_function`  
 > 私有属性和方法，均使用单下划线开头  
 
@@ -99,7 +121,7 @@ content     子内容
 ### 功能列表
 
 `__init()`  
-> 初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能
+初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能
 
 `__setCache(key, data)`  
 > 为了方便使用缓存，直接把调用缓存的接口封装到了Base中，可以通过此接口存储缓存
@@ -110,11 +132,18 @@ content     子内容
 `__mergeProps(obj1, obj2)`
 > 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在
 
-`__getData(url, params, success, error, callback)`
-> 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传
+`__getData(url, params, success, error, onchange)`
+> 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
+> `success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
+> `error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+>   >  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
 
-`__postData(url, params, success, error, callback)`
-> 使用 `post` 的方式向后端发送请求，除url外，其他参数可以不传
+> `onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
+>   >  开始执行请求时执行 onchange 参数为 (true, 'sending')  
+>   >  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
+
+`__postData(url, params, success, error, onchange)`
+> 使用 `post` 的方式向后端发送请求，参数同上。
 
 
 ---

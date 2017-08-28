@@ -372,7 +372,7 @@ export default class OriginTree extends BaseComponent {
                     </span>
                 ) : <span>{item.name}</span>;
             }
-            if (item.isLeaf === false || item.children) {
+            if (item.isLeaf === false || !!item.children) {
                 return (
                     <TreeNode key={item.key} title={title} data={item} isLeaf={false}
                         disableCheckbox={!!item.disableCheckbox && item.disableCheckbox} disabled={item.disabled}>

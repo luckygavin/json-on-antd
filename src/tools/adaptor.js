@@ -3,7 +3,7 @@
  * @author liuzechun
  */
 import {Utils, Cache} from 'uf/utils';
-import Antd from 'uf/antd/components/Antd.js';
+import Antd from 'uf/antd/base/Antd.js';
 import Loader from './loader.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
@@ -39,8 +39,10 @@ export default {
         //     }
         // }
 
-        // 把全部组件放到缓存池里
-        props['__cache'] = item.name;
+        // 如果有name的话，把组件放到缓存池里
+        if (item.name) {
+            props['__cache'] = item.name;
+        }
         // 把组件名称缓存起来，方便查找
         Cache.set('component-names', Cache.get('component-names').concat(item.name));
 
@@ -51,14 +53,14 @@ export default {
     ufConfig(oitem) {
         let {config, data, params} = oitem;
         let item = Utils.filterObj(oitem, KeyWord.concat(['config', 'data', 'params']));
-        // 把非函数的属性放到config中
         if (!config) {
             config = {};            
-            for (let i in item) {
-                if (!(item[i] instanceof Function)) {
-                    config[i] = item[i];
-                    delete item[i];
-                }
+        }
+        // 把item上的全部非函数的属性放到config中
+        for (let i in item) {
+            if (!(item[i] instanceof Function)) {
+                config[i] = item[i];
+                delete item[i];
             }
         }
         // item中最终只剩下函数，直接放到config中

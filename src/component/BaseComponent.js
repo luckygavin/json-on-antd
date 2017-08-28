@@ -10,13 +10,14 @@ export default class BaseComponent extends Component {
         this._keyPrefix = 'cache-';
     }
 
+    /* 供子组件调用方法 ***********************************************************************/
+
     // 供子组件调用初始化 使用子组件this调用
     __init() {
         this._transmitComponent();
         let originUnmount = this.componentWillUnmount;
         this.componentWillUnmount = function () {
-            this._unsetTransmitComponent();
-            originUnmount && originUnmount.call(this);
+            this._componentWillUnmount(originUnmount);
         };
     }
 
@@ -49,6 +50,14 @@ export default class BaseComponent extends Component {
         ajax(...params);
     }
 
+    /* 私有方法 ***********************************************************************/
+
+    // unmount 执行时的默认处理逻辑
+    _componentWillUnmount(origin) {
+        this._unsetTransmitComponent();
+        origin && origin.call(this);
+    }
+
     // 共享组件
     _transmitComponent() {
         let key = this._getTransmitName();
@@ -71,7 +80,7 @@ export default class BaseComponent extends Component {
         if (!!this.props.route && this.props.route.__cache) {
             key = this.props.route.transmitName;
         }
-        if (!!key && key != 'undefined') {
+        if (!!key && key !== 'undefined') {
             key = this._keyPrefix + key;
         } else {
             key = false;

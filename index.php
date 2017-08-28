@@ -1,3 +1,8 @@
+<?php
+$version = $_GET['v'] ? $_GET['v'] : '0.1';
+// $suffix = '.min';
+$suffix = '';
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,15 +14,20 @@
         <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
         <link rel="stylesheet" href="public/css/markdown.css" />
         <link rel="stylesheet" href="public/highlight/prism.css" />
-        <link rel="stylesheet" href="public/css/doc.min.css" />
+
+        <link rel="stylesheet" href="public/css/doc_v<?php echo $version; ?>.min.css" />
+
         <script src="public/highlight/prism.js" data-manual></script>
     </head>
     <body>
         <div id="container"></div>
         <script src="dist/js/dll.js"></script> 
-         <script src="dist/js/antd.js"></script>  
-        <!-- <script src="public/js/doc.js?s=<?php echo rand();?>"></script>  -->
-        <script src="public/js/doc.js"></script> 
+        <script src="dist/js/antd.js"></script>   
+        <!-- <script src="dist/js/antd.min.js"></script>   -->
+
+        <!-- <script src="public/js/doc_v<?php echo $version . $suffix; ?>.js?s=<?php echo rand();?>"></script>     -->
+        <script src="public/js/doc_v<?php echo $version . $suffix; ?>.js"></script>    
+
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
             // makdown代码收/放

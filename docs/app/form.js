@@ -490,23 +490,16 @@ const data22 = [
 export default class FormApp extends BaseDoc {
     constructor(props) {
         super(props);
-        this.state = {};
         this.doc = 'form.md';
+        this.__init();
     }
     onSubmit(value) {
         console.log(value);
     }
+    // 页面的其他内容已经在 BaseDoc 里实现，这里只需要写demo需要的代码即可
+    // 如果没有展示demo，render可不写，见antd组件文档
     render() {
-        return (
-            <div className="umpui-component">
-                <h1 className="umpui-layer umpui-title">Form表单</h1>
-                <div className="umpui-block">
-                    <Form ref="testForm" config={Step21} params={[{data21}]}
-                            onSubmit={this.onSubmit.bind(this)}/>
-                </div>
-                {this.__getDoc()}
-            </div>
-        );
+        return <Form ref="testForm" config={Step21} params={[{data21}]} onSubmit={this.onSubmit.bind(this)}/>;
     }
 
 }

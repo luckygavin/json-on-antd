@@ -13,20 +13,6 @@ config | 组件本身的配置，具体见 [`Components`](#/Component/) | Object
 layout 组件用于控制页面布局
 
 
-
-
-
-# 布局配置
-{
-    "type": "layout", // 布局
-    "name" : "page",
-    "content": {},     // 布局主体
-    "source": ""    // 支持异步返回整个配置
-}
-{
-    "type": "divider"   // 分割线
-}
-
 # 组件通用配置
 source      异步请求获取数据
 api         异步提交数据

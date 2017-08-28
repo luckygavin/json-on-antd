@@ -7,11 +7,14 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 var production = process.env.NODE_ENV === 'production';
+// 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
+const version = process.env.npm_package_version.split('.').slice(0, 2).join('.');
 
-console.log(process.env.NODE_ENV);
+console.log('NODE_ENV: ', process.env.NODE_ENV);
+console.log('FILE_VERSION: ', version);
 
 // 分离css文件
-var cssBuilder = new ExtractTextPlugin(!production ? '[name].css' : '[name].min.css');
+var cssBuilder = new ExtractTextPlugin(!production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`);
 var jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -31,7 +34,7 @@ module.exports = {
     output: {
         path: __dirname + '/dist',
         publicPath: 'dist/',
-        filename: !production ? '[name].js' : '[name].min.js'
+        filename: !production ? `[name]_v${version}.js` : `[name]_v${version}.min.js`
     },
     module: {
         loaders: [

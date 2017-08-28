@@ -184,10 +184,6 @@ const Utils = {
             window.location.href = path;
         }
     },
-    // 把中横线命名的字符串转换成帕斯卡命名形式
-    toPascal(str) {
-        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
-    },
     // 获取数据的类型，返回的类型名称为全小写
     // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
     getType(value) {

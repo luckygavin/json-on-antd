@@ -204,14 +204,12 @@ const tableCfg = {
 export default class TableApp extends BaseDoc {
     constructor(props) {
         super(props);
-        this.state = {};
         this.doc = 'table.md';
+        this.__init();
     }
     render() {
-        return (<div className="umpui-component">
-            <h1 className="umpui-layer umpui-title">Table 表格</h1>
+        return <div>
             {/* <Table ref="table" {...tableCfg}/> */}
-            {this.__getDoc()}
-        </div>);
+        </div>;
     }
 }

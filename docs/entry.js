@@ -16,7 +16,9 @@ const CommonList = [
     {path: 'Introduction', name: '简要介绍', component: null},
     {path: 'Install', name: '快速上手', component: null},
     {path: 'ChangeLog', name: '更新日志', component: null},
-    {path: 'Info', name: '配置化', component: require('./app/configure').default},
+    {path: 'Configure', name: '配置化', children: [
+        {path: 'Info', name: '简介', component: require('./app/configure-info').default}
+    ]},
     {path: 'Global', name: 'Global', children: [
         {path: 'Api', name: '通用API', component: null},
         {path: 'Template', name: '模板', component: null},
@@ -25,6 +27,12 @@ const CommonList = [
 
 // 组件文档列表
 const ComponentList = [
+    {path: 'General', name: 'General', children: [
+        {path: 'Button', name: 'Button 按钮', component: require('./app/antd-button').default},
+        {path: 'Icon', name: 'Icon 图标', component: require('./app/antd-icon').default},
+        {path: 'Grid', name: 'Grid 栅格', component: require('./app/antd-grid').default},
+        {path: 'Layout', name: 'Layout 布局', component: require('./app/antd-layout').default}
+    ]},
     {path: 'Component', name: 'Component', children: [
         {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
@@ -32,10 +40,6 @@ const ComponentList = [
         {path: 'Tabs', name: 'Tabs 标签页', component: null},
         {path: 'Modal', name: 'Modal 弹框', component: null},
         {path: 'Message', name: 'Message 提示消息', component: null},
-    ]},
-    {path: 'General', name: 'General', children: [
-        {path: 'Button', name: 'Button 按钮', component: null},
-        {path: 'Icon', name: 'Icon 图标', component: null},
     ]}
 ];
 
@@ -81,11 +85,11 @@ class Routes extends React.Component {
             <Route path="/" component={Doc}>
                 <IndexRedirect to="Introduction"/>
                 {RouteList.map(first=>!first.children
-                    ? <Route key={first.path} path={first.path} component={first.component}/>
+                    ? <Route key={first.name} name={first.name}
+                            path={first.path} component={first.component}/>
                     : first.children.map(second=>
-                        <Route key={`${first.path}/${second.path}`}
-                            path={`${first.path}/${second.path}`}
-                            component={second.component}/>
+                        <Route key={second.name} name={second.name}
+                                path={`${first.path}/${second.path}`} component={second.component}/>
                     )
                 )}
                 <Redirect path="Component" to={`Component/Table`}/>

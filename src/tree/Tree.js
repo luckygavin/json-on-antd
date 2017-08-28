@@ -109,7 +109,7 @@ export default class OriginTree extends BaseComponent {
             checkStrictly: this.checkBox['checkStrictly'],
             defaultSelectedKeys: this.select['defaultSelectedKeys'],
             multiple: this.select['multiple'],
-            showLine: this.showLine,
+            showLine: this.showLine
             // showIcon: this.showIcon
         };
         let state = {
@@ -288,7 +288,7 @@ export default class OriginTree extends BaseComponent {
                         }
                         return;
                     });
-                    this.__getData(url, params, (backChildren) => {
+                    this.__getData(url, params, backChildren => {
                         this.insertData(nodeData.key, nodeData.type, backChildren);
                         resolve();
                     });

@@ -1,14 +1,14 @@
 /**
- * @file 开发规范
+ * @file 按钮
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from './BaseDoc.js';
+import BaseDoc from 'docs/app/BaseDoc.js';
 
-export default class StandardApp extends BaseDoc {
+export default class GridApp extends BaseDoc {
     constructor(props) {
         super(props);
-        this.doc = 'standard.md';
+        this.doc = 'antd-grid.md';
         this.__init();
     }
 }

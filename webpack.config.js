@@ -2,16 +2,19 @@
  * @file 文档 - 打包编译配置文件
  * @author liuzechun@baidu.com
  * */
-var webpack = require('webpack');
-var path = require('path');
+const webpack = require('webpack');
+const path = require('path');
 // 路径是相对于入口文件的路径
-var nodeModulesPath = __dirname + '/node_modules';
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var production = process.env.NODE_ENV === 'production';
+const nodeModulesPath = __dirname + '/node_modules';
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const production = process.env.NODE_ENV === 'production';
+// 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
+const version = process.env.npm_package_version.split('.').slice(0, 2).join('.');
 
-console.log(process.env.NODE_ENV);
+console.log('NODE_ENV: ', process.env.NODE_ENV);
+console.log('FILE_VERSION: ', version);
 
-var cssBuilder = new ExtractTextPlugin("css/doc.min.css");
+var cssBuilder = new ExtractTextPlugin(`css/doc_v${version}.min.css`);
 var jsBuilder =new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -33,7 +36,7 @@ module.exports = {
         path: 'public/',
         // 指定资源文件引用的目录（CDN资源），被许多Webpack的Plugins用于在生产模式下更新内嵌到css、html文件里的url值
         // publicPath: 'uf-react/',
-        filename: 'js/[name].js'
+        filename: `js/[name]_v${version}.js`
     },
     module: {
         loaders: [
@@ -49,6 +52,7 @@ module.exports = {
                 loader: 'babel-loader',
                 query: {
                     presets: ['react', 'es2015'],
+                    plugins: ["transform-object-rest-spread"]
                     // antd 按需加载
                     // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
                     // plugins: [['import', {libraryName: 'antd'}]],

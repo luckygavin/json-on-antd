@@ -88,25 +88,52 @@ const Utils = {
         }
         return true;
     },
-    // 复制对象，仅能复制对象属性，不能复制对象的方法
-    clone(obj) {
-        // return this.mergeObj({}, obj);
-        return JSON.parse(JSON.stringify(obj));
+    // 浅拷贝，指针指向，只拷贝一层
+    copy(obj) {
+        return this.clone(obj, 1);
     },
-    // 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
-    mergeObj(obj1, obj2) {
-        for (let i in obj2) {
-            if (obj2.hasOwnProperty(i)) {
-                if (obj1[i] === undefined || obj1[i] === null) {
-                    obj1[i] = obj2[i];
-                } else if (obj2[i] instanceof Object) {
-                    obj1[i] = this.mergeObj(obj1[i], obj2[i]);
+    // 深拷贝对象
+    clone(obj, level) {
+        if (level === 0) {
+            return obj;
+        }
+        let newObj = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i)) {
+                if (this.typeof(obj[i], ['array', 'object'])) {
+                    newObj[i] = this.typeof(level, 'number') ? this.clone(obj[i], level - 1) : this.clone(obj[i]);
                 } else {
-                    obj1[i] = obj2[i];
+                    newObj[i] = obj[i];
                 }
             }
         }
-        return obj1;
+        return newObj;
+    },
+    // 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
+    // level 参数为拷贝层数，不传则循环遍历所有属性
+    mergeObj(obj1, obj2) {
+        // 首先判断两个数据的格式
+        let result = obj2 === undefined ? obj1 : obj2;
+        // 只有两个数据都为引用类型时，才需要循环合并
+        if (this.typeof(obj1, ['array', 'object']) && this.typeof(obj2, ['array', 'object'])) {
+            for (let i in obj2) {
+                if (obj2.hasOwnProperty(i)) {
+                    obj1[i] = this.mergeObj(obj1[i], obj2[i]);
+                }
+            }
+            result = obj1;
+        }
+        return result;
+    },
+    // 从obj中过滤掉某些属性
+    filterObj(obj, arr) {
+        let newObj = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i) && arr.indexOf(i) === -1) {
+                newObj[i] = obj[i];
+            }
+        }
+        return newObj;
     },
     // 对比两个对象是否相等
     equals(obj1, obj2) {
@@ -157,9 +184,21 @@ const Utils = {
             window.location.href = path;
         }
     },
-    // 把中横线命名的字符串转换成帕斯卡命名形式
-    toPascal(str) {
-        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
+    // 获取数据的类型，返回的类型名称为全小写
+    // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
+    getType(value) {
+        return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    },
+    // 判断 value 是否为指定类型
+    // type 可以为一个字符串或者一个数组
+    typeof(value, type) {
+        if (this.getType(type) === 'string') {
+            return this.getType(value) === type;
+        } else if (this.getType(type) === 'array') {
+            return type.indexOf(this.getType(value)) !== -1;
+        } else {
+            return false;
+        }
     }
 };
 

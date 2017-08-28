@@ -147,7 +147,6 @@ class OriginForm extends BaseComponent {
     // 根据传入的 params 设置初始值
     initValues(values) {
         values = values || this.defaultValues;
-        console.log(values);
         if (values) {
             // 设置初始值前对传入的 params 格式化
             if (this.config.beforeSetValues) {

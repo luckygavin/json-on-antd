@@ -16,9 +16,7 @@ uf
 |   `-- 其他组件         // 其他组件
 |-- index.php           // 页面入口
 |-- package.json
-|-- webpack.build.js    // 构建dist里面的文件
-|-- webpack.config.js
-`-- webpack.dll.js      // 构建公共库文件
+`-- webpack.config.js   // 构建公共库文件
 
 ```
 

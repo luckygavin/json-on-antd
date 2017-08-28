@@ -10,13 +10,14 @@ export default class BaseComponent extends Component {
         this._keyPrefix = 'cache-';
     }
 
+    /* 供子组件调用方法 ***********************************************************************/
+
     // 供子组件调用初始化 使用子组件this调用
-    __init(props) {
-        this._transmitComponent(props);
+    __init() {
+        this._transmitComponent();
         let originUnmount = this.componentWillUnmount;
         this.componentWillUnmount = function () {
-            originUnmount && originUnmount.call(this);
-            this._unsetTransmitComponent();
+            this._componentWillUnmount(originUnmount);
         };
     }
 
@@ -49,9 +50,17 @@ export default class BaseComponent extends Component {
         ajax(...params);
     }
 
+    /* 私有方法 ***********************************************************************/
+
+    // unmount 执行时的默认处理逻辑
+    _componentWillUnmount(origin) {
+        this._unsetTransmitComponent();
+        origin && origin.call(this);
+    }
+
     // 共享组件
-    _transmitComponent(props) {
-        let key = this._getTransmitName(props);
+    _transmitComponent() {
+        let key = this._getTransmitName();
         if (!!key) {
             Cache.set(key, this);
         }
@@ -66,12 +75,12 @@ export default class BaseComponent extends Component {
     }
 
     // 获取key的名称
-    _getTransmitName(props) {
-        let key = !!props ? props.__cache : this.props.__cache;
+    _getTransmitName() {
+        let key = this.props.__cache;
         if (!!this.props.route && this.props.route.__cache) {
             key = this.props.route.transmitName;
         }
-        if (!!key && key != 'undefined') {
+        if (!!key && key !== 'undefined') {
             key = this._keyPrefix + key;
         } else {
             key = false;

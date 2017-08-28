@@ -93,21 +93,24 @@ const Utils = {
         return this.clone(obj, 1);
     },
     // 深拷贝对象
-    clone(obj, level) {
+    clone(data, level) {
         if (level === 0) {
-            return obj;
+            return data;
         }
-        let newObj = {};
-        for (let i in obj) {
-            if (obj.hasOwnProperty(i)) {
-                if (this.typeof(obj[i], ['array', 'object'])) {
-                    newObj[i] = this.typeof(level, 'number') ? this.clone(obj[i], level - 1) : this.clone(obj[i]);
-                } else {
-                    newObj[i] = obj[i];
-                }
+        let newData;
+        if (this.typeof(data, 'array')) {
+            newData = [];
+        } else if (this.typeof(data, 'object')) {
+            newData = {};
+        } else {
+            return data;
+        }
+        for (let i in data) {
+            if (data.hasOwnProperty(i)) {
+                newData[i] = this.clone(data[i], this.typeof(level, 'number') ? level - 1 : null);
             }
         }
-        return newObj;
+        return newData;
     },
     // 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
     // level 参数为拷贝层数，不传则循环遍历所有属性

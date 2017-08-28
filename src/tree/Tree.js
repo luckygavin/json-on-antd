@@ -105,10 +105,11 @@ export default class OriginTree extends BaseComponent {
         this.initTree();
         this.timer = 0;
     }
+    // 树形控件初始化配置及数据
     initTree(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
-        // let config = objProps.config;
         let propsData = Utils.clone(objProps.data);
+        // 针对数据进行处理
         // 生成指针树，便于快速定位树节点
         this.pointerTree = {};
         this.completePointerTree = {};
@@ -117,6 +118,8 @@ export default class OriginTree extends BaseComponent {
         // 生成层级树，包含每层可展开的父节点的key
         this.levalPointerTree = {};
         this.createLevalTree(propsData, this.levalPointerTree);
+
+        // 针对配置进行处理
         // 对用户未配置的项使用默认配置
         this.config = this.__mergeProps(this.config, objProps.config);
         this.style = this.config.style;
@@ -240,6 +243,7 @@ export default class OriginTree extends BaseComponent {
             this.timer = null;
         }, 200);
     }
+    // 通过搜索内容对策略树进行搜索
     handleSearch(value) {
         let treeData = this.state.completeTree;
         if (value.length < 1) {
@@ -295,6 +299,7 @@ export default class OriginTree extends BaseComponent {
             }
         }
     }
+    // 异步对数据进行加载，满足一定要求再加载
     onLoadData(treeNode) {
         let nodeData = treeNode.props.data;
         return new Promise(resolve => {
@@ -323,6 +328,7 @@ export default class OriginTree extends BaseComponent {
             }
         });
     }
+    // 向展示树和完整树中插入数据
     insertData(curKey, type, nodeData) {
         let treeData = this.state.treeData;
         let completeTree = this.state.completeTree;
@@ -335,6 +341,7 @@ export default class OriginTree extends BaseComponent {
             completeTree: completeTree
         });
     }
+    // 树组建右边缘可扩展
     resizeWidth(ev) {
         let iEvent = ev || event;
         if (iEvent.button === 2) {
@@ -353,16 +360,16 @@ export default class OriginTree extends BaseComponent {
             oBox.style.width = dw + (iEvent.clientX - dx) + 'px';
             // 此时的iEvent.clientX的为拖动时一直改变的鼠标的X坐标，
             // 所以，此时的盒子宽度就等于鼠标移动的距离加上原本盒子的宽度
-            if (this.props.config.widthResize['minWidth']) {
-                if (oBox.offsetWidth <= parseInt(this.props.config.widthResize['minWidth'], 10)) {
+            if (this.widthResize['minWidth']) {
+                if (oBox.offsetWidth <= parseInt(this.widthResize['minWidth'], 10)) {
                     // 当盒子缩小到一定范围内的时候，让他保持一个固定值，不再继续改变
-                    oBox.style.width = this.props.config.widthResize['minWidth'];
+                    oBox.style.width = this.widthResize['minWidth'];
                 }
             }
-            if (this.props.config.widthResize['maxWidth']) {
-                if (oBox.offsetWidth >= parseInt(this.props.config.widthResize['maxWidth'], 10)) {
+            if (this.widthResize['maxWidth']) {
+                if (oBox.offsetWidth >= parseInt(this.widthResize['maxWidth'], 10)) {
                     // 当盒子缩小到一定范围内的时候，让他保持一个固定值，不再继续改变
-                    oBox.style.width = this.props.config.widthResize['maxWidth'];
+                    oBox.style.width = this.widthResize['maxWidth'];
                 }
             }
         };
@@ -376,6 +383,7 @@ export default class OriginTree extends BaseComponent {
         document.onmouseup = null;
         document.onmousemove = null;
     }
+    // 渲染树
     renderTreeNode(data) {
         const searchValue = this.state.searchValue;
         return data.map(item => {
@@ -434,7 +442,7 @@ export default class OriginTree extends BaseComponent {
                 {this.renderTreeNode(this.state.treeData)}
             </Tree>
             {this.widthResize['resizeAble']
-                && <div className="umpui-tree-ew-resize" onMouseDown={this.resizeWidth.bind(this)}></div>
+                && <div className="uf-tree-ew-resize" onMouseDown={this.resizeWidth.bind(this)}></div>
             }
         </div>);
     }

@@ -161,20 +161,17 @@ export default class TreeApp extends BaseDoc {
         super(props);
         this.state = {};
         this.doc = 'tree.md';
+        this.__init();
     }
     render() {
         return (
-            <div className="umpui-component">
-                <h1 className="umpui-layer umpui-title">Tree 树形控件</h1>
-                <h2 className="umpui-layer umpui-title">示例1</h2>
-                <div className="umpui-block">
+            <div>
+                <h2>示例1</h2>
                     {<Tree ref="tree" config={treeConfig} data={treeData} />}
-                </div>
-                <h2 className="umpui-layer umpui-title">示例2</h2>
-                <div className="umpui-block" id="uf-tree-demo-customized-icon">
+                <h2>示例2</h2>
+                <div id="uf-tree-demo-customized-icon">
                     {<Tree ref="tree" config={treeConfig2} data={treeData} />}
                 </div>
-                {this.__getDoc()}
             </div>
         );
     }

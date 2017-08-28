@@ -6,10 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
 import {Utils, Ajax} from 'uf/utils';
-import moment from 'moment';
-import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
-import {Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
-import {Tree, Input, notification} from 'antd';
+import {Tree, Input} from 'antd';
 import Ueditor from 'uf/ueditor';
 import './style.scss';
 
@@ -33,33 +30,6 @@ const getParentNode = (value, tree, isRoot = false) => {
     }
     return node;
 };
-const demoChildren = [
-    {
-        name: '0-0-2',
-        key: '0-0-2',
-        disabledChecbox: false,
-        disabled: true,
-        type: 'leval4',
-        isLeaf: true
-    },
-    {
-        name: '0-0-3',
-        key: '0-0-3',
-        disabledChecbox: false,
-        disabled: true,
-        type: 'leval4',
-        isLeaf: true
-    }
-];
-const getChildren = (params, url, callback) => {
-    if (url === '示例展示异步请求') {
-        callback(demoChildren);
-    }
-    else {
-        this.__getData(url, params, callback, null);
-    }
-};
-
 
 export default class OriginTree extends BaseComponent {
     constructor(props) {
@@ -140,7 +110,7 @@ export default class OriginTree extends BaseComponent {
             defaultSelectedKeys: this.select['defaultSelectedKeys'],
             multiple: this.select['multiple'],
             showLine: this.showLine,
-            showIcon: this.showIcon
+            // showIcon: this.showIcon
         };
         let state = {
             treeData: propsData,
@@ -175,10 +145,12 @@ export default class OriginTree extends BaseComponent {
     // 创建指针树，创建之后，this.pointerTree的每个元素都能指向树的一个节点
     createPointerTree(nodes, pointerTree) {
         for (let v of nodes) {
-            let key = v.key;
-            pointerTree[key] = v;
-            if (v.children && v.children.length > 0) {
-                this.createPointerTree(v.children, pointerTree);
+            if (!!v.key) {
+                let key = v.key;
+                pointerTree[key] = v;
+                if (v.children && v.children.length > 0) {
+                    this.createPointerTree(v.children, pointerTree);
+                }
             }
         }
     }
@@ -303,8 +275,8 @@ export default class OriginTree extends BaseComponent {
     onLoadData(treeNode) {
         let nodeData = treeNode.props.data;
         return new Promise(resolve => {
-            if (nodeData.isLeaf === false
-                && (!nodeData.children || nodeData.children.length < 1)) {
+            if ((!nodeData.children && nodeData.isLeaf === false)
+                || (nodeData.children.length < 1 && !nodeData.isLeaf)) {
                 // 没有children数据又非叶子节点的时候需要去异步请求
                 let params = {};
                 let url = '';
@@ -316,9 +288,8 @@ export default class OriginTree extends BaseComponent {
                         }
                         return;
                     });
-                    getChildren(params, url, (children, res) => {
-                        // 将取回数据插入数据中
-                        this.insertData(nodeData.key, nodeData.type, children);
+                    this.__getData(url, params, (backChildren) => {
+                        this.insertData(nodeData.key, nodeData.type, backChildren);
                         resolve();
                     });
                 }
@@ -401,15 +372,15 @@ export default class OriginTree extends BaseComponent {
                     </span>
                 ) : <span>{item.name}</span>;
             }
-            if (item.isLeaf === false) {
+            if (item.isLeaf === false || item.children) {
                 return (
-                    <TreeNode key={item.key} title={title} data={item} isLeaf={item.isLeaf}
+                    <TreeNode key={item.key} title={title} data={item} isLeaf={false}
                         disableCheckbox={!!item.disableCheckbox && item.disableCheckbox} disabled={item.disabled}>
                         {!!item.children && this.renderTreeNode(item.children)}
                     </TreeNode>
                 );
             }
-            return <TreeNode key={item.key} title={title} isLeaf={item.isLeaf} data={item}
+            return <TreeNode key={item.key} title={title} isLeaf={item.isLeaf || true} data={item}
                 disableCheckbox={!!item.disableCheckbox && item.disableCheckbox} disabled={item.disabled}/>;
         });
     }

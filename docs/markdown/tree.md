@@ -6,7 +6,6 @@
 * 配置`loadData`实现异步加载功能
 * 配置`widthResize`实现右边缘拖动加宽功能
 * 配置`showLine`实现带连接线的树
-* 配置`showIcon`实现不同节点自定义图标
 * 若没有进行任何配置，则为树形图展示1中的样式
 
 ## 配置参数
@@ -28,7 +27,6 @@
 | loadData | 异步加载功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | showLine | 是否展示连接线 | Boolean | false |  |
-| showIcon | 是否展示 TreeNode title 前的图标，没有默认样式，如设置为 true，需要自行定义图标相关样式，下方有CSS添加图标的样式书写，注意将id换为你的树形图id | Boolean | false | . |
 
 ### # config.expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -75,6 +73,34 @@
 | minWidth | 树形图允许扩宽的最小宽度 | String | - |  |
 | maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |
 
+### # 每一个节点的数据格式
+```json
+    [{
+        name: '0-0',            // 必须
+        key: '0-0',             // 必须
+        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true
+        disableCheckbox: false, // 非必须，用于指定复选框是否可选
+        disabled: false,        // 非必须，用于指定此节点时候可点
+        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须
+        children: [             // 子节点格式相同
+            ...
+        ]
+    },
+    ...]
+```
+### # url参数对应接口的格式
+```json
+success:
+{
+    status:0,
+    data:[{…},…]
+}
+error:
+{
+    status: 1,
+    msg: 'error'
+}
+```
 
 ### 源代码 - React用法
 ```javascript
@@ -158,68 +184,31 @@ js:
 ```javascript
     {
         style: {
-        width: '300px',
-        padding: '10px',
-        border: '1px dashed #eaeaea'
-    },
-    expand: {
-        expandedKeys: ['0-0-1', '0-1'],
-        autoExpandParent: true,
-        onExpand: (expandedKeys, e) => {
-            console.log('onExpand:', expandedKeys);
-        }
-    },
-    select: {
-        defaultSelectedKeys: ['0-1'],
-        onSelect: (selectedKeys, e) => {
-            console.log('onSelect', e);
-        }
-    },
-    showLine: true,
-    showIcon: true
+            width: '300px',
+            padding: '10px',
+            border: '1px dashed #eaeaea'
+        },
+        expand: {
+            expandedKeys: ['0-0-1', '0-1'],
+            autoExpandParent: true,
+            onExpand: (expandedKeys, e) => {
+                console.log('onExpand:', expandedKeys);
+            }
+        },
+        select: {
+            defaultSelectedKeys: ['0-1'],
+            onSelect: (selectedKeys, e) => {
+                console.log('onSelect', e);
+            }
+        },
+        showLine: true
     }
-```
-### 示例2自定义图标
-```css
-
-    #uf-tree-demo-customized-icon .ant-tree-iconEle {
-        position: absolute;
-        left: 0;
-        background: #fff;
-    }
-    #uf-tree-demo-customized-icon .ant-tree-iconEle::after {
-        font-size: 12px;
-        zoom: 1;
-        display: inline-block;
-        font-family: 'anticon';
-        text-rendering: optimizeLegibility;
-        color: #999;
-        transition: transform .3s ease;
-        margin-top: 2px;
-        background: #fff;
-    }
-    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__docu::after {
-        content: "\E664";
-    }
-    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__open::after {
-        content: "\E699";
-    }
-    #uf-tree-demo-customized-icon .ant-tree-iconEle.ant-tree-icon__close::after {
-        content: "\E662";
-    }
-    #uf-tree-demo-customized-icon .ant-tree-switcher {
-        position: relative;
-        z-index: 1;
-        background: transparent;
-    }
-    #uf-tree-demo-customized-icon .ant-tree-switcher::after {
-        opacity: 0;
-    }
+    
 ```
 
 ### 数据格式说明
 ```json
-    {
+    [{
         name: '0-0',
         key: '0-0',
         isLeaf: false,
@@ -282,7 +271,7 @@ js:
                 children: []
             }
         ]
-    }
+    }]
 ```
 
 

@@ -46,7 +46,7 @@ const treeConfig = {
     search: true, // 树搜索功能，默认值为false
     loadData: {
         enable: true, // 开启异步请求功能，默认为false，只有为true时以下几项配置才有效
-        source: '示例展示异步请求', // 异步请求地址
+        source: 'docs/php/tree-data.php', // 异步请求地址
         params: ['key', 'type'] // 异步请求所需要的各种参数，这些参数要在数据中包含
         // 请求回来的数据格式必须是
         // {
@@ -86,8 +86,7 @@ const treeConfig2 = {
             // console.log('onSelect', selectedKeys);
         }
     },
-    showLine: true,
-    showIcon: true
+    showLine: true
 };
 const treeData = [
     {
@@ -109,7 +108,7 @@ const treeData = [
             {
                 name: '0-0-1',
                 key: '0-0-1',
-                isLeaf: false,
+                // isLeaf: false,
                 disableCheckbox: false,
                 disabled: false,
                 type: 'leval2',
@@ -120,7 +119,7 @@ const treeData = [
                         disableCheckbox: true, // 复选框不可选，只针对checkBox配置中checkable: true有效
                         disabled: false,
                         type: 'leval3',
-                        isLeaf: true
+                        // isLeaf: true
                     },
                     {
                         name: '0-0-1-1',
@@ -128,7 +127,7 @@ const treeData = [
                         disableCheckbox: false,
                         disabled: false,
                         type: 'leval3',
-                        isLeaf: true
+                        // isLeaf: true
                     }
                 ]
             }
@@ -146,7 +145,7 @@ const treeData = [
                 // 此节点会触发异步请求，因为满足isLeaf: false,children: []，效果可与树形图展示1中0-1-0节点展开进行对比
                 name: '0-1-0',
                 key: '0-1-0',
-                isLeaf: false,
+                // isLeaf: false,
                 type: 'leval2',
                 disableCheckbox: false,
                 disabled: false,
@@ -169,7 +168,7 @@ export default class TreeApp extends BaseDoc {
                 <h2>示例1</h2>
                     {<Tree ref="tree" config={treeConfig} data={treeData} />}
                 <h2>示例2</h2>
-                <div id="uf-tree-demo-customized-icon">
+                <div>
                     {<Tree ref="tree" config={treeConfig2} data={treeData} />}
                 </div>
             </div>

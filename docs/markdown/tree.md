@@ -22,11 +22,11 @@
 | style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |
 | expand | 节点展开功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | checkBox | 复选框功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| search | 搜索功能 | Boolean | false |  |
+| search | 搜索功能 | Object | - |  |
 | select | 点选功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | loadData | 异步加载功能，包含多个可配置参数，见详细说明 | Object | - |  |
 | widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| showLine | 是否展示连接线 | Boolean | false |  |
+| showLine | 是否展示连接线 | Boolean | false | . |
 
 ### # config.expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -46,6 +46,12 @@
 | checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |
 | defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |
 | onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |
+
+### # config.search
+| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
+| ---- | ---- | ----- | ----- | ----- |
+| enable | 是否启用搜索功能 | Boolean | false |  |
+| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |
 
 ### # config.select
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -166,7 +172,10 @@ js:
                 console.log('onSelect', e);
             }
         },
-        search: true,
+        search: {
+            enable: true,
+            onlyShowSearchResult: true
+        },
         loadData: {
             enable: true,
             source: '',

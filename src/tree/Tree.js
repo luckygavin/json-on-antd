@@ -7,30 +7,34 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
 import {Utils, Ajax} from 'uf/utils';
 import {Tree, Input} from 'antd';
-import Ueditor from 'uf/ueditor';
 import './style.scss';
 
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
 
-let uuid = 0;
-
 const expandedKeys = [];
-const getParentNode = (value, tree, isRoot = false) => {
+const getParentNode = (value, tree) => {
     let node = [];
     for (let v of tree) {
         let children;
-        if (v.children && v.children.length > 0) {
-            children = getParentNode(value, v.children, false);
+        if (v.children) {
+            children = getParentNode(value, v.children);
         }
-        if (isRoot || (children && children.length > 0) || v.name.indexOf(value) !== -1) {
+        if ((children && children.length > 0) || v.name.indexOf(value) !== -1) {
             // 根节点或者子节点包含搜索内容或者本节点包含搜索内容
             node.push(Object.assign({}, v, {children}));
         }
     }
     return node;
 };
-
+const getParentsKeys = (nodes, keyArray) => {
+    for (let v of nodes) {
+        if (v.children && v.children.length > 0) {
+            keyArray.push(v.key);
+            getParentsKeys(v.children, keyArray);
+        }
+    }
+};
 export default class OriginTree extends BaseComponent {
     constructor(props) {
         super(props);
@@ -52,7 +56,10 @@ export default class OriginTree extends BaseComponent {
                 defaultCheckedKeys: [],
                 onCheck: () => {}
             },
-            search: false,
+            search: {
+                enable: false,
+                onlyShowSearchResult: true
+            },
             select: {
                 defaultSelectedKeys: [],
                 selectedKeys: null,
@@ -81,9 +88,7 @@ export default class OriginTree extends BaseComponent {
         let propsData = Utils.clone(objProps.data);
         // 针对数据进行处理
         // 生成指针树，便于快速定位树节点
-        this.pointerTree = {};
         this.completePointerTree = {};
-        this.createPointerTree(propsData, this.pointerTree);
         this.createPointerTree(propsData, this.completePointerTree);
         // 生成层级树，包含每层可展开的父节点的key
         this.levalPointerTree = {};
@@ -119,12 +124,10 @@ export default class OriginTree extends BaseComponent {
             autoExpandParent: this.expand.autoExpandParent,
             checkedKeys: this.checkBox.checkedKeys, // 受控选择复选框
             selectedKeys: this.select.selectedKeys, // 受控选择
-            searchValue: '', // 搜索框中输入内容
-            searchTip: '' // 搜索结果提示
+            searchValue: '' // 搜索框中输入内容
         };
         if (!!nextProps) {
             this.setState(state);
-            // 重置Table后要手动触发componentDidMount函数中的逻辑来加载数据
             this.componentDidMount();
         } else {
             this.state = state;
@@ -138,11 +141,12 @@ export default class OriginTree extends BaseComponent {
     }
     componentWillReceiveProps(nextProps) {
         // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
-        if (!Utils.equals(this.props.config, nextProps.config)) {
-            this.initTable(nextProps);
+        if (!Utils.equals(this.props.config, nextProps.config)
+            || !Utils.equals(this.props.data, nextProps.data)) {
+            this.initTree(nextProps);
         }
     }
-    // 创建指针树，创建之后，this.pointerTree的每个元素都能指向树的一个节点
+    // 创建指针树，创建之后，pointerTree的每个元素都能指向树的一个节点
     createPointerTree(nodes, pointerTree) {
         for (let v of nodes) {
             if (!!v.key) {
@@ -161,6 +165,7 @@ export default class OriginTree extends BaseComponent {
             if (!levalPointerTree[type]) {
                 levalPointerTree[type] = [];
             }
+            // 对可展开的父节点进行key值存放
             if (v.children && v.children.length > 0) {
                 levalPointerTree[type].push(v.key);
                 this.createLevalTree(v.children, levalPointerTree);
@@ -217,19 +222,14 @@ export default class OriginTree extends BaseComponent {
     }
     // 通过搜索内容对策略树进行搜索
     handleSearch(value) {
-        let treeData = this.state.completeTree;
+        let newTree = this.state.completeTree;
         if (value.length < 1) {
             // 搜索框中无内容，数据展示情况分类讨论
-            // 需要将指针树更新为完整树的指针树
-            this.pointerTree = {};
-            this.createPointerTree(treeData, this.pointerTree);
-            this.levalPointerTree = {};
-            this.createLevalTree(treeData, this.levalPointerTree);
-
             if (this.expand['expandedKeys']) {
                 // 展开用户说明的指定节点
                 this.setState({
-                    expandedKeys: this.expand['expandedKeys']
+                    expandedKeys: this.expand['expandedKeys'],
+                    autoExpandParent: this.expand['autoExpandParent']
                 });
             } else if (this.expand['expandLeavals']) {
                 // 根据用户最初定义进行展示
@@ -238,42 +238,30 @@ export default class OriginTree extends BaseComponent {
                 // 全部展开
                 this.showToLeval(null);
             }
-            this.setState({
-                searchValue: value,
-                treeData: this.state.completeTree,
-                searchTip: ''
-            });
         }
         else {
-            // 根据搜索结果建立新树
-            let newTree = getParentNode(value, treeData);
-            if (newTree.length === 0) {
-                // 没有与搜索相匹配的节点
-                this.setState({
-                    searchValue: value,
-                    treeData: [],
-                    searchTip: '未找到可以匹配的结果'
-                });
-                return;
-            } else {
-                // 找到与搜索相匹配结果,则需要对展示树对应的指针树，和层级树进行更新
-                this.pointerTree = {};
-                this.createPointerTree(newTree, this.pointerTree);
-                this.levalPointerTree = {};
-                this.createLevalTree(newTree, this.levalPointerTree);
-
-                this.showToLeval(null);
-                this.setState({
-                    searchValue: value,
-                    treeData: newTree,
-                    searchTip: ''
-                });
+            // 有搜索内容时根据搜索结果渲染
+            newTree = getParentNode(value, this.state.completeTree);
+            // 对搜索结果的所有树节点进行展开
+            let newKeys = [];
+            getParentsKeys(newTree, newKeys);
+            // 搜索结果仍然展示整个树，只是对含有搜索内容的节点进行展开
+            if (!this.search.onlyShowSearchResult) {
+                newTree = this.state.completeTree;
             }
+            this.setState({
+                expandedKeys: newKeys
+            });
         }
+        this.setState({
+            treeData: newTree,
+            searchValue: value
+        });
     }
     // 异步对数据进行加载，满足一定要求再加载
     onLoadData(treeNode) {
-        let nodeData = treeNode.props.data;
+        let key = treeNode.props.data.key;
+        let nodeData = this.completePointerTree[key];
         return new Promise(resolve => {
             if ((!nodeData.children && nodeData.isLeaf === false)
                 || (nodeData.children.length < 1 && !nodeData.isLeaf)) {
@@ -301,16 +289,26 @@ export default class OriginTree extends BaseComponent {
     }
     // 向展示树和完整树中插入数据
     insertData(curKey, type, nodeData) {
-        let treeData = this.state.treeData;
         let completeTree = this.state.completeTree;
-        // 通过树指针向展示数据中插入一份数据
-        this.pointerTree[curKey].children = nodeData;
-        // 通过完整树指针向完整数据中插入一分数据
+        // 通过完整树指针向完整数据中插入一份数据
         this.completePointerTree[curKey].children = nodeData;
+        // 需要更新指针树的指针情况
+        this.createPointerTree(nodeData, this.completePointerTree);
+        // 需要更新层级树的情况
+        // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
+        if (!this.levalPointerTree[type]) {
+            this.levalPointerTree[type] = [];
+        }
+        this.levalPointerTree[type].push(curKey);
+        this.createLevalTree(nodeData, this.levalPointerTree);
         this.setState({
-            treeData: treeData,
             completeTree: completeTree
         });
+        // 用户在搜索时对数据进行了加载，且要求只展示与搜索相匹配的结果，则需要重新过滤树
+        // 如果用户要求搜索时仍然展示全量数据，则不需要重新过滤，直接展示用户新加载的节点即可
+        if (this.search.onlyShowSearchResult && this.state.searchValue.length > 0) {
+            this.handleSearch(this.state.searchValue);
+        }
     }
     // 树组建右边缘可扩展
     resizeWidth(ev) {
@@ -356,7 +354,7 @@ export default class OriginTree extends BaseComponent {
     }
     // 渲染树
     renderTreeNode(data) {
-        const searchValue = this.state.searchValue;
+        const {expandedKeys, searchValue} = this.state;
         return data.map(item => {
             let title = item.name;
             if (this.props.config.search) {
@@ -375,20 +373,23 @@ export default class OriginTree extends BaseComponent {
             if (item.isLeaf === false || !!item.children) {
                 return (
                     <TreeNode key={item.key} title={title} data={item} isLeaf={false}
-                        disableCheckbox={!!item.disableCheckbox && item.disableCheckbox} disabled={item.disabled}>
+                        disableCheckbox={!!item.disableCheckbox} disabled={!!item.disabled}>
                         {!!item.children && this.renderTreeNode(item.children)}
                     </TreeNode>
                 );
             }
-            return <TreeNode key={item.key} title={title} isLeaf={item.isLeaf || true} data={item}
-                disableCheckbox={!!item.disableCheckbox && item.disableCheckbox} disabled={item.disabled}/>;
+            else {
+                return <TreeNode key={item.key} title={title} isLeaf data={item}
+                    disableCheckbox={!!item.disableCheckbox} disabled={!!item.disabled}/>;
+            }
         });
     }
     render() {
-        const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, searchTip} = this.state;
+        const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, searchValue, treeData} = this.state;
+        let searchTip = treeData.length === 0 ? '未找到可以匹配的结果' : '';
         return (
             <div className="uf-tree" style={this.style} ref="tree">
-            {this.search
+            {this.search.enable
                 && <div className="uf-tree-search">
                     <Search
                     style={{width: '90%'}}
@@ -410,7 +411,7 @@ export default class OriginTree extends BaseComponent {
                 {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
                 {...(!!this.loadData['enable'] ? {loadData: this.onLoadData.bind(this)} : null)}
             >
-                {this.renderTreeNode(this.state.treeData)}
+                {this.renderTreeNode(treeData)}
             </Tree>
             {this.widthResize['resizeAble']
                 && <div className="uf-tree-ew-resize" onMouseDown={this.resizeWidth.bind(this)}></div>

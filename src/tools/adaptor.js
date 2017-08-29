@@ -42,9 +42,9 @@ export default {
         // 如果有name的话，把组件放到缓存池里
         if (item.name) {
             props['__cache'] = item.name;
+            // 把组件名称缓存起来，方便查找
+            Cache.set('component-names', Cache.get('component-names').concat(item.name));
         }
-        // 把组件名称缓存起来，方便查找
-        Cache.set('component-names', Cache.get('component-names').concat(item.name));
 
         return props;
     },

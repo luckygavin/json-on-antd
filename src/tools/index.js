@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Cache} from 'uf/utils';
 import Factory from './factory.js';
 
 export default {
@@ -7,5 +8,8 @@ export default {
         return ReactDOM.render(
             <Factory config={config} />,
             document.getElementById(selector));
+    },
+    get(name) {
+        return Cache.get('cache-' + name);
     }
 };

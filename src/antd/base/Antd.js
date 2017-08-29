@@ -16,7 +16,6 @@ export default class Antd extends BaseComponent {
             this._antdComponentWillReceiveProps(nextProps);
             originRecieiveProps && originRecieiveProps(nextProps, ...params);
         }
-
     }
 
     // 组件的 componentWillReceiveProps 函数默认处理逻辑

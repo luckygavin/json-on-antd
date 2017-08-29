@@ -4,11 +4,11 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Genaral from './base/Layout.js';
+import BaseLayout from './base/Layout.js';
 import * as Antd from 'antd';
 
 // Layout 组件
-export class Layout extends Genaral {
+export class Layout extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();
@@ -19,7 +19,7 @@ export class Layout extends Genaral {
 }
 
 // Layout 组件
-export class Header extends Genaral {
+export class Header extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();
@@ -30,7 +30,7 @@ export class Header extends Genaral {
 }
 
 // Layout 组件
-export class Footer extends Genaral {
+export class Footer extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();
@@ -41,7 +41,7 @@ export class Footer extends Genaral {
 }
 
 // Layout 组件
-export class Sider extends Genaral {
+export class Sider extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();
@@ -52,7 +52,7 @@ export class Sider extends Genaral {
 }
 
 // Layout 组件
-export class Content extends Genaral {
+export class Content extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();

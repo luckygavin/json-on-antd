@@ -15,11 +15,11 @@ export default class DataEntry extends Antd {
         super.__init.call(this);
         this._setProps();
 
-        // const originRecieiveProps = this.componentWillReceiveProps;
-        // this.componentWillReceiveProps = (nextProps, ...params) => {
-        //     originRecieiveProps && originRecieiveProps(nextProps, ...params);
-        //     this._setProps(nextProps);
-        // }
+        const originRecieiveProps = this.componentWillReceiveProps;
+        this.componentWillReceiveProps = (nextProps, ...params) => {
+            originRecieiveProps && originRecieiveProps(nextProps, ...params);
+            this._setProps(nextProps);
+        }
     }
 
     // 增加 onChange 时默认保存数据的函数

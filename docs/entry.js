@@ -21,25 +21,56 @@ const CommonList = [
     ]},
     {path: 'Global', name: 'Global', children: [
         {path: 'Api', name: '通用API', component: null},
-        {path: 'Template', name: '模板', component: null},
+        {path: 'Template', name: '模板', component: null}
     ]}
 ];
 
 // 组件文档列表
 const ComponentList = [
-    {path: 'General', name: 'General', children: [
-        {path: 'Button', name: 'Button 按钮', component: require('./app/antd-button').default},
-        {path: 'Icon', name: 'Icon 图标', component: require('./app/antd-icon').default},
-        {path: 'Grid', name: 'Grid 栅格', component: require('./app/antd-grid').default},
-        {path: 'Layout', name: 'Layout 布局', component: require('./app/antd-layout').default}
-    ]},
     {path: 'Component', name: 'Component', children: [
         {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: null},
         {path: 'Tabs', name: 'Tabs 标签页', component: null},
         {path: 'Modal', name: 'Modal 弹框', component: null},
-        {path: 'Message', name: 'Message 提示消息', component: null},
+        {path: 'Message', name: 'Message 提示消息', component: null}
+    ]},
+    {path: 'General', name: 'General', children: [
+        {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},
+        {path: 'Icon', name: 'Icon 图标', component: require('./app/antd/antd-icon').default},
+        {path: 'Grid', name: 'Grid 栅格', component: require('./app/antd/antd-grid').default},
+        {path: 'Layout', name: 'Layout 布局', component: require('./app/antd/antd-layout').default}
+    ]},
+    {path: 'DataEntry', name: 'Data Entry', children: [
+        // {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('./app/antd/antd-auto-complete').default},
+        {path: 'Cascader', name: 'Cascader 级联选择', component: require('./app/antd/antd-cascader').default},
+        {path: 'Checkbox', name: 'Checkbox 多选框', component: require('./app/antd/antd-checkbox').default},
+        {path: 'DatePicker', name: 'DatePicker 日期选择框', component: require('./app/antd/antd-date-picker').default},
+        {path: 'InputNumber', name: 'InputNumber 数字输入框', component: require('./app/antd/antd-input-number').default},
+        {path: 'Input', name: 'Input 输入框', component: require('./app/antd/antd-input').default},
+        {path: 'Radio', name: 'Radio 单选框', component: require('./app/antd/antd-radio').default},
+        {path: 'Select', name: 'Select 选择器', component: require('./app/antd/antd-select').default},
+        {path: 'Switch', name: 'Switch 开关', component: require('./app/antd/antd-switch').default},
+        {path: 'Upload', name: 'Upload 上传', component: require('./app/antd/antd-upload').default}
+    ]},
+    {path: 'DataDisplay', name: 'Data Display', children: [
+        {path: 'Card', name: 'Card 卡片', component: require('./app/antd/antd-card').default},
+        {path: 'Carousel', name: 'Carousel 走马灯', component: require('./app/antd/antd-carousel').default},
+        {path: 'Collapse', name: 'Collapse 折叠面板', component: require('./app/antd/antd-collapse').default},
+        {path: 'Popover', name: 'Popover 气泡卡片', component: require('./app/antd/antd-popover').default},
+        {path: 'Tooltip', name: 'Tooltip 文字提示', component: require('./app/antd/antd-tooltip').default},
+        {path: 'Tabs', name: 'Tabs 标签页', component: require('./app/antd/antd-tabs').default}
+    ]},
+    {path: 'Feedback', name: 'Feedback', children: [
+        {path: 'Alert', name: 'Alert 警告提示', component: require('./app/antd/antd-alert').default},
+        {path: 'Message', name: 'Message 全局提示', component: require('./app/antd/antd-message').default},
+        {path: 'Notification', name: 'Notification 通知提醒框', component: require('./app/antd/antd-notification').default},
+        {path: 'Progress', name: 'Progress 进度条', component: require('./app/antd/antd-progress').default},
+        {path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: require('./app/antd/antd-popconfirm').default},
+        {path: 'Spin', name: 'Spin 加载中', component: require('./app/antd/antd-spin').default}
+    ]},
+    {path: 'Other', name: 'Other', children: [
+        {path: 'BackTop', name: 'BackTop 回到顶部', component: require('./app/antd/antd-backtop').default}
     ]}
 ];
 

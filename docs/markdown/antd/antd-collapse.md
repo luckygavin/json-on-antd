@@ -12,15 +12,15 @@
 
 | 参数             | 说明                                         | 类型     | 默认值                          |
 |------------------|----------------------------------------------|----------|---------------------------------|
+| accordion        | 手风琴，每次只打开一个tab。默认打开第一个。 | boolean   | 无 |
 | activeKey        | 当前激活 tab 面板的 key| string[]&#124;string   | 默认无，accordion模式下默认第一个元素|
-| defaultActiveKey | 初始化选中面板的 key | string   | 无 |
-| onChange         | 切换面板的回调                               | Function | 无                              |
-
+| bordered        | 是否显示边框，提供一套没有边框的简洁样式。 |  boolean  | true |
+| onChange         | 切换面板的回调                               | Function | 无  |
 
 ### Collapse.Panel
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
-| key  | 对应 activeKey   | string                  | 无     |
+| name  | 对应 activeKey   | string                  | 无     |
 | header | 面板头内容 | string&#124;ReactNode | 无     |
 | disabled | 禁用后的面板展开与否将无法通过用户交互改变 | boolean | false |

@@ -31,8 +31,9 @@ module.exports = {
     'antd-alert.md': require('./antd/antd-alert.md'),
     'antd-message.md': require('./antd/antd-message.md'),
     'antd-notification.md': require('./antd/antd-notification.md'),
+    'antd-progress.md': require('./antd/antd-progress.md'),
     'antd-popconfirm.md': require('./antd/antd-popconfirm.md'),
-    'antd-spin.md': require('./antd/antd-spin.md'),
+    'antd-loading.md': require('./antd/antd-loading.md'),
 
     'antd-backtop.md': require('./antd/antd-backtop.md')
 };

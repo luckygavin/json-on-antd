@@ -1,5 +1,5 @@
 /**
- * @file DataEntry 类组件
+ * @file 数据录入 类组件
  * @author liuzechun
  */
 import React from 'react';
@@ -38,6 +38,7 @@ export class AutoComplete extends DataEntry {
         }
     }
     _onChange(...params) {
+        // 对change前后的数据进行对比
         let oldValue = this.__props.value;
         super._onChange.call(this, ...params);
         let newValue = this.__props.value;

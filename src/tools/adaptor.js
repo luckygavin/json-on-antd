@@ -46,6 +46,7 @@ export default {
             // 把组件名称缓存起来，方便查找
             Cache.set('component-names', Cache.get('component-names').concat(item.name));
         }
+        props['key'] = item.name || Utils.uniqueId();
 
         return props;
     },
@@ -53,7 +54,7 @@ export default {
     // 获取Uf上自己实现的组件配置，配置集合在config上
     ufConfig(oitem) {
         let {config, data, params} = oitem;
-        let item = Utils.filterObj(oitem, KeyWord.concat(['config', 'data', 'params']));
+        let item = Utils.filter(oitem, KeyWord.concat(['config', 'data', 'params']));
         if (!config) {
             config = {};            
         }
@@ -74,7 +75,7 @@ export default {
 
     // 获取Antd的组件配置，配置参数是分散的
     antdConfig(oitem) {
-        let item = Utils.filterObj(oitem, KeyWord);
+        let item = Utils.filter(oitem, KeyWord);
         // 由于 type 关键字把原antd的 type 覆盖掉了，配置里用 mode 字段代替
         // 实例化组件时，还要把 type 还原
         if (item.mode) {

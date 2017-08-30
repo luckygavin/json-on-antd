@@ -5,10 +5,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 
-export default class Spin extends BaseDoc {
+export default class Loading extends BaseDoc {
     constructor(props) {
         super(props);
-        this.doc = 'antd-spin.md';
+        this.doc = 'antd-loading.md';
         this.__init();
     }
 

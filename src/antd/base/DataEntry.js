@@ -12,26 +12,19 @@ export default class DataEntry extends Antd {
         super(props);
     }
 
-    __init() {
-        super.__init.call(this);
-        this._initProps();
-    }
-
-    _componentWillReceiveProps(nextProps, ...params) {
-        super._componentWillReceiveProps && super._componentWillReceiveProps.call(this, nextProps, ...params);
-        // 如果用户的传入的value变化了，则说明是用户想要改变value，把value的值重置为新的value值
-        // 这里考虑的是非react应用场景，只有用户的逻辑去改config这个value才会改
-        if (nextProps.value !== this.props.value) {
-            this._initProps(nextProps);
-        }
-    }
-
     // 覆盖部分props上面的属性
-    _initProps() {
-        const {value, defaultValue, onChange} = this.props;
-        // 把value和defaultValue merge一下，统一交由 value 控制
-        this.__props['value'] = value || defaultValue;
-        this.__props['onChange'] = this._onChange.bind(this, onChange)
+    // 覆盖了父类的_initProp函数，真正调用的时机见父类 Antd.js
+    _initProps(nextProps) {
+        super._initProps.call(this, nextProps);
+
+        // 首次初始化 或者用户的传入的value变化了，则说明是用户想要改变value，把value的值重置为新的value值
+        // 这里考虑的是非react应用场景，只有用户的逻辑去改config这个value才会改
+        if (!nextProps || nextProps.value !== this.props.value) {
+            const {value, defaultValue, onChange} = this.__props;
+            // 把value和defaultValue merge一下，统一交由 value 控制
+            this.__props['value'] = value || defaultValue;
+            this.__props['onChange'] = this._onChange.bind(this, onChange)
+        }
     }
 
     // 增加 onChange 时默认保存数据的函数
@@ -41,8 +34,8 @@ export default class DataEntry extends Antd {
         if (Utils.typeof(params[0], 'object') && params[0].target) {
             // 适合的组件：input、input-number、checkbox、radio
             this.__props.value = params[0].target.value;
-        } else if (Utils.typeof(params[0], ['string', 'number', 'boolean'])) {
-            // 适合的组件：select、switch
+        } else if (Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
+            // 适合的组件：select、switch、cascader
             this.__props.value = params[0];
         } else if (params[1]) {
             // 适合的组件：date-picker系列

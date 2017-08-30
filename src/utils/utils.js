@@ -115,14 +115,14 @@ const Utils = {
     },
     // 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()
     // level 参数为拷贝层数，不传则循环遍历所有属性
-    mergeObj(target, ...objs) {
+    merge(target, ...objs) {
         let result = target;
         for (let obj of objs) {
             // 首先判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
             if (this.typeof(result, ['array', 'object']) && this.typeof(obj, ['array', 'object'])) {
                 for (let i in obj) {
                     if (obj.hasOwnProperty(i)) {
-                        result[i] = this.mergeObj(result[i], obj[i]);
+                        result[i] = this.merge(result[i], obj[i]);
                     }
                 }
             } else {
@@ -132,7 +132,10 @@ const Utils = {
         return result;
     },
     // 从obj中过滤掉某些属性
-    filterObj(obj, arr) {
+    filter(obj, arr) {
+        if (this.typeof(arr, 'string')) {
+            arr = [arr];
+        }
         let newObj = {};
         for (let i in obj) {
             if (obj.hasOwnProperty(i) && arr.indexOf(i) === -1) {

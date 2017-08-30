@@ -10,7 +10,7 @@
 
 | 参数        | 说明                                                      | 类型        | 默认值 |
 |----------- |---------------------------------------------------------  | ---------- |-------|
-| type       | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error`   | string     | `info`，`banner` 模式下默认值为 `warning`    |
+| mode       | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error`   | string     | `info`，`banner` 模式下默认值为 `warning`    |
 | closable   | 默认不显示关闭按钮                                  | boolean   | 无    |
 | closeText  | 自定义关闭按钮                                     | string&#124;ReactNode   | 无    |
 | message    | 警告提示内容                                       | string&#124;ReactNode   | 无    |

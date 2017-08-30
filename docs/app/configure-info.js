@@ -233,7 +233,184 @@ const Config = {
                             placeholder: '自动补全框',
                             options: ['@gmail.com', '@163.com', '@qq.com']
                         },
-                        
+                        {
+                            type: 'card',
+                            name: 'my-card',
+                            style: {marginTop: 10},
+                            title: '卡片标题',
+                            // loading: true,
+                            content: '突破突破'
+                        },
+                        {
+                            type: 'carousel',
+                            // autoplay: true,
+                            content: [
+                                {type: 'card', content: '这是个轮播图', style: {width: '100%', background: '#ececec'}},
+                                {type: 'card', content: '这是个轮播图', style: {width: '100%', background: '#ececec'}}
+                            ]
+                        },
+                        {
+                            type: 'collapse',
+                            name: 'my-collapse',
+                            activeKey: ['panel'],
+                            style: {margin: '10px 0'},
+                            // accordion: true,
+                            onChange: v=>console.log(v),
+                            content: [
+                                // 注意，一定要是数组
+                                {
+                                    type: 'panel',
+                                    name: 'panel',
+                                    header: '年轻',
+                                    content: '年轻真好'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'tooltip',
+                            title: '要死要死',
+                            content: '鼠标移上来提示信息'
+                        },
+                        {
+                            type: 'popconfirm',
+                            title: '确定要删除吗？',
+                            content: {
+                                type: 'button',
+                                size: 'small',
+                                content: '点击删除'
+                            }
+                        },
+                        {
+                            type: 'popover',
+                            title: '这里是卡片标题',
+                            body: '这里是卡片内容',
+                            content: '要死要死'
+                        },
+                        {
+                            type: 'tabs',
+                            // mode: 'card',
+                            // tabPosition: 'left',
+                            content: [
+                                {
+                                    type: 'tab-pane',
+                                    tab: '标签 1',
+                                    content: 'test 1'
+                                },
+                                {
+                                    type: 'tab-pane',
+                                    tab: '标签 2',
+                                    content: 'test 2'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'alert',
+                            mode: 'info',
+                            closable: true,
+                            message: '这是一条提示'
+                        },
+                        // {
+                        //     type: 'modal-o'
+                        // },
+                        {
+                            type: 'progress',
+                            percent: 70,
+                            // mode: 'dashboard'
+                        },
+                        {
+                            type: 'loading',
+                            name: 'my-loading',
+                            loading: true,
+                            content: {
+                                type: 'card',
+                                content: '这是个Loading',
+                                style: {width: '100%', background: '#fff'}
+                            }
+                        },
+                        'Message: ',
+                        {
+                            type: 'button-group',
+                            content: [
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.message.success('Success'),
+                                    content: 'Success'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.message.error('Error'),
+                                    content: 'Error'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.message.info('Info'),
+                                    content: 'Info'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.message.warning('Warning'),
+                                    content: 'Warning'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.message.loading('Loading'),
+                                    content: 'Loading'
+                                }
+                            ]
+                        },
+                        // {
+                        //     type: 'br'
+                        // },
+                        {
+                            type: 'progress',
+                            style: {visibility: 'hidden'}
+                        },
+                        'Notification: ',
+                        {
+                            type: 'button-group',
+                            content: [
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.notification.success({
+                                        message: 'Notification Title',
+                                        description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+                                    }),
+                                    content: 'Success'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.notification.error({
+                                        message: 'Notification Title',
+                                        description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+                                    }),
+                                    content: 'Error'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.notification.info({
+                                        message: 'Notification Title',
+                                        description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+                                    }),
+                                    content: 'Info'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.notification.warning({
+                                        message: 'Notification Title',
+                                        description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
+                                    }),
+                                    content: 'Warning'
+                                },
+                                {
+                                    type: 'button',
+                                    onClick: v=>Uf.notification.destroy(),
+                                    content: 'Destroy'
+                                }
+                            ]
+                        },
+                        {
+                            type: 'back-top'
+                        },
                     ]
                 }
             ]

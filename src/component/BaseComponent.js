@@ -5,14 +5,16 @@
 import React, {Component} from 'react';
 import {Cache, Utils, Ajax} from 'uf/utils';
 
-// React的生命周期中的5个函数，为了防止函数被终的子组件覆盖，这5个函数会经过逻辑处理
+// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 // 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
 const PreventCoverageMap = [
     'componentWillMount',
     'componentDidMount',
+    'componentWillReceiveProps',
     'componentWillUpdate',
     'componentDidUpdate',
-    'componentWillUnmount'
+    'componentWillUnmount',
+    'shouldComponentUpdate'
 ];
 
 export default class BaseComponent extends Component {
@@ -47,7 +49,7 @@ export default class BaseComponent extends Component {
     //  针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法
     // 叫props但不一定要用来合并props，比如合并 config
     __mergeProps(...props) {
-        return Utils.mergeObj(...props);
+        return Utils.merge(...props);
     }
 
     // ajax的get方法

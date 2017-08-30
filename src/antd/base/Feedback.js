@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Antd from './Antd.js';
 
-export default class Genaral extends Antd {
+export default class Feedback extends Antd {
     constructor(props) {
         super(props);
     }

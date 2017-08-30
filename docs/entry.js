@@ -67,7 +67,7 @@ const ComponentList = [
         {path: 'Notification', name: 'Notification 通知提醒框', component: require('./app/antd/antd-notification').default},
         {path: 'Progress', name: 'Progress 进度条', component: require('./app/antd/antd-progress').default},
         {path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: require('./app/antd/antd-popconfirm').default},
-        {path: 'Spin', name: 'Spin 加载中', component: require('./app/antd/antd-spin').default}
+        {path: 'Loading', name: 'Loading 加载中', component: require('./app/antd/antd-loading').default}
     ]},
     {path: 'Other', name: 'Other', children: [
         {path: 'BackTop', name: 'BackTop 回到顶部', component: require('./app/antd/antd-backtop').default}

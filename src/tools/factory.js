@@ -40,7 +40,7 @@ class Factory extends Component {
             // 组件本身会从 this.props.children 上获取子组件，所以直接把子组件放props上即可，无需再写双标签
             props.children = this.generateElement(item.content);
         }
-        return <Item {...props} key={item.name || Utils.uniqueId()} />;
+        return <Item {...props} />;
     }
 
     // 拆分多个config，分离成组件的配置

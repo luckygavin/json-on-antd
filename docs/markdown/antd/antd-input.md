@@ -12,7 +12,7 @@
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|-----------------------------------------|------------|-------|--------|
-| type | 声明 input 类型，同原生 input 标签的 type 属性。另外提供 `type="textarea"`(该 type `2.12` 后废弃，请直接使用 `Input.TextArea`)。 | string  | `text` |
+| mode | 声明 input 类型，同原生 input 标签的 type 属性 | string  | `text` |
 | id | 输入框的 id | string | |
 | value | 输入框内容 | string | |
 | defaultValue | 输入框默认内容 | string | |

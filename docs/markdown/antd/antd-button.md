@@ -10,7 +10,7 @@
 
 属性 | 说明 | 类型 | 默认值
 -----|-----|-----|------
-type | 设置按钮类型，可选值为 `primary` `dashed` `danger` 或者不设 | string | -
+mode | 设置按钮类型，可选值为 `primary` `dashed` `danger` 或者不设 | string | -
 htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button`
 icon | 设置按钮的图标类型 | string | -
 shape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -

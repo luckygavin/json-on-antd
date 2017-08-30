@@ -19,7 +19,7 @@
 | defaultFileList | 默认已经上传的文件列表                           | object[] | 无  |
 | fileList   | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object[] | 无 |
 | action     | 必选参数, 上传的地址                                         | string      | 无    |
-| data       | 上传所需参数或返回上传参数的方法                   | object\|function(file) | 无    |
+| data       | 上传所需参数或返回上传参数的方法                   | object&#124;function(file) | 无    |
 | headers    | 设置上传的请求头部，IE10 以上有效                    | object      | 无    |
 | showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |
 | multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | boolean     | false |
@@ -63,14 +63,3 @@
 2. `fileList` 当前的文件列表。
 3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。
 
-## 显示下载链接
-
-请使用 fileList 属性设置数组项的 url 属性进行展示控制。
-
-## customRequest
-
-* https://github.com/react-component/upload#customrequest
-
-## IE note
-
-- [https://github.com/react-component/upload#ie89-note](https://github.com/react-component/upload#ie89-note)

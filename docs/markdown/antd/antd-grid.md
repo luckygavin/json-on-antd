@@ -34,10 +34,10 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 | offset   | 栅格左侧的间隔格数，间隔内不可以有栅格  | number | 0        |
 | push     | 栅格向右移动格数   | number | 0        |
 | pull     | 栅格向左移动格数   | number | 0        |
-| xs       | `<768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
-| sm       | `≥768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
-| md       | `≥992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
-| lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
-| xl       | `≥1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number\|object | - |
+| xs       | `<768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number&#124;object | - |
+| sm       | `≥768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number&#124;object | - |
+| md       | `≥992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number&#124;object | - |
+| lg       | `≥1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number&#124;object | - |
+| xl       | `≥1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number&#124;object | - |
 
 响应式栅格的断点遵循了 [BootStrap 3 的规则](https://getbootstrap.com/docs/3.3/css/#responsive-utilities-classes)（不包含链接里 `occasionally` 的部分)。

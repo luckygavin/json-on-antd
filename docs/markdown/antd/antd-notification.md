@@ -23,8 +23,8 @@ config 参数如下：
 
 | 参数          | 说明                                       | 类型                | 默认值      |
 | ----------- | ---------------------------------------- | ----------------- | -------- |
-| message     | 通知提醒标题，必选                                | string\|ReactNode | -        |
-| description | 通知提醒内容，必选                                | string\|ReactNode | -        |
+| message     | 通知提醒标题，必选                                | string&#124;ReactNode | -        |
+| description | 通知提醒内容，必选                                | string&#124;ReactNode | -        |
 | className   | 自定义 CSS class                            | string            | -        |
 | style       | 自定义内联样式                                  | Object            | -        |
 | btn         | 自定义关闭按钮                                  | ReactNode         | -        |

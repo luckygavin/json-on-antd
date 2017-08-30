@@ -19,7 +19,7 @@ export default {
         // 否则格式化成Uf格式
         // Todo: Uf的参数形式是否也可以改成和Antd一样？
         let props;
-        if ((new Item({})) instanceof Antd) {
+        if (Utils.isExtendsOf(Item, 'Antd')) {
             props = this.antdConfig(item);
         } else {
             props = this.ufConfig(item);
@@ -42,6 +42,7 @@ export default {
         // 如果有name的话，把组件放到缓存池里
         if (item.name) {
             props['__cache'] = item.name;
+            props['__ref'] = item.name;
             // 把组件名称缓存起来，方便查找
             Cache.set('component-names', Cache.get('component-names').concat(item.name));
         }

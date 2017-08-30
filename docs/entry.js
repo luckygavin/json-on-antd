@@ -42,7 +42,7 @@ const ComponentList = [
         {path: 'Layout', name: 'Layout 布局', component: require('./app/antd/antd-layout').default}
     ]},
     {path: 'DataEntry', name: 'Data Entry', children: [
-        // {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('./app/antd/antd-auto-complete').default},
+        {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('./app/antd/antd-auto-complete').default},
         {path: 'Cascader', name: 'Cascader 级联选择', component: require('./app/antd/antd-cascader').default},
         {path: 'Checkbox', name: 'Checkbox 多选框', component: require('./app/antd/antd-checkbox').default},
         {path: 'DatePicker', name: 'DatePicker 日期选择框', component: require('./app/antd/antd-date-picker').default},

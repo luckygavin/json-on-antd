@@ -19,7 +19,7 @@
 
 | 参数       | 说明           | 类型                       | 默认值       |
 |------------|----------------|--------------------------|--------------|
-| content    | 提示内容       | string\|ReactNode | -           |
+| content    | 提示内容       | string&#124;ReactNode | -           |
 | duration   | 自动关闭的延时，单位秒 | number               | 3          |
 | onClose   | 关闭时触发的回调函数 | Function          | -         |
 

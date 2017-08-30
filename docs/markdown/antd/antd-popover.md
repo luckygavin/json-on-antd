@@ -11,8 +11,8 @@
 
 | 参数      | 说明                                     | 类型          | 默认值 |
 |-----------|------------------------------------------|---------------|--------|
-| title     | 卡片标题                                 | string\|ReactNode | 无     |
-| content   | 卡片内容                            | string\|ReactNode | 无     |
+| title     | 卡片标题                                 | string&#124;ReactNode | 无     |
+| content   | 卡片内容                            | string&#124;ReactNode | 无     |
 
 更多属性请参考 Tooltip。
 

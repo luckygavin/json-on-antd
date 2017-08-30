@@ -12,12 +12,9 @@
 
 | 参数     | 说明           | 类型     | 默认值       |
 |----------|----------------|----------|--------------|
-| value    | 指定当前选中的条目 | string\|string[] |  -  |
-| defaultValue | 指定默认选中的条目 | string\|string[] |  -  |
-| mode | 设置 Select 的模式（2.9 之后支持） | 'multiple' \| 'tags' \| 'combobox' | - |
-| multiple   | 支持多选（2.9 之后废弃，请使用 `mode`） | boolean | false |
-| tags | 可以把随意输入的条目作为 tag，输入项不需要与下拉选项匹配（2.9 之后废弃，请使用 `mode`） | boolean | false |
-| combobox | 输入框自动提示模式（2.9 之后废弃，请使用 `mode`） | boolean | false |
+| value    | 指定当前选中的条目 | string&#124;string[] |  -  |
+| defaultValue | 指定默认选中的条目 | string&#124;string[] |  -  |
+| mode | 设置 Select 的模式 | 'multiple' &#124; 'tags' &#124; 'combobox' | - |
 | allowClear   | 支持清除 | boolean | false |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | -   |
@@ -29,6 +26,7 @@
 | placeholder | 选择框默认文字 | string | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
+| options | 选项数据列表，可以是一个字符串数据，或者对象数组 | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}> |  |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | size    | 选择框大小，可选 `large` `small`  | string      |      default      |
@@ -42,19 +40,3 @@
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。
-
-### Option
-
-| 参数     | 说明           | 类型     | 默认值       |
-|----------|----------------|----------|--------------|
-| disabled    | 是否禁用 | boolean   |  false  |
-| value | 默认根据此属性值进行筛选 | string | - |
-| key   | 和 value 含义一致。如果 React 需要你设置此项，此项值与 value 的值相同，然后可以省略 value 设置 | string |  |
-| title | 选中该 Option 后，Select 的 title | string | - |
-
-### OptGroup props
-
-| 参数     | 说明           | 类型     | 默认值          |
-|----------|----------------|----------|-----------------|
-| label    | 组名           | string\|React.Element | 无  |
-| key      |                |  string  | -               |

@@ -30,11 +30,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | string   | 'top'      |
 | onEdit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (targetKey, action): void | 无 |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean   | false    |
-| animated | 是否使用动画切换 Tabs，在 `tabPosition=top|bottom` 时有效 | boolean \| {inkBar:boolean, tabPane:boolean} | true, 当 type="card" 时为 false |
+| animated | 是否使用动画切换 Tabs，在 `tabPosition=top|bottom` 时有效 | boolean &#124; {inkBar:boolean, tabPane:boolean} | true, 当 type="card" 时为 false |
 
 ### Tabs.TabPane
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
 | key  | 对应 activeKey   | string                  | 无     |
-| tab  | 选项卡头显示文字 | string\|ReactNode | 无     |
+| tab  | 选项卡头显示文字 | string&#124;ReactNode | 无     |

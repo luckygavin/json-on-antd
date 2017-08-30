@@ -113,19 +113,21 @@ const Utils = {
         }
         return newData;
     },
-    // 把第二个对象merge到第一个对象上去，支持深层的merge，类似于echarts的setOption用法
+    // 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()
     // level 参数为拷贝层数，不传则循环遍历所有属性
-    mergeObj(obj1, obj2) {
-        // 首先判断两个数据的格式
-        let result = obj2 === undefined ? obj1 : obj2;
-        // 只有两个数据都为引用类型时，才需要循环合并
-        if (this.typeof(obj1, ['array', 'object']) && this.typeof(obj2, ['array', 'object'])) {
-            for (let i in obj2) {
-                if (obj2.hasOwnProperty(i)) {
-                    obj1[i] = this.mergeObj(obj1[i], obj2[i]);
+    mergeObj(target, ...objs) {
+        let result = target;
+        for (let obj of objs) {
+            // 首先判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
+            if (this.typeof(result, ['array', 'object']) && this.typeof(obj, ['array', 'object'])) {
+                for (let i in obj) {
+                    if (obj.hasOwnProperty(i)) {
+                        result[i] = this.mergeObj(result[i], obj[i]);
+                    }
                 }
+            } else {
+                result = obj === undefined ? target : obj
             }
-            result = obj1;
         }
         return result;
     },
@@ -203,7 +205,21 @@ const Utils = {
         } else {
             return false;
         }
+    },
+    // 判断组件是否继承自某个类（类名）
+    // 根据组件的引用（通过import获得）判断，支持深层查找
+    isExtendsOf(item, superName) {
+        // item.prototype.constructor.__proto__.__proto__.name
+        let Item = item.prototype && item.prototype.constructor;
+        while(Item) {
+            if (Item.name === superName) {
+                return true;
+            }
+            Item = Item.__proto__
+        };
+        return false;
     }
+    
 };
 
 export default Utils;

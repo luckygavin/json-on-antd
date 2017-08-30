@@ -43,7 +43,7 @@ const Config = {
                             console.log('click')
                             // let result = $my-input.getValue();
                             // console.log(result);
-                            console.log(Uf.get('my-input').getValue());
+                            console.log(Uf.get('my-form').getValues());
                         }
                     }]
                 }
@@ -126,8 +126,114 @@ const Config = {
                             onChange: v=>console.log(v)
                         },
                         {
-                            
-                        }
+                            type: 'checkbox-group',
+                            options: [
+                                {value: 'zhejiang', label: 'Zhejiang'},
+                                {value: 'jiangsu', label: 'Jiangsu'},
+                                {value: 'nanjing', label: 'Nanjing'}
+                            ],
+                            onChange: v=>console.log(v)
+                        },
+                        {
+                            type: 'date-picker',
+                            name: 'my-date-picker',
+                            format: 'YYYY-MM-DD HH:mm:ss'
+                        },
+                        {
+                            type: 'month-picker',
+                            name: 'my-month-picker'
+                        },
+                        {
+                            type: 'range-picker',
+                            name: 'my-range-picker',
+                            format: 'YYYY-MM-DD HH:mm'
+                        },
+                        {
+                            type: 'button',
+                            content: '吼啊',
+                            onClick() {
+                                // console.log(Uf.get('my-input').refs['my-input'].refs['input'].value);
+                                console.log(Uf.get('my-date-picker').getValue());
+                            }
+                        },
+                        {
+                            type: 'input',
+                            addonBefore: 'Http://',
+                            addonAfter: '.com',
+                            value: 'www.baidu.com'
+                        },
+                        {
+                            type: 'input-search',
+                            name: 'my-input-search',
+                            placeholder: '搜索框'
+                        },
+                        {
+                            type: 'textarea',
+                            name: 'my-textarea',
+                            placeholder: 'Textarea',
+                            rows: 1
+                        },
+                        {
+                            type: 'input-group',
+                            content: [
+                                {type: 'input', style: {width: '20%'}, placeholder: '组合'},
+                                {type: 'input', style: {width: '20%'}, placeholder: '输入框'}
+                            ]
+                        },
+                        {
+                            type: 'input-number',
+                            name: 'my-input-number',
+                            placeholder: '数字输入框',
+                            onChange: v=>console.log(v)
+                        },
+                        {
+                            type: 'radio',
+                            name: 'my-radio',
+                            options: [
+                                {label: 'Apple', value: 'Apple'},
+                                {label: 'Pear', value: 'Pear'},
+                                {label: 'Orange', value: 'Orange'}
+                            ]
+                        },
+                        {
+                            type: 'radio',
+                            name: 'my-radio-button',
+                            showAsButton: true,
+                            size: 'large',
+                            options: [
+                                {label: 'Apple', value: 'Apple'},
+                                {label: 'Pear', value: 'Pear', disabled: true},
+                                {label: 'Orange', value: 'Orange'}
+                            ]
+                        },
+                        {
+                            type: 'select',
+                            name: 'my-select',
+                            placeholder: '下拉框',
+                            showSearch: true,
+                            allowClear: true,
+                            options: [
+                                {label: 'Apple', value: 'Apple'},
+                                {label: 'Pear', value: 'Pear', disabled: true},
+                                {label: 'Orange', value: 'Orange'}
+                            ]
+                        },
+                        {
+                            type: 'switch',
+                            name: 'my-switch'
+                        },
+                        {
+                            type: 'time-picker',
+                            name: 'my-time-picker'
+                        },
+                        {
+                            type: 'auto-complete',
+                            name: 'my-auto-complete',
+                            allowClear: true,
+                            placeholder: '自动补全框',
+                            options: ['@gmail.com', '@163.com', '@qq.com']
+                        },
+                        
                     ]
                 }
             ]

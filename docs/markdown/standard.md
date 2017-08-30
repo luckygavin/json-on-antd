@@ -94,45 +94,48 @@ __init() {
     this._setProps();
 }
 ```
-需要在子类或者用户定义可能使用的函数上增加处理逻辑时，比如在`componentWillReceiveProps`加一些默认逻辑，用法如下：  
+
+如需要在React的生命周期的5个函数中增加处理逻辑，可以使用`_componentWillReceiveProps`这种名称之前加下划线的形式，组件调用__init函数时会自动把这几个函数的内容插入到对应的函数最前面执行：  
 ```javascript
-const originRecieiveProps = this.componentWillReceiveProps;
-this.componentWillReceiveProps = (nextProps, ...params) => {
-    this._antdComponentWillReceiveProps(nextProps);
-    originRecieiveProps && originRecieiveProps(nextProps, ...params);
+_componentWillReceiveProps = (nextProps, ...params) => {
+    super._componentWillReceiveProps && super._componentWillReceiveProps();
+    this._initPorps();
 }
 ```
-> 需要注意的有两点： 
-> * 主要保证吧全部参数传递给原函数  
+> 需要注意的是：为了防止覆盖父类的函数，需在函数里面加入 `super._xxx`来优先调用一下父类的函数  
+> 其次需要注意的有两点： 
+> * 主要保证把全部参数传递给原函数  
 > * 调用顺序为 父类函数 > 当前函数 > 子类函数
 
 ### 命名规范  
 直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  
-`property`、`function`  
+**`property`、`function`**  
 > 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()
 
 为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  
-`_property`、`_function`  
+**`_property`、`_function`**  
 > 私有属性和方法，均使用单下划线开头  
 
-`__property`、`__function`  
+**`__property`、`__function`**  
 > 供子组件调用的函数，使用双下划线开头，且命名要尽量简短易懂。例如：`this.__init()`
 
 ### 功能列表
 
-`__init()`  
+**`__init()`**  
 初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能
 
-`__setCache(key, data)`  
+**`__setCache(key, data)`**  
 > 为了方便使用缓存，直接把调用缓存的接口封装到了Base中，可以通过此接口存储缓存
 
-`__getCache(key)`  
+**`__getCache(key)`**  
 > 调用缓存数据
 
-`__mergeProps(obj1, obj2)`
-> 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在
+**`__mergeProps(...objs)`**  
+> 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
+> 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  
+>   >  tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
 
-`__getData(url, params, success, error, onchange)`
+**`__getData(url, params, success, error, onchange)`**
 > 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
 > `success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
 > `error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
@@ -142,7 +145,7 @@ this.componentWillReceiveProps = (nextProps, ...params) => {
 >   >  开始执行请求时执行 onchange 参数为 (true, 'sending')  
 >   >  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
 
-`__postData(url, params, success, error, onchange)`
+**`__postData(url, params, success, error, onchange)`**
 > 使用 `post` 的方式向后端发送请求，参数同上。
 
 

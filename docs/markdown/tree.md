@@ -13,8 +13,8 @@
 ### 基本参数
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
-| config | 表格的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
-| data | 外部传入数据，需要按照一定的格式书写 | Object |  | . |
+| config | 树形控件的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
+| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |
 
 ### # config
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -116,7 +116,7 @@ error:
     const config = {
         // 见下方树形图展示2配置
     };
-    const Data = [
+    const data = [
         // 见下方数据格式说明
     ];
     export default class TreeDemo extends React.Component {

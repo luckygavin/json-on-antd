@@ -16,37 +16,38 @@ export default class ExportApp extends BaseDoc {
     }
     render() {
         // 以下均为模拟数据，在实际应用中可根据情况获取
+        let commonHeaders = [
+            {
+                key: 'id',
+                title: 'ID'
+            },
+            {
+                key: 'hostname',
+                title: '主机名'
+            },
+            {
+                key: 'sn',
+                title: 'SN'
+            },
+            {
+                key: 'status',
+                title: '状态'
+            },
+            {
+                key: 'model_id',
+                title: '型号'
+            },
+            {
+                key: 'rack',
+                title: '机架位'
+            }
+        ];
         let config1 = {
             // 导出数据接口的url（一般可直接使用分页接口）
             source: 'docs/php/download.php',
             // 表格中要显示的字段，以及字段对应的表头
             // headers: {'id': 'ID', 'hostname': '主机名', 'sn': 'SN', 'status': '状态', 'model_id': '型号', 'rack': '机架位'},
-            headers: [
-                {
-                    key: 'id',
-                    title: 'ID'
-                },
-                {
-                    key: 'hostname',
-                    title: '主机名'
-                },
-                {
-                    key: 'sn',
-                    title: 'SN'
-                },
-                {
-                    key: 'status',
-                    title: '状态'
-                },
-                {
-                    key: 'model_id',
-                    title: '型号'
-                },
-                {
-                    key: 'rack',
-                    title: '机架位'
-                }
-            ],
+            headers: commonHeaders,
             params: {
                 isExport: true,
                 container_id: 484,
@@ -58,32 +59,7 @@ export default class ExportApp extends BaseDoc {
         };
         let config2 = {
             source: 'docs/php/download.php',
-            headers: [
-                {
-                    key: 'id',
-                    title: 'ID'
-                },
-                {
-                    key: 'hostname',
-                    title: '主机名'
-                },
-                {
-                    key: 'sn',
-                    title: 'SN'
-                },
-                {
-                    key: 'status',
-                    title: '状态'
-                },
-                {
-                    key: 'model_id',
-                    title: '型号'
-                },
-                {
-                    key: 'rack',
-                    title: '机架位'
-                }
-            ],
+            headers: commonHeaders,
             params: {
                 isExport: true,
                 container_id: 484,
@@ -99,32 +75,7 @@ export default class ExportApp extends BaseDoc {
             }
         };
         let config3 = {
-            headers: [
-                {
-                    key: 'id',
-                    title: 'id'
-                },
-                {
-                    key: 'hostname',
-                    title: '主机名'
-                },
-                {
-                    key: 'sn',
-                    title: 'SN'
-                },
-                {
-                    key: 'status',
-                    title: '状态'
-                },
-                {
-                    key: 'model_id',
-                    title: '型号'
-                },
-                {
-                    key: 'rack',
-                    title: '机架位'
-                }
-            ]
+            headers: commonHeaders
         };
         let data3 = [{'id': '1924', 'hostname': 'tc-click-log1-off.tc', 'sn': '686N32X',
             'status': '14', 'model_id': '15', 'rack': 'TC706-03-11-4机架位',

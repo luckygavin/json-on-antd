@@ -121,32 +121,33 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ### 功能列表
 
-**`__init()`**  
-初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能
+##### **`__init()`**  
+初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能  
+> 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前
 
-**`__setCache(key, data)`**  
-> 为了方便使用缓存，直接把调用缓存的接口封装到了Base中，可以通过此接口存储缓存
+##### **`__setCache(key, data)`**  
+为了方便使用缓存，直接把调用缓存的接口封装到了Base中，可以通过此接口存储缓存
 
-**`__getCache(key)`**  
-> 调用缓存数据
+##### **`__getCache(key)`**  
+调用缓存数据
 
-**`__mergeProps(...objs)`**  
-> 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
-> 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  
->   >  tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
+##### **`__mergeProps(...objs)`**  
+合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
+以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  
+>  tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
 
-**`__getData(url, params, success, error, onchange)`**
-> 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
-> `success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
-> `error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
->   >  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
+##### **`__getData(url, params, success, error, onchange)`**
+使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
+`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
+`error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+>  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
 
-> `onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
->   >  开始执行请求时执行 onchange 参数为 (true, 'sending')  
->   >  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
+`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
+>  开始执行请求时执行 onchange 参数为 (true, 'sending')  
+>  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
 
-**`__postData(url, params, success, error, onchange)`**
-> 使用 `post` 的方式向后端发送请求，参数同上。
+##### **`__postData(url, params, success, error, onchange)`**
+使用 `post` 的方式向后端发送请求，参数同上。
 
 
 ---

@@ -10,24 +10,11 @@ import {Utils} from 'uf/utils';
 export default class DataEntry extends Antd {
     constructor(props) {
         super(props);
-    }
-
-    // 覆盖部分props上面的属性
-    // 覆盖了父类的_initProp函数，真正调用的时机见父类 Antd.js
-    _initProps(nextProps) {
-        super._initProps.call(this, nextProps);
-
-        // 首次初始化 或者用户的传入的value变化了，则说明是用户想要改变value，把value的值重置为新的value值
-        // 这里考虑的是非react应用场景，只有用户的逻辑去改config这个value才会改
-        if (!nextProps || nextProps.value !== this.props.value) {
-            const {value, defaultValue, onChange} = this.__props;
-            // 把value和defaultValue merge一下，统一交由 value 控制
-            this.__props['value'] = value || defaultValue;
-            this.__props['onChange'] = this._onChange.bind(this, onChange)
-        }
+        this.__controlled = 'value';
     }
 
     // 增加 onChange 时默认保存数据的函数
+    // 父类的 onChange 函数不能满足需求，直接覆盖了
     _onChange(callback, ...params) {
         callback && callback(...params);
         // console.log(params[1]);

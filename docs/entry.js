@@ -31,9 +31,7 @@ const ComponentList = [
         {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: null},
-        {path: 'Tabs', name: 'Tabs 标签页', component: null},
-        {path: 'Modal', name: 'Modal 弹框', component: null},
-        {path: 'Message', name: 'Message 提示消息', component: null}
+        {path: 'Modal', name: 'Modal 弹框', component: null}
     ]},
     {path: 'General', name: 'General', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},
@@ -60,6 +58,13 @@ const ComponentList = [
         {path: 'Popover', name: 'Popover 气泡卡片', component: require('./app/antd/antd-popover').default},
         {path: 'Tooltip', name: 'Tooltip 文字提示', component: require('./app/antd/antd-tooltip').default},
         {path: 'Tabs', name: 'Tabs 标签页', component: require('./app/antd/antd-tabs').default}
+    ]},
+    {path: 'Navigation', name: 'Navigation', children: [
+        // {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
+        // {path: 'Dropdown', name: 'Dropdown 下拉菜单', component: require('./app/antd/antd-dropdown').default},
+        {path: 'Menu', name: 'Menu 导航菜单', component: require('./app/antd/antd-menu').default},
+        {path: 'Pagination', name: 'Pagination 分页', component: require('./app/antd/antd-pagination').default},
+        {path: 'Steps', name: 'Steps 步骤条', component: require('./app/antd/antd-steps').default}
     ]},
     {path: 'Feedback', name: 'Feedback', children: [
         {path: 'Alert', name: 'Alert 警告提示', component: require('./app/antd/antd-alert').default},

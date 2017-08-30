@@ -102,7 +102,7 @@ export default class BaseComponent extends Component {
         return key;
     }
 
-    // 把父组件定义的 需在React的生命周期中的5个函数中增加的处理逻辑 注入到对应的5个函数中
+    // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
     _injectFunction() {
         for (let v of PreventCoverageMap) {
             // 如果父组件中有等待注入的函数

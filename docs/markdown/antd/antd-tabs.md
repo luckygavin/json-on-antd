@@ -26,11 +26,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | mode | 页签的基本样式，可选 `line`、`card`       类型   | string   | 'line'      |
 | size | 大小，提供 `default` 和 `small` 两种大小，仅当 `mode="line"` 时生效。  | string   | 'default'      |
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | string   | 'top'      |
-| animated | 是否使用动画切换 Tabs，在 `tabPosition=top|bottom` 时有效 | boolean &#124; {inkBar:boolean, tabPane:boolean} | true, 当 mode="card" 时为 false |
+| animated | 是否使用动画切换 Tabs，在 `tabPosition=top\bottom` 时有效 | boolean &#124; {inkBar:boolean, tabPane:boolean} | true, 当 mode="card" 时为 false |
 
 ### TabPane
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
-| name  | 对应 activeKey   | string                  | 无     |
+| key  | 对应 activeKey   | string                  | 无 (如果 key 不存在，则取 name 值)    |
 | tab  | 选项卡头显示文字 | string&#124;ReactNode | 无     |

@@ -5,6 +5,7 @@
 import * as DataEntry from './dataentry.js';
 import * as DataDisplay from './datadisplay.js';
 import * as Genaral from './genaral.js';
+import * as Navigation from './navigation.js';
 import * as Feedback from './feedback.js';
 
-export default Object.assign({}, DataEntry, DataDisplay, Genaral, Feedback);
+export default Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);

@@ -46,7 +46,10 @@ export default {
             // 把组件名称缓存起来，方便查找
             Cache.set('component-names', Cache.get('component-names').concat(item.name));
         }
-        props['key'] = item.name || Utils.uniqueId();
+        // 每个组件都要有key
+        if (props['key'] === undefined) {
+            props['key'] = item.name || Utils.uniqueId();
+        }
 
         return props;
     },

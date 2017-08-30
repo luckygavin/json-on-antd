@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Antd from './Antd.js';
 
-class Navigation extends Antd {
+export default class Navigation extends Antd {
     constructor(props) {
         super(props);
     }

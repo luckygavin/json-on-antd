@@ -8,18 +8,19 @@ import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
 
 // Affix 图钉 组件
-export class Affix extends Navigation {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Affix {...this.__props}/>
-    }
-}
+// export class Affix extends Navigation {
+//     constructor(props) {
+//         super(props);
+//         this.__init();
+//     }
+//     render() {
+//         return <Antd.Affix {...this.__props}/>
+//     }
+// }
 
 
-// Breadcrumb面包屑 组件
+/************ Breadcrumb 面包屑 *************************************************************************** */
+
 export class Breadcrumb extends Navigation {
     constructor(props) {
         super(props);
@@ -41,7 +42,8 @@ export class BreadcrumbItem extends Navigation {
 }
 
 
-// Dropdown下拉菜单 组件
+/************ Dropdown 下拉菜单 *************************************************************************** */
+
 export class Dropdown extends Navigation {
     constructor(props) {
         super(props);
@@ -62,7 +64,8 @@ export class DropdownButton extends Navigation {
 }
 
 
-// Menu导航菜单 组件
+/************ Menu 导航菜单 *************************************************************************** */
+
 export class Menu extends Navigation {
     constructor(props) {
         super(props);
@@ -104,10 +107,13 @@ export class SubMenu extends Navigation {
 }
 
 
-// Pagination分页 组件
+/************ Pagination 分页 *************************************************************************** */
+
 export class Pagination extends Navigation {
     constructor(props) {
         super(props);
+        // current为受控属性，父类中统一实现属性的绑定和变更（BaseComponent）
+        this.__controlled = 'current';
         this.__init();
     }
     render() {
@@ -116,7 +122,8 @@ export class Pagination extends Navigation {
 }
 
 
-// Steps步骤条
+/************ Steps 步骤条 *************************************************************************** */
+
 export class Steps extends Navigation {
     constructor(props) {
         super(props);
@@ -126,7 +133,7 @@ export class Steps extends Navigation {
         return <Antd.Steps {...this.__props}/>
     }
 }
-// Step步骤条
+// Step 单条步骤
 export class Step extends Navigation {
     constructor(props) {
         super(props);

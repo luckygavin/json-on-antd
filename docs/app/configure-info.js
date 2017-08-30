@@ -11,41 +11,46 @@ const Config = {
     content: [
         {
             type: 'sider',
-            style: {padding: '20px'},
+            style: {background: '#333744'},
             content: [
                 {
-                    type: 'input',
-                    name: 'my-input',
-                },
-                {
-                    type: 'button-group',
-                    content: [{
-                        type: 'button',
-                        icon: 'cloud-download'
-                    }, {
-                        type: 'button',
-                        name: 'my-button',
-
-                        // target: 'my-input:getValue',
-                        // join: 'onClick',
-                        // connect: '',
-
-                        mode: 'primary',
-                        icon: 'cloud',
-                        content: [
-                            {
-                                type: 'icon',
-                                mode: 'cloud'
-                            },
-                            '确定'
-                        ],
-                        onClick: ()=>{
-                            console.log('click')
-                            // let result = $my-input.getValue();
-                            // console.log(result);
-                            console.log(Uf.get('my-form').getValues());
+                    type: 'menu',
+                    mode: 'inline',
+                    theme: 'dark',
+                    content: [
+                        {
+                            type: 'menu-item',
+                            key: '1',
+                            content: 'Option 1'
+                        },
+                        {
+                            type: 'menu-item',
+                            key: '2',
+                            content: 'Option 2'
+                        },
+                        {
+                            type: 'menu-item',
+                            key: '3',
+                            content: 'Option 3'
+                        },
+                        {
+                            type: 'sub-menu',
+                            key: 'sub1',
+                            title: 'Navigation One',
+                            content: [
+                                {
+                                    type: 'menu-item',
+                                    key: '5',
+                                    content: 'Option 5'
+                                },
+                                {
+                                    type: 'menu-item',
+                                    key: '6',
+                                    content: 'Option 6'
+                                }
+                            ]
                         }
-                    }]
+                    ]
                 }
             ]
         },
@@ -176,8 +181,18 @@ const Config = {
                         {
                             type: 'input-group',
                             content: [
-                                {type: 'input', style: {width: '20%'}, placeholder: '组合'},
-                                {type: 'input', style: {width: '20%'}, placeholder: '输入框'}
+                                {
+                                    type: 'input',
+                                    bind: 'my-textarea',
+                                    style: {width: '20%'},
+                                    placeholder: '组合'
+                                },
+                                {
+                                    type: 'input',
+                                    bind: 'my-textarea',
+                                    style: {width: '20%'},
+                                    placeholder: '输入框'
+                                }
                             ]
                         },
                         {
@@ -314,6 +329,7 @@ const Config = {
                         // },
                         {
                             type: 'progress',
+                            name: 'my-progress',
                             percent: 70,
                             // mode: 'dashboard'
                         },
@@ -358,9 +374,6 @@ const Config = {
                                 }
                             ]
                         },
-                        // {
-                        //     type: 'br'
-                        // },
                         {
                             type: 'progress',
                             style: {visibility: 'hidden'}
@@ -407,6 +420,46 @@ const Config = {
                                     content: 'Destroy'
                                 }
                             ]
+                        },
+                        {
+                            type: 'pagination',
+                            style: {margin: '10px 0'},
+                            total: 50,
+                            current: 2,
+                            onChange: v=>{
+                                Uf.get('my-progress').setOption({
+                                    percent: v * 20
+                                });
+                                Uf.get('my-steps').setOption({
+                                    current: v - 1
+                                });
+                            }
+                        },
+                        {
+                            type: 'card',
+                            content: {
+                                type: 'steps',
+                                name: 'my-steps',
+                                current: 1,
+                                status: 'error',
+                                content: [
+                                    {
+                                        type: 'step',
+                                        title: 'Finished',
+                                        description: 'This is a description'
+                                    },
+                                    {
+                                        type: 'step',
+                                        title: 'In Process',
+                                        description: 'This is a description'
+                                    },
+                                    {
+                                        type: 'step',
+                                        title: 'Waiting',
+                                        description: 'This is a description'
+                                    }
+                                ]
+                            }
                         },
                         {
                             type: 'back-top'

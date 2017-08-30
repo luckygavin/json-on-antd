@@ -40,7 +40,7 @@ export class Progress extends Feedback {
 }
 
 
-/************* Progress 警告提示 ************************************************************************** */
+/************* Loading 加载中 ************************************************************************** */
 
 export class Loading extends Feedback {
     constructor(props) {

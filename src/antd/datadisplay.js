@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Utils} from 'uf/utils';
 import DataDisplay from './base/DataDisplay.js';
 import * as Antd from 'antd';
 
@@ -39,24 +40,9 @@ export class Carousel extends DataDisplay {
 export class Collapse extends DataDisplay {
     constructor(props) {
         super(props);
+        // 受控属性
+        this.__controlled = 'activeKey';
         this.__init();
-    }
-    // 覆盖部分props上面的属性
-    // 覆盖了父类的_initProp函数，真正调用的时机见父类
-    _initProps(nextProps) {
-        super._initProps.call(this, nextProps);
-        if (!nextProps || nextProps.value !== this.props.value) {
-            const {activeKey, defaultActiveKey, onChange} = this.props;
-            // 把 activeKey 和 defaultActiveKey merge一下，统一交由 activeKey 控制
-            this.__props['activeKey'] = activeKey || defaultActiveKey;
-            this.__props['onChange'] = this._onChange.bind(this, onChange)
-        }
-    }
-    // 保存activeKey
-    _onChange(callback, ...params) {
-        callback && callback(...params);
-        this.__props.activeKey = params[0];
-        this.forceUpdate();
     }
     render() {
         return <Antd.Collapse {...this.__props}/>
@@ -112,6 +98,8 @@ export class Popconfirm extends DataDisplay {
 export class Tabs extends DataDisplay {
     constructor(props) {
         super(props);
+        // 受控属性
+        this.__controlled = 'activeKey';
         this.__init();
     }
     render() {

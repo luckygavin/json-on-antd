@@ -28,6 +28,12 @@ module.exports = {
     'antd-tooltip.md': require('./antd/antd-tooltip.md'),
     'antd-tabs.md': require('./antd/antd-tabs.md'),
 
+    'antd-breadcrumb.md': require('./antd/antd-breadcrumb.md'),
+    'antd-dropdown.md': require('./antd/antd-dropdown.md'),
+    'antd-menu.md': require('./antd/antd-menu.md'),
+    'antd-pagination.md': require('./antd/antd-pagination.md'),
+    'antd-steps.md': require('./antd/antd-steps.md'),
+
     'antd-alert.md': require('./antd/antd-alert.md'),
     'antd-message.md': require('./antd/antd-message.md'),
     'antd-notification.md': require('./antd/antd-notification.md'),

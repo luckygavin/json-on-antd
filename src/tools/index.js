@@ -6,6 +6,11 @@ import Factory from './factory.js';
 
 export default {
     init(config, selector) {
+        let result = <Factory config={config} />;
+        // 如果没有指定目标容器的id，则直接返回生成的组件
+        if (!selector) {
+            return result;
+        }
         return ReactDOM.render(
             <Factory config={config} />,
             document.getElementById(selector));

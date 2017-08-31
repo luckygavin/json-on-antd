@@ -61,7 +61,7 @@
 
 > `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
 
-### Layout.Sider
+### Sider
 
 侧边栏。
 
@@ -78,4 +78,10 @@
 | breakpoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
+
+### Header
+
+### Content
+
+### Footer
 

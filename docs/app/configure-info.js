@@ -207,7 +207,11 @@ const Config = {
                         {
                             type: 'input',
                             addonBefore: 'Http://',
-                            addonAfter: '.com',
+                            // addonAfter: '.com',
+                            addonAfter: {
+                                type: 'icon',
+                                mode: 'search'   
+                            },
                             value: 'www.baidu.com'
                         },
                         {

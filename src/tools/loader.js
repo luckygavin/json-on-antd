@@ -4,6 +4,7 @@
  * @author liuzechun@baidu.com
  */
 import React from 'react';
+import {Utils} from 'uf/utils';
 import * as UF from 'uf';
 
 export default {
@@ -27,7 +28,7 @@ export default {
         //     result = result[v];
         // }
         // 目前用不到.这种层级关系了，全部组件平级的，包括像 Antd.Button 和 Antd.Button.Group 这种
-        let name = this.toPascal(type);
+        let name = Utils.toPascal(type);
         let result = this.component[name];
         if (!result) {
             // 检查是否为React原生元素
@@ -38,11 +39,6 @@ export default {
             }
         }
         return result;
-    },
-
-    // 把中横线命名的字符串转换成帕斯卡命名形式
-    toPascal(str) {
-        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     },
 
     // 打印错误信息

@@ -209,6 +209,10 @@ const Utils = {
             return false;
         }
     },
+    // 把中横线命名的字符串转换成帕斯卡命名形式
+    toPascal(str) {
+        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
+    },
     // 判断组件是否继承自某个类（类名）
     // 根据组件的引用（通过import获得）判断，支持深层查找
     isExtendsOf(item, superName) {

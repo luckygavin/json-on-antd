@@ -4,7 +4,7 @@ module.exports = {
     'standard.md': require('./standard.md'),
     'third-party.md': require('./third-party.md'),
     'tree.md': require('./tree.md'),
-    // 'export.md': require('./export.md'),
+    'export.md': require('./export.md'),
     'configure-info.md': require('./configure-info.md'),
 
     'antd-button.md': require('./antd/antd-button.md'),

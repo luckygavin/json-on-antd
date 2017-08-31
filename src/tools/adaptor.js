@@ -21,23 +21,11 @@ export default {
         let props;
         if (Utils.isExtendsOf(Item, 'Antd')) {
             props = this.antdConfig(item);
-        } else {
+        } else if (Utils.isExtendsOf(Item, 'BaseComponent')) {
             props = this.ufConfig(item);
+        } else {
+            props = this.commonConfig(item);
         }
-
-        // for (let i in props) {
-        //     if (item[i] instanceof Function) {
-        //         let old = props[i];
-        //         props[i] = (...params)=>{
-        //             let obj = {};
-        //             for (let v of Cache.get('component-names')) {
-        //                 // eval('var $' + v + ' = Cache.get(' + v + ');');
-        //                 obj['$' + v] = Cache.get(v);
-        //             }
-        //             old.call(obj, ...params);
-        //         }
-        //     }
-        // }
 
         // 如果有name的话，把组件放到缓存池里
         if (item.name) {
@@ -78,6 +66,17 @@ export default {
 
     // 获取Antd的组件配置，配置参数是分散的
     antdConfig(oitem) {
+        let item = Utils.filter(oitem, KeyWord);
+        // 由于 type 关键字把原antd的 type 覆盖掉了，配置里用 mode 字段代替
+        // 实例化组件时，还要把 type 还原
+        if (item.mode) {
+            item.type = item.mode;
+        }
+        return item;
+    },
+
+    // 获取普通元素的配置，配置参数是分散的
+    commonConfig(oitem) {
         let item = Utils.filter(oitem, KeyWord);
         // 由于 type 关键字把原antd的 type 覆盖掉了，配置里用 mode 字段代替
         // 实例化组件时，还要把 type 还原

@@ -36,7 +36,7 @@ export default class TrRow extends React.Component {
         e = e || window.event;
         e.stopPropagation();
         e.preventDefault();
-        this.props.onClick && this.props.onClick();
+        // this.props.onClick && this.props.onClick();
         return;
     }
 

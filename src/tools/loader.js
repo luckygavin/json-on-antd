@@ -3,6 +3,7 @@
  *      根据配置的 type，转换成对应组件并返回
  * @author liuzechun@baidu.com
  */
+import React from 'react';
 import * as UF from 'uf';
 
 export default {
@@ -17,16 +18,24 @@ export default {
     get(type) {
         // 包括 button.group、input-number
         // type 可能代表包括组件的子组件的复杂组件类型，如：button.group -> Antd.Button.Group
-        let name = type.split('.').map(v=>this.toPascal(v));
-        let result = this.component;
-        for (let v of name) {
-            if (!result) {
+        // let name = type.split('.').map(v=>this.toPascal(v));
+        // let result = this.component;
+        // for (let v of name) {
+        //     if (!result) {
+        //         this.error(type);
+        //     }
+        //     result = result[v];
+        // }
+        // 目前用不到.这种层级关系了，全部组件平级的，包括像 Antd.Button 和 Antd.Button.Group 这种
+        let name = this.toPascal(type);
+        let result = this.component[name];
+        if (!result) {
+            // 检查是否为React原生元素
+            if (React.DOM.hasOwnProperty(type)) {
+                result = name;
+            } else {
                 this.error(type);
             }
-            result = result[v];
-        }
-        if (!result) {
-            this.error(type);
         }
         return result;
     },

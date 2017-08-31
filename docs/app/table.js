@@ -3,7 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import Table from 'uf/table';
+import Table from 'uf/table';
 import BaseDoc from 'docs/app/BaseDoc.js';
 
 const tableCfg = {
@@ -145,7 +145,7 @@ const tableCfg = {
             }
         }
     },
-    content: [
+    data: [
         {
             id: 1,
             html: '<a href="http://www.baidu.com" target="_blank">百度<a/>',
@@ -209,7 +209,7 @@ export default class TableApp extends BaseDoc {
     }
     render() {
         return <div>
-            {/* <Table ref="table" {...tableCfg}/> */}
+             <Table ref="table" {...tableCfg}/> 
         </div>;
     }
 }

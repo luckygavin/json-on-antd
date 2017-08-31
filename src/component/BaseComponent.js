@@ -4,6 +4,7 @@
  */
 import React, {Component} from 'react';
 import {Cache, Utils, Ajax} from 'uf/utils';
+import {ajax} from 'uf/utils/ajax.js';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 // 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
@@ -62,6 +63,10 @@ export default class BaseComponent extends Component {
     __postData(url, ...params) {
         const ajax = Ajax(url, 'post');
         ajax(...params);
+    }
+
+    __ajax(params) {
+        ajax(params);
     }
 
     /* 私有方法 ***********************************************************************/

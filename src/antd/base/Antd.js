@@ -16,6 +16,10 @@ export default class Antd extends BaseComponent {
         this.forceUpdate();
     }
 
+    getOption(name) {
+        return this.__props[name];
+    }
+
     __init() {
         super.__init.call(this);
         this._initProps();

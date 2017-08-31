@@ -11,8 +11,20 @@ const Config = {
     content: [
         {
             type: 'sider',
+            name: 'my-sider',
             style: {background: '#333744'},
             content: [
+                {
+                    type: 'div',
+                    style: {padding: 12},
+                    content: [
+                        {
+                            type: 'icon',
+                            mode: 'customer-service',
+                            style: {color: '#fff', fontSize: '22px'}
+                        }
+                    ]
+                },
                 {
                     type: 'menu',
                     mode: 'inline',
@@ -56,14 +68,45 @@ const Config = {
         },
         {
             type: 'layout',
-            style: {padding: '20px'},
             content: [
-                // {
-                //     type: 'header',
-                //     style: { background: '#fff', padding: 0 }
-                // },
+                {
+                    type: 'header',
+                    style: { background: '#fff', padding: 0,height: '48px', lineHeight: '48px'},
+                    content: [
+                        {
+                            type: 'icon',
+                            mode: 'menu-fold',
+                            style: {fontSize: '18px', lineHeight: '48px', marginLeft: '10px'},
+                            onClick: v=>Uf.get('my-sider').setOption({
+                                collapsed: !Uf.get('my-sider').getOption('collapsed')
+                            })
+                        },
+                        {
+                            type: 'menu',
+                            style: {float: 'right'},
+                            mode: 'horizontal',
+                            content: [
+                                {
+                                    type: 'menu-item',
+                                    content: [
+                                        {type: 'icon', mode: 'schedule'},
+                                        '工单'
+                                    ]
+                                },
+                                {
+                                    type: 'menu-item',
+                                    content: [
+                                        {type: 'icon', mode: 'trophy'},
+                                        '控制台'
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
                 {
                     type: 'content',
+                    style: {padding: '20px'},
                     content: [
                         {
                             type: 'form',
@@ -183,13 +226,13 @@ const Config = {
                             content: [
                                 {
                                     type: 'input',
-                                    bind: 'my-textarea',
+                                    // bind: 'my-textarea',
                                     style: {width: '20%'},
                                     placeholder: '组合'
                                 },
                                 {
                                     type: 'input',
-                                    bind: 'my-textarea',
+                                    // bind: 'my-textarea',
                                     style: {width: '20%'},
                                     placeholder: '输入框'
                                 }
@@ -374,9 +417,12 @@ const Config = {
                                 }
                             ]
                         },
+                        // {
+                        //     type: 'progress',
+                        //     style: {visibility: 'hidden'}
+                        // },
                         {
-                            type: 'progress',
-                            style: {visibility: 'hidden'}
+                            type: 'br'
                         },
                         'Notification: ',
                         {

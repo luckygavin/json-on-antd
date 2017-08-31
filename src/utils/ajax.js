@@ -59,6 +59,9 @@ function request (config) {
     }));
 };
 
+// 通用ajax函数，参数为一个对象
+export const ajax = request;
+
 export default function (url, method) {
     return function (params, success, error, onchange) {
         request({

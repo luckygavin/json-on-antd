@@ -19,6 +19,8 @@ export default class Markdown extends React.Component {
         });
     }
     render() {
-        return <div dangerouslySetInnerHTML={{__html: marked(mdfile[this.props.doc])}}></div>;
+        return this.props.doc
+            ? <div dangerouslySetInnerHTML={{__html: marked(mdfile[this.props.doc])}}></div>
+            : null;
     }
 }

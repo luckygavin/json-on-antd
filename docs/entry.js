@@ -17,7 +17,8 @@ const CommonList = [
     {path: 'Install', name: '快速上手', component: null},
     {path: 'ChangeLog', name: '更新日志', component: null},
     {path: 'Configure', name: '配置化', children: [
-        {path: 'Info', name: '简介', component: require('./app/configure-info').default}
+        {path: 'Info', name: '简介', component: require('./app/configure-info').default},
+        {path: 'Demo', name: '示例', component: require('./app/configure-demo').default}
     ]},
     {path: 'Global', name: 'Global', children: [
         {path: 'Api', name: '通用API', component: null},

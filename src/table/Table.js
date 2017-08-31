@@ -5,28 +5,30 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Tooltip, Spin, Popconfirm, message, Pagination} from 'antd';
-import reqwest from 'reqwest';
+import {Spin, Popconfirm, message, Pagination} from 'antd';
 
 import {BaseComponent} from 'uf/component';
 import {Utils} from 'uf/utils';
 
-import Export from 'uf/export';
-import ReactInput from 'uf/input';
 import ReactModal from 'uf/modal';
+import Export from 'uf/export';
+import Antd from 'uf/antd';
+const Input = Antd.Input;
+
 import TrRow from './TrRow';
 import ThRow from './ThRow';
 
-import './table.scss';
+import './style.scss';
 
 const pagerInfo = total => {
     return <span>{'共' + total + '条数据'}</span>;
 };
 
-export default class Table extends React.Component {
+export default class Table extends BaseComponent {
     // 以下是函数定义
     constructor(props) {
         super(props);
+        this.__init();
         this.initTable();
     }
 
@@ -175,7 +177,7 @@ export default class Table extends React.Component {
         if (this.tableCfg.url) {
             if (!Utils.equals(this.props.params, nextProps.params)) {
                 // 清空过滤控件
-                this.refs.filter && this.refs.filter.setVal('');
+                this.refs.filter && this.refs.filter.setOption({value: ''});
                 this.getData(null, null, nextProps);
             }
         }
@@ -346,7 +348,7 @@ export default class Table extends React.Component {
             this.setState({spinning: true, spinTip: '正在请求数据，请稍等~', size: 'large'});
             // 当前请求的标号
             let index = ++this.requerstIndex;
-            reqwest({
+            this.__ajax({
                 url: tableCfg.url,
                 data: dataParams,
                 type: 'json',
@@ -452,7 +454,7 @@ export default class Table extends React.Component {
         temp[this.key] = params[this.key];
         let ele = document.getElementById('modalDiv');
         ele && ele.remove();
-        reqwest({
+        this.__ajax({
             url: item.url,
             data: temp,
             type: 'json',
@@ -952,7 +954,7 @@ export default class Table extends React.Component {
     }
     // 清空过滤控件
     clearFilter() {
-        this.refs.filter && this.refs.filter.setVal('');
+        this.refs.filter && this.refs.filter.setOption({value: ''});
         this.setState({filter: false, filterContent: []});
     }
     setPageSize(itemParams, NULL, item) {
@@ -1092,11 +1094,11 @@ export default class Table extends React.Component {
         let props = {
             name: 'filter',
             placeholder: '要过滤的内容',
-            handleChange: this.filterChange.bind(this)
+            onChange: this.filterChange.bind(this)
         };
         obj['filter'] = <div className="umpui-header-extra filter no-hover" key="umpui-header-extra">
                 <i className="fa fa-filter"></i>
-                <ReactInput {...props} ref="filter"/>
+                <Input {...props} ref="filter"/>
         </div>;
         let arrList = [];
         if (this.state.editTable) {

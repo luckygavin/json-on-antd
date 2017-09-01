@@ -140,10 +140,14 @@ export class MonthPicker extends BasePicker {
         super(props);
         this.__init();
     }
+    _initProps() {
+        super._initProps.call(this);
+        this.__props = this.__mergeProps({format: 'YYYY-MM'}, this.__props);
+    }
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker.MonthPicker {...this.__props}
-            value={value ? moment(value) : value} format="YYYY-MM"/>
+            value={value ? moment(value) : value}/>;
     }
 }
 // 范围选择

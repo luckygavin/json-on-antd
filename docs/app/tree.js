@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree from 'uf/tree';
-
+import Demo from './base/Demo.js';
 import BaseDoc from 'docs/app/BaseDoc.js';
 
 const treeConfig = {
@@ -21,7 +21,7 @@ const treeConfig = {
         // expandLeavals: ['leval1', 'leval2'], // 展开哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
         expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
         autoExpandParent: true, // 是否自动展开父节点，默认值为true,ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况
-        onExpand: (expandedKeys, e) => {
+        onExpand: function(expandedKeys, e) {
             console.log('onExpand:', expandedKeys);
         }
     },
@@ -31,7 +31,7 @@ const treeConfig = {
         // checkedKeys: ['0-0-1-0', '0-1'], // 默认为空, 配置此项之后会屏蔽defaultCheckedKeys属性
         checkStrictly: false, // 父子之间的选中是否受关联, 默认值为false：true->不关联，此时必须要设定checkedKeys，否则会报错,false->关联
         defaultCheckedKeys: ['0-0-1-1'], // 默认选中选框，只有在不舍得checedKeys时有用
-        onCheck: (checkedKeys, e) => {
+        onCheck: function(checkedKeys, e) {
             console.log('onCheck:', checkedKeys);
         }
     },
@@ -39,7 +39,7 @@ const treeConfig = {
         defaultSelectedKeys: ['0-1'], // 默认选中节点，默认为[]
         // selectedKeys: [],// 受控选中节点，此配置项将屏蔽defaultSelectedKeys配置, 默认不配置
         multiple: true, // 支持点选多个节点（节点本身)，默认值为false
-        onSelect: (selectedKeys, e) => {
+        onSelect: function(selectedKeys, e) {
             console.log('onSelect', e);
         }
     },
@@ -78,14 +78,14 @@ const treeConfig2 = {
         // expandLeavals:['leval1', 'leval2'], // 展开到哪一层，由data数据中的type字段决定，此配置会屏蔽defaultExpandAll，defaultExpandedKeys
         expandedKeys: ['0-0-1', '0-1'], // (受控）展开指定的树节点，默认值为[], 设定之后屏蔽defaultExpandAll，defaultExpandedKeys, expandToLeaval
         autoExpandParent: true, // 是否自动展开父节点，默认值为true,ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况
-        onExpand: (expandedKeys, e) => {
+        onExpand: function(expandedKeys, e) {
             // console.log('onExpand:', expandedKeys);
         }
     },
     select: {
         defaultSelectedKeys: ['0-1'], // 默认选中节点，默认为[]
         // selectedKeys: [],// 受控选中节点，此配置项将屏蔽defaultSelectedKeys配置, 默认不配置
-        onSelect: (selectedKeys, e) => {
+        onSelect: function(selectedKeys, e) {
             // console.log('onSelect', selectedKeys);
         }
     },
@@ -157,7 +157,24 @@ const treeData = [
         ]
     }
 ];
-
+const list1 = {
+    title: '具有搜索功能的树形图',
+    description: '此示例具有多选，复选框，搜索等功能',
+    config: {
+        type: 'tree',
+        config: treeConfig,
+        data: treeData
+    }
+};
+const list2 = {
+    title: '带有连接线的树',
+    description: '同级别树节点有连接线相连，并且展开关闭的图标会有所变化',
+    config: {
+        type: 'tree',
+        config: treeConfig2,
+        data: treeData
+    }
+};
 export default class TreeApp extends BaseDoc {
     constructor(props) {
         super(props);
@@ -167,14 +184,7 @@ export default class TreeApp extends BaseDoc {
     }
     render() {
         return (
-            <div>
-                <h2>示例1</h2>
-                    {<Tree ref="tree" config={treeConfig} data={treeData} />}
-                <h2>示例2</h2>
-                <div>
-                    {<Tree ref="tree" config={treeConfig2} data={treeData} />}
-                </div>
-            </div>
+            <Demo list={[list1, list2]} />
         );
     }
 

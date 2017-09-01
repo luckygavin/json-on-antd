@@ -12,5 +12,7 @@ module.exports = Object.assign(
         Table: require('./table'),
         Form: require('./form'),
         ReactModal: require('./modal'),
+        Tree: require('./tree'),
+        Export: require('./export')
     }
 );

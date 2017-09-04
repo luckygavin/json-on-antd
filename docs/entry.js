@@ -18,11 +18,8 @@ const CommonList = [
     {path: 'ChangeLog', name: '更新日志', component: null},
     {path: 'Configure', name: '配置化', children: [
         {path: 'Info', name: '简介', component: require('./app/configure-info').default},
-        {path: 'Demo', name: '示例', component: require('./app/configure-demo').default}
-    ]},
-    {path: 'Global', name: 'Global', children: [
-        {path: 'Api', name: '通用API', component: null},
-        {path: 'Template', name: '模板', component: null}
+        {path: 'Demo', name: '示例', component: require('./app/configure-demo').default},
+        {path: 'Api', name: '通用API', component: null}
     ]}
 ];
 
@@ -33,9 +30,7 @@ const ComponentList = [
         {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: require('./app/export').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('./app/tree').default},
-        {path: 'Tabs', name: 'Tabs 标签页', component: null},
         {path: 'Modal', name: 'Modal 弹框', component: null},
-        {path: 'Message', name: 'Message 提示消息', component: null},
     ]},
     {path: 'General', name: 'General', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},
@@ -64,7 +59,7 @@ const ComponentList = [
         {path: 'Tabs', name: 'Tabs 标签页', component: require('./app/antd/antd-tabs').default}
     ]},
     {path: 'Navigation', name: 'Navigation', children: [
-        // {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
+        {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
         // {path: 'Dropdown', name: 'Dropdown 下拉菜单', component: require('./app/antd/antd-dropdown').default},
         {path: 'Menu', name: 'Menu 导航菜单', component: require('./app/antd/antd-menu').default},
         {path: 'Pagination', name: 'Pagination 分页', component: require('./app/antd/antd-pagination').default},
@@ -79,7 +74,7 @@ const ComponentList = [
         {path: 'Loading', name: 'Loading 加载中', component: require('./app/antd/antd-loading').default}
     ]},
     {path: 'Other', name: 'Other', children: [
-        {path: 'BackTop', name: 'BackTop 回到顶部', component: require('./app/antd/antd-backtop').default}
+        {path: 'Backtop', name: 'Backtop 回到顶部', component: require('./app/antd/antd-backtop').default}
     ]}
 ];
 

@@ -9,11 +9,11 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 
 - 卡片式的页签，提供可关闭的样式，常用于容器顶部。
 - 标准线条式页签，用于容器内部的主功能切换，这是最常用的 Tabs。
-- [RadioButton](/components/radio/#components-radio-demo-radiobutton) 可作为更次级的页签来使用。
+- [RadioButton](#/DataEntry/Radio) 可作为更次级的页签来使用。
 
-## API
+## 组件&配置
 
-### Tabs
+### # tabs
 
 | 参数             | 说明                                         | 类型     | 默认值        |
 |------------------|----------------------------------------------|----------|---------------|
@@ -28,7 +28,7 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | string   | 'top'      |
 | animated | 是否使用动画切换 Tabs，在 `tabPosition=top\bottom` 时有效 | boolean &#124; {inkBar:boolean, tabPane:boolean} | true, 当 mode="card" 时为 false |
 
-### TabPane
+### # tab-pane
 
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|

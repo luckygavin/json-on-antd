@@ -14,6 +14,7 @@ import Adaptor from './adaptor.js';
 import Validator from './validator.js';
 import Layout from './layout.js';
 import WhiteList from './whitelist.js';
+import Html from './html.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
 const KeyWord = ['name', 'type', 'content'];
@@ -26,7 +27,15 @@ class Factory extends Component {
     // 解析组件配置，生成组件
     generateItem(item) {
         // 校验是否有 type 属性
-        Validator.check(item, 'type');
+        Validator.check(item, 'type', 'string');
+        if (!item.type) {
+            return;
+        }
+        // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
+        if (item.type === 'html') {
+            return new Html(item.content);
+        }
+
         // 如果是布局相关类型，则经过layout处理器处理
         item = Layout.if(item);
         // 从loader中获取到相应的组件

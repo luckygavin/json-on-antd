@@ -122,6 +122,7 @@ const tableCfg = {
         },
         cfg: {
             checkBox: true,
+            // rowCheck: false,
             expand: 'expand',
             tips: 'tips'
         },

@@ -31,16 +31,16 @@ export class AutoComplete extends DataEntry {
         this.__props.onSearch = (value, ...params)=>{
             let result  = [];
             if (!!value) {
-                result = this.__props.options.map(i=>value+i);
+                result = this.__props.options.map(i=>value + i);
             }
             this.setState({result});
             originOnSearch && originOnSearch.call(this, value, ...params);
-        }
+        };
     }
-    _onChange(...params) {
+    _onEvent(...params) {
         // 对change前后的数据进行对比
         let oldValue = this.__props.value;
-        super._onChange.call(this, ...params);
+        super._onEvent.call(this, ...params);
         let newValue = this.__props.value;
         // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
         if (oldValue && newValue && oldValue.length > newValue.length) {
@@ -73,7 +73,7 @@ export class Cascader extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Cascader {...this.__props}/>
+        return <Antd.Cascader {...this.__props}/>;
     }
 }
 
@@ -86,7 +86,7 @@ export class Checkbox extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Checkbox {...this.__props}/>
+        return <Antd.Checkbox {...this.__props}/>;
     }
 }
 // 多复选框组合
@@ -96,7 +96,7 @@ export class CheckboxGroup extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Checkbox.Group {...this.__props}/>
+        return <Antd.Checkbox.Group {...this.__props}/>;
     }
 }
 
@@ -131,11 +131,11 @@ export class DatePicker extends BasePicker {
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker {...this.__props}
-            value={value ? moment(value) : value}/>
+            value={value ? moment(value) : value}/>;
     }
 }
-// 月份选择
-export class MonthPicker extends BasePicker {
+// 月份选择 ------ 注意，此处用的是 DataEntry，为的是防止 format 被覆盖成 datepicker 的默认值
+export class MonthPicker extends DataEntry {
     constructor(props) {
         super(props);
         this.__init();
@@ -147,7 +147,7 @@ export class MonthPicker extends BasePicker {
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker.MonthPicker {...this.__props}
-            value={value ? moment(value) : value}/>;
+            value={value ? moment(value, this.__props.format) : value}/>;
     }
 }
 // 范围选择
@@ -160,7 +160,7 @@ export class RangePicker extends BasePicker {
         let value = this.__props.value;
         // 需注意，RangePicker 的value是一个数组
         return <Antd.DatePicker.RangePicker {...this.__props}
-            value={value ? [moment(value[0]), moment(value[1])] : value}/>
+            value={value ? [moment(value[0]), moment(value[1])] : value}/>;
     }
 }
 /************* TimePicker 时间选择 *************** */
@@ -177,7 +177,7 @@ export class TimePicker extends DataEntry {
     render() {
         let value = this.__props.value;
         return <Antd.TimePicker {...this.__props}
-            value={value ? moment(value, this.__props.format) : value}/>
+            value={value ? moment(value, this.__props.format) : value}/>;
     }
 }
 
@@ -189,7 +189,7 @@ export class Input extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Input {...this.__props}/>
+        return <Antd.Input {...this.__props}/>;
     }
 }
 // textarea
@@ -199,7 +199,7 @@ export class Textarea extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Input.TextArea {...this.__props}/>
+        return <Antd.Input.TextArea {...this.__props}/>;
     }
 }
 // 带搜索按钮
@@ -209,7 +209,7 @@ export class InputSearch extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.Input.Search {...this.__props}/>
+        return <Antd.Input.Search {...this.__props}/>;
     }
 }
 // 输入框连接在一起形成一组
@@ -221,7 +221,7 @@ export class InputGroup extends DataEntry {
     render() {
         // 使用ref会报错
         delete this.__props.ref;
-        return <Antd.Input.Group compact {...this.__props}/>
+        return <Antd.Input.Group compact {...this.__props}/>;
     }
 }
 // 数字输入框
@@ -231,7 +231,7 @@ export class InputNumber extends DataEntry {
         this.__init();
     }
     render() {
-        return <Antd.InputNumber compact {...this.__props}/>
+        return <Antd.InputNumber compact {...this.__props}/>;
     }
 }
 
@@ -294,10 +294,11 @@ export class Switch extends DataEntry {
     constructor(props) {
         super(props);
         this.__init();
+        this.__controlled.key = 'checked';
     }
     render() {
         // Switch用的是checked受控
-        return <Antd.Switch {...this.__props} checked={this.__props.value}/>
+        return <Antd.Switch {...this.__props}/>;
     }
 }
 

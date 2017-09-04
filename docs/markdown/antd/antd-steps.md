@@ -5,9 +5,9 @@
 
 当任务复杂或者存在先后关系时，将其分解成一系列步骤，从而简化任务。
 
-## API
+## 组件&配置
 
-### Steps
+### # steps
 
 整体步骤条。
 
@@ -19,7 +19,7 @@
 | direction | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | horizontal  |
 | progressDot | 点状步骤条，可以设置为一个 function | Boolean or (iconDot, {index, status, title, description}) => ReactNode | false |
 
-### Step
+### # step
 
 步骤条内的每一个步骤。
 

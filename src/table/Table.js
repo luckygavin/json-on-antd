@@ -616,9 +616,10 @@ export default class Table extends BaseComponent {
     // event为与触发的tr上事件相关的一个对象
     handleTrClick(row, index, id, event) {
         // 只有展示勾选框的Table才会执行checkRow函数
-        this.cfg.checkBox && this.checkRow(id);
+        this.cfg.checkBox && this.cfg.rowCheck && this.checkRow(id);
         this.props.onTrClick && this.props.onTrClick(row, index, event);
     }
+    
     // tr上的双击事件
     handleTrDoubleClick(row, index, event) {
         // 去掉上一次双击的行的active状态
@@ -725,6 +726,7 @@ export default class Table extends BaseComponent {
                     tableCfg={tableCfg}
                     expandAll={this.state.expandAll}  lineEdit={this.state.editTable}
                     showTags={this.showTags} handleEdit={this.handleEdit.bind(this)}
+                    checkRow={this.checkRow.bind(this, row[this.key])}
                     setEditTableData={this.setEditTableData.bind(this)}
                     onHover={this.handleTrHover.bind(this, row, index)}
                     onLeave={this.handleTrLeave.bind(this, row, index)}
@@ -972,6 +974,7 @@ export default class Table extends BaseComponent {
                 currPageData: Utils.clone(data)
             });
         }
+        this.clearModalCon();
     }
     showSetPageSize() {
         let self = this;

@@ -11,13 +11,13 @@
 
 ## API
 
-- `notification.success(config)`
-- `notification.error(config)`
-- `notification.info(config)`
-- `notification.warning(config)`
-- `notification.warn(config)`
-- `notification.close(key: String)`
-- `notification.destroy()`
+- `Uf.notification.success(config)`
+- `Uf.notification.error(config)`
+- `Uf.notification.info(config)`
+- `Uf.notification.warning(config)`
+- `Uf.notification.warn(config)`
+- `Uf.notification.close(key: String)`
+- `Uf.notification.destroy()`
 
 config 参数如下：
 
@@ -36,13 +36,13 @@ config 参数如下：
 
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
-- `notification.config(options)`
+- `Uf.notification.config(options)`
 
 ```js
-notification.config({
-  placement: 'bottomRight',
-  bottom: 50,
-  duration: 3,
+Uf.notification.config({
+    placement: 'bottomRight',
+    bottom: 50,
+    duration: 3,
 });
 ```
 
@@ -52,4 +52,3 @@ notification.config({
 | top          | 消息从顶部弹出时，距离顶部的位置，单位像素。                   | number         | 24                  |
 | bottom       | 消息从底部弹出时，距离底部的位置，单位像素。                   | number         | 24                  |
 | duration     | 默认自动关闭延时，单位秒                             | number         | 4.5                 |
-| getContainer | 配置渲染节点的输出位置                              | () => HTMLNode | () => document.body |

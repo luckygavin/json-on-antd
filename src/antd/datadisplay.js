@@ -17,7 +17,7 @@ export class Card extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Card {...this.__props}/>
+        return <Antd.Card {...this.__props}/>;
     }
 }
 
@@ -30,7 +30,7 @@ export class Carousel extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Carousel {...this.__props}/>
+        return <Antd.Carousel {...this.__props}/>;
     }
 }
 
@@ -41,11 +41,14 @@ export class Collapse extends DataDisplay {
     constructor(props) {
         super(props);
         // 受控属性
-        this.__controlled = 'activeKey';
+        // event: onChange / paramsIndex: 0
+        this.__controlled = {
+            key: 'activeKey'
+        };
         this.__init();
     }
     render() {
-        return <Antd.Collapse {...this.__props}/>
+        return <Antd.Collapse {...this.__props}/>;
     }
 }
 // 单个面板
@@ -55,7 +58,7 @@ export class Panel extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Collapse.Panel {...this.__props}/>
+        return <Antd.Collapse.Panel {...this.__props}/>;
     }
 }
 
@@ -99,7 +102,10 @@ export class Tabs extends DataDisplay {
     constructor(props) {
         super(props);
         // 受控属性
-        this.__controlled = 'activeKey';
+        // event: onChange / paramsIndex: 0
+        this.__controlled = {
+            key: 'activeKey'
+        };
         this.__init();
     }
     render() {

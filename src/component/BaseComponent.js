@@ -18,6 +18,15 @@ const PreventCoverageMap = [
     'shouldComponentUpdate'
 ];
 
+// 提供给用户的通用回调函数
+// 所有组件都具备，分别在声明周期中的不同阶段调用
+const ForUserApi = [
+    'willMount',
+    'didMount',
+    'didUpdate',
+    'willUnmount'
+];
+
 export default class BaseComponent extends Component {
     constructor(props) {
         super(props);
@@ -28,10 +37,12 @@ export default class BaseComponent extends Component {
 
     // 供子组件调用初始化 使用子组件this调用
     __init() {
-        // 目的是让子类调用__init()时检查自己是否覆盖了父类的函数
+        // 目的是让子类调用__init()时，把父类中设置的等待注入到真正的声明周期中的函数注入进去
         this._injectFunction();
         // 共享组件
         this._transmitComponent();
+        // 挂载用户传入的需要关联到生命周期中的函数
+        this._loadUserFunction();
     }
 
     // 获取共享组件/数据
@@ -115,6 +126,22 @@ export default class BaseComponent extends Component {
             if (inject) {
                 let origin = this[v];
                 this[v] = (...params) => {
+                    inject.call(this, ...params);
+                    origin && origin.call(this, ...params);
+                };
+            }
+        }
+    }
+
+    // 挂载用户传入的需要关联到生命周期中的函数
+    _loadUserFunction() {
+        for (let v of ForUserApi) {
+            // 如果props中有等待注入的函数
+            let inject = this.props[`${v}`];
+            if (inject) {
+                let funcName = 'component' + v.replace(/^\w/g, o=>o.toUpperCase());
+                let origin = this[funcName];
+                this[funcName] = (...params) => {
                     inject.call(this, ...params);
                     origin && origin.call(this, ...params);
                 };

@@ -95,6 +95,8 @@ const Utils = {
     // 深拷贝对象/数组
     // level 为深拷贝的层级，默认一直遍历到最深层
     clone(data, level) {
+        // undefined <= 0 (false)
+        // null <= 0 (true)
         if (level <= 0) {
             return data;
         }
@@ -108,7 +110,7 @@ const Utils = {
         }
         for (let i in data) {
             if (data.hasOwnProperty(i)) {
-                newData[i] = this.clone(data[i], this.typeof(level, 'number') ? level - 1 : null);
+                newData[i] = this.clone(data[i], this.typeof(level, 'number') ? level - 1 : undefined);
             }
         }
         return newData;

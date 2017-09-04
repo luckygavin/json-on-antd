@@ -4,7 +4,7 @@ import {message, notification} from 'uf';
 import {Cache} from 'uf/utils';
 import Factory from './factory.js';
 
-export default {
+const func = {
     init(config, selector) {
         let result = <Factory config={config} />;
         // 如果没有指定目标容器的id，则直接返回生成的组件
@@ -21,3 +21,9 @@ export default {
     message,
     notification
 };
+
+const Uf = func.get;
+
+Object.assign(Uf, func);
+
+export default Uf;

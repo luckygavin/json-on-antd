@@ -7,14 +7,15 @@
 
 可用来代替系统默认的 `title` 提示，提供一个`按钮/文字/操作`的文案解释。
 
-## API
+## 组件&配置
+
+### # tooltip
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |-----------|------------------------------------------|------------|--------|
 | title     | 提示文字                                 | React.ReactNode | 无     |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
-| getPopupContainer | 浮层渲染父节点，默认渲染到 body 上。`2.5.2` 之前请使用 `getTooltipContainer` | Function(triggerNode) | () => document.body |
-| arrowPointAtCenter | 箭头是否指向目标元素中心，`antd@1.11+` 支持 | boolean | `false` |
+| arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | `false` |
 | autoAdjustOverflow | 气泡被遮挡时自动调整位置             | boolean | `true` |
 | visible   | 用于手动控制浮层显隐                     | boolean       | false  |
 | onVisibleChange | 显示隐藏的回调                      | (visible) => void | 无     |

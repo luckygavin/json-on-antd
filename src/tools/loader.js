@@ -42,7 +42,7 @@ export default {
     },
 
     // 打印错误信息
-    error(item, type) {
+    error(type) {
         console.error(`Uncaught TypeError: type '${type}' is invalid.`);
     }
 };

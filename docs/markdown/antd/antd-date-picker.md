@@ -5,14 +5,13 @@
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
-## API
+## 组件&配置
 
 日期类组件包括以下三种形式。
 
 * DatePicker
 * MonthPicker
 * RangePicker
-
 
 ### 共同的 API
 
@@ -33,7 +32,7 @@
 | onOpenChange   | 弹出日历和关闭日历的回调 | function(status) | 无 |
 | placeholder  | 输入框提示文字 | string&#124;RangePicker[] | - |
 
-### DatePicker
+### # date-picker
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
@@ -47,14 +46,14 @@
 | onOk | 点击确定按钮的回调 | function() | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 
-### MonthPicker
+### # month-picker
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
 | value        | 日期           | [moment](http://momentjs.com/)   | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | -    |
 
-### RangePicker
+### # range-picker
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
@@ -68,7 +67,7 @@
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |
 | onOk | 点击确定按钮的回调 | function() | - |
 
-### TimePicker
+### # time-picker
 
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|

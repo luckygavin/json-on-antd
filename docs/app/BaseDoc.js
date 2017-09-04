@@ -4,6 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Markdown from './Markdown.js';
+import Demo from './base/Demo.js';
 
 export default class BaseDoc extends React.Component {
     constructor(props) {
@@ -16,6 +17,10 @@ export default class BaseDoc extends React.Component {
         this.render = function () {
             return this._render(originRender);
         };
+    }
+
+    __getDemo(...list) {
+        return <Demo list={list}/>
     }
 
     // 整体框架在父类里实现，继承此父类的组件，均可使用

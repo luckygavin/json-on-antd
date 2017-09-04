@@ -16,7 +16,7 @@ export class Button extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Button {...this.__props}/>
+        return <Antd.Button {...this.__props}/>;
     }
 }
 // 按钮组
@@ -26,20 +26,20 @@ export class ButtonGroup extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Button.Group {...this.__props}/>
+        return <Antd.Button.Group {...this.__props}/>;
     }
 }
 
 
-/************* BackTop 返回顶部 ************************************************************************** */
+/************* Backtop 返回顶部 ************************************************************************** */
 
-export class BackTop extends Genaral {
+export class Backtop extends Genaral {
     constructor(props) {
         super(props);
         this.__init();
     }
     render() {
-        return <Antd.BackTop {...this.__props}/>
+        return <Antd.BackTop {...this.__props}/>;
     }
 }
 
@@ -52,11 +52,31 @@ export class Icon extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Icon {...this.__props}/>
+        return <Antd.Icon {...this.__props}/>;
     }
 }
 
-
+/************* Grid 栅格 ************************************************************************** */
+// Row
+export class Row extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Row {...this.__props}/>;
+    }
+}
+// Col
+export class Col extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Col {...this.__props}/>;
+    }
+}
 
 /************* Layout 布局 ************************************************************************** */
 
@@ -67,7 +87,7 @@ export class Layout extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Layout {...this.__props}/>
+        return <Antd.Layout {...this.__props}/>;
     }
 }
 
@@ -78,7 +98,7 @@ export class Header extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Layout.Header {...this.__props}/>
+        return <Antd.Layout.Header {...this.__props}/>;
     }
 }
 
@@ -89,7 +109,7 @@ export class Footer extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Layout.Footer {...this.__props}/>
+        return <Antd.Layout.Footer {...this.__props}/>;
     }
 }
 
@@ -100,7 +120,7 @@ export class Sider extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Layout.Sider {...this.__props}/>
+        return <Antd.Layout.Sider {...this.__props}/>;
     }
 }
 
@@ -111,6 +131,6 @@ export class Content extends Genaral {
         this.__init();
     }
     render() {
-        return <Antd.Layout.Content {...this.__props}/>
+        return <Antd.Layout.Content {...this.__props}/>;
     }
 }

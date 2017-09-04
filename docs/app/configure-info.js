@@ -512,7 +512,7 @@ const Config = {
                             }
                         },
                         {
-                            type: 'back-top'
+                            type: 'backtop'
                         },
                     ]
                 }

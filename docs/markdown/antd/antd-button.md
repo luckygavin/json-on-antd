@@ -4,9 +4,11 @@
 
 标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。
 
-## 配置参数
+## 组件&配置
 
-通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`type` -> `shape` -> `size` -> `loading` -> `disabled`
+### # button
+
+通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`mode` -> `shape` -> `size` -> `loading` -> `disabled`
 
 属性 | 说明 | 类型 | 默认值
 -----|-----|-----|------
@@ -16,11 +18,14 @@ icon | 设置按钮的图标类型 | string | -
 shape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -
 size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`
 loading | 设置按钮载入状态 | boolean &#124; { delay: number } | `false`
-ghost | 幽灵属性，使按钮背景透明，版本 2.7 中增加 | boolean | false
+onClick | `click` 事件的 handler | function | -
+ghost | 幽灵属性，使按钮背景透明 | boolean | false
 
-`<Button>Hello world!</Button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`。
 
-## 回调函数
+### # button-group
+
+可以将多个 `button` 放入 `button-group` 的容器中，使按钮作为一组展示。
+
 属性 | 说明 | 类型 | 默认值
 -----|-----|-----|------
-onClick | `click` 事件的 handler | function | -
+size | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`

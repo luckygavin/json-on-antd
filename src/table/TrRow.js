@@ -8,10 +8,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link} from 'react-router';
 import {Input, Radio, Checkbox, Select, Popover} from 'antd';
+import {Utils} from 'uf/utils';
 const CheckboxGroup = Checkbox.Group;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;
-let Immutable = require('immutable');
 
 export default class TrRow extends React.Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export default class TrRow extends React.Component {
         };
     }
     componentWillReceiveProps(nextProps) {
-        if (!Immutable.is(Immutable.Map(nextProps.obj), Immutable.Map(this.props.obj))) {
+        if (!Utils.equals(nextProps.obj, this.props.obj)) {
             this.key = nextProps.primaryKey;
             this.setState({
                 lineData: nextProps.obj
@@ -34,9 +34,9 @@ export default class TrRow extends React.Component {
     }
     checkIt(e) {
         e = e || window.event;
-        e.stopPropagation();
-        e.preventDefault();
-        // this.props.onClick && this.props.onClick();
+        // e.stopPropagation();
+        // e.preventDefault();
+        this.props.checkRow && this.props.checkRow();
         return;
     }
 

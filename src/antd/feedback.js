@@ -22,7 +22,7 @@ export class Alert extends Feedback {
         this.__init();
     }
     render() {
-        return <Antd.Alert {...this.__props}/>
+        return <Antd.Alert {...this.__props}/>;
     }
 }
 
@@ -35,7 +35,7 @@ export class Progress extends Feedback {
         this.__init();
     }
     render() {
-        return <Antd.Progress {...this.__props}/>
+        return <Antd.Progress {...this.__props}/>;
     }
 }
 
@@ -49,7 +49,7 @@ export class Loading extends Feedback {
     }
     render() {
         return <Antd.Spin {...Utils.filter(this.__props, 'loading')}
-                spinning={!!this.__props.loading}/>
+                spinning={!!this.__props.loading}/>;
     }
 }
 

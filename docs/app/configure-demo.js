@@ -8,7 +8,7 @@ import Uf from 'uf/tools';
 
 const Config = {
 type: 'div',
-style: {padding: '20px', background: '#ececec'},
+style: {padding: '20px', background: '#f7f7f7'},
 content: {
     type: 'layout',
     content: [

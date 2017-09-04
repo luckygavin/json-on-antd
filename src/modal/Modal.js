@@ -10,8 +10,6 @@ import {Input} from 'uf';
 
 const Option = Select.Option;
 
-let Immutable = require('immutable');
-
 require('./style.scss');
 
 export default class ReactModal extends React.Component {

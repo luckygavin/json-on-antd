@@ -48,9 +48,9 @@
 
 > 注意：采用 flex 布局实现，请注意[浏览器兼容性](http://caniuse.com/#search=flex)问题。
 
-## 配置参数
+## 组件&配置
 
-### Layout
+### # layout
 
 布局容器。
 
@@ -59,9 +59,9 @@
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
-> `Layout.Header` `Layout.Footer` `Layout.Content` API 与 `Layout` 相同
+> `Header` `Footer` `Content` API 与 `Layout` 相同
 
-### Sider
+### # sider
 
 侧边栏。
 
@@ -79,9 +79,7 @@
 | style | 指定样式 | object | - |
 | className | 容器 className | string | - |
 
-### Header
 
-### Content
+### # header、content、footer
 
-### Footer
-
+这三个组件没有特殊功能，参数见 `# layout`

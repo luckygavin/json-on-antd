@@ -71,7 +71,7 @@ export default class Antd extends BaseComponent {
             if (keyValue !== undefined) {
                 this.__props[key] = keyValue;
             }
-            this.__props[event] = this._onEvent.bind(this, onEvent)
+            this.__props[event] = this._onEvent.bind(this, onEvent);
         }
     }
 

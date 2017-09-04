@@ -619,7 +619,6 @@ export default class Table extends BaseComponent {
         this.cfg.checkBox && this.cfg.rowCheck && this.checkRow(id);
         this.props.onTrClick && this.props.onTrClick(row, index, event);
     }
-    
     // tr上的双击事件
     handleTrDoubleClick(row, index, event) {
         // 去掉上一次双击的行的active状态

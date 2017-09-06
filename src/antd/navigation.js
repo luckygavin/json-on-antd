@@ -79,8 +79,9 @@ export class Menu extends Navigation {
         this.__init();
     }
     // 见 BaseComponent
-    _onEvent(callback, {selectedKeys}) {
+    _onEvent(callback, ...params) {
         callback && callback(...params);
+        let {selectedKeys} = params[0];
         this.__props['selectedKeys'] = selectedKeys;
         this.forceUpdate();
     }

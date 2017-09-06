@@ -6,6 +6,10 @@ module.exports = {
     'tree.md': require('./tree.md'),
     'export.md': require('./export.md'),
     'configure-info.md': require('./configure-info.md'),
+    'update-log.md': require('./update-log.md'),
+    'introduction.md': require('./introduction.md'),
+    'install.md': require('./install.md'),
+
 
     'antd-button.md': require('./antd/antd-button.md'),
     'antd-icon.md': require('./antd/antd-icon.md'),

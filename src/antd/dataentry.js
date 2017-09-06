@@ -236,6 +236,19 @@ export class InputNumber extends DataEntry {
 }
 
 
+/************* Rate 评分 ************************************************************************** */
+
+export class Rate extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Rate {...this.__props}/>;
+    }
+}
+
+
 /************* Radio 单选 ************************************************************************** */
 
 // 这里直接使用Radio组，单个radio没想到什么应用场景
@@ -284,6 +297,19 @@ export class Select extends DataEntry {
                         value={item.value}>{item.label}</Antd.Select.Option>
             )}
         </Antd.Select>;
+    }
+}
+
+
+/************* Slider 评分 ************************************************************************** */
+
+export class Slider extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Slider {...this.__props}/>;
     }
 }
 

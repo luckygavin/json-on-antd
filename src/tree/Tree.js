@@ -49,7 +49,7 @@ export default class OriginTree extends BaseComponent {
                 autoExpandParent: true,
                 onExpand: () => {}
             },
-            checkBox: {
+            checkbox: {
                 checkable: false,
                 checkedKeys: null,
                 checkStrictly: false,
@@ -96,10 +96,11 @@ export default class OriginTree extends BaseComponent {
 
         // 针对配置进行处理
         // 对用户未配置的项使用默认配置
-        this.config = this.__mergeProps(this.config, objProps.config);
+        // this.config = this.__mergeProps(this.config, objProps.config);
+        this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
         this.style = this.config.style;
         this.expand = this.config.expand;
-        this.checkBox = this.config.checkBox;
+        this.checkbox = this.config.checkbox;
         this.search = this.config.search;
         this.select = this.config.select;
         this.loadData = this.config.loadData;
@@ -109,9 +110,9 @@ export default class OriginTree extends BaseComponent {
         this.antdConfig = {
             defaultExpandAll: this.expand['expandLeavals'] ? false : this.expand['defaultExpandAll'],
             defaultExpandedKeys: this.expand['expandLeavals'] ? [] : this.expand['defaultExpandedKeys'],
-            checkable: this.checkBox['checkable'],
-            defaultCheckedKeys: this.checkBox['defaultCheckedKeys'],
-            checkStrictly: this.checkBox['checkStrictly'],
+            checkable: this.checkbox['checkable'],
+            defaultCheckedKeys: this.checkbox['defaultCheckedKeys'],
+            checkStrictly: this.checkbox['checkStrictly'],
             defaultSelectedKeys: this.select['defaultSelectedKeys'],
             multiple: this.select['multiple'],
             showLine: this.showLine
@@ -122,7 +123,7 @@ export default class OriginTree extends BaseComponent {
             completeTree: propsData,
             expandedKeys: this.expand.expandedKeys,
             autoExpandParent: this.expand.autoExpandParent,
-            checkedKeys: this.checkBox.checkedKeys, // 受控选择复选框
+            checkedKeys: this.checkbox.checkedKeys, // 受控选择复选框
             selectedKeys: this.select.selectedKeys, // 受控选择
             searchValue: '' // 搜索框中输入内容
         };
@@ -185,7 +186,7 @@ export default class OriginTree extends BaseComponent {
         this.setState({
             checkedKeys
         });
-        this.checkBox.onCheck(checkedKeys, e);
+        this.checkbox.onCheck(checkedKeys, e);
     }
     onSelect(selectedKeys, e) {
         this.setState({
@@ -357,7 +358,7 @@ export default class OriginTree extends BaseComponent {
         const {expandedKeys, searchValue} = this.state;
         return data.map(item => {
             let title = item.name;
-            if (this.props.config.search) {
+            if (this.search && this.search.enable) {
                 // indexOf搜索普通字符串效率最高
                 let index = item.name.indexOf(searchValue);
                 let beforeStr = item.name.substr(0, index);

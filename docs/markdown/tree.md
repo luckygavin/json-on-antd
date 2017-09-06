@@ -1,6 +1,6 @@
 ### 功能说明  
 * 配置`expand`实现节点展开控制
-* 配置`checkBox`实现复选框功能
+* 配置`checkbox`实现复选框功能
 * 配置`search`实现搜索功能
 * 配置`select`实现点击选择功能
 * 配置`loadData`实现异步加载功能
@@ -11,24 +11,20 @@
 ## 配置参数
 
 ### 基本参数
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| config | 树形控件的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
-| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |
 
-### # config
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |
-| expand | 节点展开功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| checkBox | 复选框功能，包含多个可配置参数，见详细说明 | Object | - |  |
+| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
+| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
 | search | 搜索功能 | Object | - |  |
-| select | 点选功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| loadData | 异步加载功能，包含多个可配置参数，见详细说明 | Object | - |  |
-| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见详细说明 | Object | - |  |
+| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
+| loadData | 异步加载功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
+| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
 | showLine | 是否展示连接线 | Boolean | false | . |
+| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |
 
-### # config.expand
+#### expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |
@@ -38,7 +34,7 @@
 | autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |
 | onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |
 
-### # config.checkBox
+#### checkbox
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |
@@ -47,13 +43,13 @@
 | defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |
 | onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |
 
-### # config.search
+#### search
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | enable | 是否启用搜索功能 | Boolean | false |  |
 | onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |
 
-### # config.select
+#### select
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | defaultSelectedKeys | 默认选中节点 | Array | [] |  |
@@ -61,7 +57,7 @@
 | multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |
 | onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |
 
-### # config.loadData
+#### loadData
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |
@@ -72,7 +68,7 @@
 > `data`为请求回来的数据;
 > `msg`为请求结果文字表述。
 
-### # config.widthResize
+#### widthResize
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |
@@ -107,180 +103,3 @@ error:
     msg: 'error'
 }
 ```
-
-### 源代码 - React用法
-```javascript
-    import React from 'react';
-    import ReactDOM from 'react-dom';
-    import Tree from 'uf/tree';
-    const config = {
-        // 见下方树形图展示2配置
-    };
-    const data = [
-        // 见下方数据格式说明
-    ];
-    export default class TreeDemo extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-            };
-        }
-        render() {
-            return (
-                <Tree config={config} data={data} />
-            );
-        }
-    }
-```
-## 源代码 - 原生JS用法
-html:
-```html
-    
-```
-js:
-```javascript
-    
-
-```
-### 示例1配置
-```javascript
-    {
-        style: {
-            width: '300px',
-            paddingTop: '10px',
-            backgroundColor: '#f2f2f2'
-        },
-        expand: {
-            expandLeavals: ['leval1', 'leval2'],
-            autoExpandParent: true,
-            onExpand: (expandedKeys, e) => {
-                console.log('onExpand:', e);
-            }
-        },
-        checkBox: {
-            checkable: true,
-            checkStrictly: false,
-            defaultCheckedKeys: ['0-0-1-1'],
-            onCheck: (checkedKeys, e) => {
-                console.log('onCheck:', checkedKeys);
-            }
-        },
-        select: {
-            defaultSelectedKeys: ['0-1'],
-            multiple: true,
-            onSelect: (selectedKeys, e) => {
-                console.log('onSelect', e);
-            }
-        },
-        search: {
-            enable: true,
-            onlyShowSearchResult: true
-        },
-        loadData: {
-            enable: true,
-            source: '',
-            params: ['key', 'type']
-        },
-        widthResize: {
-            resizeAble: true,
-            minWidth: '200px',
-            maxWidth: '500px'
-        }
-    }
-```
-
-### 示例2配置
-```javascript
-    {
-        style: {
-            width: '300px',
-            padding: '10px',
-            border: '1px dashed #eaeaea'
-        },
-        expand: {
-            expandedKeys: ['0-0-1', '0-1'],
-            autoExpandParent: true,
-            onExpand: (expandedKeys, e) => {
-                console.log('onExpand:', expandedKeys);
-            }
-        },
-        select: {
-            defaultSelectedKeys: ['0-1'],
-            onSelect: (selectedKeys, e) => {
-                console.log('onSelect', e);
-            }
-        },
-        showLine: true
-    }
-    
-```
-
-### 数据格式说明
-```json
-    [{
-        name: '0-0',
-        key: '0-0',
-        isLeaf: false,
-        disableCheckbox: false,
-        disabled: false,
-        type: 'leval1', // 用途：指定展开到哪一层
-        children: [
-            {
-                name: '0-0-0',
-                key: '0-0-0',
-                isLeaf: true,
-                // disableCheckbox: false, //此项可去，默认为false
-                disabled: true, // 不响应,  //此项也可去，默认为true
-                type: 'leval2'
-            },
-            {
-                name: '0-0-1',
-                key: '0-0-1',
-                isLeaf: false,
-                disableCheckbox: false,
-                disabled: false,
-                type: 'leval2',
-                children: [
-                    {
-                        name: '0-0-1-0',
-                        key: '0-0-1-0',
-                        disableCheckbox: true, // 复选框不可选，只针对checkBox配置中checkable: true有效
-                        disabled: false,
-                        type: 'leval3',
-                        isLeaf: true
-                    },
-                    {
-                        name: '0-0-1-1',
-                        key: '0-0-1-1',
-                        disableCheckbox: false,
-                        disabled: false,
-                        type: 'leval3',
-                        isLeaf: true
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        name: '0-1',
-        key: '0-1',
-        isLeaf: false,
-        disableCheckbox: false,
-        disabled: false,
-        type: 'leval1',
-        children: [
-            {
-                // 此节点会触发异步请求，因为满足isLeaf: false,children: []，效果可与树形图展示1中0-1-0节点展开进行对比
-                name: '0-1-0',
-                key: '0-1-0',
-                isLeaf: false,
-                type: 'leval2',
-                disableCheckbox: false,
-                disabled: false,
-                children: []
-            }
-        ]
-    }]
-```
-
-

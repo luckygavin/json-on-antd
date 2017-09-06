@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import Demo from '../base/Demo.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 let dataSource1 = [];
 const demo1 = {
     title: '基本用法',

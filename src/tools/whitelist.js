@@ -17,5 +17,9 @@ export default {
     Step: ['title', 'description', 'icon'],
     Alert: ['closeText', 'message', 'description'],
     Popconfirm: ['title'],
-    
+    Dropdown: ['overlay'],
+    DropdownButton: ['overlay'],
+    Rate: ['character'],
+    Timeline: ['pending'],
+    TimelineItem: ['dot']
 };

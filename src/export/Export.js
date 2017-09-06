@@ -18,6 +18,7 @@ const ajax = require('reqwest');
 export default class Export extends BaseComponent {
     constructor(props) {
         super(props);
+        this.__init();
         this.state = {};
         // 默认配置
         this.config = {
@@ -42,11 +43,10 @@ export default class Export extends BaseComponent {
             fileFormat: '.xls'
         };
         this.initExport();
-        this.__init();
     }
     initExport(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
-        this.config = this.__mergeProps(this.config, objProps.config);
+        this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
         this.data = [];
         if (objProps.data === undefined) {
             this.config.type = 'asyn';

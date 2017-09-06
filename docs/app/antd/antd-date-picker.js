@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import Demo from '../base/Demo.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '基本用法',
@@ -86,7 +86,7 @@ const demo3 = {
                 marginBottom: '15px'
             },
             renderExtraFooter: function() {
-                return Uf.init({
+                return UF.init({
                     type: 'button',
                     content: '额外的页脚'
                 });
@@ -98,7 +98,7 @@ const demo3 = {
                 display: 'block'
             },
             renderExtraFooter: function() {
-                return Uf.init({
+                return UF.init({
                     type: 'button',
                     content: '额外的页脚'
                 });

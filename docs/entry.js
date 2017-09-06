@@ -13,9 +13,9 @@ require('./doc.scss');
 
 // 通用文档
 const CommonList = [
-    {path: 'Introduction', name: '简要介绍', component: null},
-    {path: 'Install', name: '快速上手', component: null},
-    {path: 'ChangeLog', name: '更新日志', component: null},
+    {path: 'Introduction', name: '简要介绍', component: require('./app/introduction').default},
+    {path: 'Install', name: '快速上手', component: require('./app/install').default},
+    {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default},
     {path: 'Configure', name: '配置化', children: [
         {path: 'Info', name: '简介', component: require('./app/configure-info').default},
         {path: 'Demo', name: '示例', component: require('./app/configure-demo').default},
@@ -26,11 +26,11 @@ const CommonList = [
 // 组件文档列表
 const ComponentList = [
     {path: 'Component', name: 'Component', children: [
-        {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
-        {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
+        // {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
+        // {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: require('./app/export').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('./app/tree').default},
-        {path: 'Modal', name: 'Modal 弹框', component: null},
+        // {path: 'Modal', name: 'Modal 弹框', component: null},
     ]},
     {path: 'General', name: 'General', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},

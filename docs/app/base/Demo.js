@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import marked from 'marked';
 import {Modal, Card, Row, Col, Icon} from 'antd';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 import {Utils} from 'uf/utils';
 
 export default class Demo extends React.Component {
@@ -30,7 +30,7 @@ export default class Demo extends React.Component {
     }
     componentDidMount() {
         Utils.clone(this.props.list).map((item, i)=>{
-            Uf.init(item.config, `demo-${i}`);
+            UF.init(item.config, `demo-${i}`);
         });
     }
     toggle(i) {
@@ -41,10 +41,10 @@ export default class Demo extends React.Component {
         let obj = this.handleFunction(config);
         let cfgStr = JSON.stringify(obj, null, 4);
         cfgStr = cfgStr.replace(/\"\$F(\d+)\$\"/g, (v, v1)=>this.funcList[v1]);
-        cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'Uf');
-        cfgStr = cfgStr.replace(/_tools2\.default/g, 'Uf');
+        cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
+        cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
         
-        let code = 'var config = ' + cfgStr + ';\nUf.init(config, \'demo\');';
+        let code = 'var config = ' + cfgStr + ';\nUF.init(config, \'demo\');';
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
                 <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>

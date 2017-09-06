@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const Config = {
     type: 'layout',
@@ -77,8 +77,8 @@ const Config = {
                             type: 'icon',
                             mode: 'menu-fold',
                             style: {fontSize: '18px', lineHeight: '48px', marginLeft: '10px'},
-                            onClick: v=>Uf.get('my-sider').setOption({
-                                collapsed: !Uf.get('my-sider').getOption('collapsed')
+                            onClick: v=>UF.get('my-sider').setOption({
+                                collapsed: !UF.get('my-sider').getOption('collapsed')
                             })
                         },
                         {
@@ -200,8 +200,8 @@ const Config = {
                             type: 'button',
                             content: '吼啊',
                             onClick() {
-                                // console.log(Uf.get('my-input').refs['my-input'].refs['input'].value);
-                                console.log(Uf.get('my-date-picker').getValue());
+                                // console.log(UF.get('my-input').refs['my-input'].refs['input'].value);
+                                console.log(UF.get('my-date-picker').getValue());
                             }
                         },
                         {
@@ -396,27 +396,27 @@ const Config = {
                             content: [
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.message.success('Success'),
+                                    onClick: v=>UF.message.success('Success'),
                                     content: 'Success'
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.message.error('Error'),
+                                    onClick: v=>UF.message.error('Error'),
                                     content: 'Error'
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.message.info('Info'),
+                                    onClick: v=>UF.message.info('Info'),
                                     content: 'Info'
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.message.warning('Warning'),
+                                    onClick: v=>UF.message.warning('Warning'),
                                     content: 'Warning'
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.message.loading('Loading'),
+                                    onClick: v=>UF.message.loading('Loading'),
                                     content: 'Loading'
                                 }
                             ]
@@ -434,7 +434,7 @@ const Config = {
                             content: [
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.notification.success({
+                                    onClick: v=>UF.notification.success({
                                         message: 'Notification Title',
                                         description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                                     }),
@@ -442,7 +442,7 @@ const Config = {
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.notification.error({
+                                    onClick: v=>UF.notification.error({
                                         message: 'Notification Title',
                                         description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                                     }),
@@ -450,7 +450,7 @@ const Config = {
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.notification.info({
+                                    onClick: v=>UF.notification.info({
                                         message: 'Notification Title',
                                         description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                                     }),
@@ -458,7 +458,7 @@ const Config = {
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.notification.warning({
+                                    onClick: v=>UF.notification.warning({
                                         message: 'Notification Title',
                                         description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                                     }),
@@ -466,7 +466,7 @@ const Config = {
                                 },
                                 {
                                     type: 'button',
-                                    onClick: v=>Uf.notification.destroy(),
+                                    onClick: v=>UF.notification.destroy(),
                                     content: 'Destroy'
                                 }
                             ]
@@ -477,10 +477,10 @@ const Config = {
                             total: 50,
                             current: 2,
                             onChange: v=>{
-                                Uf.get('my-progress').setOption({
+                                UF.get('my-progress').setOption({
                                     percent: v * 20
                                 });
-                                Uf.get('my-steps').setOption({
+                                UF.get('my-steps').setOption({
                                     current: v - 1
                                 });
                             }
@@ -528,7 +528,7 @@ export default class Info extends BaseDoc {
         this.__init();
     }
     componentDidMount() {
-        Uf.init(Config, 'configure-content');
+        UF.init(Config, 'configure-content');
     }
     render() {
         return <div id="configure-content"></div>;

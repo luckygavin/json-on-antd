@@ -10,6 +10,8 @@ export default class BaseDoc extends React.Component {
     constructor(props) {
         super(props);
         this.state = {};
+        // 日志页面需要增加更多样式
+        this.className = '';
     }
 
     __init() {
@@ -29,7 +31,7 @@ export default class BaseDoc extends React.Component {
             <h1 className="umpui-layer umpui-title">{this.props.route.name}</h1>
             {/* 组件demo，直接在各个文档的render中实现 */}
             {render && render.call(this)}
-            <div className="umpui-layer umpui-block markdown">
+            <div className={'umpui-layer umpui-block markdown ' + this.className}>
                 <Markdown doc={this.doc}/>
             </div>
         </div>);

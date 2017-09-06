@@ -14,25 +14,18 @@
 ### 基本参数
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 --------|-----|------|--------|----
-config | config 为组件的基本配置，一般是一些不变量，见`# config` | object | | 必须 
-params | form 表单的默认值对象，和config.item里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能 | object | |
-onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
-wrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |
-
-
-
-### # config
-参数名称 | 说明 | 类型 | 默认值 | 是否必须
--------|-------|-------|------- |----
 title | form 名字，多个Form时做区分 | string |  | 必须
 layout | 表单布局，支持三种常见布局，见`# config.layout` | object | |
 items | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# config.items` | object[]/array[] |  | 必须
 buttons | 表单的按钮配置，见`# config.buttons` | object[] | |
+params | form 表单的默认值对象，和config.item里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能 | object | |
 beforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |
 beforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |
+onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
+wrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |
 
 
-### # config.layout
+#### # layout
 
 参数名称 | 说明 | 类型 | 默认值
 ----- | --- | ---------| ---
@@ -42,7 +35,7 @@ labelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表�
 wrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14
 
 
-### # config.items
+#### # items
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
@@ -63,7 +56,7 @@ regionCfg | 表单域本身的配置，『极少用』。一般只有自定义�
 > * 不能是函数式组件
 
 
-### # config.buttons
+#### # buttons
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
@@ -77,7 +70,7 @@ onClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函�
 > 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用
 
 
-### # config.items.cfg
+#### # items.cfg
 表单域中组件的配置
 
 函数名称 | 说明 | 类型 | 默认值
@@ -88,7 +81,7 @@ placeholder | 输入框为空时输入框中的提示信息 | string |
 > 还有很多其他配置，如select类型的下拉框，可以配置`showSearch:true`即可开始下拉列表的搜索功能，详见各种对应组件的文档，理论上组件的属性都可以在这里使用
 
 
-### # config.items.rules
+#### # items.rules
 校验规则
 
 参数  | 说明  | 类型 | 默认值 
@@ -105,7 +98,7 @@ pattern | 正则表达式校验 | RegExp |
 transform | 校验前转换字段值 | function(value) => transformedValue:any |
 validator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |
 
-### # config.items.regionCfg
+### items.regionCfg
 表单域本身配置
 
 参数      | 说明                                     | 类型 | 默认值
@@ -126,278 +119,6 @@ exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | bool
 ---- | ---- | ----- | ----- 
 getValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |
 resetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |
-
-
-## 源代码
-
-### React 用法
-```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ReactForm from 'uf';
-
-const FormCfg = {
-    title: '新增',
-    layout: {
-        type: 'horizontal',
-        labelCol: 6,
-        wrapperCol: 14
-    },
-    items: [
-        {
-            type: 'input',
-            label: '图片标题',
-            name: 'title',
-            rules: [{required: true, message: '图片标题不能为空！'}],
-            default: '',
-            extra: '',
-            help: '?',
-            cfg: {
-                placeholder: '请输入图片标题'
-            }
-        }, {
-            type: 'textarea',
-            label: '描述',
-            name: 'content',
-            cfg: {}
-        }, {
-            type: 'select',
-            label: '类型',
-            name: 'type',
-            default: '1',
-            cfg: {
-                options: [{
-                    value: '1',
-                    label: '测试1'
-                }, {
-                    value: '2',
-                    label: '测试2'
-                }]
-            }
-        }, {
-            type: 'upload',
-            label: '图片',
-            name: 'src',
-            cfg: {
-                label: '上传图片',
-                name: 'file',
-                action: '',
-                accept: "image/*",
-                showUploadList: false
-            }
-        }, {
-            type: 'input',
-            label: '关联链接',
-            name: 'url',
-            rules: [{type: 'url'}]
-        }, 
-        {
-            type: 'cascader',
-            label: '级联选择',
-            name: 'cascader',
-            cfg: {
-                options: [{
-                    value: 'test1',
-                    label: 'TEST1',
-                    children: [{
-                        value: '>test1',
-                        label: '>TEST1',
-                    }]
-                }]
-            }
-        }, 
-        {
-            type: 'radio-group',
-            label: '单选按钮组',
-            name: 'radio-group',
-            cfg: {
-                options: [{
-                    value: 'test1',
-                    label: 'TEST1'
-                }, {
-                    value: '>test1',
-                    label: '>TEST1',
-                }]
-            }
-        },
-        {
-            type: 'checkbox-group',
-            label: '复选框组',
-            name: 'checkbox-group',
-            default: ['1', '2'],
-            cfg: {
-                options: [{
-                    value: '1',
-                    label: 'TEST1'
-                }, {
-                    value: '2',
-                    label: 'TEST2'
-                }]
-            }
-        }
-    ],
-    buttons: [
-        {
-            action: 'reset',
-            type: '',
-            value: '清除',
-            // size: 'large',
-            // icon: 'delete',
-            // disabled: 'disabled',
-            onClick: data=>{
-                console.log(data);
-            }
-        }, {
-            action: 'submit',
-            type: 'primary',
-            value: '提交',
-            // size: 'large',
-            // icon: 'search',
-            onClick: data=>{
-                // 使用promise，可以出发按钮的Loading，防止多次点击
-                return new Promise((resolve, reject)=>{
-                    setTimeout(()=>{
-                        console.log(data);
-                        reject();
-                    }, 2000);
-                });
-            }
-        }, {
-            action: 'test',
-            type: '',
-            value: '自定义',
-            // size: 'large',
-            // icon: 'copy',
-            onClick: data=>{
-                console.log('自定义按钮');
-            }
-        }
-    ]
-};
-
-export default class FormApp extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-    onSubmit(value) {
-        console.log(value);
-    }
-    render() {
-        return (
-            <ReactForm config={FormCfg} onSubmit={this.onSubmit.bind(this)}/>
-        );
-    }
-
-}
-
-```
-
-
-### API 调用
-
-html:
-```html
-<div id="content-form"></div>
-```
-js:
-```javascript
-Uf.load({Form: Uf.ReactForm});
-let formHandle = {
-    onSubmit: function(data) {
-        console.log(data);
-    },
-    cusClick: function() {
-        alert('自定义按钮');
-    }
-};
-Uf.create('Form', {
-    title: '表单title',
-    columns: 3,
-    items: [{
-        type: 'select',
-        label: '接口类型',
-        ref: 'api_type',
-        inputType: 'select',
-        placeholder: 'tool name',
-        fill: true,
-        opMap: {
-            all: '请选择',
-            rmsOpen: '开放平台',
-            phpRpc: 'RPC调用方式',
-            httpRestful: 'restfull接口',
-            hprose: 'Hprose方式'
-        },
-        defaultValue: 'rmsOpen'
-    }, {
-        type: 'input',
-        label: '调用方法',
-        inputType: 'text',
-        ref: 'api_method',
-        fill: true,
-        defaultValue: 'xiaolu',
-        placeholder: 'test'
-    }, {
-        type: 'select',
-        label: '接口类型',
-        ref: 'api_type1',
-        inputType: 'select',
-        placeholder: 'tool name',
-        fill: true,
-        opMap: {
-            all: '请选择',
-            rmsOpen: '开放平台',
-            phpRpc: 'RPC调用方式',
-            httpRestful: 'restfull接口',
-            hprose: 'Hprose方式'
-        },
-        defaultValue: 'hprose'
-    }, {
-        type: 'input',
-        label: '调用方法Test',
-        inputType: 'text',
-        ref: 'api_method_test',
-        fill: true,
-        defaultValue: 'method 2',
-        placeholder: 'test'
-    }, {
-        type: 'datetime',
-        label: '开始时间',
-        ref: 'startTime',
-        fill: true
-    }, {
-        type: 'checkbox',
-        label: '勾选框',
-        checked: true,
-        ref: 'isSelCheckbox'
-    }],
-    button: [
-        {
-            action: 'submit',
-            type: 'primary',
-            value: '提交',
-            icon: 'search',
-            onClick: formHandle.onSubmit
-        }, {
-            action: 'clear',
-            type: '',
-            value: '清除',
-            icon: 'delete',
-            // disabled: 'disabled'
-        }, {
-            action: 'test',
-            type: '',
-            value: '自定义',
-            icon: 'copy',
-            onClick: formHandle.cusClick
-        }
-    ]
-}).render('#content-form');
-
-```
-
-----------
 
 
 ## 更多用法

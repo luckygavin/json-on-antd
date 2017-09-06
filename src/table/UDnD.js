@@ -5,8 +5,9 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {BaseComponent} from 'uf/component';
 
-export default class UDnD extends React.Component {
+export default class UDnD extends BaseComponent {
     constructor(props) {
         super(props);
     }
@@ -31,10 +32,6 @@ export default class UDnD extends React.Component {
         event = event || window.event;
         event.preventDefault();
     }
-    dragOver(event) {
-        event = event || window.event;
-        event.preventDefault();
-    }
     dragDrop(event) {
         event = event || window.event;
         event.stopPropagation();
@@ -53,8 +50,9 @@ export default class UDnD extends React.Component {
         console.log('drag end');
     }
     render() {
+        let props = this.__filterProps(this.props, 'handleDragDrop');
         return (
-            <div draggable="true" {...this.props} onDragStart={this.dragStart.bind(this)}
+            <div draggable="true" {...props} onDragStart={this.dragStart.bind(this)}
                 onDrop={this.dragDrop.bind(this)} onDragEnd={this.dragEnd.bind(this)}
                 onDragOver={this.dragOver.bind(this)}>
                 {this.props.children}

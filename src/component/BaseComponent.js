@@ -64,6 +64,11 @@ export default class BaseComponent extends Component {
         return Utils.merge(...props);
     }
 
+    // 从props中过滤掉某些属性，例如原始元素不支持的属性
+    __filterProps(props, arr) {
+        return Utils.filter(props, arr);
+    }
+
     // ajax的get方法
     __getData(url, ...params) {
         const ajax = Ajax(url, 'get');

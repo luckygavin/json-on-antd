@@ -4,15 +4,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from 'uf/form';
-
 import BaseDoc from 'docs/app/BaseDoc.js';
+import Demo from 'docs/app/base/Demo.js';
 
 const Step1 = {
+    type: 'form',
     title: '新增专线 - 第1步',
     layout: {
         type: 'horizontal',
         labelCol: 6,
-        wrapperCol: 14
+        wrapperCol: 16
     },
     items: [
         [
@@ -393,18 +394,6 @@ const Step21 = {
                         {
                             type: 'empty'
                         }
-                        // {
-                        //     type: 'button',
-                        //     label: '新增',
-                        //     action: 'add',
-                        //     name: 'add',
-                        //     cfg: {
-                        //         type: 'primary'
-                        //     },
-                        //     onClick: form=>{
-                        //         console.log(form.getFieldsValue());
-                        //     }
-                        // }
                     ]
                 ]
             }
@@ -455,6 +444,77 @@ const Step22 = {
         ]
     ]
 };
+const Step23 = {
+    type: 'form',
+    title: '新增专线 - 第2步（1）',
+    layout: {
+        type: 'horizontal',
+        labelCol: 6,
+        wrapperCol: 14
+    },
+    items: [
+        [
+            {
+                type: 'input',
+                label: '姓名',
+                name: 'endpoint_users_name',
+                rules: [{required: true, message: '姓名不能为空'}],
+                cfg: {
+                    placeholder: '张三'
+                }
+            },
+            {
+                type: 'input',
+                label: '电话',
+                name: 'endpoint_phone',
+                cfg: {
+                    placeholder: '131xxxx5555'
+                }
+            },
+            [
+                {
+                    type: 'button',
+                    label: '新增',
+                    action: 'add',
+                    name: 'add',
+                    cfg: {
+                        type: 'primary'
+                    },
+                    onClick: form=>{
+                        console.log(form.getFieldsValue());
+                    }
+                },
+                {
+                    type: 'button',
+                    label: '删除',
+                    action: 'delete',
+                    name: 'delete',
+                    cfg: {
+                        type: 'danger'
+                    },
+                },
+                {
+                    type: 'button',
+                    label: '获取数据',
+                    action: 'get',
+                    name: 'get',
+                    cfg: {
+                    },
+                    onClick: form=>{
+                        console.log(form.getFieldsValue());
+                    }
+                }
+            ]
+        ]
+    ],
+    buttons: [{
+        action: 'test',
+        type: '',
+        value: '获取数据',
+        size: 'large',
+        onClick: d=>console.log(d)
+    }]
+};
 const data21 = {
     endpoint: {
         endpoint_users_name: '张三',
@@ -486,6 +546,21 @@ const data22 = [
         }
     }
 ];
+const data23 = {
+    endpoint_users_name: '张三',
+    endpoint_phone: '1234567890'
+};
+
+const demo1 = {
+    title: '基础功能',
+    description: '带有数据验证、字段联动等的表单',
+    config: Step1
+};
+const demo2 = {
+    title: '带新增、复制功能',
+    description: '可以新增/复制某一组form的表单项，新生成一行',
+    config: Step23
+};
 
 export default class FormApp extends BaseDoc {
     constructor(props) {
@@ -499,7 +574,10 @@ export default class FormApp extends BaseDoc {
     // 页面的其他内容已经在 BaseDoc 里实现，这里只需要写demo需要的代码即可
     // 如果没有展示demo，render可不写，见antd组件文档
     render() {
-        return <Form ref="testForm" config={Step21} params={[{data21}]} onSubmit={this.onSubmit.bind(this)}/>;
+        // return <Form ref="testForm" {...Step21} params={[{data21}]} onSubmit={this.onSubmit.bind(this)}/>;
+        // return <Form ref="testForm" {...Step23} params={data23} onSubmit={this.onSubmit.bind(this)}/>;
+        // return <Form ref="testForm" {...Step1} onSubmit={this.onSubmit.bind(this)}/>;
+        return <Demo single={true} list={[demo1, demo2]}/>;
     }
 
 }

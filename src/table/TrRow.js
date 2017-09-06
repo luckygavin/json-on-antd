@@ -314,7 +314,7 @@ export default class TrRow extends React.Component {
                     data-key={k}>{arrEdit.length > 0 ? arrEdit : (newTdData ? newTdData : tdData)}</td>;
                 // 气泡卡片
                 if (elliClass) {
-                    tdDiv = <Popover content={data[k]}>{tdDiv}</Popover>;
+                    tdDiv = <Popover key={k} content={data[k]}>{tdDiv}</Popover>;
                 }
                 tdList.push(tdDiv);
 

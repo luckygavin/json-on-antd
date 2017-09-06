@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import Demo from '../base/Demo.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '顶部导航',
@@ -147,7 +147,7 @@ const demo3 = {
             checked: true,
             checkedChildren: 'Dark',
             unCheckedChildren: 'Light',
-            onChange: v=>Uf('my-menu').setOption({
+            onChange: v=>UF('my-menu').setOption({
                 theme: v ? 'dark' : 'light'
             })
         },

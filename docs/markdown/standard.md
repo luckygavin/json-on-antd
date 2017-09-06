@@ -134,7 +134,11 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 ##### **`__mergeProps(...objs)`**  
 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  
->  tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
+> tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
+
+##### **`__filterProps(props, arr)`**  
+过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  
+> arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串
 
 ##### **`__getData(url, params, success, error, onchange)`**
 使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  

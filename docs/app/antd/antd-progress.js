@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '进度条',
@@ -133,7 +133,7 @@ const demo5 = {
                     type: 'button',
                     icon: 'minus',
                     onClick: v=>{
-                        var progress = Uf('my-progress');
+                        var progress = UF('my-progress');
                         var current = progress.getOption('percent');
                         progress.setOption({
                             percent: current - 10
@@ -144,7 +144,7 @@ const demo5 = {
                     type: 'button',
                     icon: 'plus',
                     onClick: v=>{
-                        var progress = Uf('my-progress');
+                        var progress = UF('my-progress');
                         var current = progress.getOption('percent');
                         progress.setOption({
                             percent: current + 10
@@ -173,7 +173,7 @@ const demo6 = {
                     type: 'button',
                     icon: 'minus',
                     onClick: v=>{
-                        var progress = Uf('my-progress2');
+                        var progress = UF('my-progress2');
                         var current = progress.getOption('percent');
                         progress.setOption({
                             percent: current - 10
@@ -184,7 +184,7 @@ const demo6 = {
                     type: 'button',
                     icon: 'plus',
                     onClick: v=>{
-                        var progress = Uf('my-progress2');
+                        var progress = UF('my-progress2');
                         var current = progress.getOption('percent');
                         progress.setOption({
                             percent: current + 10

@@ -26,7 +26,7 @@ export default class DataEntry extends Antd {
             // 适合的组件：input、input-number、checkbox、radio
             this.__props[key] = params[0].target.value;
         } else if (Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
-            // 适合的组件：select、switch、cascader
+            // 适合的组件：select、switch、cascader、rate、slider
             this.__props[key] = params[0];
         } else if (params[1]) {
             // 适合的组件：date-picker系列

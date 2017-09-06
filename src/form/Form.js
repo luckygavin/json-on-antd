@@ -27,13 +27,6 @@ class OriginForm extends BaseComponent {
         this.defaultValues = null;
         // 用于记录当前form是否变换过（原来单个form通过复制新增等变为了多个）
         this.isArrayForm = false;
-        // 传递给子Form的函数
-        // this.transmitFunction = {
-        //     addClick: this.addClick.bind(this),
-        //     copyClick: this.copyClick.bind(this),
-        //     deleteClick: this.deleteClick.bind(this),
-        //     othersClick: this.othersClick.bind(this),
-        // };
         this.config = {
             title: '新增',
             items: [],
@@ -50,7 +43,9 @@ class OriginForm extends BaseComponent {
     }
     init(nextProps) {
         let props = nextProps || this.props;
-        this.config = this.__mergeProps(this.config, props.config);
+        // 去掉 config 参数。。。
+        // this.config = this.__mergeProps(this.config, props.config);
+        this.config = this.__mergeProps(this.config, props);
         this.formItemLayout = this.getLayout(this.config.layout);
         // 是之成为受控组件，实现Form嵌套
         if ('params' in props && !Utils.equals(this.defaultValues, props.params)) {
@@ -217,9 +212,9 @@ class OriginForm extends BaseComponent {
         if (!oitem.name || oitem.type === 'empty') {
             return;
         }
-        okey = okey !== null ? okey : '';
+        okey = okey !== null ? `-${okey}` : '';
         let name = oitem.name;
-        let key = `${oitem.name}-${okey}`;
+        let key = oitem.name + okey;
         // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
         if (this.itemsCache[key]) {
             oitem = this.itemsCache[key];
@@ -425,18 +420,19 @@ class OriginForm extends BaseComponent {
         let values = this.getFieldsValue();
         callback && callback(values, this);
     }
+    // 处理数据
+    handleValues() {
+        
+    }
     // 新增按钮
     addClick(callback) {
-        // 如果传入了父组件，则调用父组件的新增，使在父组件上新生成一个同级的form项
-        // if (this.props.parent && !this.isArrayForm) {
-        //     this.props.parent.addClick(callback);
-        //     return;
-        // }
-
         let form = this.props.form;
         let keys = form.getFieldValue('__keys');
         let nextKeys = keys.concat(++uuid);
         form.setFieldsValue({'__keys': nextKeys});
+
+        // 处理已有数据
+        this.handleValues();
 
         callback && callback(this);
     }
@@ -561,6 +557,9 @@ class OriginForm extends BaseComponent {
         } else {
             result = this.generateFormItems(items)
         }
+        // result = keys.map(v=>{
+        //     return this.generateFormItems(items, v)
+        // });
         return result;
     }
     // 解析 Button 的配置，格式化成统一格式

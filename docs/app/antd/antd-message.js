@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '各种提示类型',
@@ -13,22 +13,22 @@ const demo1 = {
         {
             type: 'button',
             content: 'Success',
-            onClick: v=>Uf.message.success('Success message.')
+            onClick: v=>UF.message.success('Success message.')
         },
         {
             type: 'button',
             content: 'Info',
-            onClick: v=>Uf.message.info('Info message.')
+            onClick: v=>UF.message.info('Info message.')
         },
         {
             type: 'button',
             content: 'Warning',
-            onClick: v=>Uf.message.warning('Warning message.')
+            onClick: v=>UF.message.warning('Warning message.')
         },
         {
             type: 'button',
             content: 'Error',
-            onClick: v=>Uf.message.error('Error message.')
+            onClick: v=>UF.message.error('Error message.')
         }
     ]
 };
@@ -41,7 +41,7 @@ const demo2 = {
             type: 'button',
             content: 'Display a loading indicator',
             onClick: v=>{
-                var hide = Uf.message.loading('Success message.', 0);
+                var hide = UF.message.loading('Success message.', 0);
                 setTimeout(hide, 3000);
             }
         }

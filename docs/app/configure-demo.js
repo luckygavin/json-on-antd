@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const Config = {
 type: 'div',
@@ -88,8 +88,8 @@ content: {
                             type: 'icon',
                             mode: 'menu-fold',
                             style: {fontSize: '18px', lineHeight: '48px', marginLeft: '10px'},
-                            onClick: v=>Uf.get('my-sider').setOption({
-                                collapsed: !Uf.get('my-sider').getOption('collapsed')
+                            onClick: v=>UF.get('my-sider').setOption({
+                                collapsed: !UF.get('my-sider').getOption('collapsed')
                             })
                         },
                         {
@@ -168,7 +168,7 @@ export default class Info extends BaseDoc {
         this.__init();
     }
     componentDidMount() {
-        Uf.init(Config, 'configure-content');
+        UF.init(Config, 'configure-content');
     }
     render() {
         return <div id="configure-content"></div>;

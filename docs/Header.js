@@ -2,11 +2,9 @@
  * @file 头部导航条
  */
 import React, {Component} from 'react';
-import {Menu, Dropdown, Icon, Input, AutoComplete} from 'antd';
+import {Menu, Dropdown, Icon, Input, AutoComplete, Button} from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-
-// const DataList = ['Table', 'List', 'Export', 'Card', 'RangeDatepicker', 'Loading', 'Modal', 'Form', 'Tabs', 'Tree'];
 
 // 导航列表
 const NavList = [
@@ -52,7 +50,15 @@ export default class Header extends Component {
                 <div className="search">
                     {/*<AutoComplete dataSource={DataList}
                         placeholder="搜索组件... " />*/}
-                    <Input placeholder="搜索组件... " />
+                    <Dropdown overlay={
+                            <Menu>
+                                <Menu.Item key="v0.1">v0.1</Menu.Item>
+                            </Menu>
+                        }>
+                        <Button size="small">
+                            v0.1 <Icon type="down" />
+                        </Button>
+                    </Dropdown>
                 </div>
             </div>
         );

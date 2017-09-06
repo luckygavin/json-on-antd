@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '按钮类型',
@@ -188,7 +188,7 @@ const demo4 = {
             name: 'my-button1',
             mode: 'primary',
             content: 'Click me!',
-            onClick: v=>Uf('my-button1').setOption({
+            onClick: v=>UF('my-button1').setOption({
                 loading: true
             })
         },
@@ -198,7 +198,7 @@ const demo4 = {
             name: 'my-button2',
             icon: 'poweroff',
             content: 'Click me!',
-            onClick: v=>Uf('my-button2').setOption({
+            onClick: v=>UF('my-button2').setOption({
                 loading: true
             })
         },

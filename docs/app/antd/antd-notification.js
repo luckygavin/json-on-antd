@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '基本',
@@ -15,7 +15,7 @@ const demo1 = {
             mode: 'primary',
             content: 'Open the notification box',
             onClick: v=>{
-                Uf.notification.open({
+                UF.notification.open({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                 });
@@ -33,7 +33,7 @@ const demo2 = {
             mode: 'primary',
             content: 'Open the notification box',
             onClick: v=>{
-                Uf.notification.open({
+                UF.notification.open({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
                     duration: 0
@@ -51,7 +51,7 @@ const demo3 = {
             type: 'button',
             content: 'Success',
             onClick: v=>{
-                Uf.notification.success({
+                UF.notification.success({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                 });
@@ -61,7 +61,7 @@ const demo3 = {
             type: 'button',
             content: 'Info',
             onClick: v=>{
-                Uf.notification.info({
+                UF.notification.info({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                 });
@@ -71,7 +71,7 @@ const demo3 = {
             type: 'button',
             content: 'Warning',
             onClick: v=>{
-                Uf.notification.warning({
+                UF.notification.warning({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                 });
@@ -81,7 +81,7 @@ const demo3 = {
             type: 'button',
             content: 'Error',
             onClick: v=>{
-                Uf.notification.error({
+                UF.notification.error({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
                 });
@@ -99,17 +99,17 @@ const demo4 = {
             mode: 'primary',
             content: 'Open the notification box',
             onClick: v=>{
-                Uf.notification.open({
+                UF.notification.open({
                     message: 'Notification Title',
                     description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
                     duration: 0,
                     key: 'my-infomation',
-                    btn: Uf.init({
+                    btn: UF.init({
                         type: 'button',
                         mode: 'primary',
                         size: 'small',
                         content: 'Confirm',
-                        onClick: v=>Uf.notification.close('my-infomation')
+                        onClick: v=>UF.notification.close('my-infomation')
                     })
                 });
             }

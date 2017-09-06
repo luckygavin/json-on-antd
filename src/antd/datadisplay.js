@@ -9,6 +9,31 @@ import DataDisplay from './base/DataDisplay.js';
 import * as Antd from 'antd';
 
 
+/************* Avatar 头像 ************************************************************************** */
+
+export class Avatar extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Avatar {...this.__props}/>;
+    }
+}
+
+
+/************* Badge 徽标数 ************************************************************************** */
+
+export class Badge extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Badge {...this.__props}/>;
+    }
+}
+
 /************* Card 卡片 ************************************************************************** */
 
 export class Card extends DataDisplay {
@@ -120,5 +145,49 @@ export class TabPane extends DataDisplay {
     }
     render() {
         return <Antd.Tabs.TabPane {...this.__props}/>
+    }
+}
+
+
+/************* Tag 标签 ************************************************************************** */
+
+export class Tag extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Tag {...this.__props}/>;
+    }
+}
+export class CheckableTag extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Tag.CheckableTag {...this.__props}/>;
+    }
+}
+
+
+/************* Timeline 时间轴 ************************************************************************** */
+
+export class Timeline extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Timeline {...this.__props}/>;
+    }
+}
+export class TimelineItem extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Timeline.Item {...this.__props}/>;
     }
 }

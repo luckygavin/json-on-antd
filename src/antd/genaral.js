@@ -8,6 +8,27 @@ import Genaral from './base/Genaral.js';
 import * as Antd from 'antd';
 
 
+/************* Anchor 锚点 ************************************************************************** */
+
+export class Anchor extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Anchor {...this.__props}/>;
+    }
+}
+export class AnchorLink extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Anchor.Link {...this.__props}/>;
+    }
+}
+
 /************* Button 按钮 ************************************************************************** */
 
 export class Button extends Genaral {

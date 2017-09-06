@@ -6,14 +6,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Spin, Popconfirm, message, Pagination} from 'antd';
+import {Input} from 'uf/antd';
 
 import {BaseComponent} from 'uf/component';
 import {Utils} from 'uf/utils';
 
 import ReactModal from 'uf/modal';
 import Export from 'uf/export';
-import Antd from 'uf/antd';
-const Input = Antd.Input;
 
 import TrRow from './TrRow';
 import ThRow from './ThRow';
@@ -199,15 +198,18 @@ export default class Table extends BaseComponent {
     getExportConfig() {
         let tableCfg = this.tableCfg;
         let objTags = this.showTags;
-        let objHeaders = {};
-        let arrKeys = [];
-        let typeDef = Object.prototype.toString;
+        // let objHeaders = {};
+        let objHeaders = [];
+        // let arrKeys = [];
+        // let typeDef = Object.prototype.toString;
         for (let key in objTags) {
             if (key === '_operation' || key === 'operation') {
                 continue;
             }
-            arrKeys.push(key);
-            objHeaders[key] = (typeDef.call(objTags[key]) === '[object Object]') ? objTags[key]['title'] : objTags[key];
+            objHeaders.push({
+                key: key,
+                title: Utils.typeof(objTags[key], 'string') ? objTags[key] : objTags[key]['title']
+            });
         }
         /**
          * 1. 没有url就是直接传递了content的数据
@@ -223,7 +225,7 @@ export default class Table extends BaseComponent {
         }
         return {
             headers: objHeaders,
-            url: tableCfg.url,
+            source: tableCfg.url,
             params: this.props.params ? this.props.params : {},
             total: this.state.count
         };
@@ -1042,8 +1044,7 @@ export default class Table extends BaseComponent {
         // 为了美观，如果有自定义的控件，把控件放到过滤框之后，其他控件之前
         if (custom && custom.basic) {
             for (let v of custom.basic) {
-                divList.push(<div pos="basic" key={v.name}
-                    className={'umpui-header-extra ' + (v.name||'')}
+                divList.push(<div key={v.name} className={'umpui-header-extra ' + (v.name||'')}
                     onClick={()=>v.onClick(this)}>
                     <i className={v.icon}></i>
                     <span>{v.text}</span>
@@ -1146,7 +1147,7 @@ export default class Table extends BaseComponent {
             </div>;
         }
         obj['export'] = <div className="umpui-header-extra" key="export">
-            <Export config={this.exportConfig}>
+            <Export {...this.exportConfig}>
                 <i className="fa fa-download"></i>
                 {showText && <span>导出</span>}
             </Export>
@@ -1180,7 +1181,7 @@ export default class Table extends BaseComponent {
             <span>展示字段</span>
         </li>;
         obj['export'] = <li key="export1">
-            <Export config={this.exportConfig}>
+            <Export {...this.exportConfig}>
                 <i className="fa fa-download"></i>
                 <span>导出数据</span>
             </Export>
@@ -1240,7 +1241,7 @@ export default class Table extends BaseComponent {
                 <div className="panel-body">
                     <Spin spinning={this.state.spinning} tip={this.state.spinTip}>
                         <div className="table-responsive">
-                            <table hover={this.props.hover} className={this.cfg.tableClass}>
+                            <table className={this.cfg.tableClass}>
                                 <ThRow tableCfg={this.tableCfg} checked={this.state.checkAll}
                                 showTags={this.showTags} checkAll={this.checkAll.bind(this)}
                                 expandAll={this.state.expandAll}

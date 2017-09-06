@@ -17,14 +17,21 @@ export default {
         let Item = Loader.get(item.type);
         // 如果是Antd组件，则把config格式化为Antd组件格式
         // 否则格式化成Uf格式
-        // Todo: Uf的参数形式是否也可以改成和Antd一样？
-        let props;
+        // let props;
+        // if (Utils.isExtendsOf(Item, 'Antd')) {
+        //     props = this.antdConfig(item);
+        // } else if (Utils.isExtendsOf(Item, 'BaseComponent')) {
+        //     props = this.ufConfig(item);
+        // } else {
+        //     props = this.commonConfig(item);
+        // }
+        let props = Utils.filter(item, KeyWord);
+        // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
+        // 实例化组件时，还要把 type 还原
         if (Utils.isExtendsOf(Item, 'Antd')) {
-            props = this.antdConfig(item);
-        } else if (Utils.isExtendsOf(Item, 'BaseComponent')) {
-            props = this.ufConfig(item);
-        } else {
-            props = this.commonConfig(item);
+            if (props.mode) {
+                props.type = props.mode;
+            }
         }
 
         // 如果有name的话，把组件放到缓存池里
@@ -43,7 +50,7 @@ export default {
     },
 
     // 获取Uf上自己实现的组件配置，配置集合在config上
-    ufConfig(oitem) {
+    /* ufConfig(oitem) {
         let {config, data, params} = oitem;
         let item = Utils.filter(oitem, KeyWord.concat(['config', 'data', 'params']));
         if (!config) {
@@ -84,5 +91,5 @@ export default {
             item.type = item.mode;
         }
         return item;
-    }
+    } */
 }

@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const demo1 = {
     title: '各种大小',
@@ -51,7 +51,7 @@ const demo2 = {
                 {
                     type: 'switch',
                     checked: true,
-                    onChange: v=>Uf('my-loading').setOption({loading: v})
+                    onChange: v=>UF('my-loading').setOption({loading: v})
                 }
             ]
         }
@@ -97,7 +97,7 @@ const demo4 = {
                 'Loading state: ',
                 {
                     type: 'switch',
-                    onChange: v=>Uf('my-loading2').setOption({loading: v})
+                    onChange: v=>UF('my-loading2').setOption({loading: v})
                 }
             ]
         }

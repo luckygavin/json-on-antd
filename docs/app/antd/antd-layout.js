@@ -194,7 +194,7 @@ const demo2 = {
             {
                 type: 'footer',
                 style: {textAlign: 'center'},
-                content: 'Uf ©2017 Created by Liuzechun'
+                content: 'UF ©2017 Created by Liuzechun'
             }
         ]
     }

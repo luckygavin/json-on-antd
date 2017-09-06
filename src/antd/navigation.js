@@ -8,6 +8,19 @@ import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
 
 
+/************ Affix 图钉 *************************************************************************** */
+
+export class Affix extends Navigation {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Affix {...this.__props}/>;
+    }
+}
+
+
 /************ Breadcrumb 面包屑 *************************************************************************** */
 
 export class Breadcrumb extends Navigation {

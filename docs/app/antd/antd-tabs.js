@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import {Utils} from 'uf/utils';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const content = [
     {
@@ -84,7 +84,7 @@ const demo4 = {
                     type: 'select',
                     value: 'top',
                     options: ['top', 'bottom', 'left', 'right'],
-                    onChange: v=>Uf('my-tabs').setOption({tabPosition: v})
+                    onChange: v=>UF('my-tabs').setOption({tabPosition: v})
                 }
             ]
         },

@@ -23,17 +23,24 @@ module.exports = {
     'antd-input-number.md': require('./antd/antd-input-number.md'),
     'antd-input.md': require('./antd/antd-input.md'),
     'antd-radio.md': require('./antd/antd-radio.md'),
+    'antd-rate.md': require('./antd/antd-rate.md'),
     'antd-select.md': require('./antd/antd-select.md'),
     'antd-switch.md': require('./antd/antd-switch.md'),
     'antd-upload.md': require('./antd/antd-upload.md'),
 
+    'antd-avatar.md': require('./antd/antd-avatar.md'),
+    'antd-badge.md': require('./antd/antd-badge.md'),
+    'antd-calendar.md': require('./antd/antd-calendar.md'),
     'antd-card.md': require('./antd/antd-card.md'),
     'antd-carousel.md': require('./antd/antd-carousel.md'),
     'antd-collapse.md': require('./antd/antd-collapse.md'),
     'antd-popover.md': require('./antd/antd-popover.md'),
     'antd-tooltip.md': require('./antd/antd-tooltip.md'),
     'antd-tabs.md': require('./antd/antd-tabs.md'),
+    'antd-tag.md': require('./antd/antd-tag.md'),
+    'antd-timeline.md': require('./antd/antd-timeline.md'),
 
+    'antd-affix.md': require('./antd/antd-affix.md'),
     'antd-breadcrumb.md': require('./antd/antd-breadcrumb.md'),
     'antd-dropdown.md': require('./antd/antd-dropdown.md'),
     'antd-menu.md': require('./antd/antd-menu.md'),
@@ -47,5 +54,6 @@ module.exports = {
     'antd-popconfirm.md': require('./antd/antd-popconfirm.md'),
     'antd-loading.md': require('./antd/antd-loading.md'),
 
+    'antd-anchor.md': require('./antd/antd-anchor.md'),
     'antd-backtop.md': require('./antd/antd-backtop.md')
 };

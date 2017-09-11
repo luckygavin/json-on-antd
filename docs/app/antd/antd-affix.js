@@ -30,7 +30,7 @@ const demo1 = {
             content: {
                 type: 'button',
                 mode: 'primary',
-                content: '120px to affix button'
+                content: '120px to affix buttom'
             }
         },
     ]

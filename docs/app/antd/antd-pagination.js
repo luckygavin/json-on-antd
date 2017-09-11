@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import Uf from 'uf/tools';
+import Demo from '../base/Demo.js';
 
 const demo1 = {
     title: '基本用法',
@@ -67,7 +68,8 @@ const demo5 = {
     config: {
         type: 'pagination',
         current: 3,
-        total: 50,
+        total: 500,
+        pageSize: 10,
         simple: true,
         showQuickJumper: true,
         showSizeChanger: true,
@@ -98,6 +100,7 @@ export default class Pagination extends BaseDoc {
     }
 
     render() {
-        return this.__getDemo(demo1, demo2, demo3, demo4, demo5, demo6);
+        // return this.__getDemo(demo1, demo2, demo3, demo4, demo5, demo6);
+        return <Demo single={true} list={[demo1, demo2, demo3, demo4, demo5, demo6]} />;
     }
 }

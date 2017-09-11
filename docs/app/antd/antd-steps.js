@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
 import Uf from 'uf/tools';
+import Demo from '../base/Demo.js';
 
 const demo1 = {
     title: '基本用法',
@@ -15,18 +16,18 @@ const demo1 = {
         content: [
             {
                 type: 'step',
-                title: 'A',
-                description: 'description'
+                title: 'Finished',
+                description: 'This is the description'
             },
             {
                 type: 'step',
-                title: 'B',
-                description: 'description'
+                title: 'In Progress',
+                description: 'This is the description'
             },
             {
                 type: 'step',
-                title: 'C',
-                description: 'description'
+                title: 'Waiting',
+                description: 'This is the description'
             }
         ]
     }
@@ -40,7 +41,7 @@ const demo2 = {
             {
                 type: 'step',
                 status: 'finish',
-                title: 'A',
+                title: 'Login',
                 icon: {
                     type: 'icon',
                     mode: 'user'
@@ -49,7 +50,7 @@ const demo2 = {
             {
                 type: 'step',
                 status: 'finish',
-                title: 'B',
+                title: 'Verification',
                 icon: {
                     type: 'icon',
                     mode: 'solution'
@@ -58,7 +59,7 @@ const demo2 = {
             {
                 type: 'step',
                 status: 'process',
-                title: 'C',
+                title: 'Pay',
                 icon: {
                     type: 'icon',
                     mode: 'credit-card'
@@ -67,7 +68,7 @@ const demo2 = {
             {
                 type: 'step',
                 status: 'wait',
-                title: 'D',
+                title: 'Done',
                 icon: {
                     type: 'icon',
                     mode: 'smile-o'
@@ -112,18 +113,18 @@ const demo4 = {
         content: [
             {
                 type: 'step',
-                title: 'A',
-                description: 'description'
+                title: 'Finished',
+                description: 'This is the description'
             },
             {
                 type: 'step',
-                title: 'B',
-                description: 'description'
+                title: 'In Progress',
+                description: 'This is the description'
             },
             {
                 type: 'step',
-                title: 'C',
-                description: 'description'
+                title: 'Waiting',
+                description: 'This is the description'
             }
         ]
     }
@@ -163,6 +164,6 @@ export default class Steps extends BaseDoc {
     }
 
     render() {
-        return this.__getDemo(demo1, demo2, demo3, demo4, demo5);
+        return <Demo single={true} list={[demo1, demo2, demo3, demo4, demo5]} />;
     }
 }

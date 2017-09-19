@@ -13,8 +13,8 @@
 
 | 参数      | 说明                                     | 类型          | 默认值 |
 |-----------|------------------------------------------|---------------|--------|
-| title     | 卡片标题                                 | string&#124;ReactNode | 无     |
-| body   | 卡片内容                            | string&#124;ReactNode | 无     |
+| title     | 卡片标题                                 | string&#124;`config` | 无     |
+| body   | 卡片内容                            | string&#124;`config` | 无     |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上 | Function(triggerNode) | () => document.body |
 | arrowPointAtCenter | 箭头是否指向目标元素中心 | boolean | `false` |

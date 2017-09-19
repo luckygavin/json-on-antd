@@ -147,7 +147,7 @@ const demo3 = {
             checked: true,
             checkedChildren: 'Dark',
             unCheckedChildren: 'Light',
-            onChange: v=>UF('my-menu').setOption({
+            onChange: v=>UF('my-menu').set({
                 theme: v ? 'dark' : 'light'
             })
         },

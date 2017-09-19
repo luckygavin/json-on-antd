@@ -4,6 +4,8 @@
  * */
 var path = require('path');
 var webpack = require('webpack');
+const __root = path.join(__dirname, '../../');
+
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 var production = process.env.NODE_ENV === 'production';
@@ -14,7 +16,8 @@ console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);
 
 // 分离css文件
-var cssBuilder = new ExtractTextPlugin(!production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`);
+const cssName = !production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`;
+var cssBuilder = new ExtractTextPlugin('css/' + cssName);
 var jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -29,12 +32,12 @@ if (production) {
 
 module.exports = {
     entry: {
-        'uf': __dirname + '/dist/entry/uf.js'
+        'uf': __root + '/dist/entry/uf.entry.js'
     },
     output: {
-        path: __dirname + '/dist',
+        path: __root + '/dist',
         publicPath: 'dist/',
-        filename: !production ? `[name]_v${version}.js` : `[name]_v${version}.min.js`
+        filename: 'js/' + (!production ? `[name]_v${version}.js` : `[name]_v${version}.min.js`)
     },
     module: {
         loaders: [
@@ -55,7 +58,11 @@ module.exports = {
                     // plugins: [['import', {libraryName: 'antd'}]],
                     // compact: false
                 }
-            }, 
+            },
+            {
+                test: /\.json$/,
+                loader: 'json'
+            }
         ],
         noParse: ['react', 'react-dom', 'antd', 'react-router']
     },
@@ -64,8 +71,8 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
-            'uf': __dirname + '/src',
-            'root': __dirname
+            'uf': __root + '/src',
+            'root': __root
         }
     },
     externals: {
@@ -74,7 +81,7 @@ module.exports = {
         'react-router': 'window.DLL.ReactRouter',
         'immutable': 'window.DLL.Immutable',
         'reqwest': 'window.DLL.reqwest',
-        'uf': 'window.Uf'
+        'antd': 'window.DLL.Antd'
     },
     plugins: plugins
 };

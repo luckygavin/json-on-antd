@@ -14,31 +14,34 @@ require('./doc.scss');
 // 通用文档
 const CommonList = [
     {path: 'Introduction', name: '简要介绍', component: require('./app/introduction').default},
-    {path: 'Install', name: '快速上手', component: require('./app/install').default},
-    {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default},
     {path: 'Configure', name: '配置化', children: [
         {path: 'Info', name: '简介', component: require('./app/configure-info').default},
-        {path: 'Demo', name: '示例', component: require('./app/configure-demo').default},
-        {path: 'Api', name: '通用API', component: null}
-    ]}
+        {path: 'Install', name: '快速上手', component: require('./app/install').default},
+        {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
+        {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
+        {path: 'Layout', name: '页面布局', component: require('./app/antd/antd-layout').default},
+        {path: 'Demo', name: '整体示例', component: require('./app/configure-demo').default},
+        {path: 'Others', name: '其他说明', component: require('./app/configure-others').default}
+    ]},
+    {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
 ];
 
 // 组件文档列表
 const ComponentList = [
-    {path: 'Component', name: 'Component', children: [
+    {path: 'Custom', name: '自定义', children: [
         // {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
         // {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
         {path: 'Export', name: 'Export 导出', component: require('./app/export').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('./app/tree').default},
         // {path: 'Modal', name: 'Modal 弹框', component: null},
     ]},
-    {path: 'General', name: 'General', children: [
+    {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},
         {path: 'Icon', name: 'Icon 图标', component: require('./app/antd/antd-icon').default},
         {path: 'Grid', name: 'Grid 栅格', component: require('./app/antd/antd-grid').default},
         {path: 'Layout', name: 'Layout 布局', component: require('./app/antd/antd-layout').default}
     ]},
-    {path: 'DataEntry', name: 'Data Entry', children: [
+    {path: 'DataEntry', name: '数据录入', children: [
         {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('./app/antd/antd-auto-complete').default},
         {path: 'Cascader', name: 'Cascader 级联选择', component: require('./app/antd/antd-cascader').default},
         {path: 'Checkbox', name: 'Checkbox 多选框', component: require('./app/antd/antd-checkbox').default},
@@ -51,7 +54,7 @@ const ComponentList = [
         {path: 'Switch', name: 'Switch 开关', component: require('./app/antd/antd-switch').default},
         {path: 'Upload', name: 'Upload 上传', component: require('./app/antd/antd-upload').default}
     ]},
-    {path: 'DataDisplay', name: 'Data Display', children: [
+    {path: 'DataDisplay', name: '数据展示', children: [
         {path: 'Avatar', name: 'Avatar 头像', component: require('./app/antd/antd-avatar').default},
         {path: 'Badge', name: 'Badge 徽标数', component: require('./app/antd/antd-badge').default},
         // {path: 'Calendar', name: 'Calendar 日历', component: require('./app/antd/antd-calendar').default},
@@ -64,7 +67,7 @@ const ComponentList = [
         {path: 'Tag', name: 'Tag 标签', component: require('./app/antd/antd-tag').default},
         {paht: 'Timeline', name: 'Timeline 时间轴', component: require('./app/antd/antd-timeline').default}
     ]},
-    {path: 'Navigation', name: 'Navigation', children: [
+    {path: 'Navigation', name: '导航', children: [
         {path: 'Affix', name: 'Affix 固钉', component: require('./app/antd/antd-affix').default},
         {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
         {path: 'Dropdown', name: 'Dropdown 下拉菜单', component: require('./app/antd/antd-dropdown').default},
@@ -72,7 +75,7 @@ const ComponentList = [
         {path: 'Pagination', name: 'Pagination 分页', component: require('./app/antd/antd-pagination').default},
         {path: 'Steps', name: 'Steps 步骤条', component: require('./app/antd/antd-steps').default}
     ]},
-    {path: 'Feedback', name: 'Feedback', children: [
+    {path: 'Feedback', name: '反馈', children: [
         {path: 'Alert', name: 'Alert 警告提示', component: require('./app/antd/antd-alert').default},
         {path: 'Message', name: 'Message 全局提示', component: require('./app/antd/antd-message').default},
         {path: 'Notification', name: 'Notification 通知提醒框', component: require('./app/antd/antd-notification').default},
@@ -80,7 +83,7 @@ const ComponentList = [
         {path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: require('./app/antd/antd-popconfirm').default},
         {path: 'Loading', name: 'Loading 加载中', component: require('./app/antd/antd-loading').default}
     ]},
-    {path: 'Other', name: 'Other', children: [
+    {path: 'Other', name: '其他组件', children: [
         // {path: 'Anchor', name: 'Anchor 锚点', component: require('./app/antd/antd-anchor').default},
         {path: 'Backtop', name: 'Backtop 回到顶部', component: require('./app/antd/antd-backtop').default}
     ]}

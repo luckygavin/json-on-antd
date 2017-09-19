@@ -22,6 +22,6 @@
 | 参数 | 说明             | 类型                    | 默认值 |
 |------|------------------|-------------------------|--------|
 | key  | 对应 activeKey   | string                  | 无 (如果key不存在则取name值)   |
-| header | 面板头内容 | string&#124;ReactNode | 无     |
+| header | 面板头内容 | string&#124;`config` | 无     |
 | disabled | 禁用后的面板展开与否将无法通过用户交互改变 | boolean | false |
 | style | 样式对象，可用于控制每个面板的样式，如背景色、圆角和边距等 | object | false |

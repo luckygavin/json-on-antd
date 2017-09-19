@@ -26,7 +26,7 @@ class Factory extends Component {
 
     // 解析组件配置，生成组件
     generateItem(item) {
-        // 校验是否有 type 属性
+        // 校验是否有 type 属性，如果没有会报错
         Validator.check(item, 'type', 'string');
         if (!item.type) {
             return;
@@ -40,15 +40,10 @@ class Factory extends Component {
         item = Layout.if(item);
         // 从loader中获取到相应的组件
         let Item = Loader.get(item.type);
-        // 通过适配器把参数转换成标准格式，uf组件和antd组件做了区分
+        // 通过适配器把参数转换成标准格式，剔除掉一下无用属性等
         let props = Adaptor.get(item);
-        // 如果存在item.content，则说明有子组件
-        if (item.content) {
-            // 组件本身会从 this.props.children 上获取子组件，所以直接把子组件放props上即可，无需再写双标签
-            props.children = this.generateElement(item.content);
-        }
         // 判断其他需要额外进一步解析的属性并进行解析
-        props = this.analysisAgain(props, item.type);
+        props = this.analysisAgain(props, item);
         return <Item {...props} />;
     }
 
@@ -72,8 +67,8 @@ class Factory extends Component {
     }
 
     // 有些属性可以是ReactNode，也就是也可以配置成一个组件，所以需要再次把这些属性解析为组件
-    analysisAgain(props, type) {
-        let name = Utils.toPascal(type);
+    analysisAgain(props, item) {
+        let name = Utils.toPascal(item.type);
         let list = WhiteList[name];
         if (list) {
             for (let i in props) {
@@ -81,6 +76,11 @@ class Factory extends Component {
                     props[i] = this.generateElement(props[i]);
                 }
             }
+        }
+        // 如果存在item.content，则说明有子组件，所有组件的 content 属性都需要二次解析
+        if (item.content) {
+            // 组件本身会从 this.props.children 上获取子组件，所以直接把子组件放props上即可，无需再写双标签
+            props.children = this.generateElement(item.content);
         }
         return props;
     }

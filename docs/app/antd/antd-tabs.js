@@ -84,7 +84,7 @@ const demo4 = {
                     type: 'select',
                     value: 'top',
                     options: ['top', 'bottom', 'left', 'right'],
-                    onChange: v=>UF('my-tabs').setOption({tabPosition: v})
+                    onChange: v=>UF('my-tabs').set({tabPosition: v})
                 }
             ]
         },

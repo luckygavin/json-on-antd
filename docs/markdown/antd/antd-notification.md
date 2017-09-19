@@ -11,20 +11,20 @@
 
 ## API
 
-- `Uf.notification.success(config)`
-- `Uf.notification.error(config)`
-- `Uf.notification.info(config)`
-- `Uf.notification.warning(config)`
-- `Uf.notification.warn(config)`
-- `Uf.notification.close(key: String)`
-- `Uf.notification.destroy()`
+- `UF.notification.success(config)`
+- `UF.notification.error(config)`
+- `UF.notification.info(config)`
+- `UF.notification.warning(config)`
+- `UF.notification.warn(config)`
+- `UF.notification.close(key: String)`
+- `UF.notification.destroy()`
 
 config 参数如下：
 
 | 参数          | 说明                                       | 类型                | 默认值      |
 | ----------- | ---------------------------------------- | ----------------- | -------- |
-| message     | 通知提醒标题，必选                                | string&#124;ReactNode | -        |
-| description | 通知提醒内容，必选                                | string&#124;ReactNode | -        |
+| message     | 通知提醒标题，必选                                | string&#124;`config` | -        |
+| description | 通知提醒内容，必选                                | string&#124;`config` | -        |
 | className   | 自定义 CSS class                            | string            | -        |
 | style       | 自定义内联样式                                  | Object            | -        |
 | btn         | 自定义关闭按钮                                  | ReactNode         | -        |
@@ -36,10 +36,10 @@ config 参数如下：
 
 还提供了一个全局配置方法，在调用前提前配置，全局一次生效。
 
-- `Uf.notification.config(options)`
+- `UF.notification.config(options)`
 
 ```js
-Uf.notification.config({
+UF.notification.config({
     placement: 'bottomRight',
     bottom: 50,
     duration: 3,

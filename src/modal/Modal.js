@@ -16,20 +16,18 @@ export default class NewModal extends BaseComponent {
             loading: false
         };
         this.init();
-        // 防止用户写错地方
-        if (props.config.beforeSetValues || props.config.beforeSubmit) {
-            console.warn('beforeSubmit/beforeSetValues 需写在配置`formCfg`中，请检查代码');
-        }
+        this.config = {
+            type: 'tip',
+            formCfg: null,
+            buttons: null,
+            style: {
+                display: 'inline-block'
+            }
+        };
     }
     init() {
         let props = this.props;
-        this.config = Object.assign({
-                type: 'tip',
-                formCfg: null,
-                buttons: null
-            }, props.config, {
-                container: props.config.container || {style: {display: 'inline-block'}}
-            });
+        this.config = this.__mergeProps(this.config, this.props);
         this.params = props.params;
     }
     componentWillUpdate() {

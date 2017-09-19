@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/BaseDoc.js';
-import Uf from 'uf/tools';
+import UF from 'uf/tools';
 
 const example = {
     type: 'span',
@@ -233,12 +233,12 @@ const demo5 = {
                         mode: 'minus'
                     },
                     onClick: function() {
-                        var count = Uf.get('myBadge').getOption('count');
+                        var count = UF('myBadge').getOption('count');
                         count--;
                         if (count < 0) {
                             count = 0;
                         }
-                        Uf.get('myBadge').setOption({count: count});
+                        UF('myBadge').set({count: count});
                     }
                 },
                 {
@@ -248,9 +248,9 @@ const demo5 = {
                         mode: 'plus'
                     },
                     onClick: function() {
-                        var count = Uf.get('myBadge').getOption('count');
+                        var count = UF('myBadge').getOption('count');
                         count++;
-                        Uf.get('myBadge').setOption({count: count});
+                        UF('myBadge').set({count: count});
                     }
                 }
             ]

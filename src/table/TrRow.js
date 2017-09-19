@@ -1,6 +1,6 @@
 
 /**
- * @file 简易表格组件 依赖Immutable
+ * @file 简易表格组件
  * @author luyongfang@baidu.com
  * */
 /* eslint-disable fecs-camelcase */

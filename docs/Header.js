@@ -12,7 +12,7 @@ const NavList = [
     {key: 'Standard', path: '#/Standard', name: '规范'},
     {key: 'ThirdParty', path: '#/ThirdParty', name: '第三方组件'},
     {key: 'ANT DESIGN', path: 'http://antd.uf.baidu.com/docs/react/introduce-cn', name: 'ANT DESIGN'},
-    {key: 'Old-uf', path: 'http://uf.baidu.com/index_old.php', name: '返回旧版'}
+    {key: 'Old-uf', path: 'http://uf.baidu.com/uf-react.php', name: '返回旧版'}
 ];
 
 export default class Header extends Component {

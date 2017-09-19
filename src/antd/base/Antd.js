@@ -10,14 +10,14 @@ export default class Antd extends BaseComponent {
     }
 
     // 暴露给用户刷新组件的接口
-    setOption(option) {
+    set(option) {
         let props = this.__mergeProps({}, this.__props, option);
         this._initProps(props);
         this.forceUpdate();
     }
-
-    getOption(name) {
-        return this.__props[name];
+    // 如果有key则返回key的值；如果没有key，则返回全部参数
+    get(key) {
+        return key ? this.__props[key] : this.__props;
     }
 
     __init() {

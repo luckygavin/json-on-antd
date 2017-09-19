@@ -9,7 +9,7 @@ const __root = path.join(__dirname, '../../');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const production = process.env.NODE_ENV === 'production';
-const cssName = (process.env.CSS_NAME || 'antd') + (!production ? '' : '.min') + '.css';
+const cssName = (process.env.CSS_NAME || 'theme') + (!production ? '' : '.min') + '.css';
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('CSS_NAME: ', cssName);

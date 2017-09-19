@@ -34,6 +34,15 @@ export default {
             }
         }
 
+        // 把 class、style 转换为 react 需要的 className、style对象
+        if (props.class) {
+            props.className += ' ' + props.class;
+            delete props.class;
+        }
+        if (props.style && Utils.typeof(props.style, 'string')) {
+            props.style = this.toCamalObj(props.style);
+        }
+
         // 如果有name的话，把组件放到缓存池里
         if (item.name) {
             props['__cache'] = item.name;
@@ -48,7 +57,18 @@ export default {
 
         return props;
     },
-
+    // 把 字符串style 转换为 react 需要的对象
+    toCamalObj(style) {
+        let arr = style.split(';');
+        let obj = {};
+        for (let v of arr) {
+            let [key, value] = v.split(':');
+            // 可以再优化下
+            let newKey = key.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('').replace(/^\w/g, v=>v.toLowerCase());
+            obj[newKey] = value;
+        }
+        return obj;
+    }
     // 获取Uf上自己实现的组件配置，配置集合在config上
     /* ufConfig(oitem) {
         let {config, data, params} = oitem;

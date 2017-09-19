@@ -9,9 +9,9 @@ module.exports = Object.assign(
     Antd,
     // 其他自己实现/封装的组件
     {
-        // Table: require('./table'),
-        // Form: require('./form'),
-        // ReactModal: require('./modal'),
+        Table: require('./table'),
+        Form: require('./form'),
+        ReactModal: require('./modal'),
         Tree: require('./tree'),
         Export: require('./export')
     }

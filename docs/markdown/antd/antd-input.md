@@ -18,10 +18,10 @@
 | defaultValue | 输入框默认内容 | string | |
 | size | 控件大小。注：标准表单内的输入框大小限制为 `large`。可选 `large` `default` `small` | string | `default` |
 | disabled | 是否禁用状态，默认为 false | boolean | false |
-| addonBefore | 带标签的 input，设置前置标签 | string&#124;ReactNode | |
-| addonAfter | 带标签的 input，设置后置标签 | string&#124;ReactNode | |
-| prefix | 带有前缀图标的 input | string&#124;ReactNode | |
-| suffix | 带有后缀图标的 input | string&#124;ReactNode | |
+| addonBefore | 带标签的 input，设置前置标签 | string&#124;`config` | |
+| addonAfter | 带标签的 input，设置后置标签 | string&#124;`config` | |
+| prefix | 带有前缀图标的 input | string&#124;`config` | |
+| suffix | 带有后缀图标的 input | string&#124;`config` | |
 | onPressEnter | 按下回车的回调 | function(e) | - |
 
 `Input` 的其他属性和 React 自带的 [input](https://facebook.github.io/react/docs/events.html#supported-events) 一致。

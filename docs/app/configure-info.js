@@ -77,8 +77,8 @@ const Config = {
                             type: 'icon',
                             mode: 'menu-fold',
                             style: {fontSize: '18px', lineHeight: '48px', marginLeft: '10px'},
-                            onClick: v=>UF.get('my-sider').setOption({
-                                collapsed: !UF.get('my-sider').getOption('collapsed')
+                            onClick: v=>Uf('my-sider').set({
+                                collapsed: !Uf('my-sider').get('collapsed')
                             })
                         },
                         {
@@ -200,8 +200,8 @@ const Config = {
                             type: 'button',
                             content: '吼啊',
                             onClick() {
-                                // console.log(UF.get('my-input').refs['my-input'].refs['input'].value);
-                                console.log(UF.get('my-date-picker').getValue());
+                                // console.log(Uf('my-input').refs['my-input'].refs['input'].value);
+                                console.log(Uf('my-date-picker').getValue());
                             }
                         },
                         {
@@ -477,10 +477,10 @@ const Config = {
                             total: 50,
                             current: 2,
                             onChange: v=>{
-                                UF.get('my-progress').setOption({
+                                Uf('my-progress').set({
                                     percent: v * 20
                                 });
-                                UF.get('my-steps').setOption({
+                                Uf('my-steps').set({
                                     current: v - 1
                                 });
                             }
@@ -527,10 +527,10 @@ export default class Info extends BaseDoc {
         this.doc = 'configure-info.md';
         this.__init();
     }
-    componentDidMount() {
-        UF.init(Config, 'configure-content');
-    }
-    render() {
-        return <div id="configure-content"></div>;
-    }
+    // componentDidMount() {
+    //     UF.init(Config, 'configure-content');
+    // }
+    // render() {
+    //     return <div id="configure-content"></div>;
+    // }
 }

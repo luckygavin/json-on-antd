@@ -4,18 +4,23 @@ UF 致力于提供给 RD 愉悦的页面开发体验
 
 ## 1.组件引入
 
-直接按需复制如下内容到页面的`<head>`标签里即可：
+直接复制如下内容到页面的`<head>`标签里即可：
 
 ```html
-<link rel="stylesheet" href="http://uf.baidu.com/dist/css/antd.min.css" />
-<link rel="stylesheet" href="http://uf.baidu.com/dist/css/uf_v0.1.css" />
+<link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
+<link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.1.min.css" />
 <script src="http://uf.baidu.com/dist/dll.min.js"></script>
 <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-<script src="http://uf.baidu.com/dist/uf_v0.1.js"></script>
+<script src="http://uf.baidu.com/dist/uf_v0.1.min.js"></script>
+```
 
-<!-- 如果需要兼容比较老的浏览器，可以引入如下文件实现兼容 -->
+> 注：以上文件引入的是压缩版本，适合线上使用，在开发过程中，可以引入开发版本，以查看更多报错信息，即去掉 `.min` 后缀
+
+如果需要兼容比较老的浏览器，可以引入如下文件实现兼容  
+```html
 <script src="http://uf.baidu.com/dist/browser-polyfill.min.js"></script>
 ```
+
 
 ## 2.组件使用
 
@@ -26,11 +31,11 @@ UF 致力于提供给 RD 愉悦的页面开发体验
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="http://uf.baidu.com/dist/css/antd.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/dist/css/uf_v0.1.css" />
+        <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
+        <link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.1.min.css" />
         <script src="http://uf.baidu.com/dist/dll.min.js"></script>
         <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-        <script src="http://uf.baidu.com/dist/uf_v0.1.js"></script>
+        <script src="http://uf.baidu.com/dist/uf_v0.1.min.js"></script>
         <title>代码测试</title>
     </head>
     <body>
@@ -51,10 +56,14 @@ UF 致力于提供给 RD 愉悦的页面开发体验
 
 ```
 
-以上，首先在 `<head>`标签中引入全部需要的库文件
+第一步：在 `<head>`标签中引入库文件
 
-然后在 script 中书写页面的配置代码 config，最后使用 API：`UF.init(config, 'demo')`在`id="demo"`的元素上按照config初始化组件。
+第二步：书写页面的配置参数
 
-config 此处为一个组件的配置，也可以是整个页面的配置，具体可见`Layout 布局`中的示例。
+第三步：最后调用`UF.init`函数在`id="demo"`的元素上按照config初始化页面
+
+config 此处为一个组件的配置，也可以是整个页面的配置，具体可见[`整体示例`](#/Configure/Demo)中的示例。
+
+更多`UF`上的函数可见[`组件交互`](#/Configure/Api)
 
 

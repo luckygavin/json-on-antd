@@ -38,7 +38,7 @@ export default class Table extends BaseComponent {
      */
     initTable(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
-        let tableCfg = objProps.config;
+        let tableCfg = objProps;
         let cacheSize = tableCfg.name ? localStorage.getItem(tableCfg.name) : null;
 
         // 把所有配置放到this上，方便后续使用
@@ -146,7 +146,7 @@ export default class Table extends BaseComponent {
     componentWillReceiveProps(nextProps) {
         // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
         // 如果table的tableCfg是动态的则需要重新设置tableCfg和showTags
-        if (!Utils.equals(this.props.config, nextProps.config)) {
+        if (!Utils.equals(this.props, nextProps)) {
             this.initTable(nextProps);
         }
         // 针对传数据进来的方式
@@ -176,7 +176,7 @@ export default class Table extends BaseComponent {
         if (this.tableCfg.url) {
             if (!Utils.equals(this.props.params, nextProps.params)) {
                 // 清空过滤控件
-                this.refs.filter && this.refs.filter.setOption({value: ''});
+                this.refs.filter && this.refs.filter.set({value: ''});
                 this.getData(null, null, nextProps);
             }
         }
@@ -802,7 +802,8 @@ export default class Table extends BaseComponent {
         }
     }
     // 过滤输入框变化时
-    filterChange(iVal) {
+    filterChange(e) {
+        let iVal = e.target.value;
         clearTimeout(this.filterTimer);
         this.filterTimer = setTimeout(()=>{
             this.dealFilterData(iVal);
@@ -957,7 +958,7 @@ export default class Table extends BaseComponent {
     }
     // 清空过滤控件
     clearFilter() {
-        this.refs.filter && this.refs.filter.setOption({value: ''});
+        this.refs.filter && this.refs.filter.set({value: ''});
         this.setState({filter: false, filterContent: []});
     }
     setPageSize(itemParams, NULL, item) {

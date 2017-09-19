@@ -8,6 +8,7 @@ window.DLL = {
     React: require('react'),
     ReactDOM: require('react-dom'),
     ReactRouter: require('react-router'),
-    reqwest: require('reqwest'),
-    Immutable: require('immutable')
+    // 这个要保留，Antd 内部也在用
+    Immutable: require('immutable'),
+    reqwest: require('reqwest')
 };

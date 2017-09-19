@@ -123,34 +123,22 @@ const demo5 = {
             type: 'progress',
             mode: 'circle',
             name: 'my-progress',
-            percent: 10
+            percent: 50
         },
         {
             type: 'button-group',
-            style: {marginLeft: 10},
             content: [
                 {
                     type: 'button',
                     icon: 'minus',
                     onClick: v=>{
                         var progress = UF('my-progress');
-                        var current = progress.getOption('percent');
-                        progress.setOption({
+                        var current = progress.get('percent');
+                        progress.set({
                             percent: current - 10
                         })
                     }
-                },
-                {
-                    type: 'button',
-                    icon: 'plus',
-                    onClick: v=>{
-                        var progress = UF('my-progress');
-                        var current = progress.getOption('percent');
-                        progress.setOption({
-                            percent: current + 10
-                        })
-                    }
-                },
+                }
             ]
         }
     ]
@@ -174,8 +162,8 @@ const demo6 = {
                     icon: 'minus',
                     onClick: v=>{
                         var progress = UF('my-progress2');
-                        var current = progress.getOption('percent');
-                        progress.setOption({
+                        var current = progress.get('percent');
+                        progress.set({
                             percent: current - 10
                         })
                     }
@@ -185,8 +173,8 @@ const demo6 = {
                     icon: 'plus',
                     onClick: v=>{
                         var progress = UF('my-progress2');
-                        var current = progress.getOption('percent');
-                        progress.setOption({
+                        var current = progress.get('percent');
+                        progress.set({
                             percent: current + 10
                         })
                     }

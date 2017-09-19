@@ -33,6 +33,19 @@ export default class BaseComponent extends Component {
         this._keyPrefix = 'cache-';
     }
 
+    /* 暴露给用户的方法 ***********************************************************************/
+
+    // 暴露给用户刷新组件的接口
+    set(option) {
+        let props = this.__mergeProps({}, this.props, option);
+        this.componentWillReceiveProps(props);
+        // this.forceUpdate();
+    }
+    // 如果有key则返回key的值；如果没有key，则返回全部参数
+    get(key) {
+        return key ? this.props[key] : this.props;
+    }
+
     /* 供子组件调用方法 ***********************************************************************/
 
     // 供子组件调用初始化 使用子组件this调用

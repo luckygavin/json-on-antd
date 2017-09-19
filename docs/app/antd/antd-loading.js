@@ -51,7 +51,7 @@ const demo2 = {
                 {
                     type: 'switch',
                     checked: true,
-                    onChange: v=>UF('my-loading').setOption({loading: v})
+                    onChange: v=>UF('my-loading').set({loading: v})
                 }
             ]
         }
@@ -97,7 +97,7 @@ const demo4 = {
                 'Loading state: ',
                 {
                     type: 'switch',
-                    onChange: v=>UF('my-loading2').setOption({loading: v})
+                    onChange: v=>UF('my-loading2').set({loading: v})
                 }
             ]
         }

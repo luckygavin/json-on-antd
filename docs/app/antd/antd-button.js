@@ -188,7 +188,7 @@ const demo4 = {
             name: 'my-button1',
             mode: 'primary',
             content: 'Click me!',
-            onClick: v=>UF('my-button1').setOption({
+            onClick: v=>UF('my-button1').set({
                 loading: true
             })
         },
@@ -198,14 +198,14 @@ const demo4 = {
             name: 'my-button2',
             icon: 'poweroff',
             content: 'Click me!',
-            onClick: v=>UF('my-button2').setOption({
+            onClick: v=>UF('my-button2').set({
                 loading: true
             })
         },
     ]
 };
 
-
+        
 export default class Button extends BaseDoc {
     constructor(props) {
         super(props);

@@ -232,10 +232,10 @@ export default class Table extends BaseComponent {
         let len = arrKeys.length;
         if (srcIndex < dstIndex) {
             arrNewKeys = arrKeys.slice(0, srcIndex).concat(arrKeys.slice(srcIndex + 1, dstIndex + 1))
-                    .concat(arrKeys[srcIndex]).concat(arrKeys.slice(dstIndex + 1, len));
+                .concat(arrKeys[srcIndex]).concat(arrKeys.slice(dstIndex + 1, len));
         } else {
             arrNewKeys = arrKeys.slice(0, dstIndex).concat(arrKeys[srcIndex])
-                    .concat(arrKeys.slice(dstIndex, srcIndex)).concat(arrKeys.slice(srcIndex + 1, len));
+                .concat(arrKeys.slice(dstIndex, srcIndex)).concat(arrKeys.slice(srcIndex + 1, len));
         }
         // 根据最新的字段顺序进行调整
         let newTags = {};

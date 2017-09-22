@@ -3,8 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
-import Demo from '../base/Demo.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 
 const demo1 = {
     title: '基本结构',
@@ -450,6 +449,6 @@ export default class LayoutApp extends BaseDoc {
     }
 
     render() {
-        return <Demo single={true} list={[demo1, demo2, demo3, demo4]}/>;
+        return this.__getDemoSingle(demo1, demo2, demo3, demo4);
     }
 }

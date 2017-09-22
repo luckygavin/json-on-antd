@@ -1,9 +1,11 @@
 <?php
 $json = json_decode(file_get_contents('./package.json'));
+$v = $json->version;
 // 默认和 package.json 的 版本相同
-$version = implode('.', array_slice(explode('.', $json->version), 0, 2));
 if ($_GET['v']) {
     $version = $_GET['v'];
+} else {
+    $version = implode('.', array_slice(explode('.', $v), 0, 2));
 }
 // $suffix = '.min';
 $suffix = '';
@@ -16,7 +18,7 @@ $suffix = '';
         <meta charset = "utf-8">
         <link rel="icon" href="public/img/logo.svg" type="image/x-icon" rel="bookmark" />
         <link rel="stylesheet" href="dist/css/theme.css" />
-        <link rel="stylesheet" href="public/css/doc_v<?php echo $version; ?>.min.css" />
+        <link rel="stylesheet" href="public/css/doc_v<?php echo $version . '.min.css?v=' . $v; ?>" />
 
         <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
         <link rel="stylesheet" href="public/css/markdown.css" />
@@ -30,7 +32,7 @@ $suffix = '';
         <script src="dist/js/antd.js"></script>   
         <!-- <script src="dist/js/antd.min.js"></script>   -->
 
-        <script src="public/js/doc_v<?php echo $version . $suffix; ?>.js"></script>    
+        <script src="public/js/doc_v<?php echo $version . $suffix . '.js?v=' . $v; ?>"></script>    
 
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">

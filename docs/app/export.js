@@ -3,9 +3,8 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 import Export from 'uf/export';
-import {Button} from 'antd';
 
 // 以下均为模拟数据，在实际应用中可根据情况获取
 let commonHeaders = [
@@ -17,6 +16,7 @@ let commonHeaders = [
     {key: 'rack', title: '机架位'}
 ];
 let config1 = {
+    type: 'export',
     // 导出数据接口的url（一般可直接使用分页接口）
     source: 'docs/php/download.php',
     // 表格中要显示的字段，以及字段对应的表头
@@ -28,10 +28,17 @@ let config1 = {
         zone: 'china',
         type:'server'
     },
+    content: {
+        type: 'button',
+        mode: 'primary',
+        style: 'margin-right: 6px',
+        content: '默认导出'
+    }
     // 当前表格所有数据的总条数
     // total: 720
 };
 let config2 = {
+    type: 'export',
     source: 'docs/php/download.php',
     headers: commonHeaders,
     params: {
@@ -46,20 +53,37 @@ let config2 = {
     message: {
         page1: ['请注意，程序会自动根据分页大小依次向服务端请求数据，全部请求完毕后生成CSV下载。不要将分页大小设置的过大，以免服务器端查询数据超时。'],
         page2: ['如果下载的文件用Excel或者其他文本编辑器打开提示文件格式与扩展名不一致，请选择“是”，直接用打开即可。', '为防止常规单元格式下excel的自动转化，所有字段均转化为文本！']
+    },
+    content: {
+        type: 'button',
+        mode: 'primary',
+        style: 'margin-right: 6px',
+        content: '提示导出_CSV格式'
     }
 };
 let config3 = {
+    type: 'export',
     headers: commonHeaders,
     data: [{'id': '1924', 'hostname': 'tc-click-log1-off.tc', 'sn': '686N32X',
         'status': '14', 'model_id': '15', 'rack': 'TC706-03-11-4机架位',
-        'container_id': '488', 'rms_product_id': '174'}]
+        'container_id': '488', 'rms_product_id': '174'
+    }],
+    content: {
+        type: 'button',
+        mode: 'primary',
+        style: 'margin-right: 6px',
+        content: '同步导出'
+    }
 };
 
-const demo1 = {
-    headers: commonHeaders,
-    data: [{'id': '1924', 'hostname': 'tc-click-log1-off.tc', 'sn': '686N32X',
-        'status': '14', 'model_id': '15', 'rack': 'TC706-03-11-4机架位',
-        'container_id': '488', 'rms_product_id': '174'}],
+let demo1 = {
+    title: '三种常用用法',
+    description: '**默认导出：**比较简洁的导出界面，通过接口获取数据。**提示导出：**可以定义一些提示信息，比如说明导出内容，也是异步的数据。**同步导出：**直接把前端已有数据导出成文件，多用于前端分页的表格中。',
+    config: [
+        config1,
+        config2,
+        config3
+    ]
 };
 
 export default class ExportApp extends BaseDoc {
@@ -70,21 +94,7 @@ export default class ExportApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return (
-            <div>
-                <Export {...config1}>
-                    <Button key='1' type = "primary">默认导出</Button>
-                </Export>
-                &nbsp;&nbsp;&nbsp;
-                <Export {...config2}>
-                    <Button key='2' type = "primary">提示导出CSV文件</Button>
-                </Export>
-                &nbsp;&nbsp;&nbsp;
-                <Export {...config3}>
-                    <Button key='3' type = "primary">同步导出</Button>
-                </Export>
-            </div>
-        );
+        return this.__getDemoSingle(demo1);
     }
 
 }

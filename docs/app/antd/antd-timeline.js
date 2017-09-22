@@ -3,7 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'uf/tools';
 
 const demo1 = {
@@ -62,12 +62,7 @@ const demo1 = {
                     type: 'icon',
                     mode: 'heart-o'
                 },
-                content: [
-                    {
-                        type: 'p',
-                        content: '研究生：2015'
-                    }
-                ]
+                content: '研究生：2015'
             }
         ]
     }

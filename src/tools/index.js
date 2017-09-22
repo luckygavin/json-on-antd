@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {message, notification} from 'uf';
+import uf from 'uf';
 import {ajax} from 'uf/utils/ajax.js';
 import {Cache, Ajax} from 'uf/utils';
 import Factory from './factory.js';
@@ -22,9 +22,6 @@ const func = {
     get(name) {
         return Cache.get('cache-' + name);
     },
-    // 全局提示信息
-    message,
-    notification,
     // ajax请求
     ajax(obj) {
         ajax(obj);
@@ -35,8 +32,8 @@ const func = {
     }
 };
 
-const Uf = func.get;
+const UF = func.get;
 
-Object.assign(Uf, func);
+Object.assign(UF, uf, func);
 
-export default Uf;
+export default UF;

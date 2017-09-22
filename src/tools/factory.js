@@ -26,6 +26,10 @@ class Factory extends Component {
 
     // 解析组件配置，生成组件
     generateItem(item) {
+        // 如果是字符串直接返回
+        if (Utils.typeof(item, 'string')) {
+            return item;
+        }
         // 校验是否有 type 属性，如果没有会报错
         Validator.check(item, 'type', 'string');
         if (!item.type) {

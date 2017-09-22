@@ -1,10 +1,10 @@
 /**
- * @file Table使用说明
+ * @file 文档基类
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Markdown from './Markdown.js';
-import Demo from './base/Demo.js';
+import Demo from './Demo.js';
 
 export default class BaseDoc extends React.Component {
     constructor(props) {
@@ -21,8 +21,14 @@ export default class BaseDoc extends React.Component {
         };
     }
 
+    // 两列展示demo
     __getDemo(...list) {
-        return <Demo list={list}/>
+        return <Demo list={list}/>;
+    }
+
+    // 单列展示demo
+    __getDemoSingle(...list) {
+        return <Demo list={list} single={true} />;
     }
 
     // 整体框架在父类里实现，继承此父类的组件，均可使用

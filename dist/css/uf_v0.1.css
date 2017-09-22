@@ -1,18 +1,3 @@
-.uf-form .header h5 {
-  font-size: 14px;
-  font-weight: 500; }
-
-.uf-form .header hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #eeeeee; }
-
-.uf-form .form-buttons button:not(:last-child) {
-  margin-right: 10px; }
-
-.uf-form .ant-form-item .ant-form-item {
-  margin-bottom: 12px; }
 .uf-export {
   display: inline-block; }
   .uf-export .export_modal .export_info {
@@ -45,8 +30,79 @@
     margin-top: 8px; }
   .uf-export .fw700 {
     font-weight: 700; }
+.uf-tree {
+  position: relative;
+  overflow: auto; }
+
+.uf-tree-search {
+  text-align: center; }
+
+.uf-tree-treeSearchTip {
+  line-height: 40px;
+  font-size: 14px;
+  color: #808080;
+  text-align: center; }
+
+.uf-tree-ew-resize {
+  width: 5px;
+  height: 100%;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: transparent; }
+.uf-form .header h5 {
+  font-size: 14px;
+  font-weight: 500; }
+
+.uf-form .header hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee; }
+
+.uf-form .form-buttons button:not(:last-child) {
+  margin-right: 10px; }
+
+.uf-form .ant-form-item .ant-form-item {
+  margin-bottom: 12px; }
+.uf-modal.no-footer .ant-modal-footer {
+  display: none; }
+
+/* .umpui-modal {
+    &.no-footer {
+        .ant-modal-footer {
+            display: none;
+        }
+    }
+    .umpui-formlist {
+        li {
+            &:not(last-child) {
+                margin-bottom: 10px;
+            }
+            input,div,span {
+                display: block;
+            }
+        }
+        label {
+            margin-bottom: 2px;
+        }
+    }
+    .umpui-ckList {
+        li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    }
+    .umpui-tip {
+        // text-align: center;
+        margin-bottom: 12px;
+    }
+} */
 .umpui-table {
   background-color: #fff; }
+  .umpui-table .fa {
+    color: rgba(0, 0, 0, 0.66); }
   .umpui-table .show {
     display: block;
     z-index: 100; }
@@ -78,7 +134,9 @@
     padding: 0; }
   .umpui-table .umpui-header {
     display: inline-block;
-    cursor: pointer; }
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 13px; }
     .umpui-table .umpui-header i.fa-caret-down {
       margin-right: 3px; }
     .umpui-table .umpui-header i.fa-caret-right {
@@ -188,11 +246,10 @@
         background-color: #eaf3fe; }
       .umpui-table table tbody tr.selected {
         background-image: linear-gradient(to top, #d0f5fe, #eaf3fe 34px, #eaf3fe); }
-      .umpui-table table tbody tr.actived {
-        background-color: #f6fff6; }
     .umpui-table table td,
     .umpui-table table th {
-      padding: 8px; }
+      padding: 8px;
+      word-break: break-all; }
       .umpui-table table td.extra,
       .umpui-table table th.extra {
         padding: 2px;
@@ -203,11 +260,15 @@
           cursor: pointer;
           color: #0e90d2;
           font-size: 16px; }
-      .umpui-table table td.operation > a,
-      .umpui-table table td .operation > a,
-      .umpui-table table th.operation > a,
-      .umpui-table table th .operation > a {
-        margin-right: 5px; }
+      .umpui-table table td.no-data,
+      .umpui-table table th.no-data {
+        text-align: center; }
+      .umpui-table table td.operation a,
+      .umpui-table table td .operation a,
+      .umpui-table table th.operation a,
+      .umpui-table table th .operation a {
+        margin-right: 5px;
+        cursor: pointer; }
       .umpui-table table td.ellipsis,
       .umpui-table table th.ellipsis {
         max-width: 250px;
@@ -231,7 +292,7 @@
     .umpui-table .umpui-sortcon .fa {
       display: block; }
     .umpui-table .umpui-sortcon .fa-sort-desc {
-      margin-top: -14px; }
+      margin-top: -12px; }
     .umpui-table .umpui-sortcon .umpui-asc, .umpui-table .umpui-sortcon .umpui-desc {
       color: #44c2e9; }
   .umpui-table .json {
@@ -261,24 +322,3 @@
   margin-left: 10px;
   height: 28px;
   line-height: 28px; }
-.uf-tree {
-  position: relative;
-  overflow: auto; }
-
-.uf-tree-search {
-  text-align: center; }
-
-.uf-tree-treeSearchTip {
-  line-height: 40px;
-  font-size: 14px;
-  color: #808080;
-  text-align: center; }
-
-.uf-tree-ew-resize {
-  width: 5px;
-  height: 100%;
-  cursor: ew-resize;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: transparent; }

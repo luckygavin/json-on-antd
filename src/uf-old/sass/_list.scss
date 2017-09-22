@@ -1,0 +1,32 @@
+$padding: 10px;
+
+.uf-list {
+    .uf-list-ul {
+        list-style: none;
+        li {
+            // border-bottom: 1px dashed #ddd;
+            overflow: hidden;
+        }
+        li:nth-child(odd) {
+            background: #fff;
+        }
+        li:nth-child(even) {
+            background: #f8f8f8;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+    }
+    .uf-li-title {
+        width: 20%;
+        font-weight: bold;
+        float: left;
+        padding: $padding;
+        text-align: right;
+        padding-right: 16px;
+    }
+    .uf-li-value {
+        padding-left: 20%;
+        padding: $padding;
+    }
+}

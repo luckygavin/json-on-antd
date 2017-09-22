@@ -4,11 +4,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Form from 'uf/form';
-import BaseDoc from 'docs/app/BaseDoc.js';
-import Demo from 'docs/app/base/Demo.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
+import UF from 'uf/tools';
 
 const Step1 = {
     type: 'form',
+    name: 'my-form1',
     title: '新增专线 - 第1步',
     layout: {
         type: 'horizontal',
@@ -231,8 +232,8 @@ const Step1 = {
                 action: 'reset',
                 type: '',
                 value: '清除',
-                size: 'large',
-                // icon: 'delete',
+                // size: 'large',
+                icon: 'delete',
                 // disabled: 'disabled',
                 onClick: data=>{
                     console.log(data);
@@ -241,8 +242,8 @@ const Step1 = {
                 action: 'submit',
                 type: 'primary',
                 value: '提交',
-                size: 'large',
-                // icon: 'search',
+                // size: 'large',
+                icon: 'search',
                 onClick: data=>{
                     // 使用promise，可以触发按钮的Loading，防止多次点击
                     return new Promise((resolve, reject)=>{
@@ -256,8 +257,8 @@ const Step1 = {
                 action: 'test',
                 type: '',
                 value: '自定义',
-                size: 'large',
-                // icon: 'copy',
+                // size: 'large',
+                icon: 'copy',
                 onClick: data=>{
                     console.log('自定义按钮');
                 }
@@ -577,7 +578,7 @@ export default class FormApp extends BaseDoc {
         // return <Form ref="testForm" {...Step21} params={[{data21}]} onSubmit={this.onSubmit.bind(this)}/>;
         // return <Form ref="testForm" {...Step23} params={data23} onSubmit={this.onSubmit.bind(this)}/>;
         // return <Form ref="testForm" {...Step1} onSubmit={this.onSubmit.bind(this)}/>;
-        return <Demo single={true} list={[demo1, demo2]}/>;
+        return this.__getDemoSingle(demo1);
     }
 
 }

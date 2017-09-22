@@ -1,147 +1,111 @@
-* 可配置表头已定义的控件的展示，可添加自定义控件
-* 分为前端分页和后端分页，可通过content参数传入自定义数据，例如：通过接口获取后前端又做过特殊处理的数据
-* 可控制各列的默认隐藏/展示，可在表格渲染完成后，让用户自行选择展示隐藏哪些列
-* 可传入params参数，作为通过url向后端请求数据时的参数。可据此实现搜索功能
+展示行列数据。
 
-## 配置参数
+## 何时使用
 
-### 基本参数
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| config | 表格的整体配置 ， `具体配置见下面config` | Object |  | 必须 |
-| data | 外部传入数据。也就是说Table为静态数据，content中有多少数据，Table中数据的总条数就是多少。（一般config中设置了url，也就是数据从后端获取，则不需设置content ）| Array |  | |
-| params | 通过url向后端请求时传的参数（一般用于外部搜索） | Object |  | . |
+- 当有大量结构化的数据需要展现时；
+- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
 
-### # config
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| title | 表格名，表头展示信息 | String | | |
-| name | 表格键名，区分多个表格，用于做一些设置的缓存的key | String | | |
-| url | 获取数据接口，如果传入此字段，则表格数据通过url获取 | String | | |
-| method | 获取数据的方式。可选 `get` `post` | String | `get` | |
-| key | 指定数据中主键字段名（组件需要根据主键来区分每一行） | String | `id` | |
-| tags | 各列列名及各列数据的渲染方式,  详见：**config.tags** | Object | | 必须 |
-| rows | 自定义行样式,  详见：**config.rows** | Object | |  |
-| pager | 分页配置。可选值：`false` `Object`。当pager值为false时，表格不再进行分页；当pager为对象时，`详见：config.pager` | false/Object | false | |
-| cfg | 表格整体的常规设置。 `详见：config.cfg` | Object | | |
-| display | 功能控件展示设置。 `详见：config.display` | Object | | . |
+## 组件&配置
 
-### # config.tags
-> 最简单的用法：
-> `key => value`    key代表数据中的字段名，value为表头的列名
+### # table
 
-以上为最简单用法。`value` 也可以为一个对象，参数如下：
+| 参数           | 说明                     | 类型             | 默认值   |
+|---------------|--------------------------|-----------------|---------|
+| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |
+| pagination    | 分页器，配置项参考 [Pagination](#/Navigation/Pagination)，设为 false 时不展示和进行分页 | object |  |
+| size          | 正常或迷你类型，`default` or `small`  | string | default |
+| dataSource    | 数据数组，见下面示例 `dataSource` | any[] |            |
+| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |
+| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string&#124;Function(record):string | 'key' |
+| rowClassName  | 表格行的类名      | Function(record, index):string | - |
+| expandedRowRender  | 额外的展开行 | Function | - |
+| defaultExpandedRowKeys | 默认展开的行 | string[] | - |
+| expandedRowKeys | 展开的行，控制属性 | string[] | - |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
+| loading       | 页面是否加载中 | boolean&#124;[object](#/Feedback/Loading) | false |
+| locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | `{filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'}` |
+| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
+| bordered  | 是否展示外边框和列边框 | boolean | false      |
+| showHeader  | 是否显示表头 | boolean          | true      |
+| footer | 表格尾部         | Function(currentPageData)   | |
+| title  | 表格标题         | Function(currentPageData)   | |
+| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
+| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
+| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
+| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
+| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
+| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
+| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
 
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| title | 表头列名 | String |  | 必须 |
-| display | 默认隐藏此字段。可在表头工具中配置字段设置按钮来勾选展示哪些字段 | Boolean | true | |
-| type | 字段表现形式。可选 `html` `JSON` `edit` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`JSON`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |  |
-| className | td上添加的className：可以是`string`或`function`，如果是函数，函数有两个参数，即当前值和当前行的所有数据，可以根据此参数添加不同的class | Object | null |  |
-| style | td上添加的style：可以是`object`或`function`，如果是函数，用法同上 | Object | null |  |
-| ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |  |
-| sort | 支持对当前列进行排序。可以为 `function` 自定义排序规则，类似于`Array.sort`的用法 | Boolean/function | false |  |
-| render | 自定义当前列的渲染方式。参数`v`为当前列数据，`row`为整行数据 | function(v, row) | false | . |
+#### *column*
 
-### # config.rows
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| className | tr上添加的className：可以是`string`或`function`，如果是函数，函数有一个参数，即整条数据，可以根据此参数对不同的行添加不同的class | string/function(row){} |  | |
-| style | tr上添加的style：可以是`object`或`function`，如果是函数，用法同上 | object/function(row){} |  | .|
+列描述数据对象，是 `columns` 中的一项。
 
-### # config.pager
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| pageSize | 每页条数。注意，为了方便用户使用，分页值有可能会进行缓存 | Number | 15 | |
-| pageType | 分页类型：前端分页/后端分页。可选值：`client` `server` | String | `client` | |
-| showQuickJumper | 是否可以快速跳转至某页 | Boolean | false | |
-| size | 分页尺寸。当为 `small` 时，是小尺寸分页 | String | | |
-| simple | 当添加该属性时，显示为简单分页。只需增加属性，无需传值 | attribute | | . |
-更多配置可查看antd配置：[Go](http://antd.uf.baidu.com/components/pagination-cn/)
+| 参数       | 说明                       | 类型            |  默认值  |
+|-----------|----------------------------|-----------------|---------|
+| title      | 列头显示文字               | string&#124;ReactNode | - |
+| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
+| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
+| width      | 列宽度 | string&#124;number | -  |
+| className  | 列的 className             | string          |  -      |
+| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
+| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并 | Function(text, record, index) {} | - |
+| filters    | 表头的筛选菜单项           | object[]           | - |
+| filterMultiple | 是否多选 | boolean    | true    |
+| filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string[] | - |
+| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
+| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
+| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
+| onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
+| onCellClick | 单元格点击回调 | Function(record, event) | - |
 
-### # config.cfg
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| header | 是否展示表格上面的标题栏，包括工具栏 | Boolean | true | |
-| checkBox | 每行数据是否可勾选 | Boolean | false | |
-| retain | 切换分页时是否保留已勾选内容，默认不保留 | Boolean | false | |
-| expand | 额外信息字段名称。含有额外信息，位于第一列勾选框之后的小箭头>，点击可展示额外信息 | String |  | |
-| tips | 提示信息字段名称。鼠标指在最左侧勾选框那一列时，展示的提示信息气泡 | String |  | . |
+#### *rowSelection*
 
-### # config.display
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| basic | 基础控件，直接展示在表格表头上方。例：`basic: [filter,export]`，`所有可选值见下面表格` | Array |  | |
-| menus | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里 | Array |  |  |
-| retract | 表格是否默认收起[`true/false`]；如果不传入此字段，则没有收起功能 | Boolean |  | . |
-| filter | 过滤控件过滤字段的黑名单或白名单，默认遍历所有字段。可选值：`blacklist` `whitelist`，blacklist 和 whitelist 的值为数组。例如：`blacklist: ['id','type'] `| Object | | |
-| showText | 是否显示控件图标后面的说明文字 | Boolean | true |  |
-| custom | 自定义控件，分为 baisc 和 menus 类型，不管是那种类型，都是一个自定义按钮的数组，按钮的属性见 `config.display.custom` | Object | |
+选择功能的配置。
 
-##### 所有可选控件说明：
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|
+| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |
+| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |
+| getCheckboxProps | 选择框的默认属性配置        | Function(record) |  -   |
+| selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |
+| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
+| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
+| onSelectAll | 用户手动选择/取消选择所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
+| onSelectInvert | 用户手动选择反选的回调 | Function(selectedRows) | - |
 
-| 控件 | 说明 | 位置 | 是否必填 |
-| ---- | ---- | ----- | ----- |
-| filter |  过滤功能 | 只能用于basic中 | |
-| export |  导出数据 |  | |
-| switchTags |  选择要展示的列 |  | |
-| setPageSize |  设置分页大小 |  | |
-| refresh |  刷新表格按钮 |  | |
-| editTable |  编辑表格 |  | |
-| fullScreen |  全屏展示 |  | |
-| showAllTags |  展示全部列功能 | 只能用于basic中 | . |
+#### *selection*
 
-### # config.display.custom
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| name | 按钮名称 | String | |
-| icon | 按钮图标，如'fa fa-book'，(详见)[http://fontawesome.io/icons/] | String | |
-| text | 按钮文字 | String | |
-| onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为table组件的引用 | function(table){} | |
+| 参数              | 说明                     | 类型             |  默认值   |
+|------------------|--------------------------|-----------------|---------------------|
+| key | React 需要的 key，建议设置 | string | -  |
+| text | 选择项显示的文字 | string&#124;React.ReactNode | -  |
+| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
+#### *dataSource*
+表格的数据数组格式如下：
+```javascript
+[{
+    key: '1',
+    name: '胡彦斌',
+    age: 32,
+    address: '西湖区湖底公园1号'
+}, {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    address: '西湖区湖底公园2号'
+}, {
+    key: '3',
+    name: '胡彦祖',
+    age: 52,
+    address: '西湖区湖底公园3号'
+}]
+```
+**注意：**  
 
-### 回调函数
-| 函数名称 | 说明 | 参数 | 类型 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| refresh | 自定义刷新Table数据函数，自行获取数据且需传入content字段 | | | 使用content字段时必须 |
-| onCheckRow | 当行被勾选时触发 | | | |
-| onTrClick | 在行上单击时触发 | | | |
-| onTrDoubleClick | 在行上双击时触发 | | | |
-| onTrHover | 鼠标移入事件 | | | |
-| onTrLeave | 鼠标移出事件 | | | . |
-| onPageChange | 切换分页事件 | | | . |
+在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
 
-## 接口调用
-> 可以通过refs在父组件调用一些table内部的函数，例如：`this.refs.table.refresh()`
-
-| 函数名称 | 说明 | 参数 | 类型 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| refresh | 刷新表格。当传入了`config.url`时，会重新请求数据；否则会调用自定义的refresh回调函数 | | | |
-| clearSelect | 清除已勾选内容 | | | |
-| checkAll | 触发全选 | `checkAll(true)` | | |
-| clearFilter | 清空过滤控件 | | | |
-| expandAllExtra | 展开显示全部额外信息（最左侧尖角展示的信息） | | | |
-| getSelectedData | 获取勾选的数据 | `return [Array]` | | |
-| initTable | 传入新的配置，重新渲染表格 | `initTable({config: {...}})` | | |
-| showAllTags | 展示全部列 | | | . |
-
-## 传入数据的一些特殊功能字段说明
-> `disable`：字段，数据行中，如果此字段设置为了true，则当前行不可选
-
-
-
----
-
-## Tips
-
-### 关于模糊搜索的用法
-
-' ': 空格表示且的关系
-
-:  : 英文分号可以指定只搜某个字段
-
-|  : 竖线表示或的关系
-
-> 优先级：' ' > : > |
-
+如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 

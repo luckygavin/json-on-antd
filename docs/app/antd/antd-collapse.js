@@ -3,7 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 import {Utils} from 'uf/utils';
 
 const content = [

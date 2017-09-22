@@ -3,8 +3,8 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
-import Demo from 'docs/app/base/Demo.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
+
 import UF from 'uf/tools';
 
 
@@ -171,7 +171,7 @@ const demo1 = {
                                     type: 'loading',
                                     name: 'my-loading',
                                     content: {
-                                        type: 'table',
+                                        type: 'table2',
                                         title: '待处理工单',
                                         name: 'my-table',
                                         tags: {
@@ -212,6 +212,6 @@ export default class Info extends BaseDoc {
         this.__init();
     }
     render() {
-        return <Demo list={[demo1]} single={true} />;
+        return this.__getDemoSingle(demo1);
     }
 }

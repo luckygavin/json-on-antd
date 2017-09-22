@@ -10,5 +10,5 @@ module.exports = {
 
     // Table: require('./src/table').default,
     // Form: require('./src/form').default,
-    
+
 };

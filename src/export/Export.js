@@ -6,14 +6,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
-import moment from 'moment';
 import {Icon, Button, InputNumber, Progress, Alert, Modal} from 'antd';
+import {Utils} from 'uf/utils';
 import Ueditor from 'uf/ueditor';
 
 import './style.scss';
-
-const ajax = require('reqwest');
 
 export default class Export extends BaseComponent {
     constructor(props) {
@@ -328,10 +325,12 @@ export default class Export extends BaseComponent {
     getData(params, callback) {
         let url = this.config.source;
         let method = this.config.method || 'get';
-        let handleError = this.error.bind(this);
-        this.__getData(url, params, (data, res) => {
+        let ajax = method === 'post' ? this.__postData : this.__getData;
+        ajax(url, params, (data, res) => {
             callback(res);
-        }, err => handleError(err));
+        }, err=>{
+            this.error(err)
+        });
     }
     render() {
         if (this.config.type === 'asyn') {

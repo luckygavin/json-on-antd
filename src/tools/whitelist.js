@@ -21,5 +21,6 @@ export default {
     DropdownButton: ['overlay'],
     Rate: ['character'],
     Timeline: ['pending'],
-    TimelineItem: ['dot']
+    TimelineItem: ['dot'],
+    Modal: ['title', 'footer']
 };

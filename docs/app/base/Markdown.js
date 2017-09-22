@@ -3,7 +3,7 @@
  * */
 import React from 'react';
 import marked from 'marked';
-import mdfile from '../markdown';
+import mdfile from 'docs/markdown';
 
 export default class Markdown extends React.Component {
     constructor(props) {

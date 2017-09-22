@@ -37,13 +37,13 @@ export default class BaseComponent extends Component {
 
     // 暴露给用户刷新组件的接口
     set(option) {
-        let props = this.__mergeProps({}, this.props, option);
-        this.componentWillReceiveProps(props);
-        // this.forceUpdate();
+        let props = this.__mergeProps({}, this.__props, option);
+        this._initProps(props);
+        this.forceUpdate();
     }
     // 如果有key则返回key的值；如果没有key，则返回全部参数
     get(key) {
-        return key ? this.props[key] : this.props;
+        return key ? this.__props[key] : this.__props;
     }
 
     /* 供子组件调用方法 ***********************************************************************/
@@ -56,6 +56,8 @@ export default class BaseComponent extends Component {
         this._transmitComponent();
         // 挂载用户传入的需要关联到生命周期中的函数
         this._loadUserFunction();
+        // 后面传入组件的参数用 __props 代替 props
+        this._initProps();
     }
 
     // 获取共享组件/数据
@@ -104,6 +106,20 @@ export default class BaseComponent extends Component {
     // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
     _componentWillUnmount() {
         this._unsetTransmitComponent();
+    }
+
+    // 组件的 componentWillReceiveProps 函数默认处理逻辑
+    _componentWillReceiveProps(nextProps, ...params) {
+        this._initProps(nextProps);
+    }
+
+    // 后面传入组件的参数用 __props 代替 props
+    _initProps(props) {
+        // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
+        let {__cache, __ref, ...__props} = props || this.props;
+        __props['ref'] = __props['ref'] || __ref;
+
+        this.__props = __props;
     }
 
     // 共享组件

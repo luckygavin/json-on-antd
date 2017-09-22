@@ -4,8 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Tree from 'uf/tree';
-import Demo from './base/Demo.js';
-import BaseDoc from 'docs/app/BaseDoc.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 
 const treeData = [
     {

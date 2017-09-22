@@ -3,8 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
-import Demo from '../base/Demo.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 
 const demo1 = {
     title: '基本用法',
@@ -51,6 +50,6 @@ export default class Checkbox extends BaseDoc {
     }
 
     render() {
-        return <Demo list={[demo1, demo2]} />;
+        return this.__getDemo(demo1, demo2);
     }
 }

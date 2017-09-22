@@ -1,18 +1,21 @@
 module.exports = {
-    'table.md': require('./table.md'),
-    'form.md': require('./form.md'),
     'standard.md': require('./standard.md'),
     'third-party.md': require('./third-party.md'),
-    'tree.md': require('./tree.md'),
-    'export.md': require('./export.md'),
+    'install.md': require('./install.md'),
+    'introduction.md': require('./introduction.md'),
     'configure-info.md': require('./configure-info.md'),
     'configure-api.md': require('./configure-api.md'),
     'configure-join.md': require('./configure-join.md'),
     'configure-others.md': require('./configure-others.md'),
     'update-log.md': require('./update-log.md'),
-    'introduction.md': require('./introduction.md'),
-    'install.md': require('./install.md'),
 
+    'table.md': require('./table.md'),
+    'form.md': require('./form.md'),
+    'tree.md': require('./tree.md'),
+    'export.md': require('./export.md'),
+    'modal.md': require('./modal.md'),
+
+    'table2.md': require('./uf-old/table2.md'),
 
     'antd-button.md': require('./antd/antd-button.md'),
     'antd-icon.md': require('./antd/antd-icon.md'),

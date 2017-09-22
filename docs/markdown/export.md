@@ -4,7 +4,9 @@
 * 配置`source`，`params`，`total`可通过后端异步导出数据
 * 配置`fileName`，`fileFormat`分别实现导出的文件名称及文件格式类型
 
-## 配置参数
+## 组件&参数
+
+### # export
 
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
@@ -17,7 +19,7 @@
 | fileName | 自定义导出的文件名 | String | 导出时间+'导出文件' |  |
 | fileFormat | 选择导出的文件名，目前只支持.xls文件和.csv文件，故值为'.xls'或'.csv' | String | '.xls' | . |
 
-#### config.headers
+#### *headers*
 > 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名
 
 ```javascript
@@ -34,7 +36,7 @@ headers: [
 ]
 ```
 
-### # 异步导出接口数据格式
+#### 异步导出接口数据格式
 ```json
 success:
 {

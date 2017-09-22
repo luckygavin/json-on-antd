@@ -7,11 +7,10 @@
 
 > **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用
 
+## 组件&配置
 
+### # form
 
-## 配置参数
-
-### 基本参数
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 --------|-----|------|--------|----
 title | form 名字，多个Form时做区分 | string |  | 必须
@@ -25,7 +24,7 @@ onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type=
 wrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |
 
 
-#### # layout
+#### *layout*
 
 参数名称 | 说明 | 类型 | 默认值
 ----- | --- | ---------| ---
@@ -35,7 +34,7 @@ labelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表�
 wrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14
 
 
-#### # items
+#### *items*
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
@@ -56,7 +55,7 @@ regionCfg | 表单域本身的配置，『极少用』。一般只有自定义�
 > * 不能是函数式组件
 
 
-#### # buttons
+#### *buttons*
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
@@ -70,7 +69,8 @@ onClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函�
 > 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用
 
 
-#### # items.cfg
+#### *item.cfg*
+
 表单域中组件的配置
 
 函数名称 | 说明 | 类型 | 默认值
@@ -81,8 +81,9 @@ placeholder | 输入框为空时输入框中的提示信息 | string |
 > 还有很多其他配置，如select类型的下拉框，可以配置`showSearch:true`即可开始下拉列表的搜索功能，详见各种对应组件的文档，理论上组件的属性都可以在这里使用
 
 
-#### # items.rules
-校验规则
+#### *item.rules*
+
+表单域中组件的校验规则
 
 参数  | 说明  | 类型 | 默认值 
 -----|------|------|------
@@ -98,7 +99,7 @@ pattern | 正则表达式校验 | RegExp |
 transform | 校验前转换字段值 | function(value) => transformedValue:any |
 validator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |
 
-### items.regionCfg
+#### *item.regionCfg*
 表单域本身配置
 
 参数      | 说明                                     | 类型 | 默认值
@@ -110,10 +111,8 @@ validateTrigger | 校验子节点值的时机 | string\string[] | 'onChange'
 exclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false
 
 
-
-## 接口调用
-> 可以通过refs在父组件调用一些table内部的函数，例如：`this.formRef.getValues()`。
-> 注意，获取form引用的方法和其他组件不太一样，需使用组件的时候传入回调函数wrappedComponentRef，见`基础参数`部分
+### 函数调用
+> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。
 
 函数名称 | 说明 | 参数 |  默认值
 ---- | ---- | ----- | ----- 

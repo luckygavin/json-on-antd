@@ -3,8 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BaseDoc from 'docs/app/BaseDoc.js';
-import Demo from '../base/Demo.js';
+import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'uf/tools';
 
 const demo1 = {
@@ -257,6 +256,6 @@ export default class CascaderApp extends BaseDoc {
     }
 
     render() {
-        return <Demo list={[demo1, demo2, demo3, demo4, demo5, demo6]} />;
+        return this.__getDemo(demo1, demo2, demo3, demo4, demo5, demo6);
     }
 }

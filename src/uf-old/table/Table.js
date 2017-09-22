@@ -30,11 +30,8 @@ export default class Table extends BaseComponent {
         this.initTable();
     }
 
-    /**
-     * 适用于同一个Table可能展示不同的数据
-     * 比如服务器-网络 他们的Tags是不同的，但第一次调用constructor后就没有地方更新了
-     * @param Object nextProps 用于tableCfg等发生变化时重新初始化state
-     */
+    // 适用于同一个Table可能展示不同的数据
+    // 比如服务器-网络 他们的Tags是不同的，但第一次调用constructor后就没有地方更新了
     initTable(nextProps) {
         let objProps = nextProps ? nextProps : this.props;
         let tableCfg = objProps;
@@ -190,10 +187,7 @@ export default class Table extends BaseComponent {
     componentWillUnmount() {
         this.clearSelect();
     }
-    /**
-     *  获取要下载导出数据的配置
-     *  @return {Object}
-     */
+    // 获取要下载导出数据的配置
     getExportConfig() {
         let tableCfg = this.tableCfg;
         let objTags = this.showTags;
@@ -237,9 +231,11 @@ export default class Table extends BaseComponent {
         let arrNewKeys = [];
         let len = arrKeys.length;
         if (srcIndex < dstIndex) {
-            arrNewKeys = arrKeys.slice(0, srcIndex).concat(arrKeys.slice(srcIndex + 1, dstIndex + 1)).concat(arrKeys[srcIndex]).concat(arrKeys.slice(dstIndex + 1, len));
+            arrNewKeys = arrKeys.slice(0, srcIndex).concat(arrKeys.slice(srcIndex + 1, dstIndex + 1))
+                    .concat(arrKeys[srcIndex]).concat(arrKeys.slice(dstIndex + 1, len));
         } else {
-            arrNewKeys = arrKeys.slice(0, dstIndex).concat(arrKeys[srcIndex]).concat(arrKeys.slice(dstIndex, srcIndex)).concat(arrKeys.slice(srcIndex + 1, len));
+            arrNewKeys = arrKeys.slice(0, dstIndex).concat(arrKeys[srcIndex])
+                    .concat(arrKeys.slice(dstIndex, srcIndex)).concat(arrKeys.slice(srcIndex + 1, len));
         }
         // 根据最新的字段顺序进行调整
         let newTags = {};
@@ -250,11 +246,9 @@ export default class Table extends BaseComponent {
         this.tableCfg['tags'] = newTags;
         this.forceUpdate();
     }
-    /**
-     *  设置显示字段
-     *  @param {Object}  oriTags 初始的tags配置
-     *  @param {Object} showTags 要展示的tags，回传的参数
-     */
+    // 设置显示字段
+    // @param {Object}  oriTags 初始的tags配置
+    // @param {Object} showTags 要展示的tags，回传的参数
     setShowTags(oriTags, showTags) {
         let typeDef = Object.prototype.toString;
         for (let val of Object.keys(oriTags)) {
@@ -274,10 +268,9 @@ export default class Table extends BaseComponent {
         this.setState({switchTags: false});
     }
 
-    /**
-     *  对于后端数据中没有id的生成随机的id用于存储选择了哪些数据
-     *  @param {Array} arrDatas 如果返回的行数据中没有id，自动给加上唯一的ID，用于设置选择了哪些数据
-     */
+
+    // 对于后端数据中没有id的生成随机的id用于存储选择了哪些数据
+    // @param {Array} arrDatas 如果返回的行数据中没有id，自动给加上唯一的ID，用于设置选择了哪些数据
     generateRowId(arrDatas) {
         let i = 0;
         for (let obj of arrDatas) {
@@ -318,13 +311,11 @@ export default class Table extends BaseComponent {
         }
     }
 
-    /**
-     * 异步获取数据
-     * 方式请求接口的方法
-     * @param {number} pageNum 请求第几页非必须
-     * @param {Object} params 对象非必须
-     * @param {Object} nextProps 非必须
-     */
+    // 异步获取数据
+    // 方式请求接口的方法
+    // @param {number} pageNum 请求第几页非必须
+    // @param {Object} params 对象非必须
+    // @param {Object} nextProps 非必须
     getData(pageNum, params, nextProps) {
         // 第一次render 没有nextProps
         let tableCfg = this.tableCfg;
@@ -652,7 +643,7 @@ export default class Table extends BaseComponent {
         gTags.map((tag, index)=>{
             tmpContent = this.sortArrInArr(tmpContent, tag);
         });
-        return this.getArrInObj(tmpContent)
+        return this.getArrInObj(tmpContent);
     }
     // 遍历数组，把数据根data中tag对应的值分类装入不同的以tag值为键的对象中
     // 这里主要实现了数据的重新排序分组
@@ -689,7 +680,7 @@ export default class Table extends BaseComponent {
                 content = content.concat(result);
                 rowSpan = rowSpan.concat(rsp);
                 for (let d in dep) {
-                    let val = +(d) === 0 ? dep[d] : dep[d]+1;
+                    let val = +(d) === 0 ? dep[d] : dep[d] + 1;
                     hideDepth.push(val);
                 }
             }
@@ -786,7 +777,7 @@ export default class Table extends BaseComponent {
                     break;
                 }
             }
-        } else if (obj){
+        } else if (obj) {
             val = obj.toString ? obj.toString() : obj;
         }
         return val;
@@ -795,7 +786,7 @@ export default class Table extends BaseComponent {
     handleString(string) {
         let pattern1 = /<(\w+).*?>(.*?)<\/\1>/g; // 匹配是否有闭合标签
         if (pattern1.test(string)) {
-            return string.replace(/<([\/]?\w+).*?>/g, ''); //剥掉所有标签
+            return string.replace(/<([\/]?\w+).*?>/g, ''); // 剥掉所有标签
         } else {
             return string;
         }
@@ -929,7 +920,7 @@ export default class Table extends BaseComponent {
                     tmpTags[i] = {
                         title: tmpTags[i],
                         display: true
-                    }
+                    };
                 } else {
                     memoryShowTags[i] = Object.assign({}, tmpTags[i], true);
                     tmpTags[i]['display'] = true;
@@ -1044,7 +1035,7 @@ export default class Table extends BaseComponent {
         // 为了美观，如果有自定义的控件，把控件放到过滤框之后，其他控件之前
         if (custom && custom.basic) {
             for (let v of custom.basic) {
-                divList.push(<div key={v.name} className={'umpui-header-extra ' + (v.name||'')}
+                divList.push(<div key={v.name} className={'umpui-header-extra ' + (v.name || '')}
                     onClick={()=>v.onClick(this)}>
                     <i className={v.icon}></i>
                     <span>{v.text}</span>
@@ -1254,10 +1245,11 @@ export default class Table extends BaseComponent {
                             </table>
                         </div>
                     </Spin>
-                    {this.pager &&
-                    <Pagination {...this.pager} current={this.state.currentPage}
-                        total={this.state.count}
-                        onChange={this.handlePageChange.bind(this)} />}
+                    {this.pager && (
+                        <Pagination {...this.pager} current={this.state.currentPage}
+                            total={this.state.count}
+                            onChange={this.handlePageChange.bind(this)} />
+                    )}
                 </div>
             </div>
             );

@@ -38,7 +38,7 @@ class NewModal extends BaseComponent {
     render() {
         return <Modal {...this.__props}/>;
     }
-};
+}
 
 NewModal.info = Modal.info;
 NewModal.success = Modal.success;

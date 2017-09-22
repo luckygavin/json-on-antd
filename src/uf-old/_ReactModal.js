@@ -94,7 +94,10 @@ export default class ReactModal extends React.Component {
             if (this.props.data) {
                 this.params = Object.assign({}, this.props.data, ckObj ? ckObj : this.params, true);
             }
-            this.props.handleModalClick && this.props.handleModalClick(this.params, ckObj ? ckObj : this.props.data, this.props.item);
+            this.props.handleModalClick && this.props.handleModalClick(
+                this.params,
+                ckObj ? ckObj : this.props.data, this.props.item
+            );
             this.setState({visible: false, errMsg: []});
         } else {
             this.props.handleCancel && this.props.handleCancel(this.props.item);

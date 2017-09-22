@@ -329,7 +329,7 @@ export default class Export extends BaseComponent {
         ajax(url, params, (data, res) => {
             callback(res);
         }, err=>{
-            this.error(err)
+            this.error(err);
         });
     }
     render() {

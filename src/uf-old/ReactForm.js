@@ -1,12 +1,12 @@
 /**
- * @file 可配置表单 
+ * @file 可配置表单
  * @author liuzechun@baidu.com
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Form, Icon, Spin, Button, message, Tooltip} from 'antd';
 import {Input, Select, Cascader, Radio, Upload, Checkbox, InputNumber} from 'antd';
-import Ueditor from './Ueditor.js';
+import Ueditor from 'uf/ueditor';
 import './sass/_form.scss';
 
 class ReactForm extends React.Component {

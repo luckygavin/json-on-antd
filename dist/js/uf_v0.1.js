@@ -21826,8 +21826,6 @@
 	    return NewModal;
 	}(_component.BaseComponent);
 
-	;
-
 	NewModal.info = _antd.Modal.info;
 	NewModal.success = _antd.Modal.success;
 	NewModal.error = _antd.Modal.error;
@@ -21944,11 +21942,8 @@
 	        return _this;
 	    }
 
-	    /**
-	     * 适用于同一个Table可能展示不同的数据
-	     * 比如服务器-网络 他们的Tags是不同的，但第一次调用constructor后就没有地方更新了
-	     * @param Object nextProps 用于tableCfg等发生变化时重新初始化state
-	     */
+	    // 适用于同一个Table可能展示不同的数据
+	    // 比如服务器-网络 他们的Tags是不同的，但第一次调用constructor后就没有地方更新了
 
 
 	    _createClass(Table, [{
@@ -22120,10 +22115,7 @@
 	        value: function componentWillUnmount() {
 	            this.clearSelect();
 	        }
-	        /**
-	         *  获取要下载导出数据的配置
-	         *  @return {Object}
-	         */
+	        // 获取要下载导出数据的配置
 
 	    }, {
 	        key: 'getExportConfig',
@@ -22208,11 +22200,9 @@
 	            this.tableCfg['tags'] = newTags;
 	            this.forceUpdate();
 	        }
-	        /**
-	         *  设置显示字段
-	         *  @param {Object}  oriTags 初始的tags配置
-	         *  @param {Object} showTags 要展示的tags，回传的参数
-	         */
+	        // 设置显示字段
+	        // @param {Object}  oriTags 初始的tags配置
+	        // @param {Object} showTags 要展示的tags，回传的参数
 
 	    }, {
 	        key: 'setShowTags',
@@ -22256,10 +22246,8 @@
 	            this.setState({ switchTags: false });
 	        }
 
-	        /**
-	         *  对于后端数据中没有id的生成随机的id用于存储选择了哪些数据
-	         *  @param {Array} arrDatas 如果返回的行数据中没有id，自动给加上唯一的ID，用于设置选择了哪些数据
-	         */
+	        // 对于后端数据中没有id的生成随机的id用于存储选择了哪些数据
+	        // @param {Array} arrDatas 如果返回的行数据中没有id，自动给加上唯一的ID，用于设置选择了哪些数据
 
 	    }, {
 	        key: 'generateRowId',
@@ -22331,13 +22319,11 @@
 	            }
 	        }
 
-	        /**
-	         * 异步获取数据
-	         * 方式请求接口的方法
-	         * @param {number} pageNum 请求第几页非必须
-	         * @param {Object} params 对象非必须
-	         * @param {Object} nextProps 非必须
-	         */
+	        // 异步获取数据
+	        // 方式请求接口的方法
+	        // @param {number} pageNum 请求第几页非必须
+	        // @param {Object} params 对象非必须
+	        // @param {Object} nextProps 非必须
 
 	    }, {
 	        key: 'getData',
@@ -22958,7 +22944,7 @@
 	        value: function handleString(string) {
 	            var pattern1 = /<(\w+).*?>(.*?)<\/\1>/g; // 匹配是否有闭合标签
 	            if (pattern1.test(string)) {
-	                return string.replace(/<([\/]?\w+).*?>/g, ''); //剥掉所有标签
+	                return string.replace(/<([\/]?\w+).*?>/g, ''); // 剥掉所有标签
 	            } else {
 	                return string;
 	            }

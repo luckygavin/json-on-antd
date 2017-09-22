@@ -1,5 +1,5 @@
 /**
- * @file List列表 
+ * @file List列表
  * @author liuzechun
  */
 import React from 'react';

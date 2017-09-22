@@ -23,7 +23,7 @@ export default class Confirm extends React.Component {
     render() {
         let inputCfg = this.props.type === 'textarea'
                 ? {type: 'textarea', autosize: {minRows: 2}, style: {width: '220px'}}
-                : {type: this.props.type}
+                : {type: this.props.type};
         return (
             <Popconfirm placement="topRight"
                 okText="确 认" cancelText="取 消"

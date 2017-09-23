@@ -9,13 +9,12 @@ module.exports = {
     'configure-others.md': require('./configure-others.md'),
     'update-log.md': require('./update-log.md'),
 
-    'table.md': require('./table.md'),
-    'form.md': require('./form.md'),
-    'tree.md': require('./tree.md'),
-    'export.md': require('./export.md'),
-    'modal.md': require('./modal.md'),
-
-    'table2.md': require('./uf-old/table2.md'),
+    'table.md': require('./origin/table.md'),
+    'form.md': require('./origin/form.md'),
+    'tree.md': require('./origin/tree.md'),
+    'export.md': require('./origin/export.md'),
+    'modal.md': require('./origin/modal.md'),
+    'table2.md': require('./origin/table2.md'),
 
     'antd-button.md': require('./antd/antd-button.md'),
     'antd-icon.md': require('./antd/antd-icon.md'),

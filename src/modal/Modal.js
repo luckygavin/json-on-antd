@@ -6,7 +6,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Modal, Button} from 'antd';
 import {BaseComponent} from 'uf/component';
-// import Form from 'uf/form';
+import {Utils} from 'uf/utils';
+import UF from 'uf/tools';
 
 import './style.scss';
 const defaultEventList = ['onCancel'];
@@ -40,10 +41,20 @@ class NewModal extends BaseComponent {
     }
 }
 
-NewModal.info = Modal.info;
-NewModal.success = Modal.success;
-NewModal.error = Modal.error;
-NewModal.warning = Modal.warning;
-NewModal.confirm = Modal.confirm;
+// 统一处理config（某些属性需要二次解析）
+function message(type, config) {
+    for (let v of ['title', 'content']) {
+        if (config[v] && !Utils.typeof(config[v], 'string')) {
+            config[v] = UF.init(config[v]);
+        }
+    }
+    return Modal[type](config);
+}
+
+NewModal.info = message.bind(null, 'info');
+NewModal.success = message.bind(null, 'success');
+NewModal.error = message.bind(null, 'error');
+NewModal.warning = message.bind(null, 'warning');
+NewModal.confirm = message.bind(null, 'confirm');
 
 export default NewModal;

@@ -29,12 +29,12 @@ const CommonList = [
 // 组件文档列表
 const ComponentList = [
     {path: 'Custom', name: '定制组件', children: [
-        {path: 'Export', name: 'Export 导出', component: require('./app/export').default},
-        {path: 'Tree', name: 'Tree 树形控件', component: require('./app/tree').default},
-        {path: 'Table', name: 'Table 表格', component: require('./app/table').default},
-        {path: 'Table2', name: 'Table2 表格', component: require('./app/uf-old/table2').default},
-        {path: 'Form', name: 'Form 表单', component: require('./app/form').default},
-        {path: 'Modal', name: 'Modal 弹框', component: require('./app/modal').default},
+        {path: 'Export', name: 'Export 导出', component: require('./app/origin/export').default},
+        {path: 'Tree', name: 'Tree 树形控件', component: require('./app/origin/tree').default},
+        {path: 'Table', name: 'Table 表格', component: require('./app/origin/table').default},
+        {path: 'Table2', name: 'Table2 表格', component: require('./app/origin/table2').default},
+        {path: 'Form', name: 'Form 表单', component: require('./app/origin/form').default},
+        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},

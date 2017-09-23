@@ -33,7 +33,7 @@ const Step1 = {
                 name: 'idc_id',
                 rules: [{required: true, message: '机房不能为空'}],
                 cfg: {
-                    source: '/uf-react/docs/php/data.php',
+                    source: 'docs/php/data.php',
                     sourceDataHandle: data=>data.map(v=>{
                         return {value: v.name, label: v.name};
                     })

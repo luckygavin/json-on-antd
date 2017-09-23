@@ -21737,6 +21737,12 @@
 
 	var _component = __webpack_require__(9);
 
+	var _utils = __webpack_require__(11);
+
+	var _tools = __webpack_require__(1);
+
+	var _tools2 = _interopRequireDefault(_tools);
+
 	__webpack_require__(165);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -21750,7 +21756,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
-	// import Form from 'uf/form';
 
 	var defaultEventList = ['onCancel'];
 
@@ -21826,11 +21831,26 @@
 	    return NewModal;
 	}(_component.BaseComponent);
 
-	NewModal.info = _antd.Modal.info;
-	NewModal.success = _antd.Modal.success;
-	NewModal.error = _antd.Modal.error;
-	NewModal.warning = _antd.Modal.warning;
-	NewModal.confirm = _antd.Modal.confirm;
+	// 统一处理config（某些属性需要二次解析）
+
+
+	function message(type, config) {
+	    var _arr = ['title', 'content'];
+
+	    for (var _i = 0; _i < _arr.length; _i++) {
+	        var v = _arr[_i];
+	        if (config[v] && !_utils.Utils.typeof(config[v], 'string')) {
+	            config[v] = _tools2.default.init(config[v]);
+	        }
+	    }
+	    return _antd.Modal[type](config);
+	}
+
+	NewModal.info = message.bind(null, 'info');
+	NewModal.success = message.bind(null, 'success');
+	NewModal.error = message.bind(null, 'error');
+	NewModal.warning = message.bind(null, 'warning');
+	NewModal.confirm = message.bind(null, 'confirm');
 
 	exports.default = NewModal;
 

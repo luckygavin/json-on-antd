@@ -4,7 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import Export from 'uf/export';
 
 // 以下均为模拟数据，在实际应用中可根据情况获取
 let commonHeaders = [

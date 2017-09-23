@@ -71,7 +71,7 @@ const demo2 = {
                         name: 'idc_id',
                         rules: [{required: true, message: '机房不能为空'}],
                         cfg: {
-                            source: '/uf-react/docs/php/data.php',
+                            source: 'docs/php/data.php',
                             sourceDataHandle: data=>data.map(v=>{
                                 return {value: v.name, label: v.name};
                             })
@@ -139,10 +139,10 @@ const demo4 = {
             onClick: ()=>{
                 UF.Modal.info({
                     title: '这是一个信息提示。',
-                    content: UF.init({
+                    content: {
                         type: 'html',
                         content: '<div><p>some messages...some messages...</p><p>some messages...some messages...</p></div>'
-                    }),
+                    },
                     onOk() {
                         console.log('ok');
                     }
@@ -173,10 +173,13 @@ const demo4 = {
             type: 'button',
             content: 'Warning',
             onClick: ()=>{
-                UF.Modal.warning({
+                let ref = UF.Modal.warning({
                     title: '这是一个警告提示。',
-                    content: 'some messages...some messages...'
+                    content: '2s后自动关闭...'
                 });
+                setTimeout(function() {
+                    ref.destroy();
+                }, 2000);
             }
         }
     ]

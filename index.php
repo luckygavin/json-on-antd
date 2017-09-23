@@ -1,10 +1,11 @@
 <?php
 $json = json_decode(file_get_contents('./package.json'));
-$v = $json->version;
 // 默认和 package.json 的 版本相同
 if ($_GET['v']) {
+    $v = $_GET['v'];
     $version = $_GET['v'];
 } else {
+    $v = $json->version;
     $version = implode('.', array_slice(explode('.', $v), 0, 2));
 }
 // $suffix = '.min';

@@ -2,7 +2,7 @@
  * @file 基础类
  * Created by xuziqian on 2017/8/4.
  */
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import {Cache, Utils, Ajax} from 'uf/utils';
 import {ajax} from 'uf/utils/ajax.js';
 
@@ -27,7 +27,8 @@ const ForUserApi = [
     'willUnmount'
 ];
 
-export default class BaseComponent extends Component {
+// export default class BaseComponent extends Component {
+export default class BaseComponent extends PureComponent {
     constructor(props) {
         super(props);
         this._keyPrefix = 'cache-';
@@ -38,7 +39,10 @@ export default class BaseComponent extends Component {
     // 暴露给用户刷新组件的接口
     set(option) {
         let props = this.__mergeProps({}, this.__props, option);
-        this._initProps(props);
+        // this._initProps(props);
+        // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
+        // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
+        this.componentWillReceiveProps(props);
         this.forceUpdate();
     }
     // 如果有key则返回key的值；如果没有key，则返回全部参数
@@ -119,6 +123,7 @@ export default class BaseComponent extends Component {
         let {__cache, __ref, ...__props} = props || this.props;
         __props['ref'] = __props['ref'] || __ref;
 
+        this.__prevProps = this.__props;
         this.__props = __props;
     }
 

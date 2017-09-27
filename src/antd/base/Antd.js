@@ -16,6 +16,7 @@ export default class Antd extends BaseComponent {
             ? this.__mergeProps({
                     key: 'value',
                     event: 'onChange',
+                    defaultVal: '',
                     paramsIndex: 0
                 }, this.__controlled)
             : null;
@@ -28,10 +29,9 @@ export default class Antd extends BaseComponent {
         if (!this.__controlled) {
             return;
         }
-        const key = this.__controlled.key;
+        const {key, defaultVal, event} = this.__controlled;
         // 受控属性对应的默认属性，(如：value => defaultValue)
         const defaultKey = 'default' + key.replace(/^\w/g, v=>v.toUpperCase());
-        const event = this.__controlled.event;
         const onEvent = this.__props[event];
         // 把value和defaultValue merge一下，统一交由 value 控制
         let keyValue = this.__props[key] || this.__props[defaultKey];
@@ -40,7 +40,7 @@ export default class Antd extends BaseComponent {
             this.__props[key] = keyValue;
         } else {
             // 屏蔽warning，非受控组件转换为受控组件会报warning
-            this.__props[key] = '';
+            this.__props[key] = defaultVal;
         }
         this.__props[event] = this._onEvent.bind(this, onEvent);
     }
@@ -50,10 +50,9 @@ export default class Antd extends BaseComponent {
     // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）
     _onEvent(callback, ...params) {
         callback && callback(...params);
-        const pi = this.__controlled.paramsIndex;
-        const key = this.__controlled.key;
+        const {key, paramsIndex} = this.__controlled;
         if (key) {
-            this.__props[key] = params[pi];
+            this.__props[key] = params[paramsIndex];
             this.forceUpdate();
         }
     }

@@ -13,11 +13,11 @@
 
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
-| title | 表格名，表头展示信息 | String | | |
-| name | 表格键名，区分多个表格，用于做一些设置的缓存的key | String | | |
+| title | 表头展示信息 | String | | |
+| name | 表格名，区分多个表格 | String | | |
 | url | 获取数据接口，如果传入此字段，则表格数据通过url获取 | String | | |
 | method | 获取数据的方式。可选 `get` `post` | String | `get` | |
-| key | 指定数据中主键字段名（组件需要根据主键来区分每一行） | String | `id` | |
+| dataIndex | 指定数据中主键字段名（组件需要根据主键来区分每一行） | String | `id` | |
 | tags | 各列列名及各列数据的渲染方式,  *`详见：tags`* | Object | | 必须 |
 | rows | 自定义行样式,  `详见：rows` | Object | |  |
 | pager | 分页配置。可选值：`false` `Object`。当pager值为false时，表格不再进行分页；当pager为对象时，`详见：pager` | false/Object | false | |

@@ -1,17 +1,4 @@
-.uf-modal {
-    &.no-footer {
-        .ant-modal-footer {
-            display: none;
-        }
-    }
-    .modal-footer {
-        button:not(:last-child) {
-            // margin-right: 10px;
-        }
-    }
-}
-
-/* .umpui-modal {
+.umpui-modal {
     &.no-footer {
         .ant-modal-footer {
             display: none;
@@ -40,4 +27,4 @@
         // text-align: center;
         margin-bottom: 12px;
     }
-} */
+}

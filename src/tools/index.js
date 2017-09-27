@@ -7,10 +7,14 @@ import Factory from './factory.js';
 import Loader from './loader.js';
 
 const func = {
-    // 生成组件
+    // 根据组件配置 创建组件类
+    create(config) {
+        
+    },
+    // 根据组件配置 生成&渲染组件实例
     init(config, selector) {
         let result = <Factory config={config} />;
-        // 如果没有指定目标容器的id，则直接返回生成的组件
+        // 如果没有指定目标容器的id，则直接返回生成的组件实例
         if (!selector) {
             return result;
         }

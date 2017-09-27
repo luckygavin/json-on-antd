@@ -74,7 +74,8 @@ export class Menu extends Navigation {
         super(props);
         this.__controlled = {
             key: 'selectedKeys',
-            event: 'onSelect'
+            event: 'onSelect',
+            defaultVal: []
         };
         this.__init();
     }

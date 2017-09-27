@@ -47,7 +47,7 @@ export default class ReactModal extends React.Component {
     }
     handleChange(ref, dex, val, dataString) {
         if (dex === 'checkbox') {
-            this.params[ref]['display'] = val;
+            this.params[ref]['display'] = val.target.checked;
             this.forceUpdate();
         } else {
             let sVal = !dataString ? val : dataString;
@@ -181,7 +181,7 @@ export default class ReactModal extends React.Component {
                     let label = isObject ? value.title : value;
                     liList2.push(<li  key={'modal' + key}>
                         <Checkbox ref={key} key={key} defaultChecked={checked}
-                            handleChange={self.handleChange.bind(self, key, 'checkbox')}>
+                            onChange={self.handleChange.bind(self, key, 'checkbox')}>
                             {label}
                         </Checkbox>
                     </li>);

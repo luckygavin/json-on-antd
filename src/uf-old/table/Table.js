@@ -51,7 +51,7 @@ export default class Table extends BaseComponent {
             : false;
         this.pager.showCount && (this.pager.showTotal = pagerInfo);
         this.display = tableCfg.display || {};
-        this.key = tableCfg.key || 'id';
+        this.key = tableCfg.dataIndex || 'id';
         // 显示哪些字段
         !nextProps && (this.showTags = tableCfg.tags);
 
@@ -93,7 +93,8 @@ export default class Table extends BaseComponent {
             currPageData: Utils.clone(data),
             // 当前页
             currentPage: 1,
-            flag: 0,
+            // 使用PureComponent，用于必要时强制刷新组件
+            // flag: 0,
             // 当前是否处在filter的状态
             filter: false,
             // 是否选择全部行
@@ -126,14 +127,18 @@ export default class Table extends BaseComponent {
         this.exportConfig = this.getExportConfig();
         // return this.state;
     }
+    forceRefresh() {
+        // this.setState({flag: Date.now()});
+        this.forceUpdate();
+    }
     // 刷新数据时调用 - 包括直接传入数据和通过url获取数据
     // 数据变更时都需要调用此函数，以刷新导出组件的数据或查询条件
     onRefreshData() {
         this.clearSelect();
         // 刷新导出组件配置
         this.exportConfig = this.getExportConfig();
-        this.forceUpdate();
         this.defaultCheckAll();
+        this.forceRefresh();
     }
     // 默认全部选中
     defaultCheckAll() {
@@ -244,7 +249,7 @@ export default class Table extends BaseComponent {
         }
         this.showTags = newTags;
         this.tableCfg['tags'] = newTags;
-        this.forceUpdate();
+        this.forceRefresh();
     }
     // 设置显示字段
     // @param {Object}  oriTags 初始的tags配置
@@ -266,6 +271,7 @@ export default class Table extends BaseComponent {
         this.showTags = oriTags;
         this.refs.switchmodal.setState({visible: false});
         this.setState({switchTags: false});
+        this.forceRefresh();
     }
 
 
@@ -290,6 +296,7 @@ export default class Table extends BaseComponent {
         // 更新数据
         this.changeData(currentPage);
         this.props.onPageChange && this.props.onPageChange(currentPage);
+        this.forceRefresh();
     }
     // 切换分页时，获取分页数据
     changeData(currentPage) {
@@ -308,6 +315,7 @@ export default class Table extends BaseComponent {
             }
             this.setState({currPageData: Utils.clone(curData)});
             this.isCheckAll(curData);
+            this.forceRefresh();
         }
     }
 
@@ -526,6 +534,7 @@ export default class Table extends BaseComponent {
         // onCheckRow为勾选行变化时触发的函数，可返回勾选的全部数据
         this.props.onCheckRow && this.props.onCheckRow(this.selectedData);
         this.isCheckAll(this.state.currPageData);
+        this.forceRefresh();
     }
     // 判断是否全部选中了，全部选中需要更新选中按钮，thGenerator也需要单独拿出来
     isCheckAll(curData) {
@@ -560,6 +569,7 @@ export default class Table extends BaseComponent {
         this.setState({
             checkAll: val
         });
+        this.forceRefresh();
     }
 
     /**
@@ -954,7 +964,7 @@ export default class Table extends BaseComponent {
     setPageSize(itemParams, NULL, item) {
         let size = itemParams.size;
         if (!isNaN(size * 1) && size) {
-            this.pager.pageSize = size;
+            this.pager.pageSize = +size;
             let name = this.tableCfg.name;
             name && (localStorage.setItem(name, size));
         }
@@ -1079,7 +1089,7 @@ export default class Table extends BaseComponent {
                     <ul>{gearsList}</ul>
             </div>);
         }
-        result.push(<div className="umpui-header-extra-con">{divList}</div>);
+        result.push(<div key="table-extra" className="umpui-header-extra-con">{divList}</div>);
         return result;
     }
     getBasicWidghts() {
@@ -1198,9 +1208,9 @@ export default class Table extends BaseComponent {
             let currPageData = allData.slice(0, this.pager.pageSize);
             this.setState({
                 content: allData,
-                currPageData: currPageData,
-                flag: ++this.state.flag
+                currPageData: currPageData
             });
+            this.forceRefresh();
         } else if (typeof(column['sort']) === 'function') {
             let allData = this.state.content.sort(function (lineOne, lineTwo) {
                 let sortVal = column['sort'](lineOne, lineTwo);
@@ -1209,9 +1219,9 @@ export default class Table extends BaseComponent {
             let currPageData = allData.slice(0, this.pager.pageSize);
             this.setState({
                 content: allData,
-                currPageData: currPageData,
-                flag: ++this.state.flag
+                currPageData: currPageData
             });
+            this.forceRefresh();
         }
     }
 

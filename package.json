@@ -40,6 +40,7 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
+    "build-watch": "webpack --config dist/config/webpack.build.js --watch",
     "build": "webpack --config dist/config/webpack.build.js",
     "antd": "webpack --config dist/config/webpack.antd.js",
     "dll": "webpack --config dist/config/webpack.dll.js",

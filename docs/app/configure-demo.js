@@ -206,12 +206,25 @@ const demo1 = {
     }
 };
 
+
+const demo2 = {
+    title: '带路由的页面',
+    config: {
+        type: 'div',
+        style: {minHeight: 250},
+        content: {
+            type: 'iframe',
+            src: 'docs/demo/router.php'
+        }
+    }
+}
+
 export default class Info extends BaseDoc {
     constructor(props) {
         super(props);
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo1);
+        return this.__getDemoSingle(demo2, demo1);
     }
 }

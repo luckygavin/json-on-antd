@@ -55,7 +55,10 @@ module.exports = {
         'react-dom': 'window.DLL.ReactDOM',
         'react-router': 'window.DLL.ReactRouter',
         'immutable': 'window.DLL.Immutable',
-        'reqwest': 'window.DLL.reqwest'
+        'core-js': 'window.DLL.CoreJs',
+        'reqwest': 'window.DLL.reqwest',
+        'moment': 'window.DLL.moment',
+        'moment/locale/zh-cn': 'window.DLL.moment_zh_cn'
     },
     plugins: plugins
 };

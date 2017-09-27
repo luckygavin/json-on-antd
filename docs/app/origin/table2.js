@@ -13,6 +13,7 @@ const demo1 = {
         type: 'table2',
         title: 'Table前端分页表格测试',
         name: 'testtable',
+        dataIndex: 'key',
         tags: {
             id: 'ID',
             username: {
@@ -115,7 +116,7 @@ const demo1 = {
         },
         data: [
             {
-                id: 1,
+                key: 1,
                 html: '<a href="http://www.baidu.com" target="_blank">百度<a/>',
                 sex: 'femal',
                 like: '我可以自己控制样式',
@@ -127,7 +128,7 @@ const demo1 = {
                 desc: 'ABC',
                 json: [{"tool_id": "3"}]
             }, {
-                id: 2,
+                key: 2,
                 html: '<a href="http://www.baidu.com" target="_blank">百度<a/>',
                 sex: 'male',
                 like: '也可以自定义class',
@@ -140,7 +141,7 @@ const demo1 = {
                 tips: '说个笑话!',
                 json: {a: 1, b: 2}
             }, {
-                id: 3,
+                key: 3,
                 html: '<a href="http://www.baidu.com" target="_blank">百度<a/>',
                 sex: 'male',
                 marry: '是',
@@ -153,7 +154,7 @@ const demo1 = {
                 tips: '爱豪说为啥不是死鱼!',
                 json: {a: 1, b: 2}
             }, {
-                id: 4,
+                key: 4,
                 html: '<a href="http://www.baidu.com" target="_blank">百度<a/>',
                 sex: 'male',
                 marry: '是',

@@ -41,6 +41,7 @@ export default class DataEntry extends Antd {
 
     // 获取数据接口
     getValue() {
-        return this.__props.value;
+        const key = this.__controlled.key;
+        return this.__props[key];
     }
 }

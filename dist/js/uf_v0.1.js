@@ -882,8 +882,8 @@
 
 	        var _this20 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this20.__init();
 	        _this20.__controlled.key = 'checked';
+	        _this20.__init();
 	        return _this20;
 	    }
 
@@ -987,7 +987,8 @@
 	    }, {
 	        key: 'getValue',
 	        value: function getValue() {
-	            return this.__props.value;
+	            var key = this.__controlled.key;
+	            return this.__props[key];
 	        }
 	    }]);
 
@@ -1026,7 +1027,11 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Antd 全部组件的基类，其中实现了接管受控属性的逻辑
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
 
 	var Antd = function (_BaseComponent) {
 	    _inherits(Antd, _BaseComponent);
@@ -1181,7 +1186,10 @@
 	        key: 'set',
 	        value: function set(option) {
 	            var props = this.__mergeProps({}, this.__props, option);
-	            this._initProps(props);
+	            // this._initProps(props);
+	            // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
+	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
+	            this.componentWillReceiveProps(props);
 	            this.forceUpdate();
 	        }
 	        // 如果有key则返回key的值；如果没有key，则返回全部参数
@@ -1428,6 +1436,7 @@
 	                                params[_key4] = arguments[_key4];
 	                            }
 
+	                            // 先执行默认逻辑，再执行用户逻辑
 	                            inject.call.apply(inject, [_this3].concat(params));
 	                            origin && origin.call.apply(origin, [_this3].concat(params));
 	                        };
@@ -19171,7 +19180,7 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 通用的组件 抽象类，如：Button、Icon 等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 反馈 类组件抽象类，如：Button、Icon 等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
@@ -25475,11 +25484,11 @@
 	                return item;
 	            }
 	            // 校验是否有 type 属性，如果没有会报错
-	            _validator2.default.check(item, 'type', 'string');
-	            if (!item.type) {
+	            if (!_validator2.default.check(item, 'type', 'string')) {
 	                return;
 	            }
 	            // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
+	            // todo
 	            if (item.type === 'html') {
 	                return new _html2.default(item.content);
 	            }
@@ -25488,6 +25497,9 @@
 	            item = _layout2.default.if(item);
 	            // 从loader中获取到相应的组件
 	            var Item = _loader2.default.get(item.type);
+	            if (!Item) {
+	                return;
+	            }
 	            // 通过适配器把参数转换成标准格式，剔除掉一下无用属性等
 	            var props = _adaptor2.default.get(item);
 	            // 判断其他需要额外进一步解析的属性并进行解析
@@ -25713,8 +25725,6 @@
 	        if (item.name) {
 	            props['__cache'] = item.name;
 	            props['__ref'] = item.name;
-	            // 把组件名称缓存起来，方便查找
-	            _utils.Cache.set('component-names', _utils.Cache.get('component-names').concat(item.name));
 	        }
 	        // 每个组件都要有key
 	        if (props['key'] === undefined) {
@@ -25829,18 +25839,13 @@
 	    // 检查对象上的某个(些)属性是否符合指定类型
 	    // 属性可以是单个字符串或数组
 	    check: function check(item, name, type) {
-	        if (!type || _utils.Utils.getType(type) === 'string') {
-	            // 如果不指定类型，则检查属性是否存在
-	            if (!type) {
-	                if (_utils.Utils.typeof(item[name], 'undefined')) {
-	                    this.error(item, name);
-	                }
-	            } else {
-	                if (!_utils.Utils.typeof(item[name], type)) {
-	                    this.error(item, name, type);
-	                }
-	            }
-	        } else if (_utils.Utils.getType(name) === 'array') {
+	        type = type || 'undefined';
+	        // 如果不是数组，转换为数组
+	        if (_utils.Utils.getType(name) === 'string') {
+	            name = [name];
+	        }
+	        if (_utils.Utils.getType(name) === 'array') {
+	            var flag = true;
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
@@ -25849,7 +25854,10 @@
 	                for (var _iterator = name[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var v = _step.value;
 
-	                    this.check(item, v);
+	                    if (!_utils.Utils.typeof(item[name], type)) {
+	                        this.error(item, name, type);
+	                        flag = false;
+	                    }
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -25865,7 +25873,10 @@
 	                    }
 	                }
 	            }
+
+	            return flag;
 	        }
+	        return false;
 	    },
 
 	    // 打印错误信息
@@ -25897,6 +25908,7 @@
 
 	    // 如果type为布局相关的组件，则进行特殊处理
 	    if: function _if(item) {
+	        // todo
 	        if (layoutItem.indexOf(item.type) !== -1) {
 	            return this.get(item);
 	        }
@@ -25918,38 +25930,38 @@
 	    getLayout: function getLayout(item) {
 	        // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
 	        var className = item.className || '';
-	        if (_utils.Utils.typeof(item.content, 'array')) {
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
+	        var content = item.content;
+	        if (!_utils.Utils.typeof(content, 'array')) {
+	            content = [content];
+	        }
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
 
-	            try {
-	                for (var _iterator = item.content[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
+	        try {
+	            for (var _iterator = content[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var v = _step.value;
 
-	                    if (v.type === 'sider') {
-	                        className += ' ant-layout-has-sider';
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
+	                if (v.type === 'sider') {
+	                    className += ' ant-layout-has-sider';
+	                    break;
 	                }
 	            }
-	        } else {
-	            if (item.type === 'sider') {
-	                className += ' ant-layout-has-sider';
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
 	            }
 	        }
+
 	        item.className = className;
 	        return item;
 	    }

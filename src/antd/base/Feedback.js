@@ -1,5 +1,5 @@
 /**
- * 通用的组件 抽象类，如：Button、Icon 等
+ * 反馈 类组件抽象类，如：Button、Icon 等
  * @author liuzechun
  */
 import React from 'react';

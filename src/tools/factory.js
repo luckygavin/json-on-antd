@@ -31,11 +31,11 @@ class Factory extends Component {
             return item;
         }
         // 校验是否有 type 属性，如果没有会报错
-        Validator.check(item, 'type', 'string');
-        if (!item.type) {
+        if (!Validator.check(item, 'type', 'string')) {
             return;
         }
         // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
+        // todo
         if (item.type === 'html') {
             return new Html(item.content);
         }
@@ -44,6 +44,9 @@ class Factory extends Component {
         item = Layout.if(item);
         // 从loader中获取到相应的组件
         let Item = Loader.get(item.type);
+        if (!Item) {
+            return;
+        }
         // 通过适配器把参数转换成标准格式，剔除掉一下无用属性等
         let props = Adaptor.get(item);
         // 判断其他需要额外进一步解析的属性并进行解析

@@ -47,8 +47,6 @@ export default {
         if (item.name) {
             props['__cache'] = item.name;
             props['__ref'] = item.name;
-            // 把组件名称缓存起来，方便查找
-            Cache.set('component-names', Cache.get('component-names').concat(item.name));
         }
         // 每个组件都要有key
         if (props['key'] === undefined) {

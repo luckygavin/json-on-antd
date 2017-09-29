@@ -10,6 +10,7 @@ export default {
 
     // 如果type为布局相关的组件，则进行特殊处理
     if(item) {
+        // todo
         if (layoutItem.indexOf(item.type) !== -1) {
             return this.get(item);
         }
@@ -31,15 +32,14 @@ export default {
     getLayout(item) {
         // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
         let className = item.className || '';
-        if (Utils.typeof(item.content, 'array')) {
-            for (let v of item.content) {
-                if (v.type === 'sider') {
-                    className += ' ant-layout-has-sider';
-                }
-            }
-        } else {
-            if (item.type === 'sider') {
+        let content = item.content;
+        if (!Utils.typeof(content, 'array')) {
+            content = [content];
+        }
+        for (let v of content) {
+            if (v.type === 'sider') {
                 className += ' ant-layout-has-sider';
+                break;
             }
         }
         item.className = className;

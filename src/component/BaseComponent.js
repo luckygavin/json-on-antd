@@ -181,8 +181,9 @@ export default class BaseComponent extends PureComponent {
                 let funcName = 'component' + v.replace(/^\w/g, o=>o.toUpperCase());
                 let origin = this[funcName];
                 this[funcName] = (...params) => {
-                    inject.call(this, ...params);
+                    // 先执行默认逻辑，再执行用户逻辑                    
                     origin && origin.call(this, ...params);
+                    inject.call(this, ...params);
                 };
             }
         }

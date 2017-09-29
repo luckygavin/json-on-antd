@@ -1,3 +1,7 @@
+/**
+ * Antd 全部组件的基类，其中实现了接管受控属性的逻辑
+ * @author liuzechun
+ */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';

@@ -44,7 +44,7 @@
 
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
-| title      | 列头显示文字               | string&#124;ReactNode | - |
+| title      | 列头显示文字               | string &#124; `config` | - |
 | key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法 | string | - |
 | width      | 列宽度 | string&#124;number | -  |
@@ -80,7 +80,7 @@
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|
 | key | React 需要的 key，建议设置 | string | -  |
-| text | 选择项显示的文字 | string&#124;React.ReactNode | -  |
+| text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |
 | onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
 #### *dataSource*

@@ -9,7 +9,7 @@ import * as UF from 'uf';
 
 export default {
     component: Object.assign(UF),
-    
+
     // 添加组件
     add(components) {
         Object.assign(this.component, components);

@@ -4,25 +4,16 @@
  * @author liuzechun
  */
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
-import Antd from 'uf/antd/base/Antd.js';
-import {Utils, Cache} from 'uf/utils';
+import {Utils} from 'uf/utils';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
 import Validator from './validator.js';
-import Layout from './layout.js';
+import Special from './special.js';
 import WhiteList from './whitelist.js';
 import Html from './html.js';
 
-// 不属于config的参数，适配用户配置的参数时使用
-const KeyWord = ['name', 'type', 'content'];
-
-class Factory extends Component {
-    constructor(props) {
-        super(props);
-    }
+export default class Factory extends Component {
 
     // 解析组件配置，生成组件
     generateItem(item) {
@@ -35,23 +26,44 @@ class Factory extends Component {
             return;
         }
         // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
-        // todo
+        // TODO: 把模板解析器也做成一个组件
         if (item.type === 'html') {
             return new Html(item.content);
         }
 
-        // 如果是布局相关类型，则经过layout处理器处理
-        item = Layout.if(item);
+        // 某些特殊种类的组件对参数进行特殊处理
+        // 这块逻辑之所以没写到相应组件类里，是因为某些参数需要在实例之间就要处理
+        item = Special.if(item, this.props);
+
         // 从loader中获取到相应的组件
         let Item = Loader.get(item.type);
         if (!Item) {
             return;
         }
-        // 通过适配器把参数转换成标准格式，剔除掉一下无用属性等
+        // 通过适配器把参数转换成标准格式，剔除掉一些无用属性等
         let props = Adaptor.get(item);
         // 判断其他需要额外进一步解析的属性并进行解析
         props = this.analysisAgain(props, item);
+        // 处理children属性
+        props = this.handleChildren(props, item.childrenHolder);
+
         return <Item {...props} />;
+    }
+
+    // this.props.children为路由解析时子路由对应的组件，需要在父路由的有个地方作为children展示出来
+    // 在组件配置中，childrenHolder属性指定把子页面放在哪个组件里展示
+    handleChildren(props, hasChildrenHolder) {
+        // 只有指定了childrenHolder这个属性才会展示
+        if (hasChildrenHolder && this.props.children) {
+            if (!props.children) {
+                props.children = this.props.children;
+            } else {
+                // 组件通过路由组合嵌套处理
+                !Utils.typeof(props.children, 'array') && (props.children = [props.children]);
+                props.children.push(this.props.children);
+            }
+        }
+        return props;
     }
 
     // 拆分多个config，分离成组件的配置
@@ -96,5 +108,3 @@ class Factory extends Component {
         return <div>{this.generateElement()}</div>;
     }
 }
-
-export default Factory;

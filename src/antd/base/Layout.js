@@ -1,9 +1,9 @@
 /**
- * @file 导航 相关的组件抽象类，如：Menu等
+ * @file 布局类组件 抽象类
  * @author liuzechun
- * Created Date: 2017-09-29 07:27:17
+ * Created Date: 2017-09-29 07:26:34
  *
- * Last Modified: 2017-09-29 07:28:48
+ * Last Modified: 2017-09-29 07:26:34
  * Modified By: liuzechun
  */
 
@@ -11,7 +11,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Antd from './Antd.js';
 
-export default class Navigation extends Antd {
+export default class Layout extends Antd {
     // constructor(props) {
     //     super(props);
     // }

@@ -20,6 +20,7 @@ module.exports = {
     'antd-icon.md': require('./antd/antd-icon.md'),
     'antd-grid.md': require('./antd/antd-grid.md'),
     'antd-layout.md': require('./antd/antd-layout.md'),
+    'router.md': require('./origin/router.md'),
 
     'antd-auto-complete.md': require('./antd/antd-auto-complete.md'),
     'antd-cascader.md': require('./antd/antd-cascader.md'),

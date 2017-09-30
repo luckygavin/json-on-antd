@@ -81,11 +81,11 @@
 
 	var _utils = __webpack_require__(11);
 
-	var _factory = __webpack_require__(71);
+	var _factory = __webpack_require__(73);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(72);
+	var _loader = __webpack_require__(74);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -153,19 +153,19 @@
 	module.exports = Object.assign(
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(5),
+	// 路由组件
+	__webpack_require__(29),
 	// 其他自己实现/封装的组件
 	{
-	    // 路由组件
-	    Router: __webpack_require__(27),
-	    Iframe: __webpack_require__(30),
+	    Iframe: __webpack_require__(32),
 
-	    Export: __webpack_require__(36),
-	    Tree: __webpack_require__(42),
-	    Table: __webpack_require__(46),
-	    Form: __webpack_require__(50),
-	    Modal: __webpack_require__(54),
+	    Export: __webpack_require__(38),
+	    Tree: __webpack_require__(44),
+	    Table: __webpack_require__(48),
+	    Form: __webpack_require__(52),
+	    Modal: __webpack_require__(56),
 
-	    Table2: __webpack_require__(58)
+	    Table2: __webpack_require__(60)
 	});
 
 /***/ }),
@@ -194,15 +194,20 @@
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
+	var _layout = __webpack_require__(27);
+
+	var Layout = _interopRequireWildcard(_layout);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	// 感觉 ES6 的方式用起来不灵活啊。。。
 	// export default Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);
 
-	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback); /**
-	                                                                                            * @file antd组件统一封装，实现几个基础抽象类做继承
-	                                                                                            * @author liuzechun@baidu.com
-	                                                                                            */
+	/**
+	 * @file antd组件统一封装，实现几个基础抽象类做继承
+	 * @author liuzechun@baidu.com
+	 */
+	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
 
 /***/ }),
 /* 6 */
@@ -885,8 +890,8 @@
 
 	        var _this20 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this20.__init();
 	        _this20.__controlled.key = 'checked';
+	        _this20.__init();
 	        return _this20;
 	    }
 
@@ -934,10 +939,13 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 数据录入 相关的组件抽象类，如：Input等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 数据录入 相关的组件抽象类，如：Input等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:11
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
 
 	var DataEntry = function (_Antd) {
 	    _inherits(DataEntry, _Antd);
@@ -990,7 +998,8 @@
 	    }, {
 	        key: 'getValue',
 	        value: function getValue() {
-	            return this.__props.value;
+	            var key = this.__controlled.key;
+	            return this.__props[key];
 	        }
 	    }]);
 
@@ -1029,7 +1038,14 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Antd 全部组件的基类，其中实现了接管受控属性的逻辑
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:27:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 	var Antd = function (_BaseComponent) {
 	    _inherits(Antd, _BaseComponent);
@@ -1443,8 +1459,9 @@
 	                                params[_key4] = arguments[_key4];
 	                            }
 
-	                            inject.call.apply(inject, [_this3].concat(params));
+	                            // 先执行默认逻辑，再执行用户逻辑                    
 	                            origin && origin.call.apply(origin, [_this3].concat(params));
+	                            inject.call.apply(inject, [_this3].concat(params));
 	                        };
 	                    }
 	                };
@@ -2375,7 +2392,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -2397,21 +2414,24 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 数据展示 组件抽象类，如：Card、Tooltip 等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 数据展示 组件抽象类，如：Card、Tooltip 等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:27:33
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:27:40
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
 	var DataDisplay = function (_Antd) {
-	    _inherits(DataDisplay, _Antd);
+	  _inherits(DataDisplay, _Antd);
 
-	    function DataDisplay(props) {
-	        _classCallCheck(this, DataDisplay);
+	  function DataDisplay() {
+	    _classCallCheck(this, DataDisplay);
 
-	        return _possibleConstructorReturn(this, (DataDisplay.__proto__ || Object.getPrototypeOf(DataDisplay)).call(this, props));
-	    }
+	    return _possibleConstructorReturn(this, (DataDisplay.__proto__ || Object.getPrototypeOf(DataDisplay)).apply(this, arguments));
+	  }
 
-	    return DataDisplay;
+	  return DataDisplay;
 	}(_Antd3.default);
 
 	exports.default = DataDisplay;
@@ -2785,7 +2805,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -2807,21 +2827,24 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 通用的组件 抽象类，如：Button、Icon 等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 通用的组件 抽象类，如：Button、Icon 等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:27:24
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:35
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
 	var Genaral = function (_Antd) {
-	    _inherits(Genaral, _Antd);
+	  _inherits(Genaral, _Antd);
 
-	    function Genaral(props) {
-	        _classCallCheck(this, Genaral);
+	  function Genaral() {
+	    _classCallCheck(this, Genaral);
 
-	        return _possibleConstructorReturn(this, (Genaral.__proto__ || Object.getPrototypeOf(Genaral)).call(this, props));
-	    }
+	    return _possibleConstructorReturn(this, (Genaral.__proto__ || Object.getPrototypeOf(Genaral)).apply(this, arguments));
+	  }
 
-	    return Genaral;
+	  return Genaral;
 	}(_Antd3.default);
 
 	exports.default = Genaral;
@@ -2835,7 +2858,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Step = exports.Steps = exports.Pagination = exports.SubMenu = exports.MenuItemGroup = exports.MenuItem = exports.Menu = exports.DropdownButton = exports.Dropdown = exports.BreadcrumbItem = exports.Breadcrumb = exports.Affix = undefined;
+	exports.Step = exports.Steps = exports.Pagination = exports.SubMenu = exports.MenuItemGroup = exports.MenuItem = exports.Menu = exports.DropdownButton = exports.Dropdown = exports.Breadcrumb = exports.Affix = undefined;
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -2847,9 +2872,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Navigation13 = __webpack_require__(24);
+	var _Navigation12 = __webpack_require__(24);
 
-	var _Navigation14 = _interopRequireDefault(_Navigation13);
+	var _Navigation13 = _interopRequireDefault(_Navigation12);
 
 	var _antd = __webpack_require__(14);
 
@@ -2866,8 +2891,11 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 导航 类组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-26 01:18:00
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:31:44
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
 
 	/************ Affix 图钉 *************************************************************************** */
 
@@ -2891,7 +2919,7 @@
 	    }]);
 
 	    return Affix;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 	/************ Breadcrumb 面包屑 *************************************************************************** */
 
@@ -2908,6 +2936,42 @@
 	    }
 
 	    _createClass(Breadcrumb, [{
+	        key: '_initProps',
+	        value: function _initProps() {
+	            _get(Breadcrumb.prototype.__proto__ || Object.getPrototypeOf(Breadcrumb.prototype), '_initProps', this).call(this);
+	            // 如果用户配置了options，则按照用户配置的options列表类展示面包屑
+	            var options = this.__props.options;
+	            if (options) {
+	                var result = [];
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    for (var _iterator = options[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var v = _step.value;
+
+	                        result.push(_react2.default.createElement(Antd.Breadcrumb.Item, { children: v }));
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+
+	                this.__props.children = result;
+	            }
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.Breadcrumb, this.__props);
@@ -2915,45 +2979,20 @@
 	    }]);
 
 	    return Breadcrumb;
-	}(_Navigation14.default);
-	// Breadcrumb面包屑 子组件
-	// export const BreadcrumbItem = Antd.Breadcrumb.Item;
-
-
-	var BreadcrumbItem = exports.BreadcrumbItem = function (_Navigation3) {
-	    _inherits(BreadcrumbItem, _Navigation3);
-
-	    function BreadcrumbItem(props) {
-	        _classCallCheck(this, BreadcrumbItem);
-
-	        var _this3 = _possibleConstructorReturn(this, (BreadcrumbItem.__proto__ || Object.getPrototypeOf(BreadcrumbItem)).call(this, props));
-
-	        _this3.__init();
-	        return _this3;
-	    }
-
-	    _createClass(BreadcrumbItem, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Breadcrumb.Item, this.__props);
-	        }
-	    }]);
-
-	    return BreadcrumbItem;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 	/************ Dropdown 下拉菜单 *************************************************************************** */
 
-	var Dropdown = exports.Dropdown = function (_Navigation4) {
-	    _inherits(Dropdown, _Navigation4);
+	var Dropdown = exports.Dropdown = function (_Navigation3) {
+	    _inherits(Dropdown, _Navigation3);
 
 	    function Dropdown(props) {
 	        _classCallCheck(this, Dropdown);
 
-	        var _this4 = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this, props));
+	        var _this3 = _possibleConstructorReturn(this, (Dropdown.__proto__ || Object.getPrototypeOf(Dropdown)).call(this, props));
 
-	        _this4.__init();
-	        return _this4;
+	        _this3.__init();
+	        return _this3;
 	    }
 
 	    _createClass(Dropdown, [{
@@ -2964,18 +3003,18 @@
 	    }]);
 
 	    return Dropdown;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
-	var DropdownButton = exports.DropdownButton = function (_Navigation5) {
-	    _inherits(DropdownButton, _Navigation5);
+	var DropdownButton = exports.DropdownButton = function (_Navigation4) {
+	    _inherits(DropdownButton, _Navigation4);
 
 	    function DropdownButton(props) {
 	        _classCallCheck(this, DropdownButton);
 
-	        var _this5 = _possibleConstructorReturn(this, (DropdownButton.__proto__ || Object.getPrototypeOf(DropdownButton)).call(this, props));
+	        var _this4 = _possibleConstructorReturn(this, (DropdownButton.__proto__ || Object.getPrototypeOf(DropdownButton)).call(this, props));
 
-	        _this5.__init();
-	        return _this5;
+	        _this4.__init();
+	        return _this4;
 	    }
 
 	    _createClass(DropdownButton, [{
@@ -2986,25 +3025,25 @@
 	    }]);
 
 	    return DropdownButton;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 	/************ Menu 导航菜单 *************************************************************************** */
 
-	var Menu = exports.Menu = function (_Navigation6) {
-	    _inherits(Menu, _Navigation6);
+	var Menu = exports.Menu = function (_Navigation5) {
+	    _inherits(Menu, _Navigation5);
 
 	    function Menu(props) {
 	        _classCallCheck(this, Menu);
 
-	        var _this6 = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (Menu.__proto__ || Object.getPrototypeOf(Menu)).call(this, props));
 
-	        _this6.__controlled = {
+	        _this5.__controlled = {
 	            key: 'selectedKeys',
 	            event: 'onSelect',
 	            defaultVal: []
 	        };
-	        _this6.__init();
-	        return _this6;
+	        _this5.__init();
+	        return _this5;
 	    }
 	    // 见 BaseComponent
 
@@ -3030,20 +3069,20 @@
 	    }]);
 
 	    return Menu;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 	// Menu.Item 组件
 
 
-	var MenuItem = exports.MenuItem = function (_Navigation7) {
-	    _inherits(MenuItem, _Navigation7);
+	var MenuItem = exports.MenuItem = function (_Navigation6) {
+	    _inherits(MenuItem, _Navigation6);
 
 	    function MenuItem(props) {
 	        _classCallCheck(this, MenuItem);
 
-	        var _this7 = _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (MenuItem.__proto__ || Object.getPrototypeOf(MenuItem)).call(this, props));
 
-	        _this7.__init();
-	        return _this7;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(MenuItem, [{
@@ -3054,20 +3093,20 @@
 	    }]);
 
 	    return MenuItem;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 	// Menu.ItemGroup 组件
 
 
-	var MenuItemGroup = exports.MenuItemGroup = function (_Navigation8) {
-	    _inherits(MenuItemGroup, _Navigation8);
+	var MenuItemGroup = exports.MenuItemGroup = function (_Navigation7) {
+	    _inherits(MenuItemGroup, _Navigation7);
 
 	    function MenuItemGroup(props) {
 	        _classCallCheck(this, MenuItemGroup);
 
-	        var _this8 = _possibleConstructorReturn(this, (MenuItemGroup.__proto__ || Object.getPrototypeOf(MenuItemGroup)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (MenuItemGroup.__proto__ || Object.getPrototypeOf(MenuItemGroup)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(MenuItemGroup, [{
@@ -3078,20 +3117,20 @@
 	    }]);
 
 	    return MenuItemGroup;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 	// Menu.SubMenu 组件
 
 
-	var SubMenu = exports.SubMenu = function (_Navigation9) {
-	    _inherits(SubMenu, _Navigation9);
+	var SubMenu = exports.SubMenu = function (_Navigation8) {
+	    _inherits(SubMenu, _Navigation8);
 
 	    function SubMenu(props) {
 	        _classCallCheck(this, SubMenu);
 
-	        var _this9 = _possibleConstructorReturn(this, (SubMenu.__proto__ || Object.getPrototypeOf(SubMenu)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (SubMenu.__proto__ || Object.getPrototypeOf(SubMenu)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(SubMenu, [{
@@ -3102,25 +3141,25 @@
 	    }]);
 
 	    return SubMenu;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 	/************ Pagination 分页 *************************************************************************** */
 
-	var Pagination = exports.Pagination = function (_Navigation10) {
-	    _inherits(Pagination, _Navigation10);
+	var Pagination = exports.Pagination = function (_Navigation9) {
+	    _inherits(Pagination, _Navigation9);
 
 	    function Pagination(props) {
 	        _classCallCheck(this, Pagination);
 
 	        // current为受控属性，父类中统一实现属性的绑定和变更（BaseComponent）
 	        // event: onChange / paramsIndex: 0
-	        var _this10 = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
 
-	        _this10.__controlled = {
+	        _this9.__controlled = {
 	            key: 'current'
 	        };
-	        _this10.__init();
-	        return _this10;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Pagination, [{
@@ -3131,20 +3170,20 @@
 	    }]);
 
 	    return Pagination;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 	/************ Steps 步骤条 *************************************************************************** */
 
-	var Steps = exports.Steps = function (_Navigation11) {
-	    _inherits(Steps, _Navigation11);
+	var Steps = exports.Steps = function (_Navigation10) {
+	    _inherits(Steps, _Navigation10);
 
 	    function Steps(props) {
 	        _classCallCheck(this, Steps);
 
-	        var _this11 = _possibleConstructorReturn(this, (Steps.__proto__ || Object.getPrototypeOf(Steps)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Steps.__proto__ || Object.getPrototypeOf(Steps)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Steps, [{
@@ -3155,20 +3194,20 @@
 	    }]);
 
 	    return Steps;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 	// Step 单条步骤
 
 
-	var Step = exports.Step = function (_Navigation12) {
-	    _inherits(Step, _Navigation12);
+	var Step = exports.Step = function (_Navigation11) {
+	    _inherits(Step, _Navigation11);
 
 	    function Step(props) {
 	        _classCallCheck(this, Step);
 
-	        var _this12 = _possibleConstructorReturn(this, (Step.__proto__ || Object.getPrototypeOf(Step)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (Step.__proto__ || Object.getPrototypeOf(Step)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(Step, [{
@@ -3179,7 +3218,7 @@
 	    }]);
 
 	    return Step;
-	}(_Navigation14.default);
+	}(_Navigation13.default);
 
 /***/ }),
 /* 24 */
@@ -3188,7 +3227,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -3210,21 +3249,24 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 导航 相关的组件抽象类，如：Menu等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 导航 相关的组件抽象类，如：Menu等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:27:17
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:48
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
 	var Navigation = function (_Antd) {
-	    _inherits(Navigation, _Antd);
+	  _inherits(Navigation, _Antd);
 
-	    function Navigation(props) {
-	        _classCallCheck(this, Navigation);
+	  function Navigation() {
+	    _classCallCheck(this, Navigation);
 
-	        return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).call(this, props));
-	    }
+	    return _possibleConstructorReturn(this, (Navigation.__proto__ || Object.getPrototypeOf(Navigation)).apply(this, arguments));
+	  }
 
-	    return Navigation;
+	  return Navigation;
 	}(_Antd3.default);
 
 	exports.default = Navigation;
@@ -3238,7 +3280,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Loading = exports.Progress = exports.Alert = exports.notification = exports.message = undefined;
+	exports.notification = exports.message = exports.Loading = exports.Progress = exports.Alert = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -3258,6 +3300,10 @@
 
 	var _utils = __webpack_require__(11);
 
+	var _tools = __webpack_require__(1);
+
+	var _tools2 = _interopRequireDefault(_tools);
+
 	var _antd = __webpack_require__(14);
 
 	var Antd = _interopRequireWildcard(_antd);
@@ -3275,11 +3321,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
-	/************* message / notification 提示 ************************************************************************** */
-
-	var message = exports.message = Antd.message;
-	var notification = exports.notification = Antd.notification;
 
 	/************* Alert 警告提示 ************************************************************************** */
 
@@ -3354,6 +3395,61 @@
 	    return Loading;
 	}(_Feedback5.default);
 
+	/************* message 提示 ************************************************************************** */
+
+	// 统一处理config（某些属性需要二次解析）
+
+
+	function messageHandler(type, content) {
+	    var _Antd$message;
+
+	    var _arr = ['content'];
+
+	    for (var _i = 0; _i < _arr.length; _i++) {
+	        var v = _arr[_i];
+	        if (content[v] && !_utils.Utils.typeof(content[v], 'string')) {
+	            content[v] = _tools2.default.init(content[v]);
+	        }
+	    }
+
+	    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	        params[_key - 2] = arguments[_key];
+	    }
+
+	    return (_Antd$message = Antd.message)[type].apply(_Antd$message, [content].concat(params));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading')
+	});
+
+	/************* message 提示 ************************************************************************** */
+
+	function notificationHandler(type, config) {
+	    var _arr2 = ['message', 'description', 'btn', 'icon'];
+
+	    for (var _i2 = 0; _i2 < _arr2.length; _i2++) {
+	        var v = _arr2[_i2];
+	        if (config[v] && !_utils.Utils.typeof(config[v], 'string')) {
+	            config[v] = _tools2.default.init(config[v]);
+	        }
+	    }
+	    return Antd.notification[type](config);
+	}
+
+	var notification = exports.notification = Object.assign({}, Antd.notification, {
+	    success: notificationHandler.bind(null, 'success'),
+	    error: notificationHandler.bind(null, 'error'),
+	    info: notificationHandler.bind(null, 'info'),
+	    warning: notificationHandler.bind(null, 'warning'),
+	    warn: notificationHandler.bind(null, 'warn')
+	});
+
 /***/ }),
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -3361,7 +3457,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 
 	var _react = __webpack_require__(2);
@@ -3383,21 +3479,24 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 通用的组件 抽象类，如：Button、Icon 等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 反馈 类组件抽象类，如：Button、Icon 等
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:27:29
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:24
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
 	var Feedback = function (_Antd) {
-	    _inherits(Feedback, _Antd);
+	  _inherits(Feedback, _Antd);
 
-	    function Feedback(props) {
-	        _classCallCheck(this, Feedback);
+	  function Feedback() {
+	    _classCallCheck(this, Feedback);
 
-	        return _possibleConstructorReturn(this, (Feedback.__proto__ || Object.getPrototypeOf(Feedback)).call(this, props));
-	    }
+	    return _possibleConstructorReturn(this, (Feedback.__proto__ || Object.getPrototypeOf(Feedback)).apply(this, arguments));
+	  }
 
-	    return Feedback;
+	  return Feedback;
 	}(_Antd3.default);
 
 	exports.default = Feedback;
@@ -3408,11 +3507,166 @@
 
 	'use strict';
 
-	// import * as Router from './Router.js';
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Content = exports.Sider = exports.Footer = exports.Header = exports.Layout = undefined;
 
-	// module.exports = Router;
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	module.exports = __webpack_require__(28).default;
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Layout = __webpack_require__(28);
+
+	var _Layout2 = _interopRequireDefault(_Layout);
+
+	var _antd = __webpack_require__(14);
+
+	var Antd = _interopRequireWildcard(_antd);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Description
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:26:02
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:26:02
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	/************* Layout 布局 ************************************************************************** */
+
+	// Layout 组件
+	var Layout = exports.Layout = function (_BaseLayout) {
+	    _inherits(Layout, _BaseLayout);
+
+	    function Layout(props) {
+	        _classCallCheck(this, Layout);
+
+	        var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
+
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(Layout, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Layout, this.__props);
+	        }
+	    }]);
+
+	    return Layout;
+	}(_Layout2.default);
+
+	// Layout 组件
+
+
+	var Header = exports.Header = function (_BaseLayout2) {
+	    _inherits(Header, _BaseLayout2);
+
+	    function Header(props) {
+	        _classCallCheck(this, Header);
+
+	        var _this2 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+
+	        _this2.__init();
+	        return _this2;
+	    }
+
+	    _createClass(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Layout.Header, this.__props);
+	        }
+	    }]);
+
+	    return Header;
+	}(_Layout2.default);
+
+	// Layout 组件
+
+
+	var Footer = exports.Footer = function (_BaseLayout3) {
+	    _inherits(Footer, _BaseLayout3);
+
+	    function Footer(props) {
+	        _classCallCheck(this, Footer);
+
+	        var _this3 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+
+	        _this3.__init();
+	        return _this3;
+	    }
+
+	    _createClass(Footer, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Layout.Footer, this.__props);
+	        }
+	    }]);
+
+	    return Footer;
+	}(_Layout2.default);
+
+	// Layout 组件
+
+
+	var Sider = exports.Sider = function (_BaseLayout4) {
+	    _inherits(Sider, _BaseLayout4);
+
+	    function Sider(props) {
+	        _classCallCheck(this, Sider);
+
+	        var _this4 = _possibleConstructorReturn(this, (Sider.__proto__ || Object.getPrototypeOf(Sider)).call(this, props));
+
+	        _this4.__init();
+	        return _this4;
+	    }
+
+	    _createClass(Sider, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Layout.Sider, this.__props);
+	        }
+	    }]);
+
+	    return Sider;
+	}(_Layout2.default);
+
+	// Layout 组件
+
+
+	var Content = exports.Content = function (_BaseLayout5) {
+	    _inherits(Content, _BaseLayout5);
+
+	    function Content(props) {
+	        _classCallCheck(this, Content);
+
+	        var _this5 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
+
+	        _this5.__init();
+	        return _this5;
+	    }
+
+	    _createClass(Content, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Layout.Content, this.__props);
+	        }
+	    }]);
+
+	    return Content;
+	}(_Layout2.default);
 
 /***/ }),
 /* 28 */
@@ -3421,12 +3675,8 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
 
@@ -3436,9 +3686,87 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(29);
+	var _Antd2 = __webpack_require__(8);
+
+	var _Antd3 = _interopRequireDefault(_Antd2);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 布局类组件 抽象类
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 07:26:34
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:26:34
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Layout = function (_Antd) {
+	  _inherits(Layout, _Antd);
+
+	  function Layout() {
+	    _classCallCheck(this, Layout);
+
+	    return _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).apply(this, arguments));
+	  }
+
+	  return Layout;
+	}(_Antd3.default);
+
+	exports.default = Layout;
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _Router = __webpack_require__(30);
+
+	var Router = _interopRequireWildcard(_Router);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	module.exports = Router;
+
+	// module.exports = require('./Router.js').default;
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.IndexLink = exports.Link = exports.IndexRedirect = exports.Redirect = exports.IndexRoute = exports.Route = exports.Router = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(3);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(31);
+
+	var OriRouter = _interopRequireWildcard(_reactRouter);
+
+	var _component = __webpack_require__(9);
 
 	var _utils = __webpack_require__(11);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3451,70 +3779,230 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
+	// import {Router, Route, Redirect, Link, IndexRoute, IndexRedirect, IndexLink, hashHistory} from 'react-router';
 
-	// Router
-	var NewRouter = function (_React$PureComponent) {
-	    _inherits(NewRouter, _React$PureComponent);
 
-	    function NewRouter(props) {
-	        _classCallCheck(this, NewRouter);
+	// 抽象类 用于做组件种类区分
+	var BaseRouter = function (_BaseComponent) {
+	    _inherits(BaseRouter, _BaseComponent);
 
-	        return _possibleConstructorReturn(this, (NewRouter.__proto__ || Object.getPrototypeOf(NewRouter)).call(this, props));
+	    function BaseRouter() {
+	        _classCallCheck(this, BaseRouter);
+
+	        return _possibleConstructorReturn(this, (BaseRouter.__proto__ || Object.getPrototypeOf(BaseRouter)).apply(this, arguments));
 	    }
 
-	    _createClass(NewRouter, [{
-	        key: 'getItems',
-	        value: function getItems(list) {
-	            var _this2 = this;
+	    return BaseRouter;
+	}(_component.BaseComponent);
 
-	            return list.map(function (item) {
-	                return _react2.default.createElement(
-	                    _reactRouter.Route,
-	                    item,
-	                    item.index && _react2.default.createElement(_reactRouter.IndexRedirect, { to: item.index }),
-	                    item.children && _this2.getItems(item.children)
-	                );
-	            });
+	// Router
+	var Router = exports.Router = function (_BaseRouter) {
+	    _inherits(Router, _BaseRouter);
+
+	    function Router(props) {
+	        _classCallCheck(this, Router);
+
+	        var _this2 = _possibleConstructorReturn(this, (Router.__proto__ || Object.getPrototypeOf(Router)).call(this, props));
+
+	        _this2.__init();
+	        return _this2;
+	    }
+	    // 继承父组件的函数，并在__props上设置history属性
+	    // 此函数会在初始化以及componentWillReceiveProps时调用
+
+
+	    _createClass(Router, [{
+	        key: '_initProps',
+	        value: function _initProps() {
+	            _get(Router.prototype.__proto__ || Object.getPrototypeOf(Router.prototype), '_initProps', this).call(this);
+	            // 设置histroy属性，如果没有默认为 hashHistory
+	            var history = this.__props.history;
+	            if (!history) {
+	                history = 'hashHistory';
+	            }
+	            if (_utils.Utils.typeof(history, 'string')) {
+	                this.__props.history = OriRouter[history];
+	            } else {
+	                console.error('\'history\' must be a string.');
+	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var route = this.props.route || {};
-	            console.log(route);
-	            return _react2.default.createElement(
-	                _reactRouter.Router,
-	                { history: _reactRouter.hashHistory },
-	                _react2.default.createElement(
-	                    _reactRouter.Route,
-	                    _extends({ path: '/' }, route),
-	                    route.index && _react2.default.createElement(_reactRouter.IndexRedirect, { to: route.index }),
-	                    this.getItems(route.children || [])
-	                )
-	            );
+	            return _react2.default.createElement(OriRouter.Router, this.__props);
 	        }
 	    }]);
 
-	    return NewRouter;
-	}(_react2.default.PureComponent);
+	    return Router;
+	}(BaseRouter);
 
-	exports.default = NewRouter;
+	// Route
+
+
+	var Route = exports.Route = function (_BaseRouter2) {
+	    _inherits(Route, _BaseRouter2);
+
+	    function Route(props) {
+	        _classCallCheck(this, Route);
+
+	        var _this3 = _possibleConstructorReturn(this, (Route.__proto__ || Object.getPrototypeOf(Route)).call(this, props));
+
+	        _this3.__init();
+	        console.log('Route: ', _this3.__props);
+	        return _this3;
+	    }
+
+	    _createClass(Route, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.Route, this.__props);
+	        }
+	    }]);
+
+	    return Route;
+	}(BaseRouter);
+
+	// IndexRoute
+
+
+	var IndexRoute = exports.IndexRoute = function (_BaseRouter3) {
+	    _inherits(IndexRoute, _BaseRouter3);
+
+	    function IndexRoute(props) {
+	        _classCallCheck(this, IndexRoute);
+
+	        var _this4 = _possibleConstructorReturn(this, (IndexRoute.__proto__ || Object.getPrototypeOf(IndexRoute)).call(this, props));
+
+	        _this4.__init();
+	        return _this4;
+	    }
+
+	    _createClass(IndexRoute, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.IndexRoute, this.__props);
+	        }
+	    }]);
+
+	    return IndexRoute;
+	}(BaseRouter);
+
+	// Redirect
+
+
+	var Redirect = exports.Redirect = function (_BaseRouter4) {
+	    _inherits(Redirect, _BaseRouter4);
+
+	    function Redirect(props) {
+	        _classCallCheck(this, Redirect);
+
+	        var _this5 = _possibleConstructorReturn(this, (Redirect.__proto__ || Object.getPrototypeOf(Redirect)).call(this, props));
+
+	        _this5.__init();
+	        return _this5;
+	    }
+
+	    _createClass(Redirect, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.Redirect, this.__props);
+	        }
+	    }]);
+
+	    return Redirect;
+	}(BaseRouter);
+
+	// IndexRedirect
+
+
+	var IndexRedirect = exports.IndexRedirect = function (_BaseRouter5) {
+	    _inherits(IndexRedirect, _BaseRouter5);
+
+	    function IndexRedirect(props) {
+	        _classCallCheck(this, IndexRedirect);
+
+	        var _this6 = _possibleConstructorReturn(this, (IndexRedirect.__proto__ || Object.getPrototypeOf(IndexRedirect)).call(this, props));
+
+	        _this6.__init();
+	        return _this6;
+	    }
+
+	    _createClass(IndexRedirect, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.IndexRedirect, this.__props);
+	        }
+	    }]);
+
+	    return IndexRedirect;
+	}(BaseRouter);
+
+	// Link
+
+
+	var Link = exports.Link = function (_BaseRouter6) {
+	    _inherits(Link, _BaseRouter6);
+
+	    function Link(props) {
+	        _classCallCheck(this, Link);
+
+	        var _this7 = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
+
+	        _this7.__init();
+	        return _this7;
+	    }
+
+	    _createClass(Link, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.Link, this.__props);
+	        }
+	    }]);
+
+	    return Link;
+	}(BaseRouter);
+
+	// IndexLink
+
+
+	var IndexLink = exports.IndexLink = function (_BaseRouter7) {
+	    _inherits(IndexLink, _BaseRouter7);
+
+	    function IndexLink(props) {
+	        _classCallCheck(this, IndexLink);
+
+	        var _this8 = _possibleConstructorReturn(this, (IndexLink.__proto__ || Object.getPrototypeOf(IndexLink)).call(this, props));
+
+	        _this8.__init();
+	        return _this8;
+	    }
+
+	    _createClass(IndexLink, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.IndexLink, this.__props);
+	        }
+	    }]);
+
+	    return IndexLink;
+	}(BaseRouter);
 
 /***/ }),
-/* 29 */
+/* 31 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
 
 /***/ }),
-/* 30 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(31).default;
+	module.exports = __webpack_require__(33).default;
 
 /***/ }),
-/* 31 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3535,7 +4023,7 @@
 
 	var _component = __webpack_require__(9);
 
-	__webpack_require__(32);
+	__webpack_require__(34);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3567,7 +4055,7 @@
 
 	    _createClass(Iframe, [{
 	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps() {
+	        value: function componentWillReceiveProps(nextProps) {
 	            // 重新获取页面时重新展示loading
 	            if (nextProps.src !== this.__prevProps.src) {
 	                this.setState({ loading: true });
@@ -3584,9 +4072,7 @@
 	    }, {
 	        key: 'getParentHeight',
 	        value: function getParentHeight() {
-	            // return this.ifr.parentElement.offsetHeight  + 'px';
-	            // 因为增加了loading组件，iframe和其父元素之间隔了两层loading的标签
-	            var parent = this.ifr.parentElement.parentElement.parentElement;
+	            var parent = this.root.parentElement;
 	            return parent.offsetHeight + 'px';
 	        }
 	    }, {
@@ -3595,28 +4081,35 @@
 	            var _this2 = this;
 
 	            return _react2.default.createElement(
-	                _antd.Spin,
-	                { spinning: this.state.loading },
-	                _react2.default.createElement('iframe', _extends({}, this.__props, {
-	                    className: 'uf-iframe ' + (this.__props.className || ''),
-	                    ref: function ref(ele) {
-	                        return _this2.ifr = ele;
-	                    },
-	                    onLoad: function onLoad(even) {
-	                        try {
-	                            _this2.setState({ loading: false });
-	                            var ifr = even.target;
-	                            var iDoc = ifr.contentWindow.document;
-	                            // 此处获取iframe的文档的高度，如果文档的body设置的 height:100% 的话，此处无效
-	                            var iDocHight = iDoc.documentElement.scrollHeight;
-	                            if (iDocHight > +ifr.height.replace('px', '')) {
-	                                ifr.height = iDocHight + 'px';
+	                'div',
+	                { className: 'uf-iframe', ref: function ref(ele) {
+	                        return _this2.root = ele;
+	                    }, 'data-src': this.__props.src },
+	                _react2.default.createElement(
+	                    _antd.Spin,
+	                    { spinning: this.state.loading },
+	                    _react2.default.createElement('iframe', _extends({}, this.__props, {
+	                        ref: function ref(ele) {
+	                            return _this2.ifr = ele;
+	                        },
+	                        onLoad: function onLoad(even) {
+	                            try {
+	                                _this2.setState({ loading: false });
+	                                var ifr = even.target;
+	                                var iDoc = ifr.contentWindow.document;
+	                                // 此处获取iframe的文档的高度，如果文档的body设置的 height:100% 的话，此处无效
+	                                var iDocHight = iDoc.documentElement.scrollHeight;
+	                                if (iDocHight > +ifr.height.replace('px', '')) {
+	                                    ifr.height = iDocHight + 'px';
+	                                }
+	                                // TODO: 是否根据根据内容高度变化
+
+	                                _this2.__props.onLoad && _this2.__props.onLoad(even);
+	                            } catch (e) {
+	                                console.log(e);
 	                            }
-	                            _this2.__props.onLoad && _this2.__props.onLoad(even);
-	                        } catch (e) {
-	                            console.log(e);
-	                        }
-	                    } }))
+	                        } }))
+	                )
 	            );
 	        }
 	    }]);
@@ -3627,16 +4120,16 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 32 */
+/* 34 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 33 */,
-/* 34 */,
 /* 35 */,
-/* 36 */
+/* 36 */,
+/* 37 */,
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3644,10 +4137,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(37).default;
+	module.exports = __webpack_require__(39).default;
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3674,11 +4167,11 @@
 
 	var _utils = __webpack_require__(11);
 
-	var _ueditor = __webpack_require__(38);
+	var _ueditor = __webpack_require__(40);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
-	__webpack_require__(40);
+	__webpack_require__(42);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4360,15 +4853,15 @@
 	exports.default = Export;
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(39).default;
+	module.exports = __webpack_require__(41).default;
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4504,14 +4997,14 @@
 	exports.default = Ueditor;
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 41 */,
-/* 42 */
+/* 43 */,
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4519,10 +5012,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(43).default;
+	module.exports = __webpack_require__(45).default;
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4549,7 +5042,7 @@
 
 	var _antd = __webpack_require__(14);
 
-	__webpack_require__(44);
+	__webpack_require__(46);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5137,24 +5630,24 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 45 */,
-/* 46 */
+/* 47 */,
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	// import Table from './Table.js';
 	// export default Table;
-	module.exports = __webpack_require__(47).default;
+	module.exports = __webpack_require__(49).default;
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5179,7 +5672,7 @@
 
 	var _antd = __webpack_require__(14);
 
-	__webpack_require__(48);
+	__webpack_require__(50);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5219,22 +5712,22 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 49 */,
-/* 50 */
+/* 51 */,
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(51).default;
+	module.exports = __webpack_require__(53).default;
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5267,11 +5760,11 @@
 
 	var _antd = __webpack_require__(14);
 
-	var _ueditor = __webpack_require__(38);
+	var _ueditor = __webpack_require__(40);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
-	__webpack_require__(52);
+	__webpack_require__(54);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6142,22 +6635,22 @@
 	exports.default = ReactForm;
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 53 */,
-/* 54 */
+/* 55 */,
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(55).default;
+	module.exports = __webpack_require__(57).default;
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6186,7 +6679,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	__webpack_require__(56);
+	__webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6298,22 +6791,22 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 57 */,
-/* 58 */
+/* 59 */,
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(59).default;
+	module.exports = __webpack_require__(61).default;
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6344,31 +6837,31 @@
 
 	var _utils = __webpack_require__(11);
 
-	var _export = __webpack_require__(36);
+	var _export = __webpack_require__(38);
 
 	var _export2 = _interopRequireDefault(_export);
 
-	var _ReactInput = __webpack_require__(60);
+	var _ReactInput = __webpack_require__(62);
 
 	var _ReactInput2 = _interopRequireDefault(_ReactInput);
 
-	var _ReactModal = __webpack_require__(61);
+	var _ReactModal = __webpack_require__(63);
 
 	var _ReactModal2 = _interopRequireDefault(_ReactModal);
 
-	var _TrRow = __webpack_require__(65);
+	var _TrRow = __webpack_require__(67);
 
 	var _TrRow2 = _interopRequireDefault(_TrRow);
 
-	var _ThRow = __webpack_require__(66);
+	var _ThRow = __webpack_require__(68);
 
 	var _ThRow2 = _interopRequireDefault(_ThRow);
 
-	var _Confirm = __webpack_require__(68);
+	var _Confirm = __webpack_require__(70);
 
 	var _Confirm2 = _interopRequireDefault(_Confirm);
 
-	__webpack_require__(69);
+	__webpack_require__(71);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8248,7 +8741,7 @@
 	exports.default = Table;
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8358,7 +8851,7 @@
 	exports.default = ReactInput;
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8381,11 +8874,11 @@
 
 	var _antd = __webpack_require__(14);
 
-	var _ReactInput = __webpack_require__(60);
+	var _ReactInput = __webpack_require__(62);
 
 	var _ReactInput2 = _interopRequireDefault(_ReactInput);
 
-	__webpack_require__(62);
+	__webpack_require__(64);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8399,7 +8892,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
 
-	var Immutable = __webpack_require__(64);
+	var Immutable = __webpack_require__(66);
 	var Option = _antd.Select.Option;
 
 	var ReactModal = function (_React$Component) {
@@ -8741,20 +9234,20 @@
 	exports.default = ReactModal;
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 63 */,
-/* 64 */
+/* 65 */,
+/* 66 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.Immutable;
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8777,7 +9270,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(29);
+	var _reactRouter = __webpack_require__(31);
 
 	var _antd = __webpack_require__(14);
 
@@ -9401,7 +9894,7 @@
 	exports.default = TrRow;
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9422,11 +9915,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(29);
+	var _reactRouter = __webpack_require__(31);
 
 	var _antd = __webpack_require__(14);
 
-	var _UDnD = __webpack_require__(67);
+	var _UDnD = __webpack_require__(69);
 
 	var _UDnD2 = _interopRequireDefault(_UDnD);
 
@@ -9605,7 +10098,7 @@
 	exports.default = ThRow;
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9740,7 +10233,7 @@
 	exports.default = UDnD;
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9830,14 +10323,14 @@
 	exports.default = Confirm;
 
 /***/ }),
-/* 69 */
+/* 71 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 70 */,
-/* 71 */
+/* 72 */,
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9852,39 +10345,29 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(3);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _component = __webpack_require__(9);
-
-	var _Antd = __webpack_require__(8);
-
-	var _Antd2 = _interopRequireDefault(_Antd);
-
 	var _utils = __webpack_require__(11);
 
-	var _loader = __webpack_require__(72);
+	var _loader = __webpack_require__(74);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(73);
+	var _adaptor = __webpack_require__(75);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _validator = __webpack_require__(74);
+	var _validator = __webpack_require__(76);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _layout = __webpack_require__(75);
+	var _special = __webpack_require__(77);
 
-	var _layout2 = _interopRequireDefault(_layout);
+	var _special2 = _interopRequireDefault(_special);
 
-	var _whitelist = __webpack_require__(76);
+	var _whitelist = __webpack_require__(78);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _html = __webpack_require__(77);
+	var _html = __webpack_require__(79);
 
 	var _html2 = _interopRequireDefault(_html);
 
@@ -9901,47 +10384,71 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	// 不属于config的参数，适配用户配置的参数时使用
-	var KeyWord = ['name', 'type', 'content'];
-
 	var Factory = function (_Component) {
 	    _inherits(Factory, _Component);
 
-	    function Factory(props) {
+	    function Factory() {
 	        _classCallCheck(this, Factory);
 
-	        return _possibleConstructorReturn(this, (Factory.__proto__ || Object.getPrototypeOf(Factory)).call(this, props));
+	        return _possibleConstructorReturn(this, (Factory.__proto__ || Object.getPrototypeOf(Factory)).apply(this, arguments));
 	    }
-
-	    // 解析组件配置，生成组件
-
 
 	    _createClass(Factory, [{
 	        key: 'generateItem',
+
+
+	        // 解析组件配置，生成组件
 	        value: function generateItem(item) {
 	            // 如果是字符串直接返回
 	            if (_utils.Utils.typeof(item, 'string')) {
 	                return item;
 	            }
 	            // 校验是否有 type 属性，如果没有会报错
-	            _validator2.default.check(item, 'type', 'string');
-	            if (!item.type) {
+	            if (!_validator2.default.check(item, 'type', 'string')) {
 	                return;
 	            }
 	            // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
+	            // TODO: 把模板解析器也做成一个组件
 	            if (item.type === 'html') {
 	                return new _html2.default(item.content);
 	            }
 
-	            // 如果是布局相关类型，则经过layout处理器处理
-	            item = _layout2.default.if(item);
+	            // 某些特殊种类的组件对参数进行特殊处理
+	            // 这块逻辑之所以没写到相应组件类里，是因为某些参数需要在实例之间就要处理
+	            item = _special2.default.if(item, this.props);
+
 	            // 从loader中获取到相应的组件
 	            var Item = _loader2.default.get(item.type);
-	            // 通过适配器把参数转换成标准格式，剔除掉一下无用属性等
+	            if (!Item) {
+	                return;
+	            }
+	            // 通过适配器把参数转换成标准格式，剔除掉一些无用属性等
 	            var props = _adaptor2.default.get(item);
 	            // 判断其他需要额外进一步解析的属性并进行解析
 	            props = this.analysisAgain(props, item);
+	            // 处理children属性
+	            props = this.handleChildren(props, item.childrenHolder);
+
 	            return _react2.default.createElement(Item, props);
+	        }
+
+	        // this.props.children为路由解析时子路由对应的组件，需要在父路由的有个地方作为children展示出来
+	        // 在组件配置中，childrenHolder属性指定把子页面放在哪个组件里展示
+
+	    }, {
+	        key: 'handleChildren',
+	        value: function handleChildren(props, hasChildrenHolder) {
+	            // 只有指定了childrenHolder这个属性才会展示
+	            if (hasChildrenHolder && this.props.children) {
+	                if (!props.children) {
+	                    props.children = this.props.children;
+	                } else {
+	                    // 组件通过路由组合嵌套处理
+	                    !_utils.Utils.typeof(props.children, 'array') && (props.children = [props.children]);
+	                    props.children.push(this.props.children);
+	                }
+	            }
+	            return props;
 	        }
 
 	        // 拆分多个config，分离成组件的配置
@@ -10025,7 +10532,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 72 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10095,7 +10602,7 @@
 	    */
 
 /***/ }),
-/* 73 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10116,30 +10623,20 @@
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(72);
+	var _loader = __webpack_require__(74);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// 不属于config的参数，适配用户配置的参数时使用
-	var KeyWord = ['name', 'type', 'content'];
+	var KeyWord = ['name', 'type', 'content', 'childrenHolder'];
 
 	_utils.Cache.set('component-names', []);
 
 	exports.default = {
 	    get: function get(item) {
 	        var Item = _loader2.default.get(item.type);
-	        // 如果是Antd组件，则把config格式化为Antd组件格式
-	        // 否则格式化成Uf格式
-	        // let props;
-	        // if (Utils.isExtendsOf(Item, 'Antd')) {
-	        //     props = this.antdConfig(item);
-	        // } else if (Utils.isExtendsOf(Item, 'BaseComponent')) {
-	        //     props = this.ufConfig(item);
-	        // } else {
-	        //     props = this.commonConfig(item);
-	        // }
 	        var props = _utils.Utils.filter(item, KeyWord);
 	        // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
 	        // 实例化组件时，还要把 type 还原
@@ -10162,8 +10659,6 @@
 	        if (item.name) {
 	            props['__cache'] = item.name;
 	            props['__ref'] = item.name;
-	            // 把组件名称缓存起来，方便查找
-	            _utils.Cache.set('component-names', _utils.Cache.get('component-names').concat(item.name));
 	        }
 	        // 每个组件都要有key
 	        if (props['key'] === undefined) {
@@ -10218,52 +10713,10 @@
 
 	        return obj;
 	    }
-	    // 获取Uf上自己实现的组件配置，配置集合在config上
-	    /* ufConfig(oitem) {
-	        let {config, data, params} = oitem;
-	        let item = Utils.filter(oitem, KeyWord.concat(['config', 'data', 'params']));
-	        if (!config) {
-	            config = {};            
-	        }
-	        // 把item上的全部非函数的属性放到config中
-	        for (let i in item) {
-	            if (!(item[i] instanceof Function)) {
-	                config[i] = item[i];
-	                delete item[i];
-	            }
-	        }
-	        // item中最终只剩下函数，直接放到config中
-	        return Object.assign({
-	                config,
-	                data,
-	                params
-	            }, item);
-	    },
-	     // 获取Antd的组件配置，配置参数是分散的
-	    antdConfig(oitem) {
-	        let item = Utils.filter(oitem, KeyWord);
-	        // 由于 type 关键字把原antd的 type 覆盖掉了，配置里用 mode 字段代替
-	        // 实例化组件时，还要把 type 还原
-	        if (item.mode) {
-	            item.type = item.mode;
-	        }
-	        return item;
-	    },
-	     // 获取普通元素的配置，配置参数是分散的
-	    commonConfig(oitem) {
-	        let item = Utils.filter(oitem, KeyWord);
-	        // 由于 type 关键字把原antd的 type 覆盖掉了，配置里用 mode 字段代替
-	        // 实例化组件时，还要把 type 还原
-	        if (item.mode) {
-	            item.type = item.mode;
-	        }
-	        return item;
-	    } */
-
 	};
 
 /***/ }),
-/* 74 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10278,18 +10731,13 @@
 	    // 检查对象上的某个(些)属性是否符合指定类型
 	    // 属性可以是单个字符串或数组
 	    check: function check(item, name, type) {
-	        if (!type || _utils.Utils.getType(type) === 'string') {
-	            // 如果不指定类型，则检查属性是否存在
-	            if (!type) {
-	                if (_utils.Utils.typeof(item[name], 'undefined')) {
-	                    this.error(item, name);
-	                }
-	            } else {
-	                if (!_utils.Utils.typeof(item[name], type)) {
-	                    this.error(item, name, type);
-	                }
-	            }
-	        } else if (_utils.Utils.getType(name) === 'array') {
+	        type = type || 'undefined';
+	        // 如果不是数组，转换为数组
+	        if (_utils.Utils.getType(name) === 'string') {
+	            name = [name];
+	        }
+	        if (_utils.Utils.getType(name) === 'array') {
+	            var flag = true;
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
@@ -10298,7 +10746,10 @@
 	                for (var _iterator = name[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var v = _step.value;
 
-	                    this.check(item, v);
+	                    if (!_utils.Utils.typeof(item[name], type)) {
+	                        this.error(item, name, type);
+	                        flag = false;
+	                    }
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -10314,7 +10765,10 @@
 	                    }
 	                }
 	            }
+
+	            return flag;
 	        }
+	        return false;
 	    },
 
 	    // 打印错误信息
@@ -10327,7 +10781,7 @@
 	    */
 
 /***/ }),
-/* 75 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10336,22 +10790,156 @@
 	    value: true
 	});
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var _utils = __webpack_require__(11);
 
-	var layoutItem = ['layout', 'header', 'footer', 'sider', 'content']; /**
-	                                                                      * @file 布局处理工具
-	                                                                      * @author liuzechun
-	                                                                      */
-	exports.default = {
+	var _loader = __webpack_require__(74);
 
-	    // 如果type为布局相关的组件，则进行特殊处理
-	    if: function _if(item) {
-	        if (layoutItem.indexOf(item.type) !== -1) {
-	            return this.get(item);
+	var _loader2 = _interopRequireDefault(_loader);
+
+	var _factory = __webpack_require__(73);
+
+	var _factory2 = _interopRequireDefault(_factory);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 特殊处理 - 几种特殊种类的组件解析前需做特殊处理
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      这块逻辑之所以没写到相应组件类里，是因为某些参数需要在实例之间就要处理
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-30 02:47:59
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-30 02:47:59
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
+	var RouteHolder = function (_React$Component) {
+	    _inherits(RouteHolder, _React$Component);
+
+	    function RouteHolder() {
+	        _classCallCheck(this, RouteHolder);
+
+	        return _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).apply(this, arguments));
+	    }
+
+	    _createClass(RouteHolder, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_factory2.default, _extends({}, this.props, { config: this.props.route.__component }));
+	        }
+	    }]);
+
+	    return RouteHolder;
+	}(_react2.default.Component);
+
+	exports.default = {
+	    if: function _if(item, parentProps) {
+	        var Item = _loader2.default.get(item.type);
+	        // 如果是 布局相关 的组件
+	        if (_utils.Utils.isExtendsOf(Item, 'Layout')) {
+	            item = this.setLayout(item);
+	        }
+	        // 如果是 路由相关 的组件
+	        if (_utils.Utils.isExtendsOf(Item, 'BaseRouter')) {
+	            item = this.setRoute(item);
+	        }
+	        // 如果是 路由-Router 组件
+	        if (_utils.Utils.isExtendsOf(Item, 'Router')) {
+	            item = this.setRouter(item);
+	        }
+	        // 如果是 面包屑 的组件
+	        if (_utils.Utils.isExtendsOf(Item, 'Breadcrumb')) {
+	            item = this.setBreadcrumb(item, parentProps);
 	        }
 	        return item;
 	    },
-	    get: function get(item) {
+
+
+	    // 如果是 面包屑 组件
+	    setBreadcrumb: function setBreadcrumb(item, parentProps) {
+	        // 如果面包屑没有自定义面包屑元素，则和router关联
+	        if (!item.content) {
+	            item.routes = parentProps.routes;
+	            item.params = parentProps.params;
+	        }
+	        return item;
+	    },
+
+
+	    // 如果是 路由相关 的组件
+	    setRoute: function setRoute(item) {
+	        if (item.component) {
+	            // 组件实例放在新属性content里
+	            item.__component = item.component;
+	            // component属性为一个抽象类
+	            item.component = RouteHolder;
+	        }
+	        return item;
+	    },
+
+
+	    // 如果是 路由-Router 的组件
+	    setRouter: function setRouter(item) {
+	        // router 的第二种用法，routes 里面的全部 component 需要转换为 RouteHolder
+	        if (item.routes) {
+	            item.routes = this.loopRoutes(item.routes);
+	        }
+	        return item;
+	    },
+	    loopRoutes: function loopRoutes(routes) {
+	        var arr = routes;
+	        if (!_utils.Utils.typeof(routes, 'array')) {
+	            arr = [routes];
+	        }
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+
+	        try {
+	            for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var v = _step.value;
+
+	                v = this.setRoute(v);
+	                if (v.childRoutes) {
+	                    v.childRoutes = this.loopRoutes(v.childRoutes);
+	                }
+	                if (v.indexRoute) {
+	                    v.indexRoute = this.setRoute(v.indexRoute);
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
+	        }
+
+	        return routes;
+	    },
+
+
+	    // 如果是 布局相关 的组件
+	    setLayout: function setLayout(item) {
 	        switch (item.type) {
 	            case 'layout':
 	                item = this.getLayout(item);
@@ -10367,45 +10955,45 @@
 	    getLayout: function getLayout(item) {
 	        // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
 	        var className = item.className || '';
-	        if (_utils.Utils.typeof(item.content, 'array')) {
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
+	        var content = item.content;
+	        if (!_utils.Utils.typeof(content, 'array')) {
+	            content = [content];
+	        }
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
 
-	            try {
-	                for (var _iterator = item.content[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
+	        try {
+	            for (var _iterator2 = content[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var v = _step2.value;
 
-	                    if (v.type === 'sider') {
-	                        className += ' ant-layout-has-sider';
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
+	                if (v.type === 'sider') {
+	                    className += ' ant-layout-has-sider';
+	                    break;
 	                }
 	            }
-	        } else {
-	            if (item.type === 'sider') {
-	                className += ' ant-layout-has-sider';
+	        } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                    _iterator2.return();
+	                }
+	            } finally {
+	                if (_didIteratorError2) {
+	                    throw _iteratorError2;
+	                }
 	            }
 	        }
+
 	        item.className = className;
 	        return item;
 	    }
 	};
 
 /***/ }),
-/* 76 */
+/* 78 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -10419,6 +11007,7 @@
 	 */
 
 	exports.default = {
+	    Breadcrumb: ['options'],
 	    Input: ['addonBefore', 'addonAfter', 'prefix', 'suffix'],
 	    Switch: ['checkedChildren', 'unCheckedChildren'],
 	    Card: ['title', 'extra'],
@@ -10437,11 +11026,12 @@
 	    Rate: ['character'],
 	    Timeline: ['pending'],
 	    TimelineItem: ['dot'],
-	    Modal: ['title', 'footer']
+	    Modal: ['title', 'footer'],
+	    Table: ['title']
 	};
 
 /***/ }),
-/* 77 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

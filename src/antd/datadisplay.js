@@ -96,7 +96,7 @@ export class Tooltip extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Tooltip {...this.__props}/>
+        return <Antd.Tooltip {...this.__props}/>;
     }
 }
 // 气泡卡片 - tooltip 的升级
@@ -106,7 +106,7 @@ export class Popover extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Popover {...this.__props} content={this.__props.body}/>
+        return <Antd.Popover {...this.__props} content={this.__props.body}/>;
     }
 }
 // 气泡确认框
@@ -116,7 +116,7 @@ export class Popconfirm extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Popconfirm {...this.__props}/>
+        return <Antd.Popconfirm {...this.__props}/>;
     }
 }
 
@@ -134,7 +134,7 @@ export class Tabs extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Tabs {...this.__props} />
+        return <Antd.Tabs {...this.__props} />;
     }
 }
 // tab的每一项
@@ -144,7 +144,7 @@ export class TabPane extends DataDisplay {
         this.__init();
     }
     render() {
-        return <Antd.Tabs.TabPane {...this.__props}/>
+        return <Antd.Tabs.TabPane {...this.__props}/>;
     }
 }
 

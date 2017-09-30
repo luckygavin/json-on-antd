@@ -34,13 +34,22 @@ const ComponentList = [
         {path: 'Table', name: 'Table 表格', component: require('./app/origin/table').default},
         {path: 'Table2', name: 'Table2 表格', component: require('./app/origin/table2').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/origin/form').default},
-        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
+        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},
         {path: 'Icon', name: 'Icon 图标', component: require('./app/antd/antd-icon').default},
         {path: 'Grid', name: 'Grid 栅格', component: require('./app/antd/antd-grid').default},
-        {path: 'Layout', name: 'Layout 布局', component: require('./app/antd/antd-layout').default}
+        {path: 'Layout', name: 'Layout 布局', component: require('./app/antd/antd-layout').default},
+        {path: 'Router', name: 'Router 路由', component: require('./app/origin/router').default}
+    ]},
+    {path: 'Navigation', name: '导航', children: [
+        {path: 'Affix', name: 'Affix 固钉', component: require('./app/antd/antd-affix').default},
+        {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
+        {path: 'Dropdown', name: 'Dropdown 下拉菜单', component: require('./app/antd/antd-dropdown').default},
+        {path: 'Menu', name: 'Menu 导航菜单', component: require('./app/antd/antd-menu').default},
+        {path: 'Pagination', name: 'Pagination 分页', component: require('./app/antd/antd-pagination').default},
+        {path: 'Steps', name: 'Steps 步骤条', component: require('./app/antd/antd-steps').default}
     ]},
     {path: 'DataEntry', name: '数据录入', children: [
         {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('./app/antd/antd-auto-complete').default},
@@ -67,14 +76,6 @@ const ComponentList = [
         {path: 'Tabs', name: 'Tabs 标签页', component: require('./app/antd/antd-tabs').default},
         {path: 'Tag', name: 'Tag 标签', component: require('./app/antd/antd-tag').default},
         {paht: 'Timeline', name: 'Timeline 时间轴', component: require('./app/antd/antd-timeline').default}
-    ]},
-    {path: 'Navigation', name: '导航', children: [
-        {path: 'Affix', name: 'Affix 固钉', component: require('./app/antd/antd-affix').default},
-        {path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: require('./app/antd/antd-breadcrumb').default},
-        {path: 'Dropdown', name: 'Dropdown 下拉菜单', component: require('./app/antd/antd-dropdown').default},
-        {path: 'Menu', name: 'Menu 导航菜单', component: require('./app/antd/antd-menu').default},
-        {path: 'Pagination', name: 'Pagination 分页', component: require('./app/antd/antd-pagination').default},
-        {path: 'Steps', name: 'Steps 步骤条', component: require('./app/antd/antd-steps').default}
     ]},
     {path: 'Feedback', name: '反馈', children: [
         {path: 'Alert', name: 'Alert 警告提示', component: require('./app/antd/antd-alert').default},

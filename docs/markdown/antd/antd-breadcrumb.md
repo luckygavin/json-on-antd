@@ -11,14 +11,13 @@
 
 ### # breadcrumb
 
-| 参数      | 说明                              | 类型              |  可选值 | 默认值 |
-|-----------|-----------------------------------|-----------------|---------|--------|
-| routes    | router 的路由栈信息               | object[]             |         | -      |
-| params    | 路由的参数                        | object            |         | -      |
-| separator | 分隔符自定义                      | string&#124;`config` |         | '/'    |
-| itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | | - |
+| 参数      | 说明                              | 类型              |  可选值 | 默认值 
+|-----------|-----------------------------------|-----------------|---------|--------
+| separator | 分隔符自定义                      | string &#124; `config` |         | '/'    
+| itemRender | 自定义链接函数，和 `router` 配合使用 | (route, params, routes, paths) => UF.init({...}) | | - 
+| options | 自定义面包屑展示内容               | `config`[] |         |
 
-### # breadcrumb-item
-| 参数      | 说明                              | 类型              |  可选值 | 默认值 |
-|-----------|-----------------------------------|-----------------|---------|--------|
-| href    |               |             |         | -      |
+
+***需配合[`Router`](#/General/Router)使用***
+
+需在`Router`的各项配置中增加`breadcrumbName`作为面包屑展示的名称

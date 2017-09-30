@@ -1,7 +1,12 @@
 /**
- * 数据录入 相关的组件抽象类，如：Input等
+ * @file 数据录入 相关的组件抽象类，如：Input等
  * @author liuzechun
+ * Created Date: 2017-09-29 01:11:19
+ *
+ * Last Modified: 2017-09-29 07:28:11
+ * Modified By: liuzechun
  */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Antd from './Antd.js';

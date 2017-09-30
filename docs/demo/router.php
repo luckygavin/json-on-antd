@@ -11,42 +11,155 @@
         <script>
             document.domain = 'baidu.com';
 
-            const app = {
-                type: 'div',
-                style: {background: '#ddd', padding: '35px'}
-            };
-            const App = UF.init(app);
-            const card = {
+            const Card = {
                 type: 'card',
                 title: 'Card title',
                 bordered: false,
                 loading: true
-            }
-            const Card = UF.init(card);
+            };
+            const Card2 = {
+                type: 'card',
+                title: 'Card title',
+                bordered: false,
+                childrenHolder: true
+            };
+            const Card3 = {
+                type: 'card',
+                title: 'Card title 3',
+                loading: true
+            };
+            const App = [
+                {
+                    type: "menu",
+                    mode: "horizontal",
+                    theme: "dark",
+                    content: [
+                        {
+                            type: "menu-item",
+                            key: "mail",
+                            content: {
+                                type: 'link',
+                                to: '/card',
+                                content: [
+                                    {
+                                        type: "icon",
+                                        mode: "mail"
+                                    },
+                                    "Navigation One"
+                                ]
+                            }
+                        },
+                        {
+                            type: "sub-menu",
+                            key: "sub",
+                            title: [
+                                {
+                                    type: "icon",
+                                    mode: "setting"
+                                },
+                                "Navigation Two - Submenu"
+                            ],
+                            content: {
+                                type: "menu-item-group",
+                                title: "Item 1",
+                                content: [
+                                    {
+                                        type: "menu-item",
+                                        key: "setting:1",
+                                        content: {
+                                            type: 'link',
+                                            to: '/card2',
+                                            content: "Option 1"
+                                        }
+                                    },
+                                    {
+                                        type: "menu-item",
+                                        key: "setting:2",
+                                        content: {
+                                            type: 'link',
+                                            to: '/card2/card3',
+                                            content: "Option 2"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    type: 'breadcrumb',
+                    style: {margin: '12px 24px'}
+                },
+                {
+                    type: 'div',
+                    style: {background: '#eee', padding: '35px'},
+                    childrenHolder: true,
+                    content: {
+                        type: 'div',
+                        style: {background: '#ddd', padding: '25px'}
+                    }
+                }
+            ];
 
-            const route = {
-                // breadcrumbName: '首页',
-                key: '/',
-                path: '/',
-                component: App,
-                index: 'card',
-                children: [
+            const page = {
+                type: 'router',
+                key: 'router',
+                // history: 'hashHistory',
+                content: {
+                    type: 'route',
+                    key: 'route',
+                    breadcrumbName: '首页',
+                    path: '/',
+                    component: App,
+                    content: [
+                        {
+                            type: 'index-route',
+                            component: Card
+                        },
+                        {
+                            type: 'route',
+                            path: 'card',
+                            breadcrumbName: '卡片',
+                            component: Card
+                        },
+                        {
+                            type: 'route',
+                            path: 'card2',
+                            breadcrumbName: '卡片2',
+                            component: Card2,
+                            content: {
+                                type: 'route',
+                                path: 'card3',
+                                breadcrumbName: '卡片3',
+                                component: Card3
+                            }
+                        }
+                    ]
+                }
+            };
+
+            const page2 = {
+                type: 'router',
+                // history: 'hashHistory',
+                routes: [
                     {
-                        // breadcrumbName: '卡片',
-                        key: 'card',
-                        path: 'card',
-                        component: Card
+                        path: '/',
+                        component: App,
+                        breadcrumbName: '首页',
+                        indexRoute: {component: Card},
+                        childRoutes: [
+                            {path: 'card', breadcrumbName: '卡片', component: Card},
+                            {path: 'card2', breadcrumbName: '卡片2', component: Card2,
+                                childRoutes: [
+                                    {path: 'card3', breadcrumbName: '卡片3', component: Card3}
+                                ]
+                            }
+                        ]
                     }
                 ]
             };
 
-            const page = {
-                type: 'router',
-                // history: 'hash',
-                route: route
-            };
-
-            UF.init(page, 'demo');
+            UF.init(page2, 'demo');
         </script>
     </body>
 </html>

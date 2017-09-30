@@ -19,7 +19,7 @@ export default class Iframe extends BaseComponent {
         };
         this.__init();
     }
-    componentWillReceiveProps() {
+    componentWillReceiveProps(nextProps) {
         // 重新获取页面时重新展示loading
         if (nextProps.src !== this.__prevProps.src) {
             this.setState({loading: true});
@@ -32,34 +32,35 @@ export default class Iframe extends BaseComponent {
         }
     }
     getParentHeight() {
-        // return this.ifr.parentElement.offsetHeight  + 'px';
-        // 因为增加了loading组件，iframe和其父元素之间隔了两层loading的标签
-        let parent = this.ifr.parentElement.parentElement.parentElement;
+        let parent = this.root.parentElement;
         return parent.offsetHeight  + 'px';
     }
     render() {
         return (
-            <Spin spinning={this.state.loading}>
-                <iframe {...this.__props}
-                    className={'uf-iframe ' + (this.__props.className || '')} 
-                    ref={ele=>this.ifr = ele}
-                    onLoad={even => {
-                        try {
-                            this.setState({loading: false});
-                            let ifr = even.target;
-                            let iDoc = ifr.contentWindow.document;
-                            // 此处获取iframe的文档的高度，如果文档的body设置的 height:100% 的话，此处无效
-                            let iDocHight = iDoc.documentElement.scrollHeight;
-                            if (iDocHight > +ifr.height.replace('px', '')) {
-                                ifr.height = iDocHight + 'px';
+            <div className="uf-iframe" ref={ele=>this.root = ele} data-src={this.__props.src}>
+                <Spin spinning={this.state.loading}>
+                    <iframe {...this.__props} 
+                        ref={ele=>this.ifr = ele}
+                        onLoad={even => {
+                            try {
+                                this.setState({loading: false});
+                                let ifr = even.target;
+                                let iDoc = ifr.contentWindow.document;
+                                // 此处获取iframe的文档的高度，如果文档的body设置的 height:100% 的话，此处无效
+                                let iDocHight = iDoc.documentElement.scrollHeight;
+                                if (iDocHight > +ifr.height.replace('px', '')) {
+                                    ifr.height = iDocHight + 'px';
+                                }
+                                // TODO: 是否根据根据内容高度变化
+
+                                this.__props.onLoad && this.__props.onLoad(even);
+                            } catch (e) {
+                                console.log(e);
                             }
-                            this.__props.onLoad && this.__props.onLoad(even);
-                        } catch (e) {
-                            console.log(e);
                         }
-                    }
-                }/>
-            </Spin>
+                    }/>
+                </Spin>
+            </div>
         );
     }
 }

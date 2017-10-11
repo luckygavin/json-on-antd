@@ -51,7 +51,7 @@ demo里的浏览器样式是文档里额外加的，默认的`Iframe`组件没�
     box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
 }
 .uf-iframe:after {
-    content: "http://uf.baidu.com/" attr(data-src);
+    content: attr(data-src);
     display: block;
     position: absolute;
     color: #ddd;

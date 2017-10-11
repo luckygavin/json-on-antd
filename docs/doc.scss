@@ -211,7 +211,7 @@ section {
             box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
         }
         &:after {
-            content: 'http://uf.baidu.com/'attr(data-src);
+            content: attr(data-src);
             display: block;
             position: absolute;
             color: #ddd;

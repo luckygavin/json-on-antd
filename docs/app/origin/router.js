@@ -10,12 +10,8 @@ import UF from 'uf/tools';
 const demo1 = {
     title: '带路由的页面',
     config: {
-        type: 'div',
-        style: {minHeight: 250},
-        content: {
-            type: 'iframe',
-            src: 'docs/demo/router.php#/card'
-        }
+        type: 'iframe',
+        src: 'docs/demo/router.php#/card'
     }
 };
 

@@ -93,6 +93,8 @@
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
+	__webpack_require__(81);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var func = {
@@ -127,12 +129,10 @@
 	    // 整体配置
 	    config: function config(obj) {
 	        var origin = _utils.Cache.get('_uf-config');
-	        var config = _utils.Utils.merge({}, origin, obj);
+	        var config = _utils.Utils.merge(10, {}, origin, obj);
 	        _utils.Cache.set('_uf-config', config);
 	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-	        if (config.modules) {
-	            _requirejs2.default.config(obj.modules);
-	        }
+	        _requirejs2.default.config(obj.modules);
 	    }
 	};
 
@@ -1213,8 +1213,10 @@
 	        var _this = _possibleConstructorReturn(this, (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).call(this, props));
 
 	        _this._keyPrefix = 'cache-';
-	        // 开发组件的时候，可以直接在this.__props上指定一些默认的参数
-	        _this.__props = {};
+	        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
+	        // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
+	        // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
+	        _this.__props = _utils.Cache.get('_uf-config')['components'][_this.props.__type] || {};
 	        return _this;
 	    }
 
@@ -1361,7 +1363,8 @@
 	            var _ref = props || _utils.Utils.copy(this.props),
 	                __cache = _ref.__cache,
 	                __ref = _ref.__ref,
-	                __props = _objectWithoutProperties(_ref, ['__cache', '__ref']);
+	                __type = _ref.__type,
+	                __props = _objectWithoutProperties(_ref, ['__cache', '__ref', '__type']);
 
 	            __props['ref'] = __props['ref'] || __ref;
 
@@ -4181,7 +4184,8 @@
 	                'div',
 	                { className: 'uf-iframe', ref: function ref(ele) {
 	                        return _this2.root = ele;
-	                    }, 'data-src': this.__props.src },
+	                    },
+	                    'data-src': new URL(this.__props.src, window.location.href).href },
 	                _react2.default.createElement(
 	                    _antd.Spin,
 	                    { spinning: this.state.loading },
@@ -4192,11 +4196,12 @@
 	                        onLoad: function onLoad(even) {
 	                            try {
 	                                _this2.setState({ loading: false });
+	                                var ifr = even.target;
+	                                var iDoc = ifr.contentWindow.document;
+	                                var iWindow = ifr.contentWindow;
 	                                // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
 	                                var mode = _this2.__props.mode;
 	                                if (mode !== 'fixed') {
-	                                    var ifr = even.target;
-	                                    var iDoc = ifr.contentWindow.document;
 	                                    var setIfrHeight = function setIfrHeight() {
 	                                        var iDocHight = void 0;
 	                                        // 这里分别从 documentElement 和 body 上取值，即可达到 max/auto 的效果
@@ -4222,6 +4227,10 @@
 	                                        subtree: true
 	                                    });
 	                                }
+	                                // 监听页面跳转
+	                                iWindow.addEventListener('popstate', function (e) {
+	                                    _this2.root.setAttribute('data-src', e.currentTarget.location);
+	                                });
 
 	                                _this2.__props.onLoad && _this2.__props.onLoad(even);
 	                            } catch (e) {
@@ -10630,6 +10639,7 @@
 	            var config = this.state.config || this.props.config;
 	            if (_utils.Utils.typeof(config, 'string')) {
 	                (0, _requirejs2.default)([config], function (foo) {
+	                    // TODO: render执行两次的情况下，会进入两次这里，而第一次生成的组件没有渲染到页面上就销毁了，这里再使用setState会报错
 	                    _this2.setState({ config: foo });
 	                });
 	                config = {
@@ -10783,6 +10793,10 @@
 	        if (item.name) {
 	            props['__cache'] = item.name;
 	            props['__ref'] = item.name;
+	        }
+	        // 基于BaseComponent的组件内部要用到组件的类型，存在__type属性里
+	        if (_utils.Utils.isExtendsOf(Item, 'BaseComponent')) {
+	            props['__type'] = item.type;
 	        }
 	        // 每个组件都要有key
 	        if (props['key'] === undefined) {
@@ -13769,6 +13783,36 @@
 	window['define'] = window['define'] || define;
 
 	exports.default = requirejs;
+
+/***/ }),
+/* 81 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _utils = __webpack_require__(11);
+
+	_utils.Cache.set('_uf-config', {
+	    // 模块引入相关配置
+	    modules: {},
+	    // 全局配置
+	    global: {},
+	    // 组件默认配置
+	    components: {
+	        loading: {
+	            delay: 150
+	        }
+	    }
+	}); /**
+	     * @file 默认配置
+	     *      可以用于配置各个组件通用的默认参数
+	     *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
+	     * @author liuzechun
+	     * Created Date: 2017-10-11 01:40:57
+	     *
+	     * Last Modified: 2017-10-11 01:42:17
+	     * Modified By: liuzechun
+	     */
 
 /***/ })
 /******/ ]);

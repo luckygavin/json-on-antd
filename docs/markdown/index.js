@@ -3,12 +3,17 @@ module.exports = {
     'third-party.md': require('./third-party.md'),
     'install.md': require('./install.md'),
     'introduction.md': require('./introduction.md'),
-    'configure-info.md': require('./configure-info.md'),
+
     'configure-api.md': require('./configure-api.md'),
     'configure-join.md': require('./configure-join.md'),
     'configure-others.md': require('./configure-others.md'),
     'configure-page.md': require('./configure-page.md'),
-    'configure-project.md': require('./configure-project.md'),
+
+    'develop-install.md': require('./develop-install.md'),
+    'develop-config.md': require('./develop-config.md'),
+    'develop-modules.md': require('./develop-modules.md'),
+    'develop-others.md': require('./develop-others.md'),
+
     'update-log.md': require('./update-log.md'),
 
     'table.md': require('./origin/table.md'),

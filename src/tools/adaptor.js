@@ -38,6 +38,10 @@ export default {
             props['__cache'] = item.name;
             props['__ref'] = item.name;
         }
+        // 基于BaseComponent的组件内部要用到组件的类型，存在__type属性里
+        if (Utils.isExtendsOf(Item, 'BaseComponent')) {
+            props['__type'] = item.type;
+        }
         // 每个组件都要有key
         if (props['key'] === undefined) {
             props['key'] = item.name || Utils.uniqueId();

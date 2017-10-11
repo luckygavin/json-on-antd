@@ -121,6 +121,7 @@ export default class Factory extends PureComponent {
         let config = this.state.config || this.props.config;
         if (Utils.typeof(config, 'string')) {
             requirejs([config], foo=>{
+                // TODO: render执行两次的情况下，会进入两次这里，而第一次生成的组件没有渲染到页面上就销毁了，这里再使用setState会报错
                 this.setState({config: foo});
             });
             config = {

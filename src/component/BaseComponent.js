@@ -32,8 +32,10 @@ export default class BaseComponent extends PureComponent {
     constructor(props) {
         super(props);
         this._keyPrefix = 'cache-';
-        // 开发组件的时候，可以直接在this.__props上指定一些默认的参数
-        this.__props = {};
+        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
+        // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
+        // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
+        this.__props = Cache.get('_uf-config')['components'][this.props.__type] || {};
     }
 
     /* 暴露给用户的方法 ***********************************************************************/
@@ -128,7 +130,7 @@ export default class BaseComponent extends PureComponent {
     // 后面传入组件的参数用 __props 代替 props
     _initProps(props) {
         // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
-        let {__cache, __ref, ...__props} = props || Utils.copy(this.props);
+        let {__cache, __ref, __type, ...__props} = props || Utils.copy(this.props);
         __props['ref'] = __props['ref'] || __ref;
 
         this.__prevProps = this.__props;

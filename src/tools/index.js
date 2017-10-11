@@ -7,6 +7,8 @@ import Factory from './factory.js';
 import Loader from './loader.js';
 import requirejs from './requirejs';
 
+import './config.js';
+
 const func = {
     // 根据组件配置 创建组件类
     create(config) {
@@ -38,12 +40,10 @@ const func = {
     // 整体配置
     config(obj) {
         let origin = Cache.get('_uf-config');
-        let config = Utils.merge({}, origin, obj);
+        let config = Utils.merge(10, {}, origin, obj);
         Cache.set('_uf-config', config);
         // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-        if (config.modules) {
-            requirejs.config(obj.modules);
-        }
+        requirejs.config(obj.modules);
     }
 };
 

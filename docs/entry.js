@@ -14,15 +14,19 @@ require('./doc.scss');
 // 通用文档
 const CommonList = [
     {path: 'Introduction', name: '简要介绍', component: require('./app/introduction').default},
-    {path: 'Configure', name: '配置化', children: [
-        {path: 'Info', name: '简介', component: require('./app/configure-info').default},
+    {path: 'Usage', name: '组件使用', retract: true, children: [
         {path: 'Install', name: '快速上手', component: require('./app/install').default},
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
         {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
         {path: 'Layout', name: '页面布局', component: require('./app/antd/antd-layout').default},
         {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
-        {path: 'Project', name: '项目开发', component: require('./app/configure-project').default},
         {path: 'Others', name: '其他说明', component: require('./app/configure-others').default}
+    ]},
+    {path: 'Develop', name: '项目开发', /* retract: true, */ children: [
+        {path: 'Install', name: '快速上手', component: require('./app/develop-install').default},
+        {path: 'Config', name: '全局配置', component: require('./app/develop-config').default},
+        {path: 'Modules', name: '模块开发', component: require('./app/develop-modules').default},
+        {path: 'Others', name: '其他说明', component: require('./app/develop-others').default}
     ]},
     {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
 ];

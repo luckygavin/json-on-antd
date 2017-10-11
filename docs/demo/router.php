@@ -15,13 +15,20 @@
                 modules: {
                     baseUrl: 'config/',
                     paths: {
-                        App: 'router-config',
-                        Card: 'router-config.1',
-                        Card3: 'router-config.2'
+                        Router: 'router',
+                        App: 'router-app',
+                        Page1: 'router-page.1',
+                        Page2: 'router-page.2'
+                    }
+                },
+                components: {
+                    loading: {
+                        delay: 500,
+                        size: 'small'
                     }
                 }
             });
-            UF.init('App', 'demo');
+            UF.init('Router', 'demo');
         </script>
     </body>
 </html>

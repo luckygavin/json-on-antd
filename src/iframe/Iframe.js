@@ -41,18 +41,20 @@ export default class Iframe extends BaseComponent {
     }
     render() {
         return (
-            <div className="uf-iframe" ref={ele=>this.root = ele} data-src={this.__props.src}>
+            <div className="uf-iframe" ref={ele=>this.root = ele}
+                data-src={(new URL(this.__props.src, window.location.href)).href}>
                 <Spin spinning={this.state.loading}>
                     <iframe {...this.__props}
                         ref={ele=>this.ifr = ele}
                         onLoad={even => {
                             try {
                                 this.setState({loading: false});
+                                let ifr = even.target;
+                                let iDoc = ifr.contentWindow.document;
+                                let iWindow = ifr.contentWindow;
                                 // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
                                 let mode = this.__props.mode;
                                 if (mode !== 'fixed') {
-                                    let ifr = even.target;
-                                    let iDoc = ifr.contentWindow.document;
                                     let setIfrHeight = ()=>{
                                         let iDocHight;
                                         // 这里分别从 documentElement 和 body 上取值，即可达到 max/auto 的效果
@@ -79,6 +81,10 @@ export default class Iframe extends BaseComponent {
                                         subtree: true
                                     });
                                 }
+                                // 监听页面跳转
+                                iWindow.addEventListener('popstate', e=>{
+                                    this.root.setAttribute('data-src', e.currentTarget.location);
+                                });
 
                                 this.__props.onLoad && this.__props.onLoad(even);
                             } catch (e) {

@@ -1,6 +1,5 @@
-define(function(require) {
-    var Card = require('Card');
-    var App = [
+define(function() {
+    return [
         {
             type: "menu",
             mode: "horizontal",
@@ -72,25 +71,4 @@ define(function(require) {
             }
         }
     ];
-
-    return {
-        type: 'router',
-        routes: [
-            {
-                path: '/',
-                component: App,
-                breadcrumbName: '首页',
-                indexRoute: {component: Card.Card1},
-                childRoutes: [
-                    {path: 'card', breadcrumbName: '卡片', component: Card.Card1},
-                    {path: 'card2', breadcrumbName: '卡片2', component: Card.Card2,
-                        childRoutes: [
-                            // {path: 'card3', breadcrumbName: '卡片3', component: 'Card3'}
-                            {path: 'card3', breadcrumbName: '卡片3', component: Card.Card3}
-                        ]
-                    }
-                ]
-            }
-        ]
-    };
 });

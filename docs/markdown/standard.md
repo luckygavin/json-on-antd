@@ -122,7 +122,8 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ##### **`__props`**  
 定义默认的props参数。  
-在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前直接定义初始的`this.__props`。
+在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  
+也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】
 > 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法
 
 ##### **`__init()`**  

@@ -4,7 +4,6 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {Router, Route, Redirect, Link, IndexRoute, IndexRedirect, IndexLink, hashHistory} from 'react-router';
 import * as OriRouter from 'react-router';
 import {BaseComponent} from 'uf/component';
 import {Utils} from 'uf/utils';
@@ -41,6 +40,9 @@ export class Router extends BaseRouter {
         return <OriRouter.Router {...this.__props}/>;
     }
 }
+
+/**************  推荐是用router.routes配置的方式，下面的组件作为配置不能满足时的备用方案（后面再对配置做升级）  ***********************/
+// TODO: 对路由配置方式做升级，支持 Redirect 等
 
 // Route
 export class Route extends BaseRouter {

@@ -20,7 +20,8 @@ const CommonList = [
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
         {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
         {path: 'Layout', name: '页面布局', component: require('./app/antd/antd-layout').default},
-        {path: 'Demo', name: '整体示例', component: require('./app/configure-demo').default},
+        {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
+        {path: 'Project', name: '项目开发', component: require('./app/configure-project').default},
         {path: 'Others', name: '其他说明', component: require('./app/configure-others').default}
     ]},
     {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
@@ -34,7 +35,8 @@ const ComponentList = [
         {path: 'Table', name: 'Table 表格', component: require('./app/origin/table').default},
         {path: 'Table2', name: 'Table2 表格', component: require('./app/origin/table2').default},
         {path: 'Form', name: 'Form 表单', component: require('./app/origin/form').default},
-        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default}
+        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
+        {path: 'Iframe', name: 'Iframe 子页面', component: require('./app/origin/iframe').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},

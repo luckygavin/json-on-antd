@@ -15,16 +15,11 @@ const defaultEventList = ['onCancel'];
 class NewModal extends BaseComponent {
     constructor(props) {
         super(props);
+        // 给__props增加一些默认的事件处理函数
+        this.__props = {
+            onCancel: this.onCancel.bind(this)
+        };
         this.__init();
-        this.afterInit();
-    }
-    // 给props增加一些默认的事件处理函数
-    afterInit() {
-        for (let v of defaultEventList) {
-            if (!this.__props[v]) {
-                this.__props[v] = this[v].bind(this);
-            }
-        }
     }
     show(e) {
         this.set({visible: true});

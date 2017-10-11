@@ -3,7 +3,7 @@
  *      主要负责调度各个解析工具，并生成组件
  * @author liuzechun
  */
-import React, {Component} from 'react';
+import React, {Component, PureComponent} from 'react';
 import {Utils} from 'uf/utils';
 
 import Loader from './loader.js';
@@ -12,8 +12,13 @@ import Validator from './validator.js';
 import Special from './special.js';
 import WhiteList from './whitelist.js';
 import Html from './html.js';
+import requirejs from './requirejs';
 
-export default class Factory extends Component {
+export default class Factory extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
 
     // 解析组件配置，生成组件
     generateItem(item) {
@@ -101,10 +106,31 @@ export default class Factory extends Component {
             // 组件本身会从 this.props.children 上获取子组件，所以直接把子组件放props上即可，无需再写双标签
             props.children = this.generateElement(item.content);
         }
+        // 子组件为异步模块
+        if (item.asyncContent) {
+            item.content = <Factory config={item.asyncContent}/>
+        }
         return props;
     }
 
+    // 获取模块配置。
+    // 如果模块为异步模块，则做异步处理
+    getConfig() {
+        // TODO: 这里每次切换页面会重新解析；且会出现 Loading 状态
+        let config = this.state.config || this.props.config;
+        if (Utils.typeof(config, 'string')) {
+            requirejs([config], foo=>{
+                this.setState({config: foo});
+            });
+            config = {
+                type: 'loading',
+                loading: true
+            };
+        }
+        return config;
+    }
+
     render() {
-        return <div>{this.generateElement()}</div>;
+        return <div>{this.generateElement(this.getConfig())}</div>;
     }
 }

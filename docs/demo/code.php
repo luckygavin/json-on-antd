@@ -16,6 +16,8 @@ if (ENV == 'dev') {
 <script src="../../dist/js/antd.js"></script>
 <script src="../../dist/js/uf_v<?php echo $version . '.js?v=' . $v; ?>"></script>
 
+<style>html, body {height: auto !important;}</style>
+
 <?php
 } else {
 ?>

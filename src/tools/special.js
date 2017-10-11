@@ -53,22 +53,21 @@ export default {
         return item;
     },
 
-    // 如果是 路由相关 的组件
+    // 如果是 路由-Router 的组件
+    setRouter(item) {
+        // router 的第二种用法，routes 里面的全部 component 需要转换为 RouteHolder
+        if (item.routes) {
+            item.routes = this.loopRoutes(item.routes);
+        }
+        return item;
+    },
+    // component 转换为 RouteHolder
     setRoute(item) {
         if (item.component) {
             // 组件实例放在新属性content里
             item.__component = item.component;
             // component属性为一个抽象类
             item.component = RouteHolder;
-        }
-        return item;
-    },
-
-    // 如果是 路由-Router 的组件
-    setRouter(item) {
-        // router 的第二种用法，routes 里面的全部 component 需要转换为 RouteHolder
-        if (item.routes) {
-            item.routes = this.loopRoutes(item.routes);
         }
         return item;
     },
@@ -101,7 +100,6 @@ export default {
         }
         return item;
     },
-
     // 处理 type='layout' 的参数
     getLayout(item) {
         // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的

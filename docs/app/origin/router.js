@@ -8,26 +8,15 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'uf/tools';
 
 const demo1 = {
-    title: '基本用法',
-    description: '简单的弹框用法。',
-    config: [
-        {
-            type: 'button',
-            mode: 'primary',
-            content: '点击弹出',
-            onClick: ()=>UF('my-modal').show()
-        },
-        {
-            type: 'modal',
-            name: 'my-modal',
-            visible: false,
-            title: '基本弹框',
-            content: {
-                type: 'html',
-                content: '<p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p>'
-            }
+    title: '带路由的页面',
+    config: {
+        type: 'div',
+        style: {minHeight: 250},
+        content: {
+            type: 'iframe',
+            src: 'docs/demo/router.php#/card'
         }
-    ]
+    }
 };
 
 export default class RouterApp extends BaseDoc {
@@ -37,6 +26,6 @@ export default class RouterApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemo(demo1);
+        return this.__getDemoSingle(demo1);
     }
 }

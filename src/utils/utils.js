@@ -3,6 +3,7 @@
  * @author liuzechun
  **/
 import Ajax from './ajax';
+// import underscore from 'underscore';
 
 const I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
 const s4 = () => {
@@ -117,15 +118,30 @@ const Utils = {
     },
     // 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()
     // level 参数为拷贝层数，不传则循环遍历所有属性
-    merge(target, ...objs) {
+    // ** 只试用与JSON等对象字面量的对象，比较复杂的对象（如包含只读属性等）的对象会报错
+    merge(level, target, ...objs) {
+        if (!Utils.typeof(level, 'number')) {
+            objs.unshift(target);
+            target = level;
+            level = 5;
+        }
+        if (level <= 0) {
+            return objs[0];
+        }
         let result = target;
         for (let obj of objs) {
-            // 首先判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
-            if (this.typeof(result, ['array', 'object']) && this.typeof(obj, ['array', 'object'])) {
+            // 首先判断对象是否冻结（冻结的对象为只读对象，其属性不可直接更改）
+            // 其次判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
+            // 然后判断对象是否为直接继承自Object/Array，如果不是，复杂对象不再深层遍历，直接拷贝
+            if (!Object.isFrozen(result)
+                // array 应该直接覆盖，否则数组的值只增不减
+                // && Utils.typeof(result, '['array', 'object']')
+                // && Utils.typeof(obj, '['array', 'object']')
+                && Utils.typeof(result, 'object')
+                && Utils.typeof(obj, 'object')
+                && this.directInstanceof(result, [Object, Array])) {
                 for (let i in obj) {
-                    if (obj.hasOwnProperty(i)) {
-                        result[i] = this.merge(result[i], obj[i]);
-                    }
+                    result[i] = this.merge(level - 1, result[i], obj[i]);
                 }
             } else {
                 result = obj === undefined ? target : obj
@@ -147,8 +163,19 @@ const Utils = {
         return newObj;
     },
     // 对比两个对象是否相等
+    // 只检查了一层
     equals(obj1, obj2) {
-        return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // 方式1
+        // return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // 方式2
+        // return underscore.isEqual(obj1, obj2);
+        // 方式3
+        for (let i in obj1) {
+            if (!Object.is(obj1[i], obj2[i])) {
+                return false;
+            }
+        }
+        return true;
     },
     // 子串是否处于字符串最末尾
     isLast(sub, str) {
@@ -227,8 +254,19 @@ const Utils = {
             Item = Item.__proto__
         };
         return false;
+    },
+    // 某个对象是否直接来自某个类的实例
+    directInstanceof(obj, cls) {
+        if (!this.typeof(cls, 'array')) {
+            cls = [cls];
+        }
+        for (let v of cls) {
+            if (obj && obj.constructor && obj.constructor.prototype === v.prototype) {
+                return true;
+            }
+        }
+        return false;
     }
-    
 };
 
 export default Utils;

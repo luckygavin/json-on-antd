@@ -24,7 +24,6 @@ export default class DataEntry extends Antd {
     // 增加 onChange 时默认保存数据的函数
     // 父类的 _onEvent 函数不能满足需求，直接覆盖了
     _onEvent(callback, ...params) {
-        callback && callback(...params);
         const key = this.__controlled.key;
         // console.log(params[1]);
         if (Utils.typeof(params[0], 'object') && params[0].target) {
@@ -40,8 +39,9 @@ export default class DataEntry extends Antd {
             // 特殊情况，容错
             this.__props[key] = params[0];
         }
-
         this.forceUpdate();
+
+        callback && callback(...params);
     }
 
     // 获取数据接口

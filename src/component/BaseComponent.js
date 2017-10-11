@@ -32,18 +32,19 @@ export default class BaseComponent extends PureComponent {
     constructor(props) {
         super(props);
         this._keyPrefix = 'cache-';
+        // 开发组件的时候，可以直接在this.__props上指定一些默认的参数
+        this.__props = {};
     }
 
     /* 暴露给用户的方法 ***********************************************************************/
 
     // 暴露给用户刷新组件的接口
     set(option) {
+        // 要保证调用cwr时传入的nextProps的完整性
         let props = this.__mergeProps({}, this.__props, option);
-        // this._initProps(props);
         // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
         // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
-        this.componentWillReceiveProps(props);
-        this.forceUpdate();
+        this.componentWillReceiveProps(props, this.__props);
     }
     // 如果有key则返回key的值；如果没有key，则返回全部参数
     get(key) {
@@ -113,18 +114,27 @@ export default class BaseComponent extends PureComponent {
     }
 
     // 组件的 componentWillReceiveProps 函数默认处理逻辑
+    // 有两种情况会调用cwr：
+    //  一种是父组件刷新，传入新的props，如果props确实发生了变化，则需要重新调用_initProps
+    //  还有一种是set函数调用的，params中没有额外参数，nextProps肯定和this.props不同
     _componentWillReceiveProps(nextProps, ...params) {
-        this._initProps(nextProps);
+        if (!Utils.equals(this.props, nextProps)) {
+            this._initProps(nextProps);
+        }
     }
 
     // 后面传入组件的参数用 __props 代替 props
     _initProps(props) {
         // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
-        let {__cache, __ref, ...__props} = props || this.props;
+        let {__cache, __ref, ...__props} = props || Utils.copy(this.props);
         __props['ref'] = __props['ref'] || __ref;
 
         this.__prevProps = this.__props;
-        this.__props = __props;
+        this.__props =  this.__mergeProps({}, this.__props, __props);
+
+        if (props) {
+            this.forceUpdate();
+        }
     }
 
     // 共享组件

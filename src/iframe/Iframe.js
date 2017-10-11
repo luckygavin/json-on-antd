@@ -14,6 +14,10 @@ document.domain = 'baidu.com';
 export default class Iframe extends BaseComponent {
     constructor(props) {
         super(props);
+        // 默认参数，支持多层次的参数（深层merge）
+        this.__props = {
+            mode: 'auto'
+        };
         this.state = {
             loading: true
         };
@@ -39,19 +43,43 @@ export default class Iframe extends BaseComponent {
         return (
             <div className="uf-iframe" ref={ele=>this.root = ele} data-src={this.__props.src}>
                 <Spin spinning={this.state.loading}>
-                    <iframe {...this.__props} 
+                    <iframe {...this.__props}
                         ref={ele=>this.ifr = ele}
                         onLoad={even => {
                             try {
                                 this.setState({loading: false});
-                                let ifr = even.target;
-                                let iDoc = ifr.contentWindow.document;
-                                // 此处获取iframe的文档的高度，如果文档的body设置的 height:100% 的话，此处无效
-                                let iDocHight = iDoc.documentElement.scrollHeight;
-                                if (iDocHight > +ifr.height.replace('px', '')) {
-                                    ifr.height = iDocHight + 'px';
+                                // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
+                                let mode = this.__props.mode;
+                                if (mode !== 'fixed') {
+                                    let ifr = even.target;
+                                    let iDoc = ifr.contentWindow.document;
+                                    let setIfrHeight = ()=>{
+                                        let iDocHight;
+                                        // 这里分别从 documentElement 和 body 上取值，即可达到 max/auto 的效果
+                                        if (mode === 'max') {
+                                            iDocHight = iDoc.documentElement.scrollHeight;
+                                        // mode === 'auto'
+                                        } else {
+                                            // 注意：如果iframe的页面body/html设置了height: 100%，则auto失效，展示效果和max相同
+                                            iDocHight = iDoc.body.scrollHeight;
+                                        }
+                                        console.log(iDocHight);
+                                        ifr.height = iDocHight + 'px';
+                                    }
+                                    setIfrHeight();
+                                    // iframe文档做监听，如果发生变化则重新设置高度
+                                    // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
+                                    let MutationObserver = window.MutationObserver || window.WebKitMutationObserver
+                                            || window.MozMutationObserver;
+                                    let observer = new MutationObserver(m=>{
+                                        setIfrHeight();
+                                    });
+                                    observer.observe(iDoc, {
+                                        childList: true,
+                                        attributes: true,
+                                        subtree: true
+                                    });
                                 }
-                                // TODO: 是否根据根据内容高度变化
 
                                 this.__props.onLoad && this.__props.onLoad(even);
                             } catch (e) {

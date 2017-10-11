@@ -118,7 +118,9 @@ export default class BaseComponent extends PureComponent {
     //  一种是父组件刷新，传入新的props，如果props确实发生了变化，则需要重新调用_initProps
     //  还有一种是set函数调用的，params中没有额外参数，nextProps肯定和this.props不同
     _componentWillReceiveProps(nextProps, ...params) {
+        // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
         if (!Utils.equals(this.props, nextProps)) {
+            // 是否把_initProps的调用放到render中更好一点？（会有个问题：使用set函数重新设置props时，会有额外的重复调用）
             this._initProps(nextProps);
         }
     }
@@ -130,8 +132,11 @@ export default class BaseComponent extends PureComponent {
         __props['ref'] = __props['ref'] || __ref;
 
         this.__prevProps = this.__props;
+        // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
+        // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
         this.__props =  this.__mergeProps({}, this.__props, __props);
 
+        // __init函数中调用的时候不会传props，也不需要刷新组件
         if (props) {
             this.forceUpdate();
         }

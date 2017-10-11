@@ -117,8 +117,8 @@ const Utils = {
         return newData;
     },
     // 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()
-    // level 参数为拷贝层数，不传则循环遍历所有属性
-    // ** 只试用与JSON等对象字面量的对象，比较复杂的对象（如包含只读属性等）的对象会报错
+    // level 参数为拷贝层数，不传则默认遍历5层
+    // ** 只适用于JSON等对象字面量的对象，比较复杂的对象直接覆盖，不做深层遍历
     merge(level, target, ...objs) {
         if (!Utils.typeof(level, 'number')) {
             objs.unshift(target);
@@ -130,16 +130,16 @@ const Utils = {
         }
         let result = target;
         for (let obj of objs) {
-            // 首先判断对象是否冻结（冻结的对象为只读对象，其属性不可直接更改）
+            // 首先判断对象是否冻结（冻结的对象为只读对象，其属性不可直接更改），直接覆盖
             // 其次判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
-            // 然后判断对象是否为直接继承自Object/Array，如果不是，复杂对象不再深层遍历，直接拷贝
+            // 然后判断对象是否为直接继承自Object，如果不是，复杂对象不再深层遍历，直接覆盖
             if (!Object.isFrozen(result)
                 // array 应该直接覆盖，否则数组的值只增不减
                 // && Utils.typeof(result, '['array', 'object']')
                 // && Utils.typeof(obj, '['array', 'object']')
                 && Utils.typeof(result, 'object')
                 && Utils.typeof(obj, 'object')
-                && this.directInstanceof(result, [Object, Array])) {
+                && this.directInstanceof(result, Object)) {
                 for (let i in obj) {
                     result[i] = this.merge(level - 1, result[i], obj[i]);
                 }

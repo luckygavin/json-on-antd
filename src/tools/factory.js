@@ -55,15 +55,15 @@ export default class Factory extends PureComponent {
         return <Item {...props} />;
     }
 
-    // this.props.children为路由解析时子路由对应的组件，需要在父路由的有个地方作为children展示出来
-    // 在组件配置中，childrenHolder属性指定把子页面放在哪个组件里展示
+    // this.props.children为路由解析时子路由对应的组件，需要把子路由的组件在父组件的某个位置作为children展示出来
+    // 在组件配置中，childrenHolder属性指定把子页面放在父组件的哪个位置
     handleChildren(props, hasChildrenHolder) {
         // 只有指定了childrenHolder这个属性才会展示
         if (hasChildrenHolder && this.props.children) {
             if (!props.children) {
                 props.children = this.props.children;
             } else {
-                // 组件通过路由组合嵌套处理
+                // 已经存在children的情况下，把children合并。兼容处理
                 !Utils.typeof(props.children, 'array') && (props.children = [props.children]);
                 props.children.push(this.props.children);
             }
@@ -106,7 +106,8 @@ export default class Factory extends PureComponent {
             // 组件本身会从 this.props.children 上获取子组件，所以直接把子组件放props上即可，无需再写双标签
             props.children = this.generateElement(item.content);
         }
-        // 子组件为异步模块
+        // 子组件为异步模块，用法简单，但是稳定性待观察，所以暂时不推荐这种用法
+        // 推荐使用requirejs先把模块引入，然后直接使用引入的模块作为content的值
         if (item.asyncContent) {
             item.content = <Factory config={item.asyncContent}/>
         }

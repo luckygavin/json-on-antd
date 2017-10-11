@@ -63,9 +63,8 @@ export default class Iframe extends BaseComponent {
                                             // 注意：如果iframe的页面body/html设置了height: 100%，则auto失效，展示效果和max相同
                                             iDocHight = iDoc.body.scrollHeight;
                                         }
-                                        console.log(iDocHight);
                                         ifr.height = iDocHight + 'px';
-                                    }
+                                    };
                                     setIfrHeight();
                                     // iframe文档做监听，如果发生变化则重新设置高度
                                     // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
@@ -83,7 +82,7 @@ export default class Iframe extends BaseComponent {
 
                                 this.__props.onLoad && this.__props.onLoad(even);
                             } catch (e) {
-                                console.log(e);
+                                console.warn(e);
                             }
                         }
                     }/>

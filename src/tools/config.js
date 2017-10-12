@@ -10,6 +10,7 @@
  */
 
 import {Utils, Cache} from 'uf/utils';
+import Default from './default.js';
 
 Cache.set('_uf-config', {
     // 模块引入相关配置
@@ -22,17 +23,7 @@ Cache.set('_uf-config', {
     // 用于存放一些公用数据或静态数据（供select等组件直接调用）
     data: {},
     // 组件默认配置
-    components: {
-        loading: {
-            delay: 150
-        },
-        iframe: {
-            mode: 'auto',
-            delay: 0,
-            // showLoading: true
-            showLoading: false
-        }
-    }
+    components: Default
 });
 
 export default {

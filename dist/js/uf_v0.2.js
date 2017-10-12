@@ -4141,7 +4141,12 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file iframe 特殊处理
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file iframe 功能增强
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-12 03:13:45
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-12 03:17:08
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 	// 解决跨域问题
@@ -11656,6 +11661,23 @@
 
 	var _utils = __webpack_require__(11);
 
+	var _default = __webpack_require__(82);
+
+	var _default2 = _interopRequireDefault(_default);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 默认配置
+	 *      可以用于配置各个组件通用的默认参数
+	 *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
+	 * @author liuzechun
+	 * Created Date: 2017-10-11 01:40:57
+	 *
+	 * Last Modified: 2017-10-11 01:42:17
+	 * Modified By: liuzechun
+	 */
+
 	_utils.Cache.set('_uf-config', {
 	    // 模块引入相关配置
 	    modules: {
@@ -11667,27 +11689,8 @@
 	    // 用于存放一些公用数据或静态数据（供select等组件直接调用）
 	    data: {},
 	    // 组件默认配置
-	    components: {
-	        loading: {
-	            delay: 150
-	        },
-	        iframe: {
-	            mode: 'auto',
-	            delay: 0,
-	            // showLoading: true
-	            showLoading: false
-	        }
-	    }
-	}); /**
-	     * @file 默认配置
-	     *      可以用于配置各个组件通用的默认参数
-	     *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
-	     * @author liuzechun
-	     * Created Date: 2017-10-11 01:40:57
-	     *
-	     * Last Modified: 2017-10-11 01:42:17
-	     * Modified By: liuzechun
-	     */
+	    components: _default2.default
+	});
 
 	exports.default = {
 	    _key: '_uf-config',
@@ -13864,6 +13867,35 @@
 	window['define'] = window['define'] || define;
 
 	exports.default = requirejs;
+
+/***/ }),
+/* 82 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	/**
+	 * @file 组件默认参数定义
+	 * @author liuzechun
+	 * Created Date: 2017-10-12 03:23:12
+	 *
+	 * Last Modified: 2017-10-12 03:23:16
+	 * Modified By: liuzechun
+	 */
+
+	exports.default = {
+	    loading: {
+	        delay: 150
+	    },
+	    iframe: {
+	        mode: 'auto',
+	        delay: 0,
+	        showLoading: true
+	    }
+	};
 
 /***/ })
 /******/ ]);

@@ -1,5 +1,10 @@
 /**
- * @file iframe 特殊处理
+ * @file iframe 功能增强
+ * @author liuzechun
+ * Created Date: 2017-10-12 03:13:45
+ *
+ * Last Modified: 2017-10-12 03:17:08
+ * Modified By: liuzechun
  */
 
 import React from 'react';

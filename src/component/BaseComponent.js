@@ -5,6 +5,7 @@
 import React, {Component, PureComponent} from 'react';
 import {Cache, Utils, Ajax} from 'uf/utils';
 import {ajax} from 'uf/utils/ajax.js';
+import {Config} from 'uf/tools';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 // 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
@@ -35,7 +36,7 @@ export default class BaseComponent extends PureComponent {
         // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
         // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
-        this.__props = Cache.get('_uf-config')['components'][this.props.__type] || {};
+        this.__props = Config.get('components')[this.props.__type] || {};
     }
 
     /* 暴露给用户的方法 ***********************************************************************/

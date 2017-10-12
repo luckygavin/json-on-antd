@@ -5,6 +5,7 @@
 import React from 'react';
 import {Spin} from 'antd';
 import {BaseComponent} from 'uf/component';
+import {Utils} from 'uf/utils';
 
 import './style.scss';
 
@@ -14,10 +15,6 @@ document.domain = 'baidu.com';
 export default class Iframe extends BaseComponent {
     constructor(props) {
         super(props);
-        // 默认参数，支持多层次的参数（深层merge）
-        this.__props = {
-            mode: 'auto'
-        };
         this.state = {
             loading: true
         };
@@ -40,11 +37,12 @@ export default class Iframe extends BaseComponent {
         return parent.offsetHeight  + 'px';
     }
     render() {
+        console.log(this.__props.showLoading);
         return (
             <div className="uf-iframe" ref={ele=>this.root = ele}
                 data-src={(new URL(this.__props.src, window.location.href)).href}>
-                <Spin spinning={this.state.loading}>
-                    <iframe {...this.__props}
+                <Spin spinning={this.state.loading && this.__props.showLoading}>
+                    <iframe {...Utils.filter(this.__props, 'showLoading')}
                         ref={ele=>this.ifr = ele}
                         onLoad={even => {
                             try {
@@ -72,8 +70,14 @@ export default class Iframe extends BaseComponent {
                                     // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
                                     let MutationObserver = window.MutationObserver || window.WebKitMutationObserver
                                             || window.MozMutationObserver;
+                                    let timer;
                                     let observer = new MutationObserver(m=>{
-                                        setIfrHeight();
+                                        // 延迟重新设定iframe高度，可防止高度闪烁
+                                        timer && clearTimeout(timer);
+                                        timer = setTimeout(()=>{
+                                            setIfrHeight();
+                                            timer = null;
+                                        }, this.__props.delay);
                                     });
                                     observer.observe(iDoc, {
                                         childList: true,

@@ -5,9 +5,9 @@ import {ajax} from 'uf/utils/ajax.js';
 import {Cache, Ajax, Utils} from 'uf/utils';
 import Factory from './factory.js';
 import Loader from './loader.js';
+import Config from './config.js';
+import Whitelist from './whitelist.js';
 import requirejs from './requirejs';
-
-import './config.js';
 
 const func = {
     // 根据组件配置 创建组件类
@@ -39,9 +39,7 @@ const func = {
     },
     // 整体配置
     config(obj) {
-        let origin = Cache.get('_uf-config');
-        let config = Utils.merge(10, {}, origin, obj);
-        Cache.set('_uf-config', config);
+        let config = Config.set(obj);;
         // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
         requirejs.config(obj.modules);
     }
@@ -52,3 +50,5 @@ const UF = func.get;
 Object.assign(UF, uf, func);
 
 export default UF;
+
+export {Config, Factory, Loader, Whitelist, requirejs};

@@ -4,7 +4,7 @@
  * @author liuzechun
  */
 import React, {Component, PureComponent} from 'react';
-import {Utils} from 'uf/utils';
+import {Utils, Cache} from 'uf/utils';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
@@ -12,6 +12,7 @@ import Validator from './validator.js';
 import Special from './special.js';
 import WhiteList from './whitelist.js';
 import Html from './html.js';
+import Config from './config.js';
 import requirejs from './requirejs';
 
 export default class Factory extends PureComponent {
@@ -118,6 +119,7 @@ export default class Factory extends PureComponent {
     // 如果模块为异步模块，则做异步处理
     getConfig() {
         // TODO: 这里每次切换页面会重新解析；且会出现 Loading 状态
+        // 路由没切换，组件会销毁？
         let config = this.state.config || this.props.config;
         if (Utils.typeof(config, 'string')) {
             requirejs([config], foo=>{
@@ -126,7 +128,7 @@ export default class Factory extends PureComponent {
             });
             config = {
                 type: 'loading',
-                loading: true
+                loading: Config.get('modules')['showLoading']
             };
         }
         return config;

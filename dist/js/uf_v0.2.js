@@ -64,6 +64,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+	exports.requirejs = exports.Whitelist = exports.Loader = exports.Factory = exports.Config = undefined;
 
 	var _react = __webpack_require__(2);
 
@@ -89,11 +90,17 @@
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _requirejs = __webpack_require__(80);
+	var _config = __webpack_require__(80);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _whitelist = __webpack_require__(78);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	var _requirejs = __webpack_require__(81);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
-
-	__webpack_require__(81);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -128,9 +135,7 @@
 
 	    // 整体配置
 	    config: function config(obj) {
-	        var origin = _utils.Cache.get('_uf-config');
-	        var config = _utils.Utils.merge(10, {}, origin, obj);
-	        _utils.Cache.set('_uf-config', config);
+	        var config = _config2.default.set(obj);;
 	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
 	        _requirejs2.default.config(obj.modules);
 	    }
@@ -141,6 +146,11 @@
 	Object.assign(UF, _uf2.default, func);
 
 	exports.default = UF;
+	exports.Config = _config2.default;
+	exports.Factory = _factory2.default;
+	exports.Loader = _loader2.default;
+	exports.Whitelist = _whitelist2.default;
+	exports.requirejs = _requirejs2.default;
 
 /***/ }),
 /* 2 */
@@ -1180,6 +1190,8 @@
 
 	var _ajax = __webpack_require__(13);
 
+	var _tools = __webpack_require__(1);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -1216,7 +1228,7 @@
 	        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
 	        // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
 	        // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
-	        _this.__props = _utils.Cache.get('_uf-config')['components'][_this.props.__type] || {};
+	        _this.__props = _tools.Config.get('components')[_this.props.__type] || {};
 	        return _this;
 	    }
 
@@ -2040,16 +2052,15 @@
 	 * Created by xuziqian on 2017/8/4.
 	 */
 	exports.default = {
-	    _catch: {},
+	    _cache: {},
 	    set: function set(key, data) {
-	        this._catch[key] = data;
-	        // console.log(this._catch);
+	        this._cache[key] = data;
 	    },
 	    get: function get(key, data) {
-	        return this._catch[key];
+	        return this._cache[key];
 	    },
 	    del: function del(key) {
-	        delete this._catch[key];
+	        delete this._cache[key];
 	    }
 	};
 
@@ -4119,6 +4130,8 @@
 
 	var _component = __webpack_require__(9);
 
+	var _utils = __webpack_require__(11);
+
 	__webpack_require__(34);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -4140,12 +4153,8 @@
 	    function Iframe(props) {
 	        _classCallCheck(this, Iframe);
 
-	        // 默认参数，支持多层次的参数（深层merge）
 	        var _this = _possibleConstructorReturn(this, (Iframe.__proto__ || Object.getPrototypeOf(Iframe)).call(this, props));
 
-	        _this.__props = {
-	            mode: 'auto'
-	        };
 	        _this.state = {
 	            loading: true
 	        };
@@ -4180,6 +4189,7 @@
 	        value: function render() {
 	            var _this2 = this;
 
+	            console.log(this.__props.showLoading);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'uf-iframe', ref: function ref(ele) {
@@ -4188,8 +4198,8 @@
 	                    'data-src': new URL(this.__props.src, window.location.href).href },
 	                _react2.default.createElement(
 	                    _antd.Spin,
-	                    { spinning: this.state.loading },
-	                    _react2.default.createElement('iframe', _extends({}, this.__props, {
+	                    { spinning: this.state.loading && this.__props.showLoading },
+	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, 'showLoading'), {
 	                        ref: function ref(ele) {
 	                            return _this2.ifr = ele;
 	                        },
@@ -4218,8 +4228,14 @@
 	                                    // iframe文档做监听，如果发生变化则重新设置高度
 	                                    // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
 	                                    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+	                                    var timer = void 0;
 	                                    var observer = new MutationObserver(function (m) {
-	                                        setIfrHeight();
+	                                        // 延迟重新设定iframe高度，可防止高度闪烁
+	                                        timer && clearTimeout(timer);
+	                                        timer = setTimeout(function () {
+	                                            setIfrHeight();
+	                                            timer = null;
+	                                        }, _this2.__props.delay);
 	                                    });
 	                                    observer.observe(iDoc, {
 	                                        childList: true,
@@ -10470,7 +10486,11 @@
 
 	var _html2 = _interopRequireDefault(_html);
 
-	var _requirejs = __webpack_require__(80);
+	var _config = __webpack_require__(80);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _requirejs = __webpack_require__(81);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -10636,6 +10656,7 @@
 	            var _this2 = this;
 
 	            // TODO: 这里每次切换页面会重新解析；且会出现 Loading 状态
+	            // 路由没切换，组件会销毁？
 	            var config = this.state.config || this.props.config;
 	            if (_utils.Utils.typeof(config, 'string')) {
 	                (0, _requirejs2.default)([config], function (foo) {
@@ -10644,7 +10665,7 @@
 	                });
 	                config = {
 	                    type: 'loading',
-	                    loading: true
+	                    loading: _config2.default.get('modules')['showLoading']
 	                };
 	            }
 	            return config;
@@ -11625,6 +11646,66 @@
 
 /***/ }),
 /* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _utils = __webpack_require__(11);
+
+	_utils.Cache.set('_uf-config', {
+	    // 模块引入相关配置
+	    modules: {
+	        // 加载模块时是否展示loading
+	        showLoading: true
+	    },
+	    // 全局系统配置
+	    global: {},
+	    // 用于存放一些公用数据或静态数据（供select等组件直接调用）
+	    data: {},
+	    // 组件默认配置
+	    components: {
+	        loading: {
+	            delay: 150
+	        },
+	        iframe: {
+	            mode: 'auto',
+	            delay: 0,
+	            // showLoading: true
+	            showLoading: false
+	        }
+	    }
+	}); /**
+	     * @file 默认配置
+	     *      可以用于配置各个组件通用的默认参数
+	     *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
+	     * @author liuzechun
+	     * Created Date: 2017-10-11 01:40:57
+	     *
+	     * Last Modified: 2017-10-11 01:42:17
+	     * Modified By: liuzechun
+	     */
+
+	exports.default = {
+	    _key: '_uf-config',
+	    get: function get(name) {
+	        // 如果传递了name，则只去config中name字段，否则返回全部
+	        return (!!name ? _utils.Cache.get(this._key)[name] : _utils.Cache.get(this._key)) || {};
+	    },
+	    set: function set(obj) {
+	        var origin = this.get();
+	        var config = _utils.Utils.merge(10, {}, origin, obj);
+	        _utils.Cache.set(this._key, config);
+	        // 存完后返回存储的值
+	        return config;
+	    }
+	};
+
+/***/ }),
+/* 81 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13783,36 +13864,6 @@
 	window['define'] = window['define'] || define;
 
 	exports.default = requirejs;
-
-/***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _utils = __webpack_require__(11);
-
-	_utils.Cache.set('_uf-config', {
-	    // 模块引入相关配置
-	    modules: {},
-	    // 全局配置
-	    global: {},
-	    // 组件默认配置
-	    components: {
-	        loading: {
-	            delay: 150
-	        }
-	    }
-	}); /**
-	     * @file 默认配置
-	     *      可以用于配置各个组件通用的默认参数
-	     *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
-	     * @author liuzechun
-	     * Created Date: 2017-10-11 01:40:57
-	     *
-	     * Last Modified: 2017-10-11 01:42:17
-	     * Modified By: liuzechun
-	     */
 
 /***/ })
 /******/ ]);

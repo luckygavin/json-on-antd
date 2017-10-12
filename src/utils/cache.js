@@ -3,15 +3,14 @@
  * Created by xuziqian on 2017/8/4.
  */
 export default {
-    _catch: {},
+    _cache: {},
     set(key, data) {
-        this._catch[key] = data;
-        // console.log(this._catch);
+        this._cache[key] = data;
     },
     get(key, data) {
-        return this._catch[key];
+        return this._cache[key];
     },
     del(key) {
-        delete this._catch[key];
+        delete this._cache[key];
     }
 };

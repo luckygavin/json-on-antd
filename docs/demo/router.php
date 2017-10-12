@@ -19,12 +19,16 @@
                         App: 'router-app',
                         Page1: 'router-page.1',
                         Page2: 'router-page.2'
-                    }
+                    },
+                    showLoading: false
                 },
                 components: {
                     loading: {
                         delay: 500,
                         size: 'small'
+                    },
+                    iframe: {
+                        showLoading: false
                     }
                 }
             });

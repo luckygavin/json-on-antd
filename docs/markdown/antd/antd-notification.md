@@ -27,8 +27,8 @@ config 参数如下：
 | description | 通知提醒内容，必选                                | string&#124;`config` | -        |
 | className   | 自定义 CSS class                            | string            | -        |
 | style       | 自定义内联样式                                  | Object            | -        |
-| btn         | 自定义关闭按钮                                  | ReactNode         | -        |
-| icon        | 自定义图标                                    | ReactNode         | -        |
+| btn         | 自定义关闭按钮                                  | `config`         | -        |
+| icon        | 自定义图标                                    | `config`         | -        |
 | key         | 当前通知唯一标志                                 | string            | -        |
 | onClose     | 点击默认关闭按钮时触发的回调函数                         | Function          | -        |
 | duration    | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭            | number            | 4.5      |

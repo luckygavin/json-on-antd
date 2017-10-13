@@ -12,9 +12,11 @@ if (ENV == 'dev') {
 
 <link rel="stylesheet" href="../../dist/css/theme.min.css" />
 <link rel="stylesheet" href="../../dist/css/uf_v<?php echo $version . '.css?v=' . $v; ?>" />
-<script src="../../dist/js/dll.min.js"></script>
-<script src="../../dist/js/antd.min.js"></script>
+<script src="../../dist/js/dll.js"></script>
+<script src="../../dist/js/antd.js"></script>
 <script src="../../dist/js/uf_v<?php echo $version . '.js?v=' . $v; ?>"></script>
+
+<style>html, body {height: auto !important;}</style>
 
 <?php
 } else {

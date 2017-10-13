@@ -4,6 +4,7 @@
  */
 
 export default {
+    Breadcrumb: ['options'],
     Input: ['addonBefore', 'addonAfter', 'prefix', 'suffix'],
     Switch: ['checkedChildren', 'unCheckedChildren'],
     Card: ['title', 'extra'],
@@ -22,5 +23,6 @@ export default {
     Rate: ['character'],
     Timeline: ['pending'],
     TimelineItem: ['dot'],
-    Modal: ['title', 'footer']
+    Modal: ['title', 'footer'],
+    Table: ['title']
 };

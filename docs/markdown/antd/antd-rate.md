@@ -17,6 +17,6 @@
 | onChange | 选择时的回调 | Function(value: number) | - |
 | allowHalf | 是否允许半选   | boolean | false |
 | disabled | 只读，无法进行交互 | boolean | false |
-| character | 自定义字符 | ReactNode | `<Icon type="star" />` |
+| character | 自定义字符 | `config` | `{type: 'icon', mode: 'star'}` |
 | className | 自定义样式类名 | string | - |
 | style | 自定义样式对象 | object | - |

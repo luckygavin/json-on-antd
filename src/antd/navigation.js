@@ -1,7 +1,12 @@
 /**
  * @file 导航 类组件
  * @author liuzechun
+ * Created Date: 2017-09-26 01:18:00
+ *
+ * Last Modified: 2017-09-29 07:31:44
+ * Modified By: liuzechun
  */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Navigation from './base/Navigation.js';
@@ -28,19 +33,20 @@ export class Breadcrumb extends Navigation {
         super(props);
         this.__init();
     }
-    render() {
-        return <Antd.Breadcrumb {...this.__props}/>;
+    _initProps() {
+        super._initProps.call(this);
+        // 如果用户配置了options，则按照用户配置的options列表类展示面包屑
+        let options = this.__props.options;
+        if (options) {
+            let result = [];
+            for (let v of options) {
+                result.push(<Antd.Breadcrumb.Item children={v} />);
+            }
+            this.__props.children = result;
+        }
     }
-}
-// Breadcrumb面包屑 子组件
-// export const BreadcrumbItem = Antd.Breadcrumb.Item;
-export class BreadcrumbItem extends Navigation {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
     render() {
-        return <Antd.Breadcrumb.Item {...this.__props}/>;
+        return <Antd.Breadcrumb {...this.__props} />;
     }
 }
 

@@ -5,6 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
 
+
+
 export default class Breadcrumb extends BaseDoc {
     constructor(props) {
         super(props);
@@ -12,7 +14,7 @@ export default class Breadcrumb extends BaseDoc {
         this.__init();
     }
 
-    // render() {
-    //     return <div id="demo-content"></div>;
-    // }
+    render() {
+        return this.__getDemo(demo1);
+    }
 }

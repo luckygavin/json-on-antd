@@ -319,8 +319,8 @@ export class Slider extends DataEntry {
 export class Switch extends DataEntry {
     constructor(props) {
         super(props);
-        this.__init();
         this.__controlled.key = 'checked';
+        this.__init();
     }
     render() {
         // Switch用的是checked受控

@@ -4,13 +4,15 @@
  * */
 var path = require('path');
 var webpack = require('webpack');
+const packageConfig = require('../../package.json');
 const __root = path.join(__dirname, '../../');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var autoprefixer = require('autoprefixer');
 var production = process.env.NODE_ENV === 'production';
+
 // 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
-const version = process.env.npm_package_version.split('.').slice(0, 2).join('.');
+const version = packageConfig.version.split('.').slice(0, 2).join('.');
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);

@@ -10,43 +10,29 @@
         <!-- <div id="demo" style="height: 500px;"></div> -->
         <script>
             document.domain = 'baidu.com';
-
-            const app = {
-                type: 'div',
-                style: {background: '#ddd', padding: '35px'}
-            };
-            const App = UF.init(app);
-            const card = {
-                type: 'card',
-                title: 'Card title',
-                bordered: false,
-                loading: true
-            }
-            const Card = UF.init(card);
-
-            const route = {
-                // breadcrumbName: '首页',
-                key: '/',
-                path: '/',
-                component: App,
-                index: 'card',
-                children: [
-                    {
-                        // breadcrumbName: '卡片',
-                        key: 'card',
-                        path: 'card',
-                        component: Card
+            UF.config({
+                // http://requirejs.org/docs/api.html#config
+                modules: {
+                    baseUrl: 'config/',
+                    paths: {
+                        Router: 'router',
+                        App: 'router-app',
+                        Page1: 'router-page.1',
+                        Page2: 'router-page.2'
+                    },
+                    showLoading: false
+                },
+                components: {
+                    loading: {
+                        delay: 500,
+                        size: 'small'
+                    },
+                    iframe: {
+                        showLoading: false
                     }
-                ]
-            };
-
-            const page = {
-                type: 'router',
-                // history: 'hash',
-                route: route
-            };
-
-            UF.init(page, 'demo');
+                }
+            });
+            UF.init('Router', 'demo');
         </script>
     </body>
 </html>

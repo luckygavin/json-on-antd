@@ -7,8 +7,9 @@ import * as DataDisplay from './datadisplay.js';
 import * as Genaral from './genaral.js';
 import * as Navigation from './navigation.js';
 import * as Feedback from './feedback.js';
+import * as Layout from './layout.js';
 
 // 感觉 ES6 的方式用起来不灵活啊。。。
 // export default Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);
 
-module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);
+module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);

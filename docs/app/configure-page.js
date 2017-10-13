@@ -132,9 +132,9 @@ const demo1 = {
                         {
                             type: 'breadcrumb',
                             style: {margin: '12px 24px', background: '#ececec'},
-                            content: [
-                                {type: 'breadcrumb-item', content: 'Home'},
-                                {type: 'breadcrumb-item', content: '我的工单'}
+                            options: [
+                                'Home',
+                                '我的工单'
                             ]
                         },
                         {
@@ -206,25 +206,21 @@ const demo1 = {
     }
 };
 
-
 const demo2 = {
     title: '带路由的页面',
     config: {
-        type: 'div',
-        style: {minHeight: 250},
-        content: {
-            type: 'iframe',
-            src: 'docs/demo/router.php'
-        }
+        type: 'iframe',
+        src: 'docs/demo/router.php#/card',
     }
-}
+};
 
-export default class Info extends BaseDoc {
+export default class Page extends BaseDoc {
     constructor(props) {
         super(props);
+        this.doc = 'configure-page.md';
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo2, demo1);
+        return this.__getDemoSingle(demo1);
     }
 }

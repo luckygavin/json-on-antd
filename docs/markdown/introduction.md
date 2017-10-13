@@ -8,13 +8,33 @@ Demo 演示请点击左侧各组件示例
 
 > 如有需求可以联系`liuzechun@baidu.com`、[`Hi`](baidu://message/?id=861260447) 咨询。
 
+## 特性
+
+##### 1、界面配置化
+
+用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。
+
+> 框架中包含有 40 余种组件，从元素级到页面级的组件都有，可以满足约 90% 的日常使用场景。
+
+
+##### 2、学习成本低
+框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。
+
+基于此，框架了统一的API来完成各种组件的不同的操作。
+
+##### 3、开发成本低
+* 无需搭建前端环境
+* 无需关注UI风格，后续还会提供多种主题样式，可自由切换
+* 更少的业务逻辑实现
+
+
 
 ## 浏览器支持
 现代浏览器和 IE9 及以上。
 
 
 ## 版本
-* 开发版：0.1
+* 开发版：0.2
 * 稳定版：null
 
 
@@ -28,24 +48,24 @@ Demo 演示请点击左侧各组件示例
 UF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：
 
 beta:  
-* http://uf.baidu.com/dist/css/antd.css
+* http://uf.baidu.com/dist/css/theme.css
 * http://uf.baidu.com/dist/dll.js
 * http://uf.baidu.com/dist/antd.js
 
 stable:  
-* http://uf.baidu.com/dist/css/antd.min.css
+* http://uf.baidu.com/dist/css/theme.min.css
 * http://uf.baidu.com/dist/dll.min.js
 * http://uf.baidu.com/dist/antd.min.js
 
 #### UF组件库
 
 beta:  
-* http://uf.baidu.com/dist/uf_v0.1.js
-* http://uf.baidu.com/dist/uf_v0.1.css
+* http://uf.baidu.com/dist/uf_v0.2.js
+* http://uf.baidu.com/dist/uf_v0.2.css
 
 stable:   
-* http://uf.baidu.com/dist/uf_v0.1.min.js
-* http://uf.baidu.com/dist/uf_v0.1.min.css
+* http://uf.baidu.com/dist/uf_v0.2.min.js
+* http://uf.baidu.com/dist/uf_v0.2.min.css
 
 
 ## 加入我们

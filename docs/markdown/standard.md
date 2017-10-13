@@ -56,7 +56,6 @@ src 中，每个组件一个文件夹，里面包含：
 
 ### 通用字段命名
 ```
-config      静态配置
 data        数据
 params      参数对象
 source      异步请求获取数据接口
@@ -121,8 +120,14 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ### 功能列表
 
+##### **`__props`**  
+定义默认的props参数。  
+在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  
+也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】
+> 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法
+
 ##### **`__init()`**  
-初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能  
+初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  
 > 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前
 
 ##### **`__setCache(key, data)`**  
@@ -152,6 +157,10 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ##### **`__postData(url, params, success, error, onchange)`**
 使用 `post` 的方式向后端发送请求，参数同上。
+
+##### **`__ajax(obj)`**
+通用的 `ajax` 函数。参数为一个对象。
+> 常用参数有：url、method、data、type、onchange、success、error
 
 
 ---

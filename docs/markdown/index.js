@@ -3,10 +3,17 @@ module.exports = {
     'third-party.md': require('./third-party.md'),
     'install.md': require('./install.md'),
     'introduction.md': require('./introduction.md'),
-    'configure-info.md': require('./configure-info.md'),
+
     'configure-api.md': require('./configure-api.md'),
     'configure-join.md': require('./configure-join.md'),
     'configure-others.md': require('./configure-others.md'),
+    'configure-page.md': require('./configure-page.md'),
+
+    'develop-install.md': require('./develop-install.md'),
+    'develop-config.md': require('./develop-config.md'),
+    'develop-modules.md': require('./develop-modules.md'),
+    'develop-others.md': require('./develop-others.md'),
+
     'update-log.md': require('./update-log.md'),
 
     'table.md': require('./origin/table.md'),
@@ -15,11 +22,13 @@ module.exports = {
     'export.md': require('./origin/export.md'),
     'modal.md': require('./origin/modal.md'),
     'table2.md': require('./origin/table2.md'),
+    'iframe.md': require('./origin/iframe.md'),
 
     'antd-button.md': require('./antd/antd-button.md'),
     'antd-icon.md': require('./antd/antd-icon.md'),
     'antd-grid.md': require('./antd/antd-grid.md'),
     'antd-layout.md': require('./antd/antd-layout.md'),
+    'router.md': require('./origin/router.md'),
 
     'antd-auto-complete.md': require('./antd/antd-auto-complete.md'),
     'antd-cascader.md': require('./antd/antd-cascader.md'),

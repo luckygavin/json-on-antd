@@ -176,12 +176,7 @@ const demo2 = {
                 content: [
                     {
                         type: 'breadcrumb',
-                        style: {margin: '12px 0'},
-                        content: [
-                            {type: 'breadcrumb-item', content: 'Home'},
-                            {type: 'breadcrumb-item', content: 'List'},
-                            {type: 'breadcrumb-item', content: 'App'}
-                        ]
+                        style: {margin: '12px 0'}
                     },
                     {
                         type: 'div',
@@ -297,12 +292,7 @@ const demo3 = {
                         content: [
                             {
                                 type: 'breadcrumb',
-                                style: {margin: '12px 0'},
-                                content: [
-                                    {type: 'breadcrumb-item', content: 'Home'},
-                                    {type: 'breadcrumb-item', content: 'List'},
-                                    {type: 'breadcrumb-item', content: 'App'}
-                                ]
+                                style: {margin: '12px 0'}
                             },
                             {
                                 type: 'div',
@@ -359,12 +349,7 @@ const demo4 = {
                 content: [
                     {
                         type: 'breadcrumb',
-                        style: {margin: '12px 0'},
-                        content: [
-                            {type: 'breadcrumb-item', content: 'Home'},
-                            {type: 'breadcrumb-item', content: 'List'},
-                            {type: 'breadcrumb-item', content: 'App'}
-                        ]
+                        style: {margin: '12px 0'}
                     },
                     {
                         type: 'layout',

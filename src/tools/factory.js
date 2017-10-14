@@ -126,9 +126,14 @@ export default class Factory extends PureComponent {
                 // TODO: render执行两次的情况下，会进入两次这里，而第一次生成的组件没有渲染到页面上就销毁了，这里再使用setState会报错
                 this.setState({config: foo});
             });
+            let showLoading = Config.get('modules')['showLoading'];
+            if (Utils.typeof(showLoading, 'array')) {
+                // config 此时为模块名称
+                showLoading = showLoading.indexOf(config) !== -1;
+            }
             config = {
                 type: 'loading',
-                loading: Config.get('modules')['showLoading']
+                loading: !!showLoading
             };
         }
         return config;

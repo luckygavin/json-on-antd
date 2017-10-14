@@ -19,14 +19,17 @@ const PreventCoverageMap = [
     'shouldComponentUpdate'
 ];
 
-// 提供给用户的通用回调函数
-// 所有组件都具备，分别在声明周期中的不同阶段调用
-const ForUserApi = [
-    'willMount',
-    'didMount',
-    'didUpdate',
-    'willUnmount'
-];
+// 提供给用户的和生命周期相关的函数，命名更加语义化
+const ForUserApi = {
+    // 渲染组件前
+    beforeRender: 'componentWillMount',
+    // 组件渲染完成后
+    afterRender: 'componentDidMount',
+    // 组件更新后
+    afterUpdate: 'componentDidUpdate',
+    // 组件销毁前
+    beforeDestroy: 'componentWillUnmount'
+};
 
 // export default class BaseComponent extends Component {
 export default class BaseComponent extends PureComponent {
@@ -131,8 +134,7 @@ export default class BaseComponent extends PureComponent {
     // 后面传入组件的参数用 __props 代替 props
     _initProps(props) {
         // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
-        let {__cache, __ref, __type, ...__props} = props || Utils.copy(this.props);
-        __props['ref'] = __props['ref'] || __ref;
+        let {__cache, __type, ...__props} = props || Utils.copy(this.props);
 
         this.__prevProps = this.__props;
         // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
@@ -192,16 +194,16 @@ export default class BaseComponent extends PureComponent {
 
     // 挂载用户传入的需要关联到生命周期中的函数
     _loadUserFunction() {
-        for (let v of ForUserApi) {
+        for (let f in ForUserApi) {
             // 如果props中有等待注入的函数
-            let inject = this.props[`${v}`];
+            let inject = this.props[f];
             if (inject) {
-                let funcName = 'component' + v.replace(/^\w/g, o=>o.toUpperCase());
-                let origin = this[funcName];
-                this[funcName] = (...params) => {
+                let v = ForUserApi[f];
+                let origin = this[v];
+                this[v] = (...params) => {
                     // 先执行默认逻辑，再执行用户逻辑                    
                     origin && origin.call(this, ...params);
-                    inject.call(this, ...params);
+                    inject.call(this, this, ...params);
                 };
             }
         }

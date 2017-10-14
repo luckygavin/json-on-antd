@@ -8,11 +8,10 @@ UF 致力于提供给 RD 愉悦的页面开发体验
 
 ```html
 <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
-<link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.1.min.css" />
-<link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.2.min.css" />
 <script src="http://uf.baidu.com/dist/dll.min.js"></script>
 <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-<script src="http://uf.baidu.com/dist/uf_v0.1.min.js"></script>
+<script src="http://uf.baidu.com/dist/uf_v0.2.min.js"></script>
 ```
 
 > 注：以上文件引入的是压缩版本，适合线上使用，在开发过程中，可以引入开发版本，以查看更多报错信息，即去掉 `.min` 后缀
@@ -33,11 +32,10 @@ UF 致力于提供给 RD 愉悦的页面开发体验
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.1.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
+        <link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.2.min.css" />
         <script src="http://uf.baidu.com/dist/dll.min.js"></script>
         <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-        <script src="http://uf.baidu.com/dist/uf_v0.1.min.js"></script>
+        <script src="http://uf.baidu.com/dist/uf_v0.2.min.js"></script>
         <title>代码测试</title>
     </head>
     <body>

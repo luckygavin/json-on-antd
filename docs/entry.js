@@ -22,11 +22,12 @@ const CommonList = [
         {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
         {path: 'Others', name: '其他说明', component: require('./app/configure-others').default}
     ]},
-    {path: 'Develop', name: '项目开发', /* retract: true, */ children: [
+    {path: 'Develop', name: '项目开发', retract: true, children: [
         {path: 'Install', name: '快速上手', component: require('./app/develop-install').default},
         {path: 'Config', name: '全局配置', component: require('./app/develop-config').default},
         {path: 'Modules', name: '模块开发', component: require('./app/develop-modules').default},
-        {path: 'Others', name: '其他说明', component: require('./app/develop-others').default}
+        {path: 'Others', name: '其他说明', component: require('./app/develop-others').default},
+        {path: 'Build', name: '另一种模式', component: require('./app/develop-build').default}
     ]},
     {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
 ];
@@ -35,12 +36,12 @@ const CommonList = [
 const ComponentList = [
     {path: 'Custom', name: '定制组件', children: [
         {path: 'Export', name: 'Export 导出', component: require('./app/origin/export').default},
-        {path: 'Tree', name: 'Tree 树形控件', component: require('./app/origin/tree').default},
+        {path: 'Form', name: 'Form 表单', component: require('./app/origin/form').default},
+        {path: 'Iframe', name: 'Iframe 子页面', component: require('./app/origin/iframe').default},
+        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
         {path: 'Table', name: 'Table 表格', component: require('./app/origin/table').default},
         {path: 'Table2', name: 'Table2 表格', component: require('./app/origin/table2').default},
-        {path: 'Form', name: 'Form 表单', component: require('./app/origin/form').default},
-        {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
-        {path: 'Iframe', name: 'Iframe 子页面', component: require('./app/origin/iframe').default}
+        {path: 'Tree', name: 'Tree 树形控件', component: require('./app/origin/tree').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('./app/antd/antd-button').default},

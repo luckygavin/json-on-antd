@@ -33,8 +33,8 @@ export class Breadcrumb extends Navigation {
         super(props);
         this.__init();
     }
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         // 如果用户配置了options，则按照用户配置的options列表类展示面包屑
         let options = this.__props.options;
         if (options) {

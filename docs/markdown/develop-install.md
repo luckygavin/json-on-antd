@@ -4,9 +4,9 @@
 ## 开始
 
 
-### 准备 html 文件
+### 1、准备 html 文件
 
-首先准备一个`demo.html`文件，如下：
+首先准备一个`demo.html`文件。
 
 ```html
 <!DOCTYPE html>
@@ -42,18 +42,18 @@
 </html>
 ```
 以上html文件做了三件事：  
-##### 1、首先引入了依赖的库文件
-##### 2、然后配置项目全部模块路径
+##### 一、首先引入了依赖的库文件
+##### 二、然后配置项目全部模块路径
 paths里面定义了四个模块的路径，这里省略了文件的后缀，例如：Router模块对应的文件为`./router.js`。  
 > 更多`UF.config()`的用法可见 [全局配置](#/Develop/Config)
 
-##### 3、初始化页面
+##### 三、初始化页面
 使用路由模块对页面进行初始化。
 
 
-### 入口模块
+### 2、入口模块
 
-新建一个`router.js`文件，作为项目入口文件，指定路由及对应模块的关系，如下：
+新建一个`router.js`文件，作为项目入口文件，指定路由及对应模块的关系。
 
 ```javascript
 define(function(require) {
@@ -90,11 +90,11 @@ router模块主要用于配置路由和各个模块间的关系。`router`组件
 > 更多关于模块如何组织、开发，可见 [模块开发](#/Develop/Modules)
 
 
-### App模块
+### 3、App模块
 
 App模块为整个项目的框架，其中定义了页面的布局等。从router.js的配置中也可以看出，App模块是跟模块，其他模块渲染之前都会先渲染App。
 
-新建一个`app.js`文件，如下：
+新建一个`app.js`文件。
 ```javascript
 define(function() {
     return [
@@ -128,36 +128,31 @@ define(function() {
                         },
                         "Navigation Two - Submenu"
                     ],
-                    content: {
-                        type: "menu-item-group",
-                        title: "Item 1",
-                        content: [
-                            {
-                                type: "menu-item",
-                                key: "setting:1",
-                                content: {
-                                    type: 'link',
-                                    to: '/card2',
-                                    content: "Option 1"
-                                }
-                            },
-                            {
-                                type: "menu-item",
-                                key: "setting:2",
-                                content: {
-                                    type: 'link',
-                                    to: '/card2/card3',
-                                    content: "Option 2"
-                                }
+                    content: [
+                        {
+                            type: "menu-item",
+                            key: "setting:1",
+                            content: {
+                                type: 'link',
+                                to: '/card2',
+                                content: "Option 1"
                             }
-                        ]
-                    }
+                        },
+                        {
+                            type: "menu-item",
+                            key: "setting:2",
+                            content: {
+                                type: 'link',
+                                to: '/card2/card3',
+                                content: "Option 2"
+                            }
+                        }
+                    ]
                 }
             ]
         },
         {
-            type: 'breadcrumb',
-            style: {margin: '12px 24px'}
+            type: 'breadcrumb'
         },
         {
             type: 'div',
@@ -171,10 +166,10 @@ define(function() {
     ];
 });
 ```
-此模块使用基本组件的组合搭配实现页面的布局等。值得注意的是，靠底部的部分有个`childrenHolder`属性，声明其子模块渲染到这里作为div的一个子组件
+此模块使用基本组件的组合搭配实现页面的布局等。值得注意的是，靠底部的部分有个`childrenHolder`属性，配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置
 
 
-### Page1模块、Page2模块
+### 4、Page1模块、Page2模块
 
 Page1模块`page1.js`实现如下：
 

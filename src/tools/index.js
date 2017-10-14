@@ -9,10 +9,14 @@ import Config from './config.js';
 import Whitelist from './whitelist.js';
 import requirejs from './requirejs';
 
+// 这里设置一下，domain才能同域，否则即使在同一个域名下的iframe也会有跨域问题。这一行一定不能删！
+// 本地访问的时候，domain为''，不能给domain赋值''
+!!document.domain && (document.domain = document.domain);
+
 const func = {
     // 根据组件配置 创建组件类
     create(config) {
-        
+
     },
     // 根据组件配置 生成&渲染组件实例
     init(config, selector) {
@@ -41,7 +45,9 @@ const func = {
     config(obj) {
         let config = Config.set(obj);;
         // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-        requirejs.config(obj.modules);
+        requirejs.config(config.modules);
+        // 设置默认域，解决跨域问题
+        !!document.domain && (document.domain = config.global['domain']);
     }
 };
 

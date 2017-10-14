@@ -1,5 +1,7 @@
 模块化开发使得各个模块间可以自由组合、复用，易于维护。
 
+这里先介绍一种上手简单的开发方式，如果有使用构建工具经验的可以看 [另一种模式](#/Develop/Build)。
+
 ## 通用规则
 
 * 全部模块配置必须写在`define()`函数里，`define()`函数之外不能有其他内容  
@@ -13,7 +15,7 @@
 
 当模块比较简单不依赖其他模块时，可以直接把模块配置传给`define()`。
 
-例如 快速上手 中的`page2.js`模块，如下：
+例如 快速上手 中的`page2.js`模块：
 ```javascript
 define({
     type: 'card',
@@ -25,7 +27,7 @@ define({
 
 ### 用法2： define(params: function(){}) 
 
-再来回顾一些快速上手中的`routes.js`模块，如下：
+再来回顾一些快速上手中的`routes.js`模块：
 
 ```javascript
 define(function(require) {

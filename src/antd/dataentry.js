@@ -21,8 +21,8 @@ export class AutoComplete extends DataEntry {
             result: []
         };
     }
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({
             style: {width: 160},
             options: []
@@ -109,8 +109,8 @@ class BasePicker extends DataEntry {
     }
     // 继承父组件的函数，并在__props上追加一些属性
     // 此函数会在初始化以及componentWillReceiveProps时调用
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({format: 'YYYY-MM-DD'}, this.__props);
         // 如果没有设置showTime，根据format自动增删showTime属性
         if (!this.__props.showTime) {
@@ -140,8 +140,8 @@ export class MonthPicker extends DataEntry {
         super(props);
         this.__init();
     }
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({format: 'YYYY-MM'}, this.__props);
     }
     render() {
@@ -170,8 +170,8 @@ export class TimePicker extends DataEntry {
         super(props);
         this.__init();
     }
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({format: 'HH:mm:ss'}, this.__props);
     }
     render() {
@@ -285,8 +285,8 @@ export class Select extends DataEntry {
         super(props);
         this.__init();
     }
-    _initProps() {
-        super._initProps.call(this);
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({style: {width: 120}}, this.__props);
     }
     render() {

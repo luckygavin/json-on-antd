@@ -3,6 +3,7 @@ define(function(require) {
     var Page1 = require('Page1');
     return {
         type: 'router',
+        // history: 'browserHistory',
         routes: [
             {
                 path: '/',

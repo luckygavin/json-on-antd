@@ -30,30 +30,26 @@ define(function() {
                         },
                         "Navigation Two - Submenu"
                     ],
-                    content: {
-                        type: "menu-item-group",
-                        title: "Item 1",
-                        content: [
-                            {
-                                type: "menu-item",
-                                key: "setting:1",
-                                content: {
-                                    type: 'link',
-                                    to: '/card2',
-                                    content: "Option 1"
-                                }
-                            },
-                            {
-                                type: "menu-item",
-                                key: "setting:2",
-                                content: {
-                                    type: 'link',
-                                    to: '/card2/card3',
-                                    content: "Option 2"
-                                }
+                    content: [
+                        {
+                            type: "menu-item",
+                            key: "setting:1",
+                            content: {
+                                type: 'link',
+                                to: '/card2',
+                                content: "Option 1"
                             }
-                        ]
-                    }
+                        },
+                        {
+                            type: "menu-item",
+                            key: "setting:2",
+                            content: {
+                                type: 'link',
+                                to: '/card2/card3',
+                                content: "Option 2"
+                            }
+                        }
+                    ]
                 }
             ]
         },

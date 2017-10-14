@@ -32,8 +32,8 @@
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |
-| method | 获取数据的方式。可选 `get` `post` | String | `get` | |
-| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | |
+| method | 获取数据的方式。可选 `get` `post` | String | `get` | 
+| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | 
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
@@ -135,9 +135,10 @@
 | 参数 | 说明 | 类型 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | name | 按钮名称 | String | 是 |
-| icon | 按钮图标，如：'like-o'，(详见)[http://antd.uf.baidu.com/components/icon-cn/] | String | 是 |
+| icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String | 是 |
 | text | 按钮文字 | String | 是 |
 | onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为table组件的引用 | function(table){} | 否 |
+
 
 #### *dataSource*
 表格的数据数组格式如下：

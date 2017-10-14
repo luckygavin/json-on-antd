@@ -9,9 +9,8 @@
         <div id="demo"></div>
         <!-- <div id="demo" style="height: 500px;"></div> -->
         <script>
-            document.domain = 'baidu.com';
+            // document.domain = 'baidu.com';
             UF.config({
-                // http://requirejs.org/docs/api.html#config
                 modules: {
                     baseUrl: 'config/',
                     paths: {
@@ -20,7 +19,7 @@
                         Page1: 'router-page.1',
                         Page2: 'router-page.2'
                     },
-                    showLoading: false
+                    showLoading: ['Page2']
                 },
                 components: {
                     loading: {

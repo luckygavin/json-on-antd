@@ -21,7 +21,9 @@ delay | 子页面高度变化时，延迟重新设定iframe高度，可防止高
 使用`mode`属性时需要注意以下问题：
 
 * 跨域问题  
-要使用`mode`属性，默认会因跨域问题导致此属性无效。需在子页面的 js 里增加一行代码：`document.domain = 'baidu.com';`
+要使用`mode`属性，默认会因跨域问题导致此属性无效。解决办法有两种：
+> * 需在当前页面和其子页面的 js 里同时增加一行代码设置为同一个域：`document.domain = 'baidu.com';`
+> * 使用 `UF.config({global: {domain: 'baidu.com'}})`，见 [全局配置](#/Develop/Config)
 
 * 子页面高度问题  
 此外如果子页面的`body/html`标签 CSS 设置了`height: 100%`，则`mode: 'auto'`失效，展现出的效果同`mode: 'max'`

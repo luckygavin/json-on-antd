@@ -23,18 +23,10 @@ export class Router extends BaseRouter {
     }
     // 继承父组件的函数，并在__props上设置history属性
     // 此函数会在初始化以及componentWillReceiveProps时调用
-    _initProps() {
-        super._initProps.call(this);
-        // 设置histroy属性，如果没有默认为 hashHistory
-        let history = this.__props.history;
-        if (!history) {
-            history = 'hashHistory';
-        }
-        if (Utils.typeof(history, 'string')) {
-            this.__props.history = OriRouter[history];
-        } else {
-            console.error('\'history\' must be a string.');
-        }
+    _initProps(...params) {
+        super._initProps.call(this, ...params);
+        // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
+        this.__props.history = OriRouter[this.__props.history];
     }
     render() {
         return <OriRouter.Router {...this.__props}/>;

@@ -98,11 +98,15 @@
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _requirejs = __webpack_require__(81);
+	var _requirejs = __webpack_require__(82);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// 这里设置一下，domain才能同域，否则即使在同一个域名下的iframe也会有跨域问题。这一行一定不能删！
+	// 本地访问的时候，domain为''，不能给domain赋值''
+	!!document.domain && (document.domain = document.domain);
 
 	var func = {
 	    // 根据组件配置 创建组件类
@@ -137,7 +141,9 @@
 	    config: function config(obj) {
 	        var config = _config2.default.set(obj);;
 	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-	        _requirejs2.default.config(obj.modules);
+	        _requirejs2.default.config(config.modules);
+	        // 设置默认域，解决跨域问题
+	        !!document.domain && (document.domain = config.global['domain']);
 	    }
 	};
 
@@ -312,17 +318,22 @@
 	    _createClass(AutoComplete, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            var _this2 = this;
+	            var _get2,
+	                _this2 = this;
 
-	            _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_initProps', this).call(this);
+	            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
+	                params[_key] = arguments[_key];
+	            }
+
+	            (_get2 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_initProps', this)).call.apply(_get2, [this].concat(params));
 	            this.__props = this.__mergeProps({
 	                style: { width: 160 },
 	                options: []
 	            }, this.__props);
 	            var originOnSearch = this.__props.onSearch;
 	            this.__props.onSearch = function (value) {
-	                for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                    params[_key - 1] = arguments[_key];
+	                for (var _len2 = arguments.length, params = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+	                    params[_key2 - 1] = arguments[_key2];
 	                }
 
 	                var result = [];
@@ -338,16 +349,16 @@
 	    }, {
 	        key: '_onEvent',
 	        value: function _onEvent() {
-	            var _get2;
+	            var _get3;
 
 	            // 对change前后的数据进行对比
 	            var oldValue = this.__props.value;
 
-	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                params[_key2] = arguments[_key2];
+	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                params[_key3] = arguments[_key3];
 	            }
 
-	            (_get2 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_onEvent', this)).call.apply(_get2, [this].concat(params));
+	            (_get3 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_onEvent', this)).call.apply(_get3, [this].concat(params));
 	            var newValue = this.__props.value;
 	            // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
 	            if (oldValue && newValue && oldValue.length > newValue.length) {
@@ -493,7 +504,13 @@
 	    _createClass(BasePicker, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(BasePicker.prototype.__proto__ || Object.getPrototypeOf(BasePicker.prototype), '_initProps', this).call(this);
+	            var _get4;
+
+	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                params[_key4] = arguments[_key4];
+	            }
+
+	            (_get4 = _get(BasePicker.prototype.__proto__ || Object.getPrototypeOf(BasePicker.prototype), '_initProps', this)).call.apply(_get4, [this].concat(params));
 	            this.__props = this.__mergeProps({ format: 'YYYY-MM-DD' }, this.__props);
 	            // 如果没有设置showTime，根据format自动增删showTime属性
 	            if (!this.__props.showTime) {
@@ -555,7 +572,13 @@
 	    _createClass(MonthPicker, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(MonthPicker.prototype.__proto__ || Object.getPrototypeOf(MonthPicker.prototype), '_initProps', this).call(this);
+	            var _get5;
+
+	            for (var _len5 = arguments.length, params = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                params[_key5] = arguments[_key5];
+	            }
+
+	            (_get5 = _get(MonthPicker.prototype.__proto__ || Object.getPrototypeOf(MonthPicker.prototype), '_initProps', this)).call.apply(_get5, [this].concat(params));
 	            this.__props = this.__mergeProps({ format: 'YYYY-MM' }, this.__props);
 	        }
 	    }, {
@@ -615,7 +638,13 @@
 	    _createClass(TimePicker, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(TimePicker.prototype.__proto__ || Object.getPrototypeOf(TimePicker.prototype), '_initProps', this).call(this);
+	            var _get6;
+
+	            for (var _len6 = arguments.length, params = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+	                params[_key6] = arguments[_key6];
+	            }
+
+	            (_get6 = _get(TimePicker.prototype.__proto__ || Object.getPrototypeOf(TimePicker.prototype), '_initProps', this)).call.apply(_get6, [this].concat(params));
 	            this.__props = this.__mergeProps({ format: 'HH:mm:ss' }, this.__props);
 	        }
 	    }, {
@@ -853,7 +882,13 @@
 	    _createClass(Select, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_initProps', this).call(this);
+	            var _get7;
+
+	            for (var _len7 = arguments.length, params = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+	                params[_key7] = arguments[_key7];
+	            }
+
+	            (_get7 = _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_initProps', this)).call.apply(_get7, [this].concat(params));
 	            this.__props = this.__mergeProps({ style: { width: 120 } }, this.__props);
 	        }
 	    }, {
@@ -1079,17 +1114,49 @@
 	    function Antd(props) {
 	        _classCallCheck(this, Antd);
 
-	        // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
+	        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
 	        var _this = _possibleConstructorReturn(this, (Antd.__proto__ || Object.getPrototypeOf(Antd)).call(this, props));
 
+	        _this._class = null;
+	        // 壳子调用antd组件，调用的组件的实例存储在_component中
+	        _this._component = null;
+	        // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
 	        _this.__controlled = null;
 	        return _this;
 	    }
 
+	    // 触发组件上的原生事件，例如 focus、change 等
+
+
 	    _createClass(Antd, [{
+	        key: 'trigger',
+	        value: function trigger(event) {
+	            console.log(this._component);
+	            if (this._component[event]) {
+	                for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                    params[_key - 1] = arguments[_key];
+	                }
+
+	                this._component[event](params);
+	            } else {
+	                console.warn('there is no event named: ' + event);
+	            }
+	        }
+	    }, {
 	        key: '__init',
 	        value: function __init() {
-	            _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '__init', this).call(this);
+	            var _get2,
+	                _this2 = this;
+
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
+	            }
+
+	            (_get2 = _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '__init', this)).call.apply(_get2, [this].concat(params));
+	            // 保存原始antd组件的引用
+	            this.__props['ref'] = function (ele) {
+	                return _this2._component = ele;
+	            };
 	            // 受控配置 - 如果不为null,则合并覆盖
 	            this.__controlled = this.__controlled ? this.__mergeProps({
 	                key: 'value',
@@ -1100,6 +1167,11 @@
 	            // 受控组件默认处理逻辑
 	            this._handleControlled();
 	        }
+
+	        // 组件渲染完成后，执行逻辑
+	        // _componentDidMount(...params) {
+	        //     super._componentDidMount && super._componentDidMount.call(this, ...params);
+	        // }
 
 	        // 受控属性绑定change事件，同时也受控于用户传入的值
 
@@ -1142,8 +1214,8 @@
 	                key = _controlled2.key,
 	                paramsIndex = _controlled2.paramsIndex;
 
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
+	            for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+	                params[_key3 - 1] = arguments[_key3];
 	            }
 
 	            if (key) {
@@ -1210,9 +1282,17 @@
 	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
 	var PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
 
-	// 提供给用户的通用回调函数
-	// 所有组件都具备，分别在声明周期中的不同阶段调用
-	var ForUserApi = ['willMount', 'didMount', 'didUpdate', 'willUnmount'];
+	// 提供给用户的和生命周期相关的函数，命名更加语义化
+	var ForUserApi = {
+	    // 渲染组件前
+	    beforeRender: 'componentWillMount',
+	    // 组件渲染完成后
+	    afterRender: 'componentDidMount',
+	    // 组件更新后
+	    afterUpdate: 'componentDidUpdate',
+	    // 组件销毁前
+	    beforeDestroy: 'componentWillUnmount'
+	};
 
 	// export default class BaseComponent extends Component {
 
@@ -1374,11 +1454,8 @@
 	            // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
 	            var _ref = props || _utils.Utils.copy(this.props),
 	                __cache = _ref.__cache,
-	                __ref = _ref.__ref,
 	                __type = _ref.__type,
-	                __props = _objectWithoutProperties(_ref, ['__cache', '__ref', '__type']);
-
-	            __props['ref'] = __props['ref'] || __ref;
+	                __props = _objectWithoutProperties(_ref, ['__cache', '__type']);
 
 	            this.__prevProps = this.__props;
 	            // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
@@ -1486,49 +1563,26 @@
 	        value: function _loadUserFunction() {
 	            var _this3 = this;
 
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
+	            var _loop2 = function _loop2(f) {
+	                // 如果props中有等待注入的函数
+	                var inject = _this3.props[f];
+	                if (inject) {
+	                    var _v = ForUserApi[f];
+	                    var origin = _this3[_v];
+	                    _this3[_v] = function () {
+	                        for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                            params[_key4] = arguments[_key4];
+	                        }
 
-	            try {
-	                var _loop2 = function _loop2() {
-	                    var v = _step2.value;
-
-	                    // 如果props中有等待注入的函数
-	                    var inject = _this3.props['' + v];
-	                    if (inject) {
-	                        var funcName = 'component' + v.replace(/^\w/g, function (o) {
-	                            return o.toUpperCase();
-	                        });
-	                        var origin = _this3[funcName];
-	                        _this3[funcName] = function () {
-	                            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                                params[_key4] = arguments[_key4];
-	                            }
-
-	                            // 先执行默认逻辑，再执行用户逻辑                    
-	                            origin && origin.call.apply(origin, [_this3].concat(params));
-	                            inject.call.apply(inject, [_this3].concat(params));
-	                        };
-	                    }
-	                };
-
-	                for (var _iterator2 = ForUserApi[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    _loop2();
+	                        // 先执行默认逻辑，再执行用户逻辑                    
+	                        origin && origin.call.apply(origin, [_this3].concat(params));
+	                        inject.call.apply(inject, [_this3, _this3].concat(params));
+	                    };
 	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
+	            };
+
+	            for (var f in ForUserApi) {
+	                _loop2(f);
 	            }
 	        }
 	    }]);
@@ -2001,7 +2055,7 @@
 	    };
 
 	    onchange(true, 'sending');
-	    (0, _reqwest2.default)(Object.assign({}, config, {
+	    (0, _reqwest2.default)(Object.assign({ type: 'json' }, config, {
 	        success: function success(res) {
 	            // 兼容 message/msg、status/code
 	            res.status = res.status || res.code || 0;
@@ -3044,7 +3098,13 @@
 	    _createClass(Breadcrumb, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(Breadcrumb.prototype.__proto__ || Object.getPrototypeOf(Breadcrumb.prototype), '_initProps', this).call(this);
+	            var _get2;
+
+	            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
+	                params[_key] = arguments[_key];
+	            }
+
+	            (_get2 = _get(Breadcrumb.prototype.__proto__ || Object.getPrototypeOf(Breadcrumb.prototype), '_initProps', this)).call.apply(_get2, [this].concat(params));
 	            // 如果用户配置了options，则按照用户配置的options列表类展示面包屑
 	            var options = this.__props.options;
 	            if (options) {
@@ -3157,8 +3217,8 @@
 	    _createClass(Menu, [{
 	        key: '_onEvent',
 	        value: function _onEvent(callback) {
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
+	            for (var _len2 = arguments.length, params = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+	                params[_key2 - 1] = arguments[_key2];
 	            }
 
 	            callback && callback.apply(undefined, params);
@@ -3918,17 +3978,15 @@
 	    _createClass(Router, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            _get(Router.prototype.__proto__ || Object.getPrototypeOf(Router.prototype), '_initProps', this).call(this);
-	            // 设置histroy属性，如果没有默认为 hashHistory
-	            var history = this.__props.history;
-	            if (!history) {
-	                history = 'hashHistory';
+	            var _get2;
+
+	            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
+	                params[_key] = arguments[_key];
 	            }
-	            if (_utils.Utils.typeof(history, 'string')) {
-	                this.__props.history = OriRouter[history];
-	            } else {
-	                console.error('\'history\' must be a string.');
-	            }
+
+	            (_get2 = _get(Router.prototype.__proto__ || Object.getPrototypeOf(Router.prototype), '_initProps', this)).call.apply(_get2, [this].concat(params));
+	            // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
+	            this.__props.history = OriRouter[this.__props.history];
 	        }
 	    }, {
 	        key: 'render',
@@ -4149,9 +4207,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-	// 解决跨域问题
-	document.domain = 'baidu.com';
-
 	var Iframe = function (_BaseComponent) {
 	    _inherits(Iframe, _BaseComponent);
 
@@ -4194,7 +4249,6 @@
 	        value: function render() {
 	            var _this2 = this;
 
-	            console.log(this.__props.showLoading);
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'uf-iframe', ref: function ref(ele) {
@@ -4204,7 +4258,7 @@
 	                _react2.default.createElement(
 	                    _antd.Spin,
 	                    { spinning: this.state.loading && this.__props.showLoading },
-	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, 'showLoading'), {
+	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, ['showLoading', 'delay']), {
 	                        ref: function ref(ele) {
 	                            return _this2.ifr = ele;
 	                        },
@@ -5805,6 +5859,12 @@
 	    value: true
 	});
 
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(2);
@@ -5821,6 +5881,16 @@
 
 	var _antd = __webpack_require__(14);
 
+	var _antd2 = __webpack_require__(5);
+
+	var _export = __webpack_require__(38);
+
+	var _export2 = _interopRequireDefault(_export);
+
+	var _tools = __webpack_require__(1);
+
+	var _tools2 = _interopRequireDefault(_tools);
+
 	__webpack_require__(50);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -5830,10 +5900,20 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 表格组件
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 表格组件:antd Table的基础上增加了原来uf Table中的一些功能
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author susisi@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
+
+	var CheckboxGroup = _antd.Checkbox.Group;
+	// 从obg2中获取obj1所需要的一些属性
+	var getNeedObject = function getNeedObject(obj1, obj2) {
+	    for (var v in obj1) {
+	        if (!!obj2[v]) {
+	            obj1[v] = obj2[v];
+	        }
+	    }
+	};
 
 	var NewTable = function (_BaseComponent) {
 	    _inherits(NewTable, _BaseComponent);
@@ -5844,14 +5924,1495 @@
 
 	        var _this = _possibleConstructorReturn(this, (NewTable.__proto__ || Object.getPrototypeOf(NewTable)).call(this, props));
 
+	        _this.state = {
+	            antdConfig: null,
+	            // 数据默认为空
+	            data: [],
+	            completeData: [],
+	            // 单列过滤
+	            filterInputValue: '',
+	            filterDropdownVisible: false,
+	            // 全局数据过滤
+	            globalfilterValue: '',
+	            // table表头右侧设置按钮的下拉框是否展示
+	            showTableMenu: false,
+	            // 全屏展示与否
+	            fullScreen: false,
+	            // 是否展示全部字段
+	            showAllTags: false,
+	            // 存储选择的行信息
+	            selectedRowKeys: [],
+	            // 与分页相关状态
+	            pageSize: 10,
+	            current: 1,
+	            total: 0,
+	            // 加载状态
+	            loading: false
+	        };
+	        // 用于存储多列的筛选条件
+	        _this.filterConditions = {};
+	        _this.globalFilterInput = '';
+	        // // 导出配置
+	        // this.exportConfig = {};
+	        // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
+	        _this.requerstIndex = 0;
+
 	        _this.__init();
 	        return _this;
 	    }
 
 	    _createClass(NewTable, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            this.initTable();
+	        }
+	    }, {
+	        key: 'initTable',
+	        value: function initTable(nextProps) {
+	            var objProps = nextProps ? nextProps : this.__props;
+	            this.config = _utils.Utils.clone(objProps);
+	            var propsData = _utils.Utils.clone(objProps.data);
+	            // 列配置
+	            this.columns = _utils.Utils.clone(objProps.columns);
+	            // 行配置
+	            this.rowSelection = !!objProps.rowSelection ? _utils.Utils.clone(objProps.rowSelection) : {};
+	            if (this.rowSelection.selectedRowKeys) {
+	                this.setState({ selectedRowKeys: this.rowSelection.selectedRowKeys });
+	            }
+	            // 分页配置
+	            if (objProps.pagination === false) {
+	                this.pagination = false;
+	            } else {
+	                this.pagination = !!objProps.pagination ? _utils.Utils.clone(objProps.pagination) : {};
+	                if (this.pagination.pageSize) {
+	                    this.setState({
+	                        pageSize: this.pagination.pageSize
+	                    });
+	                }
+	                if (this.pagination.current) {
+	                    this.setState({ current: this.pagination.current });
+	                }
+	            }
+	            var defaultCif = {
+	                size: 'default',
+	                rowKey: 'key',
+	                rowClassName: function rowClassName() {},
+	                expandedRowRender: null,
+	                defaultExpandedRowKeys: [],
+	                expandedRowKeys: [],
+	                defaultExpandAllRows: false,
+	                locale: { filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据' },
+	                indentSize: 15,
+	                bordered: false,
+	                showHeader: true,
+	                footer: null,
+	                scroll: {},
+	                onChange: function onChange() {},
+	                onExpand: function onExpand() {},
+	                onExpandedRowsChange: function onExpandedRowsChange() {},
+	                onRowClick: function onRowClick() {},
+	                onRowDoubleClick: function onRowDoubleClick() {},
+	                onRowMouseEnter: function onRowMouseEnter() {},
+	                onRowMouseLeave: function onRowMouseLeave() {}
+	            };
+	            getNeedObject(defaultCif, this.config);
+	            /* 关于表头 */
+	            this.titleConfig = !!objProps.titleConfig ? objProps.titleConfig : {};
+	            // if (objProps.titleConfig) {
+	            //     this.titleConfig = objProps.titleConfig;
+	            //     defaultCif.title = () => {
+	            //         return this.titleGenerate();
+	            //     }
+	            // }
+	            /* 关于异步操作 */
+	            if (objProps.source) {
+	                this.getData(null, objProps.params);
+	            } else {
+	                this.setState({
+	                    data: propsData,
+	                    completeData: propsData,
+	                    loading: false,
+	                    total: propsData.length
+	                });
+	                // 导出数据的配置
+	                this.exportConfig = this.getExportConfig(propsData);
+	            }
+	            this.antdConfig = defaultCif;
+	            this.setState({
+	                antdConfig: this.antdConfig
+	            });
+	            this.forceUpdate();
+	        }
+	        // 异步获取数据
+
+	    }, {
+	        key: 'getData',
+	        value: function getData(pageNum, params, nextProps) {
+	            var _this2 = this;
+
+	            var url = this.config.source;
+	            if (!url) {
+	                // 用户为传接口，则直接返回
+	                return;
+	            }
+	            var method = this.config.method || 'get';
+	            var ajax = method === 'post' ? this.__postData : this.__getData;
+	            var dataParams = {};
+	            var requestParams = params ? params : nextProps ? nextProps.params : this.config.params;
+	            if (this.pagination.pageType === 'server') {
+	                dataParams = Object.assign({}, requestParams, {
+	                    page: pageNum ? pageNum : 1,
+	                    size: this.pagination.pageSize,
+	                    pageType: 'server'
+	                });
+	            } else {
+	                dataParams = Object.assign({}, requestParams, {
+	                    pageType: 'client'
+	                });
+	            }
+	            var self = this;
+	            this.setState({
+	                loading: true
+	            });
+	            // 当前请求的标号
+	            var index = ++this.requerstIndex;
+	            ajax(url, params, function (data, res) {
+	                if (index !== self.requerstIndex) {
+	                    return;
+	                }
+	                var displayData = data;
+	                if (_this2.pagination.pageType === 'server') {
+	                    displayData = data.slice(0, _this2.state.pageSize);
+	                }
+	                self.setState({
+	                    data: displayData,
+	                    completeData: displayData,
+	                    // total: data.length,
+	                    total: res.total || res.count,
+	                    loading: false
+	                });
+	                self.onRefreshData(data);
+	            });
+	        }
+	        // 数据刷新
+
+	    }, {
+	        key: 'onRefreshData',
+	        value: function onRefreshData(data) {
+	            // 刷新导出组件配置
+	            this.exportConfig = this.getExportConfig(data);
+	            this.forceUpdate();
+	        }
+	        // 表头生成-包括文字标题及自定义控件
+
+	    }, {
+	        key: 'titleGenerate',
+	        value: function titleGenerate() {
+	            var _this3 = this;
+
+	            // console.log(this.exportConfig);
+	            var title = this.titleConfig.title || '';
+	            var showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
+	            var result = [];
+	            /* 表头标题 */
+	            if (title) {
+	                result.push(_react2.default.createElement(
+	                    'div',
+	                    { key: 'table-title', className: 'umpui-header' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        title
+	                    )
+	                ));
+	            }
+	            /* 以下为一些控件的生成，全部保存在divList里 */
+	            var divList = [];
+	            /*直接展示在表头的控件*/
+	            var arrBasic = this.titleConfig.basicControls;
+	            if (arrBasic) {
+	                var basic = this.getBasicWidghts();
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    var _loop = function _loop() {
+	                        var v = _step.value;
+
+	                        if (_utils.Utils.getType(v) === 'string') {
+	                            // 为了美观，如果有自定义的控件，把控件放到过滤框之后，其他控件之前
+	                            if (v === 'filter') {
+	                                basic[v] && divList.unshift(basic[v]);
+	                            } else {
+	                                basic[v] && divList.push(basic[v]);
+	                            }
+	                        } else if (_utils.Utils.getType(v) === 'object') {
+	                            divList.push(_react2.default.createElement(
+	                                'div',
+	                                { key: v.name, className: 'umpui-header-extra ' + (v.name || ''),
+	                                    onClick: function onClick() {
+	                                        return v.onClick(_this3);
+	                                    } },
+	                                _react2.default.createElement(_antd.Icon, { type: v.icon }),
+	                                showText && _react2.default.createElement(
+	                                    'span',
+	                                    null,
+	                                    v.text
+	                                )
+	                            ));
+	                        }
+	                    };
+
+	                    for (var _iterator = arrBasic[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        _loop();
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+	            }
+	            /*展示在menu下拉列表中的控件*/
+	            var arrMenus = this.titleConfig.menuControls;
+	            var gearsList = [];
+	            if (arrMenus) {
+	                var menus = this.getMenuWidghts();
+	                var _iteratorNormalCompletion2 = true;
+	                var _didIteratorError2 = false;
+	                var _iteratorError2 = undefined;
+
+	                try {
+	                    var _loop2 = function _loop2() {
+	                        var v = _step2.value;
+
+	                        if (_utils.Utils.getType(v) === 'string') {
+	                            menus[v] && gearsList.push(menus[v]);
+	                        } else if (_utils.Utils.getType(v) === 'object') {
+	                            gearsList.push(_react2.default.createElement(
+	                                'li',
+	                                { key: v.name, onClick: function onClick() {
+	                                        return v.onClick(_this3);
+	                                    } },
+	                                _react2.default.createElement(_antd.Icon, { type: v.icon, className: 'menu-item-icon' }),
+	                                _react2.default.createElement(
+	                                    'span',
+	                                    null,
+	                                    v.text
+	                                )
+	                            ));
+	                        }
+	                    };
+
+	                    for (var _iterator2 = arrMenus[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                        _loop2();
+	                    }
+	                } catch (err) {
+	                    _didIteratorError2 = true;
+	                    _iteratorError2 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                            _iterator2.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError2) {
+	                            throw _iteratorError2;
+	                        }
+	                    }
+	                }
+	            }
+	            if (gearsList.length > 0) {
+	                var menu = _react2.default.createElement(
+	                    'ul',
+	                    { className: 'uf-dropdown-menu-ul' },
+	                    gearsList
+	                );
+	                divList.push(_react2.default.createElement(
+	                    _antd.Dropdown,
+	                    { overlay: menu, trigger: ['click'], key: 'umpui-table-menu',
+	                        onVisibleChange: this.switchMenuList.bind(this),
+	                        placement: 'bottomRight',
+	                        visible: this.state.showTableMenu },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'umpui-header-extra menu ' + (this.state.showTableMenu ? 'active' : '') },
+	                        this.state.showTableMenu ? _react2.default.createElement(_antd.Icon, { type: 'menu-unfold' }) : _react2.default.createElement(_antd.Icon, { type: 'menu-fold' }),
+	                        this.titleConfig.showText && _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            '\u83DC\u5355'
+	                        )
+	                    )
+	                ));
+	            }
+	            result.push(_react2.default.createElement(
+	                'div',
+	                { key: 'table-extra', className: 'umpui-header-extra-con' },
+	                divList
+	            ));
+	            return result;
+	        }
+	        // 基本控件
+
+	    }, {
+	        key: 'getBasicWidghts',
+	        value: function getBasicWidghts() {
+	            var _this4 = this;
+
+	            var obj = {};
+	            var showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
+	            var props = {
+	                name: 'filter',
+	                placeholder: '要过滤的内容',
+	                // value: this.state.globalfilterValue,
+	                onChange: this.globalFilterChange.bind(this)
+	            };
+	            obj['filter'] = _react2.default.createElement(
+	                'div',
+	                { className: 'umpui-header-extra filter no-hover', key: 'umpui-header-extra' },
+	                _react2.default.createElement(_antd.Icon, { type: 'filter', className: 'icon-filter' }),
+	                _react2.default.createElement(_antd2.Input, _extends({}, props, { ref: function ref(ele) {
+	                        return _this4['uf-table-filter'] = ele;
+	                    } }))
+	            );
+	            var arrList = [];
+	            obj['refresh'] = _react2.default.createElement(
+	                'div',
+	                { className: 'umpui-header-extra', key: 'refresh',
+	                    onClick: this.refreshTable.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'retweet' }),
+	                showText && _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5237\u65B0'
+	                )
+	            );
+	            if (!this.state.fullScreen) {
+	                obj['fullScreen'] = _react2.default.createElement(
+	                    'div',
+	                    { className: 'umpui-header-extra', key: 'fullscreen',
+	                        onClick: this.toggleFullScreen.bind(this) },
+	                    _react2.default.createElement(_antd.Icon, { type: 'arrows-alt' }),
+	                    showText && _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5168\u5C4F'
+	                    )
+	                );
+	            } else {
+	                obj['fullScreen'] = _react2.default.createElement(
+	                    'div',
+	                    { className: 'umpui-header-extra', key: 'exitfullscreen',
+	                        onClick: this.toggleFullScreen.bind(this) },
+	                    _react2.default.createElement(_antd.Icon, { type: 'shrink' }),
+	                    showText && _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u9000\u51FA\u5168\u5C4F'
+	                    )
+	                );
+	            }
+	            obj['export'] = _react2.default.createElement(
+	                'div',
+	                { className: 'umpui-header-extra', key: 'export' },
+	                _react2.default.createElement(
+	                    _export2.default,
+	                    this.exportConfig,
+	                    _react2.default.createElement(_antd.Icon, { type: 'download' }),
+	                    showText && _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5BFC\u51FA'
+	                    )
+	                )
+	            );
+	            obj['switchTags'] = _react2.default.createElement(
+	                'div',
+	                { className: 'umpui-header-extra', key: 'switchTags',
+	                    onClick: this.switchTags.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'setting' }),
+	                showText && _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5C55\u793A\u5B57\u6BB5'
+	                )
+	            );
+	            obj['showAllTags'] = _react2.default.createElement(
+	                'div',
+	                { key: 'showAllTags',
+	                    className: 'umpui-header-extra ' + (this.state.showAllTags ? 'active' : ''),
+	                    onClick: this.toShowAllTags.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'eye-o' }),
+	                showText && _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5C55\u793A\u5168\u90E8\u5217'
+	                )
+	            );
+	            var pageSetting = _react2.default.createElement(_antd2.Input, {
+	                placeholder: '\u8F93\u5165\u6BCF\u9875\u6570\u636E\u6761\u6570',
+	                ref: function ref(ele) {
+	                    return _this4['uf-table-pagesize-setting-basic'] = ele;
+	                },
+	                value: this.state.pageSize,
+	                onChange: this.changePageSize.bind(this) });
+	            obj['setPageSize'] = _react2.default.createElement(
+	                _antd.Popconfirm,
+	                { placement: 'top', key: 'basic-setPageSize',
+	                    title: pageSetting,
+	                    onConfirm: this.getPageSizeSetting.bind(this, 'basic'),
+	                    onCancel: this.hideMenuDropdown.bind(this),
+	                    okText: 'Yes', cancelText: 'No' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'umpui-header-extra',
+	                        onClick: this.showSetPageSize.bind(this, 'basic') },
+	                    _react2.default.createElement(_antd.Icon, { type: 'switcher' }),
+	                    showText && _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5206\u9875\u8BBE\u7F6E'
+	                    )
+	                )
+	            );
+	            return obj;
+	        }
+	        // 下拉列表中的控件
+
+	    }, {
+	        key: 'getMenuWidghts',
+	        value: function getMenuWidghts() {
+	            var _this5 = this;
+
+	            var obj = {};
+	            obj['fullScreen'] = _react2.default.createElement(
+	                'li',
+	                { key: 'fullScreen1', onClick: this.toggleFullScreen.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'arrows-alt', className: 'menu-item-icon' }),
+	                _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5168\u5C4F\u663E\u793A'
+	                )
+	            );
+	            if (!this.state.fullScreen) {
+	                obj['fullScreen'] = _react2.default.createElement(
+	                    'li',
+	                    { key: 'fullScreen1', onClick: this.toggleFullScreen.bind(this) },
+	                    _react2.default.createElement(_antd.Icon, { type: 'arrows-alt', className: 'menu-item-icon' }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5168\u5C4F\u663E\u793A'
+	                    )
+	                );
+	            } else {
+	                obj['fullScreen'] = _react2.default.createElement(
+	                    'li',
+	                    { key: 'exitfullscreen1', onClick: this.toggleFullScreen.bind(this) },
+	                    _react2.default.createElement(_antd.Icon, { type: 'shrink', className: 'menu-item-icon' }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u9000\u51FA\u5168\u5C4F'
+	                    )
+	                );
+	            }
+	            obj['switchTags'] = _react2.default.createElement(
+	                'li',
+	                { key: 'switchTags1', onClick: this.switchTags.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'setting', className: 'menu-item-icon' }),
+	                _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5C55\u793A\u5B57\u6BB5'
+	                )
+	            );
+	            obj['export'] = _react2.default.createElement(
+	                'li',
+	                { key: 'export1' },
+	                _react2.default.createElement(
+	                    _export2.default,
+	                    this.exportConfig,
+	                    _react2.default.createElement(_antd.Icon, { type: 'download', className: 'menu-item-icon' }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5BFC\u51FA\u6570\u636E'
+	                    )
+	                )
+	            );
+	            var pageSetting = _react2.default.createElement(_antd2.Input, {
+	                placeholder: '\u8F93\u5165\u6BCF\u9875\u6570\u636E\u6761\u6570',
+	                ref: function ref(ele) {
+	                    return _this5['uf-table-pagesize-setting-menu'] = ele;
+	                },
+	                value: this.state.pageSize,
+	                onChange: this.changePageSize.bind(this) });
+	            obj['setPageSize'] = _react2.default.createElement(
+	                _antd.Popconfirm,
+	                { placement: 'left', key: 'basic-setPageSize1',
+	                    title: pageSetting,
+	                    onConfirm: this.getPageSizeSetting.bind(this, 'menu'),
+	                    onCancel: this.hideMenuDropdown.bind(this),
+	                    okText: 'Yes', cancelText: 'No' },
+	                _react2.default.createElement(
+	                    'li',
+	                    { onClick: this.showSetPageSize.bind(this, 'menu'), className: 'ant-popover-open' },
+	                    _react2.default.createElement(_antd.Icon, { type: 'switcher', className: 'menu-item-icon' }),
+	                    _react2.default.createElement(
+	                        'span',
+	                        null,
+	                        '\u5206\u9875\u8BBE\u7F6E'
+	                    )
+	                )
+	            );
+	            obj['refresh'] = _react2.default.createElement(
+	                'li',
+	                { key: 'refresh1', onClick: this.refreshTable.bind(this) },
+	                _react2.default.createElement(_antd.Icon, { type: 'retweet', className: 'menu-item-icon' }),
+	                _react2.default.createElement(
+	                    'span',
+	                    null,
+	                    '\u5237\u65B0\u8868\u683C'
+	                )
+	            );
+	            return obj;
+	        }
+	        // 获取要下载导出数据的配置
+
+	    }, {
+	        key: 'getExportConfig',
+	        value: function getExportConfig(data) {
+	            var tableCfg = this.config;
+	            var tableColumns = this.columns;
+	            // let objHeaders = {};
+	            var objHeaders = [];
+	            // let arrKeys = [];
+	            // let typeDef = Object.prototype.toString;
+	            for (var i in tableColumns) {
+	                objHeaders.push({
+	                    key: tableColumns[i].dataIndex || tableColumns[i].key,
+	                    title: tableColumns[i].title
+	                });
+	            }
+	            /**
+	             * 1. 没有url就是直接传递了content的数据
+	             * 2. 有url但是是client分页-Export需要传递data,默认是client分页
+	             * 3. 有url但是是server端分页-Export需要传递url配置
+	             */
+	            if (!tableCfg.source || this.pagination !== false && this.pagination.pageType !== 'server') {
+	                return {
+	                    headers: objHeaders,
+	                    data: data,
+	                    total: data.length
+	                };
+	            }
+	            var aaa = {
+	                headers: objHeaders,
+	                source: tableCfg.source,
+	                params: tableCfg.params ? tableCfg.params : {},
+	                total: this.state.total
+	            };
+	            // console.log(aaa);
+	            return {
+	                headers: objHeaders,
+	                source: tableCfg.source,
+	                params: tableCfg.params ? tableCfg.params : {},
+	                total: this.state.total
+	            };
+	        }
+	        // 刷新表格
+
+	    }, {
+	        key: 'refreshTable',
+	        value: function refreshTable() {
+	            if (this.config.source) {
+	                this.getData();
+	            }
+	            // 清空某些控制状态
+	            this.clearState();
+	            this.setState({ data: this.state.completeData });
+	            // 刷新导出组件配置
+	            this.exportConfig = this.getExportConfig(this.state.completeData);
+	            this.forceUpdate();
+	        }
+	        // 清空某些控制状态
+
+	    }, {
+	        key: 'clearState',
+	        value: function clearState() {
+	            this.setState({
+	                filterInputValue: '',
+	                filterDropdownVisible: false,
+	                showTableMenu: false,
+	                selectedRowKeys: []
+	            });
+	            // console.log(this['uf-table-filter'].setVal);
+	            this.globalFilterInput = '';
+	            this.filterConditions = {};
+	            this.forceUpdate();
+	        }
+	        // 全屏或退出全屏
+
+	    }, {
+	        key: 'toggleFullScreen',
+	        value: function toggleFullScreen() {
+	            this.setState({
+	                fullScreen: !this.state.fullScreen,
+	                showTableMenu: false
+	            });
+	        }
+	        // 显示’展示字段‘设置弹框
+
+	    }, {
+	        key: 'switchTags',
+	        value: function switchTags() {
+	            this.setState({ showSetTagsModal: true });
+	        }
+	        // 展示全部字段
+
+	    }, {
+	        key: 'toShowAllTags',
+	        value: function toShowAllTags() {
+	            this.setState({ showAllTags: !this.state.showAllTags });
+	        }
+	        // 自定义展示某些列
+
+	    }, {
+	        key: 'setTableColumns',
+	        value: function setTableColumns() {
+	            // 根据this.columnsCheckedValues中存储的用户的选择进行展示
+	            var showColumns = this.columnsCheckedValues;
+	            var allColumns = this.columns;
+
+	            var _loop3 = function _loop3(i) {
+	                if (showColumns.some(function (ele) {
+	                    return allColumns[i].dataIndex === ele;
+	                })) {
+	                    allColumns[i].display = true;
+	                } else {
+	                    allColumns[i].display = false;
+	                }
+	            };
+
+	            for (var i in allColumns) {
+	                _loop3(i);
+	            }
+	            this.setState({ showSetTagsModal: false });
+	            this.forceUpdate();
+	        }
+	        // 生成弹框中的checkbox组，以选择展示哪些列
+
+	    }, {
+	        key: 'generateColumnsCheckboxGroup',
+	        value: function generateColumnsCheckboxGroup() {
+	            var options = [];
+	            var defaultValue = [];
+	            var allColumns = this.columns;
+	            for (var item in allColumns) {
+	                var option = { label: allColumns[item].title, value: allColumns[item].dataIndex };
+	                options.push(option);
+	                if (allColumns[item].display === false) {
+	                    continue;
+	                }
+	                defaultValue.push(allColumns[item].dataIndex);
+	            }
+	            if (options.length > 0) {
+	                return _react2.default.createElement(CheckboxGroup, { options: options,
+	                    defaultValue: defaultValue,
+	                    onChange: this.onSetColumnsCheckboxChange.bind(this) });
+	            }
+	        }
+	        // 输入框设置每页展示多少条
+
+	    }, {
+	        key: 'changePageSize',
+	        value: function changePageSize(e) {
+	            this.setState({
+	                pageSize: e.target.value
+	            });
+	        }
+	        // 通过Pagination组建设置展示多少条
+
+	    }, {
+	        key: 'onShowSizeChange',
+	        value: function onShowSizeChange(current, size) {
+	            this.setState({
+	                pageSize: parseInt(size, 10)
+	            });
+	            this.pagination.pageSize = parseInt(size, 10);
+	            this.forceUpdate();
+	            if (this.pagination.onShowSizeChange) {
+	                this.pagination.onShowSizeChange(current, size);
+	            }
+	        }
+	        // 展示每页展示条数
+
+	    }, {
+	        key: 'getPageSizeSetting',
+	        value: function getPageSizeSetting(from) {
+	            var pageSize = this.state.pageSize;
+	            if (pageSize.length === 0 || isNaN(parseInt(pageSize, 10))) {
+	                // 若用户输入
+	                pageSize = 10;
+	            }
+	            this.pagination.pageSize = parseInt(pageSize, 10);
+	            this.setState({
+	                // pageSize: parseInt(pageSize, 10),
+	                showTableMenu: false
+	            });
+	            this.forceUpdate();
+	        }
+	        // 展示分页设置输入框时，使得输入框获取焦点
+
+	    }, {
+	        key: 'showSetPageSize',
+	        value: function showSetPageSize(from) {
+	            var _this6 = this;
+
+	            // 设定延迟的原因，this['uf-table-pagesize-setting-' + from]以提示框的形式渲染到页面
+	            // 而此函数触发时还未渲染完毕，输入框无法获得焦点，输入框手动获取焦点会引起menu下拉列表关闭
+	            setTimeout(function () {
+	                var obj = _this6['uf-table-pagesize-setting-' + from];
+	                obj && obj.trigger('focus');
+	            }, 10);
+	        }
+	    }, {
+	        key: 'showTableMenu',
+	        value: function showTableMenu() {
+	            this.setState({
+	                showTableMenu: true
+	            });
+	        }
+	        // menu下拉列表隐藏
+
+	    }, {
+	        key: 'hideMenuDropdown',
+	        value: function hideMenuDropdown() {
+	            this.setState({
+	                showTableMenu: false
+	            });
+	        }
+	    }, {
+	        key: 'onSetColumnsCheckboxChange',
+	        value: function onSetColumnsCheckboxChange(checkedValues) {
+	            this.columnsCheckedValues = checkedValues;
+	        }
+	    }, {
+	        key: 'cancleSetTableColumns',
+	        value: function cancleSetTableColumns() {
+	            this.setState({ showSetTagsModal: false });
+	        }
+	        // 展示头部隐藏菜单
+
+	    }, {
+	        key: 'switchMenuList',
+	        value: function switchMenuList(visible) {
+	            // console.log(visible);
+	            this.setState({ showTableMenu: visible });
+	        }
+	    }, {
+	        key: 'onFilterData',
+	        value: function onFilterData() {
+	            // 过滤
+	            var data = this.state.completeData;
+	            // 对数据进行全局过滤
+	            if (this.globalFilterInput.length !== 0) {
+	                data = this.globalFilterData(this.globalFilterInput, data);
+	            }
+	            // 对数据进行单列过滤
+	            if (this.filterConditions.toString() !== '{}') {
+	                data = this.filterInputSearch(data);
+	            }
+	            this.setState({
+	                data: data
+	            });
+	        }
+	        // 过滤输入框变化时
+
+	    }, {
+	        key: 'globalFilterChange',
+	        value: function globalFilterChange(e) {
+	            var _this7 = this;
+
+	            var iVal = e.target.value;
+	            clearTimeout(this.filterTimer);
+	            this.filterTimer = setTimeout(function () {
+	                _this7.globalFilterInput = iVal;
+	                _this7.onFilterData();
+	            }, 150);
+	        }
+	        // 全局搜索数据
+
+	    }, {
+	        key: 'globalFilterData',
+	        value: function globalFilterData(iVal, filteredData) {
+	            var content = !!filteredData ? filteredData : this.state.completeData;
+	            var strVal = iVal.toLowerCase().replace(/(^\s*)|(\s*$)/g, '').replace(/\s+/g, ' ');
+	            // 过滤使用的数据，如果是有传入的数据则进行过滤，没有则需要进行
+	            if (strVal) {
+	                var arrFilterData = [];
+	                // 字段黑名单/白名单
+	                var filterlist = this.titleConfig.gobalFilter;
+	                var _iteratorNormalCompletion3 = true;
+	                var _didIteratorError3 = false;
+	                var _iteratorError3 = undefined;
+
+	                try {
+	                    for (var _iterator3 = content[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                        var row = _step3.value;
+
+	                        var data = [];
+	                        // 按照展示的字段过滤，自定义render字段无效，问题比较大
+	                        for (var i in row) {
+	                            // 如果不在白名单里或者在黑名单里，则跳过此字段
+	                            if (filterlist && filterlist['whitelist'] && filterlist['whitelist'].indexOf(i) === -1) {
+	                                continue;
+	                            } else if (filterlist && filterlist['blacklist'] && filterlist['blacklist'].indexOf(i) !== -1) {
+	                                continue;
+	                            }
+	                            var value = row[i];
+	                            if (typeof value === 'string') {
+	                                data.push(this.handleString(value));
+	                            } else if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object') {
+	                                data.push(this.getKeyDataOfObject(value));
+	                            } else {
+	                                data.push(value.toString ? value.toString() : value);
+	                            }
+	                        }
+
+	                        var str = data.join('\n').toLowerCase();
+	                        // 输入值不是字符串，而是几个词，要拆分后分别查找
+	                        var result = true;
+	                        var keys = strVal.split(/\s+/);
+	                        var _iteratorNormalCompletion4 = true;
+	                        var _didIteratorError4 = false;
+	                        var _iteratorError4 = undefined;
+
+	                        try {
+	                            for (var _iterator4 = keys[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                                var key = _step4.value;
+
+	                                // update by liuzechun@baidu.com @2016-12-11
+	                                var orResult = false;
+	                                // 支持指定字段过滤(如 id:123)，先选出关键词对应的字段，再对字段内容进行检索
+
+	                                var _key$split = key.split(':'),
+	                                    _key$split2 = _slicedToArray(_key$split, 2),
+	                                    kWord = _key$split2[0],
+	                                    kVal = _key$split2[1];
+	                                // kv为当前搜索的字段值，如果没有指定字段，则kv为全部字段拼成的字符串
+
+
+	                                var kv = '';
+	                                if (kVal) {
+	                                    // 如果关键词字段直接为数据的key
+	                                    if (row[kWord]) {
+	                                        kv = row[kWord];
+	                                    } else {
+	                                        // 否则在配置的tag里匹配每个tag的中文名
+	                                        for (var _i in this.showTags) {
+	                                            if (typeof this.showTags[_i] === 'string' && kWord === this.showTags[_i].toLowerCase() || _typeof(this.showTags[_i]) === 'object' && kWord === this.showTags[_i].title.toLowerCase()) {
+	                                                kv = row[_i];
+	                                            }
+	                                        }
+	                                    }
+	                                    if (typeof kv !== 'string') {
+	                                        kv = (typeof kv === 'undefined' ? 'undefined' : _typeof(kv)) === 'object' && kv.title || JSON.stringify(kv);
+	                                    }
+	                                    kv = (kv || '').toLowerCase();
+	                                } else {
+	                                    kv = str;
+	                                    kVal = key;
+	                                }
+	                                // 支持使用|搜索，实现或的关系
+	                                var _iteratorNormalCompletion5 = true;
+	                                var _didIteratorError5 = false;
+	                                var _iteratorError5 = undefined;
+
+	                                try {
+	                                    for (var _iterator5 = kVal.split(/\|+/)[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                                        var k = _step5.value;
+
+	                                        // 一旦有一个能匹配到，则结果true
+	                                        (!k || kv.indexOf(k) !== -1) && (orResult = true);
+	                                    }
+	                                    // 如果都匹配不到，则此关键字无效，整条数据无效
+	                                } catch (err) {
+	                                    _didIteratorError5 = true;
+	                                    _iteratorError5 = err;
+	                                } finally {
+	                                    try {
+	                                        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                                            _iterator5.return();
+	                                        }
+	                                    } finally {
+	                                        if (_didIteratorError5) {
+	                                            throw _iteratorError5;
+	                                        }
+	                                    }
+	                                }
+
+	                                !orResult && (result = false);
+	                            }
+	                        } catch (err) {
+	                            _didIteratorError4 = true;
+	                            _iteratorError4 = err;
+	                        } finally {
+	                            try {
+	                                if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                                    _iterator4.return();
+	                                }
+	                            } finally {
+	                                if (_didIteratorError4) {
+	                                    throw _iteratorError4;
+	                                }
+	                            }
+	                        }
+
+	                        if (result) {
+	                            arrFilterData.push(row);
+	                        }
+	                    }
+	                } catch (err) {
+	                    _didIteratorError3 = true;
+	                    _iteratorError3 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                            _iterator3.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError3) {
+	                            throw _iteratorError3;
+	                        }
+	                    }
+	                }
+
+	                return _utils.Utils.clone(arrFilterData);
+	            }
+	            // else if (this.pagination.pageType === 'server') {
+	            //     // 服务器端分页的content都是当前页的数据
+	            //     this.setState({
+	            //         currentPage: 1,
+	            //         currPageData: Utils.clone(this.state.content),
+	            //         count: this.state.allCount,
+	            //         filter: false
+	            //     });
+	            // }
+	            // else {
+	            //     // 前端分页, content是返回的所有数据，当前页的数据需要截取
+	            //     let curData = this.state.content.slice(0, this.pagination.pageSize);
+	            //     this.setState({
+	            //         currentPage: 1,
+	            //         currPageData: Utils.clone(curData),
+	            //         count: this.state.allCount,
+	            //         filter: false
+	            //     });
+	            // }
+
+	            // 清除已勾选内容
+	            // this.clearSelect();
+
+	        }
+	        // 从一个对象中获取需要用于过滤的关键字
+
+	    }, {
+	        key: 'getKeyDataOfObject',
+	        value: function getKeyDataOfObject(obj) {
+	            var val = '';
+	            // 如果传入的是一个数组，则递归的遍历这个数组，拿出数组中各个对象的关键字
+	            if (obj instanceof Array) {
+	                var tArr = [];
+	                var _iteratorNormalCompletion6 = true;
+	                var _didIteratorError6 = false;
+	                var _iteratorError6 = undefined;
+
+	                try {
+	                    for (var _iterator6 = obj[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                        var t = _step6.value;
+
+	                        tArr.push(this.getKeyDataOfObject(t));
+	                    }
+	                } catch (err) {
+	                    _didIteratorError6 = true;
+	                    _iteratorError6 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion6 && _iterator6.return) {
+	                            _iterator6.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError6) {
+	                            throw _iteratorError6;
+	                        }
+	                    }
+	                }
+
+	                val = tArr.join('\n');
+	            } else if (obj instanceof Object) {
+	                // 如果字段是个对象，则优先获取Title字段，否则获取该对象的第一个字段
+	                if (obj.hasOwnProperty('title')) {
+	                    val = obj['title'];
+	                } else {
+	                    for (var _v in obj) {
+	                        val = obj[_v];
+	                        break;
+	                    }
+	                }
+	            } else if (obj) {
+	                val = obj.toString ? obj.toString() : obj;
+	            }
+	            return val;
+	        }
+	        // 若有html，则剥掉标签
+
+	    }, {
+	        key: 'handleString',
+	        value: function handleString(string) {
+	            var pattern1 = /<(\w+).*?>(.*?)<\/\1>/g; // 匹配是否有闭合标签
+	            if (pattern1.test(string)) {
+	                return string.replace(/<([\/]?\w+).*?>/g, ''); // 剥掉所有标签
+	            } else {
+	                return string;
+	            }
+	        }
+	        // 单列数据搜索
+
+	    }, {
+	        key: 'filterChange',
+	        value: function filterChange(filterProperty, e) {
+	            // this.filterConditions用于记录多个列的同时筛选条件
+	            var searchText = e.target.value;
+	            if (!!searchText && searchText.length > 0) {
+	                this.filterConditions[filterProperty] = searchText;
+	            } else {
+	                delete this.filterConditions[filterProperty];
+	            }
+	            this.forceUpdate();
+	        }
+	    }, {
+	        key: 'filterInputSearch',
+	        value: function filterInputSearch(filteredData) {
+	            var _this8 = this;
+
+	            var data = [];
+	            var needFilterData = !!filteredData ? filteredData : this.state.completeData;
+	            // 如果传入filteredData,则在filteredData基础上筛选
+	            // 如果没有传入如果传入filteredData，则在全量数据上进行筛选
+	            data = needFilterData.filter(function (record) {
+	                var flag = true;
+	                for (var cdit in _this8.filterConditions) {
+	                    if (record[cdit].toString().indexOf(_this8.filterConditions[cdit]) === -1) {
+	                        flag = false;
+	                        break;
+	                    }
+	                }
+	                return flag;
+	            });
+	            return data;
+	        }
+	        // 从全量数据中提取某列的所有可能的值
+
+	    }, {
+	        key: 'getAllFilterValue',
+	        value: function getAllFilterValue(dataIndex) {
+	            var obj = {};
+	            var result = [];
+	            var data = this.state.completeData;
+	            for (var i = 0; i < data.length; i++) {
+	                // 用obj存储所有可能的字段
+	                if (data[i][dataIndex] && !obj[data[i][dataIndex]]) {
+	                    obj[data[i][dataIndex]] = 1;
+	                }
+	            }
+	            // 将obj转换为数组
+	            for (var key in obj) {
+	                result.push({ text: key, value: key });
+	            }
+	            return result;
+	        }
+	    }, {
+	        key: 'syntaxHighlight',
+	        value: function syntaxHighlight(json) {
+	            if (typeof json !== 'string') {
+	                json = JSON.stringify(json, undefined, 2);
+	            }
+	            var self = this;
+	            json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+	            var reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+	            return json.replace(reg, function (match) {
+	                var cls = 'number';
+	                if (/^"/.test(match)) {
+	                    if (/:$/.test(match)) {
+	                        cls = 'key';
+	                    } else {
+	                        try {
+	                            var type = JSON.parse(match);
+	                            if (_typeof(JSON.parse(type)) === 'object') {
+	                                return self.syntaxHighlight(JSON.parse(type));
+	                            } else {
+	                                cls = 'string';
+	                            }
+	                        } catch (e) {
+	                            cls = 'string';
+	                        }
+	                    }
+	                } else if (/true|false/.test(match)) {
+	                    cls = 'boolean';
+	                } else if (/null/.test(match)) {
+	                    cls = 'null';
+	                }
+	                return '<span class="' + cls + '">' + match + '</span>';
+	            });
+	        }
+	    }, {
+	        key: 'createMarkup',
+	        value: function createMarkup(htmlString) {
+	            return {
+	                __html: htmlString
+	            };
+	        }
+	    }, {
+	        key: 'renderColumns',
+	        value: function renderColumns() {
+	            var _this9 = this;
+
+	            // 列功能相关
+	            var antdColumnConfig = [];
+
+	            var _loop4 = function _loop4(item) {
+	                if (!_this9.state.showAllTags && _this9.columns[item].display === false) {
+	                    // 在展示部分字段下过滤掉不展示的列数据
+	                    return 'continue';
+	                }
+	                var defaultColumn = {
+	                    title: '',
+	                    key: '',
+	                    dataIndex: '',
+	                    // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
+	                    render: null,
+	                    sorter: false,
+	                    colSpan: null,
+	                    width: '',
+	                    className: '',
+	                    fixed: false,
+	                    sortOrder: false,
+	                    onCellClick: null
+	                };
+
+	                getNeedObject(defaultColumn, _this9.columns[item]);
+	                // 用户配置的render是一个uf组建配置，在此转为dom
+	                if (!!_this9.columns[item].render) {
+	                    defaultColumn.render = function (text, record, index) {
+	                        return _tools2.default.init(_this9.columns[item].render(text, record, index));
+	                    };
+	                }
+	                // 将用户配置的单列筛选选项转换成antd的配置
+	                if (!!_this9.columns[item].filterConfig) {
+	                    var filterConfig = _this9.columns[item].filterConfig;
+	                    if (!filterConfig.filterType) {
+	                        // 若没有配置filterType则直接返回
+	                        return {
+	                            v: void 0
+	                        };
+	                    }
+	                    var dataIndex = _this9.columns[item].dataIndex;
+	                    if (filterConfig.filterType === 'checkBox' || filterConfig.filterType === 'radio') {
+	                        // 多选框或单选框筛选
+	                        var filterObj = {
+	                            filters: null,
+	                            filterMultiple: false,
+	                            onFilter: null
+	                        };
+	                        if (!!filterConfig.filters) {
+	                            // 用户配置了filters,则将用户配置进行转换
+	                            filterObj.filters = filterConfig.filters.map(function (o) {
+	                                return { text: o, value: o };
+	                            });
+	                        } else {
+	                            // 用户没有配置filters，则将该字段的所有可能值展示出来
+	                            filterObj.filters = _this9.getAllFilterValue(dataIndex);
+	                        }
+	                        filterObj.filterMultiple = filterConfig.filterType === 'checkBox' ? true : false;
+	                        filterObj.onFilter = function (value, record) {
+	                            return record[_this9.columns[item].dataIndex].indexOf(value) !== -1;
+	                        };
+	                        defaultColumn = Object.assign({}, defaultColumn, filterObj);
+	                    } else if (filterConfig.filterType === 'input') {
+	                        // 通过输入筛选
+	                        var _filterObj = {
+	                            filterDropdown: null,
+	                            filterIcon: _react2.default.createElement(_antd.Icon, { type: 'filter',
+	                                style: { color: !!_this9.filterConditions[dataIndex] ? '#108ee9' : '#aaa' } })
+	                        };
+	                        _filterObj.filterDropdown = _react2.default.createElement(
+	                            'div',
+	                            { className: 'custom-filter-dropdown' },
+	                            _react2.default.createElement(_antd2.Input, { placeholder: 'Search',
+	                                ref: function ref(ele) {
+	                                    return _this9['search-' + dataIndex] = ele;
+	                                },
+	                                value: !!_this9.filterConditions[dataIndex] ? _this9.filterConditions[dataIndex] : '',
+	                                onChange: _this9.filterChange.bind(_this9, dataIndex),
+	                                onPressEnter: _this9.onFilterData.bind(_this9)
+	                            })
+	                        );
+	                        defaultColumn = Object.assign({}, defaultColumn, _filterObj);
+	                    }
+	                }
+	                // 文字过长，鼠标移入时进行气泡展示
+	                if (!!_this9.columns[item].ellipsis) {
+	                    defaultColumn.render = function (text, record, index) {
+	                        var newText = _this9.columns[item].render ? _tools2.default.init(_this9.columns[item].render(text, record, index)) : text;
+	                        return _react2.default.createElement(
+	                            _antd.Popover,
+	                            { content: newText },
+	                            _react2.default.createElement(
+	                                'span',
+	                                { className: 'uf-table-td-ellipsis' },
+	                                newText
+	                            )
+	                        );
+	                    };
+	                }
+	                // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
+	                if (_this9.columns[item]['textType']) {
+	                    // let elliClass = v['ellipsis'] ? ' ellipsis' : '';
+	                    // style.className += elliClass;
+	                    defaultColumn.render = function (text, record, index) {
+	                        var newText = text;
+	                        switch (_this9.columns[item].textType) {
+	                            case 'duration':
+	                                var timeDiff = (+new Date() - +new Date(Date.parse(text.replace(/-/g, '/')))) / 1000;
+	                                var dayTime = Math.floor(timeDiff / (24 * 3600));
+	                                var hourTime = Math.floor(timeDiff % (24 * 3600) / 3600);
+	                                var minuteTime = Math.floor(timeDiff % (24 * 3600) % 3600 / 60);
+	                                var secTime = Math.floor(timeDiff % (24 * 3600) % 3600 % 60);
+	                                var timeArr = [];
+
+	                                dayTime > 0 && timeArr.push(dayTime + '天');
+	                                hourTime > 0 && timeArr.push(hourTime + '时');
+	                                minuteTime > 0 && timeArr.push(minuteTime + '分');
+
+	                                dayTime === 0 && hourTime === 0 && minuteTime === 0 && secTime > 0 && timeArr.push(secTime + '秒');
+	                                var tdData = timeArr.join('');
+	                                // typeof v === 'object' && v['render'] !== undefined && (tdData = v.render(data[k], data));
+	                                // tdList.push(<td {...style} {...rowspan} key={k} data-key={k}>{tdData}</td>);
+	                                // 若用户配置了render，则将转换之后的数据给用户的render
+	                                newText = _this9.columns[item].render ? _tools2.default.init(_this9.columns[item].render(tdData, record, index)) : tdData;
+	                                return newText;
+	                                break;
+	                            case 'JSON':
+	                                var json = JSON.stringify(text, null, 2);
+	                                var html = _this9.syntaxHighlight(json);
+	                                var content = _this9.createMarkup(html);
+	                                return _react2.default.createElement(
+	                                    _antd.Popover,
+	                                    { content: _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: content }) },
+	                                    _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: content })
+	                                );
+	                                break;
+	                            case 'html':
+	                                return _react2.default.createElement('span', { dangerouslySetInnerHTML: _this9.createMarkup(text) });
+	                                break;
+	                            // 默认将格式进行一下转换然后输出
+	                            default:
+	                                text = _this9.getKeyDataOfObject(text);
+	                                newText = _this9.columns[item].render ? _tools2.default.init(_this9.columns[item].render(text, record, index)) : text;
+	                                return newText;
+	                                break;
+	                        }
+	                    };
+	                }
+	                antdColumnConfig.push(defaultColumn);
+	            };
+
+	            for (var item in this.columns) {
+	                var _ret4 = _loop4(item);
+
+	                switch (_ret4) {
+	                    case 'continue':
+	                        continue;
+
+	                    default:
+	                        if ((typeof _ret4 === 'undefined' ? 'undefined' : _typeof(_ret4)) === "object") return _ret4.v;
+	                }
+	            }
+	            return antdColumnConfig;
+	        }
+	    }, {
+	        key: 'onSelectChange',
+	        value: function onSelectChange(selectedRowKeys, selectedRows) {
+	            console.log('selectedRowKeys changed1111: ', selectedRowKeys);
+	            this.setState({ selectedRowKeys: selectedRowKeys });
+	        }
+	    }, {
+	        key: 'selectALLData',
+	        value: function selectALLData() {
+	            var _this10 = this;
+
+	            var displayData = this.state.data;
+	            var selectedRowKeys = [];
+	            var selectedRows = [];
+	            // 只有选择形式为复选框时才能进行全选
+	            if (this.rowSelection.type === 'checkbox' || !this.rowSelection.type) {
+	                selectedRows = displayData.filter(function (record) {
+	                    if (_this10.rowSelection.disabledRow && _this10.rowSelection.disabledRow(record)) {
+	                        // 当满足不可选条件时，不可以进行选择
+	                        return false;
+	                    } else {
+	                        selectedRowKeys.push(record.key);
+	                        return true;
+	                    }
+	                });
+	                this.setState({ selectedRowKeys: selectedRowKeys });
+	            }
+	        }
+	    }, {
+	        key: 'clearSelect',
+	        value: function clearSelect() {
+	            this.setState({ selectedRowKeys: [] });
+	        }
+	    }, {
+	        key: 'renderRowSelection',
+	        value: function renderRowSelection() {
+	            var _this11 = this;
+
+	            var rowSelection = {
+	                type: 'checkBox'
+	            };
+	            if (!this.rowSelection) {
+	                return rowSelection;
+	            }
+	            getNeedObject(rowSelection, this.rowSelection);
+	            // 对行进行受控选择
+	            rowSelection.selectedRowKeys = this.state.selectedRowKeys;
+	            if (this.rowSelection.disabledRow) {
+	                rowSelection.getCheckboxProps = function (record) {
+	                    return { disabled: _this11.rowSelection.disabledRow(record) };
+	                };
+	            }
+	            // 任何一行的选择与否都会触发改方法
+	            rowSelection.onChange = function (selectedRowKeys, selectedRows) {
+	                _this11.setState({ selectedRowKeys: selectedRowKeys });
+	                if (_this11.rowSelection.onChange) {
+	                    _this11.rowSelection.onChange(selectedRowKeys, selectedRows);
+	                }
+	            };
+	            rowSelection.onSelect = function (record, selected, selectedRows) {
+	                if (_this11.rowSelection.onSelect) {
+	                    _this11.rowSelection.onSelect(record, selected, selectedRows);
+	                }
+	            };
+	            // 全选当前页
+	            rowSelection.onSelectAll = function (selected, selectedRows, changeRows) {
+	                if (_this11.rowSelection.onSelectAll) {
+	                    _this11.rowSelection.onSelectAll(selected, selectedRows, changeRows);
+	                }
+	            };
+	            // 反选当页
+	            rowSelection.onSelectInvert = function (selectedRows) {
+	                if (_this11.rowSelection.onSelectInvert) {
+	                    _this11.rowSelection.onSelectInvert(selectedRows);
+	                }
+	            };
+	            if (this.rowSelection.selections) {
+	                // 在自定义选择项中增加全选功能
+	                rowSelection.selections = [{
+	                    key: 'uf-table-select-all',
+	                    text: '全选',
+	                    onSelect: this.selectALLData.bind(this)
+	                }];
+	                if (_utils.Utils.getType(this.rowSelection.selections) === 'array') {
+	                    rowSelection.selections.push(this.rowSelection.selections);
+	                }
+	            }
+
+	            return rowSelection;
+	        }
+	    }, {
+	        key: 'renderPagination',
+	        value: function renderPagination() {
+	            var _this12 = this;
+
+	            var pagination = {
+	                pageSize: null,
+	                showSizeChanger: false,
+	                pageSizeOptions: null,
+	                showQuickJumper: false,
+	                size: '',
+	                simple: false,
+	                showTotal: null
+	            };
+	            if (this.pagination === false) {
+	                return false;
+	            }
+	            if (!this.pagination) {
+	                return pagination;
+	            }
+	            getNeedObject(pagination, this.pagination);
+
+	            pagination.current = this.state.current;
+	            pagination.total = this.state.total;
+	            pagination.onShowSizeChange = this.onShowSizeChange.bind(this);
+	            pagination.onChange = function (page, pageSize) {
+	                _this12.setState({ current: page });
+	                if (_this12.pagination.pageType === 'server') {
+	                    _this12.getData(page);
+	                }
+	            };
+	            return pagination;
+	        }
+	    }, {
+	        key: 'renderTableTitle',
+	        value: function renderTableTitle() {
+	            var _this13 = this;
+
+	            var title = null;
+	            if (this.titleConfig) {
+	                title = function title() {
+	                    return _this13.titleGenerate();
+	                };
+	            }
+	            return title;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_antd.Table, this.__props);
+	            var renderColumns = this.renderColumns();
+	            var rowSelection = this.renderRowSelection();
+	            var pagination = this.renderPagination();
+	            var renderTableTitle = this.renderTableTitle();
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'uf-table ' + (this.state.fullScreen ? ' umpui-fullscreen' : '') },
+	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, {
+	                    dataSource: !!this.state.data && this.state.data,
+	                    columns: renderColumns,
+	                    rowSelection: rowSelection,
+	                    pagination: pagination,
+	                    title: renderTableTitle,
+	                    loading: this.state.loading })),
+	                this.state.showSetTagsModal && _react2.default.createElement(
+	                    _antd.Modal,
+	                    { title: '\u5C55\u793A\u5B57\u6BB5', visible: this.state.showSetTagsModal,
+	                        onOk: this.setTableColumns.bind(this),
+	                        onCancel: this.cancleSetTableColumns.bind(this) },
+	                    this.generateColumnsCheckboxGroup()
+	                )
+	            );
 	        }
 	    }]);
 
@@ -10495,7 +12056,7 @@
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _requirejs = __webpack_require__(81);
+	var _requirejs = __webpack_require__(82);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -10668,9 +12229,14 @@
 	                    // TODO: render执行两次的情况下，会进入两次这里，而第一次生成的组件没有渲染到页面上就销毁了，这里再使用setState会报错
 	                    _this2.setState({ config: foo });
 	                });
+	                var showLoading = _config2.default.get('modules')['showLoading'];
+	                if (_utils.Utils.typeof(showLoading, 'array')) {
+	                    // config 此时为模块名称
+	                    showLoading = showLoading.indexOf(config) !== -1;
+	                }
 	                config = {
 	                    type: 'loading',
-	                    loading: _config2.default.get('modules')['showLoading']
+	                    loading: !!showLoading
 	                };
 	            }
 	            return config;
@@ -10818,7 +12384,6 @@
 	        // 如果有name的话，把组件放到缓存池里
 	        if (item.name) {
 	            props['__cache'] = item.name;
-	            props['__ref'] = item.name;
 	        }
 	        // 基于BaseComponent的组件内部要用到组件的类型，存在__type属性里
 	        if (_utils.Utils.isExtendsOf(Item, 'BaseComponent')) {
@@ -11661,7 +13226,7 @@
 
 	var _utils = __webpack_require__(11);
 
-	var _default = __webpack_require__(82);
+	var _default = __webpack_require__(81);
 
 	var _default2 = _interopRequireDefault(_default);
 
@@ -11682,10 +13247,13 @@
 	    // 模块引入相关配置
 	    modules: {
 	        // 加载模块时是否展示loading
-	        showLoading: true
+	        showLoading: false
 	    },
 	    // 全局系统配置
-	    global: {},
+	    global: {
+	        // 设置文档域 document.domain，默认为原始值
+	        domain: document.domain
+	    },
 	    // 用于存放一些公用数据或静态数据（供select等组件直接调用）
 	    data: {},
 	    // 组件默认配置
@@ -11709,6 +13277,45 @@
 
 /***/ }),
 /* 81 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	/**
+	 * @file 组件默认参数定义
+	 * @author liuzechun
+	 * Created Date: 2017-10-12 03:23:12
+	 *
+	 * Last Modified: 2017-10-12 03:23:16
+	 * Modified By: liuzechun
+	 */
+
+	exports.default = {
+	    // 路由
+	    router: {
+	        history: 'hashHistory'
+	    },
+	    // Loading
+	    loading: {
+	        delay: 150
+	    },
+	    // Iframe
+	    iframe: {
+	        mode: 'auto',
+	        delay: 0,
+	        showLoading: true
+	    },
+	    // 面包屑
+	    breadcrumb: {
+	        style: { margin: '12px 24px' }
+	    }
+	};
+
+/***/ }),
+/* 82 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -13867,35 +15474,6 @@
 	window['define'] = window['define'] || define;
 
 	exports.default = requirejs;
-
-/***/ }),
-/* 82 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	/**
-	 * @file 组件默认参数定义
-	 * @author liuzechun
-	 * Created Date: 2017-10-12 03:23:12
-	 *
-	 * Last Modified: 2017-10-12 03:23:16
-	 * Modified By: liuzechun
-	 */
-
-	exports.default = {
-	    loading: {
-	        delay: 150
-	    },
-	    iframe: {
-	        mode: 'auto',
-	        delay: 0,
-	        showLoading: true
-	    }
-	};
 
 /***/ })
 /******/ ]);

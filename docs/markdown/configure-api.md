@@ -93,6 +93,18 @@ error:
 }
 ```
 
+## # UF.config()
+
+全局配置。具体用法见 [全局配置](#/Develop/Config)
+
+
+## # UF.load()
+
+载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。
+
+> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。
+
+
 ## # UF.message()
 
 用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)

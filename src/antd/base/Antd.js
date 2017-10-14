@@ -14,12 +14,28 @@ import {BaseComponent} from 'uf/component';
 export default class Antd extends BaseComponent {
     constructor(props) {
         super(props);
+        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
+        this._class = null;
+        // 壳子调用antd组件，调用的组件的实例存储在_component中
+        this._component = null;
         // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
         this.__controlled = null;
     }
 
-    __init() {
-        super.__init.call(this);
+    // 触发组件上的原生事件，例如 focus、change 等
+    trigger(event, ...params) {
+        console.log(this._component);
+        if (this._component[event]) {
+            this._component[event](params);
+        } else {
+            console.warn(`there is no event named: ${event}`);
+        }
+    }
+
+    __init(...params) {
+        super.__init.call(this, ...params);
+        // 保存原始antd组件的引用
+        this.__props['ref'] = (ele) => this._component = ele;
         // 受控配置 - 如果不为null,则合并覆盖
         this.__controlled = this.__controlled
             ? this.__mergeProps({
@@ -32,6 +48,11 @@ export default class Antd extends BaseComponent {
         // 受控组件默认处理逻辑
         this._handleControlled();
     }
+
+    // 组件渲染完成后，执行逻辑
+    // _componentDidMount(...params) {
+    //     super._componentDidMount && super._componentDidMount.call(this, ...params);
+    // }
 
     // 受控属性绑定change事件，同时也受控于用户传入的值
     _handleControlled() {

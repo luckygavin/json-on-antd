@@ -8,12 +8,22 @@
  */
 
 export default {
+    // 路由
+    router: {
+        history: 'hashHistory'
+    },
+    // Loading
     loading: {
         delay: 150
     },
+    // Iframe
     iframe: {
         mode: 'auto',
         delay: 0,
         showLoading: true
+    },
+    // 面包屑
+    breadcrumb: {
+        style: {margin: '12px 24px'}
     }
 };

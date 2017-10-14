@@ -18,13 +18,23 @@ const Step1 = {
     },
     items: [
         [
-            {
+            /* {
                 type: 'input',
                 label: '专线SN',
                 name: 'line_sn',
                 rules: [{required: true, message: '主线SN不能为空'}],
                 cfg: {
                     placeholder: 'sn20134567'
+                }
+            }, */
+            {
+                type: 'date-picker',
+                label: '专线SN',
+                name: 'line_sn',
+                // rules: [{required: true, message: '主线SN不能为空'}],
+                cfg: {
+                    // placeholder: 'sn20134567'
+                    format: ''
                 }
             },
             {

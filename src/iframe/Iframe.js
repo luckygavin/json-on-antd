@@ -14,9 +14,6 @@ import {Utils} from 'uf/utils';
 
 import './style.scss';
 
-// 解决跨域问题
-document.domain = 'baidu.com';
-
 export default class Iframe extends BaseComponent {
     constructor(props) {
         super(props);
@@ -42,12 +39,11 @@ export default class Iframe extends BaseComponent {
         return parent.offsetHeight  + 'px';
     }
     render() {
-        console.log(this.__props.showLoading);
         return (
             <div className="uf-iframe" ref={ele=>this.root = ele}
                 data-src={(new URL(this.__props.src, window.location.href)).href}>
                 <Spin spinning={this.state.loading && this.__props.showLoading}>
-                    <iframe {...Utils.filter(this.__props, 'showLoading')}
+                    <iframe {...Utils.filter(this.__props, ['showLoading', 'delay'])}
                         ref={ele=>this.ifr = ele}
                         onLoad={even => {
                             try {

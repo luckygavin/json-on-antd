@@ -533,9 +533,7 @@ export default class NewTable extends BaseComponent {
         // 而此函数触发时还未渲染完毕，输入框无法获得焦点，输入框手动获取焦点会引起menu下拉列表关闭
         setTimeout(() => {
             let obj = this['uf-table-pagesize-setting-' + from];
-            if (obj) {
-                obj.focus();
-            }
+            obj && obj.trigger('focus');
         }, 10);
     }
     showTableMenu() {

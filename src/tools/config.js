@@ -16,10 +16,13 @@ Cache.set('_uf-config', {
     // 模块引入相关配置
     modules: {
         // 加载模块时是否展示loading
-        showLoading: true
+        showLoading: false
     },
     // 全局系统配置
-    global: {},
+    global: {
+        // 设置文档域 document.domain，默认为原始值
+        domain: document.domain
+    },
     // 用于存放一些公用数据或静态数据（供select等组件直接调用）
     data: {},
     // 组件默认配置

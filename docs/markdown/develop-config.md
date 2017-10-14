@@ -9,7 +9,7 @@
 
 ## 具体用法
 
-一般在页面初始化之前调用`UF.config({modules, components, global})`做一些全局的配置。其参数为一个对象，其中常用的参数有`modules`、`components`、`global`
+一般在页面初始化之前调用`UF.config({modules, components, global, data})`做一些全局的配置。其参数为一个对象，其中常用的参数有`modules`、`components`、`global`、`data`
 
 
 ### # modules
@@ -36,7 +36,9 @@ UF.config({
 baseUrl | 用于所有模块查找的根路径 | string |  | 
 paths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | 
 waitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | 
-urlArgs | 模块加载时的后缀 | string &#124; function |  | 
+urlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存 | string &#124; function |  | 
+showLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | 
+
 
 其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)
 
@@ -71,7 +73,13 @@ UF.config({
 
 其他一些全局配置。
 
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | ----
+domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
 
 
+### # data
+
+用于存放一些公用数据或静态数据（供select等组件直接调用）。
 
 

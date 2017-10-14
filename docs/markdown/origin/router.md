@@ -11,6 +11,8 @@
 参数     | 说明           | 类型             | 默认值   |是否必须
 --------|----------------|------------------|--------|-----
 routes  | 路由的及组件的映射关系对象列表，可以为数组，也可以为单个route对象。详见`route` | `route`&#124;`route`[] | 无    | 必须
+history  | 定义浏览器上的路由展现形式，分为两种：`hashHistory` - 默认形式，路由为`#`后面的值，使用起来较方便； `browserHistory` - 高级用法，会去掉`#`，展现形式像是真正的url，需要服务端配合使用，可参考 [这里](http://react-china.org/t/react-router-hashhistory-browserhistory/6799) | string | `'hashHistory'` |
+
 
 #### *route*
 

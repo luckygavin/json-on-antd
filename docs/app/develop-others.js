@@ -1,5 +1,5 @@
 /**
- * @file 配置化页面说明
+ * @file 其他说明
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';

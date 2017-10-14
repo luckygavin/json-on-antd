@@ -13,6 +13,7 @@ module.exports = {
     'develop-config.md': require('./develop-config.md'),
     'develop-modules.md': require('./develop-modules.md'),
     'develop-others.md': require('./develop-others.md'),
+    'develop-build.md': require('./develop-build.md'),
 
     'update-log.md': require('./update-log.md'),
 

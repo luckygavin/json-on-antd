@@ -36,7 +36,7 @@ function request (config) {
     let onchange = config.onchange || (()=>{return});
 
     onchange(true, 'sending');
-    reqwest(Object.assign({}, config, {
+    reqwest(Object.assign({type: 'json'}, config, {
         success: res=>{
             // 兼容 message/msg、status/code
             res.status = res.status || res.code || 0;

@@ -36,7 +36,6 @@ export default {
         // 如果有name的话，把组件放到缓存池里
         if (item.name) {
             props['__cache'] = item.name;
-            props['__ref'] = item.name;
         }
         // 基于BaseComponent的组件内部要用到组件的类型，存在__type属性里
         if (Utils.isExtendsOf(Item, 'BaseComponent')) {

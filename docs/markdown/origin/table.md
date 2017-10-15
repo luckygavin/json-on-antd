@@ -114,7 +114,7 @@
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|
 | title | 表格标题 | string | -  |
-| basicControls | 基础控件，直接展示在表格表头上方。例：`basic: [filter,export]`，`所有可选值见下面表格`,也可以是自定义控件 | array | -  |
+| basicControls | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选值见下面表格，也可以是`自定义控件` | array | -  |
 | menuControls | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里 | array | -   |
 | showText | 是否显示控件图标后面的说明文字 | Boolean | true  |
 | globalFilter | 过滤控件过滤字段的黑名单或白名单，默认遍历所有字段。可选值：`blacklist` `whitelist`，blacklist 和 whitelist 的值为数组。例如：`blacklist: ['id','type'] ` | Object | -   |
@@ -131,7 +131,9 @@
 | showAllTags |  展示全部列功能 | 只能用于basic中 | . |
 
 
-#### 自定义控件为一个对象，包含以下几部分
+
+##### 自定义控件
+为一个对象，包含以下几部分：  
 | 参数 | 说明 | 类型 | 是否必填 |
 | ---- | ---- | ----- | ----- | ----- |
 | name | 按钮名称 | String | 是 |

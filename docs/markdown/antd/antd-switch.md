@@ -12,8 +12,7 @@
 
 | 参数      | 说明                                     | 类型        |默认值 |
 |-----------|------------------------------------------|------------|--------|
-| checked | 指定当前是否选中 | boolean    | false    |
-| defaultChecked | 初始是否选中 | boolean  | false |
+| checked | 指定当前是否选中 [*默认异步属性*] | boolean    | false    |
 | onChange | 变化时回调函数 | Function(checked:Boolean) |   |
 | checkedChildren | 选中时的内容 | string&#124;`config` |   |
 | unCheckedChildren | 非选中时的内容 | string&#124;`config` |  |

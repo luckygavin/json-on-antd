@@ -19,7 +19,9 @@
                         Page1: 'router-page.1',
                         Page2: 'router-page.2'
                     },
-                    showLoading: ['Page2']
+                    showLoading: ['Page2'],
+                    // 可以防止缓存
+                    urlArgs: 'suffix=' + Date.now()
                 },
                 components: {
                     loading: {

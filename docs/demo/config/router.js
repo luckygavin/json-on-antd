@@ -14,7 +14,7 @@ define(function(require) {
                     {path: 'card', breadcrumbName: '卡片', component: Page1.Card1},
                     {path: 'card2', breadcrumbName: '卡片2', component: Page1.Card2,
                         childRoutes: [
-                            {path: 'card3', breadcrumbName: '卡片3', component: 'Page2'}
+                            {path: 'card3(/:title)', breadcrumbName: '卡片3', component: 'Page2'}
                             // {path: 'card3', breadcrumbName: '卡片3', component: Page1.Card3}
                         ]
                     }

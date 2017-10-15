@@ -36,7 +36,7 @@ UF.config({
 baseUrl | 用于所有模块查找的根路径 | string |  | 
 paths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | 
 waitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | 
-urlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存 | string &#124; function |  | 
+urlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | 
 showLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | 
 
 
@@ -76,6 +76,22 @@ UF.config({
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
 domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
+ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：`ajax` | object |  | 
+
+#### *ajax*
+
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | ----
+method | 默认数据请求方式 | string | `GET` | 
+headers | 设置http请求的headers | object | {} | 
+data | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
+type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
+contentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |
+crossOrigin | 设置`cross-origin`请求 | boolean | | 
+success | 请求成功时的回调函数 | function | 默认处理逻辑，见 [组件交互](#/Usage/Api) 的 `UF.ajax` 部分 | 
+error | 请求失败时的回调函数 | function | | 
+complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
+jsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | 
 
 
 ### # data

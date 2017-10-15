@@ -21,7 +21,10 @@ Cache.set('_uf-config', {
     // 全局系统配置
     global: {
         // 设置文档域 document.domain，默认为原始值
-        domain: document.domain
+        domain: document.domain,
+        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
+        ajax: {
+        }
     },
     // 用于存放一些公用数据或静态数据（供select等组件直接调用）
     data: {},

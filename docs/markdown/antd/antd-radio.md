@@ -19,5 +19,5 @@ Radio要为一组数据。
 | defaultValue   | 默认选中的值                     | any            | 无     | 无     |
 | showAsButton   | 以一组按钮展示单选组合           | boolean            |  | 无 |
 | size           | 大小，只对按钮样式生效           | string            | `large` `default` `small` | `default` |
-| options        | 以配置形式设置子元素             | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}>            | 无     | 无     |
+| options        | 以配置形式设置子元素 [*默认异步属性*]   | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}>            | 无     | 无     |
 

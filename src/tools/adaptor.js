@@ -23,6 +23,10 @@ export default {
                 props.type = props.mode;
             }
         }
+        // 非 BaseComponent 组件 _root 属性无效
+        if (!Utils.isExtendsOf(Item, 'BaseComponent')) {
+            delete props._root;
+        }
 
         // 把 class、style 转换为 react 需要的 className、style对象
         if (props.class) {

@@ -1,13 +1,6 @@
 <?php
-$json = json_decode(file_get_contents('./package.json'));
-// 默认和 package.json 的 版本相同
-if ($_GET['v']) {
-    $v = $_GET['v'];
-    $version = $_GET['v'];
-} else {
-    $v = $json->version;
-    $version = implode('.', array_slice(explode('.', $v), 0, 2));
-}
+include 'env.php';
+
 // $suffix = '.min';
 $suffix = '';
 ?>
@@ -18,23 +11,26 @@ $suffix = '';
         <meta name="viewporti" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable">
         <meta charset = "utf-8">
         <link rel="icon" href="public/img/logo.svg" type="image/x-icon" rel="bookmark" />
-        <link rel="stylesheet" href="dist/css/theme.css?v=<?php echo $v;?>" />
-        <link rel="stylesheet" href="public/css/doc_v<?php echo $version . '.min.css?v=' . $v; ?>" />
-
         <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
         <link rel="stylesheet" href="public/css/markdown.css" />
         <link rel="stylesheet" href="public/highlight/prism.css" />
- 
+
+        <?php if (ENV == 'dev') { ?>
+            <link rel="stylesheet" href="dist/css/theme.min.css?v=<?php echo $_V;?>" />
+            <script src="dist/js/dll.js?v=<?php echo $_V;?>"></script>
+            <script src="dist/js/antd.js?v=<?php echo $_V;?>"></script>
+        <?php } else { ?>
+            <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css?v=<?php echo $_V;?>" />
+            <script src="http://uf.baidu.com/dist/dll.min.js?v=<?php echo $_V;?>"></script>
+            <script src="http://uf.baidu.com/dist/antd.min.js?v=<?php echo $_V;?>"></script>
+        <?php }?>
+
+        <link rel="stylesheet" href="public/css/doc_v<?php echo $_VERSION . '.min.css?v=' . $_V; ?>" />
         <script src="public/highlight/prism.js" data-manual></script>
     </head>
     <body>
         <div id="container"></div>
-        <script src="dist/js/dll.js?v=<?php echo $v;?>"></script> 
-        <script src="dist/js/antd.js?v=<?php echo $v;?>"></script>   
-        <!-- <script src="dist/js/antd.min.js"></script>   -->
-
-        <script src="public/js/doc_v<?php echo $version . $suffix . '.js?v=' . $v; ?>"></script>    
-
+        <script src="public/js/doc_v<?php echo $_VERSION . $suffix . '.js?v=' . $_V; ?>"></script>    
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         <script type="text/javascript">
             // makdown代码收/放

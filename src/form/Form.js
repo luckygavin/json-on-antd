@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
+import {Utils} from 'uf/utils';
 import moment from 'moment';
 import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
 import {Input, Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
@@ -188,10 +188,9 @@ class OriginForm extends BaseComponent {
     // 获取异步数据
     getData(item) {
         let url = item.cfg.source;
-        let ajax = Ajax(url, 'get');
-        ajax(null, data=>{
-            if (item.cfg.sourceDataHandle) {
-                data = item.cfg.sourceDataHandle(data);
+        this.__getData(url, null, data=>{
+            if (item.cfg.sourceHandler) {
+                data = item.cfg.sourceHandler(data);
             }
             item.cfg.options = data;
             delete item.cfg.source;

@@ -1,8 +1,8 @@
 其他一些使用上的细节说明。
 
-## 几个 "通用属性" 的说明
+## 几个 "通用参数" 的说明
 
-#### # type 属性
+#### # type 
 `string`
 
 每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名
@@ -11,14 +11,14 @@
 
 > 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性
 
-#### # content 属性
+#### # content 
 `config`
 
 子组件配置。
 
 会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）
 
-#### # asyncContent 属性
+#### # asyncContent 
 `string`: url
 
 子组件为异步模块。
@@ -27,14 +27,14 @@
 
 > 如果有 asyncContent 属性，则 content 无效，最终展示结果按请求返回的配置展示。
 
-#### # name 属性
+#### # name 
 `string`
 
 每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。
 
 > 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到
 
-#### # style 属性
+#### # style 
 `object` | `string`
 
 因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法
@@ -50,7 +50,7 @@ style: {
 style: 'margin-top: 16px; font-size: 12px;'
 ```
 
-#### # className/class 属性
+#### # className/class 
 `string`
 
 和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名
@@ -68,10 +68,47 @@ style: 'margin-top: 16px; font-size: 12px;'
 }
 ```
 
-
-#### # childrenHolder 属性
+#### # childrenHolder 
 
 配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法
+
+
+#### # source 系列参数
+
+开发时难免会有一些数据是需要异步获取再展示的，框架提供了一套自动获取数据并处理的机制。
+
+* **`source`** - 异步获取数据的接口
+* **`sourceHandler`** - 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性）  
+函数的参数`sourceHandler(data, res)`，其中`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Usage/Api)）。函数最终返回格式化后的数据。
+* **`sourceTarget`** - 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）  
+一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）
+* **`sourceMethod`** - `post`、`get`方式
+* **`sourceParams`** - 请求数据时附带的的参数对象
+
+
+下面为一个使用场景较复杂的`下拉框`实现。
+
+首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：
+
+```javascript
+{
+    type: 'select',
+    source: '/uf/docs/php/data.php',
+    sourceParams: {},
+    // sourceTarget: 'options', // 默认值
+    sourceHandler(data, res, self) {
+        return data.map(v=>{
+            return {value: v.name, label: v.name};
+        });
+    },
+    beforeRender(props, self) {
+        props.sourceParams = {id: self._root.params.id};
+        return props;
+    }
+}
+```
+
+组件渲染之前会先执行`beforeRender`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 sourceParams 属性，配置中的 sourceParams 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`sourceHandle`对返回的数据进行处理，最后数据会填充到`sourceTarget`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
 
 
 ## html 组件
@@ -92,6 +129,7 @@ style: 'margin-top: 16px; font-size: 12px;'
 
 * `beforeRender`: 组件渲染之前执行
 * `afterRender`: 组件渲染后
+* `beforeUpdate`: 组件刷新之前执行
 * `afterUpdate`: 组件刷新后执行
 * `beforeDestroy`: 组件销毁前执行
 
@@ -112,4 +150,42 @@ style: 'margin-top: 16px; font-size: 12px;'
     }
 }
 ```
+
+两个`before`函数是在组件渲染/刷新之前执行，所以可以用于对参数进行修改
+* beforeRender(params)
+* beforeUpdate(params)
+
+`params`为组件现有参数（包含配置的和默认的参数）。可以根据需要变更参数然后把新的`return`。
+
+例如，可以在组件渲染前，把组件的 title 改为路由传入的值。
+
+```javascript
+{
+    type: 'card',
+    name: 'my-card',
+    title: '标题可以跟着路由变化：/card2/card3/标题',
+    loading: true,
+    beforeRender(params, self) {
+        params.title = self._root.params.title || params.title;
+        return params;
+    }
+}
+```
+
+> 注意：`beforeUpdate`触发次数较多，注意不要造成性能问题
+
+
+## 关于配置中的回调函数
+
+为了方便使用，配置中的回调函数的参数中，全部在最后追加了一个参数，为组件自身，可以在回调函数中用来调用组件自身的`set`、`get`函数等，无需再写获取当前组件的逻辑。
+
+例如上面`beforeRender`的示例代码，`self`和`UF('my-card')`等价。
+
+> tips： 有些组件的参数较多，可以先使用`console.log`打印出来确认，再使用
+
+## 关于组件中获取 路由信息 等数据
+
+每个组件都有`_root`属性，可以通过此属性获取当前模块的参数信息，包含有路由，路由上的参数等。见：[组件交互](#/Usage/Api)。
+
+
 

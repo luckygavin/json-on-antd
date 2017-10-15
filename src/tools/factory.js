@@ -39,13 +39,15 @@ export default class Factory extends PureComponent {
 
         // 某些特殊种类的组件对参数进行特殊处理
         // 这块逻辑之所以没写到相应组件类里，是因为某些参数需要在实例之间就要处理
-        item = Special.if(item, this.props);
+        item = Special.if(item);
 
         // 从loader中获取到相应的组件
         let Item = Loader.get(item.type);
         if (!Item) {
             return;
         }
+        // 把 Factory 的 props 传给每个组件
+        item._root = this.props;
         // 通过适配器把参数转换成标准格式，剔除掉一些无用属性等
         let props = Adaptor.get(item);
         // 判断其他需要额外进一步解析的属性并进行解析

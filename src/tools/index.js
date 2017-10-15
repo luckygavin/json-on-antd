@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import uf from 'uf';
-import {ajax} from 'uf/utils/ajax.js';
-import {Cache, Ajax, Utils} from 'uf/utils';
+import {Cache, Utils, Ajax} from 'uf/utils';
 import Factory from './factory.js';
 import Loader from './loader.js';
 import Config from './config.js';
@@ -33,10 +32,8 @@ const func = {
     get(name) {
         return Cache.get('cache-' + name);
     },
-    // ajax请求
-    ajax(obj) {
-        ajax(obj);
-    },
+    // ajax请求。包含 ajax(), ajax.get(), ajax.post()
+    ajax: Ajax,
     // 载入自定义组件
     load(components) {
         Loader.add(components);

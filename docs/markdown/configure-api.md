@@ -70,7 +70,7 @@ Ajax 获取数据。params 参数如下：
     onchange: function(){}
 }
 ```
-`data`: 需要发送的参数对象
+`data`: 需要发送的参数对象  
 `success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
 `error`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理
 >  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
@@ -78,6 +78,9 @@ Ajax 获取数据。params 参数如下：
 `onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
 >  开始执行请求时执行 onchange 参数为 (true, 'sending')  
 >  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
+
+更多参数可见 [全局配置](#/Develop/Config) 的 *`ajax`* 部分
+
 
 *接口返回值为：*
 ```json
@@ -92,6 +95,14 @@ error:
     msg: 'error'
 }
 ```
+*快捷用法：*
+
+#### UF.ajax.get(url, params, success, error, onchange)
+以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。
+
+#### UF.ajax.post(url, params, success, error, onchange)
+以 POST 方式发送数据。
+
 
 ## # UF.config()
 
@@ -118,6 +129,12 @@ error:
 ** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **  
 
 ---
+
+## # component._root
+
+每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。
+
+，包含有路由，路由上的参数等。
 
 ## # component.get()  
 
@@ -158,4 +175,6 @@ UF.init(config, 'demo');
 ## # component.set()  
 
 `component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。
+
+> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterRender`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。
 

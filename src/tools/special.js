@@ -22,7 +22,7 @@ class RouteHolder extends React.Component {
 
 export default {
 
-    if(item, parentProps) {
+    if(item) {
         let Item = Loader.get(item.type);
         // 如果是 布局相关 的组件
         if (Utils.isExtendsOf(Item, 'Layout')) {
@@ -35,20 +35,6 @@ export default {
         // 如果是 路由-Router 组件
         if (Utils.isExtendsOf(Item, 'Router')) {
             item = this.setRouter(item);
-        }
-        // 如果是 面包屑 的组件
-        if (Utils.isExtendsOf(Item, 'Breadcrumb')) {
-            item = this.setBreadcrumb(item, parentProps);
-        }
-        return item;
-    },
-
-    // 如果是 面包屑 组件
-    setBreadcrumb(item, parentProps) {
-        // 如果面包屑没有自定义面包屑元素，则和router关联
-        if (!item.content) {
-            item.routes = parentProps.routes;
-            item.params = parentProps.params;
         }
         return item;
     },

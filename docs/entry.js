@@ -20,13 +20,13 @@ const CommonList = [
         {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
         {path: 'Layout', name: '页面布局', component: require('./app/antd/antd-layout').default},
         {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
-        {path: 'Others', name: '其他说明', component: require('./app/configure-others').default}
+        {path: 'Others', name: '更多用法', component: require('./app/configure-others').default}
     ]},
     {path: 'Develop', name: '项目开发', retract: true, children: [
         {path: 'Install', name: '快速上手', component: require('./app/develop-install').default},
         {path: 'Config', name: '全局配置', component: require('./app/develop-config').default},
         {path: 'Modules', name: '模块开发', component: require('./app/develop-modules').default},
-        {path: 'Others', name: '其他说明', component: require('./app/develop-others').default},
+        {path: 'Others', name: '更多用法', component: require('./app/develop-others').default},
         {path: 'Build', name: '另一种模式', component: require('./app/develop-build').default}
     ]},
     {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}

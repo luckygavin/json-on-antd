@@ -15,6 +15,8 @@ import {Utils} from 'uf/utils';
 export default class DataEntry extends Antd {
     constructor(props) {
         super(props);
+        // 默认异步属性为 value
+        this._asyncAttr = 'value';
         this.__controlled = {
             key: 'value',
             event: 'onChange'
@@ -28,7 +30,7 @@ export default class DataEntry extends Antd {
         // console.log(params[1]);
         if (Utils.typeof(params[0], 'object') && params[0].target) {
             // 适合的组件：input、input-number、checkbox、radio
-            this.__props[key] = params[0].target.value;
+            this.__props[key] = params[0].target[key];
         } else if (Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
             // 适合的组件：select、switch、cascader、rate、slider
             this.__props[key] = params[0];

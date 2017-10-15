@@ -4,7 +4,6 @@
  */
 import React, {Component, PureComponent} from 'react';
 import {Cache, Utils, Ajax} from 'uf/utils';
-import {ajax} from 'uf/utils/ajax.js';
 import {Config} from 'uf/tools';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
@@ -25,6 +24,8 @@ const ForUserApi = {
     beforeRender: 'componentWillMount',
     // 组件渲染完成后
     afterRender: 'componentDidMount',
+    // 组件更新前
+    beforeUpdate: 'componentWillUpdate',
     // 组件更新后
     afterUpdate: 'componentDidUpdate',
     // 组件销毁前
@@ -36,10 +37,18 @@ export default class BaseComponent extends PureComponent {
     constructor(props) {
         super(props);
         this._keyPrefix = 'cache-';
+        // _root 是最初 Factory 的 props，传给每个组件方便使用（例如路由信息，props.routes）
+        this._root = this.props._root;
+        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
+        this._injectEvent = [];
+        // 转化为 __props 时需过滤的属性
+        this._filter = ['__cache', '__type', '_root'].concat(Object.keys(ForUserApi));
         // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
         // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
         this.__props = Config.get('components')[this.props.__type] || {};
+        // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
+        this.__filtered = {};
     }
 
     /* 暴露给用户的方法 ***********************************************************************/
@@ -61,14 +70,19 @@ export default class BaseComponent extends PureComponent {
 
     // 供子组件调用初始化 使用子组件this调用
     __init() {
-        // 目的是让子类调用__init()时，把父类中设置的等待注入到真正的声明周期中的函数注入进去
+        // 以下几个函数执行顺序固定，请慎重调整！！
+        // 把父类中设置的需注入到生命周期中的逻辑注入到对应生命周期函数中
         this._injectFunction();
         // 共享组件
         this._transmitComponent();
-        // 挂载用户传入的需要关联到生命周期中的函数
-        this._loadUserFunction();
         // 后面传入组件的参数用 __props 代替 props
         this._initProps();
+        // 把__props上的全部回调函数的最后增加一个参数设置为组件本身，方便使用
+        this._updateCallback();
+        // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
+        this._loadUserFunction();
+        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
+        this._injectEventFunction();
     }
 
     // 获取共享组件/数据
@@ -96,19 +110,17 @@ export default class BaseComponent extends PureComponent {
     }
 
     // ajax的get方法
-    __getData(url, ...params) {
-        const ajax = Ajax(url, 'get');
-        ajax(...params);
+    __getData(...params) {
+        Ajax.get(...params);
     }
 
     // ajax的post方法
-    __postData(url, ...params) {
-        const ajax = Ajax(url, 'post');
-        ajax(...params);
+    __postData(...params) {
+        Ajax.post(...params);
     }
 
     __ajax(params) {
-        ajax(params);
+        Ajax(params);
     }
 
     /* 私有方法 ***********************************************************************/
@@ -131,11 +143,25 @@ export default class BaseComponent extends PureComponent {
         }
     }
 
+    // 过滤 props，生成 __props 和 __filterProps
+    _filterHandler(props) {
+        let newProps = {};
+        for (let i in props) {
+            if (props.hasOwnProperty(i)) {
+                if ( this._filter.indexOf(i) === -1) {
+                    newProps[i] = props[i];
+                } else {
+                    this.__filtered[i] = props[i];
+                }
+            }
+        }
+        return newProps;
+    }
+
     // 后面传入组件的参数用 __props 代替 props
     _initProps(props) {
-        // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
-        let {__cache, __type, ...__props} = props || Utils.copy(this.props);
-
+        // 去除掉多余的属性（解决报warning问题）
+        let __props = this._filterHandler(props || this.props);
         this.__prevProps = this.__props;
         // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
         // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
@@ -177,6 +203,25 @@ export default class BaseComponent extends PureComponent {
         return key;
     }
 
+    // 更新配置中的回调函数，给回调函数的最后增加一个参数为组件本身，方便使用
+    _updateCallback(props) {
+        !props && (props = this.__props);
+        for (let i in props) {
+            let item = props[i];
+            // 不是冻结对象，且不是类
+            if (item && !Object.isFrozen(item) && !Utils.isExtendsOf(item, 'ReactComponent')) {
+                if (Utils.typeof(item, 'function')) {
+                    props[i] = (...params) => {
+                        return item.call(this, ...params, this);
+                    }
+                } else if ((Utils.typeof(item, 'object') && Utils.directInstanceof(item, Object))
+                    || Utils.typeof(item, 'array')) {
+                        this._updateCallback(item);
+                }
+            }
+        }
+    }
+
     // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
     _injectFunction() {
         for (let v of PreventCoverageMap) {
@@ -184,10 +229,28 @@ export default class BaseComponent extends PureComponent {
             let inject = this[`_${v}`];
             if (inject) {
                 let origin = this[v];
-                this[v] = (...params) => {
-                    inject.call(this, ...params);
-                    origin && origin.call(this, ...params);
-                };
+                this[v] = !!origin
+                    ? (...params) => {
+                        inject.call(this, ...params);
+                        origin.call(this, ...params);
+                    }
+                    : inject.bind(this);
+            }
+        }
+    }
+
+    // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
+    _injectEventFunction() {
+        for (let v of this._injectEvent) {
+            let inject = this[`_${v}`];
+            if (inject) {
+                let origin = this.__props[v];
+                this.__props[v] = !!origin
+                    ? (...params) => {
+                        inject.call(this, ...params);
+                        origin.call(this, ...params);
+                    }
+                    : inject.bind(this);
             }
         }
     }
@@ -196,14 +259,19 @@ export default class BaseComponent extends PureComponent {
     _loadUserFunction() {
         for (let f in ForUserApi) {
             // 如果props中有等待注入的函数
-            let inject = this.props[f];
+            let inject = this.__filtered[f];
             if (inject) {
                 let v = ForUserApi[f];
                 let origin = this[v];
                 this[v] = (...params) => {
                     // 先执行默认逻辑，再执行用户逻辑                    
                     origin && origin.call(this, ...params);
-                    inject.call(this, this, ...params);
+                    let result = inject.call(this, this.__props, this);
+                    // 组件渲染/刷新前可以让用户有机会改参数
+                    if (result && ['beforeRender', 'beforeUpdate'].indexOf(f) !== -1) {
+                        // 防止用户设置过滤属性
+                        this.__props = this._filterHandler(result);
+                    }
                 };
             }
         }

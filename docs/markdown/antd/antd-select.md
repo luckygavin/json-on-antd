@@ -26,7 +26,7 @@
 | placeholder | 选择框默认文字 | string | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |
-| options | 选项数据列表，可以是一个字符串数据，或者对象数组 | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}> |  |
+| options | 选项数据列表，可以是一个字符串数据，或者对象数组 [*默认异步属性*] | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}> |  |
 | optionFilterProp | 搜索时过滤对应的 option 属性，如设置为 children 表示对内嵌内容进行搜索 | string | value |
 | optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |
 | size    | 选择框大小，可选 `large` `small`  | string      |      default      |

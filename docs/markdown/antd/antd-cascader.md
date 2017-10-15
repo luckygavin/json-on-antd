@@ -13,7 +13,7 @@
 
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
-| options | 可选项数据源 | object | - |
+| options | 可选项数据源 [*默认异步属性*] | object | - |
 | defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |
 | value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)[] | - |
 | onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |

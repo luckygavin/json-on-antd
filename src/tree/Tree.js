@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
+import {Utils} from 'uf/utils';
 import {Tree, Input} from 'antd';
 import './style.scss';
 

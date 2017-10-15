@@ -2,7 +2,6 @@
  * @file 一些常用的函数工具
  * @author liuzechun
  **/
-import Ajax from './ajax';
 // import underscore from 'underscore';
 
 const I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');

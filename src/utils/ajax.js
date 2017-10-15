@@ -13,6 +13,7 @@
  * @author liuzechun@baidu.com
  * **/
 import {notification} from 'antd';
+import {Config} from 'uf/tools';
 import reqwest from 'reqwest';
 
 const errorMsg = {
@@ -34,44 +35,77 @@ function request (config) {
     let error = config.error || errorHandler;
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
     let onchange = config.onchange || (()=>{return});
+    !config.data && config.params && (config.data = config.params);
 
     onchange(true, 'sending');
-    reqwest(Object.assign({type: 'json'}, config, {
-        success: res=>{
-            // 兼容 message/msg、status/code
-            res.status = res.status || res.code || 0;
-            res.message = res.message || res.msg;
-            if (+res.status === 0) {
-                success(res.data, res);
-
-            } else {
-                // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-                if (error(res) === true) {
-                    errorHandler(res);
-                }
-            }
-            onchange(false, 'success');
+    reqwest(Object.assign({
+            method: 'GET',
+            type: 'json'
         },
-        error: err=>{
-            error(err, err);
-            onchange(false, 'error');
-        }
-    }));
+        config,
+        {
+            success: res=>{
+                // 兼容 message/msg、status/code
+                res.status = res.status || res.code || 0;
+                res.message = res.message || res.msg;
+                if (+res.status === 0) {
+                    success(res.data, res);
+
+                } else {
+                    // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
+                    if (error(res) === true) {
+                        errorHandler(res);
+                    }
+                }
+                onchange(false, 'success');
+            },
+            error: err=>{
+                error(err, err);
+                onchange(false, 'error');
+            }
+        },
+        // 用户自己配置的处理逻辑
+        Config.get('global')['ajax']
+    ));
 };
 
-// 通用ajax函数，参数为一个对象
-export const ajax = request;
-
-export default function (url, method) {
-    return function (params, success, error, onchange) {
-        request({
-            url: url,
-            method: method,
-            data: params,
-            type: 'json',
-            onchange: onchange,
-            success: success,
-            error: error
-        });
-    }
+request.get = function(url, params, success, error, onchange) {
+    request({
+        url: url,
+        method: 'get',
+        data: params,
+        onchange: onchange,
+        success: success,
+        error: error
+    });
 }
+
+request.post = function(url, params, success, error, onchange) {
+    request({
+        url: url,
+        method: 'post',
+        data: params,
+        onchange: onchange,
+        success: success,
+        error: error
+    });
+}
+
+// 抛出错误处理函数
+request.errorHandler = errorHandler;
+
+// 通用ajax函数，参数为一个对象
+export default request;
+
+// export default function (url, method) {
+//     return function (params, success, error, onchange) {
+//         request({
+//             url: url,
+//             method: method,
+//             data: params,
+//             onchange: onchange,
+//             success: success,
+//             error: error
+//         });
+//     }
+// }

@@ -78,9 +78,7 @@
 
 	var _uf2 = _interopRequireDefault(_uf);
 
-	var _ajax2 = __webpack_require__(13);
-
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _factory = __webpack_require__(73);
 
@@ -127,11 +125,8 @@
 	        return _utils.Cache.get('cache-' + name);
 	    },
 
-	    // ajax请求
-	    ajax: function ajax(obj) {
-	        (0, _ajax2.ajax)(obj);
-	    },
-
+	    // ajax请求。包含 ajax(), ajax.get(), ajax.post()
+	    ajax: _utils.Ajax,
 	    // 载入自定义组件
 	    load: function load(components) {
 	        _loader2.default.add(components);
@@ -249,7 +244,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Switch = exports.Slider = exports.Select = exports.Radio = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.RangePicker = exports.MonthPicker = exports.DatePicker = exports.CheckboxGroup = exports.Checkbox = exports.Cascader = exports.AutoComplete = undefined;
+	exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.RangePicker = exports.MonthPicker = exports.DatePicker = exports.CheckboxGroup = exports.Checkbox = exports.Cascader = exports.AutoComplete = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -265,7 +260,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _DataEntry18 = __webpack_require__(7);
+	var _utils = __webpack_require__(7);
+
+	var _DataEntry18 = __webpack_require__(13);
 
 	var _DataEntry19 = _interopRequireDefault(_DataEntry18);
 
@@ -273,7 +270,7 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -306,59 +303,45 @@
 	    function AutoComplete(props) {
 	        _classCallCheck(this, AutoComplete);
 
+	        // _onSearch 中的逻辑会注入到 onSearch 事件中，见 BaseComponent
 	        var _this = _possibleConstructorReturn(this, (AutoComplete.__proto__ || Object.getPrototypeOf(AutoComplete)).call(this, props));
 
+	        _this._injectEvent = ['onSearch'];
 	        _this.__init();
 	        _this.state = {
 	            result: []
 	        };
 	        return _this;
 	    }
+	    // 注入到 onSearch 事件中
+
 
 	    _createClass(AutoComplete, [{
-	        key: '_initProps',
-	        value: function _initProps() {
-	            var _get2,
-	                _this2 = this;
+	        key: '_onSearch',
+	        value: function _onSearch(value) {
+	            var result = [];
+	            if (!!value) {
+	                result = this.__props.options.map(function (i) {
+	                    return value + i;
+	                });
+	            }
+	            this.setState({ result: result });
+	        }
+	        // 默认对应的是 onChange
+
+	    }, {
+	        key: '_onEvent',
+	        value: function _onEvent() {
+	            var _get2;
+
+	            // 对change前后的数据进行对比
+	            var oldValue = this.__props.value;
 
 	            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
 	                params[_key] = arguments[_key];
 	            }
 
-	            (_get2 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_initProps', this)).call.apply(_get2, [this].concat(params));
-	            this.__props = this.__mergeProps({
-	                style: { width: 160 },
-	                options: []
-	            }, this.__props);
-	            var originOnSearch = this.__props.onSearch;
-	            this.__props.onSearch = function (value) {
-	                for (var _len2 = arguments.length, params = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-	                    params[_key2 - 1] = arguments[_key2];
-	                }
-
-	                var result = [];
-	                if (!!value) {
-	                    result = _this2.__props.options.map(function (i) {
-	                        return value + i;
-	                    });
-	                }
-	                _this2.setState({ result: result });
-	                originOnSearch && originOnSearch.call.apply(originOnSearch, [_this2, value].concat(params));
-	            };
-	        }
-	    }, {
-	        key: '_onEvent',
-	        value: function _onEvent() {
-	            var _get3;
-
-	            // 对change前后的数据进行对比
-	            var oldValue = this.__props.value;
-
-	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                params[_key3] = arguments[_key3];
-	            }
-
-	            (_get3 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_onEvent', this)).call.apply(_get3, [this].concat(params));
+	            (_get2 = _get(AutoComplete.prototype.__proto__ || Object.getPrototypeOf(AutoComplete.prototype), '_onEvent', this)).call.apply(_get2, [this].concat(params));
 	            var newValue = this.__props.value;
 	            // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
 	            if (oldValue && newValue && oldValue.length > newValue.length) {
@@ -423,10 +406,12 @@
 	    function Cascader(props) {
 	        _classCallCheck(this, Cascader);
 
-	        var _this3 = _possibleConstructorReturn(this, (Cascader.__proto__ || Object.getPrototypeOf(Cascader)).call(this, props));
+	        // 异步属性为 options
+	        var _this2 = _possibleConstructorReturn(this, (Cascader.__proto__ || Object.getPrototypeOf(Cascader)).call(this, props));
 
-	        _this3.__init();
-	        return _this3;
+	        _this2._asyncAttr = 'options';
+	        _this2.__init();
+	        return _this2;
 	    }
 
 	    _createClass(Cascader, [{
@@ -447,10 +432,14 @@
 	    function Checkbox(props) {
 	        _classCallCheck(this, Checkbox);
 
-	        var _this4 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+	        var _this3 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
 
-	        _this4.__init();
-	        return _this4;
+	        _this3.__controlled.key = 'checked';
+	        _this3.__controlled.defaultVal = false;
+	        // 异步属性为 checked
+	        _this3._asyncAttr = 'checked';
+	        _this3.__init();
+	        return _this3;
 	    }
 
 	    _createClass(Checkbox, [{
@@ -471,10 +460,12 @@
 	    function CheckboxGroup(props) {
 	        _classCallCheck(this, CheckboxGroup);
 
-	        var _this5 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
+	        // 异步属性为 options
+	        var _this4 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
 
-	        _this5.__init();
-	        return _this5;
+	        _this4._asyncAttr = 'options';
+	        _this4.__init();
+	        return _this4;
 	    }
 
 	    _createClass(CheckboxGroup, [{
@@ -504,16 +495,16 @@
 	    _createClass(BasePicker, [{
 	        key: '_initProps',
 	        value: function _initProps() {
-	            var _get4;
+	            var _get3;
 
-	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                params[_key4] = arguments[_key4];
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
 	            }
 
-	            (_get4 = _get(BasePicker.prototype.__proto__ || Object.getPrototypeOf(BasePicker.prototype), '_initProps', this)).call.apply(_get4, [this].concat(params));
+	            (_get3 = _get(BasePicker.prototype.__proto__ || Object.getPrototypeOf(BasePicker.prototype), '_initProps', this)).call.apply(_get3, [this].concat(params));
 	            this.__props = this.__mergeProps({ format: 'YYYY-MM-DD' }, this.__props);
 	            // 如果没有设置showTime，根据format自动增删showTime属性
-	            if (!this.__props.showTime) {
+	            if (_utils.Utils.typeof(this.__props.showTime, 'undefined')) {
 	                this.__props.showTime = this._judgeShowTime(this.__props.format);
 	            }
 	        }
@@ -537,10 +528,10 @@
 	    function DatePicker(props) {
 	        _classCallCheck(this, DatePicker);
 
-	        var _this7 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
-	        _this7.__init();
-	        return _this7;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(DatePicker, [{
@@ -563,25 +554,13 @@
 	    function MonthPicker(props) {
 	        _classCallCheck(this, MonthPicker);
 
-	        var _this8 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(MonthPicker, [{
-	        key: '_initProps',
-	        value: function _initProps() {
-	            var _get5;
-
-	            for (var _len5 = arguments.length, params = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                params[_key5] = arguments[_key5];
-	            }
-
-	            (_get5 = _get(MonthPicker.prototype.__proto__ || Object.getPrototypeOf(MonthPicker.prototype), '_initProps', this)).call.apply(_get5, [this].concat(params));
-	            this.__props = this.__mergeProps({ format: 'YYYY-MM' }, this.__props);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var value = this.__props.value;
@@ -601,10 +580,10 @@
 	    function RangePicker(props) {
 	        _classCallCheck(this, RangePicker);
 
-	        var _this9 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(RangePicker, [{
@@ -629,25 +608,13 @@
 	    function TimePicker(props) {
 	        _classCallCheck(this, TimePicker);
 
-	        var _this10 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(TimePicker, [{
-	        key: '_initProps',
-	        value: function _initProps() {
-	            var _get6;
-
-	            for (var _len6 = arguments.length, params = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-	                params[_key6] = arguments[_key6];
-	            }
-
-	            (_get6 = _get(TimePicker.prototype.__proto__ || Object.getPrototypeOf(TimePicker.prototype), '_initProps', this)).call.apply(_get6, [this].concat(params));
-	            this.__props = this.__mergeProps({ format: 'HH:mm:ss' }, this.__props);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            var value = this.__props.value;
@@ -667,10 +634,10 @@
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this11 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Input, [{
@@ -691,10 +658,10 @@
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
 
-	        var _this12 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(Textarea, [{
@@ -715,10 +682,10 @@
 	    function InputSearch(props) {
 	        _classCallCheck(this, InputSearch);
 
-	        var _this13 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(InputSearch, [{
@@ -739,10 +706,10 @@
 	    function InputGroup(props) {
 	        _classCallCheck(this, InputGroup);
 
-	        var _this14 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(InputGroup, [{
@@ -765,10 +732,10 @@
 	    function InputNumber(props) {
 	        _classCallCheck(this, InputNumber);
 
-	        var _this15 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(InputNumber, [{
@@ -789,10 +756,10 @@
 	    function Rate(props) {
 	        _classCallCheck(this, Rate);
 
-	        var _this16 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this15.__init();
+	        return _this15;
 	    }
 
 	    _createClass(Rate, [{
@@ -816,10 +783,12 @@
 	    function Radio(props) {
 	        _classCallCheck(this, Radio);
 
-	        var _this17 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
+	        // 异步属性为 options
+	        var _this16 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
 
-	        _this17.__init();
-	        return _this17;
+	        _this16._asyncAttr = 'options';
+	        _this16.__init();
+	        return _this16;
 	    }
 
 	    _createClass(Radio, [{
@@ -873,25 +842,15 @@
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
-	        var _this18 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+	        // 异步属性为 options
+	        var _this17 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-	        _this18.__init();
-	        return _this18;
+	        _this17._asyncAttr = 'options';
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Select, [{
-	        key: '_initProps',
-	        value: function _initProps() {
-	            var _get7;
-
-	            for (var _len7 = arguments.length, params = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-	                params[_key7] = arguments[_key7];
-	            }
-
-	            (_get7 = _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_initProps', this)).call.apply(_get7, [this].concat(params));
-	            this.__props = this.__mergeProps({ style: { width: 120 } }, this.__props);
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -916,43 +875,34 @@
 	    return Select;
 	}(_DataEntry19.default);
 
-	/************* Slider 评分 ************************************************************************** */
+	/************* Slider 滑动输入 ************************************************************************** */
 
-	var Slider = exports.Slider = function (_DataEntry16) {
-	    _inherits(Slider, _DataEntry16);
+	// export class Slider extends DataEntry {
+	//     constructor(props) {
+	//         super(props);
+	//         this.__init();
+	//     }
+	//     render() {
+	//         return <Antd.Slider {...this.__props}/>;
+	//     }
+	// }
 
-	    function Slider(props) {
-	        _classCallCheck(this, Slider);
-
-	        var _this19 = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
-
-	        _this19.__init();
-	        return _this19;
-	    }
-
-	    _createClass(Slider, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Slider, this.__props);
-	        }
-	    }]);
-
-	    return Slider;
-	}(_DataEntry19.default);
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry17) {
-	    _inherits(Switch, _DataEntry17);
+	var Switch = exports.Switch = function (_DataEntry16) {
+	    _inherits(Switch, _DataEntry16);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this20 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this20.__controlled.key = 'checked';
-	        _this20.__init();
-	        return _this20;
+	        _this18.__controlled.key = 'checked';
+	        // 异步属性为 checked
+	        _this18._asyncAttr = 'checked';
+	        _this18.__init();
+	        return _this18;
 	    }
 
 	    _createClass(Switch, [{
@@ -966,667 +916,61 @@
 	    return Switch;
 	}(_DataEntry19.default);
 
+	/************* Upload 开关 ************************************************************************** */
+
+	var Upload = exports.Upload = function (_DataEntry17) {
+	    _inherits(Upload, _DataEntry17);
+
+	    function Upload(props) {
+	        _classCallCheck(this, Upload);
+
+	        var _this19 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+
+	        _this19.__controlled.key = 'fileList';
+	        // 异步属性为 fileList
+	        _this19._asyncAttr = 'fileList';
+	        _this19.__init();
+	        return _this19;
+	    }
+
+	    _createClass(Upload, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Upload, this.__props);
+	        }
+	    }]);
+
+	    return Upload;
+	}(_DataEntry19.default);
+
 /***/ }),
 /* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(3);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _Antd2 = __webpack_require__(8);
-
-	var _Antd3 = _interopRequireDefault(_Antd2);
-
-	var _utils = __webpack_require__(11);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 数据录入 相关的组件抽象类，如：Input等
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:11
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var DataEntry = function (_Antd) {
-	    _inherits(DataEntry, _Antd);
-
-	    function DataEntry(props) {
-	        _classCallCheck(this, DataEntry);
-
-	        var _this = _possibleConstructorReturn(this, (DataEntry.__proto__ || Object.getPrototypeOf(DataEntry)).call(this, props));
-
-	        _this.__controlled = {
-	            key: 'value',
-	            event: 'onChange'
-	        };
-	        return _this;
-	    }
-
-	    // 增加 onChange 时默认保存数据的函数
-	    // 父类的 _onEvent 函数不能满足需求，直接覆盖了
-
-
-	    _createClass(DataEntry, [{
-	        key: '_onEvent',
-	        value: function _onEvent(callback) {
-	            var key = this.__controlled.key;
-	            // console.log(params[1]);
-
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
-	            }
-
-	            if (_utils.Utils.typeof(params[0], 'object') && params[0].target) {
-	                // 适合的组件：input、input-number、checkbox、radio
-	                this.__props[key] = params[0].target.value;
-	            } else if (_utils.Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
-	                // 适合的组件：select、switch、cascader、rate、slider
-	                this.__props[key] = params[0];
-	            } else if (params[1]) {
-	                // 适合的组件：date-picker系列
-	                this.__props[key] = params[1];
-	            } else {
-	                // 特殊情况，容错
-	                this.__props[key] = params[0];
-	            }
-	            this.forceUpdate();
-
-	            callback && callback.apply(undefined, params);
-	        }
-
-	        // 获取数据接口
-
-	    }, {
-	        key: 'getValue',
-	        value: function getValue() {
-	            var key = this.__controlled.key;
-	            return this.__props[key];
-	        }
-	    }]);
-
-	    return DataEntry;
-	}(_Antd3.default);
-
-	exports.default = DataEntry;
+	module.exports = {
+	    Utils: __webpack_require__(8).default,
+	    Cache: __webpack_require__(9).default,
+	    Ajax: __webpack_require__(10).default
+	};
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(3);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _component = __webpack_require__(9);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Antd 全部组件的基类，其中实现了接管受控属性的逻辑
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:27:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var Antd = function (_BaseComponent) {
-	    _inherits(Antd, _BaseComponent);
-
-	    function Antd(props) {
-	        _classCallCheck(this, Antd);
-
-	        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
-	        var _this = _possibleConstructorReturn(this, (Antd.__proto__ || Object.getPrototypeOf(Antd)).call(this, props));
-
-	        _this._class = null;
-	        // 壳子调用antd组件，调用的组件的实例存储在_component中
-	        _this._component = null;
-	        // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
-	        _this.__controlled = null;
-	        return _this;
-	    }
-
-	    // 触发组件上的原生事件，例如 focus、change 等
-
-
-	    _createClass(Antd, [{
-	        key: 'trigger',
-	        value: function trigger(event) {
-	            console.log(this._component);
-	            if (this._component[event]) {
-	                for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                    params[_key - 1] = arguments[_key];
-	                }
-
-	                this._component[event](params);
-	            } else {
-	                console.warn('there is no event named: ' + event);
-	            }
-	        }
-	    }, {
-	        key: '__init',
-	        value: function __init() {
-	            var _get2,
-	                _this2 = this;
-
-	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                params[_key2] = arguments[_key2];
-	            }
-
-	            (_get2 = _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '__init', this)).call.apply(_get2, [this].concat(params));
-	            // 保存原始antd组件的引用
-	            this.__props['ref'] = function (ele) {
-	                return _this2._component = ele;
-	            };
-	            // 受控配置 - 如果不为null,则合并覆盖
-	            this.__controlled = this.__controlled ? this.__mergeProps({
-	                key: 'value',
-	                event: 'onChange',
-	                defaultVal: '',
-	                paramsIndex: 0
-	            }, this.__controlled) : null;
-	            // 受控组件默认处理逻辑
-	            this._handleControlled();
-	        }
-
-	        // 组件渲染完成后，执行逻辑
-	        // _componentDidMount(...params) {
-	        //     super._componentDidMount && super._componentDidMount.call(this, ...params);
-	        // }
-
-	        // 受控属性绑定change事件，同时也受控于用户传入的值
-
-	    }, {
-	        key: '_handleControlled',
-	        value: function _handleControlled() {
-	            if (!this.__controlled) {
-	                return;
-	            }
-	            var _controlled = this.__controlled,
-	                key = _controlled.key,
-	                defaultVal = _controlled.defaultVal,
-	                event = _controlled.event;
-	            // 受控属性对应的默认属性，(如：value => defaultValue)
-
-	            var defaultKey = 'default' + key.replace(/^\w/g, function (v) {
-	                return v.toUpperCase();
-	            });
-	            var onEvent = this.__props[event];
-	            // 把value和defaultValue merge一下，统一交由 value 控制
-	            var keyValue = this.__props[key] || this.__props[defaultKey];
-	            // 如果这个值为空，否则受控属性为空会出现异常
-	            if (keyValue !== undefined) {
-	                this.__props[key] = keyValue;
-	            } else {
-	                // 屏蔽warning，非受控组件转换为受控组件会报warning
-	                this.__props[key] = defaultVal;
-	            }
-	            this.__props[event] = this._onEvent.bind(this, onEvent);
-	        }
-
-	        // 同步onChange的数据到受控属性上，默认取第一个参数
-	        // ** 可直接被子类覆盖重写 **
-	        // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）
-
-	    }, {
-	        key: '_onEvent',
-	        value: function _onEvent(callback) {
-	            var _controlled2 = this.__controlled,
-	                key = _controlled2.key,
-	                paramsIndex = _controlled2.paramsIndex;
-
-	            for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-	                params[_key3 - 1] = arguments[_key3];
-	            }
-
-	            if (key) {
-	                this.__props[key] = params[paramsIndex];
-	                this.forceUpdate();
-	            }
-
-	            callback && callback.apply(undefined, params);
-	        }
-	    }]);
-
-	    return Antd;
-	}(_component.BaseComponent);
-
-	exports.default = Antd;
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	    BaseComponent: __webpack_require__(10).default
-	};
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(2);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _utils = __webpack_require__(11);
-
-	var _ajax = __webpack_require__(13);
-
-	var _tools = __webpack_require__(1);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 基础类
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by xuziqian on 2017/8/4.
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
-	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
-	var PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
-
-	// 提供给用户的和生命周期相关的函数，命名更加语义化
-	var ForUserApi = {
-	    // 渲染组件前
-	    beforeRender: 'componentWillMount',
-	    // 组件渲染完成后
-	    afterRender: 'componentDidMount',
-	    // 组件更新后
-	    afterUpdate: 'componentDidUpdate',
-	    // 组件销毁前
-	    beforeDestroy: 'componentWillUnmount'
-	};
-
-	// export default class BaseComponent extends Component {
-
-	var BaseComponent = function (_PureComponent) {
-	    _inherits(BaseComponent, _PureComponent);
-
-	    function BaseComponent(props) {
-	        _classCallCheck(this, BaseComponent);
-
-	        var _this = _possibleConstructorReturn(this, (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).call(this, props));
-
-	        _this._keyPrefix = 'cache-';
-	        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
-	        // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
-	        // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
-	        _this.__props = _tools.Config.get('components')[_this.props.__type] || {};
-	        return _this;
-	    }
-
-	    /* 暴露给用户的方法 ***********************************************************************/
-
-	    // 暴露给用户刷新组件的接口
-
-
-	    _createClass(BaseComponent, [{
-	        key: 'set',
-	        value: function set(option) {
-	            // 要保证调用cwr时传入的nextProps的完整性
-	            var props = this.__mergeProps({}, this.__props, option);
-	            // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
-	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
-	            this.componentWillReceiveProps(props, this.__props);
-	        }
-	        // 如果有key则返回key的值；如果没有key，则返回全部参数
-
-	    }, {
-	        key: 'get',
-	        value: function get(key) {
-	            return key ? this.__props[key] : this.__props;
-	        }
-
-	        /* 供子组件调用方法 ***********************************************************************/
-
-	        // 供子组件调用初始化 使用子组件this调用
-
-	    }, {
-	        key: '__init',
-	        value: function __init() {
-	            // 目的是让子类调用__init()时，把父类中设置的等待注入到真正的声明周期中的函数注入进去
-	            this._injectFunction();
-	            // 共享组件
-	            this._transmitComponent();
-	            // 挂载用户传入的需要关联到生命周期中的函数
-	            this._loadUserFunction();
-	            // 后面传入组件的参数用 __props 代替 props
-	            this._initProps();
-	        }
-
-	        // 获取共享组件/数据
-
-	    }, {
-	        key: '__getCache',
-	        value: function __getCache(key) {
-	            return _utils.Cache.get(this._keyPrefix + key);
-	        }
-
-	        // 设置共享组件/数据
-
-	    }, {
-	        key: '__setCache',
-	        value: function __setCache(key, component) {
-	            key = this._keyPrefix + key;
-	            _utils.Cache.set(key, component);
-	        }
-
-	        // 把默认配置和当前用户传入配置进行合并，可以传多个参数
-	        //  如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题
-	        //  针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法
-	        // 叫props但不一定要用来合并props，比如合并 config
-
-	    }, {
-	        key: '__mergeProps',
-	        value: function __mergeProps() {
-	            return _utils.Utils.merge.apply(_utils.Utils, arguments);
-	        }
-
-	        // 从props中过滤掉某些属性，例如原始元素不支持的属性
-
-	    }, {
-	        key: '__filterProps',
-	        value: function __filterProps(props, arr) {
-	            return _utils.Utils.filter(props, arr);
-	        }
-
-	        // ajax的get方法
-
-	    }, {
-	        key: '__getData',
-	        value: function __getData(url) {
-	            var ajax = (0, _utils.Ajax)(url, 'get');
-
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
-	            }
-
-	            ajax.apply(undefined, params);
-	        }
-
-	        // ajax的post方法
-
-	    }, {
-	        key: '__postData',
-	        value: function __postData(url) {
-	            var ajax = (0, _utils.Ajax)(url, 'post');
-
-	            for (var _len2 = arguments.length, params = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-	                params[_key2 - 1] = arguments[_key2];
-	            }
-
-	            ajax.apply(undefined, params);
-	        }
-	    }, {
-	        key: '__ajax',
-	        value: function __ajax(params) {
-	            (0, _ajax.ajax)(params);
-	        }
-
-	        /* 私有方法 ***********************************************************************/
-
-	        // componentWillUnmount 执行时的默认处理逻辑
-	        // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
-
-	    }, {
-	        key: '_componentWillUnmount',
-	        value: function _componentWillUnmount() {
-	            this._unsetTransmitComponent();
-	        }
-
-	        // 组件的 componentWillReceiveProps 函数默认处理逻辑
-	        // 有两种情况会调用cwr：
-	        //  一种是父组件刷新，传入新的props，如果props确实发生了变化，则需要重新调用_initProps
-	        //  还有一种是set函数调用的，params中没有额外参数，nextProps肯定和this.props不同
-
-	    }, {
-	        key: '_componentWillReceiveProps',
-	        value: function _componentWillReceiveProps(nextProps) {
-	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
-	            if (!_utils.Utils.equals(this.props, nextProps)) {
-	                // 是否把_initProps的调用放到render中更好一点？（会有个问题：使用set函数重新设置props时，会有额外的重复调用）
-	                this._initProps(nextProps);
-	            }
-	        }
-
-	        // 后面传入组件的参数用 __props 代替 props
-
-	    }, {
-	        key: '_initProps',
-	        value: function _initProps(props) {
-	            // 使用Rest对象解构 去除掉多余的属性（解决报warning问题）
-	            var _ref = props || _utils.Utils.copy(this.props),
-	                __cache = _ref.__cache,
-	                __type = _ref.__type,
-	                __props = _objectWithoutProperties(_ref, ['__cache', '__type']);
-
-	            this.__prevProps = this.__props;
-	            // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
-	            // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
-	            this.__props = this.__mergeProps({}, this.__props, __props);
-
-	            // __init函数中调用的时候不会传props，也不需要刷新组件
-	            if (props) {
-	                this.forceUpdate();
-	            }
-	        }
-
-	        // 共享组件
-
-	    }, {
-	        key: '_transmitComponent',
-	        value: function _transmitComponent() {
-	            var key = this._getTransmitName();
-	            if (!!key) {
-	                _utils.Cache.set(key, this);
-	            }
-	        }
-
-	        // 解除共享
-
-	    }, {
-	        key: '_unsetTransmitComponent',
-	        value: function _unsetTransmitComponent() {
-	            var key = this._getTransmitName();
-	            if (!!key) {
-	                _utils.Cache.del(key, this);
-	            }
-	        }
-
-	        // 获取key的名称
-
-	    }, {
-	        key: '_getTransmitName',
-	        value: function _getTransmitName() {
-	            var key = this.props.__cache;
-	            if (!!this.props.route && this.props.route.__cache) {
-	                key = this.props.route.transmitName;
-	            }
-	            if (!!key && key !== 'undefined') {
-	                key = this._keyPrefix + key;
-	            } else {
-	                key = false;
-	            }
-	            return key;
-	        }
-
-	        // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
-
-	    }, {
-	        key: '_injectFunction',
-	        value: function _injectFunction() {
-	            var _this2 = this;
-
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                var _loop = function _loop() {
-	                    var v = _step.value;
-
-	                    // 如果父组件中有等待注入的函数
-	                    var inject = _this2['_' + v];
-	                    if (inject) {
-	                        var origin = _this2[v];
-	                        _this2[v] = function () {
-	                            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                                params[_key3] = arguments[_key3];
-	                            }
-
-	                            inject.call.apply(inject, [_this2].concat(params));
-	                            origin && origin.call.apply(origin, [_this2].concat(params));
-	                        };
-	                    }
-	                };
-
-	                for (var _iterator = PreventCoverageMap[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    _loop();
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        }
-
-	        // 挂载用户传入的需要关联到生命周期中的函数
-
-	    }, {
-	        key: '_loadUserFunction',
-	        value: function _loadUserFunction() {
-	            var _this3 = this;
-
-	            var _loop2 = function _loop2(f) {
-	                // 如果props中有等待注入的函数
-	                var inject = _this3.props[f];
-	                if (inject) {
-	                    var _v = ForUserApi[f];
-	                    var origin = _this3[_v];
-	                    _this3[_v] = function () {
-	                        for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                            params[_key4] = arguments[_key4];
-	                        }
-
-	                        // 先执行默认逻辑，再执行用户逻辑                    
-	                        origin && origin.call.apply(origin, [_this3].concat(params));
-	                        inject.call.apply(inject, [_this3, _this3].concat(params));
-	                    };
-	                }
-	            };
-
-	            for (var f in ForUserApi) {
-	                _loop2(f);
-	            }
-	        }
-	    }]);
-
-	    return BaseComponent;
-	}(_react.PureComponent);
-
-	exports.default = BaseComponent;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	    Utils: __webpack_require__(12).default,
-	    Cache: __webpack_require__(16).default,
-	    Ajax: __webpack_require__(13).default
-	};
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _ajax = __webpack_require__(13);
-
-	var _ajax2 = _interopRequireDefault(_ajax);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
+	/**
+	 * @file 一些常用的函数工具
+	 * @author liuzechun
+	 **/
 	// import underscore from 'underscore';
 
-	var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split(''); /**
-	                                                                                                  * @file 一些常用的函数工具
-	                                                                                                  * @author liuzechun
-	                                                                                                  **/
-
+	var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
 	var s4 = function s4() {
 	    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	};
@@ -1984,116 +1328,7 @@
 	exports.default = Utils;
 
 /***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.ajax = undefined;
-
-	exports.default = function (url, method) {
-	    return function (params, success, error, onchange) {
-	        request({
-	            url: url,
-	            method: method,
-	            data: params,
-	            type: 'json',
-	            onchange: onchange,
-	            success: success,
-	            error: error
-	        });
-	    };
-	};
-
-	var _antd = __webpack_require__(14);
-
-	var _reqwest = __webpack_require__(15);
-
-	var _reqwest2 = _interopRequireDefault(_reqwest);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * @file 通用的请求发送+错误处理工具
-	 *       全部请求都通过这里处理
-	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
-	 *          但是有几个参数需要注意：
-	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
-	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
-	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
-	 *              onchange: 请求开始/结束时执行。
-	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending'); 
-	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
-	 *
-	 * @author liuzechun@baidu.com
-	 * **/
-	var errorMsg = {
-	    top: 24,
-	    message: '请求出错:',
-	    description: '请求数据时出错，请稍后重试。',
-	    duration: 3.5
-	};
-
-	// 请求出错的处理函数
-	function errorHandler() {
-	    var error = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-	    _antd.notification.error(Object.assign({}, errorMsg, !error.message ? null : {
-	        description: error.message
-	    }));
-	}
-
-	function request(config) {
-	    var _success = config.success;
-	    var _error = config.error || errorHandler;
-	    // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
-	    var onchange = config.onchange || function () {
-	        return;
-	    };
-
-	    onchange(true, 'sending');
-	    (0, _reqwest2.default)(Object.assign({ type: 'json' }, config, {
-	        success: function success(res) {
-	            // 兼容 message/msg、status/code
-	            res.status = res.status || res.code || 0;
-	            res.message = res.message || res.msg;
-	            if (+res.status === 0) {
-	                _success(res.data, res);
-	            } else {
-	                // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-	                if (_error(res) === true) {
-	                    errorHandler(res);
-	                }
-	            }
-	            onchange(false, 'success');
-	        },
-	        error: function error(err) {
-	            _error(err, err);
-	            onchange(false, 'error');
-	        }
-	    }));
-	};
-
-	// 通用ajax函数，参数为一个对象
-	var ajax = exports.ajax = request;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-	module.exports = window.DLL.Antd;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-	module.exports = window.DLL.reqwest;
-
-/***/ }),
-/* 16 */
+/* 9 */
 /***/ (function(module, exports) {
 
 	"use strict";
@@ -2117,6 +1352,910 @@
 	        delete this._cache[key];
 	    }
 	};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _antd = __webpack_require__(11);
+
+	var _tools = __webpack_require__(1);
+
+	var _reqwest = __webpack_require__(12);
+
+	var _reqwest2 = _interopRequireDefault(_reqwest);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var errorMsg = {
+	    top: 24,
+	    message: '请求出错:',
+	    description: '请求数据时出错，请稍后重试。',
+	    duration: 3.5
+	};
+
+	// 请求出错的处理函数
+	/**
+	 * @file 通用的请求发送+错误处理工具
+	 *       全部请求都通过这里处理
+	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
+	 *          但是有几个参数需要注意：
+	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
+	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
+	 *              onchange: 请求开始/结束时执行。
+	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending'); 
+	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
+	 *
+	 * @author liuzechun@baidu.com
+	 * **/
+	function errorHandler() {
+	    var error = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	    _antd.notification.error(Object.assign({}, errorMsg, !error.message ? null : {
+	        description: error.message
+	    }));
+	}
+
+	function request(config) {
+	    var _success = config.success;
+	    var _error = config.error || errorHandler;
+	    // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
+	    var onchange = config.onchange || function () {
+	        return;
+	    };
+	    !config.data && config.params && (config.data = config.params);
+
+	    onchange(true, 'sending');
+	    (0, _reqwest2.default)(Object.assign({
+	        method: 'GET',
+	        type: 'json'
+	    }, config, {
+	        success: function success(res) {
+	            // 兼容 message/msg、status/code
+	            res.status = res.status || res.code || 0;
+	            res.message = res.message || res.msg;
+	            if (+res.status === 0) {
+	                _success(res.data, res);
+	            } else {
+	                // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
+	                if (_error(res) === true) {
+	                    errorHandler(res);
+	                }
+	            }
+	            onchange(false, 'success');
+	        },
+	        error: function error(err) {
+	            _error(err, err);
+	            onchange(false, 'error');
+	        }
+	    },
+	    // 用户自己配置的处理逻辑
+	    _tools.Config.get('global')['ajax']));
+	};
+
+	request.get = function (url, params, success, error, onchange) {
+	    request({
+	        url: url,
+	        method: 'get',
+	        data: params,
+	        onchange: onchange,
+	        success: success,
+	        error: error
+	    });
+	};
+
+	request.post = function (url, params, success, error, onchange) {
+	    request({
+	        url: url,
+	        method: 'post',
+	        data: params,
+	        onchange: onchange,
+	        success: success,
+	        error: error
+	    });
+	};
+
+	// 抛出错误处理函数
+	request.errorHandler = errorHandler;
+
+	// 通用ajax函数，参数为一个对象
+	exports.default = request;
+
+	// export default function (url, method) {
+	//     return function (params, success, error, onchange) {
+	//         request({
+	//             url: url,
+	//             method: method,
+	//             data: params,
+	//             onchange: onchange,
+	//             success: success,
+	//             error: error
+	//         });
+	//     }
+	// }
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+	module.exports = window.DLL.Antd;
+
+/***/ }),
+/* 12 */
+/***/ (function(module, exports) {
+
+	module.exports = window.DLL.reqwest;
+
+/***/ }),
+/* 13 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(3);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Antd2 = __webpack_require__(14);
+
+	var _Antd3 = _interopRequireDefault(_Antd2);
+
+	var _utils = __webpack_require__(7);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 数据录入 相关的组件抽象类，如：Input等
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-09-29 07:28:11
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var DataEntry = function (_Antd) {
+	    _inherits(DataEntry, _Antd);
+
+	    function DataEntry(props) {
+	        _classCallCheck(this, DataEntry);
+
+	        // 默认异步属性为 value
+	        var _this = _possibleConstructorReturn(this, (DataEntry.__proto__ || Object.getPrototypeOf(DataEntry)).call(this, props));
+
+	        _this._asyncAttr = 'value';
+	        _this.__controlled = {
+	            key: 'value',
+	            event: 'onChange'
+	        };
+	        return _this;
+	    }
+
+	    // 增加 onChange 时默认保存数据的函数
+	    // 父类的 _onEvent 函数不能满足需求，直接覆盖了
+
+
+	    _createClass(DataEntry, [{
+	        key: '_onEvent',
+	        value: function _onEvent(callback) {
+	            var key = this.__controlled.key;
+	            // console.log(params[1]);
+
+	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                params[_key - 1] = arguments[_key];
+	            }
+
+	            if (_utils.Utils.typeof(params[0], 'object') && params[0].target) {
+	                // 适合的组件：input、input-number、checkbox、radio
+	                this.__props[key] = params[0].target[key];
+	            } else if (_utils.Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
+	                // 适合的组件：select、switch、cascader、rate、slider
+	                this.__props[key] = params[0];
+	            } else if (params[1]) {
+	                // 适合的组件：date-picker系列
+	                this.__props[key] = params[1];
+	            } else {
+	                // 特殊情况，容错
+	                this.__props[key] = params[0];
+	            }
+	            this.forceUpdate();
+
+	            callback && callback.apply(undefined, params);
+	        }
+
+	        // 获取数据接口
+
+	    }, {
+	        key: 'getValue',
+	        value: function getValue() {
+	            var key = this.__controlled.key;
+	            return this.__props[key];
+	        }
+	    }]);
+
+	    return DataEntry;
+	}(_Antd3.default);
+
+	exports.default = DataEntry;
+
+/***/ }),
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(3);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _component = __webpack_require__(15);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Antd 全部组件的基类，其中实现了接管受控属性的逻辑
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-09-29 01:11:19
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Antd = function (_BaseComponent) {
+	    _inherits(Antd, _BaseComponent);
+
+	    function Antd(props) {
+	        _classCallCheck(this, Antd);
+
+	        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
+	        // this._class = null;
+	        // 声明异步获取的数据放在哪个字段，默认为 children ，即默认把返回的内容放到子组件中
+	        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
+	        var _this = _possibleConstructorReturn(this, (Antd.__proto__ || Object.getPrototypeOf(Antd)).call(this, props));
+
+	        _this._asyncAttr = 'children';
+	        // __props 需要过滤的属性
+	        _this._filter.push('source', 'sourceHandler', 'sourceTarget', 'sourceMethod', 'sourceParams');
+	        // 壳子调用antd组件，调用的组件的实例存储在_component中
+	        _this._component = null;
+	        // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
+	        _this.__controlled = null;
+	        return _this;
+	    }
+
+	    // 触发组件上的原生事件，例如 focus、change 等
+
+
+	    _createClass(Antd, [{
+	        key: 'trigger',
+	        value: function trigger(event) {
+	            if (this._component && this._component[event]) {
+	                for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                    params[_key - 1] = arguments[_key];
+	                }
+
+	                this._component[event](params);
+	            } else {
+	                console.warn('there is no event named: ' + event);
+	            }
+	        }
+	    }, {
+	        key: '__init',
+	        value: function __init() {
+	            var _get2,
+	                _this2 = this;
+
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
+	            }
+
+	            (_get2 = _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '__init', this)).call.apply(_get2, [this].concat(params));
+	            // 保存原始antd组件的引用
+	            this.__props['ref'] = function (ele) {
+	                return _this2._component = ele;
+	            };
+	            // 受控配置 - 如果不为null,则合并覆盖
+	            this.__controlled = this.__controlled ? this.__mergeProps({
+	                key: 'value',
+	                event: 'onChange',
+	                defaultVal: '',
+	                paramsIndex: 0
+	            }, this.__controlled) : null;
+	            // 受控组件默认处理逻辑
+	            this._handleControlled();
+	        }
+
+	        // 组件渲染完成后，执行逻辑
+
+	    }, {
+	        key: '_componentDidMount',
+	        value: function _componentDidMount() {
+	            var _get3;
+
+	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                params[_key3] = arguments[_key3];
+	            }
+
+	            _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentDidMount', this) && (_get3 = _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentDidMount', this)).call.apply(_get3, [this].concat(params));
+	            this._handleAsyncData();
+	        }
+
+	        // 自动异步获取数据
+
+	    }, {
+	        key: '_handleAsyncData',
+	        value: function _handleAsyncData() {
+	            var _this3 = this;
+
+	            if (this.__filtered.source) {
+	                this.__ajax({
+	                    url: this.__filtered.source,
+	                    method: this.__filtered.sourceMethod || 'get',
+	                    data: this.__filtered.sourceParams,
+	                    success: function success(data, res) {
+	                        // 如果用户定义了数据处理函数，先对数据进行处理
+	                        if (_this3.__filtered.sourceHandler) {
+	                            data = _this3.__filtered.sourceHandler(data, res, _this3);
+	                        }
+	                        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
+	                        var target = _this3.__filtered.sourceTarget || _this3._asyncAttr;
+	                        target = target === 'content' ? 'children' : target;
+	                        _this3.__props[target] = data;
+	                        _this3.forceUpdate();
+	                    }
+	                });
+	            }
+	        }
+
+	        // 受控属性绑定change事件，同时也受控于用户传入的值
+
+	    }, {
+	        key: '_handleControlled',
+	        value: function _handleControlled() {
+	            if (!this.__controlled) {
+	                return;
+	            }
+	            var _controlled = this.__controlled,
+	                key = _controlled.key,
+	                defaultVal = _controlled.defaultVal,
+	                event = _controlled.event;
+	            // 受控属性对应的默认属性，(如：value => defaultValue)
+
+	            var defaultKey = 'default' + key.replace(/^\w/g, function (v) {
+	                return v.toUpperCase();
+	            });
+	            var onEvent = this.__props[event];
+	            // 把value和defaultValue merge一下，统一交由 value 控制
+	            var keyValue = this.__props[key] || this.__props[defaultKey];
+	            // 如果这个值为空，否则受控属性为空会出现异常
+	            if (keyValue !== undefined) {
+	                this.__props[key] = keyValue;
+	            } else {
+	                // 屏蔽warning，非受控组件转换为受控组件会报warning
+	                this.__props[key] = defaultVal;
+	            }
+	            this.__props[event] = this._onEvent.bind(this, onEvent);
+	        }
+
+	        // 同步onChange的数据到受控属性上，默认取第一个参数
+	        // ** 可直接被子类覆盖重写 **
+	        // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）
+
+	    }, {
+	        key: '_onEvent',
+	        value: function _onEvent(callback) {
+	            var _controlled2 = this.__controlled,
+	                key = _controlled2.key,
+	                paramsIndex = _controlled2.paramsIndex;
+
+	            for (var _len4 = arguments.length, params = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+	                params[_key4 - 1] = arguments[_key4];
+	            }
+
+	            if (key) {
+	                this.__props[key] = params[paramsIndex];
+	                this.forceUpdate();
+	            }
+
+	            callback && callback.apply(undefined, params);
+	        }
+	    }]);
+
+	    return Antd;
+	}(_component.BaseComponent);
+
+	exports.default = Antd;
+
+/***/ }),
+/* 15 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = {
+	    BaseComponent: __webpack_require__(16).default
+	};
+
+/***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _utils = __webpack_require__(7);
+
+	var _tools = __webpack_require__(1);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 基础类
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by xuziqian on 2017/8/4.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
+	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
+	var PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
+
+	// 提供给用户的和生命周期相关的函数，命名更加语义化
+	var ForUserApi = {
+	    // 渲染组件前
+	    beforeRender: 'componentWillMount',
+	    // 组件渲染完成后
+	    afterRender: 'componentDidMount',
+	    // 组件更新前
+	    beforeUpdate: 'componentWillUpdate',
+	    // 组件更新后
+	    afterUpdate: 'componentDidUpdate',
+	    // 组件销毁前
+	    beforeDestroy: 'componentWillUnmount'
+	};
+
+	// export default class BaseComponent extends Component {
+
+	var BaseComponent = function (_PureComponent) {
+	    _inherits(BaseComponent, _PureComponent);
+
+	    function BaseComponent(props) {
+	        _classCallCheck(this, BaseComponent);
+
+	        var _this = _possibleConstructorReturn(this, (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).call(this, props));
+
+	        _this._keyPrefix = 'cache-';
+	        // _root 是最初 Factory 的 props，传给每个组件方便使用（例如路由信息，props.routes）
+	        _this._root = _this.props._root;
+	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
+	        _this._injectEvent = [];
+	        // 转化为 __props 时需过滤的属性
+	        _this._filter = ['__cache', '__type', '_root'].concat(Object.keys(ForUserApi));
+	        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
+	        // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
+	        // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
+	        _this.__props = _tools.Config.get('components')[_this.props.__type] || {};
+	        // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
+	        _this.__filtered = {};
+	        return _this;
+	    }
+
+	    /* 暴露给用户的方法 ***********************************************************************/
+
+	    // 暴露给用户刷新组件的接口
+
+
+	    _createClass(BaseComponent, [{
+	        key: 'set',
+	        value: function set(option) {
+	            // 要保证调用cwr时传入的nextProps的完整性
+	            var props = this.__mergeProps({}, this.__props, option);
+	            // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
+	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
+	            this.componentWillReceiveProps(props, this.__props);
+	        }
+	        // 如果有key则返回key的值；如果没有key，则返回全部参数
+
+	    }, {
+	        key: 'get',
+	        value: function get(key) {
+	            return key ? this.__props[key] : this.__props;
+	        }
+
+	        /* 供子组件调用方法 ***********************************************************************/
+
+	        // 供子组件调用初始化 使用子组件this调用
+
+	    }, {
+	        key: '__init',
+	        value: function __init() {
+	            // 以下几个函数执行顺序固定，请慎重调整！！
+	            // 把父类中设置的需注入到生命周期中的逻辑注入到对应生命周期函数中
+	            this._injectFunction();
+	            // 共享组件
+	            this._transmitComponent();
+	            // 后面传入组件的参数用 __props 代替 props
+	            this._initProps();
+	            // 把__props上的全部回调函数的最后增加一个参数设置为组件本身，方便使用
+	            this._updateCallback();
+	            // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
+	            this._loadUserFunction();
+	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
+	            this._injectEventFunction();
+	        }
+
+	        // 获取共享组件/数据
+
+	    }, {
+	        key: '__getCache',
+	        value: function __getCache(key) {
+	            return _utils.Cache.get(this._keyPrefix + key);
+	        }
+
+	        // 设置共享组件/数据
+
+	    }, {
+	        key: '__setCache',
+	        value: function __setCache(key, component) {
+	            key = this._keyPrefix + key;
+	            _utils.Cache.set(key, component);
+	        }
+
+	        // 把默认配置和当前用户传入配置进行合并，可以传多个参数
+	        //  如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题
+	        //  针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法
+	        // 叫props但不一定要用来合并props，比如合并 config
+
+	    }, {
+	        key: '__mergeProps',
+	        value: function __mergeProps() {
+	            return _utils.Utils.merge.apply(_utils.Utils, arguments);
+	        }
+
+	        // 从props中过滤掉某些属性，例如原始元素不支持的属性
+
+	    }, {
+	        key: '__filterProps',
+	        value: function __filterProps(props, arr) {
+	            return _utils.Utils.filter(props, arr);
+	        }
+
+	        // ajax的get方法
+
+	    }, {
+	        key: '__getData',
+	        value: function __getData() {
+	            _utils.Ajax.get.apply(_utils.Ajax, arguments);
+	        }
+
+	        // ajax的post方法
+
+	    }, {
+	        key: '__postData',
+	        value: function __postData() {
+	            _utils.Ajax.post.apply(_utils.Ajax, arguments);
+	        }
+	    }, {
+	        key: '__ajax',
+	        value: function __ajax(params) {
+	            (0, _utils.Ajax)(params);
+	        }
+
+	        /* 私有方法 ***********************************************************************/
+
+	        // componentWillUnmount 执行时的默认处理逻辑
+	        // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
+
+	    }, {
+	        key: '_componentWillUnmount',
+	        value: function _componentWillUnmount() {
+	            this._unsetTransmitComponent();
+	        }
+
+	        // 组件的 componentWillReceiveProps 函数默认处理逻辑
+	        // 有两种情况会调用cwr：
+	        //  一种是父组件刷新，传入新的props，如果props确实发生了变化，则需要重新调用_initProps
+	        //  还有一种是set函数调用的，params中没有额外参数，nextProps肯定和this.props不同
+
+	    }, {
+	        key: '_componentWillReceiveProps',
+	        value: function _componentWillReceiveProps(nextProps) {
+	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
+	            if (!_utils.Utils.equals(this.props, nextProps)) {
+	                // 是否把_initProps的调用放到render中更好一点？（会有个问题：使用set函数重新设置props时，会有额外的重复调用）
+	                this._initProps(nextProps);
+	            }
+	        }
+
+	        // 过滤 props，生成 __props 和 __filterProps
+
+	    }, {
+	        key: '_filterHandler',
+	        value: function _filterHandler(props) {
+	            var newProps = {};
+	            for (var i in props) {
+	                if (props.hasOwnProperty(i)) {
+	                    if (this._filter.indexOf(i) === -1) {
+	                        newProps[i] = props[i];
+	                    } else {
+	                        this.__filtered[i] = props[i];
+	                    }
+	                }
+	            }
+	            return newProps;
+	        }
+
+	        // 后面传入组件的参数用 __props 代替 props
+
+	    }, {
+	        key: '_initProps',
+	        value: function _initProps(props) {
+	            // 去除掉多余的属性（解决报warning问题）
+	            var __props = this._filterHandler(props || this.props);
+	            this.__prevProps = this.__props;
+	            // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
+	            // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
+	            this.__props = this.__mergeProps({}, this.__props, __props);
+
+	            // __init函数中调用的时候不会传props，也不需要刷新组件
+	            if (props) {
+	                this.forceUpdate();
+	            }
+	        }
+
+	        // 共享组件
+
+	    }, {
+	        key: '_transmitComponent',
+	        value: function _transmitComponent() {
+	            var key = this._getTransmitName();
+	            if (!!key) {
+	                _utils.Cache.set(key, this);
+	            }
+	        }
+
+	        // 解除共享
+
+	    }, {
+	        key: '_unsetTransmitComponent',
+	        value: function _unsetTransmitComponent() {
+	            var key = this._getTransmitName();
+	            if (!!key) {
+	                _utils.Cache.del(key, this);
+	            }
+	        }
+
+	        // 获取key的名称
+
+	    }, {
+	        key: '_getTransmitName',
+	        value: function _getTransmitName() {
+	            var key = this.props.__cache;
+	            if (!!this.props.route && this.props.route.__cache) {
+	                key = this.props.route.transmitName;
+	            }
+	            if (!!key && key !== 'undefined') {
+	                key = this._keyPrefix + key;
+	            } else {
+	                key = false;
+	            }
+	            return key;
+	        }
+
+	        // 更新配置中的回调函数，给回调函数的最后增加一个参数为组件本身，方便使用
+
+	    }, {
+	        key: '_updateCallback',
+	        value: function _updateCallback(props) {
+	            var _this2 = this;
+
+	            !props && (props = this.__props);
+
+	            var _loop = function _loop(i) {
+	                var item = props[i];
+	                // 不是冻结对象，且不是类
+	                if (item && !Object.isFrozen(item) && !_utils.Utils.isExtendsOf(item, 'ReactComponent')) {
+	                    if (_utils.Utils.typeof(item, 'function')) {
+	                        props[i] = function () {
+	                            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
+	                                params[_key] = arguments[_key];
+	                            }
+
+	                            return item.call.apply(item, [_this2].concat(params, [_this2]));
+	                        };
+	                    } else if (_utils.Utils.typeof(item, 'object') && _utils.Utils.directInstanceof(item, Object) || _utils.Utils.typeof(item, 'array')) {
+	                        _this2._updateCallback(item);
+	                    }
+	                }
+	            };
+
+	            for (var i in props) {
+	                _loop(i);
+	            }
+	        }
+
+	        // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
+
+	    }, {
+	        key: '_injectFunction',
+	        value: function _injectFunction() {
+	            var _this3 = this;
+
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                var _loop2 = function _loop2() {
+	                    var v = _step.value;
+
+	                    // 如果父组件中有等待注入的函数
+	                    var inject = _this3['_' + v];
+	                    if (inject) {
+	                        var origin = _this3[v];
+	                        _this3[v] = !!origin ? function () {
+	                            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                                params[_key2] = arguments[_key2];
+	                            }
+
+	                            inject.call.apply(inject, [_this3].concat(params));
+	                            origin.call.apply(origin, [_this3].concat(params));
+	                        } : inject.bind(_this3);
+	                    }
+	                };
+
+	                for (var _iterator = PreventCoverageMap[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    _loop2();
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        }
+
+	        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
+
+	    }, {
+	        key: '_injectEventFunction',
+	        value: function _injectEventFunction() {
+	            var _this4 = this;
+
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+
+	            try {
+	                var _loop3 = function _loop3() {
+	                    var v = _step2.value;
+
+	                    var inject = _this4['_' + v];
+	                    if (inject) {
+	                        var origin = _this4.__props[v];
+	                        _this4.__props[v] = !!origin ? function () {
+	                            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                                params[_key3] = arguments[_key3];
+	                            }
+
+	                            inject.call.apply(inject, [_this4].concat(params));
+	                            origin.call.apply(origin, [_this4].concat(params));
+	                        } : inject.bind(_this4);
+	                    }
+	                };
+
+	                for (var _iterator2 = this._injectEvent[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    _loop3();
+	                }
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+	        }
+
+	        // 挂载用户传入的需要关联到生命周期中的函数
+
+	    }, {
+	        key: '_loadUserFunction',
+	        value: function _loadUserFunction() {
+	            var _this5 = this;
+
+	            var _loop4 = function _loop4(f) {
+	                // 如果props中有等待注入的函数
+	                var inject = _this5.__filtered[f];
+	                if (inject) {
+	                    var _v = ForUserApi[f];
+	                    var origin = _this5[_v];
+	                    _this5[_v] = function () {
+	                        for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                            params[_key4] = arguments[_key4];
+	                        }
+
+	                        // 先执行默认逻辑，再执行用户逻辑                    
+	                        origin && origin.call.apply(origin, [_this5].concat(params));
+	                        var result = inject.call(_this5, _this5.__props, _this5);
+	                        // 组件渲染/刷新前可以让用户有机会改参数
+	                        if (result && ['beforeRender', 'beforeUpdate'].indexOf(f) !== -1) {
+	                            // 防止用户设置过滤属性
+	                            _this5.__props = _this5._filterHandler(result);
+	                        }
+	                    };
+	                }
+	            };
+
+	            for (var f in ForUserApi) {
+	                _loop4(f);
+	            }
+	        }
+	    }]);
+
+	    return BaseComponent;
+	}(_react.PureComponent);
+
+	exports.default = BaseComponent;
 
 /***/ }),
 /* 17 */
@@ -2153,13 +2292,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _DataDisplay16 = __webpack_require__(20);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -2563,7 +2702,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(8);
+	var _Antd2 = __webpack_require__(14);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -2621,7 +2760,7 @@
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -2976,7 +3115,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(8);
+	var _Antd2 = __webpack_require__(14);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -3036,7 +3175,7 @@
 
 	var _Navigation13 = _interopRequireDefault(_Navigation12);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -3135,6 +3274,9 @@
 	                }
 
 	                this.__props.children = result;
+	            } else {
+	                this.__props.routes = this._root.routes;
+	                this.__props.params = this._root.params;
 	            }
 	        }
 	    }, {
@@ -3404,7 +3546,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(8);
+	var _Antd2 = __webpack_require__(14);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -3464,13 +3606,13 @@
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _tools = __webpack_require__(1);
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -3634,7 +3776,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(8);
+	var _Antd2 = __webpack_require__(14);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -3688,7 +3830,7 @@
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -3852,7 +3994,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(8);
+	var _Antd2 = __webpack_require__(14);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -3928,9 +4070,9 @@
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -4184,11 +4326,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	__webpack_require__(34);
 
@@ -4364,11 +4506,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _ueditor = __webpack_require__(40);
 
@@ -5239,11 +5381,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	__webpack_require__(46);
 
@@ -5875,11 +6017,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var _antd2 = __webpack_require__(5);
 
@@ -6518,13 +6660,6 @@
 	                    total: data.length
 	                };
 	            }
-	            var aaa = {
-	                headers: objHeaders,
-	                source: tableCfg.source,
-	                params: tableCfg.params ? tableCfg.params : {},
-	                total: this.state.total
-	            };
-	            // console.log(aaa);
 	            return {
 	                headers: objHeaders,
 	                source: tableCfg.source,
@@ -7259,8 +7394,8 @@
 	            this.setState({ selectedRowKeys: selectedRowKeys });
 	        }
 	    }, {
-	        key: 'selectALLData',
-	        value: function selectALLData() {
+	        key: 'selectAllData',
+	        value: function selectAllData() {
 	            var _this10 = this;
 
 	            var displayData = this.state.data;
@@ -7333,7 +7468,7 @@
 	                rowSelection.selections = [{
 	                    key: 'uf-table-select-all',
 	                    text: '全选',
-	                    onSelect: this.selectALLData.bind(this)
+	                    onSelect: this.selectAllData.bind(this)
 	                }];
 	                if (_utils.Utils.getType(this.rowSelection.selections) === 'array') {
 	                    rowSelection.selections.push(this.rowSelection.selections);
@@ -7460,15 +7595,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _moment = __webpack_require__(17);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var _ueditor = __webpack_require__(40);
 
@@ -7711,10 +7846,9 @@
 	            var _this2 = this;
 
 	            var url = item.cfg.source;
-	            var ajax = (0, _utils.Ajax)(url, 'get');
-	            ajax(null, function (data) {
-	                if (item.cfg.sourceDataHandle) {
-	                    data = item.cfg.sourceDataHandle(data);
+	            this.__getData(url, null, function (data) {
+	                if (item.cfg.sourceHandler) {
+	                    data = item.cfg.sourceHandler(data);
 	                }
 	                item.cfg.options = data;
 	                delete item.cfg.source;
@@ -8379,11 +8513,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _tools = __webpack_require__(1);
 
@@ -8512,11 +8646,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _export = __webpack_require__(38);
 
@@ -10441,7 +10575,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10553,7 +10687,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var _ReactInput = __webpack_require__(62);
 
@@ -10953,9 +11087,9 @@
 
 	var _reactRouter = __webpack_require__(31);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11598,7 +11732,7 @@
 
 	var _reactRouter = __webpack_require__(31);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	var _UDnD = __webpack_require__(69);
 
@@ -11800,7 +11934,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _component = __webpack_require__(9);
+	var _component = __webpack_require__(15);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11931,7 +12065,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(14);
+	var _antd = __webpack_require__(11);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12026,7 +12160,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _loader = __webpack_require__(74);
 
@@ -12107,13 +12241,15 @@
 
 	            // 某些特殊种类的组件对参数进行特殊处理
 	            // 这块逻辑之所以没写到相应组件类里，是因为某些参数需要在实例之间就要处理
-	            item = _special2.default.if(item, this.props);
+	            item = _special2.default.if(item);
 
 	            // 从loader中获取到相应的组件
 	            var Item = _loader2.default.get(item.type);
 	            if (!Item) {
 	                return;
 	            }
+	            // 把 Factory 的 props 传给每个组件
+	            item._root = this.props;
 	            // 通过适配器把参数转换成标准格式，剔除掉一些无用属性等
 	            var props = _adaptor2.default.get(item);
 	            // 判断其他需要额外进一步解析的属性并进行解析
@@ -12271,7 +12407,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _uf = __webpack_require__(4);
 
@@ -12343,9 +12479,9 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
-	var _Antd = __webpack_require__(8);
+	var _Antd = __webpack_require__(14);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
@@ -12370,6 +12506,10 @@
 	            if (props.mode) {
 	                props.type = props.mode;
 	            }
+	        }
+	        // 非 BaseComponent 组件 _root 属性无效
+	        if (!_utils.Utils.isExtendsOf(Item, 'BaseComponent')) {
+	            delete props._root;
 	        }
 
 	        // 把 class、style 转换为 react 需要的 className、style对象
@@ -12454,7 +12594,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	exports.default = {
 	    // 检查对象上的某个(些)属性是否符合指定类型
@@ -12527,7 +12667,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _loader = __webpack_require__(74);
 
@@ -12574,7 +12714,7 @@
 	}(_react2.default.Component);
 
 	exports.default = {
-	    if: function _if(item, parentProps) {
+	    if: function _if(item) {
 	        var Item = _loader2.default.get(item.type);
 	        // 如果是 布局相关 的组件
 	        if (_utils.Utils.isExtendsOf(Item, 'Layout')) {
@@ -12587,21 +12727,6 @@
 	        // 如果是 路由-Router 组件
 	        if (_utils.Utils.isExtendsOf(Item, 'Router')) {
 	            item = this.setRouter(item);
-	        }
-	        // 如果是 面包屑 的组件
-	        if (_utils.Utils.isExtendsOf(Item, 'Breadcrumb')) {
-	            item = this.setBreadcrumb(item, parentProps);
-	        }
-	        return item;
-	    },
-
-
-	    // 如果是 面包屑 组件
-	    setBreadcrumb: function setBreadcrumb(item, parentProps) {
-	        // 如果面包屑没有自定义面包屑元素，则和router关联
-	        if (!item.content) {
-	            item.routes = parentProps.routes;
-	            item.params = parentProps.params;
 	        }
 	        return item;
 	    },
@@ -12779,7 +12904,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13224,7 +13349,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(11);
+	var _utils = __webpack_require__(7);
 
 	var _default = __webpack_require__(81);
 
@@ -13252,7 +13377,9 @@
 	    // 全局系统配置
 	    global: {
 	        // 设置文档域 document.domain，默认为原始值
-	        domain: document.domain
+	        domain: document.domain,
+	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
+	        ajax: {}
 	    },
 	    // 用于存放一些公用数据或静态数据（供select等组件直接调用）
 	    data: {},
@@ -13295,22 +13422,37 @@
 
 	exports.default = {
 	    // 路由
-	    router: {
+	    'router': {
 	        history: 'hashHistory'
 	    },
 	    // Loading
-	    loading: {
+	    'loading': {
 	        delay: 150
 	    },
 	    // Iframe
-	    iframe: {
+	    'iframe': {
 	        mode: 'auto',
 	        delay: 0,
 	        showLoading: true
 	    },
 	    // 面包屑
-	    breadcrumb: {
+	    'breadcrumb': {
 	        style: { margin: '12px 24px' }
+	    },
+	    // 下拉
+	    'select': {
+	        style: { width: 120 }
+	    },
+	    // 自动补全
+	    'auto-complete': {
+	        style: { width: 160 },
+	        options: []
+	    },
+	    'month-picker': {
+	        format: 'YYYY-MM'
+	    },
+	    'time-picker': {
+	        format: 'HH:mm:ss'
 	    }
 	};
 

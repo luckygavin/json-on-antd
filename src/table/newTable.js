@@ -5,7 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
+import {Utils} from 'uf/utils';
 import {Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm} from 'antd';
 import {Input} from 'uf/antd';
 import Export from 'uf/export';
@@ -407,13 +407,6 @@ export default class NewTable extends BaseComponent {
                 total: data.length
             };
         }
-        let aaa = {
-            headers: objHeaders,
-            source: tableCfg.source,
-            params: tableCfg.params ? tableCfg.params : {},
-            total: this.state.total
-        };
-        // console.log(aaa);
         return {
             headers: objHeaders,
             source: tableCfg.source,
@@ -954,7 +947,7 @@ export default class NewTable extends BaseComponent {
         console.log('selectedRowKeys changed1111: ', selectedRowKeys);
         this.setState({selectedRowKeys: selectedRowKeys});
     }
-    selectALLData() {
+    selectAllData() {
         let displayData = this.state.data;
         let selectedRowKeys = [];
         let selectedRows = [];
@@ -1021,7 +1014,7 @@ export default class NewTable extends BaseComponent {
                 {
                     key: 'uf-table-select-all',
                     text: '全选',
-                    onSelect: this.selectALLData.bind(this)
+                    onSelect: this.selectAllData.bind(this)
                 }
             ];
             if (Utils.getType(this.rowSelection.selections) === 'array') {

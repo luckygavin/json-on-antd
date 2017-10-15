@@ -43,6 +43,9 @@ export class Breadcrumb extends Navigation {
                 result.push(<Antd.Breadcrumb.Item children={v} />);
             }
             this.__props.children = result;
+        } else {
+            this.__props.routes = this._root.routes;
+            this.__props.params = this._root.params;
         }
     }
     render() {

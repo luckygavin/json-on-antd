@@ -11,16 +11,17 @@ const demo1 = {
     config: [
         {
             type: 'checkbox',
-            onChange: function(e) {console.log(e.target.value)}
+            checked: true,
+            onChange: function(e) {console.log(e.target.checked)}
         },
         {
             type: 'checkbox',
-            defaultChecked: false,
+            checked: false,
             disabled: true
         },
         {
             type: 'checkbox',
-            defaultChecked: true,
+            checked: true,
             disabled: true
         },
     ]
@@ -35,7 +36,7 @@ const demo2 = {
             { label: 'Pear', value: 'Pear' },
             { label: 'Orange', value: 'Orange' },
         ],
-        defaultValue: ['Pear'],
+        value: ['Pear'],
         onChange: function(checkedValues) {
             console.log('checked = ', checkedValues);
         }

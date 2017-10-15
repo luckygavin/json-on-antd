@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Utils} from 'uf/utils';
 import DataEntry from './base/DataEntry.js';
 import moment from 'moment';
 import * as Antd from 'antd';
@@ -16,27 +17,22 @@ moment.locale('zh-cn');
 export class AutoComplete extends DataEntry {
     constructor(props) {
         super(props);
+        // _onSearch 中的逻辑会注入到 onSearch 事件中，见 BaseComponent
+        this._injectEvent = ['onSearch'];
         this.__init();
         this.state = {
             result: []
         };
     }
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
-        this.__props = this.__mergeProps({
-            style: {width: 160},
-            options: []
-        }, this.__props);
-        let originOnSearch = this.__props.onSearch;
-        this.__props.onSearch = (value, ...params)=>{
-            let result  = [];
-            if (!!value) {
-                result = this.__props.options.map(i=>value + i);
-            }
-            this.setState({result});
-            originOnSearch && originOnSearch.call(this, value, ...params);
-        };
+    // 注入到 onSearch 事件中
+    _onSearch(value, ...params) {
+        let result  = [];
+        if (!!value) {
+            result = this.__props.options.map(i=>value + i);
+        }
+        this.setState({result});
     }
+    // 默认对应的是 onChange
     _onEvent(...params) {
         // 对change前后的数据进行对比
         let oldValue = this.__props.value;
@@ -70,6 +66,8 @@ export class AutoComplete extends DataEntry {
 export class Cascader extends DataEntry {
     constructor(props) {
         super(props);
+        // 异步属性为 options
+        this._asyncAttr = 'options';
         this.__init();
     }
     render() {
@@ -83,6 +81,10 @@ export class Cascader extends DataEntry {
 export class Checkbox extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.key = 'checked';
+        this.__controlled.defaultVal = false;
+        // 异步属性为 checked
+        this._asyncAttr = 'checked';
         this.__init();
     }
     render() {
@@ -93,6 +95,8 @@ export class Checkbox extends DataEntry {
 export class CheckboxGroup extends DataEntry {
     constructor(props) {
         super(props);
+        // 异步属性为 options
+        this._asyncAttr = 'options';
         this.__init();
     }
     render() {
@@ -113,7 +117,7 @@ class BasePicker extends DataEntry {
         super._initProps.call(this, ...params);
         this.__props = this.__mergeProps({format: 'YYYY-MM-DD'}, this.__props);
         // 如果没有设置showTime，根据format自动增删showTime属性
-        if (!this.__props.showTime) {
+        if (Utils.typeof(this.__props.showTime, 'undefined')) {
             this.__props.showTime = this._judgeShowTime(this.__props.format);
         }
     }
@@ -140,10 +144,6 @@ export class MonthPicker extends DataEntry {
         super(props);
         this.__init();
     }
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
-        this.__props = this.__mergeProps({format: 'YYYY-MM'}, this.__props);
-    }
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker.MonthPicker {...this.__props}
@@ -169,10 +169,6 @@ export class TimePicker extends DataEntry {
     constructor(props) {
         super(props);
         this.__init();
-    }
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
-        this.__props = this.__mergeProps({format: 'HH:mm:ss'}, this.__props);
     }
     render() {
         let value = this.__props.value;
@@ -255,6 +251,8 @@ export class Rate extends DataEntry {
 export class Radio extends DataEntry {
     constructor(props) {
         super(props);
+        // 异步属性为 options
+        this._asyncAttr = 'options';
         this.__init();
     }
     render() {
@@ -283,11 +281,9 @@ export class Radio extends DataEntry {
 export class Select extends DataEntry {
     constructor(props) {
         super(props);
+        // 异步属性为 options
+        this._asyncAttr = 'options';
         this.__init();
-    }
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
-        this.__props = this.__mergeProps({style: {width: 120}}, this.__props);
     }
     render() {
         return <Antd.Select {...this.__props}>
@@ -301,17 +297,17 @@ export class Select extends DataEntry {
 }
 
 
-/************* Slider 评分 ************************************************************************** */
+/************* Slider 滑动输入 ************************************************************************** */
 
-export class Slider extends DataEntry {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Slider {...this.__props}/>;
-    }
-}
+// export class Slider extends DataEntry {
+//     constructor(props) {
+//         super(props);
+//         this.__init();
+//     }
+//     render() {
+//         return <Antd.Slider {...this.__props}/>;
+//     }
+// }
 
 
 /************* Switch 开关 ************************************************************************** */
@@ -320,6 +316,8 @@ export class Switch extends DataEntry {
     constructor(props) {
         super(props);
         this.__controlled.key = 'checked';
+        // 异步属性为 checked
+        this._asyncAttr = 'checked';
         this.__init();
     }
     render() {
@@ -327,4 +325,20 @@ export class Switch extends DataEntry {
         return <Antd.Switch {...this.__props}/>;
     }
 }
+
+/************* Upload 开关 ************************************************************************** */
+
+export class Upload extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__controlled.key = 'fileList';
+        // 异步属性为 fileList
+        this._asyncAttr = 'fileList';
+        this.__init();
+    }
+    render() {
+        return <Antd.Upload {...this.__props}/>;
+    }
+}
+
 

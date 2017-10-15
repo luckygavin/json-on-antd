@@ -175,7 +175,7 @@ const demo1 = {
                         icon: 'like-o',
                         text: '自定义全选',
                         onClick: function(table) {
-                            return table.selectALLData();
+                            return table.selectAllData();
                         }
 
                     },'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
@@ -184,7 +184,7 @@ const demo1 = {
                         icon: 'like',
                         text: '自定义全选',
                         onClick: function(table) {
-                            return table.selectALLData();
+                            return table.selectAllData();
                         }
                     }, 'setPageSize'],
                 // showText: false,
@@ -248,7 +248,7 @@ const demo2 = {
                         icon: 'like-o',
                         text: '自定义全选',
                         onClick: function(table) {
-                            return table.selectALLData();
+                            return table.selectAllData();
                         }
 
                     },'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
@@ -257,7 +257,7 @@ const demo2 = {
                         icon: 'like',
                         text: '自定义全选',
                         onClick: function(table) {
-                            return table.selectALLData();
+                            return table.selectAllData();
                         }
                     }, 'setPageSize']
             },

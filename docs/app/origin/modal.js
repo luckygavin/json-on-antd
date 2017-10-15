@@ -72,7 +72,7 @@ const demo2 = {
                         rules: [{required: true, message: '机房不能为空'}],
                         cfg: {
                             source: 'docs/php/data.php',
-                            sourceDataHandle: data=>data.map(v=>{
+                            sourceHandler: data=>data.map(v=>{
                                 return {value: v.name, label: v.name};
                             })
                         }

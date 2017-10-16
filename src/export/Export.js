@@ -217,13 +217,13 @@ export default class Export extends BaseComponent {
     getKeyDataOfObject(obj) {
         let val = '';
         // 如果传入的是一个数组，则递归的遍历这个数组，拿出数组中各个对象的关键字
-        if (Utils.getType(obj) === 'array') {
+        if (Utils.typeof(obj, 'array')) {
             let tArr = [];
             for (let t of obj) {
                 tArr.push(this.getKeyDataOfObject(t));
             }
             val = tArr.join('\n');
-        } else if (Utils.getType(obj) === 'object') {
+        } else if (Utils.typeof(obj, 'object')) {
             // 如果字段是个对象，则优先获取Title字段，否则将该对象转化为json字符串
             if (obj.hasOwnProperty('title')) {
                 val = obj['title'];

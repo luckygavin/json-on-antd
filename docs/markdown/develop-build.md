@@ -129,6 +129,6 @@ export default {
 };
 ```
 
-**模块开发好后，最有使用构建工具生成`demo.html`中引用的`bundle.js`文件即可。**
+**模块开发好后，最后使用构建工具生成`demo.html`中引用的`bundle.js`文件即可。**
 
 > TODO: 后面可以写个webpack安装配置的教程。

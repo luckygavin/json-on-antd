@@ -9,7 +9,7 @@ import {BaseComponent} from 'uf/component';
 import {Utils} from 'uf/utils';
 
 // 抽象类 用于做组件种类区分
-class BaseRouter extends BaseComponent {
+export class BaseRouter extends BaseComponent {
     // constructor(props) {
     //     super(props);
     // }

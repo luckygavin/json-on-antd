@@ -20,9 +20,9 @@ $suffix = '';
             <script src="dist/js/dll.js?v=<?php echo $_V;?>"></script>
             <script src="dist/js/antd.js?v=<?php echo $_V;?>"></script>
         <?php } else { ?>
-            <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css?v=<?php echo $_V;?>" />
-            <script src="http://uf.baidu.com/dist/dll.min.js?v=<?php echo $_V;?>"></script>
-            <script src="http://uf.baidu.com/dist/antd.min.js?v=<?php echo $_V;?>"></script>
+            <link rel="stylesheet" href="css/theme.min.css?v=<?php echo $_V;?>" />
+            <script src="dist/dll.min.js?v=<?php echo $_V;?>"></script>
+            <script src="dist/antd.min.js?v=<?php echo $_V;?>"></script>
         <?php }?>
 
         <link rel="stylesheet" href="public/css/doc_v<?php echo $_VERSION . '.min.css?v=' . $_V; ?>" />

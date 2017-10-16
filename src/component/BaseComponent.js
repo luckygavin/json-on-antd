@@ -209,7 +209,7 @@ export default class BaseComponent extends PureComponent {
         for (let i in props) {
             let item = props[i];
             // 不是冻结对象，且不是类
-            if (item && !Object.isFrozen(item) && !Utils.isExtendsOf(item, 'ReactComponent')) {
+            if (item && !Object.isFrozen(item) && !Utils.isExtendsOf(item, React.Component)) {
                 if (Utils.typeof(item, 'function')) {
                     props[i] = (...params) => {
                         return item.call(this, ...params, this);

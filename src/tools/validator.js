@@ -10,10 +10,10 @@ export default {
     check(item, name, type) {
         type = type || 'undefined'
         // 如果不是数组，转换为数组
-        if (Utils.getType(name) === 'string') {
+        if (Utils.typeof(name, 'string')) {
             name = [name];
         }
-        if (Utils.getType(name) === 'array') {
+        if (Utils.typeof(name, 'array')) {
             let flag = true;
             for (let v of name) {
                 if (!Utils.typeof(item[name], type)) {

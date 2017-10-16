@@ -223,6 +223,7 @@ const Utils = {
     },
     // 获取数据的类型，返回的类型名称为全小写
     // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
+    // 推荐使用 Utils.typeof 函数
     getType(value) {
         return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
     },
@@ -241,18 +242,20 @@ const Utils = {
     toPascal(str) {
         return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     },
-    // 判断组件是否继承自某个类（类名）
+    // 判断组件是否继承自某个类，支持验证自己
     // 根据组件的引用（通过import获得）判断，支持深层查找
-    isExtendsOf(item, superName) {
-        // item.prototype.constructor.__proto__.__proto__.name
-        let Item = item.prototype && item.prototype.constructor;
-        while(Item) {
-            if (Item.name === superName) {
-                return true;
-            }
-            Item = Item.__proto__
-        };
-        return false;
+    isExtendsOf(item, superClass) {
+        if (item === superClass) return true;
+        // item.prototype.__proto__.__proto__.constructor === SuperClass
+        // let Item = item.prototype && item.prototype.__proto__;
+        // while(Item) {
+        //     if (Item.constructor === superClass) {
+        //         return true;
+        //     }
+        //     Item = Item.__proto__
+        // };
+        // return false;
+        return superClass.isPrototypeOf(item);
     },
     // 某个对象是否直接来自某个类的实例
     directInstanceof(obj, cls) {

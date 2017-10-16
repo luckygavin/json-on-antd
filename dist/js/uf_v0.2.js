@@ -1275,18 +1275,20 @@
 	        }).join('');
 	    },
 
-	    // 判断组件是否继承自某个类（类名）
+	    // 判断组件是否继承自某个类，支持验证自己
 	    // 根据组件的引用（通过import获得）判断，支持深层查找
-	    isExtendsOf: function isExtendsOf(item, superName) {
-	        // item.prototype.constructor.__proto__.__proto__.name
-	        var Item = item.prototype && item.prototype.constructor;
-	        while (Item) {
-	            if (Item.name === superName) {
-	                return true;
-	            }
-	            Item = Item.__proto__;
-	        };
-	        return false;
+	    isExtendsOf: function isExtendsOf(item, superClass) {
+	        if (item === superClass) return true;
+	        // item.prototype.__proto__.__proto__.constructor === SuperClass
+	        // let Item = item.prototype && item.prototype.__proto__;
+	        // while(Item) {
+	        //     if (Item.constructor === superClass) {
+	        //         return true;
+	        //     }
+	        //     Item = Item.__proto__
+	        // };
+	        // return false;
+	        return superClass.isPrototypeOf(item);
 	    },
 
 	    // 某个对象是否直接来自某个类的实例
@@ -2099,7 +2101,7 @@
 	            var _loop = function _loop(i) {
 	                var item = props[i];
 	                // 不是冻结对象，且不是类
-	                if (item && !Object.isFrozen(item) && !_utils.Utils.isExtendsOf(item, 'ReactComponent')) {
+	                if (item && !Object.isFrozen(item) && !_utils.Utils.isExtendsOf(item, _react2.default.Component)) {
 	                    if (_utils.Utils.typeof(item, 'function')) {
 	                        props[i] = function () {
 	                            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
@@ -4052,7 +4054,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.IndexLink = exports.Link = exports.IndexRedirect = exports.Redirect = exports.IndexRoute = exports.Route = exports.Router = undefined;
+	exports.IndexLink = exports.Link = exports.IndexRedirect = exports.Redirect = exports.IndexRoute = exports.Route = exports.Router = exports.BaseRouter = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -4089,7 +4091,7 @@
 
 
 	// 抽象类 用于做组件种类区分
-	var BaseRouter = function (_BaseComponent) {
+	var BaseRouter = exports.BaseRouter = function (_BaseComponent) {
 	    _inherits(BaseRouter, _BaseComponent);
 
 	    function BaseRouter() {
@@ -6160,12 +6162,7 @@
 	            getNeedObject(defaultCif, this.config);
 	            /* 关于表头 */
 	            this.titleConfig = !!objProps.titleConfig ? objProps.titleConfig : {};
-	            // if (objProps.titleConfig) {
-	            //     this.titleConfig = objProps.titleConfig;
-	            //     defaultCif.title = () => {
-	            //         return this.titleGenerate();
-	            //     }
-	            // }
+
 	            /* 关于异步操作 */
 	            if (objProps.source) {
 	                this.getData(null, objProps.params);
@@ -6252,7 +6249,7 @@
 	        value: function titleGenerate() {
 	            var _this3 = this;
 
-	            // console.log(this.exportConfig);
+	            if (!this.titleConfig) return null;
 	            var title = this.titleConfig.title || '';
 	            var showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
 	            var result = [];
@@ -7511,34 +7508,17 @@
 	            return pagination;
 	        }
 	    }, {
-	        key: 'renderTableTitle',
-	        value: function renderTableTitle() {
-	            var _this13 = this;
-
-	            var title = null;
-	            if (this.titleConfig) {
-	                title = function title() {
-	                    return _this13.titleGenerate();
-	                };
-	            }
-	            return title;
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var renderColumns = this.renderColumns();
-	            var rowSelection = this.renderRowSelection();
-	            var pagination = this.renderPagination();
-	            var renderTableTitle = this.renderTableTitle();
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'uf-table ' + (this.state.fullScreen ? ' umpui-fullscreen' : '') },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, {
-	                    dataSource: !!this.state.data && this.state.data,
-	                    columns: renderColumns,
-	                    rowSelection: rowSelection,
-	                    pagination: pagination,
-	                    title: renderTableTitle,
+	                    title: this.titleGenerate.bind(this),
+	                    dataSource: this.state.data,
+	                    columns: this.renderColumns(),
+	                    rowSelection: this.renderRowSelection(),
+	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
 	                this.state.showSetTagsModal && _react2.default.createElement(
 	                    _antd.Modal,
@@ -12479,6 +12459,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 
 
+	var _component = __webpack_require__(15);
+
 	var _utils = __webpack_require__(7);
 
 	var _Antd = __webpack_require__(14);
@@ -12502,13 +12484,13 @@
 	        var props = _utils.Utils.filter(item, KeyWord);
 	        // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
 	        // 实例化组件时，还要把 type 还原
-	        if (_utils.Utils.isExtendsOf(Item, 'Antd')) {
+	        if (_utils.Utils.isExtendsOf(Item, _Antd2.default)) {
 	            if (props.mode) {
 	                props.type = props.mode;
 	            }
 	        }
 	        // 非 BaseComponent 组件 _root 属性无效
-	        if (!_utils.Utils.isExtendsOf(Item, 'BaseComponent')) {
+	        if (!_utils.Utils.isExtendsOf(Item, _component.BaseComponent)) {
 	            delete props._root;
 	        }
 
@@ -12526,7 +12508,7 @@
 	            props['__cache'] = item.name;
 	        }
 	        // 基于BaseComponent的组件内部要用到组件的类型，存在__type属性里
-	        if (_utils.Utils.isExtendsOf(Item, 'BaseComponent')) {
+	        if (_utils.Utils.isExtendsOf(Item, _component.BaseComponent)) {
 	            props['__type'] = item.type;
 	        }
 	        // 每个组件都要有key
@@ -12667,6 +12649,8 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _uf = __webpack_require__(4);
+
 	var _utils = __webpack_require__(7);
 
 	var _loader = __webpack_require__(74);
@@ -12717,15 +12701,15 @@
 	    if: function _if(item) {
 	        var Item = _loader2.default.get(item.type);
 	        // 如果是 布局相关 的组件
-	        if (_utils.Utils.isExtendsOf(Item, 'Layout')) {
+	        if (_utils.Utils.isExtendsOf(Item, _uf.Layout)) {
 	            item = this.setLayout(item);
 	        }
 	        // 如果是 路由相关 的组件
-	        if (_utils.Utils.isExtendsOf(Item, 'BaseRouter')) {
+	        if (_utils.Utils.isExtendsOf(Item, _uf.BaseRouter)) {
 	            item = this.setRoute(item);
 	        }
 	        // 如果是 路由-Router 组件
-	        if (_utils.Utils.isExtendsOf(Item, 'Router')) {
+	        if (_utils.Utils.isExtendsOf(Item, _uf.Router)) {
 	            item = this.setRouter(item);
 	        }
 	        return item;

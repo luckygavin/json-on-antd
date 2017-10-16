@@ -120,22 +120,13 @@
         a {
             color: inherit;
         }
-        .icon-filter {
-            position: relative;
-            padding-left: 8px;
-            margin-right: -17px;
-            z-index: 1;
-            font-weight: 400;
-        }
-        .umpui-edit {
-            display: inline-block;
-        }
-        .umpui-edit-cs {
-            position: fixed;
-            right: 50px;
-            left: initial;
-            z-index: 2;
-        }
+        // .icon-filter {
+        //     position: relative;
+        //     padding-left: 8px;
+        //     margin-right: -17px;
+        //     z-index: 1;
+        //     font-weight: 400;
+        // }
         input {
             display: inline-block;
             padding-left: 20px;
@@ -143,14 +134,9 @@
             border-radius: 4px;
         }
         i {
-            font-weight: 800;
+            font-weight: 700;
+            margin-right: 2px;
         }
-        // &.menu ul {
-        //     display: none;
-        // }
-        // &.menu.active ul {
-        //     display: block;
-        // }
         ul {
             position: absolute;
             text-align: left;

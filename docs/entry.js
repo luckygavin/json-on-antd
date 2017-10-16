@@ -14,7 +14,7 @@ require('./doc.scss');
 // 通用文档
 const CommonList = [
     {path: 'Introduction', name: '简要介绍', component: require('./app/introduction').default},
-    {path: 'Usage', name: '组件使用', retract: true, children: [
+    {path: 'Usage', name: '组件使用', /* retract: true, */ children: [
         {path: 'Install', name: '快速上手', component: require('./app/install').default},
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
         {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
@@ -22,7 +22,7 @@ const CommonList = [
         {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
         {path: 'Others', name: '更多用法', component: require('./app/configure-others').default}
     ]},
-    {path: 'Develop', name: '项目开发', retract: true, children: [
+    {path: 'Develop', name: '项目开发', /* retract: true, */ children: [
         {path: 'Install', name: '快速上手', component: require('./app/develop-install').default},
         {path: 'Config', name: '全局配置', component: require('./app/develop-config').default},
         {path: 'Modules', name: '模块开发', component: require('./app/develop-modules').default},

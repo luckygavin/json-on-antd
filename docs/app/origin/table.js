@@ -111,30 +111,26 @@ const columns = [{
     key: 'duration',
     textType: 'duration',
     render: function (text, record, index) {
-        let dom = {
+        return {
             type: 'span',
             style: {
                 color: '#0aea0a'
             },
             content: text
         };
-        // return UF.init(dom);
-        return dom;
     }
 }, {
     title: '自定义render',
     dataIndex: 'customRender',
     key: 'customRender',
     render: function (text, record, index) {
-        let dom = {
+        return {
             type: 'span',
             style: {
                 color: '#0aea0a'
             },
             content: text
         };
-        // return UF.init(dom);
-        return dom;
     }
 }];
 
@@ -169,7 +165,13 @@ const demo1 = {
             },
             titleConfig: {
                 title: 'Table前端分页表格测试',
-                basicControls: ['filter', 'setPageSize', 
+                basicControls: [
+                    {
+                        name: 'filter',
+                        whitelist: ['name', 'address'],
+                        blacklist: ['json']
+                    },
+                    'setPageSize', 
                     {
                         name: 'selctAll',
                         icon: 'like-o',
@@ -178,7 +180,8 @@ const demo1 = {
                             return table.selectAllData();
                         }
 
-                    },'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
+                    },
+                    'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
                 menuControls: ['refresh', 'fullScreen', {
                         name: 'selctAll2',
                         icon: 'like',
@@ -188,10 +191,6 @@ const demo1 = {
                         }
                     }, 'setPageSize'],
                 // showText: false,
-                globalFilter: {
-                    whitelist: ['name', 'address'],
-                    blacklist: ['age']
-                }
             },
             bordered: false,
             data: dataSource,

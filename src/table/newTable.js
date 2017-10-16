@@ -53,6 +53,8 @@ export default class NewTable extends BaseComponent {
         // 用于存储多列的筛选条件
         this.filterConditions = {};
         this.globalFilterInput = '';
+        // 过滤字段黑名单/白名单
+        this.globalFilterList = null;
         // // 导出配置
         // this.exportConfig = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
@@ -114,17 +116,11 @@ export default class NewTable extends BaseComponent {
         getNeedObject(defaultCif, this.config);
         /* 关于表头 */
         this.titleConfig = !!objProps.titleConfig ? objProps.titleConfig : {};
-        // if (objProps.titleConfig) {
-        //     this.titleConfig = objProps.titleConfig;
-        //     defaultCif.title = () => {
-        //         return this.titleGenerate();
-        //     }
-        // }
+        this.titleConfig.showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
         /* 关于异步操作 */
         if (objProps.source) {
             this.getData(null, objProps.params);
-        }
-        else {
+        } else {
             this.setState({
                 data: propsData,
                 completeData: propsData,
@@ -162,28 +158,25 @@ export default class NewTable extends BaseComponent {
                 pageType: 'client'
             });
         }
-        let self = this;
         this.setState({
             loading: true
         });
         // 当前请求的标号
         let index = ++this.requerstIndex;
         ajax(url, params, (data, res) => {
-            if (index !== self.requerstIndex) {
-                return;
-            }
+            if (index !== this.requerstIndex) return;
             let displayData = data;
             if (this.pagination.pageType === 'server') {
                 displayData = data.slice(0, this.state.pageSize);
             }
-            self.setState({
+            this.setState({
                 data: displayData,
                 completeData: displayData,
                 // total: data.length,
                 total: res.total || res.count,
                 loading: false
             });
-            self.onRefreshData(data);
+            this.onRefreshData(data);
         });
     }
     // 数据刷新
@@ -194,61 +187,200 @@ export default class NewTable extends BaseComponent {
     }
     // 表头生成-包括文字标题及自定义控件
     titleGenerate() {
-        // console.log(this.exportConfig);
+        if (!this.titleConfig) return null;
         let title = this.titleConfig.title || '';
-        let showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
+        let showText = this.titleConfig.showText;
         let result = [];
-        /* 表头标题 */
+        // 表头标题
         if (title) {
             result.push(<div key="table-title" className="umpui-header">
                     <span>{title}</span>
                 </div>
             );
         }
-        /* 以下为一些控件的生成，全部保存在divList里 */
-        let divList = [];
-        /*直接展示在表头的控件*/
+        // 以下为一些控件的生成，全部保存在divList里
+        // 直接展示在表头的控件
+        let divList = this.getBasicWidghts();
+        // 展示在menu下拉列表中的控件
+        let gearsList = this.getMenuWidghts();
+        if (gearsList) {
+            divList.push(gearsList);
+        }
+        result.push(<div key="table-extra" className="umpui-header-extra-con">{divList}</div>);
+        return result;
+    }
+    // 基本控件
+    getBasicWidghts() {
         let arrBasic = this.titleConfig.basicControls;
-        if (arrBasic) {
-            let basic = this.getBasicWidghts();
-            for (let v of arrBasic) {
-                if (Utils.getType(v) === 'string') {
-                    // 为了美观，如果有自定义的控件，把控件放到过滤框之后，其他控件之前
-                    if (v === 'filter') {
-                        basic[v] && divList.unshift(basic[v]);
-                    } else {
-                        basic[v] && divList.push(basic[v]);
+        let result = [];
+        if (!arrBasic) {
+            return result;
+        }
+        let showText = this.titleConfig.showText;        
+        for (let v of arrBasic) {
+            // 全部转化为对象
+            if (Utils.typeof(v, 'string')) {
+                v = {name: v};
+            }
+            switch(v.name) {
+                case 'filter':
+                    if (!this.globalFilterList && (v.whitelist || v.blacklist)) {
+                        this.globalFilterList = {
+                            whitelist: v.whitelist,
+                            blacklist: v.blacklist
+                        };
                     }
-                }
-                else if (Utils.getType(v) === 'object') {
-                    divList.push(<div key={v.name} className={'umpui-header-extra ' + (v.name || '')}
-                        onClick={()=>v.onClick(this)}>
-                        <Icon type={v.icon} />
-                        {showText && <span>{v.text}</span>}
-                    </div>);
-                }
+                    result.push(<div className="umpui-header-extra filter no-hover" key="umpui-header-extra">
+                            <Input name="filter" prefix={<Icon type={v.icon || 'filter'}/>}
+                                ref={ele => this['uf-table-filter'] = ele}
+                                placeholder={showText && (v.text || '要过滤的内容')}
+                                onChange={this.globalFilterChange.bind(this)}/>
+                        </div>);
+                    break;
+                case 'refresh':
+                    result.push(<div className="umpui-header-extra" key="refresh"
+                                onClick={this.refreshTable.bind(this)}>
+                            <Icon type={v.icon || 'retweet'} />
+                            {showText && <span>{v.text || '刷新'}</span>}
+                        </div>);
+                    break;
+                case 'fullScreen':
+                    result.push(<div className="umpui-header-extra" key="fullscreen"
+                            onClick={this.toggleFullScreen.bind(this)}>
+                            {!this.state.fullScreen
+                                ? <Icon type={v.text || 'arrows-alt'} />
+                                : <Icon type={v.text || 'shrink'} />}
+                            {showText && (
+                                !this.state.fullScreen
+                                    ? <span>{v.text || '全屏'}</span>
+                                    : <span>{v.text || '退出全屏'}</span>
+                            )}
+                        </div>);
+                    break;
+                case 'export':
+                    result.push(<div className="umpui-header-extra" key="export">
+                            <Export {...this.exportConfig}>
+                                <Icon type={v.icon || 'download'} />
+                                {showText && <span>{v.text || '导出'}</span>}
+                            </Export>
+                        </div>);
+                    break;
+                case 'switchTags':
+                    result.push(<div className="umpui-header-extra" key="switchTags"
+                                onClick={this.showSwitchTags.bind(this)}>
+                            <Icon type={v.icon || 'setting'} />
+                            {showText && <span>{v.text || '展示字段'}</span>}
+                        </div>);
+                    break;
+                case 'showAllTags':
+                    result.push(<div key="showAllTags"
+                                className={'umpui-header-extra ' + (this.state.showAllTags ? 'active' : '')}
+                                onClick={this.toShowAllTags.bind(this)}>
+                            <Icon type={v.icon || 'eye-o'} />
+                            {showText && <span>{v.text || '展示全部'}</span>}
+                        </div>);
+                    break;
+                case 'setPageSize':
+                    result.push(<Popconfirm placement="top" key="basic-setPageSize"
+                            title={<Input
+                                placeholder="输入每页数据条数"
+                                ref = {ele => this['uf-table-pagesize-setting-basic'] = ele}
+                                value={this.state.pageSize}
+                                onChange={this.changePageSize.bind(this)}/>
+                            }
+                            onConfirm={this.getPageSizeSetting.bind(this, 'basic')}
+                            onCancel={this.hideMenuDropdown.bind(this)}
+                            okText="Yes" cancelText="No">
+                            <div className="umpui-header-extra"
+                                onClick={this.showSetPageSize.bind(this, 'basic')}>
+                                <Icon type={v.icon || 'switcher'} />
+                                {showText && <span>{v.text || '分页设置'}</span>}
+                            </div>
+                        </Popconfirm>);
+                    break;
+                default:
+                    result.push(<div key={v.name} className={'umpui-header-extra ' + (v.name || '')}
+                            onClick={v.onClick.bind(null, this)}>
+                            <Icon type={v.icon || 'file-unknown'} />
+                            {showText && <span>{v.text || ''}</span>}
+                        </div>);
             }
         }
-        /*展示在menu下拉列表中的控件*/
+        return result;        
+    }
+    // 下拉列表中的控件
+    getMenuWidghts() {
         let arrMenus = this.titleConfig.menuControls;
+        let result = null;
         let gearsList = [];
-        if (arrMenus) {
-            let menus = this.getMenuWidghts();
-            for (let v of arrMenus) {
-                if (Utils.getType(v) === 'string') {
-                    menus[v] && gearsList.push(menus[v]);
-                }
-                else if (Utils.getType(v) === 'object') {
-                    gearsList.push(<li key={v.name} onClick={()=>v.onClick(this)}>
-                        <Icon type={v.icon}  className="menu-item-icon" />
-                        <span>{v.text}</span>
+        if (!arrMenus) {
+            return result;
+        }
+        for (let v of arrMenus) {
+            // 全部转化为对象
+            if (Utils.typeof(v, 'string')) {
+                v = {name: v};
+            }
+            switch(v.name) {
+                case 'refresh':
+                    gearsList.push(<li key="refresh1" onClick={this.refreshTable.bind(this)}>
+                        <Icon type={v.icon || 'retweet'} className="menu-item-icon" />
+                        <span>{v.text || '刷新表格'}</span>
                     </li>);
-                }
+                    break;
+                case 'fullScreen':
+                    gearsList.push(<li key="fullScreen1" onClick={this.toggleFullScreen.bind(this)}>
+                            {!this.state.fullScreen
+                                ? <Icon type={v.text || 'arrows-alt'} className="menu-item-icon"/>
+                                : <Icon type={v.text || 'shrink'} className="menu-item-icon"/>}
+                            {!this.state.fullScreen
+                                ? <span>{v.text || '全屏显示'}</span>
+                                : <span>{v.text || '退出全屏'}</span>
+                            }
+                        </li>);
+                    break;
+                case 'switchTags':
+                    gearsList.push(<li key="switchTags1" onClick={this.showSwitchTags.bind(this)}>
+                        <Icon type={v.icon || 'setting'} className="menu-item-icon" />
+                        <span>{v.text || '展示字段'}</span>
+                    </li>);
+                    break;
+                case 'export':
+                    gearsList.push(<li key="export1">
+                        <Export {...this.exportConfig}>
+                            <Icon type={v.icon || 'download'} className="menu-item-icon" />
+                            <span>{v.text || '导出数据'}</span>
+                        </Export>
+                    </li>);
+                    break;
+                case 'setPageSize':
+                    gearsList.push(<Popconfirm placement="left" key="basic-setPageSize1"
+                            title={<Input
+                                placeholder="输入每页数据条数"
+                                ref={ele => this['uf-table-pagesize-setting-menu'] = ele}
+                                value={this.state.pageSize}
+                                onChange={this.changePageSize.bind(this)} />}
+                            onConfirm={this.getPageSizeSetting.bind(this, 'menu')}
+                            onCancel={this.hideMenuDropdown.bind(this)}
+                            okText="Yes" cancelText="No">
+                            <li onClick={this.showSetPageSize.bind(this, 'menu')} className={'ant-popover-open'}>
+                                <Icon type={v.icon || 'switcher'} className="menu-item-icon" />
+                                <span>{v.text || '分页设置'}</span>
+                            </li>
+                        </Popconfirm>);
+                    break;
+                default:
+                    gearsList.push(<li key={v.name} onClick={v.onClick.bind(null, this)}>
+                        <Icon type={v.icon || 'file-unknown'} className="menu-item-icon" />
+                        <span>{v.text || ''}</span>
+                    </li>);
             }
         }
         if (gearsList.length > 0) {
-            let menu = <ul className="uf-dropdown-menu-ul">{gearsList}</ul>;
-            divList.push(<Dropdown overlay={menu} trigger={['click']} key="umpui-table-menu"
+            result = (<Dropdown trigger={['click']} key="umpui-table-menu"
+                overlay={
+                    <ul className="uf-dropdown-menu-ul">{gearsList}</ul>
+                }
                 onVisibleChange={this.switchMenuList.bind(this)}
                 placement="bottomRight"
                 visible={this.state.showTableMenu}>
@@ -261,125 +393,7 @@ export default class NewTable extends BaseComponent {
                 </span>
             </Dropdown>);
         }
-        result.push(<div key="table-extra" className="umpui-header-extra-con">{divList}</div>);
         return result;
-    }
-    // 基本控件
-    getBasicWidghts() {
-        let obj = {};
-        let showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
-        let props = {
-            name: 'filter',
-            placeholder: '要过滤的内容',
-            // value: this.state.globalfilterValue,
-            onChange: this.globalFilterChange.bind(this)
-        };
-        obj['filter'] = <div className="umpui-header-extra filter no-hover" key="umpui-header-extra">
-            <Icon type="filter" className="icon-filter" />
-            <Input {...props} ref={ele => this['uf-table-filter'] = ele} />
-        </div>;
-        let arrList = [];
-        obj['refresh'] = <div className="umpui-header-extra" key="refresh"
-                onClick={this.refreshTable.bind(this)}>
-            <Icon type="retweet" />
-            {showText && <span>刷新</span>}
-        </div>;
-        if (!this.state.fullScreen) {
-            obj['fullScreen'] = <div className="umpui-header-extra" key="fullscreen"
-                    onClick={this.toggleFullScreen.bind(this)}>
-                    <Icon type="arrows-alt" />
-                    {showText && <span>全屏</span>}
-                </div>;
-        } else {
-            obj['fullScreen'] = <div className="umpui-header-extra" key="exitfullscreen"
-                onClick={this.toggleFullScreen.bind(this)}>
-                <Icon type="shrink" />
-                {showText && <span>退出全屏</span>}
-            </div>;
-        }
-        obj['export'] = <div className="umpui-header-extra" key="export">
-            <Export {...this.exportConfig}>
-                <Icon type="download" />
-                {showText && <span>导出</span>}
-            </Export>
-        </div>;
-        obj['switchTags'] = <div className="umpui-header-extra" key="switchTags"
-                onClick={this.switchTags.bind(this)}>
-            <Icon type="setting" />
-            {showText && <span>展示字段</span>}
-        </div>;
-        obj['showAllTags'] = <div key="showAllTags"
-                className={'umpui-header-extra ' + (this.state.showAllTags ? 'active' : '')}
-                onClick={this.toShowAllTags.bind(this)}>
-            <Icon type="eye-o" />
-            {showText && <span>展示全部列</span>}
-        </div>;
-        let pageSetting = <Input
-            placeholder="输入每页数据条数"
-            ref = {ele => this['uf-table-pagesize-setting-basic'] = ele}
-            value={this.state.pageSize}
-            onChange={this.changePageSize.bind(this)}/>;
-        obj['setPageSize'] = <Popconfirm placement="top" key="basic-setPageSize"
-                title={pageSetting}
-                onConfirm={this.getPageSizeSetting.bind(this, 'basic')}
-                onCancel={this.hideMenuDropdown.bind(this)}
-                okText="Yes" cancelText="No">
-                <div className="umpui-header-extra"
-                    onClick={this.showSetPageSize.bind(this, 'basic')}>
-                    <Icon type="switcher" />
-                    {showText && <span>分页设置</span>}
-                </div>
-            </Popconfirm>;
-        return obj;
-    }
-    // 下拉列表中的控件
-    getMenuWidghts() {
-        let obj = {};
-        obj['fullScreen'] = <li key="fullScreen1" onClick={this.toggleFullScreen.bind(this)}>
-            <Icon type="arrows-alt" className="menu-item-icon" />
-            <span>全屏显示</span>
-        </li>;
-        if (!this.state.fullScreen) {
-            obj['fullScreen'] = <li key="fullScreen1" onClick={this.toggleFullScreen.bind(this)}>
-                <Icon type="arrows-alt" className="menu-item-icon" />
-                <span>全屏显示</span>
-            </li>;
-        } else {
-            obj['fullScreen'] = <li key="exitfullscreen1" onClick={this.toggleFullScreen.bind(this)}>
-                <Icon type="shrink" className="menu-item-icon" />
-                <span>退出全屏</span>
-            </li>;
-        }
-        obj['switchTags'] = <li key="switchTags1" onClick={this.switchTags.bind(this)}>
-            <Icon type="setting" className="menu-item-icon" />
-            <span>展示字段</span>
-        </li>;
-        obj['export'] = <li key="export1">
-            <Export {...this.exportConfig}>
-                <Icon type="download" className="menu-item-icon" />
-                <span>导出数据</span>
-            </Export>
-        </li>;
-        let pageSetting = <Input
-            placeholder="输入每页数据条数"
-            ref = {ele => this['uf-table-pagesize-setting-menu'] = ele}
-            value={this.state.pageSize}
-            onChange={this.changePageSize.bind(this)} />;
-        obj['setPageSize'] = <Popconfirm placement="left" key="basic-setPageSize1"
-            title={pageSetting}
-            onConfirm={this.getPageSizeSetting.bind(this, 'menu')}
-            onCancel={this.hideMenuDropdown.bind(this)}
-            okText="Yes" cancelText="No">
-            <li onClick={this.showSetPageSize.bind(this, 'menu')} className={'ant-popover-open'}>
-                <Icon type="switcher" className="menu-item-icon" />
-                <span>分页设置</span>
-            </li>
-        </Popconfirm>;
-        obj['refresh'] = <li key="refresh1" onClick={this.refreshTable.bind(this)}>
-            <Icon type="retweet" className="menu-item-icon" />
-            <span>刷新表格</span>
-        </li>;
-        return obj;
     }
     // 获取要下载导出数据的配置
     getExportConfig(data) {
@@ -447,7 +461,7 @@ export default class NewTable extends BaseComponent {
         });
     }
     // 显示’展示字段‘设置弹框
-    switchTags() {
+    showSwitchTags() {
         this.setState({showSetTagsModal: true});
     }
     // 展示全部字段
@@ -583,7 +597,7 @@ export default class NewTable extends BaseComponent {
         if (strVal) {
             let arrFilterData = [];
             // 字段黑名单/白名单
-            let filterlist = this.titleConfig.gobalFilter;
+            let filterlist = this.globalFilterList;
             for (let row of content) {
                 let data = [];
                 // 按照展示的字段过滤，自定义render字段无效，问题比较大
@@ -675,7 +689,6 @@ export default class NewTable extends BaseComponent {
 
         // 清除已勾选内容
         // this.clearSelect();
-
 
     }
     // 从一个对象中获取需要用于过滤的关键字
@@ -1017,7 +1030,7 @@ export default class NewTable extends BaseComponent {
                     onSelect: this.selectAllData.bind(this)
                 }
             ];
-            if (Utils.getType(this.rowSelection.selections) === 'array') {
+            if (Utils.typeof(this.rowSelection.selections, 'array')) {
                 rowSelection.selections.push(this.rowSelection.selections);
             }
         }
@@ -1025,6 +1038,9 @@ export default class NewTable extends BaseComponent {
         return rowSelection;
     }
     renderPagination() {
+        if (!this.pagination) {
+            return pagination;
+        }
         let pagination = {
             pageSize: null,
             showSizeChanger: false,
@@ -1034,12 +1050,6 @@ export default class NewTable extends BaseComponent {
             simple: false,
             showTotal: null
         };
-        if (this.pagination === false) {
-            return false;
-        }
-        if (!this.pagination) {
-            return pagination;
-        }
         getNeedObject(pagination, this.pagination);
 
         pagination.current = this.state.current;
@@ -1053,27 +1063,14 @@ export default class NewTable extends BaseComponent {
         };
         return pagination;
     }
-    renderTableTitle() {
-        let title = null;
-        if (this.titleConfig) {
-            title = () => {
-                return this.titleGenerate();
-            };
-        }
-        return title;
-    }
     render() {
-        let renderColumns = this.renderColumns();
-        let rowSelection = this.renderRowSelection();
-        let pagination = this.renderPagination();
-        let renderTableTitle = this.renderTableTitle();
         return <div className={'uf-table ' + (this.state.fullScreen ? ' umpui-fullscreen' : '')}>
             <Table {...this.state.antdConfig}
-                dataSource={!!this.state.data && this.state.data}
-                columns={renderColumns}
-                rowSelection={rowSelection}
-                pagination={pagination}
-                title={renderTableTitle}
+                title={this.titleGenerate.bind(this)}
+                dataSource={this.state.data}
+                columns={this.renderColumns()}
+                rowSelection={this.renderRowSelection()}
+                pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {this.state.showSetTagsModal && <Modal title="展示字段" visible={this.state.showSetTagsModal}
                 onOk={this.setTableColumns.bind(this)}

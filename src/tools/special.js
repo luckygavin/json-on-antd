@@ -9,6 +9,7 @@
  */
 
 import React from 'react';
+import {Layout, BaseRouter, Router} from 'uf';
 import {Utils} from 'uf/utils';
 import Loader from './loader';
 import Factory from './factory.js';
@@ -25,15 +26,15 @@ export default {
     if(item) {
         let Item = Loader.get(item.type);
         // 如果是 布局相关 的组件
-        if (Utils.isExtendsOf(Item, 'Layout')) {
+        if (Utils.isExtendsOf(Item, Layout)) {
             item = this.setLayout(item);
         }
         // 如果是 路由相关 的组件
-        if (Utils.isExtendsOf(Item, 'BaseRouter')) {
+        if (Utils.isExtendsOf(Item, BaseRouter)) {
             item = this.setRoute(item);
         }
         // 如果是 路由-Router 组件
-        if (Utils.isExtendsOf(Item, 'Router')) {
+        if (Utils.isExtendsOf(Item, Router)) {
             item = this.setRouter(item);
         }
         return item;

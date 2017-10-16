@@ -14,11 +14,11 @@ if (ENV == 'dev') {
 } else {
 ?>
 
-<link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css?v=<?php echo $_V;?>" />
-<link rel="stylesheet" href="http://uf.baidu.com/css/uf_v<?php echo $_VERSION . '.css?v=' . $_V; ?>" />
-<script src="http://uf.baidu.com/dist/dll.min.js?v=<?php echo $_V;?>"></script>
-<script src="http://uf.baidu.com/dist/antd.min.js?v=<?php echo $_V;?>"></script>
-<script src="http://uf.baidu.com/dist/uf_v<?php echo $_VERSION . '.js?v=' . $_V; ?>"></script>
+<link rel="stylesheet" href="../../css/theme.min.css?v=<?php echo $_V;?>" />
+<link rel="stylesheet" href="../../css/uf_v<?php echo $_VERSION . '.css?v=' . $_V; ?>" />
+<script src="../../dist/dll.min.js?v=<?php echo $_V;?>"></script>
+<script src="../../dist/antd.min.js?v=<?php echo $_V;?>"></script>
+<script src="../../dist/uf_v<?php echo $_VERSION . '.js?v=' . $_V; ?>"></script>
 
 <?php
 }

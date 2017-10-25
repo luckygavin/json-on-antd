@@ -65,6 +65,12 @@ export default class NewTable extends BaseComponent {
     componentDidMount() {
         this.initTable();
     }
+    componentWillReceiveProps(nextProps) {
+        // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
+        if (!Utils.equals(this.config, nextProps)) {
+            this.initTable(nextProps);
+        }
+    }
     initTable(nextProps) {
         let objProps = nextProps ? nextProps : this.__props;
         this.config = Utils.clone(objProps);
@@ -72,12 +78,17 @@ export default class NewTable extends BaseComponent {
         // 列配置
         this.columns = Utils.clone(objProps.columns);
         // 行配置
-        this.rowSelection = !!objProps.rowSelection ? Utils.clone(objProps.rowSelection) : {};
-        if (this.rowSelection.selectedRowKeys) {
-            this.setState({selectedRowKeys: this.rowSelection.selectedRowKeys});
+        if (!!objProps.rowSelection) {
+            this.rowSelection = Utils.clone(objProps.rowSelection);
+            if (this.rowSelection.selectedRowKeys) {
+                this.setState({selectedRowKeys: this.rowSelection.selectedRowKeys});
+            }
+        }
+        else {
+            this.rowSelection = null;
         }
         // 分页配置
-        if (objProps.pagination === false) {
+        if (!objProps.pagination) {
             this.pagination = false;
         }
         else {
@@ -115,8 +126,13 @@ export default class NewTable extends BaseComponent {
         };
         getNeedObject(defaultCif, this.config);
         /* 关于表头 */
-        this.titleConfig = !!objProps.titleConfig ? objProps.titleConfig : {};
-        this.titleConfig.showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
+        if (!!objProps.titleConfig) {
+            this.titleConfig = objProps.titleConfig;
+            this.titleConfig.showText = this.titleConfig.showText !== undefined ? this.titleConfig.showText : true;
+        }
+        else {
+            this.titleConfig = null;
+        }
         /* 关于异步操作 */
         if (objProps.source) {
             this.getData(null, objProps.params);
@@ -164,7 +180,9 @@ export default class NewTable extends BaseComponent {
         // 当前请求的标号
         let index = ++this.requerstIndex;
         ajax(url, params, (data, res) => {
-            if (index !== this.requerstIndex) return;
+            if (index !== this.requerstIndex) {
+                return;
+            }
             let displayData = data;
             if (this.pagination.pageType === 'server') {
                 displayData = data.slice(0, this.state.pageSize);
@@ -187,7 +205,9 @@ export default class NewTable extends BaseComponent {
     }
     // 表头生成-包括文字标题及自定义控件
     titleGenerate() {
-        if (!this.titleConfig) return null;
+        if (!this.titleConfig) {
+            return null;
+        }
         let title = this.titleConfig.title || '';
         let showText = this.titleConfig.showText;
         let result = [];
@@ -207,7 +227,7 @@ export default class NewTable extends BaseComponent {
             divList.push(gearsList);
         }
         result.push(<div key="table-extra" className="umpui-header-extra-con">{divList}</div>);
-        return result;
+        return () => result;
     }
     // 基本控件
     getBasicWidghts() {
@@ -216,13 +236,13 @@ export default class NewTable extends BaseComponent {
         if (!arrBasic) {
             return result;
         }
-        let showText = this.titleConfig.showText;        
+        let showText = this.titleConfig.showText;
         for (let v of arrBasic) {
             // 全部转化为对象
             if (Utils.typeof(v, 'string')) {
                 v = {name: v};
             }
-            switch(v.name) {
+            switch (v.name) {
                 case 'filter':
                     if (!this.globalFilterList && (v.whitelist || v.blacklist)) {
                         this.globalFilterList = {
@@ -306,7 +326,7 @@ export default class NewTable extends BaseComponent {
                         </div>);
             }
         }
-        return result;        
+        return result;
     }
     // 下拉列表中的控件
     getMenuWidghts() {
@@ -321,7 +341,7 @@ export default class NewTable extends BaseComponent {
             if (Utils.typeof(v, 'string')) {
                 v = {name: v};
             }
-            switch(v.name) {
+            switch (v.name) {
                 case 'refresh':
                     gearsList.push(<li key="refresh1" onClick={this.refreshTable.bind(this)}>
                         <Icon type={v.icon || 'retweet'} className="menu-item-icon" />
@@ -448,7 +468,6 @@ export default class NewTable extends BaseComponent {
             showTableMenu: false,
             selectedRowKeys: []
         });
-        // console.log(this['uf-table-filter'].setVal);
         this.globalFilterInput = '';
         this.filterConditions = {};
         this.forceUpdate();
@@ -562,7 +581,6 @@ export default class NewTable extends BaseComponent {
     }
     // 展示头部隐藏菜单
     switchMenuList(visible) {
-        // console.log(visible);
         this.setState({showTableMenu: visible});
     }
     onFilterData() {
@@ -957,13 +975,13 @@ export default class NewTable extends BaseComponent {
         return antdColumnConfig;
     }
     onSelectChange(selectedRowKeys, selectedRows) {
-        console.log('selectedRowKeys changed1111: ', selectedRowKeys);
         this.setState({selectedRowKeys: selectedRowKeys});
     }
     selectAllData() {
         let displayData = this.state.data;
         let selectedRowKeys = [];
         let selectedRows = [];
+        let rowKey = this.config.rowKey || 'key';
         // 只有选择形式为复选框时才能进行全选
         if (this.rowSelection.type === 'checkbox' || !this.rowSelection.type) {
             selectedRows = displayData.filter(record => {
@@ -972,7 +990,7 @@ export default class NewTable extends BaseComponent {
                     return false;
                 }
                 else {
-                    selectedRowKeys.push(record.key);
+                    selectedRowKeys.push(record[rowKey]);
                     return true;
                 }
             });
@@ -983,12 +1001,12 @@ export default class NewTable extends BaseComponent {
         this.setState({selectedRowKeys: []});
     }
     renderRowSelection() {
-        let rowSelection = {
-            type: 'checkBox'
-        };
         if (!this.rowSelection) {
-            return rowSelection;
+            return null;
         }
+        let rowSelection = {
+            type: 'checkbox'
+        };
         getNeedObject(rowSelection, this.rowSelection);
         // 对行进行受控选择
         rowSelection.selectedRowKeys = this.state.selectedRowKeys;
@@ -1039,7 +1057,7 @@ export default class NewTable extends BaseComponent {
     }
     renderPagination() {
         if (!this.pagination) {
-            return pagination;
+            return false;
         }
         let pagination = {
             pageSize: null,
@@ -1066,10 +1084,11 @@ export default class NewTable extends BaseComponent {
     render() {
         return <div className={'uf-table ' + (this.state.fullScreen ? ' umpui-fullscreen' : '')}>
             <Table {...this.state.antdConfig}
-                title={this.titleGenerate.bind(this)}
+                title={this.titleGenerate()}
                 dataSource={this.state.data}
                 columns={this.renderColumns()}
                 rowSelection={this.renderRowSelection()}
+                // rowSelection={null}
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {this.state.showSetTagsModal && <Modal title="展示字段" visible={this.state.showSetTagsModal}

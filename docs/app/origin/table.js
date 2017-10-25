@@ -140,17 +140,22 @@ const demo1 = {
     config: [
         {
             type: 'button',
-            content: '调用暴露全选接口',
-            onClick: function() {
-                UF('newtable').clearSelect();
+            content: '为table组件set数据',
+            onClick: () => {
+                UF('newtable1').set({
+                    rowSelection: {
+                        selectedRowKeys: ['4'],
+                    },
+                    data: [dataSource[3]]
+                });
             }
         },
         {
             type: 'table',
-            name: 'newtable',
+            name: 'newtable1',
             columns,
             rowSelection: {
-                type: 'radio',
+                type: 'checkbox',
                 selections: true,
                 selectedRowKeys: ['3'],
                 // 指定满足某些条件时复选框不可选
@@ -158,11 +163,12 @@ const demo1 = {
                     return record.name === '胡彦祖' || record.age === 32
                 }
             },
-            pagination: {
-                // pageSize: 3
-                showSizeChanger: true,
-                pageSizeOptions: ['1', '2', '3', '4']
-            },
+            // pagination: {
+            //     // pageSize: 3
+            //     showSizeChanger: true,
+            //     pageSizeOptions: ['1', '2', '3', '4']
+            // },
+            // pagination: false,
             titleConfig: {
                 title: 'Table前端分页表格测试',
                 basicControls: [
@@ -192,7 +198,7 @@ const demo1 = {
                     }, 'setPageSize'],
                 // showText: false,
             },
-            bordered: false,
+            bordered: true,
             data: dataSource,
             // source: 'docs/php/download.php',
             // params: {
@@ -271,6 +277,9 @@ const demo2 = {
             rowKey: 'id',
             pagination: {
                 pageType: 'server'
+            },
+            rowSelection: {
+                selections: true
             }
         }
     ]

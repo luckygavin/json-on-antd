@@ -983,22 +983,44 @@ export default class NewTable extends BaseComponent {
         let selectedRows = [];
         let rowKey = this.config.rowKey || 'key';
         // 只有选择形式为复选框时才能进行全选
-        if (this.rowSelection.type === 'checkbox' || !this.rowSelection.type) {
-            selectedRows = displayData.filter(record => {
-                if (this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
-                    // 当满足不可选条件时，不可以进行选择
-                    return false;
-                }
-                else {
-                    selectedRowKeys.push(record[rowKey]);
-                    return true;
-                }
-            });
-            this.setState({selectedRowKeys: selectedRowKeys});
-        }
+        selectedRows = displayData.filter(record => {
+            if (this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
+                // 当满足不可选条件时，不可以进行选择
+                return false;
+            }
+            else {
+                selectedRowKeys.push(record[rowKey]);
+                return true;
+            }
+        });
+        // 通过组件的onChange函数完成全选
+        this.rowOnChange(selectedRowKeys, selectedRows);
     }
     clearSelect() {
-        this.setState({selectedRowKeys: []});
+        this.rowOnChange([], []);
+    }
+    // 行change时触发此函数
+    rowOnChange(selectedRowKeys, selectedRows) {
+        this.setState({selectedRowKeys: selectedRowKeys});
+        if (this.rowSelection.onChange) {
+            this.rowSelection.onChange(selectedRowKeys, selectedRows);
+        }
+    }
+    rowOnSelect(record, selected, selectedRows) {
+        if (this.rowSelection.onSelect) {
+            this.rowSelection.onSelect(record, selected, selectedRows);
+        }
+    }
+    // 当页全选
+    rowOnSelectAll(selected, selectedRows, changeRows) {
+        if (this.rowSelection.onSelectAll) {
+            this.rowSelection.onSelectAll(selected, selectedRows, changeRows);
+        }
+    }
+    rowOnSelectInvert(selectedRows) {
+        if (this.rowSelection.onSelectInvert) {
+            this.rowSelection.onSelectInvert(selectedRows);
+        }
     }
     renderRowSelection() {
         if (!this.rowSelection) {
@@ -1016,29 +1038,12 @@ export default class NewTable extends BaseComponent {
             };
         }
         // 任何一行的选择与否都会触发改方法
-        rowSelection.onChange = (selectedRowKeys, selectedRows) => {
-            this.setState({selectedRowKeys: selectedRowKeys});
-            if (this.rowSelection.onChange) {
-                this.rowSelection.onChange(selectedRowKeys, selectedRows);
-            }
-        };
-        rowSelection.onSelect = (record, selected, selectedRows) => {
-            if (this.rowSelection.onSelect) {
-                this.rowSelection.onSelect(record, selected, selectedRows);
-            }
-        };
+        rowSelection.onChange = this.rowOnChange.bind(this);
+        rowSelection.onSelect = this.rowOnSelect.bind(this);
         // 全选当前页
-        rowSelection.onSelectAll = (selected, selectedRows, changeRows) => {
-            if (this.rowSelection.onSelectAll) {
-                this.rowSelection.onSelectAll(selected, selectedRows, changeRows);
-            }
-        };
+        rowSelection.onSelectAll = this.rowOnSelectAll.bind(this);
         // 反选当页
-        rowSelection.onSelectInvert = selectedRows => {
-            if (this.rowSelection.onSelectInvert) {
-                this.rowSelection.onSelectInvert(selectedRows);
-            }
-        };
+        rowSelection.onSelectInvert = this.rowOnSelectInvert.bind(this);
         if (this.rowSelection.selections) {
             // 在自定义选择项中增加全选功能
             rowSelection.selections = [

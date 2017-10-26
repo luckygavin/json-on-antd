@@ -276,7 +276,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'refresh':
                     result.push(<div className="umpui-header-extra" key="refresh"
-                                title="刷新"
+                                title={v.text || '刷新'}
                                 onClick={this.refreshTable.bind(this)}>
                             <Icon type={v.icon || 'retweet'} />
                             {showText && <span>{v.text || '刷新'}</span>}
@@ -284,7 +284,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'fullScreen':
                     result.push(<div className="umpui-header-extra" key="fullscreen"
-                            title={!this.state.fullScreen ? '全屏' : '退出全屏'}
+                            title={!this.state.fullScreen ? v.text || '全屏' : v.text || '退出全屏'}
                             onClick={this.toggleFullScreen.bind(this)}>
                             {!this.state.fullScreen
                                 ? <Icon type={v.text || 'arrows-alt'} />
@@ -298,7 +298,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'export':
                     result.push(<div className="umpui-header-extra" key="export"
-                        title='导出'>
+                        title={v.text || '导出'}>
                             <Export {...this.exportConfig}>
                                 <Icon type={v.icon || 'download'} />
                                 {showText && <span>{v.text || '导出'}</span>}
@@ -307,7 +307,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'switchTags':
                     result.push(<div className="umpui-header-extra" key="switchTags"
-                                title="展示字段"
+                                title={v.text || '展示字段'}
                                 onClick={this.showSwitchTags.bind(this)}>
                             <Icon type={v.icon || 'setting'} />
                             {showText && <span>{v.text || '展示字段'}</span>}
@@ -315,7 +315,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'showAllTags':
                     result.push(<div key="showAllTags"
-                                title="展示全部"
+                                title={v.text || '展示全部'}
                                 className={'umpui-header-extra ' + (this.state.showAllTags ? 'active' : '')}
                                 onClick={this.toShowAllTags.bind(this)}>
                             <Icon type={v.icon || 'eye-o'} />
@@ -334,7 +334,7 @@ export default class NewTable extends BaseComponent {
                             onCancel={this.hideMenuDropdown.bind(this)}
                             okText="Yes" cancelText="No">
                             <div className="umpui-header-extra"
-                                title="分页设置"
+                                title={v.text || '分页设置'}
                                 onClick={this.showSetPageSize.bind(this, 'basic')}>
                                 <Icon type={v.icon || 'switcher'} />
                                 {showText && <span>{v.text || '分页设置'}</span>}

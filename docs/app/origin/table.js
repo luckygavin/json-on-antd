@@ -195,8 +195,8 @@ const demo1 = {
                         onClick: function(table) {
                             return table.selectAllData();
                         }
-                    }, 'setPageSize'],
-                // showText: false,
+                    }, 'showAllTags', 'setPageSize'],
+                showText: false,
             },
             bordered: true,
             data: dataSource,

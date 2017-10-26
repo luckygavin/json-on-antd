@@ -6,8 +6,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'uf/component';
 import {Utils} from 'uf/utils';
-import {Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm} from 'antd';
-import {Input} from 'uf/antd';
+import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm} from 'antd';
+// import {Input} from 'uf/antd';
 import Export from 'uf/export';
 import UF from 'uf/tools';
 import './style.scss';
@@ -146,6 +146,24 @@ export default class NewTable extends BaseComponent {
             // 导出数据的配置
             this.exportConfig = this.getExportConfig(propsData);
         }
+        /* 关于行样式与不可选相关联，不可选时至为灰色 */
+        if (this.rowSelection && this.rowSelection.disabledRow) {
+            // 暂存用户配置
+            let rowClassNameFun = defaultCif.rowClassName;
+            defaultCif.rowClassName = (record, index) => {
+                let customRowClassName = rowClassNameFun(record, index);
+                // 用户未定义rowClassName时customRowClassName为undefined
+                if(!customRowClassName) {
+                    customRowClassName = '';
+                }
+                if (this.rowSelection.disabledRow(record)) {
+                    return 'disabledRow ' + customRowClassName;
+                }
+                else {
+                    return customRowClassName;
+                }
+            }
+        }
         this.antdConfig = defaultCif;
         this.setState({
             antdConfig: this.antdConfig
@@ -252,13 +270,13 @@ export default class NewTable extends BaseComponent {
                     }
                     result.push(<div className="umpui-header-extra filter no-hover" key="umpui-header-extra">
                             <Input name="filter" prefix={<Icon type={v.icon || 'filter'}/>}
-                                ref={ele => this['uf-table-filter'] = ele}
-                                placeholder={showText && (v.text || '要过滤的内容')}
+                                placeholder={showText ? (v.text || '要过滤的内容') : ''}
                                 onChange={this.globalFilterChange.bind(this)}/>
                         </div>);
                     break;
                 case 'refresh':
                     result.push(<div className="umpui-header-extra" key="refresh"
+                                title="刷新"
                                 onClick={this.refreshTable.bind(this)}>
                             <Icon type={v.icon || 'retweet'} />
                             {showText && <span>{v.text || '刷新'}</span>}
@@ -266,6 +284,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'fullScreen':
                     result.push(<div className="umpui-header-extra" key="fullscreen"
+                            title={!this.state.fullScreen ? '全屏' : '退出全屏'}
                             onClick={this.toggleFullScreen.bind(this)}>
                             {!this.state.fullScreen
                                 ? <Icon type={v.text || 'arrows-alt'} />
@@ -278,7 +297,8 @@ export default class NewTable extends BaseComponent {
                         </div>);
                     break;
                 case 'export':
-                    result.push(<div className="umpui-header-extra" key="export">
+                    result.push(<div className="umpui-header-extra" key="export"
+                        title='导出'>
                             <Export {...this.exportConfig}>
                                 <Icon type={v.icon || 'download'} />
                                 {showText && <span>{v.text || '导出'}</span>}
@@ -287,6 +307,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'switchTags':
                     result.push(<div className="umpui-header-extra" key="switchTags"
+                                title="展示字段"
                                 onClick={this.showSwitchTags.bind(this)}>
                             <Icon type={v.icon || 'setting'} />
                             {showText && <span>{v.text || '展示字段'}</span>}
@@ -294,6 +315,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 case 'showAllTags':
                     result.push(<div key="showAllTags"
+                                title="展示全部"
                                 className={'umpui-header-extra ' + (this.state.showAllTags ? 'active' : '')}
                                 onClick={this.toShowAllTags.bind(this)}>
                             <Icon type={v.icon || 'eye-o'} />
@@ -312,6 +334,7 @@ export default class NewTable extends BaseComponent {
                             onCancel={this.hideMenuDropdown.bind(this)}
                             okText="Yes" cancelText="No">
                             <div className="umpui-header-extra"
+                                title="分页设置"
                                 onClick={this.showSetPageSize.bind(this, 'basic')}>
                                 <Icon type={v.icon || 'switcher'} />
                                 {showText && <span>{v.text || '分页设置'}</span>}
@@ -320,6 +343,7 @@ export default class NewTable extends BaseComponent {
                     break;
                 default:
                     result.push(<div key={v.name} className={'umpui-header-extra ' + (v.name || '')}
+                            title={v.text}
                             onClick={v.onClick.bind(null, this)}>
                             <Icon type={v.icon || 'file-unknown'} />
                             {showText && <span>{v.text || ''}</span>}
@@ -365,6 +389,13 @@ export default class NewTable extends BaseComponent {
                         <span>{v.text || '展示字段'}</span>
                     </li>);
                     break;
+                case 'showAllTags':
+                    gearsList.push(<li key="showAllTags1" onClick={this.toShowAllTags.bind(this)}
+                        className={this.state.showAllTags ? 'active' : ''}>
+                        <Icon type={v.icon || 'eye-o'} className="menu-item-icon" />
+                        <span>{v.text || '展示全部'}</span>
+                    </li>);
+                    break;
                 case 'export':
                     gearsList.push(<li key="export1">
                         <Export {...this.exportConfig}>
@@ -404,7 +435,8 @@ export default class NewTable extends BaseComponent {
                 onVisibleChange={this.switchMenuList.bind(this)}
                 placement="bottomRight"
                 visible={this.state.showTableMenu}>
-                <span className={'umpui-header-extra menu ' + (this.state.showTableMenu ? 'active' : '')}>
+                <span className={'umpui-header-extra menu ' + (this.state.showTableMenu ? 'active' : '')}
+                    title="菜单">
                     {this.state.showTableMenu
                         ? <Icon type="menu-unfold" />
                         : <Icon type="menu-fold" />
@@ -485,7 +517,10 @@ export default class NewTable extends BaseComponent {
     }
     // 展示全部字段
     toShowAllTags() {
-        this.setState({showAllTags: !this.state.showAllTags});
+        this.setState({
+            showAllTags: !this.state.showAllTags,
+            showTableMenu: false
+        });
     }
     // 自定义展示某些列
     setTableColumns() {
@@ -897,7 +932,6 @@ export default class NewTable extends BaseComponent {
                     filterObj.filterDropdown = (
                         <div className="custom-filter-dropdown">
                             <Input placeholder="Search"
-                                ref={ele => this['search-' + dataIndex] = ele}
                                 value={!!this.filterConditions[dataIndex] ? this.filterConditions[dataIndex] : ''}
                                 onChange={this.filterChange.bind(this, dataIndex)}
                                 onPressEnter={this.onFilterData.bind(this)}

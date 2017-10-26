@@ -153,7 +153,7 @@ export default class NewTable extends BaseComponent {
             defaultCif.rowClassName = (record, index) => {
                 let customRowClassName = rowClassNameFun(record, index);
                 // 用户未定义rowClassName时customRowClassName为undefined
-                if(!customRowClassName) {
+                if (!customRowClassName) {
                     customRowClassName = '';
                 }
                 if (this.rowSelection.disabledRow(record)) {
@@ -162,7 +162,7 @@ export default class NewTable extends BaseComponent {
                 else {
                     return customRowClassName;
                 }
-            }
+            };
         }
         this.antdConfig = defaultCif;
         this.setState({

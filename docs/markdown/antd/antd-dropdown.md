@@ -14,15 +14,13 @@
 | 参数        | 说明             | 类型               | 默认值       |
 |-------------|------------------|--------------------|--------------|
 | trigger     | 触发下拉的行为   | Array['click'或'hover'] | ['hover']        |
-| overlay     | 菜单         | Menu | -     |
+| overlay     | 菜单         | `Menu` 见 [Menu](#/Navigation/Menu) | -     |
 | visible     | 菜单是否显示 | boolean   | -           |
 | disabled    | 菜单是否禁用 | boolean   | -           |
 | onVisibleChange  | 菜单显示状态改变时调用，参数为 visible | Function(visible) | - |
 | placement | 菜单弹出位置：`bottomLeft` `bottomCenter` `bottomRight` `topLeft` `topCenter` `topRight` | String | `bottomLeft` |
 
-菜单可由 `menu` 取得，可设置 `onSelect` 回调，菜单还包括菜单项 `menu-item`。
-
-> 注意： menu-item 必须设置唯一的 key 属性。
+菜单可由 `menu` 取得，可设置 `onSelect` 回调。
 
 > dropdown 下的 menu 默认不可选中。如果需要菜单可选中，可以指定 `menu`的`selectable`属性为`true`.
 

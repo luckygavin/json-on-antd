@@ -150,21 +150,18 @@ const demo2 = {
                         mode: 'horizontal',
                         defaultSelectedKeys: ['2'],
                         style: {lineHeight: '64px'},
-                        content: [
+                        items: [
                             {
-                                type: 'menu-item',
                                 key: '1',
-                                content: 'nav 1'
+                                title: 'nav 1'
                             },
                             {
-                                type: 'menu-item',
                                 key: '2',
-                                content: 'nav 2'
+                                title: 'nav 2'
                             },
                             {
-                                type: 'menu-item',
                                 key: '3',
-                                content: 'nav 3'
+                                title: 'nav 3'
                             }
                         ]
                     }
@@ -210,21 +207,18 @@ const demo3 = {
                         mode: 'horizontal',
                         defaultSelectedKeys: ['2'],
                         style: {lineHeight: '64px'},
-                        content: [
+                        items: [
                             {
-                                type: 'menu-item',
                                 key: '1',
-                                content: 'nav 1'
+                                title: 'nav 1'
                             },
                             {
-                                type: 'menu-item',
                                 key: '2',
-                                content: 'nav 2'
+                                title: 'nav 2'
                             },
                             {
-                                type: 'menu-item',
                                 key: '3',
-                                content: 'nav 3'
+                                title: 'nav 3'
                             }
                         ]
                     }
@@ -243,44 +237,35 @@ const demo3 = {
                             selectedKeys: ['1'],
                             defaultOpenKeys: ['sub1'],
                             style: {height: '100%', borderRight: 0},
-                            content: [
+                            items: [
                                 {
-                                    type: 'sub-menu',
                                     key: 'sub1',
-                                    title: [
-                                        {type: 'icon', mode: 'user'},
-                                        'subnav 1'
-                                    ],
-                                    content: [
-                                        {type: 'menu-item', key: '1', content: 'option 1'},
-                                        {type: 'menu-item', key: '2', content: 'option 2'},
-                                        {type: 'menu-item', key: '3', content: 'option 3'}
+                                    icon: 'user',
+                                    title: 'subnav 1',
+                                    childItems: [
+                                        {key: '1', title: 'option 1'},
+                                        {key: '2', title: 'option 2'},
+                                        {key: '3', title: 'option 3'}
                                     ]
                                 },
                                 {
-                                    type: 'sub-menu',
                                     key: 'sub2',
-                                    title: [
-                                        {type: 'icon', mode: 'laptop'},
-                                        'subnav 2'
-                                    ],
-                                    content: [
-                                        {type: 'menu-item', key: '4', content: 'option 4'},
-                                        {type: 'menu-item', key: '5', content: 'option 5'},
-                                        {type: 'menu-item', key: '6', content: 'option 6'}
+                                    icon: 'laptop',
+                                    title: 'subnav 2',
+                                    childItems: [
+                                        {key: '4', title: 'option 4'},
+                                        {key: '5', title: 'option 5'},
+                                        {key: '6', title: 'option 6'}
                                     ]
                                 },
                                 {
-                                    type: 'sub-menu',
                                     key: 'sub3',
-                                    title: [
-                                        {type: 'icon', mode: 'notification'},
-                                        'subnav 3'
-                                    ],
-                                    content: [
-                                        {type: 'menu-item', key: '7', content: 'option 7'},
-                                        {type: 'menu-item', key: '8', content: 'option 8'},
-                                        {type: 'menu-item', key: '9', content: 'option 9'}
+                                    icon: 'notification',
+                                    title: 'subnav 3',
+                                    childItems: [
+                                        {key: '7', title: 'option 7'},
+                                        {key: '8', title: 'option 8'},
+                                        {key: '9', title: 'option 9'}
                                     ]
                                 }
                             ]
@@ -323,21 +308,18 @@ const demo4 = {
                         mode: 'horizontal',
                         defaultSelectedKeys: ['2'],
                         style: {lineHeight: '64px'},
-                        content: [
+                        items: [
                             {
-                                type: 'menu-item',
                                 key: '1',
-                                content: 'nav 1'
+                                title: 'nav 1'
                             },
                             {
-                                type: 'menu-item',
                                 key: '2',
-                                content: 'nav 2'
+                                title: 'nav 2'
                             },
                             {
-                                type: 'menu-item',
                                 key: '3',
-                                content: 'nav 3'
+                                title: 'nav 3'
                             }
                         ]
                     }
@@ -364,44 +346,35 @@ const demo4 = {
                                     selectedKeys: ['1'],
                                     defaultOpenKeys: ['sub1'],
                                     style: {height: '100%', borderRight: 0},
-                                    content: [
+                                    items: [
                                         {
-                                            type: 'sub-menu',
                                             key: 'sub1',
-                                            title: [
-                                                {type: 'icon', mode: 'user'},
-                                                'subnav 1'
-                                            ],
-                                            content: [
-                                                {type: 'menu-item', key: '1', content: 'option 1'},
-                                                {type: 'menu-item', key: '2', content: 'option 2'},
-                                                {type: 'menu-item', key: '3', content: 'option 3'}
+                                            icon: 'user',
+                                            title: 'subnav 1',
+                                            childItems: [
+                                                {key: '1', title: 'option 1'},
+                                                {key: '2', title: 'option 2'},
+                                                {key: '3', title: 'option 3'}
                                             ]
                                         },
                                         {
-                                            type: 'sub-menu',
                                             key: 'sub2',
-                                            title: [
-                                                {type: 'icon', mode: 'laptop'},
-                                                'subnav 2'
-                                            ],
-                                            content: [
-                                                {type: 'menu-item', key: '4', content: 'option 4'},
-                                                {type: 'menu-item', key: '5', content: 'option 5'},
-                                                {type: 'menu-item', key: '6', content: 'option 6'}
+                                            icon: 'laptop',
+                                            title: 'subnav 2',
+                                            childItems: [
+                                                {key: '4', title: 'option 4'},
+                                                {key: '5', title: 'option 5'},
+                                                {key: '6', title: 'option 6'}
                                             ]
                                         },
                                         {
-                                            type: 'sub-menu',
                                             key: 'sub3',
-                                            title: [
-                                                {type: 'icon', mode: 'notification'},
-                                                'subnav 3'
-                                            ],
-                                            content: [
-                                                {type: 'menu-item', key: '7', content: 'option 7'},
-                                                {type: 'menu-item', key: '8', content: 'option 8'},
-                                                {type: 'menu-item', key: '9', content: 'option 9'}
+                                            icon: 'notification',
+                                            title: 'subnav 3',
+                                            childItems: [
+                                                {key: '7', title: 'option 7'},
+                                                {key: '8', title: 'option 8'},
+                                                {key: '9', title: 'option 9'}
                                             ]
                                         }
                                     ]

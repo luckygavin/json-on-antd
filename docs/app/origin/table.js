@@ -65,7 +65,7 @@ const columns = [{
     dataIndex: 'name',
     key: 'name',
     filterConfig: {
-        filterType: 'checkBox',
+        filterType: 'checkbox',
         filters: ['斌', '祖']
         // filters: [
         //     {text: 'a', value: 'a'},
@@ -77,7 +77,7 @@ const columns = [{
     dataIndex: 'sex',
     key: 'sex',
     filterConfig: {
-        filterType: 'checkBox'
+        filterType: 'checkbox'
     },
     display: false
 },{
@@ -153,6 +153,7 @@ const demo1 = {
         {
             type: 'table',
             name: 'newtable1',
+            rowKey: 'key',
             columns,
             rowSelection: {
                 type: 'checkbox',
@@ -218,7 +219,7 @@ const columns2 = [
         dataIndex: 'id',
         key: 'id',
         filterConfig: {
-            filterType: 'checkBox'
+            filterType: 'checkbox'
         }
     },
     {

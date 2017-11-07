@@ -19,27 +19,21 @@ export default class DataEntry extends Antd {
         this._asyncAttr = 'value';
         this.__controlled = {
             key: 'value',
-            event: 'onChange'
+            event: 'onChange',
+            defaultVal: '',
+            paramsIndex: 0
         };
     }
 
     // 增加 onChange 时默认保存数据的函数
     // 父类的 _onEvent 函数不能满足需求，直接覆盖了
     _onEvent(callback, ...params) {
-        const key = this.__controlled.key;
-        // console.log(params[1]);
-        if (Utils.typeof(params[0], 'object') && params[0].target) {
-            // 适合的组件：input、input-number、checkbox、radio
-            this.__props[key] = params[0].target[key];
-        } else if (Utils.typeof(params[0], ['string', 'number', 'boolean', 'array'])) {
-            // 适合的组件：select、switch、cascader、rate、slider
-            this.__props[key] = params[0];
-        } else if (params[1]) {
-            // 适合的组件：date-picker系列
-            this.__props[key] = params[1];
+        const {key, paramsIndex} = this.__controlled;
+        // 适合的组件：input、checkbox、radio
+        if (Utils.typeof(params[paramsIndex], 'object') && params[paramsIndex].target) {
+            this.__props[key] = params[paramsIndex].target[key];
         } else {
-            // 特殊情况，容错
-            this.__props[key] = params[0];
+            this.__props[key] = params[paramsIndex];
         }
         this.forceUpdate();
 

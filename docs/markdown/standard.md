@@ -130,16 +130,25 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  
 > 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前
 
-##### **`__setCache(key, data)`**  
-为了方便使用缓存，直接把调用缓存的接口封装到了Base中，可以通过此接口存储缓存
-
-##### **`__getCache(key)`**  
-调用缓存数据
+##### **`__setProps(props[, follow])`**  
+用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  
+第二个参数，可以不填，默认会刷新组件；也可以传入自己想要执行的逻辑；或者传入 false 阻止组件刷新
 
 ##### **`__mergeProps(...objs)`**  
 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  
 > tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   
+
+##### **`__filterProps(obj, string/array)`**  
+从 obj 中过滤掉某些属性，可以是多个字符串参数，也可以是一个数组
+
+##### **`__shouldUpdate(this.props, nextProps)`**  
+用于 componentWillReceiveProps 中，判断是否需要刷新。这里使用的是正真的 props 和 nextProps   
+具体有如下两种特殊场景：  
+如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；  
+如果是set导致的，则两次的props肯定会有不同，需刷新  
+还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响  
+
 
 ##### **`__filterProps(props, arr)`**  
 过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  
@@ -161,6 +170,10 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 ##### **`__ajax(obj)`**
 通用的 `ajax` 函数。参数为一个对象。
 > 常用参数有：url、method、data、type、onchange、success、error
+
+
+##### **`__analysis(config)`**
+解析某个属性的配置。方便开发组件时解析一些可以为配置的属性
 
 
 ---

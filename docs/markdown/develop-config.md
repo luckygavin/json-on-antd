@@ -9,7 +9,15 @@
 
 ## 具体用法
 
-一般在页面初始化之前调用`UF.config({modules, components, global, data})`做一些全局的配置。其参数为一个对象，其中常用的参数有`modules`、`components`、`global`、`data`
+一般在页面初始化之前调用`UF.config({})`做一些全局的配置。其参数为一个对象，参数如下：
+
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | ----
+modules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
+components | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
+global | 其他一些全局配置。见：`global`表 | Object |  | 
+data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
+authority | 权限控制。见：`authority`表 | Object |  | 
 
 
 ### # modules
@@ -85,17 +93,51 @@ ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定�
 method | 默认数据请求方式 | string | `GET` | 
 headers | 设置http请求的headers | object | {} | 
 data | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
+beforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`data`为数据体，函数第二个参数`conf`为当前请求的全部配置，例如请求的类型等。 | function(data, conf){} | | 
 type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
 contentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |
 crossOrigin | 设置`cross-origin`请求 | boolean | | 
-success | 请求成功时的回调函数 | function | 默认处理逻辑，见 [组件交互](#/Usage/Api) 的 `UF.ajax` 部分 | 
-error | 请求失败时的回调函数 | function | | 
+success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是状态码是否为200。**默认的处理方式**见 [交互API](#/Usage/Api) 中`UF.ajax()`部分。参数中的`successHandler`和`errorHandler`为代码逻辑中传入的成功和失败的处理函数。可见如下示例 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [组件交互](#/Usage/Api) 的 `UF.ajax` 部分 | 
+error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(){res, errorHandler} | | 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
 jsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | 
+
+*覆盖默认 ajax 处理逻辑的示例：*
+
+```javascript
+UF.config({
+    global: {
+        ajax: {
+            success(res, successHandler, errorHandler) {
+                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中
+                // 非 0000 的全部为失败，其中失败原因在 msg 字段中
+                if (res.code === '0000') {
+                    successHandler(data, res);
+                } else if (res.code === '8001') {
+                    // 错误提示逻辑
+                    UF.notification.error({
+                        message: '请求失败：',
+                        description: res.msg
+                    });
+                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑
+                    errorHandler(res);
+                }
+                
+            },
+            error(res, errorHandler) {
+                errorHandler(res);
+            }
+        }
+    }
+});
+```
 
 
 ### # data
 
 用于存放一些公用数据或静态数据（供select等组件直接调用）。
+
+
+### # authority
 
 

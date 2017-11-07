@@ -203,13 +203,7 @@ const demo5 = {
                 }],
             }],
         }],
-        displayRender: function(labels, selectedOptions) {
-            var str = labels.join(' - ');
-            return UF.init({
-                type: 'span',
-                content: str
-            })
-        }
+        displayRender: labels=>labels.join(' - ')
     }
 };
 const demo6 = {

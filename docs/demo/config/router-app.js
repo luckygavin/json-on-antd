@@ -4,50 +4,27 @@ define(function() {
             type: "menu",
             mode: "horizontal",
             theme: "dark",
-            content: [
+            items: [
                 {
-                    type: "menu-item",
                     key: "mail",
-                    content: {
-                        type: 'link',
-                        to: '/card',
-                        content: [
-                            {
-                                type: "icon",
-                                mode: "mail"
-                            },
-                            "Navigation One"
-                        ]
-                    }
+                    link: '/card',
+                    icon: 'mail',
+                    title: 'Navigation One'
                 },
                 {
-                    type: "sub-menu",
                     key: "sub",
-                    title: [
+                    icon: 'setting',
+                    title: 'Navigation Two - Submenu',
+                    childItems: [
                         {
-                            type: "icon",
-                            mode: "setting"
-                        },
-                        "Navigation Two - Submenu"
-                    ],
-                    content: [
-                        {
-                            type: "menu-item",
                             key: "setting:1",
-                            content: {
-                                type: 'link',
-                                to: '/card2',
-                                content: "Option 1"
-                            }
+                            link: '/card2',
+                            title: 'Option 1'
                         },
                         {
-                            type: "menu-item",
                             key: "setting:2",
-                            content: {
-                                type: 'link',
-                                to: '/card2/card3',
-                                content: "Option 2"
-                            }
+                            link: '/card2/card3',
+                            title: 'Option 2'
                         }
                     ]
                 }

@@ -66,3 +66,45 @@ define(['App', 'Page1'], function(App, Page1) {
 
 > 更多用法可见：[这里](http://requirejs.org/docs/api.html#define)
 
+## 模块间数据通信
+
+因为上面定义的模块时一个纯配置对象，所以不具备数据通信能力（或者说实现比较复杂）。接下来介绍一种定义动态模块的方法 -- 即返回的不是纯配置，而是一个 return 出一个配置的函数。例如`page2.js`模块。  
+
+先把模块改为`define(function(){})`的形式：  
+
+```javascript
+define(function() {
+    return {
+        type: 'card',
+        title: 'Card Title 2',
+        loading: true
+    };
+});
+```
+
+然后把配置替换为一个函数，函数可以有多个参数：
+
+```javascript
+define(function() {
+    return function(title) {
+        return {
+            type: 'card',
+            title: title,
+            loading: true
+        };
+    }
+});
+```
+
+如上，模块的 title 属性即为一个动态的属性，根据外面传入的不同参数变化。使用的时候也会对应有一些变化，如下：
+
+```javascript
+define(function() {
+    var Page2 = require('Page2');
+    ...
+    // component: Page2
+    component: Page2('Card Title 22')
+    ...
+});
+```
+

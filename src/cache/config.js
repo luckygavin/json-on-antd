@@ -9,10 +9,12 @@
  * Modified By: liuzechun
  */
 
-import {Utils, Cache} from 'uf/utils';
+import BaseCache from './BaseCache.js';
 import Default from './default.js';
 
-Cache.set('_uf-config', {
+const _key = '_uf-config';
+
+let _cache = {
     // 模块引入相关配置
     modules: {
         // 加载模块时是否展示loading
@@ -26,23 +28,8 @@ Cache.set('_uf-config', {
         ajax: {
         }
     },
-    // 用于存放一些公用数据或静态数据（供select等组件直接调用）
-    data: {},
     // 组件默认配置
     components: Default
-});
-
-export default {
-    _key: '_uf-config',
-    get(name) {
-        // 如果传递了name，则只去config中name字段，否则返回全部
-        return (!!name ? Cache.get(this._key)[name] : Cache.get(this._key)) || {};
-    },
-    set(obj) {
-        let origin = this.get();
-        let config = Utils.merge(10, {}, origin, obj);
-        Cache.set(this._key, config);
-        // 存完后返回存储的值
-        return config;
-    }
 };
+
+export default (new BaseCache(_key, _cache));

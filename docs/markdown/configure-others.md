@@ -18,15 +18,6 @@
 
 会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）
 
-#### # asyncContent 
-`string`: url
-
-子组件为异步模块。
-
-子模块的配置会在使用的时候再异步的去请求，然后解析。
-
-> 如果有 asyncContent 属性，则 content 无效，最终展示结果按请求返回的配置展示。
-
 #### # name 
 `string`
 
@@ -102,7 +93,7 @@ style: 'margin-top: 16px; font-size: 12px;'
         });
     },
     beforeRender(props, self) {
-        props.sourceParams = {id: self._root.params.id};
+        props.sourceParams = {id: self._root.props.params.id};
         return props;
     }
 }
@@ -113,7 +104,10 @@ style: 'margin-top: 16px; font-size: 12px;'
 
 ## html 组件
 
-`type`为`html`的组件，只有`content`属性，content为一段html代码。为了方便大块自定义内容
+`type`为`html`的组件，`content`属性为一段html代码。为了方便大块自定义内容。
+
+html代码会被一个`<section>`标签包裹，为了方便定义样式，html 组件还支持`style``className`属性，自定义外层样式。
+
 
 
 ## 引入自定义组件
@@ -166,7 +160,7 @@ style: 'margin-top: 16px; font-size: 12px;'
     title: '标题可以跟着路由变化：/card2/card3/标题',
     loading: true,
     beforeRender(params, self) {
-        params.title = self._root.params.title || params.title;
+        params.title = self._root.props.params.title || params.title;
         return params;
     }
 }

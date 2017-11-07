@@ -17,7 +17,7 @@ const CommonList = [
     {path: 'Usage', name: '组件使用', /* retract: true, */ children: [
         {path: 'Install', name: '快速上手', component: require('./app/install').default},
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
-        {path: 'Api', name: '组件交互', component: require('./app/configure-api').default},
+        {path: 'Api', name: '交互API', component: require('./app/configure-api').default},
         {path: 'Layout', name: '页面布局', component: require('./app/antd/antd-layout').default},
         {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
         {path: 'Others', name: '更多用法', component: require('./app/configure-others').default}
@@ -40,7 +40,6 @@ const ComponentList = [
         {path: 'Iframe', name: 'Iframe 子页面', component: require('./app/origin/iframe').default},
         {path: 'Modal', name: 'Modal 弹框', component: require('./app/origin/modal').default},
         {path: 'Table', name: 'Table 表格', component: require('./app/origin/table').default},
-        {path: 'Table2', name: 'Table2 表格', component: require('./app/origin/table2').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('./app/origin/tree').default}
     ]},
     {path: 'General', name: '综合组件', children: [

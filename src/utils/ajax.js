@@ -13,7 +13,7 @@
  * @author liuzechun@baidu.com
  * **/
 import {notification} from 'antd';
-import {Config} from 'uf/tools';
+import Config from 'uf/cache/config.js';
 import reqwest from 'reqwest';
 
 const errorMsg = {
@@ -24,48 +24,72 @@ const errorMsg = {
 };
 
 // 请求出错的处理函数
-function errorHandler(error = {}) {
+function errorMessage(error = {}) {
     notification.error(Object.assign({}, errorMsg, !error.message ? null : {
         description: error.message
     }));
 }
 
 function request (config) {
-    let success = config.success;
-    let error = config.error || errorHandler;
+    let globalAjax = Config.get('global')['ajax'];
+    let successHandler = config.success;
+    let errorHandler = config.error || errorMessage;
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
     let onchange = config.onchange || (()=>{return});
-    !config.data && config.params && (config.data = config.params);
-
-    onchange(true, 'sending');
-    reqwest(Object.assign({
-            method: 'GET',
+    // 配置合并
+    config = Object.assign({
+            method: 'get',
             type: 'json'
         },
+        globalAjax,
         config,
         {
+            data: config.data || config.params
+        }
+    );
+    // 用户可配置通用数据处理方法，比如把传入的参数序列化
+    if (globalAjax.beforeSend) {
+        config.data = globalAjax.beforeSend(config.data, config);
+    }
+
+    onchange(true, 'sending');
+    reqwest(Object.assign(config,
+        {
             success: res=>{
+                // 如果用户配置了success处理逻辑，则按照用户配置的逻辑做处理
+                if (globalAjax.success) {
+                    globalAjax.success(res, successHandler, errorHandler);
+                    onchange(false, 'success');
+                    return;
+                }
                 // 兼容 message/msg、status/code
                 res.status = res.status || res.code || 0;
                 res.message = res.message || res.msg;
                 if (+res.status === 0) {
-                    success(res.data, res);
-
+                    successHandler(res.data, res);
                 } else {
                     // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-                    if (error(res) === true) {
-                        errorHandler(res);
+                    if (errorHandler(res) === true) {
+                        errorMessage(res);
                     }
                 }
                 onchange(false, 'success');
             },
             error: err=>{
-                error(err, err);
+                // 如果用户配置了success处理逻辑，则按照用户配置的逻辑做处理
+                if (globalAjax.error) {
+                    globalAjax.error(err, errorHandler);
+                    onchange(false, 'success');
+                    return;
+                }
+                if (errorHandler(err) === true) {
+                    errorMessage(err);
+                }
                 onchange(false, 'error');
             }
         },
         // 用户自己配置的处理逻辑
-        Config.get('global')['ajax']
+        // Config.get('global')['ajax']
     ));
 };
 
@@ -91,21 +115,22 @@ request.post = function(url, params, success, error, onchange) {
     });
 }
 
+request.init = function (url, method) {
+    return function (params, success, error, onchange) {
+        request({
+            url: url,
+            method: method,
+            data: params,
+            onchange: onchange,
+            success: success,
+            error: error
+        });
+    }
+}
+
 // 抛出错误处理函数
-request.errorHandler = errorHandler;
+request.errorMessage = errorMessage;
 
 // 通用ajax函数，参数为一个对象
 export default request;
 
-// export default function (url, method) {
-//     return function (params, success, error, onchange) {
-//         request({
-//             url: url,
-//             method: method,
-//             data: params,
-//             onchange: onchange,
-//             success: success,
-//             error: error
-//         });
-//     }
-// }

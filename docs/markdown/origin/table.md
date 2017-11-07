@@ -12,11 +12,11 @@
 | 参数           | 说明                     | 类型             | 默认值   |
 |---------------|--------------------------|-----------------|---------|
 | rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |
-| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object |  |
+| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |
 | size          | 正常或迷你类型，`default` or `small`  | string | default |
-| dataSource    | 数据数组，见下面示例 `dataSource` | any[] |            |
+| data    | 数据数组，见下面示例 `data` | any[] |            |
 | columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |
-| rowKey        | 表格行 key 的取值，可以是字符串或一个函数 | string&#124;Function(record):string | 'key' |
+| rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
@@ -34,6 +34,7 @@
 | source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |
 | method | 获取数据的方式。可选 `get` `post` | String | `get` | 
 | params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | 
+| autoLoadSource | 是否组件渲染完成后自动加载数据（配置 source 属性后有效） | boolean | true | 
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
@@ -80,6 +81,7 @@
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |
 | disabledRow | 选择框的不可选的条件，返回值应该为一个Boolean类型的值        | Function(record) |  -   |
 | selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |
+| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |
 | onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |
 | onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |
 | onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
@@ -99,14 +101,16 @@
 |------------------|------------------------------------|---------------|--------------------------|
 | current          | 当前页数                           | number        | -                   |
 | pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |
-| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      | noop                     |
+| pageSize         | 每页条数   | number | 10 |
+| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |
 | showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |
 | pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |
-| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      | noop                     |
+| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |
 | showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |
-| size             | 当为「small」时，是小尺寸分页      | string        | ""                       |
-| simple           | 当添加该属性时，显示为简单分页     | boolean        | -                       |
-| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) | -              |
+| size             | 当为「small」时，是小尺寸分页      | string        |                       |
+| simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |
+| total            | 数据总数      | number        |                       |
+| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |
 
 
 #### *titleConfig*
@@ -146,7 +150,7 @@
 
 
 
-#### *dataSource*
+#### *data*
 表格的数据数组格式如下：
 ```javascript
 [{
@@ -168,7 +172,7 @@
 ```
 **注意：**  
 
-在 Table 中，`dataSource` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `dataSource` 默认将每列数据的 `key` 属性作为唯一的标识。
+在 Table 中，`data` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `data` 默认将每列数据的 `key` 属性作为唯一的标识。
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 

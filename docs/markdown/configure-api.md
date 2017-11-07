@@ -125,6 +125,18 @@ error:
 用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)
 
 
+## # UF.moment()
+
+时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)
+
+例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`
+
+
+## # UF.utils
+
+工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。
+
+
 ---  
 ** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **  
 
@@ -134,7 +146,14 @@ error:
 
 每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。
 
-，包含有路由，路由上的参数等。
+多使用其中的`_root.props`参数，例如获取当前页面的路由信息：
+
+```javascript
+component._root.props.routes
+component._root.props.location
+component._root.props.params
+...
+```
 
 ## # component.get()  
 

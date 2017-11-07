@@ -20,12 +20,16 @@
 | width      | 宽度           | string&#124;number | 520           |
 | footer     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | string&#124;`config` | 确定取消按钮 |
 | okText     | 确认按钮文字    | string           | 确定       |
+| okType     | 确认按钮类型    | string           | primary       |
 | cancelText | 取消按钮文字    | string           | 取消       |
+| cancelType | 取消按钮类型    | string           | default       |
 | maskClosable | 点击蒙层是否允许关闭 | boolean   | true       |
 | style | 可用于设置浮层的样式，调整浮层位置等 | object   | - |
 | wrapClassName | 对话框外层容器的类名 | string   | - |
 | afterClose | Modal 完全关闭后的回调 | function | 无 |
 | getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body |
+| zIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000 |
+
 
 ### 函数调用
 > 组件自身带有的函数，调用方法如：`UF('my-modal').show()`。

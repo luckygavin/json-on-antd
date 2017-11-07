@@ -142,8 +142,11 @@ export default class OriginTree extends BaseComponent {
     }
     componentWillReceiveProps(nextProps) {
         // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
-        if (!Utils.equals(this.props.config, nextProps.config)
-            || !Utils.equals(this.props.data, nextProps.data)) {
+        // if (!Utils.equals(this.props.config, nextProps.config)
+        //     || !Utils.equals(this.props.data, nextProps.data)) {
+        //     this.initTree(nextProps);
+        // }
+        if (this.__shouldUpdate(this.props, nextProps)) {
             this.initTree(nextProps);
         }
     }
@@ -199,8 +202,8 @@ export default class OriginTree extends BaseComponent {
         let keys = [];
         if (expandLeavals === null) {
             // 展示所有节点
-            for (let v in this.levalPointerTree) {
-                keys = keys.concat(this.levalPointerTree[v]);
+            for (let i in this.levalPointerTree) {
+                keys = keys.concat(this.levalPointerTree[i]);
             }
         }
         else {

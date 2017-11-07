@@ -1,6 +1,6 @@
 {
   "name": "uf",
-  "version": "0.2.4",
+  "version": "0.2.6",
   "description": "new uf",
   "author": "liuzechun",
   "license": "ISC",
@@ -10,11 +10,11 @@
   },
   "main": "index.js",
   "dependencies": {
-    "antd": "2.12.6",
+    "antd": "^2.13.7",
     "immutable": "^3.8.1",
     "moment": "^2.17.1",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
     "react-router": "^3.0.0",
     "reqwest": "^2.0.5"
   },
@@ -42,9 +42,11 @@
   },
   "scripts": {
     "build-watch": "webpack --config dist/config/webpack.build.js --watch",
+    "antd-watch": "webpack --config dist/config/webpack.antd.js --watch",
     "build": "webpack --config dist/config/webpack.build.js",
     "antd": "webpack --config dist/config/webpack.antd.js",
     "dll": "webpack --config dist/config/webpack.dll.js",
+    "react": "webpack --config dist/config/webpack.react.js",
     "all": "npm run dll & npm run build & npm run antd",
     "start": "webpack --watch"
   }

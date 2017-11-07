@@ -16724,3 +16724,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
     opacity: 0;
   }
 }
+.ant-layout-sider-children {
+  height: 100%;
+}

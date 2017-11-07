@@ -140,26 +140,14 @@
       color: #108ee9; }
     .uf-table .umpui-header-extra a {
       color: inherit; }
-    .uf-table .umpui-header-extra .icon-filter {
-      position: relative;
-      padding-left: 8px;
-      margin-right: -17px;
-      z-index: 1;
-      font-weight: 400; }
-    .uf-table .umpui-header-extra .umpui-edit {
-      display: inline-block; }
-    .uf-table .umpui-header-extra .umpui-edit-cs {
-      position: fixed;
-      right: 50px;
-      left: initial;
-      z-index: 2; }
     .uf-table .umpui-header-extra input {
       display: inline-block;
       padding-left: 20px;
       width: 157px;
       border-radius: 4px; }
     .uf-table .umpui-header-extra i {
-      font-weight: 800; }
+      font-weight: 700;
+      margin-right: 2px; }
     .uf-table .umpui-header-extra ul {
       position: absolute;
       text-align: left;

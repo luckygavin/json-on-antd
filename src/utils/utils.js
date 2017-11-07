@@ -17,7 +17,8 @@ const Utils = {
     },
     // 生成随机唯一ID
     uniqueId() {
-        return (s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4());
+        // return (s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4());
+        return (s4() + s4() + s4() + s4() + s4() + s4() + s4() + s4());
     },
     // 字符串哈希
     hash(text) {
@@ -156,6 +157,19 @@ const Utils = {
         let newObj = {};
         for (let i in obj) {
             if (obj.hasOwnProperty(i) && arr.indexOf(i) === -1) {
+                newObj[i] = obj[i];
+            }
+        }
+        return newObj;
+    },
+    // 从obj中获取某些属性
+    reverseFilter(obj, arr) {
+        if (this.typeof(arr, 'string')) {
+            arr = [arr];
+        }
+        let newObj = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i) && arr.indexOf(i) >= 0) {
                 newObj[i] = obj[i];
             }
         }

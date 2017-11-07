@@ -6,7 +6,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const __root = path.join(__dirname, '../../');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const production = process.env.NODE_ENV === 'production';
 
@@ -33,11 +32,11 @@ module.exports = {
         filename: 'js/' + (!production ? '[name].js' : '[name].min.js')
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json'],
-        alias: {
-            'uf': __root + '/src',
-            'root': __root
-        }
+        extensions: ['', '.js', '.jsx', '.json']
     },
+    // externals: {
+    //     'react': 'window.DLL.React',
+    //     'react-dom': 'window.DLL.ReactDOM'
+    // },
     plugins: plugins
 };

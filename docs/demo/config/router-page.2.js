@@ -3,7 +3,7 @@ define({
     title: 'Card title 3',
     loading: true,
     beforeRender(params, self) {
-        params.title = self._root.params.title || params.title;
+        params.title = self._root.props.params.title || params.title;
         return params;
     },
     onClick(...params) {

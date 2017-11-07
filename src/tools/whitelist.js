@@ -3,7 +3,9 @@
  * @author liuzechun
  */
 
-export default {
+import {Utils} from 'uf/utils';
+
+const List = {
     Breadcrumb: ['options'],
     Input: ['addonBefore', 'addonAfter', 'prefix', 'suffix'],
     Switch: ['checkedChildren', 'unCheckedChildren'],
@@ -23,6 +25,26 @@ export default {
     Rate: ['character'],
     Timeline: ['pending'],
     TimelineItem: ['dot'],
+    Sider: ['trigger'],
     Modal: ['title', 'footer'],
     Table: ['title']
 };
+
+export default {
+
+    // 返回需要二次解析的属性
+    get(props, type) {
+        let name = Utils.toPascal(type);
+        // 把 children 属性加入到全部组件中
+        let list = (List[name] || []).concat('children');
+        let result = [];
+        for (let v of list) {
+            // 如果在白名单中的属性值是直接的对象或数组（未解析的配置），则返回
+            if (!!props[v] && Utils.directInstanceof(props[v], [Object, Array])) {
+                result.push(v);
+            }
+        }
+        return result.length > 0 ? result : false;
+    }
+
+}

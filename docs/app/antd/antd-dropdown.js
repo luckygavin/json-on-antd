@@ -7,33 +7,21 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 
 const menu = {
     type: 'menu',
-    content: [
+    items: [
         {
-            type: 'menu-item',
             key: 1,
-            content: {
-                type: 'a',
-                href: 'http://www.baidu.com/',
-                content: 'this is the 1st menu item'
-            }
+            link: 'http://www.baidu.com/',
+            title: 'this is the 1st menu item'
         },
         {
-            type: 'menu-item',
             key: 2,
-            content: {
-                type: 'a',
-                href: 'http://www.map.baidu.com',
-                content: 'this is the 2nd menu item'
-            }
+            link: 'http://www.map.baidu.com/',
+            title: 'this is the 2nd menu item'
         },
         {
-            type: 'menu-item',
             key: 3,
-            content: {
-                type: 'a',
-                href: 'http://www.taobao.com',
-                content: 'this is the 3rd menu item'
-            }
+            link: 'http://ww.taobao.com/',
+            title: 'this is the 3rd menu item'
         }
     ]
 };

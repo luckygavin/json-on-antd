@@ -5,6 +5,8 @@
  */
 import React from 'react';
 import {Utils} from 'uf/utils';
+import Model from './model.js';
+import Dom from 'uf/dom';
 import * as UF from 'uf';
 
 export default {
@@ -16,24 +18,20 @@ export default {
     },
 
     // 根据 type 获取组件
-    get(type) {
-        // 包括 button.group、input-number
-        // type 可能代表包括组件的子组件的复杂组件类型，如：button.group -> Antd.Button.Group
-        // let name = type.split('.').map(v=>this.toPascal(v));
-        // let result = this.component;
-        // for (let v of name) {
-        //     if (!result) {
-        //         this.error(type);
-        //     }
-        //     result = result[v];
-        // }
-        // 目前用不到.这种层级关系了，全部组件平级的，包括像 Antd.Button 和 Antd.Button.Group 这种
+    get(item) {
+        let type = item.type;
         let name = Utils.toPascal(type);
         let result = this.component[name];
         if (!result) {
             // 检查是否为React原生元素
             if (React.DOM.hasOwnProperty(type)) {
-                result = name;
+                // 如果有name，说明用户想要操作组件；如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+                // 否则用原生的增强性能
+                if (item.name || Model.if(item)) {
+                    result = Dom;
+                } else {
+                    result = type;
+                }
             } else {
                 this.error(type);
             }

@@ -8,9 +8,6 @@ import {Utils} from 'uf/utils';
 import DataEntry from './base/DataEntry.js';
 import moment from 'moment';
 import * as Antd from 'antd';
-// 设置 moment 的 locale
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
 
 /************ AutoComplete 自动补全 *************************************************************************** */
 // 简单的补全功能
@@ -68,6 +65,7 @@ export class Cascader extends DataEntry {
         super(props);
         // 异步属性为 options
         this._asyncAttr = 'options';
+        this.__controlled.defaultVal = [];
         this.__init();
     }
     render() {
@@ -97,6 +95,7 @@ export class CheckboxGroup extends DataEntry {
         super(props);
         // 异步属性为 options
         this._asyncAttr = 'options';
+        this.__controlled.defaultVal = [];
         this.__init();
     }
     render() {
@@ -130,6 +129,7 @@ class BasePicker extends DataEntry {
 export class DatePicker extends BasePicker {
     constructor(props) {
         super(props);
+        this.__controlled.paramsIndex = 1;
         this.__init();
     }
     render() {
@@ -138,22 +138,12 @@ export class DatePicker extends BasePicker {
             value={value ? moment(value) : value}/>;
     }
 }
-// 月份选择 ------ 注意，此处用的是 DataEntry，为的是防止 format 被覆盖成 datepicker 的默认值
-export class MonthPicker extends DataEntry {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        let value = this.__props.value;
-        return <Antd.DatePicker.MonthPicker {...this.__props}
-            value={value ? moment(value, this.__props.format) : value}/>;
-    }
-}
 // 范围选择
 export class RangePicker extends BasePicker {
     constructor(props) {
         super(props);
+        this.__controlled.paramsIndex = 1;
+        this.__controlled.defaultVal = [];
         this.__init();
     }
     render() {
@@ -163,11 +153,26 @@ export class RangePicker extends BasePicker {
             value={value ? [moment(value[0]), moment(value[1])] : value}/>;
     }
 }
+// 月份选择 ------ 注意，此处用的是 DataEntry，为的是防止 format 被覆盖成 datepicker 的默认值
+export class MonthPicker extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__controlled.paramsIndex = 1;
+        this.__init();
+    }
+    render() {
+        let value = this.__props.value;
+        return <Antd.DatePicker.MonthPicker {...this.__props}
+            value={value ? moment(value, this.__props.format) : value}/>;
+    }
+}
+
 /************* TimePicker 时间选择 *************** */
 // 时间选择，注意是继承的 DataEntry
 export class TimePicker extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.paramsIndex = 1;
         this.__init();
     }
     render() {
@@ -295,6 +300,19 @@ export class Select extends DataEntry {
         </Antd.Select>;
     }
 }
+
+
+/************* Transfer 穿梭框 ************************************************************************** */
+
+// export class Transfer extends DataEntry {
+//     constructor(props) {
+//         super(props);
+//         this.__init();
+//     }
+//     render() {
+//         return <Antd.Transfer {...this.__props}/>;
+//     }
+// }
 
 
 /************* Slider 滑动输入 ************************************************************************** */

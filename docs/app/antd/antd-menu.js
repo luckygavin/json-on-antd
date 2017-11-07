@@ -12,52 +12,41 @@ const demo1 = {
     config: {
         type: 'menu',
         mode: 'horizontal',
-        content: [
+        items: [
             {
-                type: 'menu-item',
                 key: 'mail',
-                content: [
-                    {type: 'icon', mode: 'mail'},
-                    'Navigation One'
-                ]
+                icon: 'mail',
+                title: 'Navigation One'
             },
             {
-                type: 'menu-item',
                 key: 'app',
-                disabled: true,
-                content: [
-                    {type: 'icon', mode: 'appstore'},
-                    'Navigation Two'
+                icon: 'appstore',
+                title: 'app'
+            },
+            {
+                key: 'setting',
+                icon: 'setting',
+                title: 'Navigation Tree - Submenu',
+                childItems: [
+                    {
+                        mode: 'group',
+                        title: 'Item 1',
+                        childItems: [
+                            {
+                                key: 'setting:1',
+                                title: 'Option 1'
+                            },
+                            {
+                                key: 'setting:2',
+                                title: 'Option 2'
+                            }
+                        ]
+                    }
                 ]
             },
             {
-                type: 'sub-menu',
-                key: 'sub',
-                title: [
-                    {type: 'icon', mode: 'setting'},
-                    'Navigation Tree - Submenu'
-                ],
-                content: {
-                    type: 'menu-item-group',
-                    title: 'Item 1',
-                    content: [
-                        {
-                            type: 'menu-item',
-                            key: 'setting:1',
-                            content: 'Option 1'
-                        },
-                        {
-                            type: 'menu-item',
-                            key: 'setting:2',
-                            content: 'Option 2'
-                        }
-                    ]
-                }
-            },
-            {
-                type: 'menu-item',
                 key: 'baidu',
-                content: {
+                title: {
                     type: 'html',
                     content: '<a href="http://www.baidu.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>'
                 }
@@ -74,65 +63,51 @@ const demo2 = {
         style: {width: 240},
         defaultSelectedKeys: ['1'],
         defaultOpenKeys: ['sub1'],
-        content: [
+        items: [
             {
-                type: 'sub-menu',
                 key: 'sub1',
-                title: [
-                    {type: 'icon', mode: 'setting'},
-                    'Navigation One - Submenu'
-                ],
-                content: [
+                title: 'Navigation One - Submenu',
+                icon: 'setting',
+                childItems: [
                     {
-                        type: 'menu-item-group',
+                        mode: 'group',
                         title: 'Item 1',
-                        content: [
+                        childItems: [
                             {
-                                type: 'menu-item',
                                 key: '1',
-                                content: 'Option 1'
+                                title: 'Option 1'
                             },
                             {
-                                type: 'menu-item',
                                 key: '2',
-                                content: 'Option 2'
+                                title: 'Option 2'
                             }
                         ]
                     },
                     {
-                        type: 'menu-item-group',
+                        mode: 'group',
                         title: 'Item 2',
-                        content: [
+                        childItems: [
                             {
-                                type: 'menu-item',
                                 key: '3',
-                                content: 'Option 3'
+                                title: 'Option 3'
                             },
                             {
-                                type: 'menu-item',
                                 key: '4',
-                                content: 'Option 4'
+                                title: 'Option 4'
                             }
                         ]
                     }
                 ]
             },
             {
-                type: 'menu-item',
                 key: 'mail',
-                content: [
-                    {type: 'icon', mode: 'mail'},
-                    'Navigation Two'
-                ]
+                icon: 'mail',
+                title: 'Navigation Two'
             },
             {
-                type: 'menu-item',
                 key: 'app',
-                disabled: true,
-                content: [
-                    {type: 'icon', mode: 'appstore'},
-                    'Navigation Tree'
-                ]
+                icon: 'appstore',
+                title: 'Navigation Tree'
             }
         ]
     }
@@ -158,53 +133,40 @@ const demo3 = {
             style: {width: 240, marginTop: 10},
             defaultSelectedKeys: ['1'],
             defaultOpenKeys: ['sub1'],
-            content: [
+            items: [
                 {
-                    type: 'sub-menu',
                     key: 'sub1',
-                    title: [
-                        {type: 'icon', mode: 'setting'},
-                        'Navigation One'
-                    ],
-                    content: [
+                    icon: 'setting',
+                    title: 'Navigation One',
+                    childItems: [
                         {
-                            type: 'menu-item',
                             key: '1',
-                            content: 'Option 1'
+                            title: 'Option 1'
                         },
                         {
-                            type: 'menu-item',
                             key: '2',
-                            content: 'Option 2'
+                            title: 'Option 2'
                         },
                         {
-                            type: 'menu-item',
                             key: '3',
-                            content: 'Option 3'
+                            title: 'Option 3'
                         },
                         {
-                            type: 'menu-item',
                             key: '4',
-                            content: 'Option 4'
+                            title: 'Option 4'
                         }
                     ]
                 },
                 {
-                    type: 'menu-item',
                     key: 'mail',
-                    content: [
-                        {type: 'icon', mode: 'mail'},
-                        'Navigation Two'
-                    ]
+                    icon: 'mail',
+                    title: 'Navigation Two'
                 },
                 {
-                    type: 'menu-item',
                     key: 'app',
                     disabled: true,
-                    content: [
-                        {type: 'icon', mode: 'appstore'},
-                        'Navigation Tree'
-                    ]
+                    icon: 'appstore',
+                    title: 'Navigation Tree'
                 }
             ]
         }

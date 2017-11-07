@@ -13,7 +13,7 @@ export default {
         if (Utils.typeof(name, 'string')) {
             name = [name];
         }
-        if (Utils.typeof(name, 'array')) {
+        if (Utils.typeof(item, 'object')) {
             let flag = true;
             for (let v of name) {
                 if (!Utils.typeof(item[name], type)) {

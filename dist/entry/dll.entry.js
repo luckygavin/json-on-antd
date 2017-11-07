@@ -5,6 +5,7 @@
 
 // 公共库
 window.DLL = {
+    // 这两行不能删~
     React: require('react'),
     ReactDOM: require('react-dom'),
     ReactRouter: require('react-router'),

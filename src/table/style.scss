@@ -28,7 +28,7 @@
         display: none;
     }
     .disabledRow {
-        background-color: #efefef;
+        background-color: #fafafa;
         cursor: not-allowed;
     }
     &.retract {
@@ -225,6 +225,8 @@
 .uf-table {
     .ant-table-title {
         padding: 16px 10px;
+        overflow: hidden;
+        line-height: 26px;
     }
 }
 .uf-dropdown-menu-ul {

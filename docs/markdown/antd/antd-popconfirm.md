@@ -17,7 +17,9 @@
 | onConfirm | 点击确认的回调                           | function(e)      | 无     |
 | onCancel  | 点击取消的回调                           | function(e)      | 无     |
 | okText    | 确认按钮文字                              | string        | 确定   |
+| okType     | 确认按钮类型    | string           | primary       |
 | cancelText| 取消按钮文字                              | string        | 取消   |
+| cancelType | 取消按钮类型    | string           | default       |
 | placement | 气泡框位置，可选 `top` `left` `right` `bottom` `topLeft` `topRight` `bottomLeft` `bottomRight` `leftTop` `leftBottom` `rightTop` `rightBottom` | string     | top    |
 | getPopupContainer | 浮层渲染父节点，默认渲染到 body 上。`2.5.2` 之前请使用 `getTooltipContainer` | Function(triggerNode) | () => document.body |
 | arrowPointAtCenter | 箭头是否指向目标元素中心，`antd@1.11+` 支持 | boolean | `false` |

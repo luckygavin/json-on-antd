@@ -21,12 +21,18 @@ history  | 定义浏览器上的路由展现形式，分为两种：`hashHistory
 参数       | 说明           | 类型             | 默认值   |是否必须
 ------------|----------------|------------------|--------|-----
 path    | URL 中的路径。它会组合父 route 的路径，除非它是从 / 开始的， 将它变成一个绝对路径。 | string  |  无   | 必须
-component  | 当前路由对应的组件。它会作为父 route 组件中包含`childrenHolder: true`的组件的子组件渲染。可以直接是一个配置对象；也可以是一个模块名（*懒加载*） | `config` &#124; string  | 无  | 必须
+to    | 从当前路径（path）重定向到另一个路径。**此属性不可和`component`同时使用**（因为一个是解析路由，一个是重定向路由）。例如：访问`/mine`路由时重定向到`/aboutme` |  string  |  无   | 
+component  | 当前路由对应的组件。它会作为父 route 组件中包含`childrenHolder: true`的组件的子组件渲染。可以直接是一个配置对象；也可以是一个模块名（*懒加载*）。**此属性不可和`to`同时使用** | `config` &#124; string  | 无  | 必须
 indexRoute    | 当用户在父 route 的 URL 时，indexRoute 允许你为父 route 提供一个默认的 "child" | `route` |   |
+indexRedirect    | 自动从当前路由重定向到其子路由的 path。例如：访问首页`/`时，自动重定向到`/Home`，即可在配置`/`路由那一层增加 indexRedirect 字段 | string |   |
 childRoutes   | route 可以被嵌套，childRoutes 为子路由配置。 | `route` &#124; `route`[] |   |
 getComponent  | 与 component 一样，但是是异步的。用于动态路由 | function(location, cb) { cb(null, Compnent) }  |     |
 onEnter    | 当 route 即将进入时调用。 | function(nextState, replaceState, callback?){}  |   |
 onLeave    | 当 route 即将退出时调用。 |  |   |
+breadcrumbName    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |
+breadcrumbIcon    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |
+
+> 更详细配置可参考原 [react-router](https://react-guide.github.io/react-router-cn/)
 
 ---
 

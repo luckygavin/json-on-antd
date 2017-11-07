@@ -40,43 +40,36 @@ const demo1 = {
                             theme: 'dark',
                             defaultOpenKeys: ['worksheet', 'setting'],
                             selectedKeys: ['mine'],
-                            content: [
+                            items: [
                                 {
-                                    type: 'sub-menu',
                                     key: 'worksheet',
                                     title: '工单',
-                                    content: [
+                                    childItems: [
                                         {
-                                            type: 'menu-item',
                                             key: 'create',
-                                            content: '创建工单'
+                                            title: '创建工单'
                                         },
                                         {
-                                            type: 'menu-item',
                                             key: 'mine',
-                                            content: '我的工单'
+                                            title: '我的工单'
                                         }
                                     ]
                                 },
                                 {
-                                    type: 'sub-menu',
                                     key: 'setting',
                                     title: '系统管理',
-                                    content: [
+                                    childItems: [
                                         {
-                                            type: 'menu-item',
                                             key: 'home',
-                                            content: '首页配置'
+                                            title: '首页配置'
                                         },
                                         {
-                                            type: 'menu-item',
                                             key: 'service',
-                                            content: '服务目录配置'
+                                            title: '服务目录配置'
                                         },
                                         {
-                                            type: 'menu-item',
                                             key: 'help',
-                                            content: '帮助中心配置'
+                                            title: '帮助中心配置'
                                         }
                                     ]
                                 }
@@ -103,27 +96,18 @@ const demo1 = {
                                     type: 'menu',
                                     style: {float: 'right'},
                                     mode: 'horizontal',
-                                    content: [
+                                    items: [
                                         {
-                                            type: 'menu-item',
-                                            content: [
-                                                {type: 'icon', mode: 'schedule'},
-                                                '工单'
-                                            ]
+                                            icon: 'schedule',
+                                            title: '工单'
                                         },
                                         {
-                                            type: 'menu-item',
-                                            content: [
-                                                {type: 'icon', mode: 'trophy'},
-                                                '控制台'
-                                            ]
+                                            icon: 'trophy',
+                                            title: '控制台'
                                         },
                                         {
-                                            type: 'menu-item',
-                                            content: [
-                                                {type: 'icon', mode: 'contacts'},
-                                                'lingjing'
-                                            ]
+                                            icon: 'contacts',
+                                            title: 'lingjing'
                                         }
                                     ]
                                 }
@@ -131,10 +115,9 @@ const demo1 = {
                         },
                         {
                             type: 'breadcrumb',
-                            style: {margin: '12px 24px', background: '#ececec'},
-                            options: [
-                                'Home',
-                                '我的工单'
+                            items: [
+                                {path: 'index', breadcrumbName: 'Home'},
+                                {path: 'worksheet', breadcrumbName: '我的工单'}
                             ]
                         },
                         {

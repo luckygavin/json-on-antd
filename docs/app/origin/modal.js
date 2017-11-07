@@ -61,45 +61,37 @@ const demo2 = {
                         label: '专线SN',
                         name: 'line_sn',
                         rules: [{required: true, message: '主线SN不能为空'}],
-                        cfg: {
-                            placeholder: 'sn20134567'
-                        }
+                        placeholder: 'sn20134567'
                     },
                     {
                         type: 'select',
                         label: '机房',
                         name: 'idc_id',
                         rules: [{required: true, message: '机房不能为空'}],
-                        cfg: {
-                            source: 'docs/php/data.php',
-                            sourceHandler: data=>data.map(v=>{
-                                return {value: v.name, label: v.name};
-                            })
-                        }
+                        source: 'docs/php/data.php',
+                        sourceHandler: data=>data.map(v=>{
+                            return {value: v.name, label: v.name};
+                        })
                     },
                     {
                         type: 'input',
                         label: '所属机构',
                         name: 'organization',
                         rules: [{required: true, message: '所属机构不能为空'}],
-                        cfg: {
-                            placeholder: '招商银行-百度钱包'
-                        }
+                        placeholder: '招商银行-百度钱包'
                     },
                     {
                         type: 'select',
                         label: '运营商',
                         name: 'operator',
                         default: '1',
-                        cfg: {
-                            options: [{
-                                value: '1',
-                                label: '移动'
-                            }, {
-                                value: '2',
-                                label: '联通'
-                            }]
-                        }
+                        options: [{
+                            value: '1',
+                            label: '移动'
+                        }, {
+                            value: '2',
+                            label: '联通'
+                        }]
                     }
                 ]
                 

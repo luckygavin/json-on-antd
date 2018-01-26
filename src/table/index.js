@@ -1,3 +1,3 @@
-// import Table from './Table.js';
-// export default Table;
-module.exports = require('./newTable.js').default;
+import './style.scss';
+
+module.exports = require('./Table.js').default;

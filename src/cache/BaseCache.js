@@ -18,10 +18,20 @@ export default class BaseCache {
         // 统一放到 Cache 里管理
         Cache.set(this._key, this._cache);
     }
-    get(name) {
-        // 如果传递了name，则只去config中name字段，否则返回全部
-        // return (!!name ? this._cache[name] : this._cache) || {};
-        return !!name ? this._cache[name] : this._cache;
+    get(names) {
+        // 如果传递了name，则只去config中查找name字段，否则返回全部
+        let result = this._cache;
+        if (names) {
+            // 可以传递多个name依次向下查找，查找不到返回null
+            for (let v of names.split('.')) {
+                if (result && Utils.typeof(result, 'object') && result[v]) {
+                    result = result[v];
+                } else {
+                    return null;
+                }
+            }
+        }
+        return result;
     }
     // set函数有两种用法
     // 如果 target 为字符串，则直接替换缓存中 target 保存的值

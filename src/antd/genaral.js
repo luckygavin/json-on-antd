@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Utils} from 'uf/utils';
 import Genaral from './base/Genaral.js';
 import * as Antd from 'antd';
 
@@ -34,7 +35,15 @@ export class AnchorLink extends Genaral {
 export class Button extends Genaral {
     constructor(props) {
         super(props);
+        this._filter.push('link');
+        this._injectEvent.push('onClick');
         this.__init();
+    }
+    _onClick() {
+        // 如果配置了link属性，则按钮点击后会跳转到link指定的页面
+        if (this.__filtered.link) {
+            Utils.goto(this.__filtered.link);
+        }
     }
     render() {
         return <Antd.Button {...this.__props}/>;

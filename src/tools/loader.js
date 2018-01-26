@@ -4,10 +4,13 @@
  * @author liuzechun@baidu.com
  */
 import React from 'react';
+import {BaseConf} from 'uf/component';
 import {Utils} from 'uf/utils';
 import Model from './model.js';
 import Dom from 'uf/dom';
 import * as UF from 'uf';
+
+let {FilterProps} = BaseConf;
 
 export default {
     component: Object.assign(UF),
@@ -25,9 +28,11 @@ export default {
         if (!result) {
             // 检查是否为React原生元素
             if (React.DOM.hasOwnProperty(type)) {
-                // 如果有name，说明用户想要操作组件；如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+                // 1、如果有name，说明用户想要操作组件；
+                // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+                // 3、如果配置了具有特殊功能的属性
                 // 否则用原生的增强性能
-                if (item.name || Model.if(item)) {
+                if (item.name || Model.if(item) || Utils.isIntersection(FilterProps, Object.keys(item))) {
                     result = Dom;
                 } else {
                     result = type;

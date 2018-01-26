@@ -33,7 +33,7 @@
                     }
                 }
             });
-            UF.init('Router', 'demo');
+            UF.init('Router', '#demo');
         </script>
     </body>
 </html>

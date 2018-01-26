@@ -30,7 +30,7 @@ export default class Demo extends React.Component {
     }
     componentDidMount() {
         Utils.clone(this.props.list).map((item, i)=>{
-            UF.init(item.config, `demo-${i}`);
+            UF.init(item.config, `#demo-${i}`);
         });
     }
     toggle(i) {
@@ -44,7 +44,7 @@ export default class Demo extends React.Component {
         cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
         cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
         
-        let code = 'var config = ' + cfgStr + ';\nUF.init(config, \'demo\');';
+        let code = 'var config = ' + cfgStr + ';\nUF.init(config, \'#demo\');';
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
                 <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>

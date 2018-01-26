@@ -26,8 +26,10 @@ const List = {
     Timeline: ['pending'],
     TimelineItem: ['dot'],
     Sider: ['trigger'],
-    Modal: ['title', 'footer'],
-    Table: ['title']
+    // Modal: ['title', 'footer'],
+    Modal: ['title'],
+    Notification: ['message', 'description', 'btn', 'icon'],
+    Message: ['content']
 };
 
 export default {
@@ -39,8 +41,8 @@ export default {
         let list = (List[name] || []).concat('children');
         let result = [];
         for (let v of list) {
-            // 如果在白名单中的属性值是直接的对象或数组（未解析的配置），则返回
-            if (!!props[v] && Utils.directInstanceof(props[v], [Object, Array])) {
+            // 如果在白名单中的属性值是直接的对象或数组（未解析的配置）或函数（执行结果为配置），则返回
+            if (!!props[v] && Utils.directInstanceof(props[v], [Object, Array, Function])) {
                 result.push(v);
             }
         }

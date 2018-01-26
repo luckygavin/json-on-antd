@@ -16,8 +16,8 @@
 modules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
 components | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
 global | 其他一些全局配置。见：`global`表 | Object |  | 
-data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
 authority | 权限控制。见：`authority`表 | Object |  | 
+precondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Array |  | 
 
 
 ### # modules
@@ -85,6 +85,9 @@ UF.config({
 ---- | ---- | ----- | ----- | ----
 domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
 ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：`ajax` | object |  | 
+data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
+cacheApis | 声明某些api的数据无需重复获取，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
+
 
 #### *ajax*
 
@@ -140,4 +143,23 @@ UF.config({
 
 ### # authority
 
+权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。
 
+
+### # precondition
+
+`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。
+
+```javascript
+precondition: [
+    (resolve, reject)=>{
+        UF.ajax.get('?r=peripheral/infoManageApi/getPeripheralBaseInfo', null, data=>{
+            UF.set('optionSource', data);
+            resolve();
+        }, error=>{
+            reject();
+            return true;
+        });
+    }
+]
+```

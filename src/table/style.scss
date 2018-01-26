@@ -1,22 +1,19 @@
 .uf-table {
+    background-color: #fff;
     .custom-filter-dropdown {
         padding: 8px;
         border-radius: 6px;
         background: #fff;
         box-shadow: 0 1px 6px rgba(0, 0, 0, .2);
     }
-
     .custom-filter-dropdown input {
         width: 130px;
         margin-right: 8px;
     }
-
     .highlight {
         color: #f50;
     }
-}
-.uf-table {
-    background-color: #fff;
+
     .fa {
         color: rgba(0,0,0,.66);
     }
@@ -32,14 +29,14 @@
         cursor: not-allowed;
     }
     &.retract {
-        .umpui-header-extra {
+        .uf-header-extra {
             display: none;
         }
         .panel-body {
             display: none;
         }
     }
-    &.umpui-fullscreen {
+    &.uf-fullscreen {
         position: fixed;
         z-index: 999;
         left: 0;
@@ -47,6 +44,7 @@
         bottom: 0;
         top: 0;
         padding: 10px;
+        overflow: auto;
     }
     &.panel {
         border: 0;
@@ -64,7 +62,7 @@
     .panel-body {
         padding: 0;
     }
-    .umpui-header {
+    .uf-header {
         display: inline-block;
         cursor: pointer;
         font-weight: 700;
@@ -76,13 +74,14 @@
             margin-right: 6px;
         }
     }
-    .umpui-header-extra-con {
+    .uf-header-extra-con {
         float: right;
     }
-    .umpui-header-extra {
+    .uf-header-extra {
         display: inline-block;
         position: relative;
         padding: 0 5px;
+        min-height: 26px;
         cursor: pointer;
         line-height: 26px;
         border-radius: 4px;
@@ -124,13 +123,6 @@
         a {
             color: inherit;
         }
-        // .icon-filter {
-        //     position: relative;
-        //     padding-left: 8px;
-        //     margin-right: -17px;
-        //     z-index: 1;
-        //     font-weight: 400;
-        // }
         input {
             display: inline-block;
             padding-left: 20px;
@@ -180,20 +172,9 @@
     .expand {
         cursor: pointer;
     }
-    .umpui-sortcon {
-        display: inline-block;
-        position: relative;
-        cursor: pointer;
-        vertical-align: middle;
-        margin-left: 5px;
-        .fa {
-            display: block;
-        }
-        .fa-sort-desc {
-            margin-top: -12px;
-        }
-        .umpui-asc, .umpui-desc {
-            color: #44c2e9;
+    .uf-operation {
+        &>*:not(:last-child) {
+            margin-right: 4px;
         }
     }
     .json {
@@ -214,61 +195,40 @@
         text-overflow: ellipsis;
     }
 }
-.json {
-    .string { color: #008000; }
-    .number { color: #ff8c00; }
-    .boolean { color: #0000ff; }
-    .null { color: #ff00ff; }
-    .key { color: #ff0000; }
+// 弹框样式
+.uf-table-modal {
+    .ant-checkbox-group-item.ant-checkbox-wrapper {
+        display: inline-block;
+        margin: 0 0 6px 10px;
+        width: 150px;
+        vertical-align: top;
+    }
+}
+.uf-table-menu{
+    a {
+        color: inherit;
+    }
 }
 // 更改antd-样式
 .uf-table {
     .ant-table-title {
-        padding: 16px 10px;
+        padding: 10px 10px;
         overflow: hidden;
         line-height: 26px;
-    }
-}
-.uf-dropdown-menu-ul {
-    outline: none;
-    position: relative;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    background-color: #fff;
-    border-radius: 4px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-    background-clip: padding-box;
-    li {
-        padding: 7px 8px;
-        margin: 0;
-        clear: both;
-        font-size: 12px;
-        font-weight: normal;
-        color: rgba(0, 0, 0, 0.65);
-        white-space: nowrap;
-        cursor: pointer;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-        .menu-item-icon {
-            font-weight: 800;
-            margin-right: 5px;
+        border: 1px solid #f7f7f7;
+        &+.ant-table-content {
+            border-radius: 0;
+            table {
+                border-radius: 0;
+            }
         }
     }
-    li:hover {
-        background-color: #ecf6fd;
+    .ant-table-small .ant-table-thead > tr > th {
+        background: #f7f7f7;
     }
-    li:first-child {
-        border-radius: 4px 4px 0 0;
-    }
-    li:last-child {
-        border-radius: 0 0 4px 4px;
-    }
-    li.active {
-        color: #108ee9;
-        box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
-        -moz-box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
-        -webkit-box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
+    &.uf-table-mini {
+        .ant-table-small .ant-table-tbody > tr > td {
+            padding: 3px 4px;
+        }
     }
 }

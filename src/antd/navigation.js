@@ -127,8 +127,7 @@ export class Menu extends Navigation {
         }
     }
     // 见 BaseComponent
-    _onEvent(callback, ...params) {
-        callback && callback(...params);
+    _onControlEvent(...params) {
         let {selectedKeys} = params[0];
         this.__props['selectedKeys'] = selectedKeys;
         this.forceUpdate();
@@ -141,13 +140,17 @@ export class Menu extends Navigation {
         this.forceUpdate();
     }
     // 解析子组件结构
-    handleItems(items) {
+    handleItems(items, parentKey) {
         let arr = items;
         if (!Utils.typeof(items, 'array')) {
             arr = [items];
         }
         let children = [];
         for (let v of arr) {
+            // 判断是否有权限
+            if (!this.__authority(v)) {
+                continue;
+            }
             // 首先处理所有类型的菜单项公共属性
             if (!v.key && v.link) {
                 v.key = v.link;
@@ -177,7 +180,7 @@ export class Menu extends Navigation {
                 if (!Utils.typeof(v.children, 'array')) {
                     v.children = [v.children];
                 }
-                v.children.push(this.handleItems(v.childItems));
+                v.children.push(this.handleItems(v.childItems, parentKey || v.key));
                 delete v.childItems;
             }
             // 指定为group类型，则使用 菜单分组组件
@@ -194,7 +197,8 @@ export class Menu extends Navigation {
 
             // 保存key值
             if (v.key && !v.disabled) {
-                this.allKeys[v.key] = true;
+                // 存储的是顶层导航的 key
+                this.allKeys[v.key] = parentKey || v.key;
             }
         }
         
@@ -215,9 +219,19 @@ export class Menu extends Navigation {
             //   2、具有path的菜单项没有设置key，则默认使用path值。path值为路由全路径，所有需要再用path和allKeys进行一次比对
             if (this.allKeys[key]) {
                 this.__props.selectedKeys = [key];
+                this.changeDefaultOpenKeys(this.allKeys[key]);
             } else if (this.allKeys[path]) {
                 this.__props.selectedKeys = [path];
+                this.changeDefaultOpenKeys(this.allKeys[path]);
             }
+        }
+    }
+    changeDefaultOpenKeys(key) {
+        let defaultKeys = this.__props.defaultOpenKeys;        
+        if (defaultKeys && defaultKeys.indexOf(key) === -1) {
+            this.__props.defaultOpenKeys.push(key);
+        } else {
+            this.__props.defaultOpenKeys = [key];
         }
     }
     render() {
@@ -238,6 +252,11 @@ export class Pagination extends Navigation {
         };
         this.__init();
     }
+    // reset() {
+    //     this.__setProps({
+    //         current: 1
+    //     });
+    // }
     render() {
         return <Antd.Pagination {...this.__props}/>;
     }

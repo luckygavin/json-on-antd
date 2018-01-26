@@ -92,7 +92,7 @@ export class Sider extends BaseLayout {
     // 切换收起/展示状态（暴露给用户使用）
     toggleCollapsed() {
         let collapsed = !this.__props.collapsed;
-        this.set({collapsed});
+        this.__setProps({collapsed});
         this.__props.onCollapse(collapsed);
     }
     // Sider 组件自动和其子组件 Menu 做关联，收起时同时收起 Menu

@@ -76,7 +76,7 @@ export default class Export extends BaseComponent {
             this.config.type = 'sync';
             this.data = [nextProps.data];
         }
-        this.config = this.__mergeProps(this.config, nextProps.config);
+        this.config = this.__mergeProps(this.config, nextProps);
         // Table后端分页的情况会用到
         if (this.config.total && this.config.total !== this.state.total) {
             this.setState({
@@ -136,9 +136,11 @@ export default class Export extends BaseComponent {
         let params = config.params ? config.params : {};
         let request = Object.assign({}, params, {
             page: page,
-            pageNum: page,
+            // pageNum: page,
+            index: page,
             size: this.state.pageSize,
-            pageSize: this.state.pageSize,
+            // pageSize: this.state.pageSize,
+            limit: this.state.pageSize,
             total: this.state.total
         });
         this.getData(request, res=>{
@@ -450,7 +452,8 @@ export default class Export extends BaseComponent {
                         showIcon />
                 </div>
                 <div hidden={ !this.state.finish } style={{marginTop: '10px'}}>
-                    <Button type="primary"><a ref="download">下载文件</a></Button>
+                    {/* <Button type="primary"><a ref="download">下载文件</a></Button> */}
+                    <a ref="download" style={{color: '#fff'}}><Button type="primary">下载文件</Button></a>
                     <p className="mt8">
                         <Icon type="check-circle" style={{color: '#90ed7d'}} /> 数据导出完毕，合计{fatchedData}条数据，用时{usedTime}秒
                     </p>

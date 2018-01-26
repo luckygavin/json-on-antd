@@ -1,3 +1,16 @@
+.json {
+  white-space: pre-wrap;
+  word-break: break-all; }
+  .json .string {
+    color: #008000; }
+  .json .number {
+    color: #ff8c00; }
+  .json .boolean {
+    color: #0000ff; }
+  .json .null {
+    color: #ff00ff; }
+  .json .key {
+    color: #ff0000; }
 .uf-iframe iframe {
   margin: 0;
   border: 0;
@@ -56,21 +69,18 @@
   top: 0;
   right: 0;
   background-color: transparent; }
-.uf-table .custom-filter-dropdown {
-  padding: 8px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); }
-
-.uf-table .custom-filter-dropdown input {
-  width: 130px;
-  margin-right: 8px; }
-
-.uf-table .highlight {
-  color: #f50; }
-
 .uf-table {
   background-color: #fff; }
+  .uf-table .custom-filter-dropdown {
+    padding: 8px;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2); }
+  .uf-table .custom-filter-dropdown input {
+    width: 130px;
+    margin-right: 8px; }
+  .uf-table .highlight {
+    color: #f50; }
   .uf-table .fa {
     color: rgba(0, 0, 0, 0.66); }
   .uf-table .show {
@@ -78,18 +88,22 @@
     z-index: 100; }
   .uf-table .hidden {
     display: none; }
-  .uf-table.retract .umpui-header-extra {
+  .uf-table .disabledRow {
+    background-color: #fafafa;
+    cursor: not-allowed; }
+  .uf-table.retract .uf-header-extra {
     display: none; }
   .uf-table.retract .panel-body {
     display: none; }
-  .uf-table.umpui-fullscreen {
+  .uf-table.uf-fullscreen {
     position: fixed;
     z-index: 999;
     left: 0;
     right: 0;
     bottom: 0;
     top: 0;
-    padding: 10px; }
+    padding: 10px;
+    overflow: auto; }
   .uf-table.panel {
     border: 0; }
   .uf-table .panel-heading {
@@ -103,52 +117,53 @@
     border-top-right-radius: 3px; }
   .uf-table .panel-body {
     padding: 0; }
-  .uf-table .umpui-header {
+  .uf-table .uf-header {
     display: inline-block;
     cursor: pointer;
     font-weight: 700;
     font-size: 13px; }
-    .uf-table .umpui-header i.fa-caret-down {
+    .uf-table .uf-header i.fa-caret-down {
       margin-right: 3px; }
-    .uf-table .umpui-header i.fa-caret-right {
+    .uf-table .uf-header i.fa-caret-right {
       margin-right: 6px; }
-  .uf-table .umpui-header-extra-con {
+  .uf-table .uf-header-extra-con {
     float: right; }
-  .uf-table .umpui-header-extra {
+  .uf-table .uf-header-extra {
     display: inline-block;
     position: relative;
     padding: 0 5px;
+    min-height: 26px;
     cursor: pointer;
     line-height: 26px;
     border-radius: 4px;
     transition: all 0.4s;
     -moz-transition: all 0.4s;
     -webkit-transition: all 0.4s; }
-    .uf-table .umpui-header-extra:not(.no-hover):hover > span, .uf-table .umpui-header-extra:not(.no-hover):hover > div > span,
-    .uf-table .umpui-header-extra:not(.no-hover):hover > i,
-    .uf-table .umpui-header-extra:not(.no-hover):hover > .fa, .uf-table .umpui-header-extra:not(.no-hover):hover > div > .fa,
-    .uf-table .umpui-header-extra:not(.no-hover):hover > div > a {
+    .uf-table .uf-header-extra:not(.no-hover):hover > span, .uf-table .uf-header-extra:not(.no-hover):hover > div > span,
+    .uf-table .uf-header-extra:not(.no-hover):hover > i,
+    .uf-table .uf-header-extra:not(.no-hover):hover > .fa, .uf-table .uf-header-extra:not(.no-hover):hover > div > .fa,
+    .uf-table .uf-header-extra:not(.no-hover):hover > div > a {
       color: #1456ac;
       text-shadow: none;
       font-weight: 700; }
-    .uf-table .umpui-header-extra:not(.no-hover):active, .uf-table .umpui-header-extra:not(.no-hover).active {
+    .uf-table .uf-header-extra:not(.no-hover):active, .uf-table .uf-header-extra:not(.no-hover).active {
       color: #108ee9;
       box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
       -moz-box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
       -webkit-box-shadow: 0px 0px 10px 2px #1d8fd5 inset; }
-    .uf-table .umpui-header-extra:not(.no-hover).active {
+    .uf-table .uf-header-extra:not(.no-hover).active {
       color: #108ee9; }
-    .uf-table .umpui-header-extra a {
+    .uf-table .uf-header-extra a {
       color: inherit; }
-    .uf-table .umpui-header-extra input {
+    .uf-table .uf-header-extra input {
       display: inline-block;
       padding-left: 20px;
       width: 157px;
       border-radius: 4px; }
-    .uf-table .umpui-header-extra i {
+    .uf-table .uf-header-extra i {
       font-weight: 700;
       margin-right: 2px; }
-    .uf-table .umpui-header-extra ul {
+    .uf-table .uf-header-extra ul {
       position: absolute;
       text-align: left;
       list-style: none;
@@ -157,21 +172,21 @@
       background-color: #fff;
       box-shadow: 0 0 10px #48c3e9;
       z-index: 1; }
-      .uf-table .umpui-header-extra ul > li,
-      .uf-table .umpui-header-extra ul > div {
+      .uf-table .uf-header-extra ul > li,
+      .uf-table .uf-header-extra ul > div {
         line-height: 30px;
         padding: 0 12px 0 10px;
         white-space: nowrap;
         transition: all .4s; }
-        .uf-table .umpui-header-extra ul > li:hover,
-        .uf-table .umpui-header-extra ul > div:hover {
+        .uf-table .uf-header-extra ul > li:hover,
+        .uf-table .uf-header-extra ul > div:hover {
           color: #1456ac; }
-      .uf-table .umpui-header-extra ul li:last-child {
+      .uf-table .uf-header-extra ul li:last-child {
         border: none; }
-      .uf-table .umpui-header-extra ul .fa {
+      .uf-table .uf-header-extra ul .fa {
         margin-left: 5px;
         margin-right: 10px; }
-      .uf-table .umpui-header-extra ul li > i {
+      .uf-table .uf-header-extra ul li > i {
         font-weight: 800;
         margin-left: 5px;
         margin-right: 10px; }
@@ -179,18 +194,8 @@
     margin-right: 10px; }
   .uf-table .expand {
     cursor: pointer; }
-  .uf-table .umpui-sortcon {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    vertical-align: middle;
-    margin-left: 5px; }
-    .uf-table .umpui-sortcon .fa {
-      display: block; }
-    .uf-table .umpui-sortcon .fa-sort-desc {
-      margin-top: -12px; }
-    .uf-table .umpui-sortcon .umpui-asc, .uf-table .umpui-sortcon .umpui-desc {
-      color: #44c2e9; }
+  .uf-table .uf-operation > *:not(:last-child) {
+    margin-right: 4px; }
   .uf-table .json {
     max-width: 200px;
     text-overflow: ellipsis;
@@ -207,54 +212,45 @@
     white-space: nowrap;
     text-overflow: ellipsis; }
 
-.json .string {
-  color: #008000; }
+.uf-table-modal .ant-checkbox-group-item.ant-checkbox-wrapper {
+  display: inline-block;
+  margin: 0 0 6px 10px;
+  width: 150px;
+  vertical-align: top; }
 
-.json .number {
-  color: #ff8c00; }
-
-.json .boolean {
-  color: #0000ff; }
-
-.json .null {
-  color: #ff00ff; }
-
-.json .key {
-  color: #ff0000; }
+.uf-table-menu a {
+  color: inherit; }
 
 .uf-table .ant-table-title {
-  padding: 16px 10px; }
+  padding: 10px 10px;
+  overflow: hidden;
+  line-height: 26px;
+  border: 1px solid #f7f7f7; }
+  .uf-table .ant-table-title + .ant-table-content {
+    border-radius: 0; }
+    .uf-table .ant-table-title + .ant-table-content table {
+      border-radius: 0; }
 
-.uf-dropdown-menu-ul {
-  outline: none;
-  position: relative;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-  background-clip: padding-box; }
-  .uf-dropdown-menu-ul li {
-    padding: 7px 8px;
-    margin: 0;
-    clear: both;
-    font-size: 12px;
-    font-weight: normal;
-    color: rgba(0, 0, 0, 0.65);
-    white-space: nowrap;
-    cursor: pointer;
-    transition: all .3s; }
-    .uf-dropdown-menu-ul li .menu-item-icon {
-      font-weight: 800;
-      margin-right: 5px; }
-  .uf-dropdown-menu-ul li:hover {
-    background-color: #ecf6fd; }
-  .uf-dropdown-menu-ul li:first-child {
-    border-radius: 4px 4px 0 0; }
-  .uf-dropdown-menu-ul li:last-child {
-    border-radius: 0 0 4px 4px; }
+.uf-table .ant-table-small .ant-table-thead > tr > th {
+  background: #f7f7f7; }
+
+.uf-table.uf-table-mini .ant-table-small .ant-table-tbody > tr > td {
+  padding: 3px 4px; }
+.uf-form.uf-form-inline {
+  margin: 15px 0; }
+  .uf-form.uf-form-inline .ant-form-item {
+    margin-bottom: 10px; }
+
+.uf-form.uf-form-default .ant-form-item {
+  margin-bottom: 12px; }
+  .uf-form.uf-form-default .ant-form-item .ant-form-item-label {
+    line-height: 28px; }
+
+.uf-form.uf-form-small .ant-form-item {
+  margin-bottom: 6px; }
+  .uf-form.uf-form-small .ant-form-item .ant-form-item-label {
+    line-height: 22px; }
+
 .uf-form .header h5 {
   font-size: 14px;
   font-weight: 500; }

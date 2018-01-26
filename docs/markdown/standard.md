@@ -132,7 +132,8 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ##### **`__setProps(props[, follow])`**  
 用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  
-第二个参数，可以不填，默认会刷新组件；也可以传入自己想要执行的逻辑；或者传入 false 阻止组件刷新
+也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）  
+默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
 
 ##### **`__mergeProps(...objs)`**  
 合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  
@@ -171,10 +172,14 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 通用的 `ajax` 函数。参数为一个对象。
 > 常用参数有：url、method、data、type、onchange、success、error
 
-
 ##### **`__analysis(config)`**
 解析某个属性的配置。方便开发组件时解析一些可以为配置的属性
 
+##### **`__authority(item)`**
+判断是否为权限点 && 是否有权限
+
+##### **`__getComponent(item)`**
+获取缓存中的组件
 
 ---
 ## 文档编写规范

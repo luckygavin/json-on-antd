@@ -6,8 +6,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Utils} from 'uf/utils';
 import DataEntry from './base/DataEntry.js';
-import moment from 'moment';
+// import moment from 'moment';
 import * as Antd from 'antd';
+
 
 /************ AutoComplete 自动补全 *************************************************************************** */
 // 简单的补全功能
@@ -30,10 +31,10 @@ export class AutoComplete extends DataEntry {
         this.setState({result});
     }
     // 默认对应的是 onChange
-    _onEvent(...params) {
+    _onControlEvent(...params) {
         // 对change前后的数据进行对比
         let oldValue = this.__props.value;
-        super._onEvent.call(this, ...params);
+        super._onControlEvent.call(this, ...params);
         let newValue = this.__props.value;
         // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
         if (oldValue && newValue && oldValue.length > newValue.length) {
@@ -107,9 +108,6 @@ export class CheckboxGroup extends DataEntry {
 /************* DatePicker 日期选择框 ************************************************************************** */
 
 class BasePicker extends DataEntry {
-    constructor(props) {
-        super(props);
-    }
     // 继承父组件的函数，并在__props上追加一些属性
     // 此函数会在初始化以及componentWillReceiveProps时调用
     _initProps(...params) {
@@ -135,7 +133,7 @@ export class DatePicker extends BasePicker {
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker {...this.__props}
-            value={value ? moment(value) : value}/>;
+            value={value ? Utils.moment(value) : value}/>;
     }
 }
 // 范围选择
@@ -147,10 +145,11 @@ export class RangePicker extends BasePicker {
         this.__init();
     }
     render() {
-        let value = this.__props.value;
         // 需注意，RangePicker 的value是一个数组
+        let value = this.__props.value;
+        let format = this.__props.format;
         return <Antd.DatePicker.RangePicker {...this.__props}
-            value={value ? [moment(value[0]), moment(value[1])] : value}/>;
+            value={value ? [Utils.moment(value[0], format), Utils.moment(value[1], format)] : value}/>;
     }
 }
 // 月份选择 ------ 注意，此处用的是 DataEntry，为的是防止 format 被覆盖成 datepicker 的默认值
@@ -163,7 +162,7 @@ export class MonthPicker extends DataEntry {
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker.MonthPicker {...this.__props}
-            value={value ? moment(value, this.__props.format) : value}/>;
+            value={value ? Utils.moment(value, this.__props.format) : value}/>;
     }
 }
 
@@ -178,7 +177,7 @@ export class TimePicker extends DataEntry {
     render() {
         let value = this.__props.value;
         return <Antd.TimePicker {...this.__props}
-            value={value ? moment(value, this.__props.format) : value}/>;
+            value={value ? Utils.moment(value, this.__props.format) : value}/>;
     }
 }
 
@@ -261,22 +260,17 @@ export class Radio extends DataEntry {
         this.__init();
     }
     render() {
-        let children;
-        // 增加了一个配置项，来控制是否已button的形式展示
+        // 增加了一个配置项，来控制是否以button的形式展示
+        let Item = Antd.Radio;
         if (this.__props.showAsButton) {
-            children = (this.__props.options || []).map(item=>typeof item === 'string'
-                ? <Antd.Radio.Button key={item} value={item}>{item}</Antd.Radio.Button>
-                : <Antd.Radio.Button key={item.value} disabled={item.disabled} style={item.style}
-                        value={item.value}>{item.label}</Antd.Radio.Button>
-            );
-        } else {
-            children = (this.__props.options || []).map(item=>typeof item === 'string'
-                ? <Antd.Radio key={item} value={item}>{item}</Antd.Radio>
-                : <Antd.Radio key={item.value} disabled={item.disabled} style={item.style}
-                        value={item.value}>{item.label}</Antd.Radio>
-            );
+            Item = Antd.Radio.Button;
         }
-        return <Antd.Radio.Group {...this.__props} options={undefined}>{children}</Antd.Radio.Group>;
+        return <Antd.Radio.Group {...this.__props} options={undefined}>{
+            Utils.toOptions(this.__props.options).map(item=>
+                <Item key={item.value} disabled={item.disabled} style={item.style}
+                    value={item.value}>{item.label}</Item>
+            )
+        }</Antd.Radio.Group>;
     }
 }
 
@@ -290,12 +284,26 @@ export class Select extends DataEntry {
         this._asyncAttr = 'options';
         this.__init();
     }
+    // TODO: Form报错，需要看下
+    _sourceSuccess(data) {
+        let current = this.__props.value;
+        // 如果当前值再列表中，则不做任何处理
+        if (Utils.toOptions(data).some(v=>v.value === current)) {
+            return;
+        }
+        // 否则把值设置为第一个或者清空
+        if (this.__props.defaultFirst) {
+            let first = Utils.getFirstOption(data);
+            this.props.onChange && this.props.onChange(first);
+        } else {
+            this.props.onChange && this.props.onChange(undefined);
+        }
+    }
     render() {
         return <Antd.Select {...this.__props}>
-            {(this.__props.options || []).map(item=>typeof item === 'string'
-                ? <Antd.Select.Option key={item} value={item}>{item}</Antd.Select.Option>
-                : <Antd.Select.Option key={item.value} disabled={item.disabled} style={item.style}
-                        value={item.value}>{item.label}</Antd.Select.Option>
+            {Utils.toOptions(this.__props.options).map(item=>
+                <Antd.Select.Option key={item.value} disabled={item.disabled} style={item.style}
+                    value={item.value}>{item.label}</Antd.Select.Option>
             )}
         </Antd.Select>;
     }

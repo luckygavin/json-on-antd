@@ -77,6 +77,7 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
+            'src': __dirname + '/src',
             'uf': __dirname + '/src',
             'docs': __dirname + '/docs',
             'root': __dirname

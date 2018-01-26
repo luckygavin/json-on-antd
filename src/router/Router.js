@@ -19,7 +19,11 @@ export class RouteHolder extends React.Component {
         //     console.log(this.action === lastAction || nextProps.location.action === "POP");
         //     return this.action === lastAction || nextProps.location.action === "POP";
         // }
+        // console.log(this.props.router.location.action);
         return true;
+        // 待观察效果
+        // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
+        // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
     }
     render() {
         return <Factory {...this.props} config={this.props.route.__component} />;

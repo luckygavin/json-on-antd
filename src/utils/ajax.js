@@ -13,8 +13,12 @@
  * @author liuzechun@baidu.com
  * **/
 import {notification} from 'antd';
+import Utils from './utils.js';
 import Config from 'uf/cache/config.js';
+import BaseCache from 'uf/cache/BaseCache.js';
 import reqwest from 'reqwest';
+
+const AjaxCache = new BaseCache('_uf-ajax-cache', {});
 
 const errorMsg = {
     top: 24,
@@ -30,10 +34,59 @@ function errorMessage(error = {}) {
     }));
 }
 
+function getCacheKey(config) {
+    let cacheApis = Config.get('global.cacheApis');
+    if (cacheApis) {
+        if (cacheApis.indexOf(config.url) > -1) {
+            let key = config.url;
+            if (config.params && !Utils.empty(config.params)) {
+                key += JSON.stringify(config.params);
+            }
+            let hv = Utils.hash(key);
+            return hv;
+        }
+    }
+    return null;
+}
+
+// 向缓存池中设置缓存数据
+function setCacheData(config, res) {
+    let key = getCacheKey(config);
+    if (key) {
+        AjaxCache.set(key, Utils.clone(res));
+    }
+}
+
+// 从缓存池中获取缓存数据
+function getCacheData(config) {
+    let key = getCacheKey(config);
+    if (key) {
+        return AjaxCache.get(key);
+    }
+    return null;
+}
+
 function request (config) {
-    let globalAjax = Config.get('global')['ajax'];
+    let globalAjax = Config.get('global.ajax');
     let successHandler = config.success;
-    let errorHandler = config.error || errorMessage;
+    // 如果需要做缓存，key不为空
+    if (getCacheKey(config)) {
+        // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
+        let cacheData = getCacheData(config);
+        if (cacheData) {
+            // 异步
+            setTimeout(()=>config.success(...cacheData), 0);
+            return;
+        }
+        // 否则继续执行。调用success函数之前，增加缓存当前全部参数的逻辑
+        let oSuccess = config.success;
+        successHandler = (...params)=>{
+            setCacheData(config, params);
+            oSuccess(...params);
+        };
+    }
+    // 如果是null，则不执行错误处理
+    let errorHandler = config.error === null ? (()=>{}) : (config.error || errorMessage);
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
     let onchange = config.onchange || (()=>{return});
     // 配置合并
@@ -53,18 +106,23 @@ function request (config) {
     }
 
     onchange(true, 'sending');
-    reqwest(Object.assign(config,
+    let final = Object.assign({}, config,
         {
             success: res=>{
                 // 如果用户配置了success处理逻辑，则按照用户配置的逻辑做处理
                 if (globalAjax.success) {
-                    globalAjax.success(res, successHandler, errorHandler);
+                    let result = globalAjax.success(res, successHandler, errorHandler, config);
                     onchange(false, 'success');
-                    return;
+                    return result;
                 }
                 // 兼容 message/msg、status/code
                 res.status = res.status || res.code || 0;
                 res.message = res.message || res.msg;
+                // res.msg = res.message;
+                if (typeof res.message === 'array') {
+                    res.message = res.message.join('; ');
+                }
+                res.msg = res.message;
                 if (+res.status === 0) {
                     successHandler(res.data, res);
                 } else {
@@ -77,43 +135,23 @@ function request (config) {
             },
             error: err=>{
                 // 如果用户配置了success处理逻辑，则按照用户配置的逻辑做处理
+                let result;
                 if (globalAjax.error) {
-                    globalAjax.error(err, errorHandler);
-                    onchange(false, 'success');
-                    return;
+                    result = globalAjax.error(err, errorHandler, config);
+                } else {
+                    result = errorHandler(err);
                 }
-                if (errorHandler(err) === true) {
+                // handler返回true，则执行默认错误提示
+                if (result === true) {
                     errorMessage(err);
                 }
                 onchange(false, 'error');
             }
-        },
-        // 用户自己配置的处理逻辑
-        // Config.get('global')['ajax']
-    ));
+        }
+    );
+
+    reqwest(final);
 };
-
-request.get = function(url, params, success, error, onchange) {
-    request({
-        url: url,
-        method: 'get',
-        data: params,
-        onchange: onchange,
-        success: success,
-        error: error
-    });
-}
-
-request.post = function(url, params, success, error, onchange) {
-    request({
-        url: url,
-        method: 'post',
-        data: params,
-        onchange: onchange,
-        success: success,
-        error: error
-    });
-}
 
 request.init = function (url, method) {
     return function (params, success, error, onchange) {
@@ -128,9 +166,15 @@ request.init = function (url, method) {
     }
 }
 
+// 增加 RESTful 函数
+for (let v of ['get', 'post', 'put', 'delete']) {
+    request[v] = function(url, params, success, error, onchange) {
+        request.init(url, v)(params, success, error, onchange);
+    }
+}
+
 // 抛出错误处理函数
 request.errorMessage = errorMessage;
 
 // 通用ajax函数，参数为一个对象
 export default request;
-

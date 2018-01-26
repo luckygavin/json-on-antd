@@ -1,5 +1,7 @@
 <?php
-if (strpos($_SERVER['HTTP_HOST'], 'uf.baidu.com') !== false || strpos($_SERVER['REQUEST_URI'], '/uf-online/') !== false) {
+if ((strpos($_SERVER['HTTP_HOST'], 'antd.uf.baidu.com') === false
+        && strpos($_SERVER['HTTP_HOST'], 'uf.baidu.com') !== false)
+    || strpos($_SERVER['REQUEST_URI'], '/uf-online/') !== false) {
     defined('ENV') || define('ENV', 'prod');
 } else {
     defined('ENV') || define('ENV', 'dev');

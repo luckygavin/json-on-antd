@@ -9,9 +9,10 @@ import {Config} from 'uf/cache';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
+import Authority from './authority.js';
 import Validator from './validator.js';
 import WhiteList from './whitelist.js';
-import Html from './html.js';
+// import Html from './html.js';
 import requirejs from './requirejs';
 
 export default class Factory extends PureComponent {
@@ -29,22 +30,45 @@ export default class Factory extends PureComponent {
 
     // 解析组件配置，生成组件
     generateItem(item) {
+        // 如果模块是一个函数，先执行函数得到返回的配置
+        if (Utils.typeof(item, 'function')) {
+            item = item();
+        }
         // 如果是字符串直接返回
-        if (Utils.typeof(item, 'string')) {
+        if (!Utils.typeof(item, 'object')) {
             return item;
         }
-        let test = item;
+        // 如果没有定义type，且有configTpl配置模板，则从模板中取出type
+        if (!item.type && item.configTpl) {
+            let tpl = Config.get(`components.${item.configTpl}`);
+            if (tpl) {
+                if (Utils.typeof(tpl, 'function')) {
+                    tpl = tpl();
+                }
+                item.type = tpl.type;
+            }
+        }
         // 校验是否有 type 属性，如果没有会报错
         if (!Validator.check(item, 'type', 'string')) {
-            return;
+            return item;
         }
+        // 校验权限，没权限的元素返回 null
+        if (!Authority.check(item)) {
+            return null;
+        }
+
         // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
         // TODO: 把模板解析器也做成一个组件
         if (item.type === 'html') {
             // return new Html(item.content);
             // 直接使用InnerHTML，以节省性能
-            return <section className={'html ' + (item.className || '')} style={item.style} 
-                dangerouslySetInnerHTML={{__html: item.content}}></section>;
+            // return <section className={'uf-html ' + (item.className || '')} style={item.style} 
+            //     dangerouslySetInnerHTML={{__html: item.content}}></section>;
+            // 按照正常流程走
+            item.type = 'section';
+            item.className = 'uf-html ' + (item.className || '');
+            item.dangerouslySetInnerHTML = {__html: item.content};
+            delete item.content;
         }
         // 从loader中获取到相应的组件
         let Item = Loader.get(item);
@@ -56,7 +80,7 @@ export default class Factory extends PureComponent {
         item._factory = this;
 
         let props = this.handleProps(item);
-
+        
         return <Item {...props} />;
     }
 
@@ -89,7 +113,6 @@ export default class Factory extends PureComponent {
 
     // 拆分多个config，分离成组件的配置
     generateElement(config) {
-        // config = config || this.props.config;
         // 如果是字符串直接返回
         if (Utils.typeof(config, 'string')) {
             return config;
@@ -127,7 +150,7 @@ export default class Factory extends PureComponent {
                 this._cacheContent = null;
                 this.setState({config: foo});
             });
-            let showLoading = Config.get('modules')['showLoading'];
+            let showLoading = Config.get('modules.showLoading');
             if (Utils.typeof(showLoading, 'array')) {
                 // config 此时为模块名称
                 showLoading = showLoading.indexOf(config) !== -1;

@@ -49,7 +49,7 @@ UF 致力于提供给 RD 愉悦的页面开发体验
                 "loading": true,
                 "content": "包含标题、内容、操作区域的卡片内容区域"
             };
-            UF.init(config, 'demo');
+            UF.init(config, '#demo');
         </script>
     </body>
 </html>

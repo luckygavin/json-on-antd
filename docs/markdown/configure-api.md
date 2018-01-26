@@ -28,9 +28,9 @@ UF本身为一个函数，可以通过UF函数查到到指定name的组件。例
 
 ## # UF.init()
 
-`UF.init(config, targetId)`
+`UF.init(config, target/targetSelector)`
 
-包含两个参数：第一个参数为组件配置，第二个参数为页面上目标元素的id
+包含两个参数：第一个参数为组件配置，第二个参数为页面上目标元素或目标元素选择器
 
 函数用来把配置初始化为组件，并渲染到页面上。用法如下：
 ```javascript
@@ -39,7 +39,7 @@ var config = {
     "mode": "primary",
     "content": "Primary"
 };
-UF.init(config, 'demo');
+UF.init(config, '#demo');
 ```
 还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：
 ```javascript
@@ -52,8 +52,50 @@ var config = {
         });
     }
 };
-UF.init(config, 'demo');
+UF.init(config, '#demo');
 ```
+
+注意：
+> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。  
+> 会先清空目标元素，然后把新组件渲染上去  
+
+
+## # UF.render()
+
+`UF.render(config, target/targetSelector)`
+
+作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。
+
+
+## # UF.append()
+
+`UF.append(config, target/targetSelector)`
+
+也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。
+
+函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)
+
+
+## # UF.set()
+
+`UF.set(string, data)`
+
+存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。
+
+## # UF.get()
+
+`UF.get(string)`
+
+获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。
+
+例如：
+
+```javascript
+let list = [0, 1, 2, 3];
+UF.set('test.list', list);
+console.log(UF.get('test.list'));
+```
+
 
 ## # UF.ajax(params)
 
@@ -186,7 +228,7 @@ var config = [
         ]
     }
 ];
-UF.init(config, 'demo');
+UF.init(config, '#demo');
 ```
 点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。
 
@@ -195,5 +237,16 @@ UF.init(config, 'demo');
 
 `component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。
 
-> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterRender`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。
+> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。
+
+
+## # component.hide()  
+
+`component.hide()`可以隐藏组件。
+
+
+## # component.show()  
+
+`component.hide()`可以重新展示组件。
+
 

@@ -20,14 +20,14 @@ export default class DataEntry extends Antd {
         this.__controlled = {
             key: 'value',
             event: 'onChange',
-            defaultVal: '',
+            defaultVal: undefined,
             paramsIndex: 0
         };
     }
 
     // 增加 onChange 时默认保存数据的函数
-    // 父类的 _onEvent 函数不能满足需求，直接覆盖了
-    _onEvent(callback, ...params) {
+    // 父类的 _onControlEvent 函数不能满足需求，直接覆盖了
+    _onControlEvent(...params) {
         const {key, paramsIndex} = this.__controlled;
         // 适合的组件：input、checkbox、radio
         if (Utils.typeof(params[paramsIndex], 'object') && params[paramsIndex].target) {
@@ -36,8 +36,6 @@ export default class DataEntry extends Antd {
             this.__props[key] = params[paramsIndex];
         }
         this.forceUpdate();
-
-        callback && callback(...params);
     }
 
     // 获取数据接口

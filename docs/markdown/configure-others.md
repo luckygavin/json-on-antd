@@ -25,6 +25,11 @@
 
 > 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到
 
+#### # configTpl 
+
+配置模板。用于指定复用在`UF.config`函数中定义的`components`属性中定义的通用模板配置。
+
+
 #### # style 
 `object` | `string`
 
@@ -92,14 +97,14 @@ style: 'margin-top: 16px; font-size: 12px;'
             return {value: v.name, label: v.name};
         });
     },
-    beforeRender(props, self) {
+    beforeCreate(props, self) {
         props.sourceParams = {id: self._root.props.params.id};
         return props;
     }
 }
 ```
 
-组件渲染之前会先执行`beforeRender`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 sourceParams 属性，配置中的 sourceParams 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`sourceHandle`对返回的数据进行处理，最后数据会填充到`sourceTarget`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
+组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 sourceParams 属性，配置中的 sourceParams 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`sourceHandle`对返回的数据进行处理，最后数据会填充到`sourceTarget`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
 
 
 ## html 组件
@@ -121,17 +126,17 @@ html代码会被一个`<section>`标签包裹，为了方便定义样式，html 
 
 配置中的每个组件从创建到销毁都具有一个生命周期，如果想要把某些逻辑和组件的生命周期相关联，则可以配置如下函数：
 
-* `beforeRender`: 组件渲染之前执行
-* `afterRender`: 组件渲染后
-* `beforeUpdate`: 组件刷新之前执行
-* `afterUpdate`: 组件刷新后执行
+* `beforeCreate`: 组件生成到页面之前执行
+* `afterCreate`: 组件生成到页面之后执行
+* `beforeRender`: 组件每次刷新之前执行（包括首次生成）
+* `afterRender`: 组件每次刷新之后执行（包括首次生成）
 * `beforeDestroy`: 组件销毁前执行
 
 例如，可以在下拉列表加载后，向后端获取下拉列表中展示的数据：
 ```javascript
 {
     type: 'select',
-    afterRender: function(select) {
+    afterCreate: function(select) {
         UF.ajax({
             url: '/uf/docs/php/data.php',
             success: function(data) {
@@ -145,9 +150,10 @@ html代码会被一个`<section>`标签包裹，为了方便定义样式，html 
 }
 ```
 
-两个`before`函数是在组件渲染/刷新之前执行，所以可以用于对参数进行修改
+**两个`before`函数是在组件渲染/刷新之前执行，所以可以用于对参数进行修改**
+
+* beforeCreate(params)
 * beforeRender(params)
-* beforeUpdate(params)
 
 `params`为组件现有参数（包含配置的和默认的参数）。可以根据需要变更参数然后把新的`return`。
 
@@ -159,21 +165,21 @@ html代码会被一个`<section>`标签包裹，为了方便定义样式，html 
     name: 'my-card',
     title: '标题可以跟着路由变化：/card2/card3/标题',
     loading: true,
-    beforeRender(params, self) {
+    beforeCreate(params, self) {
         params.title = self._root.props.params.title || params.title;
         return params;
     }
 }
 ```
 
-> 注意：`beforeUpdate`触发次数较多，注意不要造成性能问题
+> 注意：`beforeRender`触发次数较多，注意不要造成性能问题
 
 
-## 关于配置中的回调函数
+**关于生命周期函数的参数**
 
-为了方便使用，配置中的回调函数的参数中，全部在最后追加了一个参数，为组件自身，可以在回调函数中用来调用组件自身的`set`、`get`函数等，无需再写获取当前组件的逻辑。
+为了方便使用，生命周期函数的参数中，全部在最后追加了一个参数，为组件自身，可以在函数中用来调用组件自身的`set`、`get`函数等，无需再写获取当前组件的逻辑。
 
-例如上面`beforeRender`的示例代码，`self`和`UF('my-card')`等价。
+例如上面`beforeCreate`的示例代码，`self`和`UF('my-card')`等价。
 
 > tips： 有些组件的参数较多，可以先使用`console.log`打印出来确认，再使用
 

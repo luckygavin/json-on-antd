@@ -5,7 +5,7 @@
 import {Utils} from 'uf/utils';
 import {ModelCache, ComponentsCache} from 'uf/cache';
 
-// 使用model表达式格式
+// 使用model表达式格式 ${xxx}
 const Expre = /\${(\S+?)}/g;
 // const Expre = /\${(\S+?)}/;
 
@@ -31,7 +31,10 @@ export default {
                 comp.set(options);
             }
         }
-        console.log(ModelCache);
+        // console.log(ModelCache);
+    },
+    get(model) {
+        return ModelCache.getData(model);
     },
 
     /* 程序内部调用 *************************************************************/

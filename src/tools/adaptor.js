@@ -18,8 +18,12 @@ export default {
 
         let Item = Loader.get(item);
         let props = Utils.filter(item, KeyWord);
-        // 把 content 转化成 children。update at 2017/10/25,如果没有content,则使用原来的children
-        props.children = item.content || props.children;
+        // 把 content 转化成 children。
+        // update at 2017/10/25,如果没有content,则使用原来的children
+        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
+        if (item.content || props.children) {
+            props.children = item.content || props.children;
+        }
         // 格式化 class 和 style
         props = this.formatCS(props);
         // 如果是基于BaseComponent的组件内部要用到的属性处理

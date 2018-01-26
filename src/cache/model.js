@@ -58,7 +58,7 @@ class Models extends BaseCache {
         return (result || '');
     }
     // 获取摸个model点关联的组件
-    getModel(model) {
+    getModel(name) {
         return !!name ? this._cache.model[name] : this._cache.model;
     }
     // 获取某个model点影响的所有组件及属性

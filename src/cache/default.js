@@ -73,6 +73,12 @@ export default {
         // 自动加载数据
         autoLoadSource: true,
         data: []
+    },
+    // modal
+    'modal': {
+        visible: false
+    },
+    'form-modal': {
+        visible: false
     }
-
 };

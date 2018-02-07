@@ -1,0 +1,22 @@
+.uf-tree {
+    position: relative;
+    overflow: auto;
+}
+.uf-tree-search {
+    text-align: center;
+}
+.uf-tree-treeSearchTip {
+    line-height: 40px;
+    font-size: 14px;
+    color: #808080;
+    text-align: center;
+}
+.uf-tree-ew-resize{
+    width: 5px;
+    height: 100%;
+    cursor: ew-resize;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0);
+}

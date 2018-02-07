@@ -25,7 +25,9 @@ export default class Nav extends Component {
         return <div className="left-side">
             <Menu mode="inline" onClick={this.handleClick.bind(this)}
                 selectedKeys={[this.state.current]}
-                defaultOpenKeys={this.NavList.filter(v=>!!v.children).map(v=>v.path)}>
+                defaultOpenKeys={this.NavList.filter(
+                    v=>!!v.children && (!v.retract || this.props.current.indexOf(v.path) !== -1)).map(v=>v.path)
+                }>
                 {this.NavList.map(first=>!first.children
                     ? <Menu.Item key={first.path}>
                             <a href={`#/${first.path}`}>{first.name}</a>
@@ -35,7 +37,7 @@ export default class Nav extends Component {
                                 ? <Menu.Item key={`${first.path}/${second.path}`}>
                                         <a href={`#/${first.path}/${second.path}`}>{second.name}</a>
                                     </Menu.Item>
-                                : <MenuItemGroup key={`${first.path}/${second.path}`} title={second.path}>
+                                : <MenuItemGroup key={`${first.path}/${second.path}`} title={second.name}>
                                         {second.children.map(third=>
                                             <Menu.Item key={`${second.path}/${third.path}`}>
                                                 <a href={`#/${second.path}/${third.path}`}>{third.name}</a>

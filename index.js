@@ -1,14 +1,13 @@
 /**
- * @file index.js 汇总所有 src 里对用户暴露的组件
- * @author liuzechun@baidu.com
+ * @file index.js 项目入口
+ * @author liuzechun
+ * Created Date: 2018-01-30 01:58:03
  */
-'use strict';
 
+'use strict';
+const {version} = require('./package.json');
 
 module.exports = {
-    VERSION: '1.0.0',
-
-    // Table: require('./src/table').default,
-    // Form: require('./src/form').default,
-    
+    VERSION: version,
+    ...require('./src/tools/index.js')
 };

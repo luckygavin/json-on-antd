@@ -2,13 +2,14 @@
  * @file 可配置表单
  * @author liuzechun
  */
-import {BaseComponent} from 'uf/component';
-import {Utils, Ajax} from 'uf/utils';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 import moment from 'moment';
-import {Form, Icon, Spin, Button, message, Tooltip, Row, Col} from 'antd';
-import {Input, Select, Cascader, Radio, Upload, Checkbox, InputNumber, DatePicker} from 'antd';
+import {Form, Icon, Button, message, Tooltip, Row, Col} from 'antd';
 
-import Ueditor from 'uf/ueditor';
+import Ueditor from 'src/ueditor';
 
 import './style.scss';
 
@@ -16,66 +17,40 @@ let uuid = 0;
 class OriginForm extends BaseComponent {
     constructor(props) {
         super(props);
+        // 过滤掉Form.create传入的form属性
+        this._filter.push('form');
+        this._openApi.push('getValues', 'resetValues', 'clearValues');
         this.__init();
         this.state = {
             loading: false
         };
+        // this.props.form; Antd.Form封装的函数
+        this.form = props.form;
+        this.config = null;
         // 用于存储子Form的引用（因为无法直接拿到refs）
         this.formRef = {};
-        this.defaultValues = null;
+        // 用于存储表单元素的引用
+        this.itemRef = {};
+        this.defaultValues = {};
         // 用于记录当前form是否变换过（原来单个form通过复制新增等变为了多个）
-        this.isArrayForm = false;
-        // 传递给子Form的函数
-        // this.transmitFunction = {
-        //     addClick: this.addClick.bind(this),
-        //     copyClick: this.copyClick.bind(this),
-        //     deleteClick: this.deleteClick.bind(this),
-        //     othersClick: this.othersClick.bind(this),
-        // };
+        // this.isArrayForm = false;
         this.init();
         this.itemsCache = {};
-        // this.setItemsCache(this.config.items);
     }
     init(nextProps) {
-        let props = nextProps || this.props;
-        let config = props.config;
-        this.config = Object.assign({
-            title: '新增',
-            items: [],
-            buttons: null
-        }, config, {
-            layout: Object.assign({
-                type: 'horizontal',
-                labelCol: 6,
-                wrapperCol: 14
-            }, config.layout)
-        });
-        this.formItemLayout = this.getLayout(this.config.layout);
-        // 是之成为受控组件，实现Form嵌套
-        if ('params' in props && !Utils.equals(this.defaultValues, props.params)) {
-            this.setDefaultValues(props.params);
-            !!nextProps && this.initValues();
+        // 过滤掉Form.create传入的form属性
+        let props = this.__props;
+        if (nextProps) {
+            props = Utils.merge({}, props, nextProps);
         }
-    }
-    // 遍历出一份items并缓存起来 key => value 形式
-    // setItemsCache(items) {
-    //     this.itemsCache = {};
-    //     const loop = (items) => {
-    //         for (let item of items) {
-    //             if (item instanceof Array) {
-    //                 loop(item);
-    //             } else {
-    //                 if (item.name) {
-    //                     this.itemsCache[item.name] = Object.assign({}, item);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     loop(items);
-    // }
-    componentWillUpdate() {
-        // 之所以没放到 componentWillReceiveProps 里，是因为会导致死循环
-        // this.init();
+        props = Utils.filter(props, 'form');
+        this.config = props;
+        this.formItemLayout = this.getLayout(props.layout);
+        // 使之成为受控组件，实现Form嵌套
+        if (props.formData && !Utils.equals(this.defaultValues, props.formData)) {
+            this.setDefaultValues(props.formData);
+            nextProps && this.initValues();
+        }
     }
     componentDidMount() {
         // 把this抛出，供外部调用，因为使用refs找不到包装前的ReactForm对象
@@ -83,30 +58,93 @@ class OriginForm extends BaseComponent {
         this.initValues();
     }
     componentWillReceiveProps(nextProps) {
-        // Should be a controlled component.
-        if (!Utils.equals(this.props, nextProps)) {
+        if (this.__shouldUpdate(this.props, nextProps)) {
             this.init(nextProps);
         }
     }
     // 获取初始值，并格式化
     setDefaultValues(data) {
-        if (!this.isArrayForm && data instanceof Array) {
-            this.isArrayForm = true;
+        if (!data) {
+            this.defaultValues = {};
+        } else {
+            // if (!this.isArrayForm && data instanceof Array) {
+            //     this.isArrayForm = true;
+            // }
+            this.defaultValues = data;
         }
-        this.defaultValues = data;
     }
-    /* 外部调用函数 */
+    // 把数据格式化成需要的格式
+    // 调用 setFieldsValue 时，如果多传了字段，会报 warning，所以这里只返回可用的表单项的值
+    // Warning: Cannot use `setFieldsValue` until you use `getFieldDecorator` or `getFieldProps` to register it.
+    _encodeValues(values) {
+        let result = {};
+        for (let i in values) {
+            let item = this.itemsCache[i];
+            if (item && item.display !== false && item.type !== 'button') {
+                result[i] = values[i];
+                // item 为时间类型的表单，需要格式化成moment类型
+                if (['date-picker', 'month-picker', 'range-picker', 'time-picker'].indexOf(item.type) > -1) {
+                    if (!(result[i] instanceof moment)) {
+                        result[i] = Utils.moment(result[i], item.format);
+                    }
+                }
+                // 数字类型表单
+                if (item.type === 'number') {
+                    result[i] = +result[i];
+                }
+            }
+        }
+        return result;
+    }
+    // 把数据格式化成正常的格式
+    _formatValues(values) {
+        let result = {};
+        for (let i in values) {
+            let item = this.itemsCache[i];
+            if (item && item.type !== 'button') {
+                // datepicker等返回的是moment对象，返回前先格式化成字符串
+                if (values[i] instanceof moment) {
+                    if (this.itemsCache[i] && this.itemsCache[i].format) {
+                        result[i] = values[i].format(this.itemsCache[i].format);
+                    }
+                } else {
+                    result[i] = values[i];
+                }
+            }
+        }
+        return result;
+    }
+
+
+    /* 外部调用函数 **********************************************************************/
+
     getValues(validate = true) {
         // 校验数据
         if (validate && this.validateFields()) {
             return;
         }
-        return this.getFieldsValue();
+        let values = this.form.getFieldsValue();
+        values = this._formatValues(values);
+        if (this.config.beforeSubmit) {
+            values = this.config.beforeSubmit(values);
+        }
+        return values;
     }
     resetValues(o) {
         this.initValues(o);
     }
-    /* 组件内部逻辑 */
+    // 清除表单。有别于重置
+    clearValues() {
+        let values = {};
+        for (let i in this.itemsCache) {
+            values[i] = undefined;
+        }
+        values = this._encodeValues(values);
+        this.form.setFieldsValue(values);
+    }
+
+    /* 组件内部逻辑 **********************************************************************/
+
     // 上传文件回调
     normFile(e) {
         if (Array.isArray(e)) {
@@ -114,22 +152,10 @@ class OriginForm extends BaseComponent {
         }
         return e && e.fileList;
     }
-    // 获取全部数据
-    getFieldsValue() {
-        this.validateFields();
-        let values = this.props.form.getFieldsValue();
-        // 把传入的 params 和 form 表单里数据合并后一起提交，可以用此方法传递额外需要的参数
-        
-        values = Object.assign({}, this.defaultValues, values);
-        if (this.config.beforeSubmit) {
-            values = this.config.beforeSubmit(values);
-        }
-        return values;
-    }
     // 校验数据
     validateFields() {
         let haveErr = false;
-        this.props.form.validateFields((err, values)=>{
+        this.form.validateFields((err, values)=>{
             err && (haveErr = true);
         });
         // 校验子form
@@ -143,25 +169,33 @@ class OriginForm extends BaseComponent {
         }
         return haveErr;
     }
-    // 根据传入的 params 设置初始值
+    // 根据传入的 formData 设置初始值
+    // TODO: 新数据传入，要重设全部字段？
     initValues(values) {
         values = values || this.defaultValues;
-        console.log(values);
-        if (values) {
-            // 设置初始值前对传入的 params 格式化
+        values = this._encodeValues(values);
+        if (values && !Utils.empty(values)) {
+            // 设置初始值前对传入的 formData 格式化
             if (this.config.beforeSetValues) {
                 values = this.config.beforeSetValues(values);
             }
-            this.props.form.setFieldsValue(values);
+            this.form.setFieldsValue(values);
+            // 如果设置了联动属性，均要触发onChange事件
+            for (let i in values) {
+                let item = this.itemsCache[i];
+                if (item && item.display !== false) {
+                    this.onChange(item, values[i]);
+                }
+            }
         } else {
-            this.props.form.resetFields();
+            this.form.resetFields();
         }
     }
     // 实现联动功能
     onChange(item, val, string) {
         if (string) {
             val = string;
-        } else if (val.target) {
+        } else if (val && val.target) {
             if (val.target.value) {
                 val = val.target.value;
             } else if (val.target.checked) {
@@ -172,37 +206,27 @@ class OriginForm extends BaseComponent {
         if (item.join) {
             for (let i in item.join) {
                 let target = this.itemsCache[i];
-                for (let j in item.join[i]) {
-                    let result = item.join[i][j](val, target[j]);
-                    switch (j) {
-                        case 'display':
-                            target.display = result;
-                            break;
-                        case 'value':
-                            this.props.form.setFieldsValue({[i]: result})
-                            break;
-                        default:
-                            target[j] = result;
-                            break;
+                if (target) {
+                    for (let j in item.join[i]) {
+                        let result;
+                        switch (j) {
+                            case 'value':
+                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();
+                                result = item.join[i][j](val, oValue, target);
+                                // this.form.setFields({[i]: {value: result, errors: []}});
+                                this.form.setFieldsValue({[i]: result});
+                                break;
+                            case 'display':
+                            default:
+                                result = item.join[i][j](val, target[j], target);
+                                target[j] = result;
+                                break;
+                        }
                     }
                 }
             }
             this.forceUpdate();
         }
-    }
-    // 获取异步数据
-    getData(item) {
-        let url = item.cfg.source;
-        let ajax = Ajax(url, 'get');
-        ajax(null, data=>{
-            if (item.cfg.sourceDataHandle) {
-                data = item.cfg.sourceDataHandle(data);
-            }
-            item.cfg.options = data;
-            delete item.cfg.source;
-            this.itemsCache[item.name] = item;
-            this.forceUpdate();
-        });
     }
     // 根据布局参数生成布局配置
     getLayout(layout) {
@@ -214,22 +238,36 @@ class OriginForm extends BaseComponent {
     // 生成单个表单项
     // key 为表单name后缀，表单项循环时需要使用
     getFormItem(oitem, okey = null) {
-        if (!oitem.name || oitem.type === 'empty') {
+        if (oitem.type === 'empty') {
             return;
         }
-        okey = okey !== null ? okey : '';
+        if (!oitem.name) {
+            // 这里只有第一次进入而且没name的时候才会进到这里，后面重新render回跳过这儿
+            oitem = this.__getConfigTpl(oitem);
+        }
+        if (!oitem.name) {
+            // button类型可以不写name，这里生成一个随机的
+            if (oitem.type === 'button') {
+                oitem.name = Utils.uniqueId();
+            } else {
+                return;
+            }
+        }
+        okey = okey !== null ? `-${okey}` : '';
         let name = oitem.name;
-        let key = `${oitem.name}-${okey}`;
+        let key = oitem.name + okey;
         // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
         if (this.itemsCache[key]) {
             oitem = this.itemsCache[key];
         } else {
+            // items中的表单项可能使用了模板，需提前处理。因为部分属性form也需要使用
+            oitem = this.__getConfigTpl(oitem);
             this.itemsCache[key] = oitem;
         }
         if (oitem.display === false) {
             return;
         }
-        const getFieldDecorator = this.props.form.getFieldDecorator;
+        const getFieldDecorator = this.form.getFieldDecorator;
         let itemLayout;
         // 每个表单的布局可以独立控制
         if (oitem.layout) {
@@ -237,93 +275,114 @@ class OriginForm extends BaseComponent {
         } else {
             itemLayout = this.config.layout.type === 'horizontal' ? this.formItemLayout : null;
         }
-        let item = Object.assign({
-                cfg: {},
-                rules: [{}]
-            }, oitem);
-        // 触发Change时实现联动功能
-        item.cfg.onChange = this.onChange.bind(this, item);
+        let item = Object.assign({rules: [{}]}, oitem);
+        // 兼容只定义一个rules的情况，即如下形式：rules: {required: true}
+        if (Utils.typeof(item.rules, 'object')) {
+            item.rules = [item.rules];
+        }
+        // 如果rules外单独设置了required属性，则以此值为准
+        if (item.required !== undefined) {
+            item.rules[0]['required'] = item.required;
+        }
+        // 过滤掉一些字段后，剩余的就是组件本身需要的参数
+        let itemProps = Utils.filter(item, ['label', 'default', 'help', 'extra', 'rules', 'join', 'regionConfig']);
+        // 额外配置的禁止更改的字段，设置disabled
+        if ((this.config.forbidden || []).indexOf(itemProps.name) > -1) {
+            itemProps.disabled = true;
+        }
+        // 可以统一控制输入框等的大小
+        if (this.config.size) {
+            itemProps.size = itemProps.size || this.config.size;
+        }
+        // 触发Change时实现联动功能, TODO
+        itemProps.onChange = this.onChange.bind(this, item);
+        // 存储ref
+        itemProps.ref = inst=>{this.itemRef[key] = inst};
         let itemContent;
-        let otherOptions;
+        let otherOptions = {};
         switch (item.type) {
             case 'group':
             case 'form':
                 // 实现分组，本质上是form嵌套
                 // parent属性用来传递一些父Form的函数
-                itemContent = <ReactForm config={item.cfg}
-                        // parent={this.isArrayForm ? this.transmitFunction : null}
-                        wrappedComponentRef={inst=>this.formRef[key] = inst}/>;
+                itemProps.wrappedComponentRef = inst=>{
+                    this.formRef[key] = inst;
+                };
+                delete itemProps.ref;
                 itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
                 otherOptions = {
-                    valuePropName: 'params',
+                    valuePropName: 'formData',
                 };
                 item.default = item.default || {};
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
                 break;
             case 'input':
-                // 输入框
-                itemContent = <Input {...item.cfg} />;
+                // 输入框增加回车事件监听
+                if (itemProps.onPressEnter === undefined) {
+                    itemProps.onPressEnter = this.handleSubmit.bind(this);
+                }
+                break;
+            case 'select':
+                item.rules[0]['message'] = item.rules[0]['message'] || `请选择${item.label || ''}`;
+                // 默认选中第一个
+                if (!item.default && item.defaultFirst) {
+                    item.default = Utils.getFirstOption(item.options);
+                }
+                // 限制使用clear按钮
+                if (item.rules[0]['required']) {
+                    itemProps.allowClear = false;
+                }
                 break;
             case 'number':
                 // 数字输入框
-                itemContent = <InputNumber {...item.cfg} />;
                 item.rules[0]['type'] = item.rules[0]['type'] || 'integer';
                 // 验证前先把数据强制转换成数字
                 item.rules[0]['transform'] = item.rules[0]['transform'] || (v=>v !== '' ? +v : '');
                 break;
-            case 'textarea':
-                // 文本框
-                itemContent = <Input type="textarea" {...item.cfg} />;
-                break;
             case 'checkbox':
-                itemContent = <Checkbox>{item.cfg.placeholder}</Checkbox>;
+            case 'switch':
+                itemProps.content = itemProps.content || itemProps.placeholder;
                 otherOptions = {
                     valuePropName: 'checked'
                 };
+                item.rules[0]['type'] = item.rules[0]['type'] || 'boolean';
+                break;
+            case 'checkbox-group':
+                // 复选框组
+                item.rules[0]['type'] = item.rules[0]['type'] || 'array';
+                break;
             case 'ueditor':
                 // ueditor 输入框
-                itemContent = <Ueditor config={item.cfg} />;
+                itemProps = {config: itemProps};
                 otherOptions = {
                     valuePropName: 'data'
                 };
                 break;
-            case 'select':
-                // 下拉列表
-                let selCfg = Object.assign({
-                    showSearch: true
-                }, item.cfg);
-                if (item.cfg.source) {
-                    this.getData(item);
-                }
-                itemContent = (
-                        <Select {...selCfg}>
-                            {(item.cfg.options || []).map(v=>
-                                <Select.Option key={v.value} value={v.value}>{v.label}</Select.Option>
-                            )}
-                        </Select>
-                    );
-                break;
             case 'cascader':
                 // 级联选择
-                let casCfg = Object.assign({
+                itemProps = Object.assign({
                     showSearch: true
-                }, item.cfg);
-                itemContent = <Cascader {...casCfg} />;
+                }, itemProps);
                 item.rules[0]['type'] = item.rules[0]['type'] || 'array';
+                item.rules[0]['message'] = item.rules[0]['message'] || `请选择${item.label || ''}`;
+                // 限制使用clear按钮
+                if (item.rules[0]['required']) {
+                    itemProps.allowClear = false;
+                }
                 break;
             case 'upload':
                 // 文件上传
                 let isDisabled = {};
                 // 可根据limit属性限制上传文件个数
-                let limit = item.cfg.limit;
+                let limit = itemProps.limit;
                 if (limit) {
-                    let list = this.props.form.getFieldValue(key) || [];
+                    let list = this.form.getFieldValue(key) || [];
                     isDisabled = {disabled: list.length >= limit};
                 }
                 itemContent = (
-                        <Upload {...item.cfg} {...isDisabled}>
+                        <Upload {...itemProps} {...isDisabled}>
                             <Button>
-                                <Icon type="upload" /> {item.cfg.label || '上传文件'}
+                                <Icon type="upload" /> {itemProps.placeholder || '上传文件'}
                             </Button>
                         </Upload>
                     );
@@ -332,41 +391,37 @@ class OriginForm extends BaseComponent {
                     getValueFromEvent: this.normFile.bind(this)
                 };
                 break;
-            case 'radio-group':
-                // 单选按钮组
-                itemContent = (
-                    <Radio.Group {...item.cfg} />
-                );
-                break;
-            case 'checkbox-group':
-                // 复选框组
-                itemContent = (
-                    <Checkbox.Group {...item.cfg} />
-                );
-                item.rules[0]['type'] = item.rules[0]['type'] || 'array';
-                break;
             case 'date-picker':
+            case 'month-picker':
+            case 'range-picker':
+            case 'time-picker':
                 // 日期时间选择
-                let cfg = Object.assign({
-                    showTime: true,
-                    format: 'YYYY-MM-DD HH:mm:ss',
-                }, item.cfg);
-                itemContent = (
-                    <DatePicker {...cfg}/>
-                );
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
-                item.default = moment(item.default);
+                if (item.default) {
+                    item.default = Utils.moment(item.default);
+                }
+                // 限制使用clear按钮
+                if (item.rules[0]['required']) {
+                    itemProps.allowClear = false;
+                }
                 break;
             case 'button':
                 // 带有各种功能的按钮
-                return this.getButtonItem(item, okey);
+                itemProps.content = itemProps.content || item.label;
+                return this.getButtonItem(itemProps, okey);
                 break;
             default:
-                // 自定义组件，略复杂
-                itemContent = <item.type {...item.cfg} />;
                 break;
         }
-        let props = {
+        // 通用的默认错误提示信息
+        if (item.rules[0]['required']) {
+            item.rules[0]['message'] = item.rules[0]['message'] || `${item.label || ''}不能为空`;
+        }
+        // 保存默认值，以form渲染完成后执行initValues
+        if (item.default) {
+            this.defaultValues[item.name] = item.default;
+        }
+        let fieldProps = {
             key: key,
             label: !item.help
                 ? item.label
@@ -377,66 +432,68 @@ class OriginForm extends BaseComponent {
                     </span>,
             extra: item.extra
         };
-        if (itemContent) {
-            return <Form.Item {...props} {...itemLayout}>
-                {getFieldDecorator(key, Object.assign({
-                    initialValue: item.default || '',
-                    rules: item.rules
-                }, otherOptions, item.regionCfg))(itemContent)}
-            </Form.Item>;
-        }
+        return <Form.Item {...fieldProps} {...itemLayout}>
+            {getFieldDecorator(key, Object.assign({
+                initialValue: item.default,
+                rules: item.rules
+            }, otherOptions, item.regionConfig))(
+                // 作为子组件解析
+                this.__analysis(itemProps)
+            )}
+        </Form.Item>;
     }
     handleSubmit(e, callback) {
-        // 如果没有传入callback且没有props.onSubmit回调函数，则submit没有被捕获，不阻止提交（方便后面增加 action 扩展提交功能）
-        if (!callback && !this.props.onSubmit) {
-            return true;
-        }
-        let submit = callback || this.props.onSubmit;
         // 否则阻止提交按钮默认事件
         e && e.preventDefault();
-        if (this.validateFields()) {
-            return;
+        // 如果没有传入callback且没有props.onSubmit回调函数，则submit没有被捕获，不阻止提交（方便后面增加 action 扩展提交功能）
+        if (!callback && !this.__props.onSubmit) {
+            return true;
         }
-
-        let values = this.getFieldsValue();
-        let result = submit(values, this);
-
-        // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
-        if (result instanceof Promise) {
-            this.setState({loading: true});
-            result.then(
-                resolve=>this.setState({loading: false})
-            ).catch(
-                reject=>this.setState({loading: false})
-            );
+        let values = this.getValues();
+        if (values) {
+            let submit = callback || this.__props.onSubmit;
+            let result = submit(values, this);
+            // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
+            if (result instanceof Promise) {
+                this.setState({loading: true});
+                result.then(
+                    resolve=>this.setState({loading: false})
+                ).catch(
+                    reject=>this.setState({loading: false})
+                );
+            }
         }
-
     }
     // submit按钮不进行处理，转移到 handleSubmit 函数上处理，在 handleSubmit 函数上判断是否需要阻止提交按钮默认事件
     submitClick(callback, e) {
         this.handleSubmit(e, callback);
     }
     resetClick(callback) {
-        this.props.form.resetFields();
+        this.form.resetFields();
+        callback && callback(this);
+    }
+    clearClick(callback) {
+        this.clearValues();
         callback && callback(this);
     }
     // 自定义按钮点击事件，返回表单数据
     customClick(callback) {
-        let values = this.getFieldsValue();
+        let values = this.getValues(false);
         callback && callback(values, this);
+    }
+    // 处理数据
+    handleValues() {
+
     }
     // 新增按钮
     addClick(callback) {
-        // 如果传入了父组件，则调用父组件的新增，使在父组件上新生成一个同级的form项
-        // if (this.props.parent && !this.isArrayForm) {
-        //     this.props.parent.addClick(callback);
-        //     return;
-        // }
-
-        let form = this.props.form;
+        let form = this.form;
         let keys = form.getFieldValue('__keys');
         let nextKeys = keys.concat(++uuid);
         form.setFieldsValue({'__keys': nextKeys});
+
+        // 处理已有数据
+        this.handleValues();
 
         callback && callback(this);
     }
@@ -451,7 +508,7 @@ class OriginForm extends BaseComponent {
         //     return;
         // }
 
-        let form = this.props.form;
+        let form = this.form;
         let keys = form.getFieldValue('__keys');
         if (keys.length === 1) {
             return;
@@ -475,29 +532,41 @@ class OriginForm extends BaseComponent {
     // 获取表单项中的 button 类型的按钮
     getButtonItem(item, key) {
         let handleClick;
+        let icon;
         switch (item.action) {
-            case 'add':
-                handleClick = this.addClick.bind(this, item.onClick)
+            // case 'add':
+            //     handleClick = this.addClick.bind(this, item.onClick)
+            //     break;
+            // case 'copy':
+            //     handleClick = this.copyClick.bind(this, item.onClick)
+            //     break;
+            // case 'delete':
+            //     handleClick = this.deleteClick.bind(this, item.onClick, key)
+            //     break;
+            case 'clear':
+                icon = 'delete'
+                handleClick = this.clearClick.bind(this, item.onClick, key)
                 break;
-            case 'copy':
-                handleClick = this.copyClick.bind(this, item.onClick)
-                break;
-            case 'delete':
-                handleClick = this.deleteClick.bind(this, item.onClick, key)
+            case 'reset':
+                icon = 'reload'
+                handleClick = this.resetClick.bind(this, item.onClick, key)
                 break;
             case 'submit':
+                icon = 'search'
                 handleClick = this.handleSubmit.bind(this, null, item.onClick, key)
                 break;
             default:
                 handleClick = this.othersClick.bind(this, item.onClick)
                 break;
         }
-        let props = {
+        let props = Object.assign({
             key: item.name,
+            type: item.mode,
+            icon: icon,
             style: {marginLeft: '8px'},
             onClick: handleClick
-        };
-        return <Button {...props} {...item.cfg}>{item.label}</Button>;
+        }, item);
+        return this.__analysis(props);
     }
     // 处理表单组
     generateFormItemsGroup(gitem, key) {
@@ -505,6 +574,7 @@ class OriginForm extends BaseComponent {
             return;
         }
         let result = [];
+        // this.config.layout.column;
         let layout = {span: 24 / gitem.length};
         for (let item of gitem) {
             let formItem;
@@ -532,36 +602,37 @@ class OriginForm extends BaseComponent {
             } else {
                 result.push(this.getFormItem(item, key));
             }
-            // if (item instanceof Array) {
-            //     item = {
-            //         type: 'form',
-            //         name: `${v}`,
-            //         cfg: {
-            //             items: items
-            //         }
-            //     };
-            // }
-            // result.push(this.getFormItem(item, key));
             index++;
         }
         return result;
     }
     // 生成表单内容
     generateItems() {
-        const {getFieldDecorator, getFieldValue} = this.props.form;
-        // 创建一个隐含的表单项来存储需要展示几个form
-        getFieldDecorator('__keys', { initialValue: [0] });
-        const keys = getFieldValue('__keys');
         let items = this.config.items;
-        let result;
-        if (keys.length > 1) {
-            result = keys.map(v=>{
-                return this.generateFormItems(items, v)
+        if (this.config.layout.column) {
+            let merge = [];
+            items.map((v, i)=>{
+                let index = Math.floor(i / this.config.layout.column);
+                merge[index] = merge[index] || [];
+                merge[index].push(v);
             });
-        } else {
-            result = this.generateFormItems(items)
+            items = merge;
         }
-        return result;
+        return this.generateFormItems(items);
+        // const {getFieldDecorator, getFieldValue} = this.form;
+        // // 创建一个隐含的表单项来存储需要展示几个form
+        // getFieldDecorator('__keys', { initialValue: [0] });
+        // const keys = getFieldValue('__keys');
+        // let items = this.config.items;
+        // let result;
+        // if (keys.length > 1) {
+        //     result = keys.map(v=>{
+        //         return this.generateFormItems(items, v)
+        //     });
+        // } else {
+        //     result = this.generateFormItems(items)
+        // }
+        // return result;
     }
     // 解析 Button 的配置，格式化成统一格式
     analysisButtonConfig() {
@@ -602,6 +673,9 @@ class OriginForm extends BaseComponent {
                         {buttonsCfg.items.map(item => {
                             switch (item.action) {
                                 case 'submit':
+                                    if (item.icon === undefined) {
+                                        item.icon = 'search'
+                                    }
                                     return <Button key="submit" {...item}
                                             loading={this.state.loading}
                                             onClick={this.submitClick.bind(this, item.onClick)}>
@@ -609,8 +683,20 @@ class OriginForm extends BaseComponent {
                                             </Button>;
                                     break;
                                 case 'reset':
+                                    if (item.icon === undefined) {
+                                        item.icon = 'reload'
+                                    }
                                     return <Button key="reset" {...item}
                                             onClick={this.resetClick.bind(this, item.onClick)}>
+                                            {item.value}
+                                            </Button>;
+                                    break;
+                                case 'clear':
+                                    if (item.icon === undefined) {
+                                        item.icon = 'delete'
+                                    }
+                                    return <Button key="clear" {...item}
+                                            onClick={this.clearClick.bind(this, item.onClick)}>
                                             {item.value}
                                             </Button>;
                                     break;
@@ -629,12 +715,26 @@ class OriginForm extends BaseComponent {
         );
     }
     render() {
-        return <div className="uf-form">
+        let className = 'uf-form ';
+        if (this.config.layout.type === 'inline') {
+            className += 'uf-form-inline ';
+        }
+        if (this.config.size) {
+            className += `uf-form-${this.config.size} `;
+        }
+        return <div className={className + (this.config.className || '')} style={this.__props.style}>
             {this.config.header && (
-                <div className="header">
-                    <h5>{this.config.header}</h5>
-                    <hr />
-                </div>
+                // header 可以是字符串，也可以是一个组件配置
+                Utils.typeof(this.config.header, 'string') ? (
+                    <div className="form-header">
+                        <h5>{this.config.header}</h5>
+                        <hr />
+                    </div>
+                ) : (
+                    <div className="form-header">
+                        {this.__analysis(this.config.header)}
+                    </div>
+                )
             )}
             <Form layout={this.config.layout.type} onSubmit={this.handleSubmit.bind(this)}>
                 {this.generateItems()}
@@ -647,10 +747,10 @@ class OriginForm extends BaseComponent {
 const ReactForm = Form.create({
     onValuesChange(props, values) {
         // Should provide an event to pass values to Form.
-        if (typeof props.params === 'object') {
+        if (typeof props.formData === 'object') {
             let key = Object.keys(values)[0];
-            if (!Utils.equals(props.params[key], values[key])) {
-                props.onChange && props.onChange(Object.assign({}, props.params, values));
+            if (!Utils.equals(props.formData[key], values[key])) {
+                props.onChange && props.onChange(Object.assign({}, props.formData, values));
             }
         } else {
             props.onChange && props.onChange(values);
@@ -661,4 +761,11 @@ const ReactForm = Form.create({
     // }
 })(OriginForm);
 
-export default ReactForm;
+// Update at 2017/10/26，使组件类型统一，在组件外增加一层壳子
+// Form.create生成的组件是非BaseComponent类型的，需要外面再包一层壳子。
+// 注意壳子只是用来声明组件类型的，不需要对参数进行任何处理，所以无需调用 __init() 函数
+export default class NewForm extends BaseComponent {
+    render() {
+        return <ReactForm {...this.props}/>;
+    }
+}

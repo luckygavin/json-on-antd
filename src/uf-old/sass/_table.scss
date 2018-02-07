@@ -1,0 +1,279 @@
+.umpui-table {
+    background-color: #fff;
+    .fa {
+        color: rgba(0,0,0,.66);
+    }
+    .show {
+        display: block;
+        z-index: 100;
+    }
+    .hidden {
+        display: none;
+    }
+    &.retract {
+        .umpui-header-extra {
+            display: none;
+        }
+        .panel-body {
+            display: none;
+        }
+    }
+    &.umpui-fullscreen {
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+    }
+    &.panel {
+        border: 0;
+    }
+    .panel-heading {
+        padding: 0 10px;
+        display: inline-block; // 触发BFC
+        width: 100%;
+        line-height: 40px;
+        vertical-align: middle;
+        border: 1px solid #f7f7f7;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+    .panel-body {
+        padding: 0;
+    }
+    .umpui-header {
+        display: inline-block;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 13px;
+        i.fa-caret-down {
+            margin-right: 3px;
+        }
+        i.fa-caret-right {
+            margin-right: 6px;
+        }
+    }
+    .umpui-header-extra-con {
+        float: right;
+    }
+    .umpui-header-extra {
+        display: inline-block;
+        position: relative;
+        padding: 0 5px;
+        cursor: pointer;
+        line-height: 26px;
+        border-radius: 4px;
+        transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        // 没有no-hover属性的才有hover等效果
+        &:not(.no-hover) {
+            &:hover{
+                &>span, &>div>span,
+                &>.fa, &>div>.fa,
+                &>div>a {
+                    color: #1456ac;
+                    text-shadow: none;
+                    font-weight: 700;
+                }
+            }
+            &:active,
+            &.active {
+                background-color: rgba(29, 143, 213, 0.8);
+                box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
+                -moz-box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
+                -webkit-box-shadow: 0px 0px 10px 2px #1d8fd5 inset;
+                &>span, &>div>span,
+                &>.fa, &>div>.fa
+                &>div>a {
+                    color: #fff;
+                    text-shadow: 1px 1px 1px #555;
+                    font-weight: 700;
+                }
+            }
+            &.active {
+                background-color: rgba(29,143,213,0.6);
+            }
+        }
+        a {
+            color: inherit;
+        }
+        .fa-filter {
+            position: relative;
+            padding-left: 8px;
+            margin-right: -17px;
+            z-index: 1;
+        }
+        .umpui-edit {
+            display: inline-block;
+        }
+        .umpui-edit-cs {
+            position: fixed;
+            right: 50px;
+            left: initial;
+            z-index: 2;
+        }
+        input {
+            display: inline-block;
+            padding-left: 20px;
+            width: 157px; // 限定过滤框的宽度
+            border-radius: 4px;
+        }
+        &.menu ul {
+            display: none;
+        }
+        &.menu.active ul {
+            display: block;
+        }
+        ul {
+            position: absolute;
+            text-align: left;
+            list-style: none;
+            border-radius: 8px;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgb(72, 195, 233);
+            z-index: 1;
+            &>li,
+            &>div {
+                line-height: 30px;
+                padding: 0 12px 0 10px;
+                white-space: nowrap;
+                transition: all .4s;
+                &:hover {
+                    color: #1456ac;
+                }
+            }
+            li:last-child {
+                border: none;
+            }
+            .fa {
+                margin-left: 5px;
+                margin-right: 10px;
+            }
+        }
+    }
+    table {
+        width: 100%;
+        max-width: 100%;
+        word-break: break-all;
+        word-wrap: break-word;
+        text-align: left;
+        border-collapse: collapse;
+        border-spacing: 0;
+        // color: rgba(0, 0, 0, 0.65);
+        thead {
+            text-align: left;
+            th {
+                background: #f7f7f7;
+                padding: 8px;
+                font-weight: 700;
+                cursor: pointer;
+                word-break: break-all;
+            }
+        }
+        tbody tr {
+            border: 1px solid #f7f7f7;
+            &:nth-of-type(even) {
+                background-color: #fafbfc;
+            }
+            &:hover,
+            &.selected {
+                background-color: #eaf3fe;
+            }
+            &.selected {
+                background-image: -webkit-linear-gradient(to top,#d0f5fe,#eaf3fe 34px,#eaf3fe);
+                background-image: -moz-linear-gradient(to top,#d0f5fe,#eaf3fe 34px,#eaf3fe);
+                background-image: -o-linear-gradient(to top,#d0f5fe,#eaf3fe 34px,#eaf3fe);
+                background-image: linear-gradient(to top,#d0f5fe,#eaf3fe 34px,#eaf3fe);
+            }
+            &.actived {
+                // background-color: #f6fff6;
+            }
+        }
+        td,
+        th {
+            padding: 8px;
+            word-break: break-all;
+            &.extra {
+                padding: 2px;
+                white-space: nowrap;
+                span {
+                    margin-right: 5px;
+                    cursor: pointer;
+                    color: #0e90d2;
+                    font-size: 16px;
+                }
+            }
+            &.no-data {
+                text-align: center;
+            }
+            &.operation,
+            .operation {
+                a {
+                    margin-right: 5px;
+                    cursor: pointer;
+                }
+            }
+            &.ellipsis {
+                max-width: 250px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+            .fa {
+                cursor: pointer;
+                color: #0e90d2;
+            }
+        }
+    }
+    .spantip {
+        margin-right: 10px;
+    }
+    .expand {
+        cursor: pointer;
+    }
+    .umpui-sortcon {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: 5px;
+        .fa {
+            display: block;
+        }
+        .fa-sort-desc {
+            margin-top: -12px;
+        }
+        .umpui-asc, .umpui-desc {
+            color: #44c2e9;
+        }
+    }
+    .json {
+        max-width: 200px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0px;
+        padding: 0px;
+    }
+    .string { color: green; }
+    .number { color: darkorange; }
+    .boolean { color: blue; }
+    .null { color: magenta; }
+    .key { color: red; }
+}
+// 更改antd-样式
+.umpui-table {
+    .ant-pagination {
+        padding: 10px 0;
+        display: inline-block;
+    }
+    .ant-pagination-total-text {
+        float: right;
+        margin-left: 10px;
+        height: 28px;
+        line-height: 28px;
+    }
+}

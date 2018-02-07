@@ -1,0 +1,7 @@
+.uf-iframe iframe {
+    margin: 0;
+    border: 0;
+    // iframe不知为何下面多出来5像素，导致页面出现了滚动条
+    margin-bottom: -5px;
+    width: 100%;
+}

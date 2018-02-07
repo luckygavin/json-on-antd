@@ -2,11 +2,12 @@
  * @file 头部导航条
  */
 import React, {Component} from 'react';
-import {Menu, Dropdown, Icon, Input, AutoComplete} from 'antd';
+import {Menu, Dropdown, Icon, Input, AutoComplete, Button} from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
-
-// const DataList = ['Table', 'List', 'Export', 'Card', 'RangeDatepicker', 'Loading', 'Modal', 'Form', 'Tabs', 'Tree'];
+const json = require('../package.json');
+const version = json.version;
+const versionList = json.versionList;
 
 // 导航列表
 const NavList = [
@@ -14,7 +15,7 @@ const NavList = [
     {key: 'Standard', path: '#/Standard', name: '规范'},
     {key: 'ThirdParty', path: '#/ThirdParty', name: '第三方组件'},
     {key: 'ANT DESIGN', path: 'http://antd.uf.baidu.com/docs/react/introduce-cn', name: 'ANT DESIGN'},
-    {key: 'Old-uf', path: 'http://uf.baidu.com/index_old.php', name: '返回旧版'}
+    {key: 'Old-uf', path: 'http://uf.baidu.com/uf-react.php', name: '返回旧版'}
 ];
 
 export default class Header extends Component {
@@ -52,7 +53,19 @@ export default class Header extends Component {
                 <div className="search">
                     {/*<AutoComplete dataSource={DataList}
                         placeholder="搜索组件... " />*/}
-                    <Input placeholder="搜索组件... " />
+                    <Dropdown overlay={
+                            <Menu>
+                                {versionList.reverse().map(v=>
+                                    <Menu.Item key={`v${v}`}>
+                                        <a href={`?v=${v}`}>{`v${v}`}</a>
+                                    </Menu.Item>
+                                )}
+                            </Menu>
+                        }>
+                        <Button size="small">
+                            {`v${version}`} <Icon type="down" />
+                        </Button>
+                    </Dropdown>
                 </div>
             </div>
         );

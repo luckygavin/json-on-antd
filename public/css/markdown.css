@@ -127,7 +127,7 @@ code, kbd, pre, samp {
 }
 .markdown pre code {
     display: block;
-    max-height: 430px;
+    max-height: 600px;
     overflow: auto;
     margin: 0;
     padding: 1em;

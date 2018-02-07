@@ -2,25 +2,38 @@
  * @file 一些常用的函数工具
  * @author liuzechun
  **/
-import Ajax from './ajax';
+import React from 'react';
+import underscore from 'underscore';
+import moment from 'moment';
 
 const I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
 const s4 = () => {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 };
 
-const Utils = {
-    // 数字前面补充0, num: 数字；n: 数字的位数
+// 引入了underscore的功能，并在其上增加了自定义的一些函数
+const Utils = Object.assign({
+    // 如果要使用原生的功能，可通过 _ 来访问
+    _: underscore,
+    // 如果数据合法，返回moment数据；否则返回null
+    moment(...params) {
+        let result = moment(...params);
+        if (result.isValid()) {
+            return result;
+        }
+        return null;
+    },
+    // 数字前面补充0
     padNum(num, n) {
         let len = ('' + num).length;
         return Array(n > len ? (n - len + 1) : 0).join(0) + num;
     },
     // 生成随机唯一ID
     uniqueId() {
-        return (s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4());
+        return (s4() + s4() + s4() + s4() + s4() + s4() + s4() + s4());
     },
     // 字符串哈希
-    hash(text) {
+    hash(text, len) {
         let hash = 5381;
         text = JSON.stringify(text);
         let i = text.length - 1;
@@ -31,39 +44,37 @@ const Utils = {
         let retValue = '';
         do {
             retValue += I64BIT_TABLE[value & 0x3F];
-        } while (value >>= 6);
-        return retValue;
-    },
-    // 在数组1中但不在数组2中
-    arrayDiff(array1, array2) {
-        let o = {};
-        let res = [];
-        for (let i in array2) {
-            o[array2[i]] = true;
-        }
-        for (let j in array1) {
-            if (!o[array1[j]]) {
-                res.push(array1[j]);
+        } while (value >>= 1);
+        // 凑长度
+        if (len) {
+            while(retValue.length < len) {
+                retValue = retValue + retValue;
+            }
+            if (retValue.length > len) {
+                retValue = retValue.slice(0, len);
             }
         }
-        return res;
+        return retValue;
     },
-    // 两个数组取交集
-    arrayIntersect(array1, array2) {
-        let res1 = this.arrayDiff(array1, array2);
-        let res2 = this.arrayDiff(array2, array1);
-        return this.arrayDiff(array1.concat(res2), res1.concat(res2));
+    // 数组去重
+    distinct(arr) {
+        return [...(new Set(arr))];
     },
-    // 多个数组取交集
-    arrayIntersectMulti() {
-        // 二维数组
-        let twoDimenArray = arguments[0];
-        let interArray = [];
-        for (let i = 0, len = twoDimenArray.length; i < len - 1; i++) {
-            let interArray = this.arrayIntersect(twoDimenArray[i], twoDimenArray[i + 1]);
-            twoDimenArray[i + 1] = interArray;
-        }
-        return interArray;
+    // 获取数组的交集
+    without(...params) {
+        return underscore.without(...params);
+    },
+    // 获取数组的交集
+    difference(...params) {
+        return underscore.difference(...params);
+    },
+    // 获取数组的交集
+    intersection(...params) {
+        return underscore.intersection(...params);
+    },
+    // 数组是否有交集
+    isIntersection(...params) {
+        return underscore.intersection(...params).length > 0;
     },
     // 对象转数组
     objToArr(obj) {
@@ -88,24 +99,137 @@ const Utils = {
         }
         return true;
     },
-    // 复制对象，仅能复制对象属性，不能复制对象的方法
-    clone(obj) {
-        return JSON.parse(JSON.stringify(obj));
+    // 浅拷贝，指针指向，只拷贝一层
+    copy(obj) {
+        return this.clone(obj, 1);
+    },
+    // 深拷贝对象/数组
+    // level 为深拷贝的层级，默认一直遍历到最深层.
+    // 默认10层，防止循环引用
+    clone(data, level = 10) {
+        if (level <= 0) {
+            return data;
+        }
+        let newData;
+        if (this.typeof(data, 'array')) {
+            newData = [];
+        } else if (this.typeof(data, 'object')) {
+            newData = {};
+        } else {
+            return data;
+        }
+        for (let i in data) {
+            if (data.hasOwnProperty(i)) {
+                newData[i] = this.clone(data[i], level - 1);
+            }
+        }
+        return newData;
+    },
+    // 以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()
+    // ghost 为一特殊参数，分三种情况
+    //   level 参数为拷贝层数，不传则默认遍历10层，防止循环引用
+    //   filter 为数组，声明某些属性无需合并直接覆盖
+    // ** 只适用于JSON等对象字面量的对象，比较复杂的对象直接覆盖，不做深层遍历
+    merge(ghost, target, ...objs) {
+        let filter = [];
+        let level = 10;
+        // 场景1：ghost 为level值，即merge的深度
+        if (this.typeof(ghost, 'number')) {
+            level = ghost;
+        // 场景2：ghost 为filter数组，声明某些属性无需合并直接覆盖
+        } else if (this.typeof(ghost, 'array')) {
+            filter = ghost;
+        // 场景3：无上述两种类型的参数，ghost为target
+        } else {
+            objs.unshift(target);
+            target = ghost;
+        }
+        if (level <= 0) {
+            return Utils.copy(objs[0]);
+        }
+        let result = target;
+        for (let obj of objs) {
+            // 首先判断对象是否冻结（冻结的对象为只读对象，其属性不可直接更改），直接覆盖
+            // 其次判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
+            // 然后判断对象是否为直接继承自Object，如果不是，复杂对象不再深层遍历，直接覆盖
+            // array 应该直接覆盖，否则数组的值只增不减
+            if (!Object.isFrozen(result)
+                && this.typeof(result, 'object')
+                && this.typeof(obj, 'object')
+                && this.directInstanceof(result, Object)) {
+                for (let i in obj) {
+                    if (filter.indexOf(i) === -1) {
+                        result[i] = this.merge(level - 1, result[i], obj[i]);
+                    } else {
+                        result[i] = obj[i];
+                    }
+                }
+            } else {
+                // update at 2018/01/19，undefined的值也要覆盖，否则影响form中select的清空功能
+                // result = obj === undefined ? target : obj;
+                result = obj;
+            }
+        }
+        return result;
+    },
+    // 从obj中过滤掉某些属性
+    filter(obj, arr) {
+        if (this.typeof(arr, 'string')) {
+            arr = [arr];
+        }
+        let newObj = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i) && arr.indexOf(i) === -1) {
+                newObj[i] = obj[i];
+            }
+        }
+        return newObj;
+    },
+    // 从obj中获取某些属性
+    reverseFilter(obj, arr) {
+        if (this.typeof(arr, 'string')) {
+            arr = [arr];
+        }
+        let newObj = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i) && arr.indexOf(i) >= 0) {
+                newObj[i] = obj[i];
+            }
+        }
+        return newObj;
     },
     // 对比两个对象是否相等
+    // 只检查了一层
     equals(obj1, obj2) {
-        return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // 方式1
+        // return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // 方式2
+        // return underscore.isEqual(obj1, obj2);
+        // 方式3
+        if (!this.typeof(obj1, 'object') || !this.typeof(obj2, 'object')) {
+            return false;
+        }
+        let keys = Object.keys(Object.assign({}, obj1, obj2));
+        for (let i of keys) {
+            // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
+            if (this.typeof(obj1[i], 'function') && this.typeof(obj2[i], 'function')) {
+                if (obj1[i].toString() !== obj2[i].toString()) {
+                    return false;
+                }
+            } else {
+                if (!Object.is(obj1[i], obj2[i])) {
+                    return false;
+                }
+            }
+        }
+        return true;
     },
-    // 是否处于字符串最末尾
+    // 子串是否处于字符串最末尾
     isLast(sub, str) {
         return str.lastIndexOf(sub) === str.length - sub.length;
     },
-    /**
-     * each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
-     * @param {Object} obj 需遍历的对象
-     * @param {Function} callback 为回调函数，支持三个参数：依次是 item, index, obj
-     * @return {Array} 返回值为一个数组
-     */
+    // each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
+    // callback 为回调函数，支持三个参数：依次是 item, index, obj
     each(obj, callback) {
         let result = [];
         for (let i in obj) {
@@ -113,12 +237,9 @@ const Utils = {
         }
         return result;
     },
-    /**
-     * 根据路由模式生成真实的链接
-     * @param {string} pattern  路由模式，如：#/visual/room/:room/realMode/:rack_col/:sn
-     * @param {Object} data 真实数据，模式中的:room即在data中取room字段的值
-     * @return {string}
-     */
+    // 根据路由模式生成真实的链接
+    // pattern  路由模式，如：#/visual/room/:room/realMode/:rack_col/:sn
+    // data 真实数据，模式中的:room即在data中取room字段的值
     getPathFromPattern(pattern, data) {
         let path = '#';
         if (pattern) {
@@ -136,21 +257,142 @@ const Utils = {
         }
         return path;
     },
-    // 页面跳转工具
-    goto(path) {
+    // 跳转链接，router的调整组件会刷新两次，不过也不建议使用此函数，可以使用a标签代替
+    goto(path, forceUpdate = false) {
         // 如果path不是已#/开头，且不是/开头，则加上#/
         path = path.indexOf('#/') !== 0
             ? (path.indexOf('/') !== 0 ? '#/' + path : path)
             : path;
         let nowPath = window.location.hash;
-        if (path !== nowPath && path !== '') {
+        if ((path !== nowPath && path !== '') || forceUpdate) {
             // 之所以不用hashHistory.push()是因为会自动执行两次push
             window.location.href = path;
         }
     },
-    get(url) {
-        
+    // 获取数据的类型，返回的类型名称为全小写
+    // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
+    // 推荐使用 Utils.typeof 函数
+    getType(value) {
+        return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
+    },
+    // 判断 value 是否为指定类型
+    // type 可以为一个字符串或者一个数组
+    typeof(value, type) {
+        if (this.getType(type) === 'string') {
+            return this.getType(value) === type;
+        } else if (this.getType(type) === 'array') {
+            return type.indexOf(this.getType(value)) !== -1;
+        } else {
+            return false;
+        }
+    },
+    // 把中横线命名的字符串转换成帕斯卡命名形式
+    toPascal(str) {
+        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
+    },
+    // 判断组件是否继承自某个类，支持验证自己
+    // 根据组件的引用（通过import获得）判断，支持深层查找
+    isExtendsOf(item, superClass) {
+        if (item === superClass) return true;
+        // item.prototype.__proto__.__proto__.constructor === SuperClass
+        // let Item = item.prototype && item.prototype.__proto__;
+        // while(Item) {
+        //     if (Item.constructor === superClass) {
+        //         return true;
+        //     }
+        //     Item = Item.__proto__
+        // };
+        // return false;
+        return superClass.isPrototypeOf(item);
+    },
+    // 某个对象是否直接来自某个类的实例
+    directInstanceof(obj, cls) {
+        if (!this.typeof(cls, 'array')) {
+            cls = [cls];
+        }
+        for (let v of cls) {
+            if (obj && obj.constructor && obj.constructor.prototype === v.prototype) {
+                return true;
+            }
+        }
+        return false;
+    },
+
+    // 把数组、对象转换成select等需要的options标准格式
+    toOptions(data) {
+        let result = [];
+        if (this.typeof(data, 'array')) {
+            // ['value', 'value2']
+            if (this.typeof(data[0], 'string')) {
+                result = this.distinct(data).map(v=>({label: v, value: v}));
+            // {label:1, value:'a'}，已格式化好的数据
+            } else {
+                result = data;
+            }
+        } else if (this.typeof(data, 'object')) {
+            // {key: value}
+            for (let i in data) {
+                result.push({
+                    label: data[i],
+                    value: i
+                });
+            }
+        }
+        return result;
+    },
+    // 获取options数据中的第一个值
+    getFirstOption(data) {
+        let format = this.toOptions(data);
+        if (format[0]) {
+            return format[0].value;
+        }
+        return;
+    },
+    // 把数据格式化成json展示
+    prettyJson(data, origin) {
+        if (origin) {
+            return this._syntaxHighlight(data);
+        }
+        return {
+            type: 'pre',
+            className: 'json',
+            dangerouslySetInnerHTML: {__html: this._syntaxHighlight(data)}
+        };
+    },
+
+    /************************************************************************/
+    // 私有方法
+    _syntaxHighlight(json) {
+        if (typeof json !== 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
+        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+        return json.replace(reg, match=>{
+            let cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    try {
+                        let type = JSON.parse(match);
+                        if (typeof(JSON.parse(type)) === 'object') {
+                            return this._syntaxHighlight(JSON.parse(type));
+                        } else {
+                            cls = 'string';
+                        }
+                    } catch (e) {
+                        cls = 'string';
+                    }
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
     }
-};
+});
 
 export default Utils;

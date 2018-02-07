@@ -7,7 +7,7 @@
  *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
  *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
  *              onchange: 请求开始/结束时执行。
- *                      开始执行请求时执行 onchange 参数为 (true, 'sending'); 
+ *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
  *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
  *
  * @author liuzechun@baidu.com
@@ -53,45 +53,13 @@ function errorMessage(error) {
     }));
 }
 
-function getCacheKey(config) {
-    let cacheApis = Config.get('global.cacheApis');
-    if (cacheApis) {
-        if (cacheApis.indexOf(config.url) > -1) {
-            let key = config.url;
-            if (config.params && !Utils.empty(config.params)) {
-                key += JSON.stringify(config.params);
-            }
-            let hv = Utils.hash(key);
-            return hv;
-        }
-    }
-    return null;
-}
-
-// 向缓存池中设置缓存数据
-function setCacheData(config, res) {
-    let key = getCacheKey(config);
-    if (key) {
-        AjaxCache.set(key, Utils.clone(res));
-    }
-}
-
-// 从缓存池中获取缓存数据
-function getCacheData(config) {
-    let key = getCacheKey(config);
-    if (key) {
-        return AjaxCache.get(key);
-    }
-    return null;
-}
-
 function request (config) {
     let globalAjax = Config.get('global.ajax');
     let successHandler = config.success;
     // 如果需要做缓存，key不为空
-    if (getCacheKey(config)) {
+    if (AjaxCache.getCacheKey(config)) {
         // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
-        let cacheData = getCacheData(config);
+        let cacheData = AjaxCache.getCacheData(config);
         if (cacheData) {
             // 异步
             setTimeout(()=>config.success(...cacheData), 0);
@@ -100,7 +68,7 @@ function request (config) {
         // 否则继续执行。调用success函数之前，增加缓存当前全部参数的逻辑
         let oSuccess = config.success;
         successHandler = (...params)=>{
-            setCacheData(config, params);
+            AjaxCache.setCacheData(config, params);
             oSuccess(...params);
         };
     }

@@ -3275,7 +3275,7 @@
 	                                                                                                                                                                                                     *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
 	                                                                                                                                                                                                     *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
 	                                                                                                                                                                                                     *              onchange: 请求开始/结束时执行。
-	                                                                                                                                                                                                     *                      开始执行请求时执行 onchange 参数为 (true, 'sending'); 
+	                                                                                                                                                                                                     *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
 	                                                                                                                                                                                                     *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
 	                                                                                                                                                                                                     *
 	                                                                                                                                                                                                     * @author liuzechun@baidu.com
@@ -3317,45 +3317,45 @@
 	    }));
 	}
 
-	function getCacheKey(config) {
-	    var cacheApis = _config3.default.get('global.cacheApis');
-	    if (cacheApis) {
-	        if (cacheApis.indexOf(config.url) > -1) {
-	            var key = config.url;
-	            if (config.params && !_utils2.default.empty(config.params)) {
-	                key += JSON.stringify(config.params);
-	            }
-	            var hv = _utils2.default.hash(key);
-	            return hv;
-	        }
-	    }
-	    return null;
-	}
+	// function getCacheKey(config) {
+	//     let cacheApis = Config.get('global.cacheApis');
+	//     if (cacheApis) {
+	//         if (cacheApis.indexOf(config.url) > -1) {
+	//             let key = config.url;
+	//             if (config.params && !Utils.empty(config.params)) {
+	//                 key += JSON.stringify(config.params);
+	//             }
+	//             let hv = Utils.hash(key);
+	//             return hv;
+	//         }
+	//     }
+	//     return null;
+	// }
 
 	// 向缓存池中设置缓存数据
-	function setCacheData(config, res) {
-	    var key = getCacheKey(config);
-	    if (key) {
-	        _ajaxData2.default.set(key, _utils2.default.clone(res));
-	    }
-	}
+	// function setCacheData(config, res) {
+	//     let key = getCacheKey(config);
+	//     if (key) {
+	//         AjaxCache.set(key, Utils.clone(res));
+	//     }
+	// }
 
 	// 从缓存池中获取缓存数据
-	function getCacheData(config) {
-	    var key = getCacheKey(config);
-	    if (key) {
-	        return _ajaxData2.default.get(key);
-	    }
-	    return null;
-	}
+	// function getCacheData(config) {
+	//     let key = getCacheKey(config);
+	//     if (key) {
+	//         return AjaxCache.get(key);
+	//     }
+	//     return null;
+	// }
 
 	function request(config) {
 	    var globalAjax = _config3.default.get('global.ajax');
 	    var successHandler = config.success;
 	    // 如果需要做缓存，key不为空
-	    if (getCacheKey(config)) {
+	    if (_ajaxData2.default.getCacheKey(config)) {
 	        // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
-	        var cacheData = getCacheData(config);
+	        var cacheData = _ajaxData2.default.getCacheData(config);
 	        if (cacheData) {
 	            // 异步
 	            setTimeout(function () {
@@ -3372,7 +3372,7 @@
 	                params[_key] = arguments[_key];
 	            }
 
-	            setCacheData(config, params);
+	            _ajaxData2.default.setCacheData(config, params);
 	            oSuccess.apply(undefined, params);
 	        };
 	    }
@@ -3788,20 +3788,92 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 
-	var _BaseCache = __webpack_require__(19);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _BaseCache2 = _interopRequireDefault(_BaseCache);
+	var _BaseCache2 = __webpack_require__(19);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _utils = __webpack_require__(13);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _config = __webpack_require__(18);
+
+	var _config2 = _interopRequireDefault(_config);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = new _BaseCache2.default(); /**
-	                                              * @file ajax 数据缓存
-	                                              * @author liuzechun
-	                                              * Created Date: 2017-10-24 01:40:57
-	                                              */
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ajax 数据缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var AjaxCache = function (_BaseCache) {
+	    _inherits(AjaxCache, _BaseCache);
+
+	    function AjaxCache() {
+	        _classCallCheck(this, AjaxCache);
+
+	        return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
+	    }
+
+	    _createClass(AjaxCache, [{
+	        key: 'getCacheKey',
+
+
+	        // 检查是否需要缓存返回数据，如果需要，则根据url+params取hash值，并返回；否则返回null
+	        value: function getCacheKey(config) {
+	            var cacheApis = _config2.default.get('global.cacheApis');
+	            if (cacheApis) {
+	                if (cacheApis.indexOf(config.url) > -1) {
+	                    var key = config.url;
+	                    if (config.params && !_utils2.default.empty(config.params)) {
+	                        key += JSON.stringify(config.params);
+	                    }
+	                    var hv = _utils2.default.hash(key);
+	                    return hv;
+	                }
+	            }
+	            return null;
+	        }
+
+	        // 向缓存池中设置缓存数据
+
+	    }, {
+	        key: 'setCacheData',
+	        value: function setCacheData(config, res) {
+	            var key = this.getCacheKey(config);
+	            if (key) {
+	                this.set(key, _utils2.default.clone(res));
+	            }
+	        }
+
+	        // 从缓存池中获取缓存数据
+
+	    }, {
+	        key: 'getCacheData',
+	        value: function getCacheData(config) {
+	            var key = this.getCacheKey(config);
+	            if (key) {
+	                return this.get(key);
+	            }
+	            return null;
+	        }
+	    }]);
+
+	    return AjaxCache;
+	}(_BaseCache3.default);
+
+	exports.default = new AjaxCache();
 
 /***/ }),
 /* 23 */

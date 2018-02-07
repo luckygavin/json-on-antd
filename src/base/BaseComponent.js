@@ -513,6 +513,8 @@ export default class BaseComponent extends Component {
             }
         }
     }
+
+    // 提交数据功能
     _handleApiProps() {
         let {api, method = 'post', actionParams, paramsHandler} = this.__filtered;
         if (api) {

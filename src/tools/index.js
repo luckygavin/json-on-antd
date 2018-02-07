@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import uf from 'uf';
+import uf from 'src';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
-import {Utils, Ajax} from 'uf/utils';
-import {Config, ComponentsCache, ModelCache} from 'uf/cache';
+import {Utils, Ajax} from 'src/utils';
+import {Config, ComponentsCache, ModelCache} from 'src/cache';
 import Adaptor from './adaptor.js';
 import Authority from './authority.js';
 import Factory from './factory.js';

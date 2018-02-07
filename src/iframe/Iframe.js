@@ -9,8 +9,8 @@
 
 import React from 'react';
 import {Spin} from 'antd';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 
 import './style.scss';
 

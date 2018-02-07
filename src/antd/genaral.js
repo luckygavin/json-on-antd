@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 import Genaral from './base/Genaral.js';
 import * as Antd from 'antd';
 

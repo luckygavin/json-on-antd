@@ -10,7 +10,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Antd from './Antd.js';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 
 export default class DataEntry extends Antd {
     constructor(props) {

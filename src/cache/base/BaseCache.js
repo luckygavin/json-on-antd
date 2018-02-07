@@ -4,19 +4,12 @@
  * @author liuzechun
  * Created Date: 2017-10-24 11:05:57
  */
-import Cache from 'uf/utils/cache.js';
-import Utils from 'uf/utils/utils.js';
+import Utils from 'src/utils/utils.js';
 
 export default class BaseCache {
     // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
-    constructor(_key, _cache) {
-        this._key = _key || '_uf-default';
+    constructor(_cache) {
         this._cache = _cache || {};
-        this.__init();
-    }
-    __init() {
-        // 统一放到 Cache 里管理
-        Cache.set(this._key, this._cache);
     }
     get(names) {
         // 如果传递了name，则只去config中查找name字段，否则返回全部

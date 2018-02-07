@@ -3,7 +3,7 @@
  * @author liuzechun
  */
 
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 
 const List = {
     Breadcrumb: ['options'],
@@ -26,7 +26,6 @@ const List = {
     Timeline: ['pending'],
     TimelineItem: ['dot'],
     Sider: ['trigger'],
-    // Modal: ['title', 'footer'],
     Modal: ['title'],
     Notification: ['message', 'description', 'btn', 'icon'],
     Message: ['content']

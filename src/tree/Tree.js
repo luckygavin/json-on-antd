@@ -4,8 +4,8 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 import {Tree, Input} from 'antd';
 import './style.scss';
 

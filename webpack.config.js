@@ -10,7 +10,8 @@ const nodeModulesPath = __dirname + '/node_modules';
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const production = process.env.NODE_ENV === 'production';
 // 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
-const version = packageConfig.version.split('.').slice(0, 2).join('.');
+// const version = packageConfig.version.split('.').slice(0, 2).join('.');
+const version = packageConfig.version;
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);
@@ -77,10 +78,10 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
-            'src': __dirname + '/src',
-            'uf': __dirname + '/src',
             'docs': __dirname + '/docs',
-            'root': __dirname
+            'src': __dirname + '/src',
+            'root': __dirname,
+            'uf': __dirname
         }
     },
     externals: {

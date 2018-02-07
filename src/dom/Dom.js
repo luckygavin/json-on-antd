@@ -5,8 +5,8 @@
  */
 
 import React from 'react';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 
 export default class Dom extends BaseComponent {
     constructor(props) {

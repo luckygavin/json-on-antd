@@ -5,8 +5,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import marked from 'marked';
 import {Modal, Card, Row, Col, Icon} from 'antd';
-import UF from 'uf/tools';
-import {Utils} from 'uf/utils';
+import UF from 'src/tools';
+import {Utils} from 'src/utils';
 
 export default class Demo extends React.Component {
     constructor(props) {

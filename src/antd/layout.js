@@ -9,8 +9,8 @@
 
 import React from 'react';
 import BaseLayout from './base/Layout.js';
-import {Utils} from 'uf/utils';
-import {ComponentsCache} from 'uf/cache';
+import {Utils} from 'src/utils';
+import {ComponentsCache} from 'src/cache';
 import * as Antd from 'antd';
 
 /************* Layout 布局 ************************************************************************** */
@@ -25,7 +25,6 @@ export class Layout extends BaseLayout {
     // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
     _handler() {
         if (this.__props.children) {
-            let className = this.__props.className || '';
             let children = this.__props.children;
             if (!Utils.typeof(children, 'array')) {
                 children = [children];
@@ -40,7 +39,7 @@ export class Layout extends BaseLayout {
         return '';
     }
     render() {
-        return <Antd.Layout {...this.__props} className={this.__props.className + this.hasSiderClass}/>;
+        return <Antd.Layout {...this.__props} className={(this.__props.className || '') + this.hasSiderClass}/>;
     }
 }
 

@@ -5,4 +5,4 @@
  */
 
 // UF 组件库构建入口
-window['UF'] = require('uf/tools').default;
+window['UF'] = require('uf').default;

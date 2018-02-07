@@ -5,7 +5,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
+import {BaseComponent} from 'src/base';
 
 export default class UDnD extends BaseComponent {
     constructor(props) {

@@ -3,9 +3,10 @@
  * Created by xuziqian on 2017/8/4.
  */
 import React, {Component, PureComponent} from 'react';
-import {Utils, Ajax} from 'uf/utils';
-import {Adaptor, Model, Authority} from 'uf/tools';
-import {Config, ComponentsCache, Models} from 'uf/cache';
+import {message} from 'antd';
+import {Utils, Ajax} from 'src/utils';
+import {Adaptor, Model, Authority} from 'src/tools';
+import {Config, ComponentsCache, Models} from 'src/cache';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 // 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
@@ -28,12 +29,20 @@ export const ForUserApi = {
     beforeDestroy: 'componentWillUnmount'
 };
 
+// 不复杂的属性，即无需merge处理直接覆盖的属性
+export const Uncomplex = ['params', 'sourceParams', 'data', 'options'];
+
 // // 转化为__props时需过滤的属性 - 用户配置的特殊功能的属性
-export const FilterProps = Object.keys(ForUserApi).concat([
+export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
     // 复用配置模板。
     'configTpl',
+    // source 系列函数
+    'source', 'sourceHandler', 'sourceTarget',
+    'sourceMethod', 'sourceParams', 'sourceAutoLoad', 'sourceSuccess',
     // 组件额外动作及组件关联相关属性
-    'actionType', 'actionTrigger', 'actionTarget', 'actionParams'
+    'actionType', 'actionTrigger', 'actionTarget', 'actionParams',
+    // 提交/发送数据系列参数
+    'api', 'method', 'paramsHandler',
 ]);
 
 // 因为组件很少使用 props 和 state，某些时候需要组件刷新的。例如面包屑组件
@@ -47,6 +56,8 @@ export default class BaseComponent extends Component {
         this.cacheName = this._getTransmitName();
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
+        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
+        this._asyncAttr = 'children';
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -54,12 +65,12 @@ export default class BaseComponent extends Component {
         // 转化为 __props 时需过滤的属性
         this._filter = (Utils.copy(FilterProps)).concat([
             // 一些隐藏的属性
-            '__cache', '__type', '__key', '_factory',
+            '__cache', '__type', '__key', '_factory'
         ]);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
-        this._uncomplex = ['params', 'sourceParams', 'data', 'options'];
+        this._uncomplex = Utils.copy(Uncomplex);
         // 开放给用户使用的 Api，需处理下
-        this._openApi = ['set', 'get', 'show', 'hide'];
+        this._openApi = ['set', 'get', 'show', 'hide', 'refresh'];
         // 存储一些程序执行过程中的数据
         this._tempData = {};
         // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
@@ -73,6 +84,13 @@ export default class BaseComponent extends Component {
         // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
         this.__filtered = {};
     }
+    // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
+    // setState(...params) {
+    //     if (!this.isMounted()) {
+    //         return false;
+    //     }
+    //     super.setState.call(this, ...params);
+    // }
 
     /* 暴露给用户的方法 ***********************************************************************/
 
@@ -82,7 +100,7 @@ export default class BaseComponent extends Component {
         options = this._factory.handleProps(Object.assign({type: this.type}, options));
         // 要保证调用cwr时传入的nextProps的完整性
         let props = this.__mergeProps({}, this.__props, options);
-        // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
+        // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
         // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
         this.componentWillReceiveProps(props, this.__props);
         return this;
@@ -167,10 +185,12 @@ export default class BaseComponent extends Component {
     // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
     // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
     __setProps(nextProps, follow) {
+        // 去除掉多余的属性（解决报warning问题）
+        let __props = this._filterHandler(nextProps);
         // 直接更新 this.__props 即可，
         // this.__mergeProps(this.__props, nextProps);
         this.__prevProps = this.__props;
-        this.__props =  this.__mergeProps({}, this.__props, nextProps);
+        this.__props =  this.__mergeProps({}, this.__props, __props);
 
         if (follow !== false) {
             this.forceUpdate();
@@ -179,7 +199,7 @@ export default class BaseComponent extends Component {
         }
     }
 
-    
+
     // 把默认配置和当前用户传入配置进行合并，可以传多个参数
     //  如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题
     //  针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法
@@ -257,23 +277,36 @@ export default class BaseComponent extends Component {
 
     // 组件的 componentWillReceiveProps 中注入的处理逻辑
     // 有两种情况会调用cwr：
-    //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用_initProps
-    //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用_initProps
+    //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
+    //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
     _componentWillReceiveProps(nextProps, currentProps) {
         // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
         currentProps = !Utils.empty(currentProps) ? currentProps : this.props
         if (this.__shouldUpdate(currentProps, nextProps)) {
-            // 是否把_initProps的调用放到render中更好一点？（会有个问题：使用set函数重新设置props时，会有额外的重复调用）
-            this._initProps(nextProps);
+            // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
+            let reGetData = nextProps.sourceParams && !Utils.equals(
+                nextProps.sourceParams,
+                this.__filtered.sourceParams
+            );
+            // 重新设置 __props
+            this.__setProps(nextProps);
+            // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
+            if (reGetData) {
+                this._handleAsyncData();
+            }
         }
     }
 
     // componentDidMount 中注入的处理逻辑
     _componentDidMount() {
         // 组件加载完成后再中心共享一次组件，保证渲染完成后缓存中一定存在。
-        //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，在销毁原来组件，再把新组件渲染（未验证...）
+        //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，再销毁原来组件，再把新组件渲染（未验证...）
         //   如果如上面的流程，则会导致新组件写入缓存中后有被老组件销毁掉，最终缓存中不再有新组件
-        this._transmitComponent();   
+        this._transmitComponent();
+        // 如果设置了自动获取异步数据，则执行逻辑
+        if (this.__filtered.sourceAutoLoad === undefined || this.__filtered.sourceAutoLoad) {
+            this._handleAsyncData();
+        }
     }
 
     // componentWillUnmount 中注入的处理逻辑
@@ -282,7 +315,30 @@ export default class BaseComponent extends Component {
         this._unsetTransmitComponent();
     }
 
-    // 过滤 props，生成 __props 和 __filterProps
+    // 自动异步获取数据
+    _handleAsyncData() {
+        if (this.__filtered.source) {
+            this.__ajax({
+                url: this.__filtered.source,
+                method: this.__filtered.sourceMethod || 'get',
+                data: this.__filtered.sourceParams,
+                success: (data, res)=>{
+                    // 如果用户定义了数据处理函数，先对数据进行处理
+                    if (this.__filtered.sourceHandler) {
+                        data = this.__filtered.sourceHandler(data, res, this);
+                    }
+                    // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
+                    let target = this.__filtered.sourceTarget || this._asyncAttr;
+                    target = target === 'content' ? 'children' : target;
+                    this.__setProps({[target]: data});
+                    // 成功后的额外操作
+                    this._sourceSuccess && this._sourceSuccess(data);
+                }
+            });
+        }
+    }
+
+    // 过滤 props，生成 __props 和 __filtered
     _filterHandler(props) {
         let newProps = {};
         for (let i in props) {
@@ -298,21 +354,14 @@ export default class BaseComponent extends Component {
     }
 
     // 后面传入组件的参数用 __props 代替 props
-    _initProps(props) {
-        // this.__prevProps = this.__props;
-        // 去除掉多余的属性（解决报warning问题）
-        let __props = this._filterHandler(props || this.props);
-        // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
-        // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
-        // this.__props =  this.__mergeProps({}, this.__props, nextProps);
-        this.__setProps(__props, !!props);
-
-        // __init函数中调用的时候不会传props，也不需要刷新组件
-        // if (props) {
-        //     this.forceUpdate();
-        // }
+    _initProps() {
+        // 先把 this.__props 中初始化的多余属性过滤掉
+        // 在这里执行是为了方便子类中__init之前在去更改__props
+        this.__props = this._filterHandler(this.__props);
+        // 然后把组件原props作为新值传给__setProps做合并
+        this.__setProps(this.props, false);
     }
-    
+
     // 获取key的名称
     _getTransmitName() {
         // 根据 __cache 属性判断
@@ -416,6 +465,14 @@ export default class BaseComponent extends Component {
                 }
             }
         }
+        // 支持高级用户（专业前端）直接使用原始的生命周期函数
+        for (let v of PreventCoverageMap) {
+            // 如果父组件中有等待注入的函数
+            let inject = this.__filtered[`_${v}`];
+            if (inject) {
+                this._inject(this, v, inject);
+            }
+        }
     }
 
     // 组件额外动作处理：actionType
@@ -429,9 +486,13 @@ export default class BaseComponent extends Component {
                 actionTargetStr = actionTarget(...params);
             }
             switch (actionType) {
+                // 动作类型为链接跳转
+                case 'link':
+                    Utils.goto(actionTargetStr);
+                    break;
                 // 动作类型为：调用
                 case 'call':
-                    this._inject(this.__props, actionTrigger, (...params)=>{
+                    this._inject(this.__props, actionTrigger, ()=>{
                         let [targetName, ...targetFunction] = actionTargetStr.split('.');
                         let target = this.__getComponent(targetName);
                         if (target) {
@@ -443,12 +504,37 @@ export default class BaseComponent extends Component {
                         }
                     }, true);
                     break;
-                case 'link':
-                    Utils.goto(actionTargetStr);
+                // 提交数据
+                case 'ajax':
+                    this._inject(this.__props, actionTrigger, this._handleApiProps, true);
                     break;
                 default:
                     break;
             }
+        }
+    }
+    _handleApiProps() {
+        let {api, method = 'post', actionParams, paramsHandler} = this.__filtered;
+        if (api) {
+            let params = actionParams;
+            paramsHandler && (params = paramsHandler(params));
+            return new Promise((resolve, reject)=>{
+                this.__ajax({
+                    url: api,
+                    method: method,
+                    params: params,
+                    success(data, res) {
+                        let result = res.msg;
+                        message.success('执行成功，结果返回: ' + result, 2.5);
+                        resolve();
+                    },
+                    error(res) {
+                        let result = res.msg;
+                        message.error('执行失败，结果返回: ' + result, 4);
+                        reject();
+                    }
+                });
+            });
         }
     }
 

@@ -4,8 +4,8 @@
  * Created Date: 2017-10-24 01:40:57
  */
 
-import {Utils} from 'uf/utils';
-import BaseCache from './BaseCache.js';
+import {Utils} from 'src/utils';
+import BaseCache from './base/BaseCache.js';
 
 const _key = '_uf-models';
 let _cache = {
@@ -37,9 +37,6 @@ let _cache = {
 };
 
 class Models extends BaseCache {
-    constructor() {
-        super(_key, _cache);
-    }
     // 获取摸个model点关联的数据
     getData(model) {
         let result = this._cache.data;
@@ -111,4 +108,4 @@ class Models extends BaseCache {
 
 }
 
-export default (new Models());
+export default (new Models(_cache));

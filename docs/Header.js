@@ -6,12 +6,8 @@ import {Menu, Dropdown, Icon, Input, AutoComplete, Button} from 'antd';
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 const json = require('../package.json');
-// 次版本号
-const version = +json.version.split('.').slice(1, 2).join();
-const versionList = [];
-for (let i = version; i > 0; i--) {
-    versionList.push(i);
-}
+const version = json.version;
+const versionList = json.versionList;
 
 // 导航列表
 const NavList = [
@@ -59,15 +55,15 @@ export default class Header extends Component {
                         placeholder="搜索组件... " />*/}
                     <Dropdown overlay={
                             <Menu>
-                                {versionList.map(v=>
-                                    <Menu.Item key={`v0.${v}`}>
-                                        <a href={`?v=0.${v}`}>{`v0.${v}`}</a>
+                                {versionList.reverse().map(v=>
+                                    <Menu.Item key={`v${v}`}>
+                                        <a href={`?v=${v}`}>{`v${v}`}</a>
                                     </Menu.Item>
                                 )}
                             </Menu>
                         }>
                         <Button size="small">
-                            {`v0.${version}`} <Icon type="down" />
+                            {`v${version}`} <Icon type="down" />
                         </Button>
                     </Dropdown>
                 </div>

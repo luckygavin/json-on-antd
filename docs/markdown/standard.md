@@ -38,11 +38,11 @@ src 中，每个组件一个文件夹，里面包含：
 ## 组件开发
 
 ### UF组件引入：
-`import Export from 'uf/export';`
+`import Export from 'src/export';`
 > uf对应的是src文件夹，export即export组件的文件夹，因为存在index.js，所以无需指定组件名  
 
 ### 组件继承：
-`import {BaseComponent} from 'uf/component';`  
+`import {BaseComponent} from 'src/component';`  
 `export default class Table extends BaseComponent {}`
 > 为了方便后面对组件通用功能进行拓展，自己开发的组件全部继承`BaseComponent`
 

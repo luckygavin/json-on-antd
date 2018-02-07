@@ -6,9 +6,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Spin, Popconfirm, message, Pagination} from 'antd';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
-import Export from 'uf/export';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
+import Export from 'src/export';
 
 import ReactInput from '../_ReactInput.js';
 import ReactModal from '../_ReactModal';

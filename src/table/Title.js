@@ -5,10 +5,10 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
-import Export from 'uf/export';
+import Export from 'src/export';
 
 const CheckboxGroup = Checkbox.Group;
 const MenuItem = Menu.Item;
@@ -48,7 +48,7 @@ export default class Title extends BaseComponent {
     //     return false;
     // }
     init() {
-        
+
     }
     clearState() {
         this.globalFilterInput = '';
@@ -310,11 +310,29 @@ export default class Title extends BaseComponent {
     onFilterData() {
         // 过滤
         let data = this.parent.state.completeData;
+        // @bugfix at 2018/01/31 15:38，展示模糊搜索内容时，分页条数及当前分页使用模糊搜索自己的；取消模糊搜索时还原之前的状态
+        // Table.js 中的 this.pagination 和 this.parant.__props.pagination 是同一个东西
+        let pagination = this.parent.__props.pagination;
+        let total = pagination && pagination.total;
+        let current = pagination && pagination.current;
         // 对数据进行全局过滤
         if (this.globalFilterInput.length !== 0) {
             data = this.globalFilterData(this.globalFilterInput, data);
+            this.cacheTotal = this.cacheTotal || total;
+            this.cacheCurrent = this.cacheCurrent || current;
+            total = data.length;
+            current = 1;
+        } else {
+            total = this.cacheTotal;
+            current = this.cacheCurrent;
+            this.cacheTotal = null;
+            this.cacheCurrent = null;
         }
-        this.parent.__setProps({data});        
+        let newProps = {data};
+        if (pagination) {
+            newProps.pagination = {total, current};
+        }
+        this.parent.__setProps(newProps);
     }
     // 全局搜索数据
     globalFilterData(iVal, content) {

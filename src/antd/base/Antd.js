@@ -6,23 +6,15 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
+import {BaseComponent} from 'src/base';
 
 export default class Antd extends BaseComponent {
     constructor(props) {
         super(props);
-        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
-        // this._class = null;
-        // 声明异步获取的数据放在哪个字段，默认为 children ，即默认把返回的内容放到子组件中
-        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
-        this._asyncAttr = 'children';
         // __props 需要过滤的属性
-        this._filter.push(
-            'source', 'sourceHandler', 'sourceTarget',
-            'sourceMethod', 'sourceParams', 'sourceAutoLoad', 'sourceSuccess'
-        );
+        // this._filter.push();
         // 开放给用户使用的 Api
-        this._openApi.push('trigger', 'refresh');
+        this._openApi.push('trigger');
         // 壳子调用antd组件，调用的组件的实例存储在_component中
         this._component = null;
         // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
@@ -40,11 +32,6 @@ export default class Antd extends BaseComponent {
             console.warn(`there is no event named: ${event}`);
         }
     }
-    // 刷新异步数据的接口
-    refresh() {
-        this._handleAsyncData();
-    }
-
 
     /* 供子组件调用方法 ***********************************************************************/
 
@@ -63,50 +50,6 @@ export default class Antd extends BaseComponent {
             : null;
         // 受控组件默认处理逻辑
         this._handleControlled();
-    }
-
-    _componentWillReceiveProps(nextProps, currentProps) {
-        // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-        let sourceParamsChanged = false;
-        if (nextProps.sourceParams !== this.__filtered.sourceParams) {
-            sourceParamsChanged = true;
-        }
-        super._componentWillReceiveProps && super._componentWillReceiveProps.call(this, nextProps, currentProps);
-        // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
-        if (sourceParamsChanged) {
-            this._handleAsyncData();
-        }
-    }
-
-    // 组件渲染完成后，执行逻辑
-    _componentDidMount(...params) {
-        super._componentDidMount && super._componentDidMount.call(this, ...params);
-        if (this.__filtered.sourceAutoLoad === undefined || this.__filtered.sourceAutoLoad) {
-            this._handleAsyncData();
-        }
-    }
-
-    // 自动异步获取数据
-    _handleAsyncData() {
-        if (this.__filtered.source) {
-            this.__ajax({
-                url: this.__filtered.source,
-                method: this.__filtered.sourceMethod || 'get',
-                data: this.__filtered.sourceParams,
-                success: (data, res)=>{
-                    // 如果用户定义了数据处理函数，先对数据进行处理
-                    if (this.__filtered.sourceHandler) {
-                        data = this.__filtered.sourceHandler(data, res, this);
-                    }
-                    // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
-                    let target = this.__filtered.sourceTarget || this._asyncAttr;
-                    target = target === 'content' ? 'children' : target;
-                    this.__setProps({[target]: data});
-                    // 成功后的额外操作
-                    this._sourceSuccess && this._sourceSuccess(data);
-                }
-            });
-        }
     }
 
     // 受控属性绑定change事件，同时也受控于用户传入的值

@@ -19,8 +19,9 @@ module.exports = Object.assign(
         Tree: require('./tree'),
         Table: require('./table'),
         Form: require('./form'),
-        // Modal: require('./modal').Modal,
-        ...require('./modal'),
+        Modal: require('./modal'),
+        Ueditor: require('./ueditor'),
+        // ...require('./modal'),
 
         Table2: require('./uf-old/table')
     }

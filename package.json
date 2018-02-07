@@ -1,6 +1,7 @@
 {
   "name": "uf",
-  "version": "0.2.6",
+  "versionList": ["0.1", "0.2", "0.2.1"],
+  "version": "0.2.1",
   "description": "new uf",
   "author": "liuzechun",
   "license": "ISC",

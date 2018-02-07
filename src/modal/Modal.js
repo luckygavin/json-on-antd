@@ -5,9 +5,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Modal, message} from 'antd';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
-import UF from 'uf/tools';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
+import UF from 'src/tools';
 
 import './style.scss';
 
@@ -18,8 +18,10 @@ class NewModal extends BaseComponent {
         this._openApi.push('show', 'close');
         // 增加一些默认的事件处理函数
         this.__props = Object.assign({
-            onSubmit: this._defaultSubmitHandler.bind(this),
-            onCancel: this._defaultCancelHandler.bind(this)
+            onCancel: this._defaultCancelHandler.bind(this),
+            // 提交数据使用 BaseCompsonent 的 action 系列参数实现
+            actionType: 'ajax',
+            actionTrigger: 'onSubmit'
         }, this.__props);
         this.__init();
     }
@@ -51,6 +53,7 @@ class NewModal extends BaseComponent {
             // 可以写其他内容在content中，置于form之上
             this.__props.formContent = this.__analysis(formConf);
         }
+
     }
 
     /********** 外部调用函数 *************************************************/
@@ -83,35 +86,6 @@ class NewModal extends BaseComponent {
     _defaultCancelHandler() {
         this.close();
     }
-    // 默认submit处理逻辑，提交数据到api
-    _defaultSubmitHandler() {
-        let params = this._getParams();
-        if (!params) {
-            return;
-        }
-        if (this.__props.api) {
-            if (this.__props.paramsHandler) {
-                params = this.__props.paramsHandler(params);
-            }
-            return new Promise((resolve, reject)=>{
-                this.__ajax({
-                    url: this.__props.api,
-                    method: this.__props.method || 'get',
-                    params: params,
-                    success(data, res) {
-                        let result = res.msg;
-                        message.success('操作成功，结果返回: ' + result, 2.5);
-                        resolve();
-                    },
-                    error(res) {
-                        let result = res.msg;
-                        message.error('操作失败，结果返回: ' + result, 4);
-                        reject();
-                    }
-                });
-            });
-        }
-    }
     // 获取参数函数，可能会在新子组件中重写
     _getParams() {
         // 如果是form弹框，返回form内容
@@ -125,14 +99,16 @@ class NewModal extends BaseComponent {
         // 否则返回params
         } else {
             return this.__props.params || {};
-        }   
+        }
     }
-    // onOk 以此函数为入口
+    // onSubmit 以此函数为入口
     _onSubmit(...op) {
         let params = this._getParams();
         if (!params) {
             return;
         }
+        // 由于复用 BaseComponent 通用发送数据逻辑，从Form中获取到的数据直接放到actionParams中
+        this.__filtered.actionParams = params;
         let result = this.__props.onSubmit && this.__props.onSubmit(params, ...op);
         // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
         if (result instanceof Promise) {

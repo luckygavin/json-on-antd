@@ -5,9 +5,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as OriRouter from 'react-router';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
-import {Factory} from 'uf/tools';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
+import {Factory} from 'src/tools';
 
 // 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
 export class RouteHolder extends React.Component {
@@ -95,7 +95,7 @@ export class Router extends BaseRouter {
             }
             children.push(<Item {...v}/>);
         }
-        
+
         return children;
     }
     // Route/IndexRoute 类型的组件

@@ -37,11 +37,12 @@ const ComponentList = [
     {path: 'Custom', name: '定制组件', children: [
         {path: 'Export', name: 'Export 导出', component: require('src/export/docs').default},
         {path: 'Form', name: 'Form 表单', component: require('src/form/docs').default},
-        {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
         {path: 'Modal', name: 'Modal 弹框', component: require('src/modal/docs').default},
         {path: 'Table', name: 'Table 表格', component: require('src/table/docs').default},
         {path: 'TableCrud', name: 'Table Crud 表格扩展', component: require('src/table/docs/crud.js').default},
-        {path: 'Tree', name: 'Tree 树形控件', component: require('src/tree/docs').default}
+        {path: 'Tree', name: 'Tree 树形控件', component: require('src/tree/docs').default},
+        {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
+        {path: 'Ueditor', name: 'Ueditor 富文本', component: require('src/ueditor/docs').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('src/antd/docs/antd-button').default},
@@ -115,8 +116,10 @@ class Doc extends React.Component {
     render() {
         let currentHeader = this.props.routes[1] ? this.props.routes[1].path : '';
         let currentNav = this.props.location.pathname.slice(1);
+        let Test = ({text, children})=><div><p>{text}</p><p>{children}</p></div>;
         return (<section>
                     <Header current={currentHeader} />
+                    {/* <Test text="ceshi2">"test"</Test> */}
                     <div className="main">
                         <Row>
                             <Col xs={6} sm={6} md={6} lg={4} xl={4}>

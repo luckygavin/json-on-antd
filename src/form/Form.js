@@ -4,12 +4,12 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 import moment from 'moment';
 import {Form, Icon, Button, message, Tooltip, Row, Col} from 'antd';
 
-import Ueditor from 'uf/ueditor';
+import Ueditor from 'src/ueditor';
 
 import './style.scss';
 
@@ -211,7 +211,7 @@ class OriginForm extends BaseComponent {
                         let result;
                         switch (j) {
                             case 'value':
-                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();   
+                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();
                                 result = item.join[i][j](val, oValue, target);
                                 // this.form.setFields({[i]: {value: result, errors: []}});
                                 this.form.setFieldsValue({[i]: result});
@@ -228,19 +228,6 @@ class OriginForm extends BaseComponent {
             this.forceUpdate();
         }
     }
-    // 获取异步数据
-    // getData(item) {
-    //     let url = item.source;
-    //     this.__getData(url, null, data=>{
-    //         if (item.sourceHandler) {
-    //             data = item.sourceHandler(data);
-    //         }
-    //         item.options = data;
-    //         delete item.source;
-    //         this.itemsCache[item.name] = item;
-    //         this.forceUpdate();
-    //     });
-    // }
     // 根据布局参数生成布局配置
     getLayout(layout) {
         return {
@@ -496,7 +483,7 @@ class OriginForm extends BaseComponent {
     }
     // 处理数据
     handleValues() {
-        
+
     }
     // 新增按钮
     addClick(callback) {

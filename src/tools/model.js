@@ -2,8 +2,8 @@
  * @file 数据/页面绑定 处理模块
  * @author liuzechun
  */
-import {Utils} from 'uf/utils';
-import {ModelCache, ComponentsCache} from 'uf/cache';
+import {Utils} from 'src/utils';
+import {ModelCache, ComponentsCache} from 'src/cache';
 
 // 使用model表达式格式 ${xxx}
 const Expre = /\${(\S+?)}/g;

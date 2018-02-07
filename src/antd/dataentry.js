@@ -4,7 +4,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 import DataEntry from './base/DataEntry.js';
 // import moment from 'moment';
 import * as Antd from 'antd';

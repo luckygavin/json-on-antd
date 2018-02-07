@@ -4,8 +4,8 @@
  * @author liuzechun
  */
 import React, {Component, PureComponent} from 'react';
-import {Utils} from 'uf/utils';
-import {Config} from 'uf/cache';
+import {Utils} from 'src/utils';
+import {Config} from 'src/cache';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
@@ -20,7 +20,7 @@ export default class Factory extends PureComponent {
         super(props);
         this.state = {};
     }
-    
+
     componentWillReceiveProps(nextProps) {
         // 如果配置变化，清空保存的解析结果，重新解析
         if (!Utils.equals(this.props, nextProps)) {
@@ -33,6 +33,9 @@ export default class Factory extends PureComponent {
         // 如果模块是一个函数，先执行函数得到返回的配置
         if (Utils.typeof(item, 'function')) {
             item = item();
+            if (Utils.typeof(item, 'array')) {
+                return this.generateElement(item);
+            }
         }
         // 如果是字符串直接返回
         if (!Utils.typeof(item, 'object')) {
@@ -62,7 +65,7 @@ export default class Factory extends PureComponent {
         if (item.type === 'html') {
             // return new Html(item.content);
             // 直接使用InnerHTML，以节省性能
-            // return <section className={'uf-html ' + (item.className || '')} style={item.style} 
+            // return <section className={'uf-html ' + (item.className || '')} style={item.style}
             //     dangerouslySetInnerHTML={{__html: item.content}}></section>;
             // 按照正常流程走
             item.type = 'section';
@@ -80,7 +83,7 @@ export default class Factory extends PureComponent {
         item._factory = this;
 
         let props = this.handleProps(item);
-        
+
         return <Item {...props} />;
     }
 
@@ -95,10 +98,10 @@ export default class Factory extends PureComponent {
         return props;
     }
 
-    // this.props.children为路由解析时子路由对应的组件，需要把子路由的组件在父组件的某个位置作为children展示出来
     // 在组件配置中，childrenHolder属性指定把子页面放在父组件的哪个位置
     handleChildren(props, hasChildrenHolder) {
-        // 只有指定了childrenHolder这个属性才会展示
+        // 此处把通过路由传入的子组件放在当前配置树的定义了 childrenHolder 的节点下作为组件的子组件
+        // this.props.children 是通过路由传入的子组件
         if (hasChildrenHolder && this.props.children) {
             if (!props.children) {
                 props.children = this.props.children;

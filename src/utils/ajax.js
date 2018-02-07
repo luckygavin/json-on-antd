@@ -14,23 +14,42 @@
  * **/
 import {notification} from 'antd';
 import Utils from './utils.js';
-import Config from 'uf/cache/config.js';
-import BaseCache from 'uf/cache/BaseCache.js';
+import Config from 'src/cache/config.js';
+import AjaxCache from 'src/cache/ajaxData.js';
 import reqwest from 'reqwest';
-
-const AjaxCache = new BaseCache('_uf-ajax-cache', {});
 
 const errorMsg = {
     top: 24,
-    message: '请求出错:',
+    message: '请求出错',
     description: '请求数据时出错，请稍后重试。',
     duration: 3.5
 };
 
+// 获取错误信息
+function getErrorMsg(error) {
+    let message;
+    try {
+        if (Utils.typeof(error, 'string')) {
+            message = error;
+        } else if (error.message) {
+            message = error.message;
+            if (Utils.typeof(message, 'array')) {
+                message = message.join('; ');
+            }
+        } else {
+            message = JSON.stringify(error);
+        }
+    } catch(e) {
+        console.warn(e);
+    }
+    return message;
+}
+
 // 请求出错的处理函数
-function errorMessage(error = {}) {
-    notification.error(Object.assign({}, errorMsg, !error.message ? null : {
-        description: error.message
+function errorMessage(error) {
+    let message = getErrorMsg(error);
+    notification.error(Object.assign({}, errorMsg, !message ? null : {
+        description: message
     }));
 }
 
@@ -85,8 +104,11 @@ function request (config) {
             oSuccess(...params);
         };
     }
-    // 如果是null，则不执行错误处理
-    let errorHandler = config.error === null ? (()=>{}) : (config.error || errorMessage);
+    // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
+    let errorHandler = !config.error ? (()=>{}) : (config.error || errorMessage);
+    if (config.error === true) {
+        errorHandler = errorMessage;
+    }
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
     let onchange = config.onchange || (()=>{return});
     // 配置合并
@@ -118,17 +140,19 @@ function request (config) {
                 // 兼容 message/msg、status/code
                 res.status = res.status || res.code || 0;
                 res.message = res.message || res.msg;
-                // res.msg = res.message;
-                if (typeof res.message === 'array') {
-                    res.message = res.message.join('; ');
-                }
                 res.msg = res.message;
                 if (+res.status === 0) {
                     successHandler(res.data, res);
                 } else {
                     // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-                    if (errorHandler(res) === true) {
-                        errorMessage(res);
+                    let result = errorHandler(res);
+                    // handler有返回值，则执行默认错误提示
+                    if (result) {
+                        if (result === true) {
+                            errorMessage(err);
+                        } else {
+                            errorMessage(result);
+                        }
                     }
                 }
                 onchange(false, 'success');
@@ -141,9 +165,13 @@ function request (config) {
                 } else {
                     result = errorHandler(err);
                 }
-                // handler返回true，则执行默认错误提示
-                if (result === true) {
-                    errorMessage(err);
+                // handler有返回值，则执行默认错误提示
+                if (result) {
+                    if (result === true) {
+                        errorMessage(err);
+                    } else {
+                        errorMessage(result);
+                    }
                 }
                 onchange(false, 'error');
             }

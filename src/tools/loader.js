@@ -4,11 +4,11 @@
  * @author liuzechun@baidu.com
  */
 import React from 'react';
-import {BaseConf} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseConf} from 'src/base';
+import {Utils} from 'src/utils';
 import Model from './model.js';
-import Dom from 'uf/dom';
-import * as UF from 'uf';
+import Dom from 'src/dom';
+import * as UF from 'src';
 
 let {FilterProps} = BaseConf;
 

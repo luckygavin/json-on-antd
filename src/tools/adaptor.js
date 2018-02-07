@@ -2,9 +2,9 @@
  * @file 适配器，把组件配置转换为统一规范格式
  * @author liuzechun
  */
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
-import Antd from 'uf/antd/base/Antd.js';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
+import Antd from 'src/antd/base/Antd.js';
 import Loader from './loader.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
@@ -43,6 +43,7 @@ export default {
             }
         // 非 BaseComponent 组件 _root 等属性无效
         } else {
+            props.name = item.name;
             delete props._root;
             delete props._factory;
         }

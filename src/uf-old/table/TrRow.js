@@ -8,7 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link} from 'react-router';
 import {Input, Radio, Checkbox, Select, Popover} from 'antd';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 const CheckboxGroup = Checkbox.Group;
 const RadioGroup = Radio.Group;
 const Option = Select.Option;

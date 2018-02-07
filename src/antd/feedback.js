@@ -5,9 +5,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Feedback from './base/Feedback.js';
-import {Utils} from 'uf/utils';
-import UF from 'uf/tools';
-import {WhiteList} from 'uf/tools';
+import {Utils} from 'src/utils';
+import UF from 'src/tools';
+import {WhiteList} from 'src/tools';
 import * as Antd from 'antd';
 
 /************* Alert 警告提示 ************************************************************************** */

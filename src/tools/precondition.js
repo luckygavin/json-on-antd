@@ -6,6 +6,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {notification} from 'antd';
 
 export default {
     uf: {},
@@ -17,8 +18,13 @@ export default {
             this.uf._reInit();
         }
     },
-    error() {
-        this.success();
+    error(err) {
+        notification.error({
+            top: 24,
+            message: '执行出错，已阻止页面加载',
+            duration: 0,
+            description: JSON.stringify(err)
+        });
     },
     handle(arr, uf) {
         this.waiting = true;

@@ -10,7 +10,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Link} from 'react-router';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
 

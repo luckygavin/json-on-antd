@@ -10,9 +10,7 @@ if ((strpos($_SERVER['HTTP_HOST'], 'antd.uf.baidu.com') === false
 $json = json_decode(file_get_contents(__DIR__ . '/package.json'));
 // 默认和 package.json 的 版本相同
 if ($_GET['v']) {
-    $_V = $_GET['v'];
     $_VERSION = $_GET['v'];
 } else {
-    $_V = $json->version;
-    $_VERSION = implode('.', array_slice(explode('.', $_V), 0, 2));
+    $_VERSION = $json->version;
 }

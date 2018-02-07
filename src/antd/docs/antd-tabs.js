@@ -4,8 +4,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import {Utils} from 'uf/utils';
-import UF from 'uf/tools';
+import {Utils} from 'src/utils';
+import UF from 'src/tools';
 
 const content = [
     {

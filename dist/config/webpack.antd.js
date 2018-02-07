@@ -5,11 +5,15 @@
 
 const webpack = require('webpack');
 const path = require('path');
+const packageConfig = require('../../package.json');
 const __root = path.join(__dirname, '../../');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const production = process.env.NODE_ENV === 'production';
-const cssName = (process.env.CSS_NAME || 'theme') + (!production ? '' : '.min') + '.css';
+const version = packageConfig.version;
+// const cssName = !production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`;
+let cssName = process.env.CSS_NAME || 'theme';
+cssName += !production ? `_v${version}.css` : `_v${version}.min.css`;
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('CSS_NAME: ', cssName);
@@ -46,7 +50,6 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
-            'uf': __root + '/src',
             'root': __root
         }
     },

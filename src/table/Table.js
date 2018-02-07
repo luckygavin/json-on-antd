@@ -4,10 +4,10 @@
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
-import Export from 'uf/export';
+import Export from 'src/export';
 
 // 扩展功能 - 增删改查等
 import Crud from './Crud.js';
@@ -27,6 +27,8 @@ export default class NewTable extends BaseComponent {
     // 以下是函数定义
     constructor(props) {
         super(props);
+        // Table自己实现的source获取数据，不实用BaseComponent中的通用逻辑，也就无需过滤参数
+        this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
         // 暴露给用户使用的函数
         this._openApi.push(
             'loadData', 'refresh',
@@ -77,6 +79,7 @@ export default class NewTable extends BaseComponent {
         let objProps = this.__props;
         let state = {};
         this.rowKey = objProps.rowKey || 'id';
+        // 注意：引用类型，this.pagination 和 this.__props.pagination 是同一个东西
         this.pagination = objProps.pagination;
         // 列配置
         this.columns = objProps.columns;
@@ -117,7 +120,7 @@ export default class NewTable extends BaseComponent {
             onRowMouseLeave: () => {}
         };
         getNeedObject(defaultCif, this.__props);
-        /* 关于表头 */
+        // 关于表头
         if (!!objProps.title) {
             let titleConfig = objProps.title;
             // 如果是字符串 或者 非对象（组件配置，可以是数组）或者 单一组件配置
@@ -129,14 +132,14 @@ export default class NewTable extends BaseComponent {
         } else {
             this.title = null;
         }
-        /* 关于异步操作 */
+        // 关于异步操作
         if (propsData) {
             state.completeData = propsData;
             if (this.pagination) {
                 this.pagination.total = propsData.length
             }
         }
-        /* 关于行样式与不可选相关联，不可选时至为灰色 */
+        // 关于行样式与不可选相关联，不可选时至为灰色
         if (this.rowSelection && this.rowSelection.disabledRow) {
             // 暂存用户配置
             let rowClassNameFun = defaultCif.rowClassName;
@@ -196,6 +199,8 @@ export default class NewTable extends BaseComponent {
     }
 
     /* 内部函数 ****************************************************************************/
+    // 覆盖原生获取异步数据的函数
+    _handleAsyncData() {}
     // 异步获取数据
     getData(pageNum) {
         let url = this.__props.source;
@@ -237,7 +242,7 @@ export default class NewTable extends BaseComponent {
             this.__setProps({data: displayData}, false);
             this.setState({completeData: displayData});
             this.onRefreshData(data);
-        }, null, loading=>{
+        }, true, loading=>{
             if (index !== this.requerstIndex) {
                 return;
             }
@@ -296,7 +301,7 @@ export default class NewTable extends BaseComponent {
         if (!Utils.empty(this.filterConditions)) {
             data = this.filterInputSearch(data);
         }
-        this.__setProps({data});        
+        this.__setProps({data});
     }
     // 单列数据搜索
     filterChange(filterProperty, e) {

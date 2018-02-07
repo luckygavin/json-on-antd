@@ -3,8 +3,8 @@
  * @author liuzechun
  */
 
-import {Utils} from 'uf/utils';
-import {Config} from 'uf/cache';
+import {Utils} from 'src/utils';
+import {Config} from 'src/cache';
 
 export default {
 

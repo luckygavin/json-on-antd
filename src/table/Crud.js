@@ -5,8 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {message} from 'antd';
-import {BaseComponent} from 'uf/component';
-import {Utils} from 'uf/utils';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 
 export default class Crud extends BaseComponent {
     constructor(props) {
@@ -210,7 +210,7 @@ export default class Crud extends BaseComponent {
         let modal = this.__getComponent(this._getModalName(key));
         modal && modal.show(datas);
     }
-    
+
     render() {
         return <div>{this.parent.__analysis(this.config)}</div>;
     }

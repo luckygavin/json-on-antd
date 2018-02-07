@@ -2,7 +2,7 @@
  * @file 数据校验器
  * @author liuzechun
  */
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 
 export default {
     // 检查对象上的某个(些)属性是否符合指定类型

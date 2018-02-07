@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import UF from 'uf/tools';
+import UF from 'src/tools';
 import md from './markdown.md';
 
 const dataSource = [{
@@ -52,13 +52,13 @@ const dataSource = [{
 }, {
     key: '4',
     name: '胡彦祖彦斌',
-    age: 52,
+    age: 62,
     address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
     sex: '女',
     json: {a: '哈哈', b: 2},
     html: '<i>表格</i>',
     duration: '2017-05-21 00:00:00',
-    customRender: '3'
+    customRender: '4'
 }];
 
 const columns = [{
@@ -68,10 +68,6 @@ const columns = [{
     filterConfig: {
         filterType: 'checkbox',
         filters: ['斌', '祖']
-        // filters: [
-        //     {text: 'a', value: 'a'},
-        //     {text: 'b', value: 'b'}
-        // ]
     }
 }, {
     title: '性别',
@@ -105,7 +101,7 @@ const columns = [{
     title: 'html字段',
     dataIndex: 'html',
     key: 'html',
-    textType: 'html' 
+    textType: 'html'
 }, {
     title: '时间段',
     dataIndex: 'duration',
@@ -176,10 +172,9 @@ const demo1 = {
                 basicControls: [
                     {
                         name: 'filter',
-                        whitelist: ['name', 'address'],
                         blacklist: ['json']
                     },
-                    'setPageSize', 
+                    'setPageSize',
                     {
                         name: 'selctAll',
                         icon: 'like-o',
@@ -212,7 +207,7 @@ const demo1 = {
             // method: 'get'
         }
     ]
-        
+
 };
 const columns2 = [
     {
@@ -249,7 +244,7 @@ const demo2 = {
             columns: columns2,
             title: {
                 text: 'Table后端分页表格',
-                basicControls: ['filter', 'setPageSize', 
+                basicControls: ['filter', 'setPageSize',
                     {
                         name: 'selctAll',
                         icon: 'like-o',

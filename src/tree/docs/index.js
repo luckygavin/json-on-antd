@@ -3,7 +3,7 @@
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tree from 'uf/tree';
+import Tree from 'src/tree';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
 import md from './markdown.md';
 const treeData = [

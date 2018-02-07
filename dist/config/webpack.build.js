@@ -12,7 +12,8 @@ var autoprefixer = require('autoprefixer');
 var production = process.env.NODE_ENV === 'production';
 
 // 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
-const version = packageConfig.version.split('.').slice(0, 2).join('.');
+// const version = packageConfig.version.split('.').slice(0, 2).join('.');
+const version = packageConfig.version;
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);
@@ -73,8 +74,9 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.json'],
         alias: {
-            'uf': __root + '/src',
-            'root': __root
+            'src': __root + '/src',
+            'root': __root,
+            'uf': __root
         }
     },
     externals: {

@@ -5,16 +5,16 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BaseComponent} from 'uf/component';
+import {BaseComponent} from 'src/base';
 import {Icon, Button, InputNumber, Progress, Alert, Modal} from 'antd';
-import {Utils} from 'uf/utils';
-import Ueditor from 'uf/ueditor';
+import {Utils} from 'src/utils';
 
 import './style.scss';
 
 export default class Export extends BaseComponent {
     constructor(props) {
         super(props);
+        this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
         this.__init();
         this.state = {};
         // 默认配置
@@ -323,7 +323,9 @@ export default class Export extends BaseComponent {
             lastTime: 0
         });
     }
-    // 向后端强求
+    // 覆盖原生获取异步数据的函数
+    _handleAsyncData() {}
+    // 向后端请求
     getData(params, callback) {
         let url = this.config.source;
         let method = this.config.method || 'get';

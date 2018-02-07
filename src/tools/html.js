@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Utils} from 'uf/utils';
+import {Utils} from 'src/utils';
 
 /* 模板解析规则 */
 /* i: 大小写不敏感，g: 全局匹配(查找所有)，m: 多行匹配 */

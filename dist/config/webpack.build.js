@@ -2,33 +2,23 @@
  * @file 文件打包编译配置文件
  * @author liuzechun@baidu.com
  * */
-var path = require('path');
-var webpack = require('webpack');
-const packageConfig = require('../../package.json');
-const __root = path.join(__dirname, '../../');
-
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var autoprefixer = require('autoprefixer');
-var production = process.env.NODE_ENV === 'production';
-
-// 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
-// const version = packageConfig.version.split('.').slice(0, 2).join('.');
-const version = packageConfig.version;
-
-console.log('NODE_ENV: ', process.env.NODE_ENV);
-console.log('FILE_VERSION: ', version);
+// const path = require('path');
+const webpack = require('webpack');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const autoprefixer = require('autoprefixer');
+const {outputPath, production, __root} = require('./env.js');
 
 // 分离css文件
-const cssName = !production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`;
-var cssBuilder = new ExtractTextPlugin('css/' + cssName);
-var jsBuilder = new webpack.optimize.UglifyJsPlugin({
+const cssName = !production ? `[name].css` : `[name].min.css`;
+const cssBuilder = new ExtractTextPlugin(cssName);
+const jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
         drop_debugger: true,
         drop_console: true
     }
 });
-var plugins = [cssBuilder];
+const plugins = [cssBuilder];
 if (production) {
     plugins.push(jsBuilder);
 }
@@ -38,9 +28,8 @@ module.exports = {
         'uf': __root + '/dist/entry/uf.entry.js'
     },
     output: {
-        path: __root + '/dist',
-        publicPath: 'dist/',
-        filename: 'js/' + (!production ? `[name]_v${version}.js` : `[name]_v${version}.min.js`)
+        path: outputPath,
+        filename: (!production ? `[name].js` : `[name].min.js`)
     },
     module: {
         loaders: [
@@ -54,8 +43,9 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'es2015'],
-                    plugins: ["transform-object-rest-spread"]
+                    // 注意顺序：presets的执行顺序是从下往上执行的
+                    // 提供编译ES6/7的全部能力，包含 stage-1 ~ 3，stage-1 ~ 3 依次弱化
+                    presets: ['react', 'es2015', 'stage-0'],
                     // antd 按需加载
                     // plugins: [['import', {libraryName: 'antd', style: 'css'}]],
                     // plugins: [['import', {libraryName: 'antd'}]],

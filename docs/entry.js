@@ -12,23 +12,28 @@ import Nav from './Nav.js';
 require('./doc.scss');
 
 // 通用文档
-const CommonList = [
-    {path: 'Introduction', name: '简要介绍', component: require('./app/introduction').default},
-    {path: 'Usage', name: '组件使用', /* retract: true, */ children: [
-        {path: 'Install', name: '快速上手', component: require('./app/install').default},
+const DocsList = [
+    {path: 'Guide', name: '写在最前面', component: require('./app/guide').default},
+    {path: 'Introduction', name: '功能介绍', component: require('./app/introduction').default},
+    {path: 'Usage', name: '入门', children: [
+        {path: 'Install', name: '开始使用', component: require('./app/configure-install').default},
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
-        {path: 'Api', name: '交互API', component: require('./app/configure-api').default},
-        {path: 'Layout', name: '页面布局', component: require('src/antd/docs/antd-layout').default},
-        {path: 'Page', name: '页面示例', component: require('./app/configure-page').default},
-        {path: 'Others', name: '更多用法', component: require('./app/configure-others').default}
+        {path: 'Call', name: '组件交互', component: require('./app/configure-call').default},
+        {path: 'Layout', name: '页面布局', component: require('./app/configure-layout').default},
+        {path: 'Page', name: '一个例子', component: require('./app/configure-page').default}
     ]},
-    {path: 'Develop', name: '项目开发', /* retract: true, */ children: [
-        {path: 'Install', name: '快速上手', component: require('./app/develop-install').default},
+    {path: 'Develop', name: '进阶', children: [
+        {path: 'Install', name: '路由&模块', component: require('./app/develop-install').default},
         {path: 'Config', name: '全局配置', component: require('./app/develop-config').default},
         {path: 'Modules', name: '模块开发', component: require('./app/develop-modules').default},
-        {path: 'Others', name: '更多用法', component: require('./app/develop-others').default},
-        {path: 'Build', name: '另一种模式', component: require('./app/develop-build').default}
+        {path: 'Build', name: '另一种模式', component: require('./app/develop-build').default},
+        // {path: 'Others', name: '更多用法', component: require('./app/develop-others').default}
     ]},
+    {path: 'Api', name: '交互API', component: require('./app/api').default},
+    {path: 'Params', name: '通用参数', component: require('./app/params').default},
+    {path: 'Lifecycle', name: '生命周期', component: require('./app/lifecycle').default},
+    {path: 'Load', name: '特殊组件', component: require('./app/load').default},
+    {path: 'Others', name: '更多用法', component: require('./app/others').default},
     {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
 ];
 
@@ -103,9 +108,9 @@ const ComponentList = [
 const RouteList = [
     {path: 'Standard', name: '规范', component: require('./app/standard').default},
     {path: 'ThirdParty', name: '第三方组件', component: require('./app/third-party').default}
-].concat(CommonList, ComponentList);
+].concat(DocsList, ComponentList);
 
-class Doc extends React.Component {
+class App extends React.Component {
     componentDidMount() {
         // 代码高亮
         Prism.highlightAll();
@@ -116,19 +121,28 @@ class Doc extends React.Component {
     render() {
         let currentHeader = this.props.routes[1] ? this.props.routes[1].path : '';
         let currentNav = this.props.location.pathname.slice(1);
-        let Test = ({text, children})=><div><p>{text}</p><p>{children}</p></div>;
+        // let Test = ({text, children})=><div><p>{text}</p><p>{children}</p></div>;
+        let isComponent = ComponentList.map(v=>v.path).indexOf(currentNav.split('/')[0]) > -1;
+        let isDocs = DocsList.map(v=>v.path).indexOf(currentNav.split('/')[0]) > -1;
+        let navList = [];
+        if (isComponent) {
+            navList = ComponentList;
+        } else {
+            navList = DocsList;
+        }
         return (<section>
-                    <Header current={currentHeader} />
-                    {/* <Test text="ceshi2">"test"</Test> */}
+                    <Header current={currentHeader} isComponent={isComponent} isDocs={isDocs}/>
                     <div className="main">
+                        {!(isComponent || isDocs) ? this.props.children :
                         <Row>
                             <Col xs={6} sm={6} md={6} lg={4} xl={4}>
-                                <Nav current={currentNav} commons={CommonList} components={ComponentList}/>
+                                <Nav current={currentNav} navList={navList}/>
                             </Col>
                             <Col xs={18} sm={18} md={18} lg={20} xl={20}>
                                 {this.props.children}
                             </Col>
                         </Row>
+                        }
                     </div>
                </section>
         );
@@ -140,17 +154,20 @@ class Routes extends React.Component {
     }
     render() {
         return <Router history={hashHistory}>
-            <Route path="/" component={Doc}>
-                <IndexRedirect to="Introduction"/>
+            <Route path="/" component={App}>
+                <IndexRedirect to="Docs"/>
                 {RouteList.map(first=>!first.children
                     ? <Route key={first.name} name={first.name}
                             path={first.path} component={first.component}/>
-                    : first.children.map(second=>
+                    : (first.children.map(second=>
                         <Route key={second.name} name={second.name}
                                 path={`${first.path}/${second.path}`} component={second.component}/>
-                    )
+                    ).concat(
+                        <Redirect path={first.path} to={`${first.path}/${first.children[0].path}`}/>
+                    ))
                 )}
-                <Redirect path="Component" to={`Component/Table`}/>
+                <Redirect path="Docs" to={DocsList[0].path}/>
+                <Redirect path="Component" to={ComponentList[0].path}/>
                 <Route path="*" component={null}/>
             </Route>
         </Router>;

@@ -128,7 +128,7 @@ const demo1 = {
                             }
                         ]
                     }
-                }                
+                }
             ]
         }
     ]
@@ -173,7 +173,12 @@ const demo2 = {
                 content: [
                     {
                         type: 'breadcrumb',
-                        style: {margin: '12px 0'}
+                        style: {margin: '12px 0'},
+                        items: [
+                            {breadcrumbName: 'Home'},
+                            {breadcrumbName: 'List'},
+                            {breadcrumbName: 'App'}
+                        ]
                     },
                     {
                         type: 'div',
@@ -277,7 +282,12 @@ const demo3 = {
                         content: [
                             {
                                 type: 'breadcrumb',
-                                style: {margin: '12px 0'}
+                                style: {margin: '12px 0'},
+                                items: [
+                                    {breadcrumbName: 'Home'},
+                                    {breadcrumbName: 'List'},
+                                    {breadcrumbName: 'App'}
+                                ]
                             },
                             {
                                 type: 'div',
@@ -331,7 +341,12 @@ const demo4 = {
                 content: [
                     {
                         type: 'breadcrumb',
-                        style: {margin: '12px 0'}
+                        style: {margin: '12px 0'},
+                        items: [
+                            {breadcrumbName: 'Home'},
+                            {breadcrumbName: 'List'},
+                            {breadcrumbName: 'App'}
+                        ]
                     },
                     {
                         type: 'layout',

@@ -25,14 +25,14 @@ $suffix = '';
             <script src="dist/antd.min.js?v=<?php echo $_VERSION;?>"></script>
         <?php }?>
 
-        <link rel="stylesheet" href="public/css/doc_v<?php echo $_VERSION . '.min.css'; ?>" />
+        <link rel="stylesheet" href="public/<?php echo $_VERSION; ?>/doc.min.css" />
         <script src="public/highlight/prism.js" data-manual></script>
     </head>
     <body>
         <div id="container"></div>
         <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/ueditor/js.php"></script>
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
-        <script src="public/js/doc_v<?php echo $_VERSION . $suffix . '.js'; ?>"></script>
+        <script src="public/<?php echo $_VERSION; ?>/doc.js"></script>
         <script type="text/javascript">
             // makdown代码收/放
             $(document).on('click', 'pre', function(e) {
@@ -45,9 +45,9 @@ $suffix = '';
             });
         </script>
         <?php if (ENV == 'dev') { ?>
-            <script src="dist/js/dll.js?v=<?php echo $_VERSION;?>"></script>
-            <script src="dist/js/antd.js?v=<?php echo $_VERSION;?>"></script>
-            <script src="dist/js/uf_v<?php echo $_VERSION;?>.js"></script>
+            <script src="dist/<?php echo $_VERSION;?>/dll.js"></script>
+            <script src="dist/<?php echo $_VERSION;?>/antd.js"></script>
+            <script src="dist/<?php echo $_VERSION;?>/uf.js"></script>
         <?php }?>
     </body>
 </html>

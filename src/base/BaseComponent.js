@@ -195,6 +195,7 @@ export default class BaseComponent extends Component {
         if (follow !== false) {
             this.forceUpdate();
             // 延迟执行
+            // TODO:
             setTimeout(follow, 10);
         }
     }

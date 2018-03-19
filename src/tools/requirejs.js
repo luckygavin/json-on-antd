@@ -1,5 +1,5 @@
 /**
- * @file reuqirejs 2.3.5 
+ * @file reuqirejs 2.3.5
  *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
  * vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
@@ -1805,6 +1805,11 @@ var requirejs, require, define;
      * AMD loaders on globally agreed names.
      */
     req.config = function (config) {
+        // if the config is false, then prevent load requirejs to window
+        // update at 2018/03/02 17:28 by liuzechun
+        if (config === false) {
+            delete window['define'];
+        }
         return req(config);
     };
 

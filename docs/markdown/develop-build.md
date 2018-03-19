@@ -1,17 +1,17 @@
-为了最大程度上减少使用的门槛，我们底层引入了 requirejs 来实现模块化加载，【快速上手】及【模块开发】中介绍的开发模式皆是用的 requirejs 实现的。
+对于有一定前端基础的前端同学来说，可能使用requirejs会感觉比较原始，这种开发模式并不是最方便，这里我们来介绍另一种开发模式：**使用构建工具来进行模块化开发**。
 
-对于有一定前端基础的前端同学来说，可能这种开发模式并不是最方便，这里我们来介绍另一种开发模式：**使用构建工具来进行模块化开发**。
+这里不会介绍构建工具如何使用，其实和用什么构建工具无关，关键是模块组织上与使用 requirejs 有些许不同。
 
-## 第一个例子
+构建工具推荐使用自主研发的`uf-cli`工具，因为同样无需搭建环境，即装即用，是个一劳永逸的方案。当然，使用 webpack/gulp/fis3 等等这些也完全可行。
 
-这里不会介绍构建工具如何使用，其实和用什么构建工具无关，关键是模块组织上与前一种开发模式上有所不同。
+## 举个例子
 
-还是拿【快速上手】上面的例子来说明，用当前这种开发模式代码如何书写。
+还是拿【路由&模块】上面的例子来说明，用当前这种开发模式代码如何书写。
 
 > demo 中使用的是 es6 的方式进行`import`、`export`
 
 
-### 1、准备 html 文件
+#### 1、准备 html 文件
 
 首先准备一个`demo.html`文件。
 
@@ -20,11 +20,11 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.2.css" />
-        <script src="http://uf.baidu.com/dist/dll.min.js"></script>
-        <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-        <script src="http://uf.baidu.com/dist/uf_v0.2.js"></script>
+        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css" />
+        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/uf.min.css" />
+        <script src="http://uf.baidu.com/v/%{version}%/dll.min.js"></script>
+        <script src="http://uf.baidu.com/v/%{version}%/antd.min.js"></script>
+        <script src="http://uf.baidu.com/v/%{version}%/uf.min.js"></script>
         <!-- <style>html, body {height: auto !important;}</style> -->
         <title>一个简单的项目示例</title>
     </head>
@@ -39,7 +39,7 @@
 这里因为不再用 requirejs ，所以无需再用`UF.config()`配置modules属性。
 
 
-### 入口模块
+#### 2、入口模块
 
 新建一个`router.js`文件，作为项目入口文件，指定路由及对应模块的关系。**在这里，同时也是构建工具的入口文件。**
 
@@ -70,7 +70,7 @@ export default {
 **不再存在懒加载的模块，全部模块使用前必定是`import`过的。**
 
 
-### App模块
+#### 3、App模块
 
 新建一个`app.js`文件。
 
@@ -90,7 +90,7 @@ export default [
 ];
 ```
 
-### Page1模块、Page2模块
+#### 4、Page1模块、Page2模块
 
 Page1模块`page1.js`实现如下：
 
@@ -131,4 +131,3 @@ export default {
 
 **模块开发好后，最后使用构建工具生成`demo.html`中引用的`bundle.js`文件即可。**
 
-> TODO: 后面可以写个webpack安装配置的教程。

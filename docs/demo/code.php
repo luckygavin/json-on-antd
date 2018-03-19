@@ -4,21 +4,21 @@ include __DIR__ . '/../../env.php';
 if (ENV == 'dev') {
 ?>
 
-<link rel="stylesheet" href="../../dist/css/theme.min.css?v=<?php echo $_V;?>" />
-<link rel="stylesheet" href="../../dist/css/uf_v<?php echo $_VERSION . '.css?v=' . $_V; ?>" />
-<script src="../../dist/js/dll.js?v=<?php echo $_V;?>"></script>
-<script src="../../dist/js/antd.js?v=<?php echo $_V;?>"></script>
-<script src="../../dist/js/uf_v<?php echo $_VERSION . '.js?v=' . $_V; ?>"></script>
+<link rel="stylesheet" href="../../dist/<?php echo $_VERSION; ?>/theme.min.css" />
+<link rel="stylesheet" href="../../dist/<?php echo $_VERSION; ?>/uf.css" />
+<script src="../../dist/<?php echo $_VERSION; ?>/dll.js"></script>
+<script src="../../dist/<?php echo $_VERSION; ?>/antd.js"></script>
+<script src="../../dist/<?php echo $_VERSION; ?>/uf.js"></script>
 
 <?php
 } else {
 ?>
 
-<link rel="stylesheet" href="../../css/theme.min.css?v=<?php echo $_V;?>" />
-<link rel="stylesheet" href="../../css/uf_v<?php echo $_VERSION . '.css?v=' . $_V; ?>" />
-<script src="../../dist/dll.min.js?v=<?php echo $_V;?>"></script>
-<script src="../../dist/antd.min.js?v=<?php echo $_V;?>"></script>
-<script src="../../dist/uf_v<?php echo $_VERSION . '.js?v=' . $_V; ?>"></script>
+<link rel="stylesheet" href="../../v/<?php echo $_VERSION; ?>/theme.min.css" />
+<link rel="stylesheet" href="../../v/<?php echo $_VERSION; ?>/uf.css" />
+<script src="../../v/<?php echo $_VERSION; ?>/dll.min.js"></script>
+<script src="../../v/<?php echo $_VERSION; ?>/antd.min.js"></script>
+<script src="../../v/<?php echo $_VERSION; ?>/uf.js"></script>
 
 <?php
 }

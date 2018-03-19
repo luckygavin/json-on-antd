@@ -30,6 +30,7 @@ export default class Factory extends PureComponent {
 
     // 解析组件配置，生成组件
     generateItem(item) {
+        // TODO:
         // 如果模块是一个函数，先执行函数得到返回的配置
         if (Utils.typeof(item, 'function')) {
             item = item();
@@ -37,6 +38,7 @@ export default class Factory extends PureComponent {
                 return this.generateElement(item);
             }
         }
+        // TODO:
         // 如果是字符串直接返回
         if (!Utils.typeof(item, 'object')) {
             return item;
@@ -51,7 +53,8 @@ export default class Factory extends PureComponent {
                 item.type = tpl.type;
             }
         }
-        // 校验是否有 type 属性，如果没有会报错
+        // 校验是否有 type 属性且
+        // TODO:
         if (!Validator.check(item, 'type', 'string')) {
             return item;
         }
@@ -61,7 +64,6 @@ export default class Factory extends PureComponent {
         }
 
         // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
-        // TODO: 把模板解析器也做成一个组件
         if (item.type === 'html') {
             // return new Html(item.content);
             // 直接使用InnerHTML，以节省性能
@@ -83,6 +85,9 @@ export default class Factory extends PureComponent {
         item._factory = this;
 
         let props = this.handleProps(item);
+
+        // Update at 2018-03-13 17:02:46. 使用完后，要把在原配置中增加的多余的属性删除掉
+        delete item._factory;
 
         return <Item {...props} />;
     }

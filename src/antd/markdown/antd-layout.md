@@ -81,13 +81,17 @@
 | className | 容器 className | string | - |
 
 #### 函数调用
+
 > 组件自身带有的函数，调用方法如：`UF('my-sider').toggleCollapsed()`
+
 函数名称   | 说明             | 参数   
 ----------|--------------------|----------
 toggleCollapsed | 切换收起/展开状态 | 无 
 
 ### # sider-trigger
+
 从`sider`中独立出来的`trigger`，可以放在任何地方，通过`target`属性和`sider`组件关联
+
 参数      | 说明                                     | 类型       | 默认值
 ----------|-----------------------------------------|------------|-------
 target | 关联`sider`组件的名称 | boolean | false

@@ -16,7 +16,7 @@ const version = packageConfig.version;
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);
 
-var cssBuilder = new ExtractTextPlugin(`css/doc_v${version}.min.css`);
+var cssBuilder = new ExtractTextPlugin(`${version}/doc.min.css`);
 var jsBuilder =new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -33,12 +33,13 @@ if (production) {
 module.exports = {
     entry: {
         doc: './docs/entry.js'
+        // home: './docs/home/index.jsx'
     },
     output: {
         path: 'public/',
         // 指定资源文件引用的目录（CDN资源），被许多Webpack的Plugins用于在生产模式下更新内嵌到css、html文件里的url值
         // publicPath: 'uf-react/',
-        filename: `js/[name]_v${version}.js`
+        filename: `${version}/[name].js`
     },
     module: {
         loaders: [

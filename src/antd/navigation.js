@@ -60,12 +60,14 @@ export class Breadcrumb extends Navigation {
     beforeRender() {
         // 如果用户配置了items，则按照用户配置的items列表类展示面包屑
         if (!this.__props.items) {
+            let newRoutes = [];
             let routes = this._root.props.routes;
             // 过滤掉无效的面包屑（既没有name，又没有icon）
-            let newRoutes = [];
-            for (let v of routes) {
-                if (v.breadcrumbName || v.breadcrumbIcon) {
-                    newRoutes.push(v)
+            if (routes) {
+                for (let v of routes) {
+                    if (v.breadcrumbName || v.breadcrumbIcon) {
+                        newRoutes.push(v)
+                    }
                 }
             }
             this.__props.routes = newRoutes;
@@ -146,7 +148,8 @@ export class Menu extends Navigation {
             arr = [items];
         }
         let children = [];
-        for (let v of arr) {
+        for (let item of arr) {
+            let v = Utils.copy(item);
             // 判断是否有权限
             if (!this.__authority(v)) {
                 continue;
@@ -201,7 +204,7 @@ export class Menu extends Navigation {
                 this.allKeys[v.key] = parentKey || v.key;
             }
         }
-        
+
         return children;
     }
     // 高亮的菜单项跟随路由一起变换
@@ -227,7 +230,7 @@ export class Menu extends Navigation {
         }
     }
     changeDefaultOpenKeys(key) {
-        let defaultKeys = this.__props.defaultOpenKeys;        
+        let defaultKeys = this.__props.defaultOpenKeys;
         if (defaultKeys && defaultKeys.indexOf(key) === -1) {
             this.__props.defaultOpenKeys.push(key);
         } else {

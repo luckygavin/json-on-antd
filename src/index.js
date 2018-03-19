@@ -22,7 +22,6 @@ module.exports = Object.assign(
         Modal: require('./modal'),
         Ueditor: require('./ueditor'),
         // ...require('./modal'),
-
-        Table2: require('./uf-old/table')
+        // Table2: require('./uf-old/table')
     }
 );

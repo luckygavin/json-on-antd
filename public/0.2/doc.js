@@ -30,6 +30,7 @@
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
 
+
 /******/ 	// expose the module cache
 /******/ 	__webpack_require__.c = installedModules;
 
@@ -82,17 +83,17 @@
 	__webpack_require__(8);
 
 	// 通用文档
-	var CommonList = [{ path: 'Introduction', name: '简要介绍', component: __webpack_require__(12).default }, { path: 'Usage', name: '组件使用', /* retract: true, */children: [{ path: 'Install', name: '快速上手', component: __webpack_require__(164).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(165).default }, { path: 'Api', name: '交互API', component: __webpack_require__(166).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(167).default }, { path: 'Page', name: '页面示例', component: __webpack_require__(168).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(169).default }] }, { path: 'Develop', name: '项目开发', /* retract: true, */children: [{ path: 'Install', name: '快速上手', component: __webpack_require__(170).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(171).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(172).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(173).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(174).default }] }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(175).default }];
+	var CommonList = [{ path: 'Introduction', name: '简要介绍', component: __webpack_require__(12).default }, { path: 'Usage', name: '组件使用', /* retract: true, */children: [{ path: 'Install', name: '快速上手', component: __webpack_require__(159).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(160).default }, { path: 'Api', name: '交互API', component: __webpack_require__(161).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(162).default }, { path: 'Page', name: '页面示例', component: __webpack_require__(163).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(164).default }] }, { path: 'Develop', name: '项目开发', /* retract: true, */children: [{ path: 'Install', name: '快速上手', component: __webpack_require__(165).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(166).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(167).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(168).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(169).default }] }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(170).default }];
 
 	// 组件文档列表
-	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(176).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(178).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(180).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(182).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(184).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(186).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(188).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(190).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(192).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(193).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(194).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(167).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(195).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(197).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(198).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(199).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(200).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(201).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(202).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(203).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(204).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(205).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(206).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(207).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(208).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(209).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(210).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(211).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(212).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(213).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(214).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(215).default },
+	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(171).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(173).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(175).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(177).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(179).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(181).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(183).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(185).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(186).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(187).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(162).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(188).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(190).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(191).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(192).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(193).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(194).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(195).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(196).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(197).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(198).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(199).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(200).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(201).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(202).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(203).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(204).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(205).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(206).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(207).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(208).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
-	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(216).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(217).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(218).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(219).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(220).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(221).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(222).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(223).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(224).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(225).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(226).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(227).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(228).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(229).default }] }, { path: 'Other', name: '其他组件', children: [
+	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(209).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(210).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(211).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(212).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(213).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(214).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(215).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(216).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(217).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(218).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(219).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(220).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(221).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(222).default }] }, { path: 'Other', name: '其他组件', children: [
 	    // {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
-	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(230).default }] }];
+	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(223).default }] }];
 
 	// 全部路由列表
-	var RouteList = [{ path: 'Standard', name: '规范', component: __webpack_require__(231).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(232).default }].concat(CommonList, ComponentList);
+	var RouteList = [{ path: 'Standard', name: '规范', component: __webpack_require__(224).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(225).default }].concat(CommonList, ComponentList);
 
 	var Doc = function (_React$Component) {
 	    _inherits(Doc, _React$Component);
@@ -119,24 +120,6 @@
 	        value: function render() {
 	            var currentHeader = this.props.routes[1] ? this.props.routes[1].path : '';
 	            var currentNav = this.props.location.pathname.slice(1);
-	            var Test = function Test(_ref) {
-	                var text = _ref.text,
-	                    children = _ref.children;
-	                return _react2.default.createElement(
-	                    'div',
-	                    null,
-	                    _react2.default.createElement(
-	                        'p',
-	                        null,
-	                        text
-	                    ),
-	                    _react2.default.createElement(
-	                        'p',
-	                        null,
-	                        children
-	                    )
-	                );
-	            };
 	            return _react2.default.createElement(
 	                'section',
 	                null,
@@ -260,8 +243,12 @@
 	var SubMenu = _antd.Menu.SubMenu;
 	var MenuItemGroup = _antd.Menu.ItemGroup;
 	var json = __webpack_require__(6);
-	var version = json.version;
-	var versionList = json.versionList;
+	// 次版本号
+	var version = +json.version.split('.').slice(1, 2).join();
+	var versionList = [];
+	for (var i = version; i > 0; i--) {
+	    versionList.push(i);
+	}
 
 	// 导航列表
 	var NavList = [{ key: 'Introduction', path: '#/Introduction', name: '组件' }, { key: 'Standard', path: '#/Standard', name: '规范' }, { key: 'ThirdParty', path: '#/ThirdParty', name: '第三方组件' }, { key: 'ANT DESIGN', path: 'http://antd.uf.baidu.com/docs/react/introduce-cn', name: 'ANT DESIGN' }, { key: 'Old-uf', path: 'http://uf.baidu.com/uf-react.php', name: '返回旧版' }];
@@ -336,14 +323,14 @@
 	                        { overlay: _react2.default.createElement(
 	                                _antd.Menu,
 	                                null,
-	                                versionList.reverse().map(function (v) {
+	                                versionList.map(function (v) {
 	                                    return _react2.default.createElement(
 	                                        _antd.Menu.Item,
-	                                        { key: 'v' + v },
+	                                        { key: 'v0.' + v },
 	                                        _react2.default.createElement(
 	                                            'a',
-	                                            { href: '?v=' + v },
-	                                            'v' + v
+	                                            { href: '?v=0.' + v },
+	                                            'v0.' + v
 	                                        )
 	                                    );
 	                                })
@@ -351,7 +338,7 @@
 	                        _react2.default.createElement(
 	                            _antd.Button,
 	                            { size: 'small' },
-	                            'v' + version,
+	                            'v0.' + version,
 	                            ' ',
 	                            _react2.default.createElement(_antd.Icon, { type: 'down' })
 	                        )
@@ -370,7 +357,7 @@
 /* 6 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.1","0.2","0.2.1"],"version":"0.2.1","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run build & npm run antd","start":"webpack --watch"}}
+	module.exports = {"name":"uf","version":"0.2.6","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-plugin-transform-object-rest-spread":"^6.26.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run build & npm run antd","start":"webpack --watch"}}
 
 /***/ }),
 /* 7 */
@@ -2063,7 +2050,7 @@
 /* 17 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 开发标准\n> 技术标准: ES6编码标准，React+npm+Webpack技术  \n\n在实际项目开发中，你会需要对ES2015|ES2016|JSX代码进行构建，调试，代理，打包部署等一系列工程化的需求,这里提供npm+webpack的工具链来辅助开发\n\n> 样式标准: antd.css + sass\n\n本框架是基于Antd开发的，大量引用了antd的样式，详见：http://antd.uf.baidu.com\n\n## 项目结构\n```\nuf\n|-- dist                // 构建好的组件代码，供线上使用\n|-- docs                // 文档代码\n|   |-- app             // 组件 Demo。全部继承`BaseDoc.js`\n|   |-- markdown        // 组件 markdown 文档。其中`index.js`把全部md文件整合到一起\n|   |-- php             // 某些组件依赖后端接口，这里用来模拟后端接口返回模拟数据\n|   `-- entry.js        // 文档入口\n|-- lib                 // 编译后的代码，根据src代码生成，暂时用不到\n|-- public              // 打包生成的文档代码\n|-- src                 // 组件源代码\n|   |-- component       // 公共组件，例如：BaseComponent\n|   |-- utils           // 公共工具，例如：Ajax、Cache、Utils 等\n|   `-- 其他组件         // 其他组件\n|-- index.php           // 页面入口\n|-- package.json\n`-- webpack.config.js   // 构建公共库文件\n\n```\n\n## 文件组织：\nsrc 中，每个组件一个文件夹，里面包含：\n> js代码  \n> scss代码 - style.scss  \n> 引入文件 - index.js  \n\n\n## 组件开发\n\n### UF组件引入：\n`import Export from 'src/export';`\n> uf对应的是src文件夹，export即export组件的文件夹，因为存在index.js，所以无需指定组件名  \n\n### 组件继承：\n`import {BaseComponent} from 'src/component';`  \n`export default class Table extends BaseComponent {}`\n> 为了方便后面对组件通用功能进行拓展，自己开发的组件全部继承`BaseComponent`\n\n### 组件初始化：\n`this.__init();`\n> 组件的`constructor`构造函数里，执行完`super(props);`之后，紧接着需调用`this.__init();`函数对组件进行初始化，此函数再BaseComponent里实现，用于做通用处理\n\n### 组件命名：\n* 组件名和文件名一致，均采用帕斯卡命名法（即全部首字母大写）\n* 组件名要尽量简短易懂，尽量用一个单词\n\n### 通用字段命名\n```\ndata        数据\nparams      参数对象\nsource      异步请求获取数据接口\napi         异步提交数据接口\n```\n\n### 特殊字段\n以下关键字解析时会有额外操作   \ncontent     子内容\n\n\n### 组件开发规范\n1. 除antd外，尽量不要引入其他第三方组件\n2. 接口及配置项命名需语义化，统一采用驼峰命名\n3. 语义化不是把中文转换成英文，命名时，在能表达清楚意思的前提下，名称要尽量短\n4. 组件顶层的配置项尽量少，分为三类：\n> config: 不变的配置，比如组件如何展示，需要调用那些控件等  \n> data:   组件所需的数据列表  \n> params: 组件调用接口时传递的参数（经常变化的参数，如果是静态的，也可以放到config中）  \n> 组件暴露出的事件（回调函数）直接放到组件的props上\n5. 代码注释\n> 开发时，养成随手写注释的习惯  \n> 至少每个函数需要注释说明是函数的作用，注释多多益善  \n> console.log 使用完要删除，不要到处留下 console.log\n\n---\n## BaseComponent 开发及使用\n这里的规范不仅限于BaseComponent，其他基础抽象类也使用以下规范\n\n### 开发规范\n开发时难免会遇到需要覆盖父类函数的情况，比如要在父类定义过的`__init`函数上追加处理逻辑，则需要即执行父类的原函数（super），又要执行新写入的逻辑，用法如下：  \n```javascript\n__init() {\n    super.__init.call(this);\n    this._setProps();\n}\n```\n\n如需要在React的生命周期的5个函数中增加处理逻辑，可以使用`_componentWillReceiveProps`这种名称之前加下划线的形式，组件调用__init函数时会自动把这几个函数的内容插入到对应的函数最前面执行：  \n```javascript\n_componentWillReceiveProps = (nextProps, ...params) => {\n    super._componentWillReceiveProps && super._componentWillReceiveProps();\n    this._initPorps();\n}\n```\n> 需要注意的是：为了防止覆盖父类的函数，需在函数里面加入 `super._xxx`来优先调用一下父类的函数  \n> 其次需要注意的有两点： \n> * 主要保证把全部参数传递给原函数  \n> * 调用顺序为 父类函数 > 当前函数 > 子类函数\n\n### 命名规范  \n直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  \n**`property`、`function`**  \n> 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()\n\n为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  \n**`_property`、`_function`**  \n> 私有属性和方法，均使用单下划线开头  \n\n**`__property`、`__function`**  \n> 供子组件调用的函数，使用双下划线开头，且命名要尽量简短易懂。例如：`this.__init()`\n\n### 功能列表\n\n##### **`__props`**  \n定义默认的props参数。  \n在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  \n也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】\n> 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法\n\n##### **`__init()`**  \n初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  \n> 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前\n\n##### **`__setProps(props[, follow])`**  \n用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  \n也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）  \n默认会刷新组件；也可以把第二个参数设为 false 阻止刷新\n\n##### **`__mergeProps(...objs)`**  \n合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  \n以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  \n> tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   \n\n##### **`__filterProps(obj, string/array)`**  \n从 obj 中过滤掉某些属性，可以是多个字符串参数，也可以是一个数组\n\n##### **`__shouldUpdate(this.props, nextProps)`**  \n用于 componentWillReceiveProps 中，判断是否需要刷新。这里使用的是正真的 props 和 nextProps   \n具体有如下两种特殊场景：  \n如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；  \n如果是set导致的，则两次的props肯定会有不同，需刷新  \n还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响  \n\n\n##### **`__filterProps(props, arr)`**  \n过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  \n> arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串\n\n##### **`__getData(url, params, success, error, onchange)`**\n使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  \n`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  \n`error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)\n>  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       \n\n`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     \n>  开始执行请求时执行 onchange 参数为 (true, 'sending')  \n>  请求完成时执行 onchange 参数为 (false, 'success'/'error')  \n\n##### **`__postData(url, params, success, error, onchange)`**\n使用 `post` 的方式向后端发送请求，参数同上。\n\n##### **`__ajax(obj)`**\n通用的 `ajax` 函数。参数为一个对象。\n> 常用参数有：url、method、data、type、onchange、success、error\n\n##### **`__analysis(config)`**\n解析某个属性的配置。方便开发组件时解析一些可以为配置的属性\n\n##### **`__authority(item)`**\n判断是否为权限点 && 是否有权限\n\n##### **`__getComponent(item)`**\n获取缓存中的组件\n\n---\n## 文档编写规范\n1. 每个文档至少包含 4/5 部分\n> 组件示例：尽量把所有的功能在示例里展现出来  \n> 配置参数：解释每个参数的意义，注明是否必填和默认值。可写多个配置参数模块  \n> 回调函数：绑定到组件上的事件的回调函数，如：绑在`Input`组件上的`onChange`  \n> 调用接口：可供用户调用的接口，如暴露给用户的更改某些状态的函数  \n> 示例代码：实现`组件示例`所需代码，用户只需拷贝示例代码就可以在本地实现示例中的效果。(把配置抽离出来)\n2. 其他扩展部分：\n> 组件功能及特点介绍  \n> 组件高级用法、截图等\n\n"
+	module.exports = "## 开发标准\n> 技术标准: ES6编码标准，React+npm+Webpack技术  \n\n在实际项目开发中，你会需要对ES2015|ES2016|JSX代码进行构建，调试，代理，打包部署等一系列工程化的需求,这里提供npm+webpack的工具链来辅助开发\n\n> 样式标准: antd.css + sass\n\n本框架是基于Antd开发的，大量引用了antd的样式，详见：http://antd.uf.baidu.com\n\n## 项目结构\n```\nuf\n|-- dist                // 构建好的组件代码，供线上使用\n|-- docs                // 文档代码\n|   |-- app             // 组件 Demo。全部继承`BaseDoc.js`\n|   |-- markdown        // 组件 markdown 文档。其中`index.js`把全部md文件整合到一起\n|   |-- php             // 某些组件依赖后端接口，这里用来模拟后端接口返回模拟数据\n|   `-- entry.js        // 文档入口\n|-- lib                 // 编译后的代码，根据src代码生成，暂时用不到\n|-- public              // 打包生成的文档代码\n|-- src                 // 组件源代码\n|   |-- component       // 公共组件，例如：BaseComponent\n|   |-- utils           // 公共工具，例如：Ajax、Cache、Utils 等\n|   `-- 其他组件         // 其他组件\n|-- index.php           // 页面入口\n|-- package.json\n`-- webpack.config.js   // 构建公共库文件\n\n```\n\n## 文件组织：\nsrc 中，每个组件一个文件夹，里面包含：\n> js代码  \n> scss代码 - style.scss  \n> 引入文件 - index.js  \n\n\n## 组件开发\n\n### UF组件引入：\n`import Export from 'uf/export';`\n> uf对应的是src文件夹，export即export组件的文件夹，因为存在index.js，所以无需指定组件名  \n\n### 组件继承：\n`import {BaseComponent} from 'uf/component';`  \n`export default class Table extends BaseComponent {}`\n> 为了方便后面对组件通用功能进行拓展，自己开发的组件全部继承`BaseComponent`\n\n### 组件初始化：\n`this.__init();`\n> 组件的`constructor`构造函数里，执行完`super(props);`之后，紧接着需调用`this.__init();`函数对组件进行初始化，此函数再BaseComponent里实现，用于做通用处理\n\n### 组件命名：\n* 组件名和文件名一致，均采用帕斯卡命名法（即全部首字母大写）\n* 组件名要尽量简短易懂，尽量用一个单词\n\n### 通用字段命名\n```\ndata        数据\nparams      参数对象\nsource      异步请求获取数据接口\napi         异步提交数据接口\n```\n\n### 特殊字段\n以下关键字解析时会有额外操作   \ncontent     子内容\n\n\n### 组件开发规范\n1. 除antd外，尽量不要引入其他第三方组件\n2. 接口及配置项命名需语义化，统一采用驼峰命名\n3. 语义化不是把中文转换成英文，命名时，在能表达清楚意思的前提下，名称要尽量短\n4. 组件顶层的配置项尽量少，分为三类：\n> config: 不变的配置，比如组件如何展示，需要调用那些控件等  \n> data:   组件所需的数据列表  \n> params: 组件调用接口时传递的参数（经常变化的参数，如果是静态的，也可以放到config中）  \n> 组件暴露出的事件（回调函数）直接放到组件的props上\n5. 代码注释\n> 开发时，养成随手写注释的习惯  \n> 至少每个函数需要注释说明是函数的作用，注释多多益善  \n> console.log 使用完要删除，不要到处留下 console.log\n\n---\n## BaseComponent 开发及使用\n这里的规范不仅限于BaseComponent，其他基础抽象类也使用以下规范\n\n### 开发规范\n开发时难免会遇到需要覆盖父类函数的情况，比如要在父类定义过的`__init`函数上追加处理逻辑，则需要即执行父类的原函数（super），又要执行新写入的逻辑，用法如下：  \n```javascript\n__init() {\n    super.__init.call(this);\n    this._setProps();\n}\n```\n\n如需要在React的生命周期的5个函数中增加处理逻辑，可以使用`_componentWillReceiveProps`这种名称之前加下划线的形式，组件调用__init函数时会自动把这几个函数的内容插入到对应的函数最前面执行：  \n```javascript\n_componentWillReceiveProps = (nextProps, ...params) => {\n    super._componentWillReceiveProps && super._componentWillReceiveProps();\n    this._initPorps();\n}\n```\n> 需要注意的是：为了防止覆盖父类的函数，需在函数里面加入 `super._xxx`来优先调用一下父类的函数  \n> 其次需要注意的有两点： \n> * 主要保证把全部参数传递给原函数  \n> * 调用顺序为 父类函数 > 当前函数 > 子类函数\n\n### 命名规范  \n直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  \n**`property`、`function`**  \n> 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()\n\n为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  \n**`_property`、`_function`**  \n> 私有属性和方法，均使用单下划线开头  \n\n**`__property`、`__function`**  \n> 供子组件调用的函数，使用双下划线开头，且命名要尽量简短易懂。例如：`this.__init()`\n\n### 功能列表\n\n##### **`__props`**  \n定义默认的props参数。  \n在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  \n也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】\n> 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法\n\n##### **`__init()`**  \n初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  \n> 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前\n\n##### **`__setProps(props[, follow])`**  \n用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  \n也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）  \n默认会刷新组件；也可以把第二个参数设为 false 阻止刷新\n\n##### **`__mergeProps(...objs)`**  \n合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  \n以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  \n> tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   \n\n##### **`__filterProps(obj, string/array)`**  \n从 obj 中过滤掉某些属性，可以是多个字符串参数，也可以是一个数组\n\n##### **`__shouldUpdate(this.props, nextProps)`**  \n用于 componentWillReceiveProps 中，判断是否需要刷新。这里使用的是正真的 props 和 nextProps   \n具体有如下两种特殊场景：  \n如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；  \n如果是set导致的，则两次的props肯定会有不同，需刷新  \n还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响  \n\n\n##### **`__filterProps(props, arr)`**  \n过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  \n> arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串\n\n##### **`__getData(url, params, success, error, onchange)`**\n使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  \n`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  \n`error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)\n>  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       \n\n`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     \n>  开始执行请求时执行 onchange 参数为 (true, 'sending')  \n>  请求完成时执行 onchange 参数为 (false, 'success'/'error')  \n\n##### **`__postData(url, params, success, error, onchange)`**\n使用 `post` 的方式向后端发送请求，参数同上。\n\n##### **`__ajax(obj)`**\n通用的 `ajax` 函数。参数为一个对象。\n> 常用参数有：url、method、data、type、onchange、success、error\n\n##### **`__analysis(config)`**\n解析某个属性的配置。方便开发组件时解析一些可以为配置的属性\n\n##### **`__authority(item)`**\n判断是否为权限点 && 是否有权限\n\n##### **`__getComponent(item)`**\n获取缓存中的组件\n\n---\n## 文档编写规范\n1. 每个文档至少包含 4/5 部分\n> 组件示例：尽量把所有的功能在示例里展现出来  \n> 配置参数：解释每个参数的意义，注明是否必填和默认值。可写多个配置参数模块  \n> 回调函数：绑定到组件上的事件的回调函数，如：绑在`Input`组件上的`onChange`  \n> 调用接口：可供用户调用的接口，如暴露给用户的更改某些状态的函数  \n> 示例代码：实现`组件示例`所需代码，用户只需拷贝示例代码就可以在本地实现示例中的效果。(把配置抽离出来)\n2. 其他扩展部分：\n> 组件功能及特点介绍  \n> 组件高级用法、截图等\n\n"
 
 /***/ }),
 /* 18 */
@@ -2467,7 +2454,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2679,49 +2666,53 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _src = __webpack_require__(74);
+	var _uf = __webpack_require__(74);
 
-	var _src2 = _interopRequireDefault(_src);
+	var _uf2 = _interopRequireDefault(_uf);
 
-	var _moment = __webpack_require__(82);
+	var _underscore = __webpack_require__(146);
+
+	var _underscore2 = _interopRequireDefault(_underscore);
+
+	var _moment = __webpack_require__(79);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(152);
+	__webpack_require__(147);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
-	var _adaptor = __webpack_require__(153);
+	var _adaptor = __webpack_require__(148);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(158);
+	var _authority = __webpack_require__(153);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _factory = __webpack_require__(159);
+	var _factory = __webpack_require__(154);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(154);
+	var _loader = __webpack_require__(149);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(161);
+	var _whitelist = __webpack_require__(156);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _model = __webpack_require__(155);
+	var _model = __webpack_require__(150);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _precondition = __webpack_require__(163);
+	var _precondition = __webpack_require__(158);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _requirejs = __webpack_require__(162);
+	var _requirejs = __webpack_require__(157);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -2816,6 +2807,8 @@
 	    ajax: _utils.Ajax,
 	    // 暴露全部工具类
 	    utils: _utils.Utils,
+	    // underscore工具类
+	    _: _underscore2.default,
 	    // moment 暴露全部功能
 	    moment: _moment2.default,
 	    // model 数据绑定页面
@@ -2874,7 +2867,7 @@
 
 	var UF = func._get;
 
-	Object.assign(UF, _src2.default, func);
+	Object.assign(UF, _uf2.default, func);
 
 	exports.default = UF;
 	exports.Factory = _factory2.default;
@@ -2891,67 +2884,60 @@
 
 	'use strict';
 
-	__webpack_require__(75);
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	/**
+	 * @file index.js 汇总所有 src 里对用户暴露的组件
+	 * @author liuzechun@baidu.com
+	 */
 
 	module.exports = Object.assign(
 	// require('./dom'),
 	// antd 组件统一迁移，见 src/antd/index.js
-	__webpack_require__(77),
+	__webpack_require__(75),
 	// 路由组件
-	__webpack_require__(107),
+	__webpack_require__(103),
 	// 其他自己实现/封装的组件
-	{
+	_extends({
 	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(109),
+	    Iframe: __webpack_require__(105),
 
-	    Export: __webpack_require__(113),
-	    Tree: __webpack_require__(117),
-	    Table: __webpack_require__(121),
-	    Form: __webpack_require__(127),
-	    Modal: __webpack_require__(135),
-	    Ueditor: __webpack_require__(129),
-	    // ...require('./modal'),
+	    Export: __webpack_require__(109),
+	    Tree: __webpack_require__(115),
+	    Table: __webpack_require__(119),
+	    Form: __webpack_require__(125)
+	}, __webpack_require__(129), {
 
-	    Table2: __webpack_require__(139)
-	}); /**
-	     * @file index.js 汇总所有 src 里对用户暴露的组件
-	     * @author liuzechun@baidu.com
-	     */
+	    Table2: __webpack_require__(133)
+	}));
 
 /***/ }),
 /* 75 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 76 */,
-/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _dataentry = __webpack_require__(78);
+	var _dataentry = __webpack_require__(76);
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(97);
+	var _datadisplay = __webpack_require__(93);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(99);
+	var _genaral = __webpack_require__(95);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(101);
+	var _navigation = __webpack_require__(97);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(103);
+	var _feedback = __webpack_require__(99);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(105);
+	var _layout = __webpack_require__(101);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -2967,7 +2953,7 @@
 	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
 
 /***/ }),
-/* 78 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2991,9 +2977,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _DataEntry18 = __webpack_require__(90);
+	var _DataEntry18 = __webpack_require__(86);
 
 	var _DataEntry19 = _interopRequireDefault(_DataEntry18);
 
@@ -3563,8 +3549,6 @@
 	        _this17.__init();
 	        return _this17;
 	    }
-	    // TODO: Form报错，需要看下
-
 
 	    _createClass(Select, [{
 	        key: '_sourceSuccess',
@@ -3687,18 +3671,19 @@
 	}(_DataEntry19.default);
 
 /***/ }),
-/* 79 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Utils: __webpack_require__(80).default,
-	    Ajax: __webpack_require__(83).default
+	    Utils: __webpack_require__(78).default,
+	    Cache: __webpack_require__(80).default,
+	    Ajax: __webpack_require__(81).default
 	};
 
 /***/ }),
-/* 80 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3707,17 +3692,7 @@
 	    value: true
 	});
 
-	var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _underscore = __webpack_require__(81);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
-
-	var _moment2 = __webpack_require__(82);
+	var _moment2 = __webpack_require__(79);
 
 	var _moment3 = _interopRequireDefault(_moment2);
 
@@ -3727,6 +3702,7 @@
 	                                                                                                                                                                                                     * @file 一些常用的函数工具
 	                                                                                                                                                                                                     * @author liuzechun
 	                                                                                                                                                                                                     **/
+	// import underscore from 'underscore';
 
 
 	var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
@@ -3734,10 +3710,7 @@
 	    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
 	};
 
-	// 引入了underscore的功能，并在其上增加了自定义的一些函数
-	var Utils = Object.assign({
-	    // 如果要使用原生的功能，可通过 _ 来访问
-	    _: _underscore2.default,
+	var Utils = {
 	    // 如果数据合法，返回moment数据；否则返回null
 	    moment: function moment() {
 	        var result = _moment3.default.apply(undefined, arguments);
@@ -3788,24 +3761,38 @@
 	        return [].concat(_toConsumableArray(new Set(arr)));
 	    },
 
-	    // 获取数组的交集
-	    without: function without() {
-	        return _underscore2.default.without.apply(_underscore2.default, arguments);
+	    // 在数组1中但不在数组2中
+	    arrayDiff: function arrayDiff(array1, array2) {
+	        var o = {};
+	        var res = [];
+	        for (var i in array2) {
+	            o[array2[i]] = true;
+	        }
+	        for (var j in array1) {
+	            if (!o[array1[j]]) {
+	                res.push(array1[j]);
+	            }
+	        }
+	        return res;
 	    },
 
-	    // 获取数组的交集
-	    difference: function difference() {
-	        return _underscore2.default.difference.apply(_underscore2.default, arguments);
+	    // 两个数组取交集
+	    arrayIntersect: function arrayIntersect(array1, array2) {
+	        var res1 = this.arrayDiff(array1, array2);
+	        var res2 = this.arrayDiff(array2, array1);
+	        return this.arrayDiff(array1.concat(res2), res1.concat(res2));
 	    },
 
-	    // 获取数组的交集
-	    intersection: function intersection() {
-	        return _underscore2.default.intersection.apply(_underscore2.default, arguments);
-	    },
-
-	    // 数组是否有交集
-	    isIntersection: function isIntersection() {
-	        return _underscore2.default.intersection.apply(_underscore2.default, arguments).length > 0;
+	    // 多个数组取交集
+	    arrayIntersectMulti: function arrayIntersectMulti() {
+	        // 二维数组
+	        var twoDimenArray = arguments[0];
+	        var interArray = [];
+	        for (var i = 0, len = twoDimenArray.length; i < len - 1; i++) {
+	            var _interArray = this.arrayIntersect(twoDimenArray[i], twoDimenArray[i + 1]);
+	            twoDimenArray[i + 1] = _interArray;
+	        }
+	        return interArray;
 	    },
 
 	    // 对象转数组
@@ -4195,1622 +4182,45 @@
 	            return format[0].value;
 	        }
 	        return;
-	    },
-
-	    // 把数据格式化成json展示
-	    prettyJson: function prettyJson(data, origin) {
-	        if (origin) {
-	            return this._syntaxHighlight(data);
-	        }
-	        return {
-	            type: 'pre',
-	            className: 'json',
-	            dangerouslySetInnerHTML: { __html: this._syntaxHighlight(data) }
-	        };
-	    },
-
-
-	    /************************************************************************/
-	    // 私有方法
-	    _syntaxHighlight: function _syntaxHighlight(json) {
-	        var _this = this;
-
-	        if (typeof json !== 'string') {
-	            json = JSON.stringify(json, undefined, 2);
-	        }
-	        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
-	        var reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
-	        return json.replace(reg, function (match) {
-	            var cls = 'number';
-	            if (/^"/.test(match)) {
-	                if (/:$/.test(match)) {
-	                    cls = 'key';
-	                } else {
-	                    try {
-	                        var type = JSON.parse(match);
-	                        if (_typeof2(JSON.parse(type)) === 'object') {
-	                            return _this._syntaxHighlight(JSON.parse(type));
-	                        } else {
-	                            cls = 'string';
-	                        }
-	                    } catch (e) {
-	                        cls = 'string';
-	                    }
-	                }
-	            } else if (/true|false/.test(match)) {
-	                cls = 'boolean';
-	            } else if (/null/.test(match)) {
-	                cls = 'null';
-	            }
-	            return '<span class="' + cls + '">' + match + '</span>';
-	        });
 	    }
-	});
+	};
 
 	exports.default = Utils;
 
 /***/ }),
-/* 81 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
-	//     http://underscorejs.org
-	//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
-	//     Underscore may be freely distributed under the MIT license.
-
-	(function() {
-
-	  // Baseline setup
-	  // --------------
-
-	  // Establish the root object, `window` in the browser, or `exports` on the server.
-	  var root = this;
-
-	  // Save the previous value of the `_` variable.
-	  var previousUnderscore = root._;
-
-	  // Save bytes in the minified (but not gzipped) version:
-	  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
-
-	  // Create quick reference variables for speed access to core prototypes.
-	  var
-	    push             = ArrayProto.push,
-	    slice            = ArrayProto.slice,
-	    toString         = ObjProto.toString,
-	    hasOwnProperty   = ObjProto.hasOwnProperty;
-
-	  // All **ECMAScript 5** native function implementations that we hope to use
-	  // are declared here.
-	  var
-	    nativeIsArray      = Array.isArray,
-	    nativeKeys         = Object.keys,
-	    nativeBind         = FuncProto.bind,
-	    nativeCreate       = Object.create;
-
-	  // Naked function reference for surrogate-prototype-swapping.
-	  var Ctor = function(){};
-
-	  // Create a safe reference to the Underscore object for use below.
-	  var _ = function(obj) {
-	    if (obj instanceof _) return obj;
-	    if (!(this instanceof _)) return new _(obj);
-	    this._wrapped = obj;
-	  };
-
-	  // Export the Underscore object for **Node.js**, with
-	  // backwards-compatibility for the old `require()` API. If we're in
-	  // the browser, add `_` as a global object.
-	  if (true) {
-	    if (typeof module !== 'undefined' && module.exports) {
-	      exports = module.exports = _;
-	    }
-	    exports._ = _;
-	  } else {
-	    root._ = _;
-	  }
-
-	  // Current version.
-	  _.VERSION = '1.8.3';
-
-	  // Internal function that returns an efficient (for current engines) version
-	  // of the passed-in callback, to be repeatedly applied in other Underscore
-	  // functions.
-	  var optimizeCb = function(func, context, argCount) {
-	    if (context === void 0) return func;
-	    switch (argCount == null ? 3 : argCount) {
-	      case 1: return function(value) {
-	        return func.call(context, value);
-	      };
-	      case 2: return function(value, other) {
-	        return func.call(context, value, other);
-	      };
-	      case 3: return function(value, index, collection) {
-	        return func.call(context, value, index, collection);
-	      };
-	      case 4: return function(accumulator, value, index, collection) {
-	        return func.call(context, accumulator, value, index, collection);
-	      };
-	    }
-	    return function() {
-	      return func.apply(context, arguments);
-	    };
-	  };
-
-	  // A mostly-internal function to generate callbacks that can be applied
-	  // to each element in a collection, returning the desired result — either
-	  // identity, an arbitrary callback, a property matcher, or a property accessor.
-	  var cb = function(value, context, argCount) {
-	    if (value == null) return _.identity;
-	    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
-	    if (_.isObject(value)) return _.matcher(value);
-	    return _.property(value);
-	  };
-	  _.iteratee = function(value, context) {
-	    return cb(value, context, Infinity);
-	  };
-
-	  // An internal function for creating assigner functions.
-	  var createAssigner = function(keysFunc, undefinedOnly) {
-	    return function(obj) {
-	      var length = arguments.length;
-	      if (length < 2 || obj == null) return obj;
-	      for (var index = 1; index < length; index++) {
-	        var source = arguments[index],
-	            keys = keysFunc(source),
-	            l = keys.length;
-	        for (var i = 0; i < l; i++) {
-	          var key = keys[i];
-	          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
-	        }
-	      }
-	      return obj;
-	    };
-	  };
-
-	  // An internal function for creating a new object that inherits from another.
-	  var baseCreate = function(prototype) {
-	    if (!_.isObject(prototype)) return {};
-	    if (nativeCreate) return nativeCreate(prototype);
-	    Ctor.prototype = prototype;
-	    var result = new Ctor;
-	    Ctor.prototype = null;
-	    return result;
-	  };
-
-	  var property = function(key) {
-	    return function(obj) {
-	      return obj == null ? void 0 : obj[key];
-	    };
-	  };
-
-	  // Helper for collection methods to determine whether a collection
-	  // should be iterated as an array or as an object
-	  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
-	  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
-	  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
-	  var getLength = property('length');
-	  var isArrayLike = function(collection) {
-	    var length = getLength(collection);
-	    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
-	  };
-
-	  // Collection Functions
-	  // --------------------
-
-	  // The cornerstone, an `each` implementation, aka `forEach`.
-	  // Handles raw objects in addition to array-likes. Treats all
-	  // sparse array-likes as if they were dense.
-	  _.each = _.forEach = function(obj, iteratee, context) {
-	    iteratee = optimizeCb(iteratee, context);
-	    var i, length;
-	    if (isArrayLike(obj)) {
-	      for (i = 0, length = obj.length; i < length; i++) {
-	        iteratee(obj[i], i, obj);
-	      }
-	    } else {
-	      var keys = _.keys(obj);
-	      for (i = 0, length = keys.length; i < length; i++) {
-	        iteratee(obj[keys[i]], keys[i], obj);
-	      }
-	    }
-	    return obj;
-	  };
-
-	  // Return the results of applying the iteratee to each element.
-	  _.map = _.collect = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length,
-	        results = Array(length);
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      results[index] = iteratee(obj[currentKey], currentKey, obj);
-	    }
-	    return results;
-	  };
-
-	  // Create a reducing function iterating left or right.
-	  function createReduce(dir) {
-	    // Optimized iterator function as using arguments.length
-	    // in the main function will deoptimize the, see #1991.
-	    function iterator(obj, iteratee, memo, keys, index, length) {
-	      for (; index >= 0 && index < length; index += dir) {
-	        var currentKey = keys ? keys[index] : index;
-	        memo = iteratee(memo, obj[currentKey], currentKey, obj);
-	      }
-	      return memo;
-	    }
-
-	    return function(obj, iteratee, memo, context) {
-	      iteratee = optimizeCb(iteratee, context, 4);
-	      var keys = !isArrayLike(obj) && _.keys(obj),
-	          length = (keys || obj).length,
-	          index = dir > 0 ? 0 : length - 1;
-	      // Determine the initial value if none is provided.
-	      if (arguments.length < 3) {
-	        memo = obj[keys ? keys[index] : index];
-	        index += dir;
-	      }
-	      return iterator(obj, iteratee, memo, keys, index, length);
-	    };
-	  }
-
-	  // **Reduce** builds up a single result from a list of values, aka `inject`,
-	  // or `foldl`.
-	  _.reduce = _.foldl = _.inject = createReduce(1);
-
-	  // The right-associative version of reduce, also known as `foldr`.
-	  _.reduceRight = _.foldr = createReduce(-1);
-
-	  // Return the first value which passes a truth test. Aliased as `detect`.
-	  _.find = _.detect = function(obj, predicate, context) {
-	    var key;
-	    if (isArrayLike(obj)) {
-	      key = _.findIndex(obj, predicate, context);
-	    } else {
-	      key = _.findKey(obj, predicate, context);
-	    }
-	    if (key !== void 0 && key !== -1) return obj[key];
-	  };
-
-	  // Return all the elements that pass a truth test.
-	  // Aliased as `select`.
-	  _.filter = _.select = function(obj, predicate, context) {
-	    var results = [];
-	    predicate = cb(predicate, context);
-	    _.each(obj, function(value, index, list) {
-	      if (predicate(value, index, list)) results.push(value);
-	    });
-	    return results;
-	  };
-
-	  // Return all the elements for which a truth test fails.
-	  _.reject = function(obj, predicate, context) {
-	    return _.filter(obj, _.negate(cb(predicate)), context);
-	  };
-
-	  // Determine whether all of the elements match a truth test.
-	  // Aliased as `all`.
-	  _.every = _.all = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length;
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      if (!predicate(obj[currentKey], currentKey, obj)) return false;
-	    }
-	    return true;
-	  };
-
-	  // Determine if at least one element in the object matches a truth test.
-	  // Aliased as `any`.
-	  _.some = _.any = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = !isArrayLike(obj) && _.keys(obj),
-	        length = (keys || obj).length;
-	    for (var index = 0; index < length; index++) {
-	      var currentKey = keys ? keys[index] : index;
-	      if (predicate(obj[currentKey], currentKey, obj)) return true;
-	    }
-	    return false;
-	  };
-
-	  // Determine if the array or object contains a given item (using `===`).
-	  // Aliased as `includes` and `include`.
-	  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
-	    if (!isArrayLike(obj)) obj = _.values(obj);
-	    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
-	    return _.indexOf(obj, item, fromIndex) >= 0;
-	  };
-
-	  // Invoke a method (with arguments) on every item in a collection.
-	  _.invoke = function(obj, method) {
-	    var args = slice.call(arguments, 2);
-	    var isFunc = _.isFunction(method);
-	    return _.map(obj, function(value) {
-	      var func = isFunc ? method : value[method];
-	      return func == null ? func : func.apply(value, args);
-	    });
-	  };
-
-	  // Convenience version of a common use case of `map`: fetching a property.
-	  _.pluck = function(obj, key) {
-	    return _.map(obj, _.property(key));
-	  };
-
-	  // Convenience version of a common use case of `filter`: selecting only objects
-	  // containing specific `key:value` pairs.
-	  _.where = function(obj, attrs) {
-	    return _.filter(obj, _.matcher(attrs));
-	  };
-
-	  // Convenience version of a common use case of `find`: getting the first object
-	  // containing specific `key:value` pairs.
-	  _.findWhere = function(obj, attrs) {
-	    return _.find(obj, _.matcher(attrs));
-	  };
-
-	  // Return the maximum element (or element-based computation).
-	  _.max = function(obj, iteratee, context) {
-	    var result = -Infinity, lastComputed = -Infinity,
-	        value, computed;
-	    if (iteratee == null && obj != null) {
-	      obj = isArrayLike(obj) ? obj : _.values(obj);
-	      for (var i = 0, length = obj.length; i < length; i++) {
-	        value = obj[i];
-	        if (value > result) {
-	          result = value;
-	        }
-	      }
-	    } else {
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index, list) {
-	        computed = iteratee(value, index, list);
-	        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
-	          result = value;
-	          lastComputed = computed;
-	        }
-	      });
-	    }
-	    return result;
-	  };
-
-	  // Return the minimum element (or element-based computation).
-	  _.min = function(obj, iteratee, context) {
-	    var result = Infinity, lastComputed = Infinity,
-	        value, computed;
-	    if (iteratee == null && obj != null) {
-	      obj = isArrayLike(obj) ? obj : _.values(obj);
-	      for (var i = 0, length = obj.length; i < length; i++) {
-	        value = obj[i];
-	        if (value < result) {
-	          result = value;
-	        }
-	      }
-	    } else {
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index, list) {
-	        computed = iteratee(value, index, list);
-	        if (computed < lastComputed || computed === Infinity && result === Infinity) {
-	          result = value;
-	          lastComputed = computed;
-	        }
-	      });
-	    }
-	    return result;
-	  };
-
-	  // Shuffle a collection, using the modern version of the
-	  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
-	  _.shuffle = function(obj) {
-	    var set = isArrayLike(obj) ? obj : _.values(obj);
-	    var length = set.length;
-	    var shuffled = Array(length);
-	    for (var index = 0, rand; index < length; index++) {
-	      rand = _.random(0, index);
-	      if (rand !== index) shuffled[index] = shuffled[rand];
-	      shuffled[rand] = set[index];
-	    }
-	    return shuffled;
-	  };
-
-	  // Sample **n** random values from a collection.
-	  // If **n** is not specified, returns a single random element.
-	  // The internal `guard` argument allows it to work with `map`.
-	  _.sample = function(obj, n, guard) {
-	    if (n == null || guard) {
-	      if (!isArrayLike(obj)) obj = _.values(obj);
-	      return obj[_.random(obj.length - 1)];
-	    }
-	    return _.shuffle(obj).slice(0, Math.max(0, n));
-	  };
-
-	  // Sort the object's values by a criterion produced by an iteratee.
-	  _.sortBy = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    return _.pluck(_.map(obj, function(value, index, list) {
-	      return {
-	        value: value,
-	        index: index,
-	        criteria: iteratee(value, index, list)
-	      };
-	    }).sort(function(left, right) {
-	      var a = left.criteria;
-	      var b = right.criteria;
-	      if (a !== b) {
-	        if (a > b || a === void 0) return 1;
-	        if (a < b || b === void 0) return -1;
-	      }
-	      return left.index - right.index;
-	    }), 'value');
-	  };
-
-	  // An internal function used for aggregate "group by" operations.
-	  var group = function(behavior) {
-	    return function(obj, iteratee, context) {
-	      var result = {};
-	      iteratee = cb(iteratee, context);
-	      _.each(obj, function(value, index) {
-	        var key = iteratee(value, index, obj);
-	        behavior(result, value, key);
-	      });
-	      return result;
-	    };
-	  };
-
-	  // Groups the object's values by a criterion. Pass either a string attribute
-	  // to group by, or a function that returns the criterion.
-	  _.groupBy = group(function(result, value, key) {
-	    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
-	  });
-
-	  // Indexes the object's values by a criterion, similar to `groupBy`, but for
-	  // when you know that your index values will be unique.
-	  _.indexBy = group(function(result, value, key) {
-	    result[key] = value;
-	  });
-
-	  // Counts instances of an object that group by a certain criterion. Pass
-	  // either a string attribute to count by, or a function that returns the
-	  // criterion.
-	  _.countBy = group(function(result, value, key) {
-	    if (_.has(result, key)) result[key]++; else result[key] = 1;
-	  });
-
-	  // Safely create a real, live array from anything iterable.
-	  _.toArray = function(obj) {
-	    if (!obj) return [];
-	    if (_.isArray(obj)) return slice.call(obj);
-	    if (isArrayLike(obj)) return _.map(obj, _.identity);
-	    return _.values(obj);
-	  };
-
-	  // Return the number of elements in an object.
-	  _.size = function(obj) {
-	    if (obj == null) return 0;
-	    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
-	  };
-
-	  // Split a collection into two arrays: one whose elements all satisfy the given
-	  // predicate, and one whose elements all do not satisfy the predicate.
-	  _.partition = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var pass = [], fail = [];
-	    _.each(obj, function(value, key, obj) {
-	      (predicate(value, key, obj) ? pass : fail).push(value);
-	    });
-	    return [pass, fail];
-	  };
-
-	  // Array Functions
-	  // ---------------
-
-	  // Get the first element of an array. Passing **n** will return the first N
-	  // values in the array. Aliased as `head` and `take`. The **guard** check
-	  // allows it to work with `_.map`.
-	  _.first = _.head = _.take = function(array, n, guard) {
-	    if (array == null) return void 0;
-	    if (n == null || guard) return array[0];
-	    return _.initial(array, array.length - n);
-	  };
-
-	  // Returns everything but the last entry of the array. Especially useful on
-	  // the arguments object. Passing **n** will return all the values in
-	  // the array, excluding the last N.
-	  _.initial = function(array, n, guard) {
-	    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
-	  };
-
-	  // Get the last element of an array. Passing **n** will return the last N
-	  // values in the array.
-	  _.last = function(array, n, guard) {
-	    if (array == null) return void 0;
-	    if (n == null || guard) return array[array.length - 1];
-	    return _.rest(array, Math.max(0, array.length - n));
-	  };
-
-	  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
-	  // Especially useful on the arguments object. Passing an **n** will return
-	  // the rest N values in the array.
-	  _.rest = _.tail = _.drop = function(array, n, guard) {
-	    return slice.call(array, n == null || guard ? 1 : n);
-	  };
-
-	  // Trim out all falsy values from an array.
-	  _.compact = function(array) {
-	    return _.filter(array, _.identity);
-	  };
-
-	  // Internal implementation of a recursive `flatten` function.
-	  var flatten = function(input, shallow, strict, startIndex) {
-	    var output = [], idx = 0;
-	    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
-	      var value = input[i];
-	      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
-	        //flatten current level of array or arguments object
-	        if (!shallow) value = flatten(value, shallow, strict);
-	        var j = 0, len = value.length;
-	        output.length += len;
-	        while (j < len) {
-	          output[idx++] = value[j++];
-	        }
-	      } else if (!strict) {
-	        output[idx++] = value;
-	      }
-	    }
-	    return output;
-	  };
-
-	  // Flatten out an array, either recursively (by default), or just one level.
-	  _.flatten = function(array, shallow) {
-	    return flatten(array, shallow, false);
-	  };
-
-	  // Return a version of the array that does not contain the specified value(s).
-	  _.without = function(array) {
-	    return _.difference(array, slice.call(arguments, 1));
-	  };
-
-	  // Produce a duplicate-free version of the array. If the array has already
-	  // been sorted, you have the option of using a faster algorithm.
-	  // Aliased as `unique`.
-	  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
-	    if (!_.isBoolean(isSorted)) {
-	      context = iteratee;
-	      iteratee = isSorted;
-	      isSorted = false;
-	    }
-	    if (iteratee != null) iteratee = cb(iteratee, context);
-	    var result = [];
-	    var seen = [];
-	    for (var i = 0, length = getLength(array); i < length; i++) {
-	      var value = array[i],
-	          computed = iteratee ? iteratee(value, i, array) : value;
-	      if (isSorted) {
-	        if (!i || seen !== computed) result.push(value);
-	        seen = computed;
-	      } else if (iteratee) {
-	        if (!_.contains(seen, computed)) {
-	          seen.push(computed);
-	          result.push(value);
-	        }
-	      } else if (!_.contains(result, value)) {
-	        result.push(value);
-	      }
-	    }
-	    return result;
-	  };
-
-	  // Produce an array that contains the union: each distinct element from all of
-	  // the passed-in arrays.
-	  _.union = function() {
-	    return _.uniq(flatten(arguments, true, true));
-	  };
-
-	  // Produce an array that contains every item shared between all the
-	  // passed-in arrays.
-	  _.intersection = function(array) {
-	    var result = [];
-	    var argsLength = arguments.length;
-	    for (var i = 0, length = getLength(array); i < length; i++) {
-	      var item = array[i];
-	      if (_.contains(result, item)) continue;
-	      for (var j = 1; j < argsLength; j++) {
-	        if (!_.contains(arguments[j], item)) break;
-	      }
-	      if (j === argsLength) result.push(item);
-	    }
-	    return result;
-	  };
-
-	  // Take the difference between one array and a number of other arrays.
-	  // Only the elements present in just the first array will remain.
-	  _.difference = function(array) {
-	    var rest = flatten(arguments, true, true, 1);
-	    return _.filter(array, function(value){
-	      return !_.contains(rest, value);
-	    });
-	  };
-
-	  // Zip together multiple lists into a single array -- elements that share
-	  // an index go together.
-	  _.zip = function() {
-	    return _.unzip(arguments);
-	  };
-
-	  // Complement of _.zip. Unzip accepts an array of arrays and groups
-	  // each array's elements on shared indices
-	  _.unzip = function(array) {
-	    var length = array && _.max(array, getLength).length || 0;
-	    var result = Array(length);
-
-	    for (var index = 0; index < length; index++) {
-	      result[index] = _.pluck(array, index);
-	    }
-	    return result;
-	  };
-
-	  // Converts lists into objects. Pass either a single array of `[key, value]`
-	  // pairs, or two parallel arrays of the same length -- one of keys, and one of
-	  // the corresponding values.
-	  _.object = function(list, values) {
-	    var result = {};
-	    for (var i = 0, length = getLength(list); i < length; i++) {
-	      if (values) {
-	        result[list[i]] = values[i];
-	      } else {
-	        result[list[i][0]] = list[i][1];
-	      }
-	    }
-	    return result;
-	  };
-
-	  // Generator function to create the findIndex and findLastIndex functions
-	  function createPredicateIndexFinder(dir) {
-	    return function(array, predicate, context) {
-	      predicate = cb(predicate, context);
-	      var length = getLength(array);
-	      var index = dir > 0 ? 0 : length - 1;
-	      for (; index >= 0 && index < length; index += dir) {
-	        if (predicate(array[index], index, array)) return index;
-	      }
-	      return -1;
-	    };
-	  }
-
-	  // Returns the first index on an array-like that passes a predicate test
-	  _.findIndex = createPredicateIndexFinder(1);
-	  _.findLastIndex = createPredicateIndexFinder(-1);
-
-	  // Use a comparator function to figure out the smallest index at which
-	  // an object should be inserted so as to maintain order. Uses binary search.
-	  _.sortedIndex = function(array, obj, iteratee, context) {
-	    iteratee = cb(iteratee, context, 1);
-	    var value = iteratee(obj);
-	    var low = 0, high = getLength(array);
-	    while (low < high) {
-	      var mid = Math.floor((low + high) / 2);
-	      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
-	    }
-	    return low;
-	  };
-
-	  // Generator function to create the indexOf and lastIndexOf functions
-	  function createIndexFinder(dir, predicateFind, sortedIndex) {
-	    return function(array, item, idx) {
-	      var i = 0, length = getLength(array);
-	      if (typeof idx == 'number') {
-	        if (dir > 0) {
-	            i = idx >= 0 ? idx : Math.max(idx + length, i);
-	        } else {
-	            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
-	        }
-	      } else if (sortedIndex && idx && length) {
-	        idx = sortedIndex(array, item);
-	        return array[idx] === item ? idx : -1;
-	      }
-	      if (item !== item) {
-	        idx = predicateFind(slice.call(array, i, length), _.isNaN);
-	        return idx >= 0 ? idx + i : -1;
-	      }
-	      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
-	        if (array[idx] === item) return idx;
-	      }
-	      return -1;
-	    };
-	  }
-
-	  // Return the position of the first occurrence of an item in an array,
-	  // or -1 if the item is not included in the array.
-	  // If the array is large and already in sort order, pass `true`
-	  // for **isSorted** to use binary search.
-	  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
-	  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
-
-	  // Generate an integer Array containing an arithmetic progression. A port of
-	  // the native Python `range()` function. See
-	  // [the Python documentation](http://docs.python.org/library/functions.html#range).
-	  _.range = function(start, stop, step) {
-	    if (stop == null) {
-	      stop = start || 0;
-	      start = 0;
-	    }
-	    step = step || 1;
-
-	    var length = Math.max(Math.ceil((stop - start) / step), 0);
-	    var range = Array(length);
-
-	    for (var idx = 0; idx < length; idx++, start += step) {
-	      range[idx] = start;
-	    }
-
-	    return range;
-	  };
-
-	  // Function (ahem) Functions
-	  // ------------------
-
-	  // Determines whether to execute a function as a constructor
-	  // or a normal function with the provided arguments
-	  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
-	    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
-	    var self = baseCreate(sourceFunc.prototype);
-	    var result = sourceFunc.apply(self, args);
-	    if (_.isObject(result)) return result;
-	    return self;
-	  };
-
-	  // Create a function bound to a given object (assigning `this`, and arguments,
-	  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
-	  // available.
-	  _.bind = function(func, context) {
-	    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
-	    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
-	    var args = slice.call(arguments, 2);
-	    var bound = function() {
-	      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
-	    };
-	    return bound;
-	  };
-
-	  // Partially apply a function by creating a version that has had some of its
-	  // arguments pre-filled, without changing its dynamic `this` context. _ acts
-	  // as a placeholder, allowing any combination of arguments to be pre-filled.
-	  _.partial = function(func) {
-	    var boundArgs = slice.call(arguments, 1);
-	    var bound = function() {
-	      var position = 0, length = boundArgs.length;
-	      var args = Array(length);
-	      for (var i = 0; i < length; i++) {
-	        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
-	      }
-	      while (position < arguments.length) args.push(arguments[position++]);
-	      return executeBound(func, bound, this, this, args);
-	    };
-	    return bound;
-	  };
-
-	  // Bind a number of an object's methods to that object. Remaining arguments
-	  // are the method names to be bound. Useful for ensuring that all callbacks
-	  // defined on an object belong to it.
-	  _.bindAll = function(obj) {
-	    var i, length = arguments.length, key;
-	    if (length <= 1) throw new Error('bindAll must be passed function names');
-	    for (i = 1; i < length; i++) {
-	      key = arguments[i];
-	      obj[key] = _.bind(obj[key], obj);
-	    }
-	    return obj;
-	  };
-
-	  // Memoize an expensive function by storing its results.
-	  _.memoize = function(func, hasher) {
-	    var memoize = function(key) {
-	      var cache = memoize.cache;
-	      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
-	      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
-	      return cache[address];
-	    };
-	    memoize.cache = {};
-	    return memoize;
-	  };
-
-	  // Delays a function for the given number of milliseconds, and then calls
-	  // it with the arguments supplied.
-	  _.delay = function(func, wait) {
-	    var args = slice.call(arguments, 2);
-	    return setTimeout(function(){
-	      return func.apply(null, args);
-	    }, wait);
-	  };
-
-	  // Defers a function, scheduling it to run after the current call stack has
-	  // cleared.
-	  _.defer = _.partial(_.delay, _, 1);
-
-	  // Returns a function, that, when invoked, will only be triggered at most once
-	  // during a given window of time. Normally, the throttled function will run
-	  // as much as it can, without ever going more than once per `wait` duration;
-	  // but if you'd like to disable the execution on the leading edge, pass
-	  // `{leading: false}`. To disable execution on the trailing edge, ditto.
-	  _.throttle = function(func, wait, options) {
-	    var context, args, result;
-	    var timeout = null;
-	    var previous = 0;
-	    if (!options) options = {};
-	    var later = function() {
-	      previous = options.leading === false ? 0 : _.now();
-	      timeout = null;
-	      result = func.apply(context, args);
-	      if (!timeout) context = args = null;
-	    };
-	    return function() {
-	      var now = _.now();
-	      if (!previous && options.leading === false) previous = now;
-	      var remaining = wait - (now - previous);
-	      context = this;
-	      args = arguments;
-	      if (remaining <= 0 || remaining > wait) {
-	        if (timeout) {
-	          clearTimeout(timeout);
-	          timeout = null;
-	        }
-	        previous = now;
-	        result = func.apply(context, args);
-	        if (!timeout) context = args = null;
-	      } else if (!timeout && options.trailing !== false) {
-	        timeout = setTimeout(later, remaining);
-	      }
-	      return result;
-	    };
-	  };
-
-	  // Returns a function, that, as long as it continues to be invoked, will not
-	  // be triggered. The function will be called after it stops being called for
-	  // N milliseconds. If `immediate` is passed, trigger the function on the
-	  // leading edge, instead of the trailing.
-	  _.debounce = function(func, wait, immediate) {
-	    var timeout, args, context, timestamp, result;
-
-	    var later = function() {
-	      var last = _.now() - timestamp;
-
-	      if (last < wait && last >= 0) {
-	        timeout = setTimeout(later, wait - last);
-	      } else {
-	        timeout = null;
-	        if (!immediate) {
-	          result = func.apply(context, args);
-	          if (!timeout) context = args = null;
-	        }
-	      }
-	    };
-
-	    return function() {
-	      context = this;
-	      args = arguments;
-	      timestamp = _.now();
-	      var callNow = immediate && !timeout;
-	      if (!timeout) timeout = setTimeout(later, wait);
-	      if (callNow) {
-	        result = func.apply(context, args);
-	        context = args = null;
-	      }
-
-	      return result;
-	    };
-	  };
-
-	  // Returns the first function passed as an argument to the second,
-	  // allowing you to adjust arguments, run code before and after, and
-	  // conditionally execute the original function.
-	  _.wrap = function(func, wrapper) {
-	    return _.partial(wrapper, func);
-	  };
-
-	  // Returns a negated version of the passed-in predicate.
-	  _.negate = function(predicate) {
-	    return function() {
-	      return !predicate.apply(this, arguments);
-	    };
-	  };
-
-	  // Returns a function that is the composition of a list of functions, each
-	  // consuming the return value of the function that follows.
-	  _.compose = function() {
-	    var args = arguments;
-	    var start = args.length - 1;
-	    return function() {
-	      var i = start;
-	      var result = args[start].apply(this, arguments);
-	      while (i--) result = args[i].call(this, result);
-	      return result;
-	    };
-	  };
-
-	  // Returns a function that will only be executed on and after the Nth call.
-	  _.after = function(times, func) {
-	    return function() {
-	      if (--times < 1) {
-	        return func.apply(this, arguments);
-	      }
-	    };
-	  };
-
-	  // Returns a function that will only be executed up to (but not including) the Nth call.
-	  _.before = function(times, func) {
-	    var memo;
-	    return function() {
-	      if (--times > 0) {
-	        memo = func.apply(this, arguments);
-	      }
-	      if (times <= 1) func = null;
-	      return memo;
-	    };
-	  };
-
-	  // Returns a function that will be executed at most one time, no matter how
-	  // often you call it. Useful for lazy initialization.
-	  _.once = _.partial(_.before, 2);
-
-	  // Object Functions
-	  // ----------------
-
-	  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
-	  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
-	  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
-	                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
-
-	  function collectNonEnumProps(obj, keys) {
-	    var nonEnumIdx = nonEnumerableProps.length;
-	    var constructor = obj.constructor;
-	    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
-
-	    // Constructor is a special case.
-	    var prop = 'constructor';
-	    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
-
-	    while (nonEnumIdx--) {
-	      prop = nonEnumerableProps[nonEnumIdx];
-	      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
-	        keys.push(prop);
-	      }
-	    }
-	  }
-
-	  // Retrieve the names of an object's own properties.
-	  // Delegates to **ECMAScript 5**'s native `Object.keys`
-	  _.keys = function(obj) {
-	    if (!_.isObject(obj)) return [];
-	    if (nativeKeys) return nativeKeys(obj);
-	    var keys = [];
-	    for (var key in obj) if (_.has(obj, key)) keys.push(key);
-	    // Ahem, IE < 9.
-	    if (hasEnumBug) collectNonEnumProps(obj, keys);
-	    return keys;
-	  };
-
-	  // Retrieve all the property names of an object.
-	  _.allKeys = function(obj) {
-	    if (!_.isObject(obj)) return [];
-	    var keys = [];
-	    for (var key in obj) keys.push(key);
-	    // Ahem, IE < 9.
-	    if (hasEnumBug) collectNonEnumProps(obj, keys);
-	    return keys;
-	  };
-
-	  // Retrieve the values of an object's properties.
-	  _.values = function(obj) {
-	    var keys = _.keys(obj);
-	    var length = keys.length;
-	    var values = Array(length);
-	    for (var i = 0; i < length; i++) {
-	      values[i] = obj[keys[i]];
-	    }
-	    return values;
-	  };
-
-	  // Returns the results of applying the iteratee to each element of the object
-	  // In contrast to _.map it returns an object
-	  _.mapObject = function(obj, iteratee, context) {
-	    iteratee = cb(iteratee, context);
-	    var keys =  _.keys(obj),
-	          length = keys.length,
-	          results = {},
-	          currentKey;
-	      for (var index = 0; index < length; index++) {
-	        currentKey = keys[index];
-	        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
-	      }
-	      return results;
-	  };
-
-	  // Convert an object into a list of `[key, value]` pairs.
-	  _.pairs = function(obj) {
-	    var keys = _.keys(obj);
-	    var length = keys.length;
-	    var pairs = Array(length);
-	    for (var i = 0; i < length; i++) {
-	      pairs[i] = [keys[i], obj[keys[i]]];
-	    }
-	    return pairs;
-	  };
-
-	  // Invert the keys and values of an object. The values must be serializable.
-	  _.invert = function(obj) {
-	    var result = {};
-	    var keys = _.keys(obj);
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      result[obj[keys[i]]] = keys[i];
-	    }
-	    return result;
-	  };
-
-	  // Return a sorted list of the function names available on the object.
-	  // Aliased as `methods`
-	  _.functions = _.methods = function(obj) {
-	    var names = [];
-	    for (var key in obj) {
-	      if (_.isFunction(obj[key])) names.push(key);
-	    }
-	    return names.sort();
-	  };
-
-	  // Extend a given object with all the properties in passed-in object(s).
-	  _.extend = createAssigner(_.allKeys);
-
-	  // Assigns a given object with all the own properties in the passed-in object(s)
-	  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
-	  _.extendOwn = _.assign = createAssigner(_.keys);
-
-	  // Returns the first key on an object that passes a predicate test
-	  _.findKey = function(obj, predicate, context) {
-	    predicate = cb(predicate, context);
-	    var keys = _.keys(obj), key;
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      key = keys[i];
-	      if (predicate(obj[key], key, obj)) return key;
-	    }
-	  };
-
-	  // Return a copy of the object only containing the whitelisted properties.
-	  _.pick = function(object, oiteratee, context) {
-	    var result = {}, obj = object, iteratee, keys;
-	    if (obj == null) return result;
-	    if (_.isFunction(oiteratee)) {
-	      keys = _.allKeys(obj);
-	      iteratee = optimizeCb(oiteratee, context);
-	    } else {
-	      keys = flatten(arguments, false, false, 1);
-	      iteratee = function(value, key, obj) { return key in obj; };
-	      obj = Object(obj);
-	    }
-	    for (var i = 0, length = keys.length; i < length; i++) {
-	      var key = keys[i];
-	      var value = obj[key];
-	      if (iteratee(value, key, obj)) result[key] = value;
-	    }
-	    return result;
-	  };
-
-	   // Return a copy of the object without the blacklisted properties.
-	  _.omit = function(obj, iteratee, context) {
-	    if (_.isFunction(iteratee)) {
-	      iteratee = _.negate(iteratee);
-	    } else {
-	      var keys = _.map(flatten(arguments, false, false, 1), String);
-	      iteratee = function(value, key) {
-	        return !_.contains(keys, key);
-	      };
-	    }
-	    return _.pick(obj, iteratee, context);
-	  };
-
-	  // Fill in a given object with default properties.
-	  _.defaults = createAssigner(_.allKeys, true);
-
-	  // Creates an object that inherits from the given prototype object.
-	  // If additional properties are provided then they will be added to the
-	  // created object.
-	  _.create = function(prototype, props) {
-	    var result = baseCreate(prototype);
-	    if (props) _.extendOwn(result, props);
-	    return result;
-	  };
-
-	  // Create a (shallow-cloned) duplicate of an object.
-	  _.clone = function(obj) {
-	    if (!_.isObject(obj)) return obj;
-	    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
-	  };
-
-	  // Invokes interceptor with the obj, and then returns obj.
-	  // The primary purpose of this method is to "tap into" a method chain, in
-	  // order to perform operations on intermediate results within the chain.
-	  _.tap = function(obj, interceptor) {
-	    interceptor(obj);
-	    return obj;
-	  };
-
-	  // Returns whether an object has a given set of `key:value` pairs.
-	  _.isMatch = function(object, attrs) {
-	    var keys = _.keys(attrs), length = keys.length;
-	    if (object == null) return !length;
-	    var obj = Object(object);
-	    for (var i = 0; i < length; i++) {
-	      var key = keys[i];
-	      if (attrs[key] !== obj[key] || !(key in obj)) return false;
-	    }
-	    return true;
-	  };
-
-
-	  // Internal recursive comparison function for `isEqual`.
-	  var eq = function(a, b, aStack, bStack) {
-	    // Identical objects are equal. `0 === -0`, but they aren't identical.
-	    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
-	    if (a === b) return a !== 0 || 1 / a === 1 / b;
-	    // A strict comparison is necessary because `null == undefined`.
-	    if (a == null || b == null) return a === b;
-	    // Unwrap any wrapped objects.
-	    if (a instanceof _) a = a._wrapped;
-	    if (b instanceof _) b = b._wrapped;
-	    // Compare `[[Class]]` names.
-	    var className = toString.call(a);
-	    if (className !== toString.call(b)) return false;
-	    switch (className) {
-	      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
-	      case '[object RegExp]':
-	      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-	      case '[object String]':
-	        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-	        // equivalent to `new String("5")`.
-	        return '' + a === '' + b;
-	      case '[object Number]':
-	        // `NaN`s are equivalent, but non-reflexive.
-	        // Object(NaN) is equivalent to NaN
-	        if (+a !== +a) return +b !== +b;
-	        // An `egal` comparison is performed for other numeric values.
-	        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-	      case '[object Date]':
-	      case '[object Boolean]':
-	        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
-	        // millisecond representations. Note that invalid dates with millisecond representations
-	        // of `NaN` are not equivalent.
-	        return +a === +b;
-	    }
-
-	    var areArrays = className === '[object Array]';
-	    if (!areArrays) {
-	      if (typeof a != 'object' || typeof b != 'object') return false;
-
-	      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
-	      // from different frames are.
-	      var aCtor = a.constructor, bCtor = b.constructor;
-	      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
-	                               _.isFunction(bCtor) && bCtor instanceof bCtor)
-	                          && ('constructor' in a && 'constructor' in b)) {
-	        return false;
-	      }
-	    }
-	    // Assume equality for cyclic structures. The algorithm for detecting cyclic
-	    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
-
-	    // Initializing stack of traversed objects.
-	    // It's done here since we only need them for objects and arrays comparison.
-	    aStack = aStack || [];
-	    bStack = bStack || [];
-	    var length = aStack.length;
-	    while (length--) {
-	      // Linear search. Performance is inversely proportional to the number of
-	      // unique nested structures.
-	      if (aStack[length] === a) return bStack[length] === b;
-	    }
-
-	    // Add the first object to the stack of traversed objects.
-	    aStack.push(a);
-	    bStack.push(b);
-
-	    // Recursively compare objects and arrays.
-	    if (areArrays) {
-	      // Compare array lengths to determine if a deep comparison is necessary.
-	      length = a.length;
-	      if (length !== b.length) return false;
-	      // Deep compare the contents, ignoring non-numeric properties.
-	      while (length--) {
-	        if (!eq(a[length], b[length], aStack, bStack)) return false;
-	      }
-	    } else {
-	      // Deep compare objects.
-	      var keys = _.keys(a), key;
-	      length = keys.length;
-	      // Ensure that both objects contain the same number of properties before comparing deep equality.
-	      if (_.keys(b).length !== length) return false;
-	      while (length--) {
-	        // Deep compare each member
-	        key = keys[length];
-	        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
-	      }
-	    }
-	    // Remove the first object from the stack of traversed objects.
-	    aStack.pop();
-	    bStack.pop();
-	    return true;
-	  };
-
-	  // Perform a deep comparison to check if two objects are equal.
-	  _.isEqual = function(a, b) {
-	    return eq(a, b);
-	  };
-
-	  // Is a given array, string, or object empty?
-	  // An "empty" object has no enumerable own-properties.
-	  _.isEmpty = function(obj) {
-	    if (obj == null) return true;
-	    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
-	    return _.keys(obj).length === 0;
-	  };
-
-	  // Is a given value a DOM element?
-	  _.isElement = function(obj) {
-	    return !!(obj && obj.nodeType === 1);
-	  };
-
-	  // Is a given value an array?
-	  // Delegates to ECMA5's native Array.isArray
-	  _.isArray = nativeIsArray || function(obj) {
-	    return toString.call(obj) === '[object Array]';
-	  };
-
-	  // Is a given variable an object?
-	  _.isObject = function(obj) {
-	    var type = typeof obj;
-	    return type === 'function' || type === 'object' && !!obj;
-	  };
-
-	  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
-	  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
-	    _['is' + name] = function(obj) {
-	      return toString.call(obj) === '[object ' + name + ']';
-	    };
-	  });
-
-	  // Define a fallback version of the method in browsers (ahem, IE < 9), where
-	  // there isn't any inspectable "Arguments" type.
-	  if (!_.isArguments(arguments)) {
-	    _.isArguments = function(obj) {
-	      return _.has(obj, 'callee');
-	    };
-	  }
-
-	  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
-	  // IE 11 (#1621), and in Safari 8 (#1929).
-	  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
-	    _.isFunction = function(obj) {
-	      return typeof obj == 'function' || false;
-	    };
-	  }
-
-	  // Is a given object a finite number?
-	  _.isFinite = function(obj) {
-	    return isFinite(obj) && !isNaN(parseFloat(obj));
-	  };
-
-	  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
-	  _.isNaN = function(obj) {
-	    return _.isNumber(obj) && obj !== +obj;
-	  };
-
-	  // Is a given value a boolean?
-	  _.isBoolean = function(obj) {
-	    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
-	  };
-
-	  // Is a given value equal to null?
-	  _.isNull = function(obj) {
-	    return obj === null;
-	  };
-
-	  // Is a given variable undefined?
-	  _.isUndefined = function(obj) {
-	    return obj === void 0;
-	  };
-
-	  // Shortcut function for checking if an object has a given property directly
-	  // on itself (in other words, not on a prototype).
-	  _.has = function(obj, key) {
-	    return obj != null && hasOwnProperty.call(obj, key);
-	  };
-
-	  // Utility Functions
-	  // -----------------
-
-	  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
-	  // previous owner. Returns a reference to the Underscore object.
-	  _.noConflict = function() {
-	    root._ = previousUnderscore;
-	    return this;
-	  };
-
-	  // Keep the identity function around for default iteratees.
-	  _.identity = function(value) {
-	    return value;
-	  };
-
-	  // Predicate-generating functions. Often useful outside of Underscore.
-	  _.constant = function(value) {
-	    return function() {
-	      return value;
-	    };
-	  };
-
-	  _.noop = function(){};
-
-	  _.property = property;
-
-	  // Generates a function for a given object that returns a given property.
-	  _.propertyOf = function(obj) {
-	    return obj == null ? function(){} : function(key) {
-	      return obj[key];
-	    };
-	  };
-
-	  // Returns a predicate for checking whether an object has a given set of
-	  // `key:value` pairs.
-	  _.matcher = _.matches = function(attrs) {
-	    attrs = _.extendOwn({}, attrs);
-	    return function(obj) {
-	      return _.isMatch(obj, attrs);
-	    };
-	  };
-
-	  // Run a function **n** times.
-	  _.times = function(n, iteratee, context) {
-	    var accum = Array(Math.max(0, n));
-	    iteratee = optimizeCb(iteratee, context, 1);
-	    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
-	    return accum;
-	  };
-
-	  // Return a random integer between min and max (inclusive).
-	  _.random = function(min, max) {
-	    if (max == null) {
-	      max = min;
-	      min = 0;
-	    }
-	    return min + Math.floor(Math.random() * (max - min + 1));
-	  };
-
-	  // A (possibly faster) way to get the current timestamp as an integer.
-	  _.now = Date.now || function() {
-	    return new Date().getTime();
-	  };
-
-	   // List of HTML entities for escaping.
-	  var escapeMap = {
-	    '&': '&amp;',
-	    '<': '&lt;',
-	    '>': '&gt;',
-	    '"': '&quot;',
-	    "'": '&#x27;',
-	    '`': '&#x60;'
-	  };
-	  var unescapeMap = _.invert(escapeMap);
-
-	  // Functions for escaping and unescaping strings to/from HTML interpolation.
-	  var createEscaper = function(map) {
-	    var escaper = function(match) {
-	      return map[match];
-	    };
-	    // Regexes for identifying a key that needs to be escaped
-	    var source = '(?:' + _.keys(map).join('|') + ')';
-	    var testRegexp = RegExp(source);
-	    var replaceRegexp = RegExp(source, 'g');
-	    return function(string) {
-	      string = string == null ? '' : '' + string;
-	      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
-	    };
-	  };
-	  _.escape = createEscaper(escapeMap);
-	  _.unescape = createEscaper(unescapeMap);
-
-	  // If the value of the named `property` is a function then invoke it with the
-	  // `object` as context; otherwise, return it.
-	  _.result = function(object, property, fallback) {
-	    var value = object == null ? void 0 : object[property];
-	    if (value === void 0) {
-	      value = fallback;
-	    }
-	    return _.isFunction(value) ? value.call(object) : value;
-	  };
-
-	  // Generate a unique integer id (unique within the entire client session).
-	  // Useful for temporary DOM ids.
-	  var idCounter = 0;
-	  _.uniqueId = function(prefix) {
-	    var id = ++idCounter + '';
-	    return prefix ? prefix + id : id;
-	  };
-
-	  // By default, Underscore uses ERB-style template delimiters, change the
-	  // following template settings to use alternative delimiters.
-	  _.templateSettings = {
-	    evaluate    : /<%([\s\S]+?)%>/g,
-	    interpolate : /<%=([\s\S]+?)%>/g,
-	    escape      : /<%-([\s\S]+?)%>/g
-	  };
-
-	  // When customizing `templateSettings`, if you don't want to define an
-	  // interpolation, evaluation or escaping regex, we need one that is
-	  // guaranteed not to match.
-	  var noMatch = /(.)^/;
-
-	  // Certain characters need to be escaped so that they can be put into a
-	  // string literal.
-	  var escapes = {
-	    "'":      "'",
-	    '\\':     '\\',
-	    '\r':     'r',
-	    '\n':     'n',
-	    '\u2028': 'u2028',
-	    '\u2029': 'u2029'
-	  };
-
-	  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
-
-	  var escapeChar = function(match) {
-	    return '\\' + escapes[match];
-	  };
-
-	  // JavaScript micro-templating, similar to John Resig's implementation.
-	  // Underscore templating handles arbitrary delimiters, preserves whitespace,
-	  // and correctly escapes quotes within interpolated code.
-	  // NB: `oldSettings` only exists for backwards compatibility.
-	  _.template = function(text, settings, oldSettings) {
-	    if (!settings && oldSettings) settings = oldSettings;
-	    settings = _.defaults({}, settings, _.templateSettings);
-
-	    // Combine delimiters into one regular expression via alternation.
-	    var matcher = RegExp([
-	      (settings.escape || noMatch).source,
-	      (settings.interpolate || noMatch).source,
-	      (settings.evaluate || noMatch).source
-	    ].join('|') + '|$', 'g');
-
-	    // Compile the template source, escaping string literals appropriately.
-	    var index = 0;
-	    var source = "__p+='";
-	    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
-	      source += text.slice(index, offset).replace(escaper, escapeChar);
-	      index = offset + match.length;
-
-	      if (escape) {
-	        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
-	      } else if (interpolate) {
-	        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
-	      } else if (evaluate) {
-	        source += "';\n" + evaluate + "\n__p+='";
-	      }
-
-	      // Adobe VMs need the match returned to produce the correct offest.
-	      return match;
-	    });
-	    source += "';\n";
-
-	    // If a variable is not specified, place data values in local scope.
-	    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
-
-	    source = "var __t,__p='',__j=Array.prototype.join," +
-	      "print=function(){__p+=__j.call(arguments,'');};\n" +
-	      source + 'return __p;\n';
-
-	    try {
-	      var render = new Function(settings.variable || 'obj', '_', source);
-	    } catch (e) {
-	      e.source = source;
-	      throw e;
-	    }
-
-	    var template = function(data) {
-	      return render.call(this, data, _);
-	    };
-
-	    // Provide the compiled source as a convenience for precompilation.
-	    var argument = settings.variable || 'obj';
-	    template.source = 'function(' + argument + '){\n' + source + '}';
-
-	    return template;
-	  };
-
-	  // Add a "chain" function. Start chaining a wrapped Underscore object.
-	  _.chain = function(obj) {
-	    var instance = _(obj);
-	    instance._chain = true;
-	    return instance;
-	  };
-
-	  // OOP
-	  // ---------------
-	  // If Underscore is called as a function, it returns a wrapped object that
-	  // can be used OO-style. This wrapper holds altered versions of all the
-	  // underscore functions. Wrapped objects may be chained.
-
-	  // Helper function to continue chaining intermediate results.
-	  var result = function(instance, obj) {
-	    return instance._chain ? _(obj).chain() : obj;
-	  };
-
-	  // Add your own custom functions to the Underscore object.
-	  _.mixin = function(obj) {
-	    _.each(_.functions(obj), function(name) {
-	      var func = _[name] = obj[name];
-	      _.prototype[name] = function() {
-	        var args = [this._wrapped];
-	        push.apply(args, arguments);
-	        return result(this, func.apply(_, args));
-	      };
-	    });
-	  };
-
-	  // Add all of the Underscore functions to the wrapper object.
-	  _.mixin(_);
-
-	  // Add all mutator Array functions to the wrapper.
-	  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
-	    var method = ArrayProto[name];
-	    _.prototype[name] = function() {
-	      var obj = this._wrapped;
-	      method.apply(obj, arguments);
-	      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
-	      return result(this, obj);
-	    };
-	  });
-
-	  // Add all accessor Array functions to the wrapper.
-	  _.each(['concat', 'join', 'slice'], function(name) {
-	    var method = ArrayProto[name];
-	    _.prototype[name] = function() {
-	      return result(this, method.apply(this._wrapped, arguments));
-	    };
-	  });
-
-	  // Extracts the result from a wrapped and chained object.
-	  _.prototype.value = function() {
-	    return this._wrapped;
-	  };
-
-	  // Provide unwrapping proxy for some methods used in engine operations
-	  // such as arithmetic and JSON stringification.
-	  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
-
-	  _.prototype.toString = function() {
-	    return '' + this._wrapped;
-	  };
-
-	  // AMD registration happens at the end for compatibility with AMD loaders
-	  // that may not enforce next-turn semantics on modules. Even though general
-	  // practice for AMD registration is to be anonymous, underscore registers
-	  // as a named module because, like jQuery, it is a base library that is
-	  // popular enough to be bundled in a third party lib, but not be part of
-	  // an AMD load request. Those cases could generate an error when an
-	  // anonymous define() is called outside of a loader request.
-	  if (true) {
-	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
-	      return _;
-	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-	  }
-	}.call(this));
-
-
-/***/ }),
-/* 82 */
+/* 79 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment;
 
 /***/ }),
-/* 83 */
+/* 80 */
+/***/ (function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	/**
+	 * @file 数据共享类
+	 * Created by xuziqian on 2017/8/4.
+	 */
+	exports.default = {
+	    _cache: {},
+	    set: function set(key, data) {
+	        this._cache[key] = data;
+	    },
+	    get: function get(key, data) {
+	        return this._cache[key];
+	    },
+	    del: function del(key) {
+	        delete this._cache[key];
+	    }
+	};
+
+/***/ }),
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5821,19 +4231,19 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _utils = __webpack_require__(80);
+	var _utils = __webpack_require__(78);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _config2 = __webpack_require__(84);
+	var _config2 = __webpack_require__(82);
 
 	var _config3 = _interopRequireDefault(_config2);
 
-	var _ajaxData = __webpack_require__(88);
+	var _BaseCache = __webpack_require__(83);
 
-	var _ajaxData2 = _interopRequireDefault(_ajaxData);
+	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
-	var _reqwest = __webpack_require__(89);
+	var _reqwest = __webpack_require__(85);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
@@ -5855,38 +4265,21 @@
 	                                                                                                                                                                                                     * **/
 
 
+	var AjaxCache = new _BaseCache2.default('_uf-ajax-cache', {});
+
 	var errorMsg = {
 	    top: 24,
-	    message: '请求出错',
+	    message: '请求出错:',
 	    description: '请求数据时出错，请稍后重试。',
 	    duration: 3.5
 	};
 
-	// 获取错误信息
-	function getErrorMsg(error) {
-	    var message = void 0;
-	    try {
-	        if (_utils2.default.typeof(error, 'string')) {
-	            message = error;
-	        } else if (error.message) {
-	            message = error.message;
-	            if (_utils2.default.typeof(message, 'array')) {
-	                message = message.join('; ');
-	            }
-	        } else {
-	            message = JSON.stringify(error);
-	        }
-	    } catch (e) {
-	        console.warn(e);
-	    }
-	    return message;
-	}
-
 	// 请求出错的处理函数
-	function errorMessage(error) {
-	    var message = getErrorMsg(error);
-	    _antd.notification.error(Object.assign({}, errorMsg, !message ? null : {
-	        description: message
+	function errorMessage() {
+	    var error = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	    _antd.notification.error(Object.assign({}, errorMsg, !error.message ? null : {
+	        description: error.message
 	    }));
 	}
 
@@ -5909,7 +4302,7 @@
 	function setCacheData(config, res) {
 	    var key = getCacheKey(config);
 	    if (key) {
-	        _ajaxData2.default.set(key, _utils2.default.clone(res));
+	        AjaxCache.set(key, _utils2.default.clone(res));
 	    }
 	}
 
@@ -5917,7 +4310,7 @@
 	function getCacheData(config) {
 	    var key = getCacheKey(config);
 	    if (key) {
-	        return _ajaxData2.default.get(key);
+	        return AjaxCache.get(key);
 	    }
 	    return null;
 	}
@@ -5930,12 +4323,9 @@
 	        // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
 	        var cacheData = getCacheData(config);
 	        if (cacheData) {
-	            // 异步
-	            setTimeout(function () {
-	                var _config;
+	            var _config;
 
-	                return (_config = config).success.apply(_config, _toConsumableArray(cacheData));
-	            }, 0);
+	            (_config = config).success.apply(_config, _toConsumableArray(cacheData));
 	            return;
 	        }
 	        // 否则继续执行。调用success函数之前，增加缓存当前全部参数的逻辑
@@ -5949,11 +4339,8 @@
 	            oSuccess.apply(undefined, params);
 	        };
 	    }
-	    // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-	    var errorHandler = !config.error ? function () {} : config.error || errorMessage;
-	    if (config.error === true) {
-	        errorHandler = errorMessage;
-	    }
+	    // 如果是null，则不执行错误处理
+	    var errorHandler = config.error === null ? function () {} : config.error || errorMessage;
 	    // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
 	    var onchange = config.onchange || function () {
 	        return;
@@ -5982,19 +4369,17 @@
 	            // 兼容 message/msg、status/code
 	            res.status = res.status || res.code || 0;
 	            res.message = res.message || res.msg;
+	            // res.msg = res.message;
+	            if (typeof res.message === 'array') {
+	                res.message = res.message.join('; ');
+	            }
 	            res.msg = res.message;
 	            if (+res.status === 0) {
 	                successHandler(res.data, res);
 	            } else {
 	                // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-	                var _result = errorHandler(res);
-	                // handler有返回值，则执行默认错误提示
-	                if (_result) {
-	                    if (_result === true) {
-	                        errorMessage(err);
-	                    } else {
-	                        errorMessage(_result);
-	                    }
+	                if (errorHandler(res) === true) {
+	                    errorMessage(res);
 	                }
 	            }
 	            onchange(false, 'success');
@@ -6007,13 +4392,9 @@
 	            } else {
 	                result = errorHandler(err);
 	            }
-	            // handler有返回值，则执行默认错误提示
-	            if (result) {
-	                if (result === true) {
-	                    errorMessage(err);
-	                } else {
-	                    errorMessage(result);
-	                }
+	            // handler返回true，则执行默认错误提示
+	            if (result === true) {
+	                errorMessage(err);
 	            }
 	            onchange(false, 'error');
 	        }
@@ -6056,7 +4437,7 @@
 	exports.default = request;
 
 /***/ }),
-/* 84 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6069,15 +4450,15 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(85);
+	var _BaseCache2 = __webpack_require__(83);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(86);
+	var _default = __webpack_require__(84);
 
 	var _default2 = _interopRequireDefault(_default);
 
-	var _utils = __webpack_require__(80);
+	var _utils = __webpack_require__(78);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -6098,13 +4479,35 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
+	var _key = '_uf-config';
+
+	var _cache = {
+	    // 模块引入相关配置
+	    modules: {
+	        // 加载模块时是否展示loading
+	        showLoading: false
+	    },
+	    // 全局系统配置
+	    global: {
+	        // 设置文档域 document.domain，默认为原始值
+	        domain: document.domain,
+	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
+	        ajax: {}
+	    },
+	    // 组件默认配置
+	    components: _default2.default,
+	    // 权限点，用户有权限的权限点列表
+	    // key（权限点） => value（boolen/object）
+	    authority: {}
+	};
+
 	var Config = function (_BaseCache) {
 	    _inherits(Config, _BaseCache);
 
 	    function Config() {
 	        _classCallCheck(this, Config);
 
-	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).call(this, _key, _cache));
 	    }
 
 	    _createClass(Config, [{
@@ -6122,10 +4525,10 @@
 	    return Config;
 	}(_BaseCache3.default);
 
-	exports.default = new Config(_default2.default);
+	exports.default = new Config();
 
 /***/ }),
-/* 85 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6142,7 +4545,11 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
 
-	var _utils = __webpack_require__(80);
+	var _cache2 = __webpack_require__(80);
+
+	var _cache3 = _interopRequireDefault(_cache2);
+
+	var _utils = __webpack_require__(78);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -6152,13 +4559,21 @@
 
 	var BaseCache = function () {
 	    // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
-	    function BaseCache(_cache) {
+	    function BaseCache(_key, _cache) {
 	        _classCallCheck(this, BaseCache);
 
+	        this._key = _key || '_uf-default';
 	        this._cache = _cache || {};
+	        this.__init();
 	    }
 
 	    _createClass(BaseCache, [{
+	        key: '__init',
+	        value: function __init() {
+	            // 统一放到 Cache 里管理
+	            _cache3.default.set(this._key, this._cache);
+	        }
+	    }, {
 	        key: 'get',
 	        value: function get(names) {
 	            // 如果传递了name，则只去config中查找name字段，否则返回全部
@@ -6227,47 +4642,7 @@
 	;
 
 /***/ }),
-/* 86 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _components = __webpack_require__(87);
-
-	var _components2 = _interopRequireDefault(_components);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	    // 模块引入相关配置
-	    modules: {
-	        // 加载模块时是否展示loading
-	        showLoading: false
-	    },
-	    // 全局系统配置
-	    global: {
-	        // 设置文档域 document.domain，默认为原始值
-	        domain: document.domain,
-	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
-	        ajax: {}
-	    },
-	    // 组件默认配置
-	    components: _components2.default,
-	    // 权限点，用户有权限的权限点列表
-	    // key（权限点） => value（boolen/object）
-	    authority: {}
-	}; /**
-	    * @file 全局默认配置
-	    * @author liuzechun
-	    * Created Date: 2018-01-30 10:55:45
-	    */
-
-/***/ }),
-/* 87 */
+/* 84 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6349,35 +4724,13 @@
 	}), _router$loading$ifram);
 
 /***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _BaseCache = __webpack_require__(85);
-
-	var _BaseCache2 = _interopRequireDefault(_BaseCache);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = new _BaseCache2.default(); /**
-	                                              * @file ajax 数据缓存
-	                                              * @author liuzechun
-	                                              * Created Date: 2017-10-24 01:40:57
-	                                              */
-
-/***/ }),
-/* 89 */
+/* 85 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.reqwest;
 
 /***/ }),
-/* 90 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6396,11 +4749,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6476,7 +4829,7 @@
 	exports.default = DataEntry;
 
 /***/ }),
-/* 91 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6497,9 +4850,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6517,12 +4872,17 @@
 	    function Antd(props) {
 	        _classCallCheck(this, Antd);
 
-	        // __props 需要过滤的属性
-	        // this._filter.push();
-	        // 开放给用户使用的 Api
+	        // 用于设置当前壳子调用的antd组件类，需在最终壳子上设置
+	        // this._class = null;
+	        // 声明异步获取的数据放在哪个字段，默认为 children ，即默认把返回的内容放到子组件中
+	        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
 	        var _this = _possibleConstructorReturn(this, (Antd.__proto__ || Object.getPrototypeOf(Antd)).call(this, props));
 
-	        _this._openApi.push('trigger');
+	        _this._asyncAttr = 'children';
+	        // __props 需要过滤的属性
+	        _this._filter.push('source', 'sourceHandler', 'sourceTarget', 'sourceMethod', 'sourceParams', 'sourceAutoLoad', 'sourceSuccess');
+	        // 开放给用户使用的 Api
+	        _this._openApi.push('trigger', 'refresh');
 	        // 壳子调用antd组件，调用的组件的实例存储在_component中
 	        _this._component = null;
 	        // 受控属性名，供子类设置。如果子类设置了此属性，则会绑定change事件，同时也受控于用户传入的此值。见 _handleControlled
@@ -6547,6 +4907,13 @@
 	            } else {
 	                console.warn('there is no event named: ' + event);
 	            }
+	        }
+	        // 刷新异步数据的接口
+
+	    }, {
+	        key: 'refresh',
+	        value: function refresh() {
+	            this._handleAsyncData();
 	        }
 
 	        /* 供子组件调用方法 ***********************************************************************/
@@ -6575,6 +4942,65 @@
 	            }, this.__controlled) : null;
 	            // 受控组件默认处理逻辑
 	            this._handleControlled();
+	        }
+	    }, {
+	        key: '_componentWillReceiveProps',
+	        value: function _componentWillReceiveProps(nextProps, currentProps) {
+	            // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
+	            var sourceParamsChanged = false;
+	            if (nextProps.sourceParams !== this.__filtered.sourceParams) {
+	                sourceParamsChanged = true;
+	            }
+	            _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentWillReceiveProps', this) && _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentWillReceiveProps', this).call(this, nextProps, currentProps);
+	            // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
+	            if (sourceParamsChanged) {
+	                this._handleAsyncData();
+	            }
+	        }
+
+	        // 组件渲染完成后，执行逻辑
+
+	    }, {
+	        key: '_componentDidMount',
+	        value: function _componentDidMount() {
+	            var _get3;
+
+	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                params[_key3] = arguments[_key3];
+	            }
+
+	            _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentDidMount', this) && (_get3 = _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_componentDidMount', this)).call.apply(_get3, [this].concat(params));
+	            if (this.__filtered.sourceAutoLoad === undefined || this.__filtered.sourceAutoLoad) {
+	                this._handleAsyncData();
+	            }
+	        }
+
+	        // 自动异步获取数据
+
+	    }, {
+	        key: '_handleAsyncData',
+	        value: function _handleAsyncData() {
+	            var _this3 = this;
+
+	            if (this.__filtered.source) {
+	                this.__ajax({
+	                    url: this.__filtered.source,
+	                    method: this.__filtered.sourceMethod || 'get',
+	                    data: this.__filtered.sourceParams,
+	                    success: function success(data, res) {
+	                        // 如果用户定义了数据处理函数，先对数据进行处理
+	                        if (_this3.__filtered.sourceHandler) {
+	                            data = _this3.__filtered.sourceHandler(data, res, _this3);
+	                        }
+	                        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
+	                        var target = _this3.__filtered.sourceTarget || _this3._asyncAttr;
+	                        target = target === 'content' ? 'children' : target;
+	                        _this3.__setProps(_defineProperty({}, target, data));
+	                        // 成功后的额外操作
+	                        _this3._sourceSuccess && _this3._sourceSuccess(data);
+	                    }
+	                });
+	            }
 	        }
 
 	        // 受控属性绑定change事件，同时也受控于用户传入的值
@@ -6618,8 +5044,8 @@
 	                paramsIndex = _controlled2.paramsIndex;
 
 	            if (key) {
-	                for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                    params[_key3] = arguments[_key3];
+	                for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                    params[_key4] = arguments[_key4];
 	                }
 
 	                this.__props[key] = params[paramsIndex];
@@ -6629,23 +5055,22 @@
 	    }]);
 
 	    return Antd;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Antd;
 
 /***/ }),
-/* 92 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(93).default,
-	    BaseConf: __webpack_require__(93)
+	    BaseComponent: __webpack_require__(89).default
 	};
 
 /***/ }),
-/* 93 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6653,7 +5078,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.FilterProps = exports.Uncomplex = exports.ForUserApi = exports.PreventCoverageMap = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -6661,21 +5085,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(4);
-
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _tools = __webpack_require__(73);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toArray(arr) { return Array.isArray(arr) ? arr : Array.from(arr); }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -6689,30 +5109,16 @@
 
 	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
-	var PreventCoverageMap = exports.PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
+	var PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
 
-	// // 提供给用户的和生命周期相关的函数，命名更加语义化
-	var ForUserApi = exports.ForUserApi = {
+	// 提供给用户的和生命周期相关的函数，命名更加语义化
+	var ForUserApi = {
 	    beforeCreate: 'componentWillMount',
 	    afterCreate: 'componentDidMount',
 	    beforeRender: 'componentWillMount,componentWillUpdate',
 	    afterRender: 'componentDidMount,componentDidUpdate',
 	    beforeDestroy: 'componentWillUnmount'
 	};
-
-	// 不复杂的属性，即无需merge处理直接覆盖的属性
-	var Uncomplex = exports.Uncomplex = ['params', 'sourceParams', 'data', 'options'];
-
-	// // 转化为__props时需过滤的属性 - 用户配置的特殊功能的属性
-	var FilterProps = exports.FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
-	// 复用配置模板。
-	'configTpl',
-	// source 系列函数
-	'source', 'sourceHandler', 'sourceTarget', 'sourceMethod', 'sourceParams', 'sourceAutoLoad', 'sourceSuccess',
-	// 组件额外动作及组件关联相关属性
-	'actionType', 'actionTrigger', 'actionTarget', 'actionParams',
-	// 提交/发送数据系列参数
-	'api', 'method', 'paramsHandler']);
 
 	// 因为组件很少使用 props 和 state，某些时候需要组件刷新的。例如面包屑组件
 
@@ -6731,20 +5137,22 @@
 	        _this.cacheName = _this._getTransmitName();
 	        // _factory 是最初 Factory 的 this
 	        _this._factory = _this.props._factory;
-	        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
-	        _this._asyncAttr = 'children';
 	        // 供用户使用，例如获取路由信息/参数等
 	        _this._root = _this._factory;
 	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
 	        _this._injectEvent = [];
 	        // 转化为 __props 时需过滤的属性
-	        _this._filter = _utils.Utils.copy(FilterProps).concat([
+	        _this._filter = Object.keys(ForUserApi).concat([
 	        // 一些隐藏的属性
-	        '__cache', '__type', '__key', '_factory']);
+	        '__cache', '__type', '__key', '_factory',
+	        // 复用配置模板。
+	        'configTpl',
+	        // 组件额外动作及组件关联相关属性
+	        'actionType', 'actionTrigger', 'actionTarget', 'actionParams']);
 	        // 不复杂的属性，即无需merge处理直接覆盖的属性
-	        _this._uncomplex = _utils.Utils.copy(Uncomplex);
+	        _this._uncomplex = ['params', 'sourceParams', 'data', 'options'];
 	        // 开放给用户使用的 Api，需处理下
-	        _this._openApi = ['set', 'get', 'show', 'hide', 'refresh'];
+	        _this._openApi = ['set', 'get', 'show', 'hide'];
 	        // 存储一些程序执行过程中的数据
 	        _this._tempData = {};
 	        // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
@@ -6759,13 +5167,6 @@
 	        _this.__filtered = {};
 	        return _this;
 	    }
-	    // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
-	    // setState(...params) {
-	    //     if (!this.isMounted()) {
-	    //         return false;
-	    //     }
-	    //     super.setState.call(this, ...params);
-	    // }
 
 	    /* 暴露给用户的方法 ***********************************************************************/
 
@@ -6779,7 +5180,7 @@
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
 	            var props = this.__mergeProps({}, this.__props, options);
-	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
+	            // cwr一定存在，且cwr中会执行_initProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
 	            return this;
@@ -6882,12 +5283,10 @@
 	    }, {
 	        key: '__setProps',
 	        value: function __setProps(nextProps, follow) {
-	            // 去除掉多余的属性（解决报warning问题）
-	            var __props = this._filterHandler(nextProps);
 	            // 直接更新 this.__props 即可，
 	            // this.__mergeProps(this.__props, nextProps);
 	            this.__prevProps = this.__props;
-	            this.__props = this.__mergeProps({}, this.__props, __props);
+	            this.__props = this.__mergeProps({}, this.__props, nextProps);
 
 	            if (follow !== false) {
 	                this.forceUpdate();
@@ -7004,8 +5403,8 @@
 
 	        // 组件的 componentWillReceiveProps 中注入的处理逻辑
 	        // 有两种情况会调用cwr：
-	        //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
-	        //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
+	        //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用_initProps
+	        //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用_initProps
 
 	    }, {
 	        key: '_componentWillReceiveProps',
@@ -7013,14 +5412,8 @@
 	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
 	            currentProps = !_utils.Utils.empty(currentProps) ? currentProps : this.props;
 	            if (this.__shouldUpdate(currentProps, nextProps)) {
-	                // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-	                var reGetData = nextProps.sourceParams && !_utils.Utils.equals(nextProps.sourceParams, this.__filtered.sourceParams);
-	                // 重新设置 __props
-	                this.__setProps(nextProps);
-	                // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
-	                if (reGetData) {
-	                    this._handleAsyncData();
-	                }
+	                // 是否把_initProps的调用放到render中更好一点？（会有个问题：使用set函数重新设置props时，会有额外的重复调用）
+	                this._initProps(nextProps);
 	            }
 	        }
 
@@ -7030,13 +5423,9 @@
 	        key: '_componentDidMount',
 	        value: function _componentDidMount() {
 	            // 组件加载完成后再中心共享一次组件，保证渲染完成后缓存中一定存在。
-	            //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，再销毁原来组件，再把新组件渲染（未验证...）
+	            //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，在销毁原来组件，再把新组件渲染（未验证...）
 	            //   如果如上面的流程，则会导致新组件写入缓存中后有被老组件销毁掉，最终缓存中不再有新组件
 	            this._transmitComponent();
-	            // 如果设置了自动获取异步数据，则执行逻辑
-	            if (this.__filtered.sourceAutoLoad === undefined || this.__filtered.sourceAutoLoad) {
-	                this._handleAsyncData();
-	            }
 	        }
 
 	        // componentWillUnmount 中注入的处理逻辑
@@ -7048,35 +5437,7 @@
 	            this._unsetTransmitComponent();
 	        }
 
-	        // 自动异步获取数据
-
-	    }, {
-	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {
-	            var _this2 = this;
-
-	            if (this.__filtered.source) {
-	                this.__ajax({
-	                    url: this.__filtered.source,
-	                    method: this.__filtered.sourceMethod || 'get',
-	                    data: this.__filtered.sourceParams,
-	                    success: function success(data, res) {
-	                        // 如果用户定义了数据处理函数，先对数据进行处理
-	                        if (_this2.__filtered.sourceHandler) {
-	                            data = _this2.__filtered.sourceHandler(data, res, _this2);
-	                        }
-	                        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
-	                        var target = _this2.__filtered.sourceTarget || _this2._asyncAttr;
-	                        target = target === 'content' ? 'children' : target;
-	                        _this2.__setProps(_defineProperty({}, target, data));
-	                        // 成功后的额外操作
-	                        _this2._sourceSuccess && _this2._sourceSuccess(data);
-	                    }
-	                });
-	            }
-	        }
-
-	        // 过滤 props，生成 __props 和 __filtered
+	        // 过滤 props，生成 __props 和 __filterProps
 
 	    }, {
 	        key: '_filterHandler',
@@ -7098,12 +5459,19 @@
 
 	    }, {
 	        key: '_initProps',
-	        value: function _initProps() {
-	            // 先把 this.__props 中初始化的多余属性过滤掉
-	            // 在这里执行是为了方便子类中__init之前在去更改__props
-	            this.__props = this._filterHandler(this.__props);
-	            // 然后把组件原props作为新值传给__setProps做合并
-	            this.__setProps(this.props, false);
+	        value: function _initProps(props) {
+	            // this.__prevProps = this.__props;
+	            // 去除掉多余的属性（解决报warning问题）
+	            var __props = this._filterHandler(props || this.props);
+	            // 在这里把新值和旧值进行merge，使得支持开发组件时通过直接在构造函数中给this.__props赋值来定义一些默认参数，可简化一些开发工作
+	            // （见构造函数中 this.__props 用法【可参考 Iframe、Modal 】）
+	            // this.__props =  this.__mergeProps({}, this.__props, nextProps);
+	            this.__setProps(__props, !!props);
+
+	            // __init函数中调用的时候不会传props，也不需要刷新组件
+	            // if (props) {
+	            //     this.forceUpdate();
+	            // }
 	        }
 
 	        // 获取key的名称
@@ -7280,40 +5648,40 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this3 = this;
+	            var _this2 = this;
 
 	            var _loop = function _loop(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this3.__filtered[f];
+	                var inject = _this2.__filtered[f];
 	                if (inject) {
-	                    var _iteratorNormalCompletion5 = true;
-	                    var _didIteratorError5 = false;
-	                    var _iteratorError5 = undefined;
+	                    var _iteratorNormalCompletion4 = true;
+	                    var _didIteratorError4 = false;
+	                    var _iteratorError4 = undefined;
 
 	                    try {
-	                        for (var _iterator5 = ForUserApi[f].split(',')[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-	                            var v = _step5.value;
+	                        for (var _iterator4 = ForUserApi[f].split(',')[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                            var v = _step4.value;
 
-	                            _this3._inject(_this3, v, function () {
-	                                var result = inject.call(_this3, _this3.__props, _this3);
+	                            _this2._inject(_this2, v, function () {
+	                                var result = inject.call(_this2, _this2.__props, _this2);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this3.__props = _this3._filterHandler(result);
+	                                    _this2.__props = _this2._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
 	                    } catch (err) {
-	                        _didIteratorError5 = true;
-	                        _iteratorError5 = err;
+	                        _didIteratorError4 = true;
+	                        _iteratorError4 = err;
 	                    } finally {
 	                        try {
-	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-	                                _iterator5.return();
+	                            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                                _iterator4.return();
 	                            }
 	                        } finally {
-	                            if (_didIteratorError5) {
-	                                throw _iteratorError5;
+	                            if (_didIteratorError4) {
+	                                throw _iteratorError4;
 	                            }
 	                        }
 	                    }
@@ -7323,35 +5691,6 @@
 	            for (var f in ForUserApi) {
 	                _loop(f);
 	            }
-	            // 支持高级用户（专业前端）直接使用原始的生命周期函数
-	            var _iteratorNormalCompletion4 = true;
-	            var _didIteratorError4 = false;
-	            var _iteratorError4 = undefined;
-
-	            try {
-	                for (var _iterator4 = PreventCoverageMap[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	                    var v = _step4.value;
-
-	                    // 如果父组件中有等待注入的函数
-	                    var _inject2 = this.__filtered['_' + v];
-	                    if (_inject2) {
-	                        this._inject(this, v, _inject2);
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError4 = true;
-	                _iteratorError4 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	                        _iterator4.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError4) {
-	                        throw _iteratorError4;
-	                    }
-	                }
-	            }
 	        }
 
 	        // 组件额外动作处理：actionType
@@ -7359,7 +5698,7 @@
 	    }, {
 	        key: '_handleActionType',
 	        value: function _handleActionType() {
-	            var _this4 = this;
+	            var _this3 = this;
 
 	            if (this.__filtered['actionType']) {
 	                var _filtered = this.__filtered,
@@ -7377,10 +5716,6 @@
 	                    actionTargetStr = actionTarget.apply(undefined, _toConsumableArray(params));
 	                }
 	                switch (actionType) {
-	                    // 动作类型为链接跳转
-	                    case 'link':
-	                        _utils.Utils.goto(actionTargetStr);
-	                        break;
 	                    // 动作类型为：调用
 	                    case 'call':
 	                        this._inject(this.__props, actionTrigger, function () {
@@ -7389,30 +5724,30 @@
 	                                targetName = _actionTargetStr$spli2[0],
 	                                targetFunction = _actionTargetStr$spli2.slice(1);
 
-	                            var target = _this4.__getComponent(targetName);
+	                            var target = _this3.__getComponent(targetName);
 	                            if (target) {
 	                                var func = target;
-	                                var _iteratorNormalCompletion6 = true;
-	                                var _didIteratorError6 = false;
-	                                var _iteratorError6 = undefined;
+	                                var _iteratorNormalCompletion5 = true;
+	                                var _didIteratorError5 = false;
+	                                var _iteratorError5 = undefined;
 
 	                                try {
-	                                    for (var _iterator6 = targetFunction[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	                                        var v = _step6.value;
+	                                    for (var _iterator5 = targetFunction[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                                        var v = _step5.value;
 
 	                                        func[v] && (func = func[v]);
 	                                    }
 	                                } catch (err) {
-	                                    _didIteratorError6 = true;
-	                                    _iteratorError6 = err;
+	                                    _didIteratorError5 = true;
+	                                    _iteratorError5 = err;
 	                                } finally {
 	                                    try {
-	                                        if (!_iteratorNormalCompletion6 && _iterator6.return) {
-	                                            _iterator6.return();
+	                                        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                                            _iterator5.return();
 	                                        }
 	                                    } finally {
-	                                        if (_didIteratorError6) {
-	                                            throw _iteratorError6;
+	                                        if (_didIteratorError5) {
+	                                            throw _iteratorError5;
 	                                        }
 	                                    }
 	                                }
@@ -7421,47 +5756,12 @@
 	                            }
 	                        }, true);
 	                        break;
-	                    // 提交数据
-	                    case 'ajax':
-	                        this._inject(this.__props, actionTrigger, this._handleApiProps, true);
+	                    case 'link':
+	                        _utils.Utils.goto(actionTargetStr);
 	                        break;
 	                    default:
 	                        break;
 	                }
-	            }
-	        }
-	    }, {
-	        key: '_handleApiProps',
-	        value: function _handleApiProps() {
-	            var _this5 = this;
-
-	            var _filtered2 = this.__filtered,
-	                api = _filtered2.api,
-	                _filtered2$method = _filtered2.method,
-	                method = _filtered2$method === undefined ? 'post' : _filtered2$method,
-	                actionParams = _filtered2.actionParams,
-	                paramsHandler = _filtered2.paramsHandler;
-
-	            if (api) {
-	                var _params = actionParams;
-	                paramsHandler && (_params = paramsHandler(_params));
-	                return new Promise(function (resolve, reject) {
-	                    _this5.__ajax({
-	                        url: api,
-	                        method: method,
-	                        params: _params,
-	                        success: function success(data, res) {
-	                            var result = res.msg;
-	                            _antd.message.success('执行成功，结果返回: ' + result, 2.5);
-	                            resolve();
-	                        },
-	                        error: function error(res) {
-	                            var result = res.msg;
-	                            _antd.message.error('执行失败，结果返回: ' + result, 4);
-	                            reject();
-	                        }
-	                    });
-	                });
 	            }
 	        }
 
@@ -7471,7 +5771,7 @@
 	    }, {
 	        key: '_inject',
 	        value: function _inject(parent, target, newFunc, oldAhead) {
-	            var _this6 = this;
+	            var _this4 = this;
 
 	            var origin = parent[target];
 	            parent[target] = !!origin ? function () {
@@ -7481,9 +5781,9 @@
 
 	                // return原函数执行结果
 	                var result = void 0;
-	                oldAhead ? result = origin.call.apply(origin, [_this6].concat(params)) : null;
-	                newFunc.call.apply(newFunc, [_this6].concat(params));
-	                oldAhead ? null : result = origin.call.apply(origin, [_this6].concat(params));
+	                oldAhead ? result = origin.call.apply(origin, [_this4].concat(params)) : null;
+	                newFunc.call.apply(newFunc, [_this4].concat(params));
+	                oldAhead ? null : result = origin.call.apply(origin, [_this4].concat(params));
 	                return result;
 	            } : newFunc.bind(this);
 	            return parent;
@@ -7496,19 +5796,19 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 94 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Config: __webpack_require__(84).default,
-	    ComponentsCache: __webpack_require__(95).default,
-	    ModelCache: __webpack_require__(96).default
+	    Config: __webpack_require__(82).default,
+	    ComponentsCache: __webpack_require__(91).default,
+	    ModelCache: __webpack_require__(92).default
 	};
 
 /***/ }),
-/* 95 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7517,20 +5817,22 @@
 	  value: true
 	});
 
-	var _BaseCache = __webpack_require__(85);
+	var _BaseCache = __webpack_require__(83);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = new _BaseCache2.default(); /**
-	                                              * @file 组件实例缓存
-	                                              * @author liuzechun
-	                                              * Created Date: 2017-10-24 01:40:57
-	                                              */
+	var _key = '_uf-components'; /**
+	                              * @file 组件实例缓存
+	                              * @author liuzechun
+	                              * Created Date: 2017-10-24 01:40:57
+	                              */
+
+	exports.default = new _BaseCache2.default(_key);
 
 /***/ }),
-/* 96 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7541,9 +5843,9 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _BaseCache2 = __webpack_require__(85);
+	var _BaseCache2 = __webpack_require__(83);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
@@ -7594,13 +5896,13 @@
 	    function Models() {
 	        _classCallCheck(this, Models);
 
-	        return _possibleConstructorReturn(this, (Models.__proto__ || Object.getPrototypeOf(Models)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Models.__proto__ || Object.getPrototypeOf(Models)).call(this, _key, _cache));
 	    }
+	    // 获取摸个model点关联的数据
+
 
 	    _createClass(Models, [{
 	        key: 'getData',
-
-	        // 获取摸个model点关联的数据
 	        value: function getData(model) {
 	            var result = this._cache.data;
 	            if (!!model) {
@@ -7726,10 +6028,10 @@
 	    return Models;
 	}(_BaseCache3.default);
 
-	exports.default = new Models(_cache);
+	exports.default = new Models();
 
 /***/ }),
-/* 97 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7751,9 +6053,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _DataDisplay16 = __webpack_require__(98);
+	var _DataDisplay16 = __webpack_require__(94);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
@@ -8144,7 +6446,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 98 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8161,7 +6463,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8195,7 +6497,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 99 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8215,9 +6517,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _Genaral14 = __webpack_require__(100);
+	var _Genaral14 = __webpack_require__(96);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
@@ -8569,7 +6871,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 100 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8586,7 +6888,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8620,7 +6922,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 101 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8644,9 +6946,9 @@
 
 	var _reactRouter = __webpack_require__(3);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _Navigation9 = __webpack_require__(102);
+	var _Navigation9 = __webpack_require__(98);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
@@ -8916,7 +7218,7 @@
 
 	    }, {
 	        key: 'handleItems',
-	        value: function handleItems(items, parentKey) {
+	        value: function handleItems(items) {
 	            var arr = items;
 	            if (!_utils.Utils.typeof(items, 'array')) {
 	                arr = [items];
@@ -8984,7 +7286,7 @@
 	                        if (!_utils.Utils.typeof(v.children, 'array')) {
 	                            v.children = [v.children];
 	                        }
-	                        v.children.push(this.handleItems(v.childItems, parentKey || v.key));
+	                        v.children.push(this.handleItems(v.childItems));
 	                        delete v.childItems;
 	                    }
 	                    // 指定为group类型，则使用 菜单分组组件
@@ -9001,8 +7303,7 @@
 
 	                    // 保存key值
 	                    if (v.key && !v.disabled) {
-	                        // 存储的是顶层导航的 key
-	                        this.allKeys[v.key] = parentKey || v.key;
+	                        this.allKeys[v.key] = true;
 	                    }
 	                }
 	            } catch (err) {
@@ -9040,21 +7341,9 @@
 	                //   2、具有path的菜单项没有设置key，则默认使用path值。path值为路由全路径，所有需要再用path和allKeys进行一次比对
 	                if (this.allKeys[key]) {
 	                    this.__props.selectedKeys = [key];
-	                    this.changeDefaultOpenKeys(this.allKeys[key]);
 	                } else if (this.allKeys[path]) {
 	                    this.__props.selectedKeys = [path];
-	                    this.changeDefaultOpenKeys(this.allKeys[path]);
 	                }
-	            }
-	        }
-	    }, {
-	        key: 'changeDefaultOpenKeys',
-	        value: function changeDefaultOpenKeys(key) {
-	            var defaultKeys = this.__props.defaultOpenKeys;
-	            if (defaultKeys && defaultKeys.indexOf(key) === -1) {
-	                this.__props.defaultOpenKeys.push(key);
-	            } else {
-	                this.__props.defaultOpenKeys = [key];
 	            }
 	        }
 	    }, {
@@ -9151,7 +7440,7 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 102 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9168,7 +7457,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9202,7 +7491,7 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 103 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9224,11 +7513,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(104);
+	var _Feedback4 = __webpack_require__(100);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _tools = __webpack_require__(73);
 
@@ -9425,7 +7714,7 @@
 	});
 
 /***/ }),
-/* 104 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9442,7 +7731,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9476,7 +7765,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 105 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9496,13 +7785,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(106);
+	var _Layout = __webpack_require__(102);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
 	var _antd = __webpack_require__(4);
 
@@ -9547,6 +7836,7 @@
 	        key: '_handler',
 	        value: function _handler() {
 	            if (this.__props.children) {
+	                var className = this.__props.className || '';
 	                var children = this.__props.children;
 	                if (!_utils.Utils.typeof(children, 'array')) {
 	                    children = [children];
@@ -9584,7 +7874,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(Antd.Layout, _extends({}, this.__props, { className: (this.__props.className || '') + this.hasSiderClass }));
+	            return _react2.default.createElement(Antd.Layout, _extends({}, this.__props, { className: this.__props.className + this.hasSiderClass }));
 	        }
 	    }]);
 
@@ -9835,7 +8125,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 106 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9852,7 +8142,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(91);
+	var _Antd2 = __webpack_require__(87);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9886,12 +8176,12 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 107 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(108);
+	var _Router = __webpack_require__(104);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -9902,7 +8192,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 108 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9928,9 +8218,9 @@
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _tools = __webpack_require__(73);
 
@@ -9997,7 +8287,7 @@
 	    }
 
 	    return BaseRouter;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	// Router
 	var Router = exports.Router = function (_BaseRouter) {
@@ -10166,15 +8456,15 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 109 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(110).default;
+	module.exports = __webpack_require__(106).default;
 
 /***/ }),
-/* 110 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10193,11 +8483,11 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	__webpack_require__(111);
+	__webpack_require__(107);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10325,19 +8615,19 @@
 	    }]);
 
 	    return Iframe;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Iframe;
 
 /***/ }),
-/* 111 */
+/* 107 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 112 */,
-/* 113 */
+/* 108 */,
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10345,10 +8635,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(114).default;
+	module.exports = __webpack_require__(110).default;
 
 /***/ }),
-/* 114 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10369,13 +8659,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
 	var _antd = __webpack_require__(4);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	__webpack_require__(115);
+	var _ueditor = __webpack_require__(111);
+
+	var _ueditor2 = _interopRequireDefault(_ueditor);
+
+	__webpack_require__(113);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10398,7 +8692,6 @@
 
 	        var _this = _possibleConstructorReturn(this, (Export.__proto__ || Object.getPrototypeOf(Export)).call(this, props));
 
-	        _this._filter = _utils.Utils.difference(_this._filter, ['source', 'sourceHandler']);
 	        _this.__init();
 	        _this.state = {};
 	        // 默认配置
@@ -10784,12 +9077,7 @@
 	                lastTime: 0
 	            });
 	        }
-	        // 覆盖原生获取异步数据的函数
-
-	    }, {
-	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
-	        // 向后端请求
+	        // 向后端强求
 
 	    }, {
 	        key: 'getData',
@@ -11060,19 +9348,163 @@
 	    }]);
 
 	    return Export;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Export;
 
 /***/ }),
-/* 115 */
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(112).default;
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor封装
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var Ueditor = function (_React$PureComponent) {
+	    _inherits(Ueditor, _React$PureComponent);
+
+	    function Ueditor(props) {
+	        _classCallCheck(this, Ueditor);
+
+	        // 保证每次实例化都有一个唯一的name
+	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
+
+	        _this.name = (props.name || 'create_editor') + '_' + Date.now();
+	        _this.value = props.data;
+	        _this.config = props.config || {};
+	        return _this;
+	    }
+
+	    _createClass(Ueditor, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            // Should be a controlled component.
+	            if ('data' in nextProps) {
+	                if (this.value !== nextProps.data) {
+	                    this.value = nextProps.data;
+	                    this.ueSetData(nextProps.data);
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'ueSetData',
+	        value: function ueSetData(value) {
+	            var _this2 = this;
+
+	            // 临时解决方案。ueditor内不是用iframe实现，iframe加载需要时间，所以直接调用setContent会报错
+	            // 这里重试5次，间隔300ms
+	            var count = 1;
+	            var setData = function setData() {
+	                if (_this2.ue.body || count > 5) {
+	                    _this2.ue.setContent(value);
+	                } else {
+	                    setTimeout(setData, 300);
+	                }
+	                count++;
+	            };
+	            setData();
+	        }
+	    }, {
+	        key: 'triggerChange',
+	        value: function triggerChange(changedValue) {
+	            if (this.value !== changedValue) {
+	                this.value = changedValue;
+	                // Should provide an event to pass value to Form.
+	                this.props.onChange && this.props.onChange(changedValue);
+	            }
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this3 = this;
+
+	            // 初始化
+	            var config = {
+	                autoHeightEnabled: true,
+	                autoFloatEnabled: true,
+	                elementPathEnabled: false,
+	                wordCount: false,
+	                fontsize: [12, 14, 16, 18, 20, 24],
+	                toolbars: [['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'paragraph', 'fontfamily', 'fontsize', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'inserttable', '|', 'selectall', 'cleardoc', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'unlink', '|', 'map', '|', 'horizontal', 'print', 'preview', 'fullscreen', 'drafts', 'formula', '|', 'cusUpload']]
+	            };
+	            // 简版，适合给普通用户使用
+	            if (this.config.simple) {
+	                config['toolbars'] = [['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'fontsize', 'forecolor', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'fullscreen', 'cusUpload']];
+	            }
+	            Object.assign(config, this.config);
+	            this.ue = UE.getEditor(this.name, config);
+	            // 同步数据
+	            this.ue.addListener('contentChange', function () {
+	                clearTimeout(_this3.timer);
+	                _this3.timer = setTimeout(function () {
+	                    var newValue = _this3.ue.getContent();
+	                    _this3.triggerChange(newValue);
+	                }, 150);
+	            });
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            // 需要销毁，否则再次渲染本组件，ueditor渲染不出来
+	            this.ue.destroy();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement('script', { type: 'text/plain', id: this.name, style: { width: '100%', height: '220px', lineHeight: 'initial' } })
+	            );
+	        }
+	    }]);
+
+	    return Ueditor;
+	}(_react2.default.PureComponent);
+
+	exports.default = Ueditor;
+
+/***/ }),
+/* 113 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 116 */,
-/* 117 */
+/* 114 */,
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11080,10 +9512,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(118).default;
+	module.exports = __webpack_require__(116).default;
 
 /***/ }),
-/* 118 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11104,13 +9536,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _antd = __webpack_require__(4);
 
-	__webpack_require__(119);
+	__webpack_require__(117);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11697,36 +10129,28 @@
 	    }]);
 
 	    return OriginTree;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = OriginTree;
 
 /***/ }),
-/* 119 */
+/* 117 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 120 */,
-/* 121 */
+/* 118 */,
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(122);
-
-	module.exports = __webpack_require__(124).default;
-
-/***/ }),
-/* 122 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
+	// export default Table;
+	module.exports = __webpack_require__(120).default;
 
 /***/ }),
-/* 123 */,
-/* 124 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11749,23 +10173,25 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _antd = __webpack_require__(4);
 
-	var _export = __webpack_require__(113);
+	var _export = __webpack_require__(109);
 
 	var _export2 = _interopRequireDefault(_export);
 
-	var _Crud = __webpack_require__(125);
+	var _Crud = __webpack_require__(121);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(126);
+	var _Title = __webpack_require__(122);
 
 	var _Title2 = _interopRequireDefault(_Title);
+
+	__webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11799,11 +10225,9 @@
 	    function NewTable(props) {
 	        _classCallCheck(this, NewTable);
 
-	        // Table自己实现的source获取数据，不实用BaseComponent中的通用逻辑，也就无需过滤参数
+	        // 暴露给用户使用的函数
 	        var _this = _possibleConstructorReturn(this, (NewTable.__proto__ || Object.getPrototypeOf(NewTable)).call(this, props));
 
-	        _this._filter = _utils.Utils.difference(_this._filter, ['source', 'sourceHandler']);
-	        // 暴露给用户使用的函数
 	        _this._openApi.push('loadData', 'refresh', 'showCrud', 'getSelected', 'getSelectedKeys', 'selectAll',
 	        // 纯粹为了 bind this
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags');
@@ -11840,16 +10264,9 @@
 	                this.initTable(true);
 	                // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
 	                if (this.__props.autoLoadSource) {
-	                    // 置为第一页
-	                    this.getData(1);
+	                    this.getData();
 	                }
 	            }
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            // 组件删除时，请求返回的数据无效
-	            this.requerstIndex = null;
 	        }
 	    }, {
 	        key: 'initTable',
@@ -11859,7 +10276,6 @@
 	            var objProps = this.__props;
 	            var state = {};
 	            this.rowKey = objProps.rowKey || 'id';
-	            // 注意：引用类型，this.pagination 和 this.__props.pagination 是同一个东西
 	            this.pagination = objProps.pagination;
 	            // 列配置
 	            this.columns = objProps.columns;
@@ -11900,7 +10316,7 @@
 	                onRowMouseLeave: function onRowMouseLeave() {}
 	            };
 	            getNeedObject(defaultCif, this.__props);
-	            // 关于表头
+	            /* 关于表头 */
 	            if (!!objProps.title) {
 	                var titleConfig = objProps.title;
 	                // 如果是字符串 或者 非对象（组件配置，可以是数组）或者 单一组件配置
@@ -11912,14 +10328,14 @@
 	            } else {
 	                this.title = null;
 	            }
-	            // 关于异步操作
+	            /* 关于异步操作 */
 	            if (propsData) {
 	                state.completeData = propsData;
 	                if (this.pagination) {
 	                    this.pagination.total = propsData.length;
 	                }
 	            }
-	            // 关于行样式与不可选相关联，不可选时至为灰色
+	            /* 关于行样式与不可选相关联，不可选时至为灰色 */
 	            if (this.rowSelection && this.rowSelection.disabledRow) {
 	                // 暂存用户配置
 	                var rowClassNameFun = defaultCif.rowClassName;
@@ -12000,11 +10416,6 @@
 	        }
 
 	        /* 内部函数 ****************************************************************************/
-	        // 覆盖原生获取异步数据的函数
-
-	    }, {
-	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
 	        // 异步获取数据
 
 	    }, {
@@ -12016,18 +10427,13 @@
 	            if (!url) {
 	                return;
 	            }
-	            // 如果有pageNum，则置为对应页；否则，pageNum等于当前页
-	            if (pageNum) {
-	                this.pagination.current = pageNum;
-	            } else {
-	                pageNum = this.pagination.current || 1;
-	            }
 	            var method = this.__props.method || 'get';
 	            var params = this.__props.params;
 	            if (this.pagination.pageType === 'server') {
+	                var current = this.pagination.current;
 	                params = Object.assign({}, params, {
-	                    page: pageNum,
-	                    index: pageNum,
+	                    page: pageNum || current || 1,
+	                    index: pageNum || current || 1,
 	                    size: this.pagination.pageSize,
 	                    limit: this.pagination.pageSize
 	                });
@@ -12040,7 +10446,7 @@
 	                if (index !== _this3.requerstIndex) {
 	                    return;
 	                }
-	                var displayData = data || [];
+	                var displayData = data;
 	                if (_this3.__props.sourceHandler) {
 	                    displayData = _this3.__props.sourceHandler(data, res);
 	                }
@@ -12051,10 +10457,7 @@
 	                _this3.__setProps({ data: displayData }, false);
 	                _this3.setState({ completeData: displayData });
 	                _this3.onRefreshData(data);
-	            }, true, function (loading) {
-	                if (index !== _this3.requerstIndex) {
-	                    return;
-	                }
+	            }, null, function (loading) {
 	                _this3.setState({ loading: loading });
 	            });
 	        }
@@ -12227,15 +10630,6 @@
 	            if (this.rowSelection.onChange) {
 	                this.rowSelection.onChange(selectedRowKeys, selectedRows);
 	            }
-	        }
-	    }, {
-	        key: 'onPageChange',
-	        value: function onPageChange(page) {
-	            this.pagination.current = page;
-	            if (this.pagination.pageType === 'server') {
-	                this.getData(page);
-	            }
-	            this.forceUpdate();
 	        }
 
 	        // 从一个对象中获取需要用于过滤的关键字
@@ -12586,6 +10980,8 @@
 	    }, {
 	        key: 'renderPagination',
 	        value: function renderPagination() {
+	            var _this10 = this;
+
 	            if (!this.pagination) {
 	                return false;
 	            }
@@ -12606,7 +11002,13 @@
 	                current: 1,
 	                total: 0,
 	                onShowSizeChange: this.onShowSizeChange.bind(this),
-	                onChange: this.onPageChange.bind(this)
+	                onChange: function onChange(page, pageSize) {
+	                    _this10.pagination.current = page;
+	                    if (_this10.pagination.pageType === 'server') {
+	                        _this10.getData(page);
+	                    }
+	                    _this10.forceUpdate();
+	                }
 	            };
 	            getNeedObject(pagination, this.pagination);
 	            return pagination;
@@ -12614,7 +11016,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this10 = this;
+	            var _this11 = this;
 
 	            var className = 'uf-table ';
 	            className += this.state.fullScreen ? 'uf-fullscreen ' : '';
@@ -12630,9 +11032,9 @@
 	                { className: className, style: this.__props.style },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { parent: _this10, ref: function ref(ele) {
-	                                return _this10.titleRef = ele;
-	                            }, config: _this10.title });
+	                        return _react2.default.createElement(_Title2.default, { parent: _this11, ref: function ref(ele) {
+	                                return _this11.titleRef = ele;
+	                            }, config: _this11.title });
 	                    },
 	                    dataSource: this.__props.data,
 	                    columns: this.renderColumns(),
@@ -12640,7 +11042,7 @@
 	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
 	                this.__props.crud && _react2.default.createElement(_Crud2.default, { parent: this, ref: function ref(ele) {
-	                        return _this10.crud = ele;
+	                        return _this11.crud = ele;
 	                    },
 	                    config: this.__props.crud })
 	            );
@@ -12648,12 +11050,12 @@
 	    }]);
 
 	    return NewTable;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = NewTable;
 
 /***/ }),
-/* 125 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12674,9 +11076,9 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12997,12 +11399,12 @@
 	    }]);
 
 	    return Crud;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Crud;
 
 /***/ }),
-/* 126 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13025,13 +11427,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _antd = __webpack_require__(4);
 
-	var _export = __webpack_require__(113);
+	var _export = __webpack_require__(109);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -13549,29 +11951,11 @@
 	        value: function onFilterData() {
 	            // 过滤
 	            var data = this.parent.state.completeData;
-	            // @bugfix at 2018/01/31 15:38，展示模糊搜索内容时，分页条数及当前分页使用模糊搜索自己的；取消模糊搜索时还原之前的状态
-	            // Table.js 中的 this.pagination 和 this.parant.__props.pagination 是同一个东西
-	            var pagination = this.parent.__props.pagination;
-	            var total = pagination && pagination.total;
-	            var current = pagination && pagination.current;
 	            // 对数据进行全局过滤
 	            if (this.globalFilterInput.length !== 0) {
 	                data = this.globalFilterData(this.globalFilterInput, data);
-	                this.cacheTotal = this.cacheTotal || total;
-	                this.cacheCurrent = this.cacheCurrent || current;
-	                total = data.length;
-	                current = 1;
-	            } else {
-	                total = this.cacheTotal;
-	                current = this.cacheCurrent;
-	                this.cacheTotal = null;
-	                this.cacheCurrent = null;
 	            }
-	            var newProps = { data: data };
-	            if (pagination) {
-	                newProps.pagination = { total: total, current: current };
-	            }
-	            this.parent.__setProps(newProps);
+	            this.parent.__setProps({ data: data });
 	        }
 	        // 全局搜索数据
 
@@ -13954,20 +12338,27 @@
 	    }]);
 
 	    return Title;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Title;
 
 /***/ }),
-/* 127 */
+/* 123 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 124 */,
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(128).default;
+	module.exports = __webpack_require__(126).default;
 
 /***/ }),
-/* 128 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13990,21 +12381,21 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _moment = __webpack_require__(82);
+	var _moment = __webpack_require__(79);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
 	var _antd = __webpack_require__(4);
 
-	var _ueditor = __webpack_require__(129);
+	var _ueditor = __webpack_require__(111);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
-	__webpack_require__(133);
+	__webpack_require__(127);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14278,6 +12669,19 @@
 	                this.forceUpdate();
 	            }
 	        }
+	        // 获取异步数据
+	        // getData(item) {
+	        //     let url = item.source;
+	        //     this.__getData(url, null, data=>{
+	        //         if (item.sourceHandler) {
+	        //             data = item.sourceHandler(data);
+	        //         }
+	        //         item.options = data;
+	        //         delete item.source;
+	        //         this.itemsCache[item.name] = item;
+	        //         this.forceUpdate();
+	        //     });
+	        // }
 	        // 根据布局参数生成布局配置
 
 	    }, {
@@ -14944,7 +13348,7 @@
 	    }]);
 
 	    return OriginForm;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	var ReactForm = _antd.Form.create({
 	    onValuesChange: function onValuesChange(props, values) {
@@ -14985,205 +13389,30 @@
 	    }]);
 
 	    return NewForm;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = NewForm;
 
 /***/ }),
+/* 127 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 128 */,
 /* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(130);
-
-	module.exports = __webpack_require__(132).default;
+	module.exports = {
+	    Modal: __webpack_require__(130).default
+	    // FormModal: require('./FormModal.js').default,
+	};
 
 /***/ }),
 /* 130 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 131 */,
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(2);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _cache = __webpack_require__(94);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor封装
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// import {BaseComponent} from 'src/base';
-
-
-	var Ueditor = function (_React$PureComponent) {
-	    _inherits(Ueditor, _React$PureComponent);
-
-	    function Ueditor(props) {
-	        _classCallCheck(this, Ueditor);
-
-	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
-
-	        _this.name = props.name;
-	        // 保证每次实例化都有一个唯一的id
-	        _this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
-	        _this.data = props.data;
-	        return _this;
-	    }
-
-	    _createClass(Ueditor, [{
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(nextProps) {
-	            // Should be a controlled component.
-	            if ('data' in nextProps) {
-	                if (this.data !== nextProps.data) {
-	                    this.data = nextProps.data;
-	                    this.ueSetData(nextProps.data);
-	                }
-	            }
-	        }
-	    }, {
-	        key: 'ueSetData',
-	        value: function ueSetData(value) {
-	            var _this2 = this;
-
-	            // 临时解决方案。ueditor内不是用iframe实现，iframe加载需要时间，所以直接调用setContent会报错
-	            // 这里重试5次，间隔300ms
-	            var count = 1;
-	            var setData = function setData() {
-	                if (_this2.ue.body || count > 5) {
-	                    _this2.ue.setContent(value);
-	                } else {
-	                    setTimeout(setData, 300);
-	                }
-	                count++;
-	            };
-	            setData();
-	        }
-	    }, {
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            var _this3 = this;
-
-	            // 初始化
-	            var config = {
-	                autoHeightEnabled: true,
-	                autoFloatEnabled: true,
-	                elementPathEnabled: false,
-	                wordCount: false,
-	                fontsize: [12, 14, 16, 18, 20, 24],
-	                toolbars: [['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'paragraph', 'fontfamily', 'fontsize', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'inserttable', '|', 'selectall', 'cleardoc', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'unlink', '|', 'map', '|', 'horizontal', 'print', 'preview', 'fullscreen', 'drafts', 'formula', '|', 'cusUpload']]
-	            };
-	            // 简版，适合给普通用户使用
-	            if (this.props.simple) {
-	                config['toolbars'] = [['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'fontsize', 'forecolor', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'fullscreen', 'cusUpload']];
-	            }
-	            Object.assign(config, this.props);
-	            this.ue = UE.getEditor(this.ueditorId, config);
-	            // 同步数据
-	            this.ue.addListener('contentChange', function () {
-	                clearTimeout(_this3.timer);
-	                _this3.timer = setTimeout(function () {
-	                    var newValue = _this3.ue.getContent();
-	                    _this3.triggerChange(newValue);
-	                }, 150);
-	            });
-	            this._transmitComponent();
-	        }
-	    }, {
-	        key: 'componentWillUnmount',
-	        value: function componentWillUnmount() {
-	            // 需要销毁，否则再次渲染本组件，ueditor渲染不出来
-	            this.ue.destroy();
-	            this._unsetTransmitComponent();
-	        }
-	        // 共享组件
-
-	    }, {
-	        key: '_transmitComponent',
-	        value: function _transmitComponent() {
-	            if (!!this.name) {
-	                _cache.ComponentsCache.set(this.name, this.ue);
-	            }
-	        }
-	        // 解除共享
-
-	    }, {
-	        key: '_unsetTransmitComponent',
-	        value: function _unsetTransmitComponent() {
-	            if (!!this.name) {
-	                _cache.ComponentsCache.del(this.name);
-	            }
-	        }
-	    }, {
-	        key: 'triggerChange',
-	        value: function triggerChange(changedValue) {
-	            if (this.data !== changedValue) {
-	                this.data = changedValue;
-	                // Should provide an event to pass value to Form.
-	                this.props.onChange && this.props.onChange(changedValue);
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var style = Object.assign({ width: '100%', height: '220px', lineHeight: 'initial' }, this.props.style);
-	            return _react2.default.createElement(
-	                'div',
-	                null,
-	                _react2.default.createElement('script', { type: 'text/plain', id: this.ueditorId, style: style })
-	            );
-	        }
-	    }]);
-
-	    return Ueditor;
-	}(_react2.default.PureComponent);
-
-	exports.default = Ueditor;
-
-/***/ }),
-/* 133 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 134 */,
-/* 135 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(136).default;
-
-/***/ }),
-/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15208,15 +13437,15 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _tools = __webpack_require__(73);
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	__webpack_require__(137);
+	__webpack_require__(131);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15242,10 +13471,8 @@
 	        _this._openApi.push('show', 'close');
 	        // 增加一些默认的事件处理函数
 	        _this.__props = Object.assign({
-	            onCancel: _this._defaultCancelHandler.bind(_this),
-	            // 提交数据使用 BaseCompsonent 的 action 系列参数实现
-	            actionType: 'ajax',
-	            actionTrigger: 'onSubmit'
+	            onSubmit: _this._defaultSubmitHandler.bind(_this),
+	            onCancel: _this._defaultCancelHandler.bind(_this)
 	        }, _this.__props);
 	        _this.__init();
 	        return _this;
@@ -15333,6 +13560,40 @@
 	        value: function _defaultCancelHandler() {
 	            this.close();
 	        }
+	        // 默认submit处理逻辑，提交数据到api
+
+	    }, {
+	        key: '_defaultSubmitHandler',
+	        value: function _defaultSubmitHandler() {
+	            var _this5 = this;
+
+	            var params = this._getParams();
+	            if (!params) {
+	                return;
+	            }
+	            if (this.__props.api) {
+	                if (this.__props.paramsHandler) {
+	                    params = this.__props.paramsHandler(params);
+	                }
+	                return new Promise(function (resolve, reject) {
+	                    _this5.__ajax({
+	                        url: _this5.__props.api,
+	                        method: _this5.__props.method || 'get',
+	                        params: params,
+	                        success: function success(data, res) {
+	                            var result = res.msg;
+	                            _antd.message.success('操作成功，结果返回: ' + result, 2.5);
+	                            resolve();
+	                        },
+	                        error: function error(res) {
+	                            var result = res.msg;
+	                            _antd.message.error('操作失败，结果返回: ' + result, 4);
+	                            reject();
+	                        }
+	                    });
+	                });
+	            }
+	        }
 	        // 获取参数函数，可能会在新子组件中重写
 
 	    }, {
@@ -15351,20 +13612,18 @@
 	                return this.__props.params || {};
 	            }
 	        }
-	        // onSubmit 以此函数为入口
+	        // onOk 以此函数为入口
 
 	    }, {
 	        key: '_onSubmit',
 	        value: function _onSubmit() {
 	            var _props,
-	                _this5 = this;
+	                _this6 = this;
 
 	            var params = this._getParams();
 	            if (!params) {
 	                return;
 	            }
-	            // 由于复用 BaseComponent 通用发送数据逻辑，从Form中获取到的数据直接放到actionParams中
-	            this.__filtered.actionParams = params;
 
 	            for (var _len2 = arguments.length, op = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
 	                op[_key2] = arguments[_key2];
@@ -15377,13 +13636,13 @@
 	            }
 	            // 不管是否为Promise，成功与失败逻辑如下
 	            this.__compatePromise(result, function (success) {
-	                var finish = _this5._onSuccess(result);
-	                _this5.__compatePromise(finish, function (success) {
-	                    _this5.__setProps({ confirmLoading: false });
-	                    _this5.close();
+	                var finish = _this6._onSuccess(result);
+	                _this6.__compatePromise(finish, function (success) {
+	                    _this6.__setProps({ confirmLoading: false });
+	                    _this6.close();
 	                });
 	            }, function (error) {
-	                _this5.__setProps({ confirmLoading: false });
+	                _this6.__setProps({ confirmLoading: false });
 	            });
 	        }
 	    }, {
@@ -15441,7 +13700,7 @@
 	    }]);
 
 	    return NewModal;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	/**** Modal静态类调用函数 *************************************************************************/
 
@@ -15479,22 +13738,22 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 137 */
+/* 131 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 138 */,
-/* 139 */
+/* 132 */,
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(140).default;
+	module.exports = __webpack_require__(134).default;
 
 /***/ }),
-/* 140 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15521,35 +13780,35 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _export = __webpack_require__(113);
+	var _export = __webpack_require__(109);
 
 	var _export2 = _interopRequireDefault(_export);
 
-	var _ReactInput = __webpack_require__(141);
+	var _ReactInput = __webpack_require__(135);
 
 	var _ReactInput2 = _interopRequireDefault(_ReactInput);
 
-	var _ReactModal = __webpack_require__(142);
+	var _ReactModal = __webpack_require__(136);
 
 	var _ReactModal2 = _interopRequireDefault(_ReactModal);
 
-	var _TrRow = __webpack_require__(146);
+	var _TrRow = __webpack_require__(140);
 
 	var _TrRow2 = _interopRequireDefault(_TrRow);
 
-	var _ThRow = __webpack_require__(147);
+	var _ThRow = __webpack_require__(141);
 
 	var _ThRow2 = _interopRequireDefault(_ThRow);
 
-	var _Confirm = __webpack_require__(149);
+	var _Confirm = __webpack_require__(143);
 
 	var _Confirm2 = _interopRequireDefault(_Confirm);
 
-	__webpack_require__(150);
+	__webpack_require__(144);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17424,12 +15683,12 @@
 	    }]);
 
 	    return Table;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Table;
 
 /***/ }),
-/* 141 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17539,7 +15798,7 @@
 	exports.default = ReactInput;
 
 /***/ }),
-/* 142 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17562,11 +15821,11 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _ReactInput = __webpack_require__(141);
+	var _ReactInput = __webpack_require__(135);
 
 	var _ReactInput2 = _interopRequireDefault(_ReactInput);
 
-	__webpack_require__(143);
+	__webpack_require__(137);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17580,7 +15839,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
 
-	var Immutable = __webpack_require__(145);
+	var Immutable = __webpack_require__(139);
 	var Option = _antd.Select.Option;
 
 	var ReactModal = function (_React$Component) {
@@ -17922,20 +16181,20 @@
 	exports.default = ReactModal;
 
 /***/ }),
-/* 143 */
+/* 137 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 144 */,
-/* 145 */
+/* 138 */,
+/* 139 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.Immutable;
 
 /***/ }),
-/* 146 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17962,7 +16221,7 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18582,7 +16841,7 @@
 	exports.default = TrRow;
 
 /***/ }),
-/* 147 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18607,7 +16866,7 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _UDnD = __webpack_require__(148);
+	var _UDnD = __webpack_require__(142);
 
 	var _UDnD2 = _interopRequireDefault(_UDnD);
 
@@ -18786,7 +17045,7 @@
 	exports.default = ThRow;
 
 /***/ }),
-/* 148 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18807,7 +17066,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18916,12 +17175,12 @@
 	    }]);
 
 	    return UDnD;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = UDnD;
 
 /***/ }),
-/* 149 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19011,20 +17270,1574 @@
 	exports.default = Confirm;
 
 /***/ }),
-/* 150 */
+/* 144 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 151 */,
-/* 152 */
+/* 145 */,
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
+	//     http://underscorejs.org
+	//     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+	//     Underscore may be freely distributed under the MIT license.
+
+	(function() {
+
+	  // Baseline setup
+	  // --------------
+
+	  // Establish the root object, `window` in the browser, or `exports` on the server.
+	  var root = this;
+
+	  // Save the previous value of the `_` variable.
+	  var previousUnderscore = root._;
+
+	  // Save bytes in the minified (but not gzipped) version:
+	  var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
+
+	  // Create quick reference variables for speed access to core prototypes.
+	  var
+	    push             = ArrayProto.push,
+	    slice            = ArrayProto.slice,
+	    toString         = ObjProto.toString,
+	    hasOwnProperty   = ObjProto.hasOwnProperty;
+
+	  // All **ECMAScript 5** native function implementations that we hope to use
+	  // are declared here.
+	  var
+	    nativeIsArray      = Array.isArray,
+	    nativeKeys         = Object.keys,
+	    nativeBind         = FuncProto.bind,
+	    nativeCreate       = Object.create;
+
+	  // Naked function reference for surrogate-prototype-swapping.
+	  var Ctor = function(){};
+
+	  // Create a safe reference to the Underscore object for use below.
+	  var _ = function(obj) {
+	    if (obj instanceof _) return obj;
+	    if (!(this instanceof _)) return new _(obj);
+	    this._wrapped = obj;
+	  };
+
+	  // Export the Underscore object for **Node.js**, with
+	  // backwards-compatibility for the old `require()` API. If we're in
+	  // the browser, add `_` as a global object.
+	  if (true) {
+	    if (typeof module !== 'undefined' && module.exports) {
+	      exports = module.exports = _;
+	    }
+	    exports._ = _;
+	  } else {
+	    root._ = _;
+	  }
+
+	  // Current version.
+	  _.VERSION = '1.8.3';
+
+	  // Internal function that returns an efficient (for current engines) version
+	  // of the passed-in callback, to be repeatedly applied in other Underscore
+	  // functions.
+	  var optimizeCb = function(func, context, argCount) {
+	    if (context === void 0) return func;
+	    switch (argCount == null ? 3 : argCount) {
+	      case 1: return function(value) {
+	        return func.call(context, value);
+	      };
+	      case 2: return function(value, other) {
+	        return func.call(context, value, other);
+	      };
+	      case 3: return function(value, index, collection) {
+	        return func.call(context, value, index, collection);
+	      };
+	      case 4: return function(accumulator, value, index, collection) {
+	        return func.call(context, accumulator, value, index, collection);
+	      };
+	    }
+	    return function() {
+	      return func.apply(context, arguments);
+	    };
+	  };
+
+	  // A mostly-internal function to generate callbacks that can be applied
+	  // to each element in a collection, returning the desired result — either
+	  // identity, an arbitrary callback, a property matcher, or a property accessor.
+	  var cb = function(value, context, argCount) {
+	    if (value == null) return _.identity;
+	    if (_.isFunction(value)) return optimizeCb(value, context, argCount);
+	    if (_.isObject(value)) return _.matcher(value);
+	    return _.property(value);
+	  };
+	  _.iteratee = function(value, context) {
+	    return cb(value, context, Infinity);
+	  };
+
+	  // An internal function for creating assigner functions.
+	  var createAssigner = function(keysFunc, undefinedOnly) {
+	    return function(obj) {
+	      var length = arguments.length;
+	      if (length < 2 || obj == null) return obj;
+	      for (var index = 1; index < length; index++) {
+	        var source = arguments[index],
+	            keys = keysFunc(source),
+	            l = keys.length;
+	        for (var i = 0; i < l; i++) {
+	          var key = keys[i];
+	          if (!undefinedOnly || obj[key] === void 0) obj[key] = source[key];
+	        }
+	      }
+	      return obj;
+	    };
+	  };
+
+	  // An internal function for creating a new object that inherits from another.
+	  var baseCreate = function(prototype) {
+	    if (!_.isObject(prototype)) return {};
+	    if (nativeCreate) return nativeCreate(prototype);
+	    Ctor.prototype = prototype;
+	    var result = new Ctor;
+	    Ctor.prototype = null;
+	    return result;
+	  };
+
+	  var property = function(key) {
+	    return function(obj) {
+	      return obj == null ? void 0 : obj[key];
+	    };
+	  };
+
+	  // Helper for collection methods to determine whether a collection
+	  // should be iterated as an array or as an object
+	  // Related: http://people.mozilla.org/~jorendorff/es6-draft.html#sec-tolength
+	  // Avoids a very nasty iOS 8 JIT bug on ARM-64. #2094
+	  var MAX_ARRAY_INDEX = Math.pow(2, 53) - 1;
+	  var getLength = property('length');
+	  var isArrayLike = function(collection) {
+	    var length = getLength(collection);
+	    return typeof length == 'number' && length >= 0 && length <= MAX_ARRAY_INDEX;
+	  };
+
+	  // Collection Functions
+	  // --------------------
+
+	  // The cornerstone, an `each` implementation, aka `forEach`.
+	  // Handles raw objects in addition to array-likes. Treats all
+	  // sparse array-likes as if they were dense.
+	  _.each = _.forEach = function(obj, iteratee, context) {
+	    iteratee = optimizeCb(iteratee, context);
+	    var i, length;
+	    if (isArrayLike(obj)) {
+	      for (i = 0, length = obj.length; i < length; i++) {
+	        iteratee(obj[i], i, obj);
+	      }
+	    } else {
+	      var keys = _.keys(obj);
+	      for (i = 0, length = keys.length; i < length; i++) {
+	        iteratee(obj[keys[i]], keys[i], obj);
+	      }
+	    }
+	    return obj;
+	  };
+
+	  // Return the results of applying the iteratee to each element.
+	  _.map = _.collect = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length,
+	        results = Array(length);
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      results[index] = iteratee(obj[currentKey], currentKey, obj);
+	    }
+	    return results;
+	  };
+
+	  // Create a reducing function iterating left or right.
+	  function createReduce(dir) {
+	    // Optimized iterator function as using arguments.length
+	    // in the main function will deoptimize the, see #1991.
+	    function iterator(obj, iteratee, memo, keys, index, length) {
+	      for (; index >= 0 && index < length; index += dir) {
+	        var currentKey = keys ? keys[index] : index;
+	        memo = iteratee(memo, obj[currentKey], currentKey, obj);
+	      }
+	      return memo;
+	    }
+
+	    return function(obj, iteratee, memo, context) {
+	      iteratee = optimizeCb(iteratee, context, 4);
+	      var keys = !isArrayLike(obj) && _.keys(obj),
+	          length = (keys || obj).length,
+	          index = dir > 0 ? 0 : length - 1;
+	      // Determine the initial value if none is provided.
+	      if (arguments.length < 3) {
+	        memo = obj[keys ? keys[index] : index];
+	        index += dir;
+	      }
+	      return iterator(obj, iteratee, memo, keys, index, length);
+	    };
+	  }
+
+	  // **Reduce** builds up a single result from a list of values, aka `inject`,
+	  // or `foldl`.
+	  _.reduce = _.foldl = _.inject = createReduce(1);
+
+	  // The right-associative version of reduce, also known as `foldr`.
+	  _.reduceRight = _.foldr = createReduce(-1);
+
+	  // Return the first value which passes a truth test. Aliased as `detect`.
+	  _.find = _.detect = function(obj, predicate, context) {
+	    var key;
+	    if (isArrayLike(obj)) {
+	      key = _.findIndex(obj, predicate, context);
+	    } else {
+	      key = _.findKey(obj, predicate, context);
+	    }
+	    if (key !== void 0 && key !== -1) return obj[key];
+	  };
+
+	  // Return all the elements that pass a truth test.
+	  // Aliased as `select`.
+	  _.filter = _.select = function(obj, predicate, context) {
+	    var results = [];
+	    predicate = cb(predicate, context);
+	    _.each(obj, function(value, index, list) {
+	      if (predicate(value, index, list)) results.push(value);
+	    });
+	    return results;
+	  };
+
+	  // Return all the elements for which a truth test fails.
+	  _.reject = function(obj, predicate, context) {
+	    return _.filter(obj, _.negate(cb(predicate)), context);
+	  };
+
+	  // Determine whether all of the elements match a truth test.
+	  // Aliased as `all`.
+	  _.every = _.all = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (!predicate(obj[currentKey], currentKey, obj)) return false;
+	    }
+	    return true;
+	  };
+
+	  // Determine if at least one element in the object matches a truth test.
+	  // Aliased as `any`.
+	  _.some = _.any = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = !isArrayLike(obj) && _.keys(obj),
+	        length = (keys || obj).length;
+	    for (var index = 0; index < length; index++) {
+	      var currentKey = keys ? keys[index] : index;
+	      if (predicate(obj[currentKey], currentKey, obj)) return true;
+	    }
+	    return false;
+	  };
+
+	  // Determine if the array or object contains a given item (using `===`).
+	  // Aliased as `includes` and `include`.
+	  _.contains = _.includes = _.include = function(obj, item, fromIndex, guard) {
+	    if (!isArrayLike(obj)) obj = _.values(obj);
+	    if (typeof fromIndex != 'number' || guard) fromIndex = 0;
+	    return _.indexOf(obj, item, fromIndex) >= 0;
+	  };
+
+	  // Invoke a method (with arguments) on every item in a collection.
+	  _.invoke = function(obj, method) {
+	    var args = slice.call(arguments, 2);
+	    var isFunc = _.isFunction(method);
+	    return _.map(obj, function(value) {
+	      var func = isFunc ? method : value[method];
+	      return func == null ? func : func.apply(value, args);
+	    });
+	  };
+
+	  // Convenience version of a common use case of `map`: fetching a property.
+	  _.pluck = function(obj, key) {
+	    return _.map(obj, _.property(key));
+	  };
+
+	  // Convenience version of a common use case of `filter`: selecting only objects
+	  // containing specific `key:value` pairs.
+	  _.where = function(obj, attrs) {
+	    return _.filter(obj, _.matcher(attrs));
+	  };
+
+	  // Convenience version of a common use case of `find`: getting the first object
+	  // containing specific `key:value` pairs.
+	  _.findWhere = function(obj, attrs) {
+	    return _.find(obj, _.matcher(attrs));
+	  };
+
+	  // Return the maximum element (or element-based computation).
+	  _.max = function(obj, iteratee, context) {
+	    var result = -Infinity, lastComputed = -Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value > result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Return the minimum element (or element-based computation).
+	  _.min = function(obj, iteratee, context) {
+	    var result = Infinity, lastComputed = Infinity,
+	        value, computed;
+	    if (iteratee == null && obj != null) {
+	      obj = isArrayLike(obj) ? obj : _.values(obj);
+	      for (var i = 0, length = obj.length; i < length; i++) {
+	        value = obj[i];
+	        if (value < result) {
+	          result = value;
+	        }
+	      }
+	    } else {
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index, list) {
+	        computed = iteratee(value, index, list);
+	        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+	          result = value;
+	          lastComputed = computed;
+	        }
+	      });
+	    }
+	    return result;
+	  };
+
+	  // Shuffle a collection, using the modern version of the
+	  // [Fisher-Yates shuffle](http://en.wikipedia.org/wiki/Fisher–Yates_shuffle).
+	  _.shuffle = function(obj) {
+	    var set = isArrayLike(obj) ? obj : _.values(obj);
+	    var length = set.length;
+	    var shuffled = Array(length);
+	    for (var index = 0, rand; index < length; index++) {
+	      rand = _.random(0, index);
+	      if (rand !== index) shuffled[index] = shuffled[rand];
+	      shuffled[rand] = set[index];
+	    }
+	    return shuffled;
+	  };
+
+	  // Sample **n** random values from a collection.
+	  // If **n** is not specified, returns a single random element.
+	  // The internal `guard` argument allows it to work with `map`.
+	  _.sample = function(obj, n, guard) {
+	    if (n == null || guard) {
+	      if (!isArrayLike(obj)) obj = _.values(obj);
+	      return obj[_.random(obj.length - 1)];
+	    }
+	    return _.shuffle(obj).slice(0, Math.max(0, n));
+	  };
+
+	  // Sort the object's values by a criterion produced by an iteratee.
+	  _.sortBy = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    return _.pluck(_.map(obj, function(value, index, list) {
+	      return {
+	        value: value,
+	        index: index,
+	        criteria: iteratee(value, index, list)
+	      };
+	    }).sort(function(left, right) {
+	      var a = left.criteria;
+	      var b = right.criteria;
+	      if (a !== b) {
+	        if (a > b || a === void 0) return 1;
+	        if (a < b || b === void 0) return -1;
+	      }
+	      return left.index - right.index;
+	    }), 'value');
+	  };
+
+	  // An internal function used for aggregate "group by" operations.
+	  var group = function(behavior) {
+	    return function(obj, iteratee, context) {
+	      var result = {};
+	      iteratee = cb(iteratee, context);
+	      _.each(obj, function(value, index) {
+	        var key = iteratee(value, index, obj);
+	        behavior(result, value, key);
+	      });
+	      return result;
+	    };
+	  };
+
+	  // Groups the object's values by a criterion. Pass either a string attribute
+	  // to group by, or a function that returns the criterion.
+	  _.groupBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key].push(value); else result[key] = [value];
+	  });
+
+	  // Indexes the object's values by a criterion, similar to `groupBy`, but for
+	  // when you know that your index values will be unique.
+	  _.indexBy = group(function(result, value, key) {
+	    result[key] = value;
+	  });
+
+	  // Counts instances of an object that group by a certain criterion. Pass
+	  // either a string attribute to count by, or a function that returns the
+	  // criterion.
+	  _.countBy = group(function(result, value, key) {
+	    if (_.has(result, key)) result[key]++; else result[key] = 1;
+	  });
+
+	  // Safely create a real, live array from anything iterable.
+	  _.toArray = function(obj) {
+	    if (!obj) return [];
+	    if (_.isArray(obj)) return slice.call(obj);
+	    if (isArrayLike(obj)) return _.map(obj, _.identity);
+	    return _.values(obj);
+	  };
+
+	  // Return the number of elements in an object.
+	  _.size = function(obj) {
+	    if (obj == null) return 0;
+	    return isArrayLike(obj) ? obj.length : _.keys(obj).length;
+	  };
+
+	  // Split a collection into two arrays: one whose elements all satisfy the given
+	  // predicate, and one whose elements all do not satisfy the predicate.
+	  _.partition = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var pass = [], fail = [];
+	    _.each(obj, function(value, key, obj) {
+	      (predicate(value, key, obj) ? pass : fail).push(value);
+	    });
+	    return [pass, fail];
+	  };
+
+	  // Array Functions
+	  // ---------------
+
+	  // Get the first element of an array. Passing **n** will return the first N
+	  // values in the array. Aliased as `head` and `take`. The **guard** check
+	  // allows it to work with `_.map`.
+	  _.first = _.head = _.take = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[0];
+	    return _.initial(array, array.length - n);
+	  };
+
+	  // Returns everything but the last entry of the array. Especially useful on
+	  // the arguments object. Passing **n** will return all the values in
+	  // the array, excluding the last N.
+	  _.initial = function(array, n, guard) {
+	    return slice.call(array, 0, Math.max(0, array.length - (n == null || guard ? 1 : n)));
+	  };
+
+	  // Get the last element of an array. Passing **n** will return the last N
+	  // values in the array.
+	  _.last = function(array, n, guard) {
+	    if (array == null) return void 0;
+	    if (n == null || guard) return array[array.length - 1];
+	    return _.rest(array, Math.max(0, array.length - n));
+	  };
+
+	  // Returns everything but the first entry of the array. Aliased as `tail` and `drop`.
+	  // Especially useful on the arguments object. Passing an **n** will return
+	  // the rest N values in the array.
+	  _.rest = _.tail = _.drop = function(array, n, guard) {
+	    return slice.call(array, n == null || guard ? 1 : n);
+	  };
+
+	  // Trim out all falsy values from an array.
+	  _.compact = function(array) {
+	    return _.filter(array, _.identity);
+	  };
+
+	  // Internal implementation of a recursive `flatten` function.
+	  var flatten = function(input, shallow, strict, startIndex) {
+	    var output = [], idx = 0;
+	    for (var i = startIndex || 0, length = getLength(input); i < length; i++) {
+	      var value = input[i];
+	      if (isArrayLike(value) && (_.isArray(value) || _.isArguments(value))) {
+	        //flatten current level of array or arguments object
+	        if (!shallow) value = flatten(value, shallow, strict);
+	        var j = 0, len = value.length;
+	        output.length += len;
+	        while (j < len) {
+	          output[idx++] = value[j++];
+	        }
+	      } else if (!strict) {
+	        output[idx++] = value;
+	      }
+	    }
+	    return output;
+	  };
+
+	  // Flatten out an array, either recursively (by default), or just one level.
+	  _.flatten = function(array, shallow) {
+	    return flatten(array, shallow, false);
+	  };
+
+	  // Return a version of the array that does not contain the specified value(s).
+	  _.without = function(array) {
+	    return _.difference(array, slice.call(arguments, 1));
+	  };
+
+	  // Produce a duplicate-free version of the array. If the array has already
+	  // been sorted, you have the option of using a faster algorithm.
+	  // Aliased as `unique`.
+	  _.uniq = _.unique = function(array, isSorted, iteratee, context) {
+	    if (!_.isBoolean(isSorted)) {
+	      context = iteratee;
+	      iteratee = isSorted;
+	      isSorted = false;
+	    }
+	    if (iteratee != null) iteratee = cb(iteratee, context);
+	    var result = [];
+	    var seen = [];
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var value = array[i],
+	          computed = iteratee ? iteratee(value, i, array) : value;
+	      if (isSorted) {
+	        if (!i || seen !== computed) result.push(value);
+	        seen = computed;
+	      } else if (iteratee) {
+	        if (!_.contains(seen, computed)) {
+	          seen.push(computed);
+	          result.push(value);
+	        }
+	      } else if (!_.contains(result, value)) {
+	        result.push(value);
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Produce an array that contains the union: each distinct element from all of
+	  // the passed-in arrays.
+	  _.union = function() {
+	    return _.uniq(flatten(arguments, true, true));
+	  };
+
+	  // Produce an array that contains every item shared between all the
+	  // passed-in arrays.
+	  _.intersection = function(array) {
+	    var result = [];
+	    var argsLength = arguments.length;
+	    for (var i = 0, length = getLength(array); i < length; i++) {
+	      var item = array[i];
+	      if (_.contains(result, item)) continue;
+	      for (var j = 1; j < argsLength; j++) {
+	        if (!_.contains(arguments[j], item)) break;
+	      }
+	      if (j === argsLength) result.push(item);
+	    }
+	    return result;
+	  };
+
+	  // Take the difference between one array and a number of other arrays.
+	  // Only the elements present in just the first array will remain.
+	  _.difference = function(array) {
+	    var rest = flatten(arguments, true, true, 1);
+	    return _.filter(array, function(value){
+	      return !_.contains(rest, value);
+	    });
+	  };
+
+	  // Zip together multiple lists into a single array -- elements that share
+	  // an index go together.
+	  _.zip = function() {
+	    return _.unzip(arguments);
+	  };
+
+	  // Complement of _.zip. Unzip accepts an array of arrays and groups
+	  // each array's elements on shared indices
+	  _.unzip = function(array) {
+	    var length = array && _.max(array, getLength).length || 0;
+	    var result = Array(length);
+
+	    for (var index = 0; index < length; index++) {
+	      result[index] = _.pluck(array, index);
+	    }
+	    return result;
+	  };
+
+	  // Converts lists into objects. Pass either a single array of `[key, value]`
+	  // pairs, or two parallel arrays of the same length -- one of keys, and one of
+	  // the corresponding values.
+	  _.object = function(list, values) {
+	    var result = {};
+	    for (var i = 0, length = getLength(list); i < length; i++) {
+	      if (values) {
+	        result[list[i]] = values[i];
+	      } else {
+	        result[list[i][0]] = list[i][1];
+	      }
+	    }
+	    return result;
+	  };
+
+	  // Generator function to create the findIndex and findLastIndex functions
+	  function createPredicateIndexFinder(dir) {
+	    return function(array, predicate, context) {
+	      predicate = cb(predicate, context);
+	      var length = getLength(array);
+	      var index = dir > 0 ? 0 : length - 1;
+	      for (; index >= 0 && index < length; index += dir) {
+	        if (predicate(array[index], index, array)) return index;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Returns the first index on an array-like that passes a predicate test
+	  _.findIndex = createPredicateIndexFinder(1);
+	  _.findLastIndex = createPredicateIndexFinder(-1);
+
+	  // Use a comparator function to figure out the smallest index at which
+	  // an object should be inserted so as to maintain order. Uses binary search.
+	  _.sortedIndex = function(array, obj, iteratee, context) {
+	    iteratee = cb(iteratee, context, 1);
+	    var value = iteratee(obj);
+	    var low = 0, high = getLength(array);
+	    while (low < high) {
+	      var mid = Math.floor((low + high) / 2);
+	      if (iteratee(array[mid]) < value) low = mid + 1; else high = mid;
+	    }
+	    return low;
+	  };
+
+	  // Generator function to create the indexOf and lastIndexOf functions
+	  function createIndexFinder(dir, predicateFind, sortedIndex) {
+	    return function(array, item, idx) {
+	      var i = 0, length = getLength(array);
+	      if (typeof idx == 'number') {
+	        if (dir > 0) {
+	            i = idx >= 0 ? idx : Math.max(idx + length, i);
+	        } else {
+	            length = idx >= 0 ? Math.min(idx + 1, length) : idx + length + 1;
+	        }
+	      } else if (sortedIndex && idx && length) {
+	        idx = sortedIndex(array, item);
+	        return array[idx] === item ? idx : -1;
+	      }
+	      if (item !== item) {
+	        idx = predicateFind(slice.call(array, i, length), _.isNaN);
+	        return idx >= 0 ? idx + i : -1;
+	      }
+	      for (idx = dir > 0 ? i : length - 1; idx >= 0 && idx < length; idx += dir) {
+	        if (array[idx] === item) return idx;
+	      }
+	      return -1;
+	    };
+	  }
+
+	  // Return the position of the first occurrence of an item in an array,
+	  // or -1 if the item is not included in the array.
+	  // If the array is large and already in sort order, pass `true`
+	  // for **isSorted** to use binary search.
+	  _.indexOf = createIndexFinder(1, _.findIndex, _.sortedIndex);
+	  _.lastIndexOf = createIndexFinder(-1, _.findLastIndex);
+
+	  // Generate an integer Array containing an arithmetic progression. A port of
+	  // the native Python `range()` function. See
+	  // [the Python documentation](http://docs.python.org/library/functions.html#range).
+	  _.range = function(start, stop, step) {
+	    if (stop == null) {
+	      stop = start || 0;
+	      start = 0;
+	    }
+	    step = step || 1;
+
+	    var length = Math.max(Math.ceil((stop - start) / step), 0);
+	    var range = Array(length);
+
+	    for (var idx = 0; idx < length; idx++, start += step) {
+	      range[idx] = start;
+	    }
+
+	    return range;
+	  };
+
+	  // Function (ahem) Functions
+	  // ------------------
+
+	  // Determines whether to execute a function as a constructor
+	  // or a normal function with the provided arguments
+	  var executeBound = function(sourceFunc, boundFunc, context, callingContext, args) {
+	    if (!(callingContext instanceof boundFunc)) return sourceFunc.apply(context, args);
+	    var self = baseCreate(sourceFunc.prototype);
+	    var result = sourceFunc.apply(self, args);
+	    if (_.isObject(result)) return result;
+	    return self;
+	  };
+
+	  // Create a function bound to a given object (assigning `this`, and arguments,
+	  // optionally). Delegates to **ECMAScript 5**'s native `Function.bind` if
+	  // available.
+	  _.bind = function(func, context) {
+	    if (nativeBind && func.bind === nativeBind) return nativeBind.apply(func, slice.call(arguments, 1));
+	    if (!_.isFunction(func)) throw new TypeError('Bind must be called on a function');
+	    var args = slice.call(arguments, 2);
+	    var bound = function() {
+	      return executeBound(func, bound, context, this, args.concat(slice.call(arguments)));
+	    };
+	    return bound;
+	  };
+
+	  // Partially apply a function by creating a version that has had some of its
+	  // arguments pre-filled, without changing its dynamic `this` context. _ acts
+	  // as a placeholder, allowing any combination of arguments to be pre-filled.
+	  _.partial = function(func) {
+	    var boundArgs = slice.call(arguments, 1);
+	    var bound = function() {
+	      var position = 0, length = boundArgs.length;
+	      var args = Array(length);
+	      for (var i = 0; i < length; i++) {
+	        args[i] = boundArgs[i] === _ ? arguments[position++] : boundArgs[i];
+	      }
+	      while (position < arguments.length) args.push(arguments[position++]);
+	      return executeBound(func, bound, this, this, args);
+	    };
+	    return bound;
+	  };
+
+	  // Bind a number of an object's methods to that object. Remaining arguments
+	  // are the method names to be bound. Useful for ensuring that all callbacks
+	  // defined on an object belong to it.
+	  _.bindAll = function(obj) {
+	    var i, length = arguments.length, key;
+	    if (length <= 1) throw new Error('bindAll must be passed function names');
+	    for (i = 1; i < length; i++) {
+	      key = arguments[i];
+	      obj[key] = _.bind(obj[key], obj);
+	    }
+	    return obj;
+	  };
+
+	  // Memoize an expensive function by storing its results.
+	  _.memoize = function(func, hasher) {
+	    var memoize = function(key) {
+	      var cache = memoize.cache;
+	      var address = '' + (hasher ? hasher.apply(this, arguments) : key);
+	      if (!_.has(cache, address)) cache[address] = func.apply(this, arguments);
+	      return cache[address];
+	    };
+	    memoize.cache = {};
+	    return memoize;
+	  };
+
+	  // Delays a function for the given number of milliseconds, and then calls
+	  // it with the arguments supplied.
+	  _.delay = function(func, wait) {
+	    var args = slice.call(arguments, 2);
+	    return setTimeout(function(){
+	      return func.apply(null, args);
+	    }, wait);
+	  };
+
+	  // Defers a function, scheduling it to run after the current call stack has
+	  // cleared.
+	  _.defer = _.partial(_.delay, _, 1);
+
+	  // Returns a function, that, when invoked, will only be triggered at most once
+	  // during a given window of time. Normally, the throttled function will run
+	  // as much as it can, without ever going more than once per `wait` duration;
+	  // but if you'd like to disable the execution on the leading edge, pass
+	  // `{leading: false}`. To disable execution on the trailing edge, ditto.
+	  _.throttle = function(func, wait, options) {
+	    var context, args, result;
+	    var timeout = null;
+	    var previous = 0;
+	    if (!options) options = {};
+	    var later = function() {
+	      previous = options.leading === false ? 0 : _.now();
+	      timeout = null;
+	      result = func.apply(context, args);
+	      if (!timeout) context = args = null;
+	    };
+	    return function() {
+	      var now = _.now();
+	      if (!previous && options.leading === false) previous = now;
+	      var remaining = wait - (now - previous);
+	      context = this;
+	      args = arguments;
+	      if (remaining <= 0 || remaining > wait) {
+	        if (timeout) {
+	          clearTimeout(timeout);
+	          timeout = null;
+	        }
+	        previous = now;
+	        result = func.apply(context, args);
+	        if (!timeout) context = args = null;
+	      } else if (!timeout && options.trailing !== false) {
+	        timeout = setTimeout(later, remaining);
+	      }
+	      return result;
+	    };
+	  };
+
+	  // Returns a function, that, as long as it continues to be invoked, will not
+	  // be triggered. The function will be called after it stops being called for
+	  // N milliseconds. If `immediate` is passed, trigger the function on the
+	  // leading edge, instead of the trailing.
+	  _.debounce = function(func, wait, immediate) {
+	    var timeout, args, context, timestamp, result;
+
+	    var later = function() {
+	      var last = _.now() - timestamp;
+
+	      if (last < wait && last >= 0) {
+	        timeout = setTimeout(later, wait - last);
+	      } else {
+	        timeout = null;
+	        if (!immediate) {
+	          result = func.apply(context, args);
+	          if (!timeout) context = args = null;
+	        }
+	      }
+	    };
+
+	    return function() {
+	      context = this;
+	      args = arguments;
+	      timestamp = _.now();
+	      var callNow = immediate && !timeout;
+	      if (!timeout) timeout = setTimeout(later, wait);
+	      if (callNow) {
+	        result = func.apply(context, args);
+	        context = args = null;
+	      }
+
+	      return result;
+	    };
+	  };
+
+	  // Returns the first function passed as an argument to the second,
+	  // allowing you to adjust arguments, run code before and after, and
+	  // conditionally execute the original function.
+	  _.wrap = function(func, wrapper) {
+	    return _.partial(wrapper, func);
+	  };
+
+	  // Returns a negated version of the passed-in predicate.
+	  _.negate = function(predicate) {
+	    return function() {
+	      return !predicate.apply(this, arguments);
+	    };
+	  };
+
+	  // Returns a function that is the composition of a list of functions, each
+	  // consuming the return value of the function that follows.
+	  _.compose = function() {
+	    var args = arguments;
+	    var start = args.length - 1;
+	    return function() {
+	      var i = start;
+	      var result = args[start].apply(this, arguments);
+	      while (i--) result = args[i].call(this, result);
+	      return result;
+	    };
+	  };
+
+	  // Returns a function that will only be executed on and after the Nth call.
+	  _.after = function(times, func) {
+	    return function() {
+	      if (--times < 1) {
+	        return func.apply(this, arguments);
+	      }
+	    };
+	  };
+
+	  // Returns a function that will only be executed up to (but not including) the Nth call.
+	  _.before = function(times, func) {
+	    var memo;
+	    return function() {
+	      if (--times > 0) {
+	        memo = func.apply(this, arguments);
+	      }
+	      if (times <= 1) func = null;
+	      return memo;
+	    };
+	  };
+
+	  // Returns a function that will be executed at most one time, no matter how
+	  // often you call it. Useful for lazy initialization.
+	  _.once = _.partial(_.before, 2);
+
+	  // Object Functions
+	  // ----------------
+
+	  // Keys in IE < 9 that won't be iterated by `for key in ...` and thus missed.
+	  var hasEnumBug = !{toString: null}.propertyIsEnumerable('toString');
+	  var nonEnumerableProps = ['valueOf', 'isPrototypeOf', 'toString',
+	                      'propertyIsEnumerable', 'hasOwnProperty', 'toLocaleString'];
+
+	  function collectNonEnumProps(obj, keys) {
+	    var nonEnumIdx = nonEnumerableProps.length;
+	    var constructor = obj.constructor;
+	    var proto = (_.isFunction(constructor) && constructor.prototype) || ObjProto;
+
+	    // Constructor is a special case.
+	    var prop = 'constructor';
+	    if (_.has(obj, prop) && !_.contains(keys, prop)) keys.push(prop);
+
+	    while (nonEnumIdx--) {
+	      prop = nonEnumerableProps[nonEnumIdx];
+	      if (prop in obj && obj[prop] !== proto[prop] && !_.contains(keys, prop)) {
+	        keys.push(prop);
+	      }
+	    }
+	  }
+
+	  // Retrieve the names of an object's own properties.
+	  // Delegates to **ECMAScript 5**'s native `Object.keys`
+	  _.keys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    if (nativeKeys) return nativeKeys(obj);
+	    var keys = [];
+	    for (var key in obj) if (_.has(obj, key)) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve all the property names of an object.
+	  _.allKeys = function(obj) {
+	    if (!_.isObject(obj)) return [];
+	    var keys = [];
+	    for (var key in obj) keys.push(key);
+	    // Ahem, IE < 9.
+	    if (hasEnumBug) collectNonEnumProps(obj, keys);
+	    return keys;
+	  };
+
+	  // Retrieve the values of an object's properties.
+	  _.values = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var values = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      values[i] = obj[keys[i]];
+	    }
+	    return values;
+	  };
+
+	  // Returns the results of applying the iteratee to each element of the object
+	  // In contrast to _.map it returns an object
+	  _.mapObject = function(obj, iteratee, context) {
+	    iteratee = cb(iteratee, context);
+	    var keys =  _.keys(obj),
+	          length = keys.length,
+	          results = {},
+	          currentKey;
+	      for (var index = 0; index < length; index++) {
+	        currentKey = keys[index];
+	        results[currentKey] = iteratee(obj[currentKey], currentKey, obj);
+	      }
+	      return results;
+	  };
+
+	  // Convert an object into a list of `[key, value]` pairs.
+	  _.pairs = function(obj) {
+	    var keys = _.keys(obj);
+	    var length = keys.length;
+	    var pairs = Array(length);
+	    for (var i = 0; i < length; i++) {
+	      pairs[i] = [keys[i], obj[keys[i]]];
+	    }
+	    return pairs;
+	  };
+
+	  // Invert the keys and values of an object. The values must be serializable.
+	  _.invert = function(obj) {
+	    var result = {};
+	    var keys = _.keys(obj);
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      result[obj[keys[i]]] = keys[i];
+	    }
+	    return result;
+	  };
+
+	  // Return a sorted list of the function names available on the object.
+	  // Aliased as `methods`
+	  _.functions = _.methods = function(obj) {
+	    var names = [];
+	    for (var key in obj) {
+	      if (_.isFunction(obj[key])) names.push(key);
+	    }
+	    return names.sort();
+	  };
+
+	  // Extend a given object with all the properties in passed-in object(s).
+	  _.extend = createAssigner(_.allKeys);
+
+	  // Assigns a given object with all the own properties in the passed-in object(s)
+	  // (https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)
+	  _.extendOwn = _.assign = createAssigner(_.keys);
+
+	  // Returns the first key on an object that passes a predicate test
+	  _.findKey = function(obj, predicate, context) {
+	    predicate = cb(predicate, context);
+	    var keys = _.keys(obj), key;
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      key = keys[i];
+	      if (predicate(obj[key], key, obj)) return key;
+	    }
+	  };
+
+	  // Return a copy of the object only containing the whitelisted properties.
+	  _.pick = function(object, oiteratee, context) {
+	    var result = {}, obj = object, iteratee, keys;
+	    if (obj == null) return result;
+	    if (_.isFunction(oiteratee)) {
+	      keys = _.allKeys(obj);
+	      iteratee = optimizeCb(oiteratee, context);
+	    } else {
+	      keys = flatten(arguments, false, false, 1);
+	      iteratee = function(value, key, obj) { return key in obj; };
+	      obj = Object(obj);
+	    }
+	    for (var i = 0, length = keys.length; i < length; i++) {
+	      var key = keys[i];
+	      var value = obj[key];
+	      if (iteratee(value, key, obj)) result[key] = value;
+	    }
+	    return result;
+	  };
+
+	   // Return a copy of the object without the blacklisted properties.
+	  _.omit = function(obj, iteratee, context) {
+	    if (_.isFunction(iteratee)) {
+	      iteratee = _.negate(iteratee);
+	    } else {
+	      var keys = _.map(flatten(arguments, false, false, 1), String);
+	      iteratee = function(value, key) {
+	        return !_.contains(keys, key);
+	      };
+	    }
+	    return _.pick(obj, iteratee, context);
+	  };
+
+	  // Fill in a given object with default properties.
+	  _.defaults = createAssigner(_.allKeys, true);
+
+	  // Creates an object that inherits from the given prototype object.
+	  // If additional properties are provided then they will be added to the
+	  // created object.
+	  _.create = function(prototype, props) {
+	    var result = baseCreate(prototype);
+	    if (props) _.extendOwn(result, props);
+	    return result;
+	  };
+
+	  // Create a (shallow-cloned) duplicate of an object.
+	  _.clone = function(obj) {
+	    if (!_.isObject(obj)) return obj;
+	    return _.isArray(obj) ? obj.slice() : _.extend({}, obj);
+	  };
+
+	  // Invokes interceptor with the obj, and then returns obj.
+	  // The primary purpose of this method is to "tap into" a method chain, in
+	  // order to perform operations on intermediate results within the chain.
+	  _.tap = function(obj, interceptor) {
+	    interceptor(obj);
+	    return obj;
+	  };
+
+	  // Returns whether an object has a given set of `key:value` pairs.
+	  _.isMatch = function(object, attrs) {
+	    var keys = _.keys(attrs), length = keys.length;
+	    if (object == null) return !length;
+	    var obj = Object(object);
+	    for (var i = 0; i < length; i++) {
+	      var key = keys[i];
+	      if (attrs[key] !== obj[key] || !(key in obj)) return false;
+	    }
+	    return true;
+	  };
+
+
+	  // Internal recursive comparison function for `isEqual`.
+	  var eq = function(a, b, aStack, bStack) {
+	    // Identical objects are equal. `0 === -0`, but they aren't identical.
+	    // See the [Harmony `egal` proposal](http://wiki.ecmascript.org/doku.php?id=harmony:egal).
+	    if (a === b) return a !== 0 || 1 / a === 1 / b;
+	    // A strict comparison is necessary because `null == undefined`.
+	    if (a == null || b == null) return a === b;
+	    // Unwrap any wrapped objects.
+	    if (a instanceof _) a = a._wrapped;
+	    if (b instanceof _) b = b._wrapped;
+	    // Compare `[[Class]]` names.
+	    var className = toString.call(a);
+	    if (className !== toString.call(b)) return false;
+	    switch (className) {
+	      // Strings, numbers, regular expressions, dates, and booleans are compared by value.
+	      case '[object RegExp]':
+	      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+	      case '[object String]':
+	        // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
+	        // equivalent to `new String("5")`.
+	        return '' + a === '' + b;
+	      case '[object Number]':
+	        // `NaN`s are equivalent, but non-reflexive.
+	        // Object(NaN) is equivalent to NaN
+	        if (+a !== +a) return +b !== +b;
+	        // An `egal` comparison is performed for other numeric values.
+	        return +a === 0 ? 1 / +a === 1 / b : +a === +b;
+	      case '[object Date]':
+	      case '[object Boolean]':
+	        // Coerce dates and booleans to numeric primitive values. Dates are compared by their
+	        // millisecond representations. Note that invalid dates with millisecond representations
+	        // of `NaN` are not equivalent.
+	        return +a === +b;
+	    }
+
+	    var areArrays = className === '[object Array]';
+	    if (!areArrays) {
+	      if (typeof a != 'object' || typeof b != 'object') return false;
+
+	      // Objects with different constructors are not equivalent, but `Object`s or `Array`s
+	      // from different frames are.
+	      var aCtor = a.constructor, bCtor = b.constructor;
+	      if (aCtor !== bCtor && !(_.isFunction(aCtor) && aCtor instanceof aCtor &&
+	                               _.isFunction(bCtor) && bCtor instanceof bCtor)
+	                          && ('constructor' in a && 'constructor' in b)) {
+	        return false;
+	      }
+	    }
+	    // Assume equality for cyclic structures. The algorithm for detecting cyclic
+	    // structures is adapted from ES 5.1 section 15.12.3, abstract operation `JO`.
+
+	    // Initializing stack of traversed objects.
+	    // It's done here since we only need them for objects and arrays comparison.
+	    aStack = aStack || [];
+	    bStack = bStack || [];
+	    var length = aStack.length;
+	    while (length--) {
+	      // Linear search. Performance is inversely proportional to the number of
+	      // unique nested structures.
+	      if (aStack[length] === a) return bStack[length] === b;
+	    }
+
+	    // Add the first object to the stack of traversed objects.
+	    aStack.push(a);
+	    bStack.push(b);
+
+	    // Recursively compare objects and arrays.
+	    if (areArrays) {
+	      // Compare array lengths to determine if a deep comparison is necessary.
+	      length = a.length;
+	      if (length !== b.length) return false;
+	      // Deep compare the contents, ignoring non-numeric properties.
+	      while (length--) {
+	        if (!eq(a[length], b[length], aStack, bStack)) return false;
+	      }
+	    } else {
+	      // Deep compare objects.
+	      var keys = _.keys(a), key;
+	      length = keys.length;
+	      // Ensure that both objects contain the same number of properties before comparing deep equality.
+	      if (_.keys(b).length !== length) return false;
+	      while (length--) {
+	        // Deep compare each member
+	        key = keys[length];
+	        if (!(_.has(b, key) && eq(a[key], b[key], aStack, bStack))) return false;
+	      }
+	    }
+	    // Remove the first object from the stack of traversed objects.
+	    aStack.pop();
+	    bStack.pop();
+	    return true;
+	  };
+
+	  // Perform a deep comparison to check if two objects are equal.
+	  _.isEqual = function(a, b) {
+	    return eq(a, b);
+	  };
+
+	  // Is a given array, string, or object empty?
+	  // An "empty" object has no enumerable own-properties.
+	  _.isEmpty = function(obj) {
+	    if (obj == null) return true;
+	    if (isArrayLike(obj) && (_.isArray(obj) || _.isString(obj) || _.isArguments(obj))) return obj.length === 0;
+	    return _.keys(obj).length === 0;
+	  };
+
+	  // Is a given value a DOM element?
+	  _.isElement = function(obj) {
+	    return !!(obj && obj.nodeType === 1);
+	  };
+
+	  // Is a given value an array?
+	  // Delegates to ECMA5's native Array.isArray
+	  _.isArray = nativeIsArray || function(obj) {
+	    return toString.call(obj) === '[object Array]';
+	  };
+
+	  // Is a given variable an object?
+	  _.isObject = function(obj) {
+	    var type = typeof obj;
+	    return type === 'function' || type === 'object' && !!obj;
+	  };
+
+	  // Add some isType methods: isArguments, isFunction, isString, isNumber, isDate, isRegExp, isError.
+	  _.each(['Arguments', 'Function', 'String', 'Number', 'Date', 'RegExp', 'Error'], function(name) {
+	    _['is' + name] = function(obj) {
+	      return toString.call(obj) === '[object ' + name + ']';
+	    };
+	  });
+
+	  // Define a fallback version of the method in browsers (ahem, IE < 9), where
+	  // there isn't any inspectable "Arguments" type.
+	  if (!_.isArguments(arguments)) {
+	    _.isArguments = function(obj) {
+	      return _.has(obj, 'callee');
+	    };
+	  }
+
+	  // Optimize `isFunction` if appropriate. Work around some typeof bugs in old v8,
+	  // IE 11 (#1621), and in Safari 8 (#1929).
+	  if (typeof /./ != 'function' && typeof Int8Array != 'object') {
+	    _.isFunction = function(obj) {
+	      return typeof obj == 'function' || false;
+	    };
+	  }
+
+	  // Is a given object a finite number?
+	  _.isFinite = function(obj) {
+	    return isFinite(obj) && !isNaN(parseFloat(obj));
+	  };
+
+	  // Is the given value `NaN`? (NaN is the only number which does not equal itself).
+	  _.isNaN = function(obj) {
+	    return _.isNumber(obj) && obj !== +obj;
+	  };
+
+	  // Is a given value a boolean?
+	  _.isBoolean = function(obj) {
+	    return obj === true || obj === false || toString.call(obj) === '[object Boolean]';
+	  };
+
+	  // Is a given value equal to null?
+	  _.isNull = function(obj) {
+	    return obj === null;
+	  };
+
+	  // Is a given variable undefined?
+	  _.isUndefined = function(obj) {
+	    return obj === void 0;
+	  };
+
+	  // Shortcut function for checking if an object has a given property directly
+	  // on itself (in other words, not on a prototype).
+	  _.has = function(obj, key) {
+	    return obj != null && hasOwnProperty.call(obj, key);
+	  };
+
+	  // Utility Functions
+	  // -----------------
+
+	  // Run Underscore.js in *noConflict* mode, returning the `_` variable to its
+	  // previous owner. Returns a reference to the Underscore object.
+	  _.noConflict = function() {
+	    root._ = previousUnderscore;
+	    return this;
+	  };
+
+	  // Keep the identity function around for default iteratees.
+	  _.identity = function(value) {
+	    return value;
+	  };
+
+	  // Predicate-generating functions. Often useful outside of Underscore.
+	  _.constant = function(value) {
+	    return function() {
+	      return value;
+	    };
+	  };
+
+	  _.noop = function(){};
+
+	  _.property = property;
+
+	  // Generates a function for a given object that returns a given property.
+	  _.propertyOf = function(obj) {
+	    return obj == null ? function(){} : function(key) {
+	      return obj[key];
+	    };
+	  };
+
+	  // Returns a predicate for checking whether an object has a given set of
+	  // `key:value` pairs.
+	  _.matcher = _.matches = function(attrs) {
+	    attrs = _.extendOwn({}, attrs);
+	    return function(obj) {
+	      return _.isMatch(obj, attrs);
+	    };
+	  };
+
+	  // Run a function **n** times.
+	  _.times = function(n, iteratee, context) {
+	    var accum = Array(Math.max(0, n));
+	    iteratee = optimizeCb(iteratee, context, 1);
+	    for (var i = 0; i < n; i++) accum[i] = iteratee(i);
+	    return accum;
+	  };
+
+	  // Return a random integer between min and max (inclusive).
+	  _.random = function(min, max) {
+	    if (max == null) {
+	      max = min;
+	      min = 0;
+	    }
+	    return min + Math.floor(Math.random() * (max - min + 1));
+	  };
+
+	  // A (possibly faster) way to get the current timestamp as an integer.
+	  _.now = Date.now || function() {
+	    return new Date().getTime();
+	  };
+
+	   // List of HTML entities for escaping.
+	  var escapeMap = {
+	    '&': '&amp;',
+	    '<': '&lt;',
+	    '>': '&gt;',
+	    '"': '&quot;',
+	    "'": '&#x27;',
+	    '`': '&#x60;'
+	  };
+	  var unescapeMap = _.invert(escapeMap);
+
+	  // Functions for escaping and unescaping strings to/from HTML interpolation.
+	  var createEscaper = function(map) {
+	    var escaper = function(match) {
+	      return map[match];
+	    };
+	    // Regexes for identifying a key that needs to be escaped
+	    var source = '(?:' + _.keys(map).join('|') + ')';
+	    var testRegexp = RegExp(source);
+	    var replaceRegexp = RegExp(source, 'g');
+	    return function(string) {
+	      string = string == null ? '' : '' + string;
+	      return testRegexp.test(string) ? string.replace(replaceRegexp, escaper) : string;
+	    };
+	  };
+	  _.escape = createEscaper(escapeMap);
+	  _.unescape = createEscaper(unescapeMap);
+
+	  // If the value of the named `property` is a function then invoke it with the
+	  // `object` as context; otherwise, return it.
+	  _.result = function(object, property, fallback) {
+	    var value = object == null ? void 0 : object[property];
+	    if (value === void 0) {
+	      value = fallback;
+	    }
+	    return _.isFunction(value) ? value.call(object) : value;
+	  };
+
+	  // Generate a unique integer id (unique within the entire client session).
+	  // Useful for temporary DOM ids.
+	  var idCounter = 0;
+	  _.uniqueId = function(prefix) {
+	    var id = ++idCounter + '';
+	    return prefix ? prefix + id : id;
+	  };
+
+	  // By default, Underscore uses ERB-style template delimiters, change the
+	  // following template settings to use alternative delimiters.
+	  _.templateSettings = {
+	    evaluate    : /<%([\s\S]+?)%>/g,
+	    interpolate : /<%=([\s\S]+?)%>/g,
+	    escape      : /<%-([\s\S]+?)%>/g
+	  };
+
+	  // When customizing `templateSettings`, if you don't want to define an
+	  // interpolation, evaluation or escaping regex, we need one that is
+	  // guaranteed not to match.
+	  var noMatch = /(.)^/;
+
+	  // Certain characters need to be escaped so that they can be put into a
+	  // string literal.
+	  var escapes = {
+	    "'":      "'",
+	    '\\':     '\\',
+	    '\r':     'r',
+	    '\n':     'n',
+	    '\u2028': 'u2028',
+	    '\u2029': 'u2029'
+	  };
+
+	  var escaper = /\\|'|\r|\n|\u2028|\u2029/g;
+
+	  var escapeChar = function(match) {
+	    return '\\' + escapes[match];
+	  };
+
+	  // JavaScript micro-templating, similar to John Resig's implementation.
+	  // Underscore templating handles arbitrary delimiters, preserves whitespace,
+	  // and correctly escapes quotes within interpolated code.
+	  // NB: `oldSettings` only exists for backwards compatibility.
+	  _.template = function(text, settings, oldSettings) {
+	    if (!settings && oldSettings) settings = oldSettings;
+	    settings = _.defaults({}, settings, _.templateSettings);
+
+	    // Combine delimiters into one regular expression via alternation.
+	    var matcher = RegExp([
+	      (settings.escape || noMatch).source,
+	      (settings.interpolate || noMatch).source,
+	      (settings.evaluate || noMatch).source
+	    ].join('|') + '|$', 'g');
+
+	    // Compile the template source, escaping string literals appropriately.
+	    var index = 0;
+	    var source = "__p+='";
+	    text.replace(matcher, function(match, escape, interpolate, evaluate, offset) {
+	      source += text.slice(index, offset).replace(escaper, escapeChar);
+	      index = offset + match.length;
+
+	      if (escape) {
+	        source += "'+\n((__t=(" + escape + "))==null?'':_.escape(__t))+\n'";
+	      } else if (interpolate) {
+	        source += "'+\n((__t=(" + interpolate + "))==null?'':__t)+\n'";
+	      } else if (evaluate) {
+	        source += "';\n" + evaluate + "\n__p+='";
+	      }
+
+	      // Adobe VMs need the match returned to produce the correct offest.
+	      return match;
+	    });
+	    source += "';\n";
+
+	    // If a variable is not specified, place data values in local scope.
+	    if (!settings.variable) source = 'with(obj||{}){\n' + source + '}\n';
+
+	    source = "var __t,__p='',__j=Array.prototype.join," +
+	      "print=function(){__p+=__j.call(arguments,'');};\n" +
+	      source + 'return __p;\n';
+
+	    try {
+	      var render = new Function(settings.variable || 'obj', '_', source);
+	    } catch (e) {
+	      e.source = source;
+	      throw e;
+	    }
+
+	    var template = function(data) {
+	      return render.call(this, data, _);
+	    };
+
+	    // Provide the compiled source as a convenience for precompilation.
+	    var argument = settings.variable || 'obj';
+	    template.source = 'function(' + argument + '){\n' + source + '}';
+
+	    return template;
+	  };
+
+	  // Add a "chain" function. Start chaining a wrapped Underscore object.
+	  _.chain = function(obj) {
+	    var instance = _(obj);
+	    instance._chain = true;
+	    return instance;
+	  };
+
+	  // OOP
+	  // ---------------
+	  // If Underscore is called as a function, it returns a wrapped object that
+	  // can be used OO-style. This wrapper holds altered versions of all the
+	  // underscore functions. Wrapped objects may be chained.
+
+	  // Helper function to continue chaining intermediate results.
+	  var result = function(instance, obj) {
+	    return instance._chain ? _(obj).chain() : obj;
+	  };
+
+	  // Add your own custom functions to the Underscore object.
+	  _.mixin = function(obj) {
+	    _.each(_.functions(obj), function(name) {
+	      var func = _[name] = obj[name];
+	      _.prototype[name] = function() {
+	        var args = [this._wrapped];
+	        push.apply(args, arguments);
+	        return result(this, func.apply(_, args));
+	      };
+	    });
+	  };
+
+	  // Add all of the Underscore functions to the wrapper object.
+	  _.mixin(_);
+
+	  // Add all mutator Array functions to the wrapper.
+	  _.each(['pop', 'push', 'reverse', 'shift', 'sort', 'splice', 'unshift'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      var obj = this._wrapped;
+	      method.apply(obj, arguments);
+	      if ((name === 'shift' || name === 'splice') && obj.length === 0) delete obj[0];
+	      return result(this, obj);
+	    };
+	  });
+
+	  // Add all accessor Array functions to the wrapper.
+	  _.each(['concat', 'join', 'slice'], function(name) {
+	    var method = ArrayProto[name];
+	    _.prototype[name] = function() {
+	      return result(this, method.apply(this._wrapped, arguments));
+	    };
+	  });
+
+	  // Extracts the result from a wrapped and chained object.
+	  _.prototype.value = function() {
+	    return this._wrapped;
+	  };
+
+	  // Provide unwrapping proxy for some methods used in engine operations
+	  // such as arithmetic and JSON stringification.
+	  _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
+
+	  _.prototype.toString = function() {
+	    return '' + this._wrapped;
+	  };
+
+	  // AMD registration happens at the end for compatibility with AMD loaders
+	  // that may not enforce next-turn semantics on modules. Even though general
+	  // practice for AMD registration is to be anonymous, underscore registers
+	  // as a named module because, like jQuery, it is a base library that is
+	  // popular enough to be bundled in a third party lib, but not be part of
+	  // an AMD load request. Those cases could generate an error when an
+	  // anonymous define() is called outside of a loader request.
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function() {
+	      return _;
+	    }.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  }
+	}.call(this));
+
+
+/***/ }),
+/* 147 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 153 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19039,15 +18852,15 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
 
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _Antd = __webpack_require__(91);
+	var _Antd = __webpack_require__(87);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(154);
+	var _loader = __webpack_require__(149);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -19072,7 +18885,7 @@
 	        // 格式化 class 和 style
 	        props = this.formatCS(props);
 	        // 如果是基于BaseComponent的组件内部要用到的属性处理
-	        if (_utils.Utils.isExtendsOf(Item, _base.BaseComponent)) {
+	        if (_utils.Utils.isExtendsOf(Item, _component.BaseComponent)) {
 	            props['__type'] = item.type;
 	            props['__key'] = props['key'];
 	            // 如果有name的话，把组件放到缓存池里
@@ -19088,7 +18901,6 @@
 	            }
 	            // 非 BaseComponent 组件 _root 等属性无效
 	        } else {
-	            props.name = item.name;
 	            delete props._root;
 	            delete props._factory;
 	        }
@@ -19168,7 +18980,7 @@
 	};
 
 /***/ }),
-/* 154 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19181,32 +18993,24 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(92);
+	var _utils = __webpack_require__(77);
 
-	var _utils = __webpack_require__(79);
-
-	var _model = __webpack_require__(155);
+	var _model = __webpack_require__(150);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _dom = __webpack_require__(156);
+	var _dom = __webpack_require__(151);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
-	var _src = __webpack_require__(74);
+	var _uf = __webpack_require__(74);
 
-	var UF = _interopRequireWildcard(_src);
+	var UF = _interopRequireWildcard(_uf);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	/**
-	 * @file 载入组件，供 Factory 获取
-	 *      根据配置的 type，转换成对应组件并返回
-	 * @author liuzechun@baidu.com
-	 */
-	var FilterProps = _base.BaseConf.FilterProps;
 	exports.default = {
 	    component: Object.assign(UF),
 
@@ -19224,11 +19028,9 @@
 	        if (!result) {
 	            // 检查是否为React原生元素
 	            if (_react2.default.DOM.hasOwnProperty(type)) {
-	                // 1、如果有name，说明用户想要操作组件；
-	                // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
-	                // 3、如果配置了具有特殊功能的属性
+	                // 如果有name，说明用户想要操作组件；如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
 	                // 否则用原生的增强性能
-	                if (item.name || _model2.default.if(item) || _utils.Utils.isIntersection(FilterProps, Object.keys(item))) {
+	                if (item.name || _model2.default.if(item)) {
 	                    result = _dom2.default;
 	                } else {
 	                    result = type;
@@ -19245,10 +19047,14 @@
 	    error: function error(type) {
 	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
 	    }
-	};
+	}; /**
+	    * @file 载入组件，供 Factory 获取
+	    *      根据配置的 type，转换成对应组件并返回
+	    * @author liuzechun@baidu.com
+	    */
 
 /***/ }),
-/* 155 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19257,9 +19063,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
 	// 使用model表达式格式 ${xxx}
 	/**
@@ -19368,15 +19174,15 @@
 	};
 
 /***/ }),
-/* 156 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(157).default;
+	module.exports = __webpack_require__(152).default;
 
 /***/ }),
-/* 157 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19391,9 +19197,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(92);
+	var _component = __webpack_require__(88);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19427,12 +19233,12 @@
 	    }]);
 
 	    return Dom;
-	}(_base.BaseComponent);
+	}(_component.BaseComponent);
 
 	exports.default = Dom;
 
 /***/ }),
-/* 158 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19441,9 +19247,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
 	/**
 	 * @file 权限控制模块
@@ -19462,7 +19268,7 @@
 	};
 
 /***/ }),
-/* 159 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19477,31 +19283,31 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
-	var _cache = __webpack_require__(94);
+	var _cache = __webpack_require__(90);
 
-	var _loader = __webpack_require__(154);
+	var _loader = __webpack_require__(149);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(153);
+	var _adaptor = __webpack_require__(148);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(158);
+	var _authority = __webpack_require__(153);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(160);
+	var _validator = __webpack_require__(155);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(161);
+	var _whitelist = __webpack_require__(156);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _requirejs = __webpack_require__(162);
+	var _requirejs = __webpack_require__(157);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -19549,9 +19355,6 @@
 	            // 如果模块是一个函数，先执行函数得到返回的配置
 	            if (_utils.Utils.typeof(item, 'function')) {
 	                item = item();
-	                if (_utils.Utils.typeof(item, 'array')) {
-	                    return this.generateElement(item);
-	                }
 	            }
 	            // 如果是字符串直接返回
 	            if (!_utils.Utils.typeof(item, 'object')) {
@@ -19581,7 +19384,7 @@
 	            if (item.type === 'html') {
 	                // return new Html(item.content);
 	                // 直接使用InnerHTML，以节省性能
-	                // return <section className={'uf-html ' + (item.className || '')} style={item.style}
+	                // return <section className={'uf-html ' + (item.className || '')} style={item.style} 
 	                //     dangerouslySetInnerHTML={{__html: item.content}}></section>;
 	                // 按照正常流程走
 	                item.type = 'section';
@@ -19617,13 +19420,13 @@
 	            return props;
 	        }
 
+	        // this.props.children为路由解析时子路由对应的组件，需要把子路由的组件在父组件的某个位置作为children展示出来
 	        // 在组件配置中，childrenHolder属性指定把子页面放在父组件的哪个位置
 
 	    }, {
 	        key: 'handleChildren',
 	        value: function handleChildren(props, hasChildrenHolder) {
-	            // 此处把通过路由传入的子组件放在当前配置树的定义了 childrenHolder 的节点下作为组件的子组件
-	            // this.props.children 是通过路由传入的子组件
+	            // 只有指定了childrenHolder这个属性才会展示
 	            if (hasChildrenHolder && this.props.children) {
 	                if (!props.children) {
 	                    props.children = this.props.children;
@@ -19765,7 +19568,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 160 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19774,7 +19577,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	exports.default = {
 	    // 检查对象上的某个(些)属性是否符合指定类型
@@ -19830,7 +19633,7 @@
 	    */
 
 /***/ }),
-/* 161 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19839,7 +19642,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var List = {
 	    Breadcrumb: ['options'],
@@ -19862,6 +19665,7 @@
 	    Timeline: ['pending'],
 	    TimelineItem: ['dot'],
 	    Sider: ['trigger'],
+	    // Modal: ['title', 'footer'],
 	    Modal: ['title'],
 	    Notification: ['message', 'description', 'btn', 'icon'],
 	    Message: ['content']
@@ -19911,7 +19715,7 @@
 	};
 
 /***/ }),
-/* 162 */
+/* 157 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -22072,7 +21876,7 @@
 	exports.default = requirejs;
 
 /***/ }),
-/* 163 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22089,9 +21893,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(4);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
+	 * @author liuzechun
+	 * Created Date: 2017-12-18 07:48:32
+	 */
 
 	exports.default = {
 	    uf: {},
@@ -22103,13 +21911,8 @@
 	            this.uf._reInit();
 	        }
 	    },
-	    error: function error(err) {
-	        _antd.notification.error({
-	            top: 24,
-	            message: '执行出错，已阻止页面加载',
-	            duration: 0,
-	            description: JSON.stringify(err)
-	        });
+	    error: function error() {
+	        this.success();
 	    },
 	    handle: function handle(arr, uf) {
 	        this.waiting = true;
@@ -22140,14 +21943,10 @@
 	            }
 	        }
 	    }
-	}; /**
-	    * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
-	    * @author liuzechun
-	    * Created Date: 2017-12-18 07:48:32
-	    */
+	};
 
 /***/ }),
-/* 164 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22198,7 +21997,7 @@
 	exports.default = InstallApp;
 
 /***/ }),
-/* 165 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22249,7 +22048,7 @@
 	exports.default = Join;
 
 /***/ }),
-/* 166 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22300,7 +22099,7 @@
 	exports.default = Info;
 
 /***/ }),
-/* 167 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22644,7 +22443,7 @@
 	exports.default = LayoutApp;
 
 /***/ }),
-/* 168 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22861,7 +22660,7 @@
 	exports.default = Page;
 
 /***/ }),
-/* 169 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22912,7 +22711,7 @@
 	exports.default = Others;
 
 /***/ }),
-/* 170 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22985,7 +22784,7 @@
 	exports.default = Install;
 
 /***/ }),
-/* 171 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23040,7 +22839,7 @@
 	exports.default = Config;
 
 /***/ }),
-/* 172 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23095,7 +22894,7 @@
 	exports.default = Modules;
 
 /***/ }),
-/* 173 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23146,7 +22945,7 @@
 	exports.default = Others;
 
 /***/ }),
-/* 174 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23197,7 +22996,7 @@
 	exports.default = Build;
 
 /***/ }),
-/* 175 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23249,7 +23048,7 @@
 	exports.default = UpdateLogApp;
 
 /***/ }),
-/* 176 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23272,7 +23071,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(177);
+	var _markdown = __webpack_require__(172);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -23382,13 +23181,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 177 */
+/* 172 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 通过一定格式的配置以及数据格式，可以将数据导出为.xls以及.csv文件\n* 配置`headers`用于文件中表头的展示以及数据的一一对应\n* 配置`source`，`params`，`total`可通过后端异步导出数据\n* 配置`fileName`，`fileFormat`分别实现导出的文件名称及文件格式类型\n\n## 组件&参数\n\n### # export\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| data | 要导出的全部数据列表，需要按照一定的格式书写 | Array |  | 若传入此属性，则按同步导出处理，直接把data中的数据导出到文件中 |\n| headers | 导出文件中要显示的字段，以及字段对应的表头，值为数组，数组的每个元素为一个对象，见下方详细说明 | Array |  | 必须 |\n| source | 导出数据接口（一般可直接使用分页接口，接口格式见下面）(如果总数已知且确定的话total可选) | String |  | 如果传入此属性，则认为是异步导出 |\n| params | 需要传递给后台的参数，如一些搜索及高级查询的过滤条件等（同`Table`组件的params参数） | Object |  |  |\n| total | 当前表格所有数据的总条数 (因为在导出前就会使用，所以最好传入，否则在开始前将不会计算所需请求次数，异步请求接口数据必须传递total或count值) | Number |  |  |\n| message | 如上面示例的'提示导出'组件，可自定义下面的提示信息：包含两个属性 `page1`、`page2`，属性值都是数组，详见`提示导出CSV文件`demo | Object |  |  |\n| fileName | 自定义导出的文件名 | String | 导出时间+'导出文件' |  |\n| fileFormat | 选择导出的文件名，目前只支持.xls文件和.csv文件，故值为'.xls'或'.csv' | String | '.xls' | . |\n\n#### *headers*\n> 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名\n\n```javascript\nheaders: [\n    {\n        key: 'name',\n        title: '姓名'\n    },\n    {\n        key: 'age',\n        title: '年龄'\n    },\n    {...}\n]\n```\n\n#### 异步导出接口数据格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…],\n    total/count: 720\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 178 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23415,7 +23214,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(179);
+	var _markdown = __webpack_require__(174);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -23429,7 +23228,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 配置化表单组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
-	// import Form from 'src/form';
+	// import Form from 'uf/form';
 
 
 	var Step1 = {
@@ -23917,13 +23716,97 @@
 	exports.default = FormApp;
 
 /***/ }),
-/* 179 */
+/* 174 */
 /***/ (function(module, exports) {
 
 	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能 | object | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键 | string | | 必须\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object &#124; object[] | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`left`、`right` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onChange'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\n\n\n## 更多用法\n可以把各种组件的更高级用法的例子截图贴在这里\n[!图片](/path/to/img.jpg \"Title\")\n"
 
 /***/ }),
-/* 180 */
+/* 175 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(13);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _markdown = __webpack_require__(176);
+
+	var _markdown2 = _interopRequireDefault(_markdown);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 配置化树形控件，Demo及文档说明
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var demo1 = {
+	    title: '基本用法',
+	    description: '默认高度自动根据内容调整',
+	    config: {
+	        type: 'iframe',
+	        src: 'docs/demo/router.php#/',
+	        height: 300
+	        // mode: 'auto' // default
+	        // mode: 'fixed'
+	        // mode: 'max'
+	    }
+	};
+
+	var ExportApp = function (_BaseDoc) {
+	    _inherits(ExportApp, _BaseDoc);
+
+	    function ExportApp(props) {
+	        _classCallCheck(this, ExportApp);
+
+	        var _this = _possibleConstructorReturn(this, (ExportApp.__proto__ || Object.getPrototypeOf(ExportApp)).call(this, props));
+
+	        _this.state = {};
+	        _this.doc = _markdown2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(ExportApp, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getDemoSingle(demo1);
+	        }
+	    }]);
+
+	    return ExportApp;
+	}(_BaseDoc3.default);
+
+	exports.default = ExportApp;
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports) {
+
+	module.exports = "iframe 的增强版。\n\n### 功能说明  \n* iframe加载子页面时自动展示loading状态\n* 文档加载完成后iframe的高度自动重新设定，支持三种模式\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nsrc | 子页面的url。可以是全路径，也可以是相对路径 | string |  | 必填\nmode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条） | string | 'auto' | \ndelay | 子页面高度变化时，延迟重新设定iframe高度，可防止高度闪烁 | number | 0 |\n\n其他属性同原生的 iframe，例如：`height`、`width`等\n\n#### 注意：\n使用`mode`属性时需要注意以下问题：\n\n* 跨域问题  \n要使用`mode`属性，默认会因跨域问题导致此属性无效。解决办法有两种：\n> * 需在当前页面和其子页面的 js 里同时增加一行代码设置为同一个域：`document.domain = 'baidu.com';`\n> * 使用 `UF.config({global: {domain: 'baidu.com'}})`，见 [全局配置](#/Develop/Config)\n\n* 子页面高度问题  \n此外如果子页面的`body/html`标签 CSS 设置了`height: 100%`，则`mode: 'auto'`失效，展现出的效果同`mode: 'max'`\n> theme.css 里定义了`body`标签为`height: 100%`，所以如果嵌套通用用UF开发的子页面，可以在子页面入口的html中加入`<style>html, body {height: auto !important;}</style>`，覆盖掉默认样式\n\n---\n\n*关于样式：*\n\ndemo里的浏览器样式是文档里额外加的，默认的`Iframe`组件没有额外样式，没有边框及阴影。如果想要使用demo里的样式，可以参考如下css代码：\n```css\n.uf-iframe {\n    border-top: 2em solid rgba(230, 230, 230, 0.7);\n    box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);\n    position: relative;\n    border-radius: 3px 3px 0 0;\n}\n.uf-iframe:before {\n    content: '';\n    display: block;\n    position: absolute;\n    top: -1.25em;\n    left: 1em;\n    width: 0.5em;\n    height: 0.5em;\n    border-radius: 50%;\n    background-color: #f44;\n    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;\n}\n.uf-iframe:after {\n    content: attr(data-src);\n    display: block;\n    position: absolute;\n    color: #ddd;\n    font-weight: 100;\n    padding-left: 5px;\n    width: calc(100% - 6em);\n    height: 1.2em;\n    line-height: 1.2em;\n    top: -1.6em;\n    left: 5.5em;\n    border-radius: 2px;\n    background-color: white;\n}\n```"
+
+/***/ }),
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23950,7 +23833,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(181);
+	var _markdown = __webpack_require__(178);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24156,13 +24039,13 @@
 	exports.default = ModalApp;
 
 /***/ }),
-/* 181 */
+/* 178 */
 /***/ (function(module, exports) {
 
 	module.exports = "对话框。\n\n## 何时使用\n\n需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。\n\n另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。\n\n## 组件&配置\n\n### # modal\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|-------------\nvisible    | 对话框是否可见 | boolean          | 无          \ncontent | 弹框中间的内容 | string&#124;`config`  | 无          \nconfirmLoading | 确定按钮 loading | boolean    | 无          \ntitle      | 标题           | string&#124;`config` | 无          \nclosable   | 是否显示右上角的关闭按钮 | boolean    | true       \nonSubmit       | 点击确定回调       | function(e)     | 无          \nonCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        \nwidth      | 宽度           | string&#124;number | 520          \nfooter     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | `config`&#124;`config[]` | 确定取消按钮\nokText     | 确认按钮文字    | string           | 确定      \nokType     | 确认按钮类型    | string           | primary      \ncancelText | 取消按钮文字    | string           | 取消      \ncancelType | 取消按钮类型    | string           | default      \nmaskClosable | 点击蒙层是否允许关闭 | boolean   | true      \nstyle | 可用于设置浮层的样式，调整浮层位置等 | object   | -\nwrapClassName | 对话框外层容器的类名 | string   | -\nafterClose | Modal 完全关闭后的回调 | function | 无\ngetContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body\nzIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000\n\n> tips: `footer`属性一般为一个配置或配置数组，其中没项可以有一个额外的`action`属性，指定按钮的特定功能，可选值有'submit'、'cancel'，分别对应提交功能（onSubmit）和取消功能（onCancel）\n\n#### modal 高级功能 (额外参数)\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | \napi    | 提交数据的接口 | string | \nmethod | api请求类型 | string | 'get'\nparams | api请求初始参数。1、提交数据时，会获取params中的值；2、form会填充params中的值为默认值 | object | \nparamsHandler | api请求发送前处理参数的函数。直接从form等获取到的参数可能不符合接口格式，可以用此函数处理参数 | function(params) {return params;} | \nmessage | 弹框中的动态内容。content为静态内容，message为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | function(params) {return `config`;} | \n\n> 最终弹框中展示的内容最多包含三部分，即：content、form、message三个属性对应的内容。从上到下展示顺序依次为：message > content > form\n\n以上有两种常用场景。  \n1、“新增/编辑”表单弹框（见示例：弹框表单）  \n2、“删除”确认弹框（见示例：确认信息弹框）\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-modal').show()`。\n\n参数       | 说明           | 参数    \n-----------|----------------|-----------\nshow      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、message 中的内容。用于form弹框场景和message确认框场景 |  show([params])  \nclose    | 关闭弹框           |   close()  \n\n\n### UF.Modal.method()\n\n包括：\n\n- `UF.Modal.info`\n- `UF.Modal.success`\n- `UF.Modal.error`\n- `UF.Modal.warning`\n- `UF.Modal.confirm`\n\n以上均为一个函数，参数为 object，具体属性如下：\n\n参数       | 说明           | 类型             | 默认值       \n-----------|----------------|------------------|--------------\ntitle      | 标题           | string&#124;`config` | 无           \ncontent    | 内容           | string&#124;`config` | 无           \nonOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           \nonCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           \nwidth      | 宽度           | string&#124;number | 416           \niconType   | 图标 Icon 类型    | string | question-circle \nokText     | 确认按钮文字    | string           | 确定       \ncancelText | 取消按钮文字    | string           | 取消       \nmaskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    \n\n以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。\n\n```javascript\nvar ref = UF.Modal.info({...});\nref.destroy();\n```\n\n"
 
 /***/ }),
-/* 182 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24189,7 +24072,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(183);
+	var _markdown = __webpack_require__(180);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24246,13 +24129,13 @@
 	}, {
 	    key: '4',
 	    name: '胡彦祖彦斌',
-	    age: 62,
+	    age: 52,
 	    address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
 	    sex: '女',
 	    json: { a: '哈哈', b: 2 },
 	    html: '<i>表格</i>',
 	    duration: '2017-05-21 00:00:00',
-	    customRender: '4'
+	    customRender: '3'
 	}];
 
 	var columns = [{
@@ -24262,6 +24145,10 @@
 	    filterConfig: {
 	        filterType: 'checkbox',
 	        filters: ['斌', '祖']
+	        // filters: [
+	        //     {text: 'a', value: 'a'},
+	        //     {text: 'b', value: 'b'}
+	        // ]
 	    }
 	}, {
 	    title: '性别',
@@ -24363,6 +24250,7 @@
 	            text: 'Table前端分页表格测试',
 	            basicControls: [{
 	                name: 'filter',
+	                whitelist: ['name', 'address'],
 	                blacklist: ['json']
 	            }, 'setPageSize', {
 	                name: 'selctAll',
@@ -24487,13 +24375,13 @@
 	exports.default = TableApp;
 
 /***/ }),
-/* 183 */
+/* 180 */
 /***/ (function(module, exports) {
 
 	module.exports = "展示行列数据。\n\n## 何时使用\n\n- 当有大量结构化的数据需要展现时；\n- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。\n\n## 组件&配置\n\n### # table\n\n| 参数           | 说明                     | 类型             | 默认值   |\n|---------------|--------------------------|-----------------|---------|\n| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |\n| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |\n| size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |\n| data    | 数据数组，见下面示例 `data` | any[] |            |\n| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |\n| rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |\n| rowClassName  | 表格行的类名      | Function(record, index):string | - |\n| expandedRowRender  | 额外的展开行 | Function | - |\n| defaultExpandedRowKeys | 默认展开的行 | string[] | - |\n| expandedRowKeys | 展开的行，控制属性 | string[] | - |\n| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |\n| loading       | 页面是否加载中 | boolean&#124;[`config`](#/Feedback/Loading) | false |\n| locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | `{filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'}` |\n| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |\n| bordered  | 是否展示外边框和列边框 | boolean | false      |\n| showHeader  | 是否显示表头 | boolean          | true      |\n| footer | 表格尾部         | Function(currentPageData)   | |\n| title  | 表格标题栏配置,可配置题目及表格控件，见下方`title`     | string&#124;object   | - |\n| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |\n| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |\n| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |\n| sourceHandler | 获取数据后，使用 sourceHandler 对数据进行预处理，以兼容各种数据结构 | string  | - |\n| method | 获取数据的方式。可选 `get` `post` | String | `get` | \n| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | \n| autoLoadSource | 是否组件渲染完成后自动加载数据（配置 source 属性后有效） | boolean | true | \n| crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | \n| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |\n| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |\n| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |\n| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |\n| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |\n| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |\n| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |\n| width      | 列宽度 | string&#124;number | -  |\n| className  | 列的 className             | string          |  -      |\n| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |\n| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |\n| filterConfig    | 表头的筛选设置，详见下方`columns.filterConfig`           | Object           | - |\n| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |\n| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |\n| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |\n| onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |\n| onCellClick | 单元格点击回调 | Function(record, event) | - |\n| textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |\n| ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |\n\n#### *column.filterConfig*\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| filterType      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |\n| filters      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |\n\n#### *column._operation*\n\n当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现表格中对单行的编辑、删除等功能。crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) \n\n例如：\n\n```javascript\ncolumns: [\n    ...\n    {\n        title: '操作',\n        dataIndex: '_operation',\n        width: 100,\n        render: ()=>([\n            {type: 'a', content: '日志', action: 'showLog'},\n            {type: 'a', content: '编辑', action: 'edit'},\n            {type: 'a', content: '删除', action: 'delete'}\n        ])\n    }\n]\n```\n\n\n#### *rowSelection*\n\n选择功能的配置。\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |\n| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |\n| disabledRow | 选择框的不可选的条件，返回值应该为一个Boolean类型的值        | Function(record) |  -   |\n| selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |\n| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |\n| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |\n| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |\n| onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |\n| onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |\n\n#### *selection*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| key | React 需要的 key，建议设置 | string | -  |\n| text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |\n| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |\n\n#### *pagination*\n\n| 参数             | 说明                               | 类型          | 默认值                   |\n|------------------|------------------------------------|---------------|--------------------------|\n| current          | 当前页数                           | number        | -                   |\n| pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |\n| pageSize         | 每页条数   | number | 10 |\n| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |\n| showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |\n| pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |\n| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |\n| showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |\n| size             | 当为「small」时，是小尺寸分页      | string        |                       |\n| simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |\n| total            | 数据总数      | number        |                       |\n| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |\n\n\n#### *title*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| text | 表格标题 | string&#124;`config` | -  |\n| basicControls | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array | -  |\n| menuControls | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | -   |\n| showText | 是否显示控件图标后面的说明文字 | Boolean | true  |\n\n##### *所有可选基础控件说明*\n\n控件 | 说明 | 位置 | 是否必填\n---- | ---- | ----- | -----\nfilter |  过滤功能 | 只能用于basic中 |\nexport |  导出数据 |  |\nswitchTags |  选择要展示的列 |  |\nrefresh |  刷新表格按钮 |  |\nfullScreen |  全屏展示 |  |\nshowAllTags |  展示全部列功能 |  |\nsetPageSize |  设置分页条数 |  |\n\n使用基础控件，可以直接使用字符串形式（控件名），如果想更改控件的默认展示效果，可改用对象的方式，参数和自定义控件类似。`name`即为组件名称，`icon`和`text`可自定义。\n\n##### *控件属性*\n\n为一个对象，包含以下几部分：  \n\n| 参数 | 说明 | 类型 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |\n| icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |\n| text | 按钮文字 | String |  |\n| onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |\n| blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |\n| whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-table').refresh()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nrefresh | 刷新表格数据，会展示loading等 | refresh()\nloadData | 手动触发表格获取数据 | loadData()\nshowCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)\n\n#### *data*\n表格的数据数组格式如下：\n```javascript\n[{\n    key: '1',\n    name: '胡彦斌',\n    age: 32,\n    address: '西湖区湖底公园1号'\n}, {\n    key: '2',\n    name: '胡彦祖',\n    age: 42,\n    address: '西湖区湖底公园2号'\n}, {\n    key: '3',\n    name: '胡彦祖',\n    age: 52,\n    address: '西湖区湖底公园3号'\n}]\n```\n**注意：**  \n\n在 Table 中，`data` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `data` 默认将每列数据的 `key` 属性作为唯一的标识。\n\n如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。\n\n"
 
 /***/ }),
-/* 184 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24520,7 +24408,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _crud = __webpack_require__(185);
+	var _crud = __webpack_require__(182);
 
 	var _crud2 = _interopRequireDefault(_crud);
 
@@ -24673,13 +24561,13 @@
 	exports.default = TableCrudApp;
 
 /***/ }),
-/* 185 */
+/* 182 */
 /***/ (function(module, exports) {
 
 	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框   \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\n| title      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'。 | string  | |\napi    | 提交数据的接口 | string | |\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nmethod | api请求类型 | string | 'get'|\nparams | api请求初始参数。1、提交数据时，会获取params中的值；2、form会填充params中的值为默认值 | object | |\nparamsHandler | api请求发送前处理参数的函数。直接从form等获取到的参数可能不符合接口格式，可以用此函数处理参数 | function(params) {return params;} | |\nmessage | 弹框中的动态内容。content为静态内容，message为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n"
 
 /***/ }),
-/* 186 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24698,7 +24586,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tree = __webpack_require__(117);
+	var _tree = __webpack_require__(115);
 
 	var _tree2 = _interopRequireDefault(_tree);
 
@@ -24706,7 +24594,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(187);
+	var _markdown = __webpack_require__(184);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24903,202 +24791,13 @@
 	exports.default = TreeApp;
 
 /***/ }),
-/* 187 */
+/* 184 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 配置`expand`实现节点展开控制\n* 配置`checkbox`实现复选框功能\n* 配置`search`实现搜索功能\n* 配置`select`实现点击选择功能\n* 配置`loadData`实现异步加载功能\n* 配置`widthResize`实现右边缘拖动加宽功能\n* 配置`showLine`实现带连接线的树\n* 若没有进行任何配置，则为树形图展示1中的样式\n\n## 配置参数\n\n### 基本参数\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |\n| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| search | 搜索功能 | Object | - |  |\n| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| loadData | 异步加载功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| showLine | 是否展示连接线 | Boolean | false | . |\n| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |\n\n#### expand\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |\n| defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |\n| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |\n| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |\n| autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |\n| onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |\n\n#### checkbox\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |\n| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |\n| checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |\n| defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |\n| onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |\n\n#### search\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 是否启用搜索功能 | Boolean | false |  |\n| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |\n\n#### select\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultSelectedKeys | 默认选中节点 | Array | [] |  |\n| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |\n| multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |\n| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |\n\n#### loadData\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |\n| source | 异步请求地址 | String | - |  |\n| params | 异步请求所需要的各种参数，这些参数要在数据中包含 | Object | - | . |\n> 请求回来的数据格式必须是：`{ status: 0/1, data: [], msg: ''}`\n> `status`为0时，请求数据成功，1失败(注意是number类型);\n> `data`为请求回来的数据;\n> `msg`为请求结果文字表述。\n\n#### widthResize\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |\n| minWidth | 树形图允许扩宽的最小宽度 | String | - |  |\n| maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |\n\n### # 每一个节点的数据格式\n```json\n    [{\n        name: '0-0',            // 必须\n        key: '0-0',             // 必须\n        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true\n        disableCheckbox: false, // 非必须，用于指定复选框是否可选\n        disabled: false,        // 非必须，用于指定此节点时候可点\n        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须\n        children: [             // 子节点格式相同\n            ...\n        ]\n    },\n    ...]\n```\n### # url参数对应接口的格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…]\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 188 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(2);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _BaseDoc2 = __webpack_require__(13);
-
-	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
-
-	var _markdown = __webpack_require__(189);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 配置化树形控件，Demo及文档说明
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
-
-
-	var demo1 = {
-	    title: '基本用法',
-	    description: '默认高度自动根据内容调整',
-	    config: {
-	        type: 'iframe',
-	        src: 'docs/demo/router.php#/',
-	        height: 300
-	        // mode: 'auto' // default
-	        // mode: 'fixed'
-	        // mode: 'max'
-	    }
-	};
-
-	var ExportApp = function (_BaseDoc) {
-	    _inherits(ExportApp, _BaseDoc);
-
-	    function ExportApp(props) {
-	        _classCallCheck(this, ExportApp);
-
-	        var _this = _possibleConstructorReturn(this, (ExportApp.__proto__ || Object.getPrototypeOf(ExportApp)).call(this, props));
-
-	        _this.state = {};
-	        _this.doc = _markdown2.default;
-	        _this.__init();
-	        return _this;
-	    }
-
-	    _createClass(ExportApp, [{
-	        key: 'render',
-	        value: function render() {
-	            return this.__getDemoSingle(demo1);
-	        }
-	    }]);
-
-	    return ExportApp;
-	}(_BaseDoc3.default);
-
-	exports.default = ExportApp;
-
-/***/ }),
-/* 189 */
-/***/ (function(module, exports) {
-
-	module.exports = "iframe 的增强版。\n\n### 功能说明  \n* iframe加载子页面时自动展示loading状态\n* 文档加载完成后iframe的高度自动重新设定，支持三种模式\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nsrc | 子页面的url。可以是全路径，也可以是相对路径 | string |  | 必填\nmode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条） | string | 'auto' | \ndelay | 子页面高度变化时，延迟重新设定iframe高度，可防止高度闪烁 | number | 0 |\n\n其他属性同原生的 iframe，例如：`height`、`width`等\n\n#### 注意：\n使用`mode`属性时需要注意以下问题：\n\n* 跨域问题  \n要使用`mode`属性，默认会因跨域问题导致此属性无效。解决办法有两种：\n> * 需在当前页面和其子页面的 js 里同时增加一行代码设置为同一个域：`document.domain = 'baidu.com';`\n> * 使用 `UF.config({global: {domain: 'baidu.com'}})`，见 [全局配置](#/Develop/Config)\n\n* 子页面高度问题  \n此外如果子页面的`body/html`标签 CSS 设置了`height: 100%`，则`mode: 'auto'`失效，展现出的效果同`mode: 'max'`\n> theme.css 里定义了`body`标签为`height: 100%`，所以如果嵌套通用用UF开发的子页面，可以在子页面入口的html中加入`<style>html, body {height: auto !important;}</style>`，覆盖掉默认样式\n\n---\n\n*关于样式：*\n\ndemo里的浏览器样式是文档里额外加的，默认的`Iframe`组件没有额外样式，没有边框及阴影。如果想要使用demo里的样式，可以参考如下css代码：\n```css\n.uf-iframe {\n    border-top: 2em solid rgba(230, 230, 230, 0.7);\n    box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);\n    position: relative;\n    border-radius: 3px 3px 0 0;\n}\n.uf-iframe:before {\n    content: '';\n    display: block;\n    position: absolute;\n    top: -1.25em;\n    left: 1em;\n    width: 0.5em;\n    height: 0.5em;\n    border-radius: 50%;\n    background-color: #f44;\n    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;\n}\n.uf-iframe:after {\n    content: attr(data-src);\n    display: block;\n    position: absolute;\n    color: #ddd;\n    font-weight: 100;\n    padding-left: 5px;\n    width: calc(100% - 6em);\n    height: 1.2em;\n    line-height: 1.2em;\n    top: -1.6em;\n    left: 5.5em;\n    border-radius: 2px;\n    background-color: white;\n}\n```"
-
-/***/ }),
-/* 190 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(2);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _BaseDoc2 = __webpack_require__(13);
-
-	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
-
-	var _tools = __webpack_require__(73);
-
-	var _tools2 = _interopRequireDefault(_tools);
-
-	var _markdown = __webpack_require__(191);
-
-	var _markdown2 = _interopRequireDefault(_markdown);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 配置化树形控件，Demo及文档说明
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
-
-
-	var demo1 = {
-	    title: '基本用法',
-	    description: '默认高度自动根据内容调整',
-	    config: [{
-	        type: 'ueditor',
-	        name: 'my-editor',
-	        style: { marginBottom: '10px' },
-	        simple: true
-	    }, {
-	        type: 'button',
-	        content: '获取内容',
-	        onClick: function onClick() {
-	            var result = (0, _tools2.default)('my-editor').getContent();
-	            _tools2.default.message.info(result, 3);
-	        }
-	    }, {
-	        type: 'button',
-	        content: '不可编辑',
-	        onClick: function onClick() {
-	            (0, _tools2.default)('my-editor').setDisabled();
-	        }
-	    }, {
-	        type: 'button',
-	        content: '追加内容',
-	        onClick: function onClick() {
-	            (0, _tools2.default)('my-editor').setContent('追加内容', true);
-	        }
-	    }]
-	};
-
-	var ExportApp = function (_BaseDoc) {
-	    _inherits(ExportApp, _BaseDoc);
-
-	    function ExportApp(props) {
-	        _classCallCheck(this, ExportApp);
-
-	        var _this = _possibleConstructorReturn(this, (ExportApp.__proto__ || Object.getPrototypeOf(ExportApp)).call(this, props));
-
-	        _this.state = {};
-	        _this.doc = _markdown2.default;
-	        _this.__init();
-	        return _this;
-	    }
-
-	    _createClass(ExportApp, [{
-	        key: 'render',
-	        value: function render() {
-	            return this.__getDemoSingle(demo1);
-	        }
-	    }]);
-
-	    return ExportApp;
-	}(_BaseDoc3.default);
-
-	exports.default = ExportApp;
-
-/***/ }),
-/* 191 */
-/***/ (function(module, exports) {
-
-	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | false |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
-
-/***/ }),
-/* 192 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25319,7 +25018,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 193 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25479,7 +25178,7 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 194 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25640,7 +25339,7 @@
 	exports.default = GridApp;
 
 /***/ }),
-/* 195 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25667,7 +25366,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(196);
+	var _markdown = __webpack_require__(189);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -25716,13 +25415,13 @@
 	exports.default = RouterApp;
 
 /***/ }),
-/* 196 */
+/* 189 */
 /***/ (function(module, exports) {
 
 	module.exports = "*以上 [demo页面](docs/demo/router.php#/card) 的路由部分配置见底部。更多完整示例见 [页面示例](#/Usage/Demo)*\n\n## 何时使用\n\n* 单页应用的入口，用于负责控制整个应用页面跳转。\n\n\n## 组件&配置\n\n### # router\n参数     | 说明           | 类型             | 默认值   |是否必须\n--------|----------------|------------------|--------|-----\nroutes  | 路由的及组件的映射关系对象列表，可以为数组，也可以为单个route对象。详见`route` | `route`&#124;`route`[] | 无    | 必须\nhistory  | 定义浏览器上的路由展现形式，分为两种：`hashHistory` - 默认形式，路由为`#`后面的值，使用起来较方便； `browserHistory` - 高级用法，会去掉`#`，展现形式像是真正的url，需要服务端配合使用，可参考 [这里](http://react-china.org/t/react-router-hashhistory-browserhistory/6799) | string | `'hashHistory'` |\n\n\n#### *route*\n\n描述路由的及组件的映射关系，是 `routes` 中的一项。\n\n参数       | 说明           | 类型             | 默认值   |是否必须\n------------|----------------|------------------|--------|-----\npath    | URL 中的路径。它会组合父 route 的路径，除非它是从 / 开始的， 将它变成一个绝对路径。 | string  |  无   | 必须\nto    | 从当前路径（path）重定向到另一个路径。**此属性不可和`component`同时使用**（因为一个是解析路由，一个是重定向路由）。例如：访问`/mine`路由时重定向到`/aboutme` |  string  |  无   | \ncomponent  | 当前路由对应的组件。它会作为父 route 组件中包含`childrenHolder: true`的组件的子组件渲染。可以直接是一个配置对象；也可以是一个模块名（*懒加载*）。**此属性不可和`to`同时使用** | `config` &#124; string  | 无  | 必须\nindexRoute    | 当用户在父 route 的 URL 时，indexRoute 允许你为父 route 提供一个默认的 \"child\" | `route` |   |\nindexRedirect    | 自动从当前路由重定向到其子路由的 path。例如：访问首页`/`时，自动重定向到`/Home`，即可在配置`/`路由那一层增加 indexRedirect 字段 | string |   |\nchildRoutes   | route 可以被嵌套，childRoutes 为子路由配置。 | `route` &#124; `route`[] |   |\ngetComponent  | 与 component 一样，但是是异步的。用于动态路由 | function(location, cb) { cb(null, Compnent) }  |     |\nonEnter    | 当 route 即将进入时调用。 | function(nextState, replaceState, callback?){}  |   |\nonLeave    | 当 route 即将退出时调用。 |  |   |\nbreadcrumbName    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\nbreadcrumbIcon    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\n\n> 更详细配置可参考原 [react-router](https://react-guide.github.io/react-router-cn/)\n\n---\n\n*demo中路由部分的配置如下：*\n\n```json\n{\n    type: 'router',\n    routes: [\n        {\n            path: '/',\n            component: App,\n            breadcrumbName: '首页',\n            indexRoute: {component: Card},\n            childRoutes: [\n                {path: 'card', breadcrumbName: '卡片', component: Card},\n                {path: 'card2', breadcrumbName: '卡片2', component: Card2,\n                    childRoutes: [\n                        {path: 'card3', breadcrumbName: '卡片3', component: Card3}\n                    ]\n                }\n            ]\n        }\n    ]\n};\n```"
 
 /***/ }),
-/* 197 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25810,7 +25509,7 @@
 	exports.default = Affix;
 
 /***/ }),
-/* 198 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25870,7 +25569,7 @@
 	exports.default = Breadcrumb;
 
 /***/ }),
-/* 199 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26047,7 +25746,7 @@
 	exports.default = Dropdown;
 
 /***/ }),
-/* 200 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26245,7 +25944,7 @@
 	exports.default = Menu;
 
 /***/ }),
-/* 201 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26394,7 +26093,7 @@
 	exports.default = Pagination;
 
 /***/ }),
-/* 202 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26586,7 +26285,7 @@
 	exports.default = Steps;
 
 /***/ }),
-/* 203 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26681,7 +26380,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 204 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26985,7 +26684,7 @@
 	exports.default = CascaderApp;
 
 /***/ }),
-/* 205 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27077,7 +26776,7 @@
 	exports.default = Checkbox;
 
 /***/ }),
-/* 206 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27231,7 +26930,7 @@
 	exports.default = DatePicker;
 
 /***/ }),
-/* 207 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27332,7 +27031,7 @@
 	exports.default = InputNumber;
 
 /***/ }),
-/* 208 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27525,7 +27224,7 @@
 	exports.default = Input;
 
 /***/ }),
-/* 209 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27610,7 +27309,7 @@
 	exports.default = Radio;
 
 /***/ }),
-/* 210 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27735,7 +27434,7 @@
 	exports.default = Rate;
 
 /***/ }),
-/* 211 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27848,7 +27547,7 @@
 	exports.default = Select;
 
 /***/ }),
-/* 212 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27948,7 +27647,7 @@
 	exports.default = Switch;
 
 /***/ }),
-/* 213 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28004,7 +27703,7 @@
 	exports.default = Upload;
 
 /***/ }),
-/* 214 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28191,7 +27890,7 @@
 	exports.default = Avatar;
 
 /***/ }),
-/* 215 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28478,7 +28177,7 @@
 	exports.default = Badge;
 
 /***/ }),
-/* 216 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28592,7 +28291,7 @@
 	exports.default = Card;
 
 /***/ }),
-/* 217 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28705,7 +28404,7 @@
 	exports.default = Carousel;
 
 /***/ }),
-/* 218 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28728,7 +28427,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28836,7 +28535,7 @@
 	exports.default = Collapse;
 
 /***/ }),
-/* 219 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29022,7 +28721,7 @@
 	exports.default = Popover;
 
 /***/ }),
-/* 220 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29118,7 +28817,7 @@
 	exports.default = Tooltip;
 
 /***/ }),
-/* 221 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29141,7 +28840,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _utils = __webpack_require__(79);
+	var _utils = __webpack_require__(77);
 
 	var _tools = __webpack_require__(73);
 
@@ -29275,7 +28974,7 @@
 	exports.default = Tabs;
 
 /***/ }),
-/* 222 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29471,7 +29170,7 @@
 	exports.default = Tag;
 
 /***/ }),
-/* 223 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29585,7 +29284,7 @@
 	exports.default = Timeline;
 
 /***/ }),
-/* 224 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29723,7 +29422,7 @@
 	exports.default = Alert;
 
 /***/ }),
-/* 225 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29830,7 +29529,7 @@
 	exports.default = Message;
 
 /***/ }),
-/* 226 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29996,7 +29695,7 @@
 	exports.default = Notification;
 
 /***/ }),
-/* 227 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30238,7 +29937,7 @@
 	exports.default = Progress;
 
 /***/ }),
-/* 228 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30357,7 +30056,7 @@
 	exports.default = Popconfirm;
 
 /***/ }),
-/* 229 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30505,7 +30204,7 @@
 	exports.default = Loading;
 
 /***/ }),
-/* 230 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30586,7 +30285,7 @@
 	exports.default = BackTop;
 
 /***/ }),
-/* 231 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30637,7 +30336,7 @@
 	exports.default = StandardApp;
 
 /***/ }),
-/* 232 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

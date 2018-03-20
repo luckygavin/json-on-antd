@@ -21,6 +21,7 @@ module.exports = Object.assign(
         Form: require('./form'),
         Modal: require('./modal'),
         Ueditor: require('./ueditor'),
+        Echarts: require('./echarts'),
         // ...require('./modal'),
         // Table2: require('./uf-old/table')
     }

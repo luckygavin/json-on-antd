@@ -30,6 +30,7 @@ $suffix = '';
     </head>
     <body>
         <div id="container"></div>
+        <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/echarts4/echarts.simple.min.js"></script>
         <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/ueditor/js.php"></script>
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         <script src="public/<?php echo $_VERSION; ?>/doc.js"></script>

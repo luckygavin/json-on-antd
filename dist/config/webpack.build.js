@@ -78,7 +78,9 @@ module.exports = {
         'reqwest': 'window.DLL.reqwest',
         'moment': 'window.DLL.moment',
         'moment/locale/zh-cn': 'window.DLL.moment_zh_cn',
-        'antd': 'window.DLL.Antd'
+        'antd': 'window.DLL.Antd',
+
+        'echarts': 'window.echarts'
     },
     plugins: plugins
 };

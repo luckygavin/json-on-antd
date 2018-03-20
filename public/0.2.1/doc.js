@@ -82,17 +82,17 @@
 	__webpack_require__(8);
 
 	// 通用文档
-	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(12).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(157).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(158).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(159).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(160).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(161).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(162).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(163).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(164).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(165).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(166).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(167).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(168).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(169).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(170).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(171).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(172).default }];
+	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(12).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(163).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(164).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(165).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(166).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(167).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(168).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(169).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(170).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(171).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(172).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(173).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(174).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(175).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(176).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(177).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(178).default }];
 
 	// 组件文档列表
-	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(173).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(175).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(177).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(179).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(181).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(183).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(185).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(187).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(189).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(190).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(191).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(192).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(193).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(195).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(196).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(197).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(198).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(199).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(200).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(201).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(202).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(203).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(204).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(205).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(206).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(207).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(208).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(209).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(210).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(211).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(212).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(213).default },
+	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(179).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(181).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(183).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(185).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(187).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(189).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(191).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(193).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(195).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(197).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(198).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(199).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(200).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(201).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(203).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(204).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(205).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(206).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(207).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(208).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(209).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(210).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(211).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(212).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(213).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(214).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(215).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(216).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(217).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(218).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(219).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(220).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(221).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
-	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(214).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(215).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(216).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(217).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(218).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(219).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(220).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(221).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(222).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(223).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(224).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(225).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(226).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(227).default }] }, { path: 'Other', name: '其他组件', children: [
+	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(222).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(223).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(224).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(225).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(226).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(227).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(228).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(229).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(230).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(231).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(232).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(233).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(234).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(235).default }] }, { path: 'Other', name: '其他组件', children: [
 	    // {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
-	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(228).default }] }];
+	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(236).default }] }];
 
 	// 全部路由列表
-	var RouteList = [{ path: 'Standard', name: '规范', component: __webpack_require__(229).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(230).default }].concat(DocsList, ComponentList);
+	var RouteList = [{ path: 'Standard', name: '规范', component: __webpack_require__(237).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(238).default }].concat(DocsList, ComponentList);
 
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -2150,13 +2150,13 @@
 /* 19 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n## 零门槛\n\n无需搭建环境，直接写html、js文件即可使用。\n\n## 灵活布局\n\n框架支持了常用的布局方式，配置时，使用布局模块相互组合，即可得到不同的布局效果。\n\n![Alt](public/img/docs/image2018-3-1220_27_2.png)\n\n\n## 数据展示、增删改查\n\n常见的数据展示表格，附带了排序、增删改查、批量增删改查、数据导出等功能，满足大部分日常数据展示需求。\n\n![Alt](public/img/docs/image2018-3-514_21_27.png)\n\n\n## 自由灵活的表单\n\n提供了丰富的表单类型，满足各种日常数据录入需求。自带数据校验功能、自动异步获取数据功能、提交数据功能等。可以与弹框配合，形成弹框表单。\n\n![Alt](public/img/docs/image2018-3-514_21_35.png)\n\n\n## 弹框无限下钻\n\n弹框配合Table，可展示更多内容，满足更复杂的需求场景。\n\n![Alt](public/img/docs/image2018-3-514_21_41.png)\n\n\n## 权限控制系统\n\n权限控制可以小到元素级组件，也可以大到页面/模块，都可以使用相同的方式来做权限控制。任何一个元素都可以关联一个权限点，当存在当前权限点是，才会展示给用户当前元素。权限点为后端控制，加载页面时把当前用户有的权限点全部返回即可。\n\n如下面例子：不同用户，导航条及右侧页面都有所不同\n\n![Alt](public/img/docs/image2018-3-514_28_2.png)\n![Alt](public/img/docs/image2018-3-514_27_35.png)\n\n\n## 多主题样式\n\n提供了多种主题样式，快速满足多样化的品牌诉求。\n\n![Alt](public/img/docs/image2018-3-514_21_58.png)\n![Alt](public/img/docs/image2018-3-514_22_4.png)\n"
+	module.exports = "\n## 零门槛\n\n无需搭建环境，直接写html、js文件即可使用。\n\n## 灵活布局\n\n框架支持了常用的布局方式，配置时，使用布局模块相互组合，即可得到不同的布局效果。\n\n![Alt](public/img/docs/image2018-3-1220_27_2.png)\n\n\n## 数据展示、增删改查\n\n常见的数据展示表格，附带了排序、增删改查、批量增删改查、数据导出等功能，满足大部分日常数据展示需求。\n\n![Alt](public/img/docs/image2018-3-514_21_27.png)\n\n\n## 自由灵活的表单\n\n提供了丰富的表单类型，满足各种日常数据录入需求。自带数据校验功能、自动异步获取数据功能、提交数据功能等。可以与弹框配合，形成弹框表单。\n\n![Alt](public/img/docs/image2018-3-514_21_35.png)\n\n\n## 弹框无限下钻\n\n弹框配合Table，可展示更多内容，满足更复杂的需求场景。\n\n![Alt](public/img/docs/image2018-3-514_21_41.png)\n\n\n## 权限控制系统\n\n权限控制可以小到元素级组件，也可以大到页面/模块，都可以使用相同的方式来做权限控制。任何一个元素都可以关联一个权限点，当存在当前权限点是，才会展示给用户当前元素。权限点为后端控制，加载页面时把当前用户有的权限点全部返回即可。\n\n如下面例子：不同用户，导航条及右侧页面都有所不同\n\n![Alt](public/img/docs/image2018-3-514_28_2.png)\n![Alt](public/img/docs/image2018-3-514_27_35.png)\n\n\n## 多主题样式\n\n提供了多种主题样式，快速满足多样化的品牌诉求。\n\n![Alt](public/img/docs/image2018-3-514_21_58.png)\n![Alt](public/img/docs/image2018-3-514_22_4.png)\n\n\n## 常用三方扩展\n\nueditor、echarts"
 
 /***/ }),
 /* 20 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有需求可以联系`liuzechun@baidu.com`、[`Hi`](baidu://message/?id=861260447) 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 40 余种组件，从元素级到页面级的组件都有，可以满足大部分日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为两个版本：\n> beta 版：多用于开发，开发中的一些 warning 以及 error 会在浏览器控制台中打印出来，方便排查问题。因此 beta 版文件较大。\n> stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### 公共基础库\n\nUF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/theme.css\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n\n#### UF组件库\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/uf.js\n* http://uf.baidu.com/v/%{version}%/uf.css\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.css\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
+	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有需求可以联系`liuzechun@baidu.com`、[`Hi`](baidu://message/?id=861260447) 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 50 余种组件，从元素级到页面级的组件都有，可轻松满足多数日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为两个版本：\n> beta 版：多用于开发，开发中的一些 warning 以及 error 会在浏览器控制台中打印出来，方便排查问题。因此 beta 版文件较大。\n> stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### 公共基础库\n\nUF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/theme.css\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n\n#### UF组件库\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/uf.js\n* http://uf.baidu.com/v/%{version}%/uf.css\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.css\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
 
 /***/ }),
 /* 21 */
@@ -2198,7 +2198,7 @@
 /* 27 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF.config({})`做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：`ajax` | object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n\n\n#### # *ajax*\n\n更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nmethod | 默认数据请求方式 | string | `GET` | \nheaders | 设置http请求的headers | object | {} | \ndata | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \nbeforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`data`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(data, conf){} | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [组件交互](#/Api) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(){res, errorHandler} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *data*\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n#### # *cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
+	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF.config({})`做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：`ajax` | object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n\n\n#### # *ajax*\n\n更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nmethod | 默认数据请求方式 | string | `GET` | \nheaders | 设置http请求的headers | object | {} | \ndata | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \nbeforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`data`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(data, conf){} | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [组件交互](#/Api) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(){res, errorHandler} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *data*\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n#### # *cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
 
 /***/ }),
 /* 28 */
@@ -2252,7 +2252,7 @@
 /* 36 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n- - -\n\n### 0.2.1\n\n`2017-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n\n`2017-02-06`\n\n* 上线 0.2.1 版本\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本，用于RMS GPU模块\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n\n`2017-09-22`\n\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1.0\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n- - -\n\n### 0.2.1\n\n`2017-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n`2017-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 在 `RMS GPU模块`、`虚拟资源管理中心` 两个项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 37 */
@@ -2767,41 +2767,41 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(145);
+	__webpack_require__(151);
 
 	var _utils = __webpack_require__(85);
 
 	var _cache = __webpack_require__(100);
 
-	var _adaptor = __webpack_require__(146);
+	var _adaptor = __webpack_require__(152);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(151);
+	var _authority = __webpack_require__(157);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _factory = __webpack_require__(152);
+	var _factory = __webpack_require__(158);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(147);
+	var _loader = __webpack_require__(153);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(154);
+	var _whitelist = __webpack_require__(160);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _model = __webpack_require__(148);
+	var _model = __webpack_require__(154);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _precondition = __webpack_require__(156);
+	var _precondition = __webpack_require__(162);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _requirejs = __webpack_require__(155);
+	var _requirejs = __webpack_require__(161);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -2978,18 +2978,19 @@
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(83),
 	// 路由组件
-	__webpack_require__(113),
+	__webpack_require__(114),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(115),
+	    Iframe: __webpack_require__(116),
 
-	    Export: __webpack_require__(119),
-	    Tree: __webpack_require__(123),
-	    Table: __webpack_require__(127),
-	    Form: __webpack_require__(133),
-	    Modal: __webpack_require__(141),
-	    Ueditor: __webpack_require__(135)
+	    Export: __webpack_require__(120),
+	    Tree: __webpack_require__(124),
+	    Table: __webpack_require__(128),
+	    Form: __webpack_require__(134),
+	    Modal: __webpack_require__(142),
+	    Ueditor: __webpack_require__(136),
+	    Echarts: __webpack_require__(146)
 	    // ...require('./modal'),
 	    // Table2: require('./uf-old/table')
 	}); /**
@@ -3014,23 +3015,23 @@
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(103);
+	var _datadisplay = __webpack_require__(104);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(105);
+	var _genaral = __webpack_require__(106);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(107);
+	var _navigation = __webpack_require__(108);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(109);
+	var _feedback = __webpack_require__(110);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(111);
+	var _layout = __webpack_require__(112);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -6760,7 +6761,8 @@
 
 	module.exports = {
 	    BaseComponent: __webpack_require__(99).default,
-	    BaseConf: __webpack_require__(99)
+	    BaseConf: __webpack_require__(99),
+	    ExtendComponent: __webpack_require__(103)
 	};
 
 /***/ }),
@@ -7860,6 +7862,122 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseComponent2 = __webpack_require__(99);
+
+	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
+
+	var _cache = __webpack_require__(100);
+
+	var _utils = __webpack_require__(85);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 对第三方组件封装的基类，包含一些对第三方组件封装的通用功能
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var ExtendComponent = function (_BaseComponent) {
+	    _inherits(ExtendComponent, _BaseComponent);
+
+	    function ExtendComponent(props) {
+	        _classCallCheck(this, ExtendComponent);
+
+	        var _this = _possibleConstructorReturn(this, (ExtendComponent.__proto__ || Object.getPrototypeOf(ExtendComponent)).call(this, props));
+
+	        _this.name = props.name;
+	        // 保证每次实例化都有一个唯一的id
+	        _this.componentId = (props.name || 'new_component') + '_' + Date.now();
+	        _this.component;
+	        return _this;
+	    }
+	    // 将自定义api挂载到三方组件上
+
+
+	    _createClass(ExtendComponent, [{
+	        key: 'setOpenApi',
+	        value: function setOpenApi(target) {
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = this._openApi[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    if (_utils.Utils.typeof(this[v], 'function')) {
+	                        target[v] = this[v].bind(this);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            this._unsetTransmitComponent();
+	        }
+	        // 共享组件
+
+	    }, {
+	        key: '_transmitComponent',
+	        value: function _transmitComponent() {
+	            if (!!this.name) {
+	                _cache.ComponentsCache.set(this.name, this.component);
+	            }
+	        }
+	        // 解除共享
+
+	    }, {
+	        key: '_unsetTransmitComponent',
+	        value: function _unsetTransmitComponent() {
+	            if (!!this.name) {
+	                _cache.ComponentsCache.del(this.name);
+	            }
+	        }
+	    }]);
+
+	    return ExtendComponent;
+	}(_BaseComponent3.default);
+
+	exports.default = ExtendComponent;
+
+/***/ }),
+/* 104 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 	exports.TimelineItem = exports.Timeline = exports.CheckableTag = exports.Tag = exports.TabPane = exports.Tabs = exports.Popconfirm = exports.Popover = exports.Tooltip = exports.Panel = exports.Collapse = exports.Carousel = exports.Card = exports.Badge = exports.Avatar = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -7876,7 +7994,7 @@
 
 	var _utils = __webpack_require__(85);
 
-	var _DataDisplay16 = __webpack_require__(104);
+	var _DataDisplay16 = __webpack_require__(105);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
@@ -8267,7 +8385,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8318,7 +8436,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8340,7 +8458,7 @@
 
 	var _utils = __webpack_require__(85);
 
-	var _Genaral14 = __webpack_require__(106);
+	var _Genaral14 = __webpack_require__(107);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
@@ -8692,7 +8810,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8743,7 +8861,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8769,7 +8887,7 @@
 
 	var _utils = __webpack_require__(85);
 
-	var _Navigation9 = __webpack_require__(108);
+	var _Navigation9 = __webpack_require__(109);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
@@ -9276,7 +9394,7 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9327,7 +9445,7 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9349,7 +9467,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(110);
+	var _Feedback4 = __webpack_require__(111);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
@@ -9550,7 +9668,7 @@
 	});
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9601,7 +9719,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9621,7 +9739,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(112);
+	var _Layout = __webpack_require__(113);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -9960,7 +10078,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10011,12 +10129,12 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(114);
+	var _Router = __webpack_require__(115);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -10027,7 +10145,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10291,15 +10409,15 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(116).default;
+	module.exports = __webpack_require__(117).default;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10322,7 +10440,7 @@
 
 	var _utils = __webpack_require__(85);
 
-	__webpack_require__(117);
+	__webpack_require__(118);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10455,14 +10573,14 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 118 */,
-/* 119 */
+/* 119 */,
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10470,10 +10588,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(120).default;
+	module.exports = __webpack_require__(121).default;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10500,7 +10618,7 @@
 
 	var _utils = __webpack_require__(85);
 
-	__webpack_require__(121);
+	__webpack_require__(122);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11190,14 +11308,14 @@
 	exports.default = Export;
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 122 */,
-/* 123 */
+/* 123 */,
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11205,10 +11323,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(124).default;
+	module.exports = __webpack_require__(125).default;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11235,7 +11353,7 @@
 
 	var _antd = __webpack_require__(4);
 
-	__webpack_require__(125);
+	__webpack_require__(126);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11827,31 +11945,31 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 126 */,
-/* 127 */
+/* 127 */,
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(128);
+	__webpack_require__(129);
 
-	module.exports = __webpack_require__(130).default;
+	module.exports = __webpack_require__(131).default;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 129 */,
-/* 130 */
+/* 130 */,
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11880,15 +11998,15 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _export = __webpack_require__(119);
+	var _export = __webpack_require__(120);
 
 	var _export2 = _interopRequireDefault(_export);
 
-	var _Crud = __webpack_require__(131);
+	var _Crud = __webpack_require__(132);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(132);
+	var _Title = __webpack_require__(133);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
@@ -12778,7 +12896,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13127,7 +13245,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13156,7 +13274,7 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _export = __webpack_require__(119);
+	var _export = __webpack_require__(120);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -14084,15 +14202,15 @@
 	exports.default = Title;
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(134).default;
+	module.exports = __webpack_require__(135).default;
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14125,11 +14243,11 @@
 
 	var _antd = __webpack_require__(4);
 
-	var _ueditor = __webpack_require__(135);
+	var _ueditor = __webpack_require__(136);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
-	__webpack_require__(139);
+	__webpack_require__(140);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15115,24 +15233,24 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(136);
+	__webpack_require__(137);
 
-	module.exports = __webpack_require__(138).default;
+	module.exports = __webpack_require__(139).default;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 137 */,
-/* 138 */
+/* 138 */,
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15293,22 +15411,22 @@
 	exports.default = Ueditor;
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 140 */,
-/* 141 */
+/* 141 */,
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(142).default;
+	module.exports = __webpack_require__(143).default;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15341,7 +15459,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	__webpack_require__(143);
+	__webpack_require__(144);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15604,20 +15722,158 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 144 */,
-/* 145 */
+/* 145 */,
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	__webpack_require__(147);
+
+	module.exports = __webpack_require__(149).default;
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 148 */,
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _echarts = __webpack_require__(150);
+
+	var _echarts2 = _interopRequireDefault(_echarts);
+
+	var _cache = __webpack_require__(100);
+
+	var _utils = __webpack_require__(85);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Echarts封装
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	// import {BaseComponent} from 'src/base';
+
+
+	var Echarts = function (_React$PureComponent) {
+	    _inherits(Echarts, _React$PureComponent);
+
+	    function Echarts(props) {
+	        _classCallCheck(this, Echarts);
+
+	        var _this = _possibleConstructorReturn(this, (Echarts.__proto__ || Object.getPrototypeOf(Echarts)).call(this, props));
+
+	        _this.name = props.name;
+	        // 保证每次实例化都有一个唯一的id
+	        _this.chartId = (props.name || 'create_echarts') + '_' + Date.now();
+	        _this.chart;
+	        return _this;
+	    }
+
+	    _createClass(Echarts, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            // Should be a controlled component.
+	            // if ('data' in nextProps) {
+	            // }
+	        }
+	    }, {
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            return false;
+	        }
+	    }, {
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            // 初始化
+	            var chart = _echarts2.default.init(document.getElementById(this.chartId));
+	            chart.setOption(_utils.Utils.filter(this.props, ['type', 'name']));
+
+	            this.chart = chart;
+	            this._transmitComponent();
+	        }
+	    }, {
+	        key: 'componentWillUnmount',
+	        value: function componentWillUnmount() {
+	            // 销毁组件
+	            this.chart.dispose();
+	            this._unsetTransmitComponent();
+	        }
+	        // 共享组件
+
+	    }, {
+	        key: '_transmitComponent',
+	        value: function _transmitComponent() {
+	            if (!!this.name) {
+	                _cache.ComponentsCache.set(this.name, this.chart);
+	            }
+	        }
+	        // 解除共享
+
+	    }, {
+	        key: '_unsetTransmitComponent',
+	        value: function _unsetTransmitComponent() {
+	            if (!!this.name) {
+	                _cache.ComponentsCache.del(this.name);
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement('div', { id: this.chartId, className: this.props.className, style: this.props.style });
+	        }
+	    }]);
+
+	    return Echarts;
+	}(_react2.default.PureComponent);
+
+	exports.default = Echarts;
+
+/***/ }),
+/* 150 */
+/***/ (function(module, exports) {
+
+	module.exports = window.echarts;
+
+/***/ }),
+/* 151 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 146 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15640,7 +15896,7 @@
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(147);
+	var _loader = __webpack_require__(153);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -15761,7 +16017,7 @@
 	};
 
 /***/ }),
-/* 147 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15778,11 +16034,11 @@
 
 	var _utils = __webpack_require__(85);
 
-	var _model = __webpack_require__(148);
+	var _model = __webpack_require__(154);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _dom = __webpack_require__(149);
+	var _dom = __webpack_require__(155);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
@@ -15841,7 +16097,7 @@
 	};
 
 /***/ }),
-/* 148 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15961,15 +16217,15 @@
 	};
 
 /***/ }),
-/* 149 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(150).default;
+	module.exports = __webpack_require__(156).default;
 
 /***/ }),
-/* 150 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16025,7 +16281,7 @@
 	exports.default = Dom;
 
 /***/ }),
-/* 151 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16055,7 +16311,7 @@
 	};
 
 /***/ }),
-/* 152 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16074,27 +16330,27 @@
 
 	var _cache = __webpack_require__(100);
 
-	var _loader = __webpack_require__(147);
+	var _loader = __webpack_require__(153);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(146);
+	var _adaptor = __webpack_require__(152);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(151);
+	var _authority = __webpack_require__(157);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(153);
+	var _validator = __webpack_require__(159);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(154);
+	var _whitelist = __webpack_require__(160);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _requirejs = __webpack_require__(155);
+	var _requirejs = __webpack_require__(161);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
@@ -16363,7 +16619,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 153 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16428,7 +16684,7 @@
 	    */
 
 /***/ }),
-/* 154 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16509,7 +16765,7 @@
 	};
 
 /***/ }),
-/* 155 */
+/* 161 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -18333,9 +18589,9 @@
 	     */
 	    req.config = function (config) {
 	        // if the config is false, then prevent load requirejs to window
-	        // update at 2018/03/02 17:28 by liuzechun
-	        if (config === false) {
-	            delete window['define'];
+	        // update at 2018-03-19 18:47 by liuzechun
+	        if (!!config) {
+	            window['define'] = window['_define'];
 	        }
 	        return req(config);
 	    };
@@ -18669,13 +18925,14 @@
 	// 把 define 也一起暴露出去
 	requirejs.define = define;
 
-	// define 函数需放在 window 上给JSONP回调函数使用
-	window['define'] = window['define'] || define;
+	// update at 2018-03-19 18:41:28 by liuzechun
+	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
+	window['_define'] = window['_define'] || define;
 
 	exports.default = requirejs;
 
 /***/ }),
-/* 156 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18750,7 +19007,7 @@
 	    */
 
 /***/ }),
-/* 157 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18801,7 +19058,7 @@
 	exports.default = IntroductionApp;
 
 /***/ }),
-/* 158 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18852,7 +19109,7 @@
 	exports.default = InstallApp;
 
 /***/ }),
-/* 159 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18903,7 +19160,7 @@
 	exports.default = Join;
 
 /***/ }),
-/* 160 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18954,7 +19211,7 @@
 	exports.default = Call;
 
 /***/ }),
-/* 161 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19005,7 +19262,7 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 162 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19212,7 +19469,7 @@
 	exports.default = Page;
 
 /***/ }),
-/* 163 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19285,7 +19542,7 @@
 	exports.default = Install;
 
 /***/ }),
-/* 164 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19340,7 +19597,7 @@
 	exports.default = Config;
 
 /***/ }),
-/* 165 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19395,7 +19652,7 @@
 	exports.default = Modules;
 
 /***/ }),
-/* 166 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19446,7 +19703,7 @@
 	exports.default = Build;
 
 /***/ }),
-/* 167 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19497,7 +19754,7 @@
 	exports.default = Api;
 
 /***/ }),
-/* 168 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19548,7 +19805,7 @@
 	exports.default = Params;
 
 /***/ }),
-/* 169 */
+/* 175 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19599,7 +19856,7 @@
 	exports.default = Life;
 
 /***/ }),
-/* 170 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19650,7 +19907,7 @@
 	exports.default = Load;
 
 /***/ }),
-/* 171 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19701,7 +19958,7 @@
 	exports.default = Others;
 
 /***/ }),
-/* 172 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19753,7 +20010,7 @@
 	exports.default = UpdateLogApp;
 
 /***/ }),
-/* 173 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19776,7 +20033,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(174);
+	var _markdown = __webpack_require__(180);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -19886,13 +20143,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 174 */
+/* 180 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 通过一定格式的配置以及数据格式，可以将数据导出为.xls以及.csv文件\n* 配置`headers`用于文件中表头的展示以及数据的一一对应\n* 配置`source`，`params`，`total`可通过后端异步导出数据\n* 配置`fileName`，`fileFormat`分别实现导出的文件名称及文件格式类型\n\n## 组件&参数\n\n### # export\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| data | 要导出的全部数据列表，需要按照一定的格式书写 | Array |  | 若传入此属性，则按同步导出处理，直接把data中的数据导出到文件中 |\n| headers | 导出文件中要显示的字段，以及字段对应的表头，值为数组，数组的每个元素为一个对象，见下方详细说明 | Array |  | 必须 |\n| source | 导出数据接口（一般可直接使用分页接口，接口格式见下面）(如果总数已知且确定的话total可选) | String |  | 如果传入此属性，则认为是异步导出 |\n| params | 需要传递给后台的参数，如一些搜索及高级查询的过滤条件等（同`Table`组件的params参数） | Object |  |  |\n| total | 当前表格所有数据的总条数 (因为在导出前就会使用，所以最好传入，否则在开始前将不会计算所需请求次数，异步请求接口数据必须传递total或count值) | Number |  |  |\n| message | 如上面示例的'提示导出'组件，可自定义下面的提示信息：包含两个属性 `page1`、`page2`，属性值都是数组，详见`提示导出CSV文件`demo | Object |  |  |\n| fileName | 自定义导出的文件名 | String | 导出时间+'导出文件' |  |\n| fileFormat | 选择导出的文件名，目前只支持.xls文件和.csv文件，故值为'.xls'或'.csv' | String | '.xls' | . |\n\n#### *headers*\n> 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名\n\n```javascript\nheaders: [\n    {\n        key: 'name',\n        title: '姓名'\n    },\n    {\n        key: 'age',\n        title: '年龄'\n    },\n    {...}\n]\n```\n\n#### 异步导出接口数据格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…],\n    total/count: 720\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 175 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19919,7 +20176,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(176);
+	var _markdown = __webpack_require__(182);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -20421,13 +20678,13 @@
 	exports.default = FormApp;
 
 /***/ }),
-/* 176 */
+/* 182 */
 /***/ (function(module, exports) {
 
 	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能 | object | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键 | string | | 必须\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object &#124; object[] | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`left`、`right` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onChange'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\n\n\n## 更多用法\n可以把各种组件的更高级用法的例子截图贴在这里\n[!图片](/path/to/img.jpg \"Title\")\n"
 
 /***/ }),
-/* 177 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20454,7 +20711,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(178);
+	var _markdown = __webpack_require__(184);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -20660,13 +20917,13 @@
 	exports.default = ModalApp;
 
 /***/ }),
-/* 178 */
+/* 184 */
 /***/ (function(module, exports) {
 
 	module.exports = "对话框。\n\n## 何时使用\n\n需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。\n\n另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。\n\n## 组件&配置\n\n### # modal\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|-------------\nvisible    | 对话框是否可见 | boolean          | 无          \ncontent | 弹框中间的内容 | string&#124;`config`  | 无          \nconfirmLoading | 确定按钮 loading | boolean    | 无          \ntitle      | 标题           | string&#124;`config` | 无          \nclosable   | 是否显示右上角的关闭按钮 | boolean    | true       \nonSubmit       | 点击确定回调       | function(e)     | 无          \nonCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        \nwidth      | 宽度           | string&#124;number | 520          \nfooter     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | `config`&#124;`config[]` | 确定取消按钮\nokText     | 确认按钮文字    | string           | 确定      \nokType     | 确认按钮类型    | string           | primary      \ncancelText | 取消按钮文字    | string           | 取消      \ncancelType | 取消按钮类型    | string           | default      \nmaskClosable | 点击蒙层是否允许关闭 | boolean   | true      \nstyle | 可用于设置浮层的样式，调整浮层位置等 | object   | -\nwrapClassName | 对话框外层容器的类名 | string   | -\nafterClose | Modal 完全关闭后的回调 | function | 无\ngetContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body\nzIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000\n\n> tips: `footer`属性一般为一个配置或配置数组，其中没项可以有一个额外的`action`属性，指定按钮的特定功能，可选值有'submit'、'cancel'，分别对应提交功能（onSubmit）和取消功能（onCancel）\n\n#### modal 高级功能 (额外参数)\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | \napi    | 提交数据的接口 | string | \nmethod | api请求类型 | string | 'get'\nparams | api请求初始参数。1、提交数据时，会获取params中的值；2、form会填充params中的值为默认值 | object | \nparamsHandler | api请求发送前处理参数的函数。直接从form等获取到的参数可能不符合接口格式，可以用此函数处理参数 | function(params) {return params;} | \nmessage | 弹框中的动态内容。content为静态内容，message为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | function(params) {return `config`;} | \n\n> 最终弹框中展示的内容最多包含三部分，即：content、form、message三个属性对应的内容。从上到下展示顺序依次为：message > content > form\n\n以上有两种常用场景。  \n1、“新增/编辑”表单弹框（见示例：弹框表单）  \n2、“删除”确认弹框（见示例：确认信息弹框）\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-modal').show()`。\n\n参数       | 说明           | 参数    \n-----------|----------------|-----------\nshow      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、message 中的内容。用于form弹框场景和message确认框场景 |  show([params])  \nclose    | 关闭弹框           |   close()  \n\n\n### UF.Modal.method()\n\n包括：\n\n- `UF.Modal.info`\n- `UF.Modal.success`\n- `UF.Modal.error`\n- `UF.Modal.warning`\n- `UF.Modal.confirm`\n\n以上均为一个函数，参数为 object，具体属性如下：\n\n参数       | 说明           | 类型             | 默认值       \n-----------|----------------|------------------|--------------\ntitle      | 标题           | string&#124;`config` | 无           \ncontent    | 内容           | string&#124;`config` | 无           \nonOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           \nonCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           \nwidth      | 宽度           | string&#124;number | 416           \niconType   | 图标 Icon 类型    | string | question-circle \nokText     | 确认按钮文字    | string           | 确定       \ncancelText | 取消按钮文字    | string           | 取消       \nmaskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    \n\n以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。\n\n```javascript\nvar ref = UF.Modal.info({...});\nref.destroy();\n```\n\n"
 
 /***/ }),
-/* 179 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20693,7 +20950,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(180);
+	var _markdown = __webpack_require__(186);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -20991,13 +21248,13 @@
 	exports.default = TableApp;
 
 /***/ }),
-/* 180 */
+/* 186 */
 /***/ (function(module, exports) {
 
 	module.exports = "展示行列数据。\n\n## 何时使用\n\n- 当有大量结构化的数据需要展现时；\n- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。\n\n## 组件&配置\n\n### # table\n\n| 参数           | 说明                     | 类型             | 默认值   |\n|---------------|--------------------------|-----------------|---------|\n| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |\n| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |\n| size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |\n| data    | 数据数组，见下面示例 `data` | any[] |            |\n| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |\n| rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |\n| rowClassName  | 表格行的类名      | Function(record, index):string | - |\n| expandedRowRender  | 额外的展开行 | Function | - |\n| defaultExpandedRowKeys | 默认展开的行 | string[] | - |\n| expandedRowKeys | 展开的行，控制属性 | string[] | - |\n| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |\n| loading       | 页面是否加载中 | boolean&#124;[`config`](#/Feedback/Loading) | false |\n| locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | `{filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'}` |\n| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |\n| bordered  | 是否展示外边框和列边框 | boolean | false      |\n| showHeader  | 是否显示表头 | boolean          | true      |\n| footer | 表格尾部         | Function(currentPageData)   | |\n| title  | 表格标题栏配置,可配置题目及表格控件，见下方`title`     | string&#124;object   | - |\n| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |\n| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |\n| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |\n| sourceHandler | 获取数据后，使用 sourceHandler 对数据进行预处理，以兼容各种数据结构 | string  | - |\n| method | 获取数据的方式。可选 `get` `post` | String | `get` | \n| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | \n| autoLoadSource | 是否组件渲染完成后自动加载数据（配置 source 属性后有效） | boolean | true | \n| crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | \n| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |\n| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |\n| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |\n| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |\n| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |\n| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |\n| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |\n| width      | 列宽度 | string&#124;number | -  |\n| className  | 列的 className             | string          |  -      |\n| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |\n| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |\n| filterConfig    | 表头的筛选设置，详见下方`columns.filterConfig`           | Object           | - |\n| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |\n| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |\n| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |\n| onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |\n| onCellClick | 单元格点击回调 | Function(record, event) | - |\n| textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |\n| ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |\n\n#### *column.filterConfig*\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| filterType      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |\n| filters      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |\n\n#### *column._operation*\n\n当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现表格中对单行的编辑、删除等功能。crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) \n\n例如：\n\n```javascript\ncolumns: [\n    ...\n    {\n        title: '操作',\n        dataIndex: '_operation',\n        width: 100,\n        render: ()=>([\n            {type: 'a', content: '日志', action: 'showLog'},\n            {type: 'a', content: '编辑', action: 'edit'},\n            {type: 'a', content: '删除', action: 'delete'}\n        ])\n    }\n]\n```\n\n\n#### *rowSelection*\n\n选择功能的配置。\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |\n| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |\n| disabledRow | 选择框的不可选的条件，返回值应该为一个Boolean类型的值        | Function(record) |  -   |\n| selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |\n| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |\n| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |\n| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |\n| onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |\n| onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |\n\n#### *selection*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| key | React 需要的 key，建议设置 | string | -  |\n| text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |\n| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |\n\n#### *pagination*\n\n| 参数             | 说明                               | 类型          | 默认值                   |\n|------------------|------------------------------------|---------------|--------------------------|\n| current          | 当前页数                           | number        | -                   |\n| pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |\n| pageSize         | 每页条数   | number | 10 |\n| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |\n| showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |\n| pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |\n| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |\n| showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |\n| size             | 当为「small」时，是小尺寸分页      | string        |                       |\n| simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |\n| total            | 数据总数      | number        |                       |\n| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |\n\n\n#### *title*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| text | 表格标题 | string&#124;`config` | -  |\n| basicControls | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array | -  |\n| menuControls | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | -   |\n| showText | 是否显示控件图标后面的说明文字 | Boolean | true  |\n\n##### *所有可选基础控件说明*\n\n控件 | 说明 | 位置 | 是否必填\n---- | ---- | ----- | -----\nfilter |  过滤功能 | 只能用于basic中 |\nexport |  导出数据 |  |\nswitchTags |  选择要展示的列 |  |\nrefresh |  刷新表格按钮 |  |\nfullScreen |  全屏展示 |  |\nshowAllTags |  展示全部列功能 |  |\nsetPageSize |  设置分页条数 |  |\n\n使用基础控件，可以直接使用字符串形式（控件名），如果想更改控件的默认展示效果，可改用对象的方式，参数和自定义控件类似。`name`即为组件名称，`icon`和`text`可自定义。\n\n##### *控件属性*\n\n为一个对象，包含以下几部分：  \n\n| 参数 | 说明 | 类型 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |\n| icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |\n| text | 按钮文字 | String |  |\n| onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |\n| blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |\n| whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-table').refresh()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nrefresh | 刷新表格数据，会展示loading等 | refresh()\nloadData | 手动触发表格获取数据 | loadData()\nshowCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)\n\n#### *data*\n表格的数据数组格式如下：\n```javascript\n[{\n    key: '1',\n    name: '胡彦斌',\n    age: 32,\n    address: '西湖区湖底公园1号'\n}, {\n    key: '2',\n    name: '胡彦祖',\n    age: 42,\n    address: '西湖区湖底公园2号'\n}, {\n    key: '3',\n    name: '胡彦祖',\n    age: 52,\n    address: '西湖区湖底公园3号'\n}]\n```\n**注意：**  \n\n在 Table 中，`data` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `data` 默认将每列数据的 `key` 属性作为唯一的标识。\n\n如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。\n\n"
 
 /***/ }),
-/* 181 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21024,7 +21281,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _crud = __webpack_require__(182);
+	var _crud = __webpack_require__(188);
 
 	var _crud2 = _interopRequireDefault(_crud);
 
@@ -21177,13 +21434,13 @@
 	exports.default = TableCrudApp;
 
 /***/ }),
-/* 182 */
+/* 188 */
 /***/ (function(module, exports) {
 
 	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框   \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\n| title      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'。 | string  | |\napi    | 提交数据的接口 | string | |\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nmethod | api请求类型 | string | 'get'|\nparams | api请求初始参数。1、提交数据时，会获取params中的值；2、form会填充params中的值为默认值 | object | |\nparamsHandler | api请求发送前处理参数的函数。直接从form等获取到的参数可能不符合接口格式，可以用此函数处理参数 | function(params) {return params;} | |\nmessage | 弹框中的动态内容。content为静态内容，message为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n"
 
 /***/ }),
-/* 183 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21202,7 +21459,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tree = __webpack_require__(123);
+	var _tree = __webpack_require__(124);
 
 	var _tree2 = _interopRequireDefault(_tree);
 
@@ -21210,7 +21467,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(184);
+	var _markdown = __webpack_require__(190);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -21407,13 +21664,13 @@
 	exports.default = TreeApp;
 
 /***/ }),
-/* 184 */
+/* 190 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 配置`expand`实现节点展开控制\n* 配置`checkbox`实现复选框功能\n* 配置`search`实现搜索功能\n* 配置`select`实现点击选择功能\n* 配置`loadData`实现异步加载功能\n* 配置`widthResize`实现右边缘拖动加宽功能\n* 配置`showLine`实现带连接线的树\n* 若没有进行任何配置，则为树形图展示1中的样式\n\n## 配置参数\n\n### 基本参数\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |\n| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| search | 搜索功能 | Object | - |  |\n| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| loadData | 异步加载功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| showLine | 是否展示连接线 | Boolean | false | . |\n| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |\n\n#### expand\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |\n| defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |\n| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |\n| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |\n| autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |\n| onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |\n\n#### checkbox\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |\n| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |\n| checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |\n| defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |\n| onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |\n\n#### search\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 是否启用搜索功能 | Boolean | false |  |\n| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |\n\n#### select\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultSelectedKeys | 默认选中节点 | Array | [] |  |\n| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |\n| multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |\n| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |\n\n#### loadData\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |\n| source | 异步请求地址 | String | - |  |\n| params | 异步请求所需要的各种参数，这些参数要在数据中包含 | Object | - | . |\n> 请求回来的数据格式必须是：`{ status: 0/1, data: [], msg: ''}`\n> `status`为0时，请求数据成功，1失败(注意是number类型);\n> `data`为请求回来的数据;\n> `msg`为请求结果文字表述。\n\n#### widthResize\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |\n| minWidth | 树形图允许扩宽的最小宽度 | String | - |  |\n| maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |\n\n### # 每一个节点的数据格式\n```json\n    [{\n        name: '0-0',            // 必须\n        key: '0-0',             // 必须\n        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true\n        disableCheckbox: false, // 非必须，用于指定复选框是否可选\n        disabled: false,        // 非必须，用于指定此节点时候可点\n        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须\n        children: [             // 子节点格式相同\n            ...\n        ]\n    },\n    ...]\n```\n### # url参数对应接口的格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…]\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 185 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21436,7 +21693,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(186);
+	var _markdown = __webpack_require__(192);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -21491,13 +21748,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 186 */
+/* 192 */
 /***/ (function(module, exports) {
 
 	module.exports = "iframe 的增强版。\n\n### 功能说明  \n* iframe加载子页面时自动展示loading状态\n* 文档加载完成后iframe的高度自动重新设定，支持三种模式\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nsrc | 子页面的url。可以是全路径，也可以是相对路径 | string |  | 必填\nmode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条） | string | 'auto' | \ndelay | 子页面高度变化时，延迟重新设定iframe高度，可防止高度闪烁 | number | 0 |\n\n其他属性同原生的 iframe，例如：`height`、`width`等\n\n#### 注意：\n使用`mode`属性时需要注意以下问题：\n\n* 跨域问题  \n要使用`mode`属性，默认会因跨域问题导致此属性无效。解决办法有两种：\n> * 需在当前页面和其子页面的 js 里同时增加一行代码设置为同一个域：`document.domain = 'baidu.com';`\n> * 使用 `UF.config({global: {domain: 'baidu.com'}})`，见 [全局配置](#/Develop/Config)\n\n* 子页面高度问题  \n此外如果子页面的`body/html`标签 CSS 设置了`height: 100%`，则`mode: 'auto'`失效，展现出的效果同`mode: 'max'`\n> theme.css 里定义了`body`标签为`height: 100%`，所以如果嵌套通用用UF开发的子页面，可以在子页面入口的html中加入`<style>html, body {height: auto !important;}</style>`，覆盖掉默认样式\n\n---\n\n*关于样式：*\n\ndemo里的浏览器样式是文档里额外加的，默认的`Iframe`组件没有额外样式，没有边框及阴影。如果想要使用demo里的样式，可以参考如下css代码：\n```css\n.uf-iframe {\n    border-top: 2em solid rgba(230, 230, 230, 0.7);\n    box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);\n    position: relative;\n    border-radius: 3px 3px 0 0;\n}\n.uf-iframe:before {\n    content: '';\n    display: block;\n    position: absolute;\n    top: -1.25em;\n    left: 1em;\n    width: 0.5em;\n    height: 0.5em;\n    border-radius: 50%;\n    background-color: #f44;\n    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;\n}\n.uf-iframe:after {\n    content: attr(data-src);\n    display: block;\n    position: absolute;\n    color: #ddd;\n    font-weight: 100;\n    padding-left: 5px;\n    width: calc(100% - 6em);\n    height: 1.2em;\n    line-height: 1.2em;\n    top: -1.6em;\n    left: 5.5em;\n    border-radius: 2px;\n    background-color: white;\n}\n```"
 
 /***/ }),
-/* 187 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21524,7 +21781,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(188);
+	var _markdown = __webpack_require__(194);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -21596,13 +21853,134 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 188 */
+/* 194 */
 /***/ (function(module, exports) {
 
-	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | false |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
+	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n\n\n## 组件&参数\n\n### # ueditor\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | false |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
 
 /***/ }),
-/* 189 */
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(2);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(13);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _tools = __webpack_require__(79);
+
+	var _tools2 = _interopRequireDefault(_tools);
+
+	var _markdown = __webpack_require__(196);
+
+	var _markdown2 = _interopRequireDefault(_markdown);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 配置化树形控件，Demo及文档说明
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var demo1 = {
+	    title: '基本用法',
+	    description: '默认高度自动根据内容调整',
+	    config: [{
+	        type: 'echarts',
+	        name: 'my-echarts',
+	        style: { minWidth: 600, height: 400 },
+	        title: {
+	            text: 'ECharts 入门示例'
+	        },
+	        tooltip: {},
+	        legend: {
+	            data: ['销量']
+	        },
+	        xAxis: {
+	            data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+	        },
+	        yAxis: {},
+	        series: [{
+	            name: '销量1',
+	            type: 'bar',
+	            data: [5, 20, 36, 10, 10, 20]
+	        }, {
+	            name: '销量2',
+	            type: 'bar',
+	            data: [5, 20, 36, 10, 10, 20]
+	        }]
+	    }, {
+	        type: 'button',
+	        content: '刷新数据',
+	        onClick: function onClick() {
+	            (0, _tools2.default)('my-echarts').setOption({
+	                series: [{
+	                    data: [5, 20, 36, 10, 10, 20].sort(function (a, b) {
+	                        return Math.random() > 0.5;
+	                    })
+	                }, {
+	                    data: [5, 20, 36, 10, 10, 20].sort(function (a, b) {
+	                        return Math.random() > 0.5;
+	                    })
+	                }]
+	            });
+	        }
+	    }]
+	};
+
+	var ExportApp = function (_BaseDoc) {
+	    _inherits(ExportApp, _BaseDoc);
+
+	    function ExportApp(props) {
+	        _classCallCheck(this, ExportApp);
+
+	        var _this = _possibleConstructorReturn(this, (ExportApp.__proto__ || Object.getPrototypeOf(ExportApp)).call(this, props));
+
+	        _this.state = {};
+	        _this.doc = _markdown2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(ExportApp, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getDemoSingle(demo1);
+	        }
+	    }]);
+
+	    return ExportApp;
+	}(_BaseDoc3.default);
+
+	exports.default = ExportApp;
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports) {
+
+	module.exports = "Echarts 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 Echarts\n* 通过`UF()`可以获取到 Echarts 实例，并调用 Echarts 原生API\n\n\n## 组件&参数\n\n### # echarts\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Echarts组件名称，用于使用`UF()`获取组件 | string | |\nstyle | Echarts所占用元素的样式。一般用来设置宽高等 | object | |\n\n其他参数见：[Echarts 官方配置](http://echarts.baidu.com/option.html)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetOptions | 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成 | \ngetOption | 获取当前实例中维护的option对象，返回的option对象中包含了用户多次setOption合并得到的配置项和数据，也记录了用户交互的状态，例如图例的开关，数据区域缩放选择的范围等等 | \nclear | 清空当前实例，会移除实例中所有的组件和图表。 | \nshowLoading | 显示加载动画效果 | \nhideLoading | 隐藏加载动画效果 | \n\n\n其他参见：[Echarts 官方API](http://echarts.baidu.com/api.html#echartsInstance)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是echarts的实例，所以可以使用echarts官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
+
+/***/ }),
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21823,7 +22201,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 190 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21983,7 +22361,7 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 191 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22144,7 +22522,7 @@
 	exports.default = GridApp;
 
 /***/ }),
-/* 192 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22491,7 +22869,7 @@
 	exports.default = LayoutApp;
 
 /***/ }),
-/* 193 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22518,7 +22896,7 @@
 
 	var _tools2 = _interopRequireDefault(_tools);
 
-	var _markdown = __webpack_require__(194);
+	var _markdown = __webpack_require__(202);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -22567,13 +22945,13 @@
 	exports.default = RouterApp;
 
 /***/ }),
-/* 194 */
+/* 202 */
 /***/ (function(module, exports) {
 
 	module.exports = "*以上 [demo页面](docs/demo/router.php#/card) 的路由部分配置见底部。更多完整示例见 [页面示例](#/Usage/Demo)*\n\n## 何时使用\n\n* 单页应用的入口，用于负责控制整个应用页面跳转。\n\n\n## 组件&配置\n\n### # router\n参数     | 说明           | 类型             | 默认值   |是否必须\n--------|----------------|------------------|--------|-----\nroutes  | 路由的及组件的映射关系对象列表，可以为数组，也可以为单个route对象。详见`route` | `route`&#124;`route`[] | 无    | 必须\nhistory  | 定义浏览器上的路由展现形式，分为两种：`hashHistory` - 默认形式，路由为`#`后面的值，使用起来较方便； `browserHistory` - 高级用法，会去掉`#`，展现形式像是真正的url，需要服务端配合使用，可参考 [这里](http://react-china.org/t/react-router-hashhistory-browserhistory/6799) | string | `'hashHistory'` |\n\n\n#### *route*\n\n描述路由的及组件的映射关系，是 `routes` 中的一项。\n\n参数       | 说明           | 类型             | 默认值   |是否必须\n------------|----------------|------------------|--------|-----\npath    | URL 中的路径。它会组合父 route 的路径，除非它是从 / 开始的， 将它变成一个绝对路径。 | string  |  无   | 必须\nto    | 从当前路径（path）重定向到另一个路径。**此属性不可和`component`同时使用**（因为一个是解析路由，一个是重定向路由）。例如：访问`/mine`路由时重定向到`/aboutme` |  string  |  无   | \ncomponent  | 当前路由对应的组件。它会作为父 route 组件中包含`childrenHolder: true`的组件的子组件渲染。可以直接是一个配置对象；也可以是一个模块名（*懒加载*）。**此属性不可和`to`同时使用** | `config` &#124; string  | 无  | 必须\nindexRoute    | 当用户在父 route 的 URL 时，indexRoute 允许你为父 route 提供一个默认的 \"child\" | `route` |   |\nindexRedirect    | 自动从当前路由重定向到其子路由的 path。例如：访问首页`/`时，自动重定向到`/Home`，即可在配置`/`路由那一层增加 indexRedirect 字段 | string |   |\nchildRoutes   | route 可以被嵌套，childRoutes 为子路由配置。 | `route` &#124; `route`[] |   |\ngetComponent  | 与 component 一样，但是是异步的。用于动态路由 | function(location, cb) { cb(null, Compnent) }  |     |\nonEnter    | 当 route 即将进入时调用。 | function(nextState, replaceState, callback?){}  |   |\nonLeave    | 当 route 即将退出时调用。 |  |   |\nbreadcrumbName    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\nbreadcrumbIcon    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\n\n> 更详细配置可参考原 [react-router](https://react-guide.github.io/react-router-cn/)\n\n---\n\n*demo中路由部分的配置如下：*\n\n```json\n{\n    type: 'router',\n    routes: [\n        {\n            path: '/',\n            component: App,\n            breadcrumbName: '首页',\n            indexRoute: {component: Card},\n            childRoutes: [\n                {path: 'card', breadcrumbName: '卡片', component: Card},\n                {path: 'card2', breadcrumbName: '卡片2', component: Card2,\n                    childRoutes: [\n                        {path: 'card3', breadcrumbName: '卡片3', component: Card3}\n                    ]\n                }\n            ]\n        }\n    ]\n};\n```"
 
 /***/ }),
-/* 195 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22661,7 +23039,7 @@
 	exports.default = Affix;
 
 /***/ }),
-/* 196 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22721,7 +23099,7 @@
 	exports.default = Breadcrumb;
 
 /***/ }),
-/* 197 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22898,7 +23276,7 @@
 	exports.default = Dropdown;
 
 /***/ }),
-/* 198 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23096,7 +23474,7 @@
 	exports.default = Menu;
 
 /***/ }),
-/* 199 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23245,7 +23623,7 @@
 	exports.default = Pagination;
 
 /***/ }),
-/* 200 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23437,7 +23815,7 @@
 	exports.default = Steps;
 
 /***/ }),
-/* 201 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23532,7 +23910,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 202 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23836,7 +24214,7 @@
 	exports.default = CascaderApp;
 
 /***/ }),
-/* 203 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23928,7 +24306,7 @@
 	exports.default = Checkbox;
 
 /***/ }),
-/* 204 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24082,7 +24460,7 @@
 	exports.default = DatePicker;
 
 /***/ }),
-/* 205 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24183,7 +24561,7 @@
 	exports.default = InputNumber;
 
 /***/ }),
-/* 206 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24376,7 +24754,7 @@
 	exports.default = Input;
 
 /***/ }),
-/* 207 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24461,7 +24839,7 @@
 	exports.default = Radio;
 
 /***/ }),
-/* 208 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24586,7 +24964,7 @@
 	exports.default = Rate;
 
 /***/ }),
-/* 209 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24699,7 +25077,7 @@
 	exports.default = Select;
 
 /***/ }),
-/* 210 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24799,7 +25177,7 @@
 	exports.default = Switch;
 
 /***/ }),
-/* 211 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24855,7 +25233,7 @@
 	exports.default = Upload;
 
 /***/ }),
-/* 212 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25042,7 +25420,7 @@
 	exports.default = Avatar;
 
 /***/ }),
-/* 213 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25329,7 +25707,7 @@
 	exports.default = Badge;
 
 /***/ }),
-/* 214 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25443,7 +25821,7 @@
 	exports.default = Card;
 
 /***/ }),
-/* 215 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25556,7 +25934,7 @@
 	exports.default = Carousel;
 
 /***/ }),
-/* 216 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25687,7 +26065,7 @@
 	exports.default = Collapse;
 
 /***/ }),
-/* 217 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25873,7 +26251,7 @@
 	exports.default = Popover;
 
 /***/ }),
-/* 218 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25969,7 +26347,7 @@
 	exports.default = Tooltip;
 
 /***/ }),
-/* 219 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26126,7 +26504,7 @@
 	exports.default = Tabs;
 
 /***/ }),
-/* 220 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26322,7 +26700,7 @@
 	exports.default = Tag;
 
 /***/ }),
-/* 221 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26436,7 +26814,7 @@
 	exports.default = Timeline;
 
 /***/ }),
-/* 222 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26574,7 +26952,7 @@
 	exports.default = Alert;
 
 /***/ }),
-/* 223 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26681,7 +27059,7 @@
 	exports.default = Message;
 
 /***/ }),
-/* 224 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26847,7 +27225,7 @@
 	exports.default = Notification;
 
 /***/ }),
-/* 225 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27089,7 +27467,7 @@
 	exports.default = Progress;
 
 /***/ }),
-/* 226 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27208,7 +27586,7 @@
 	exports.default = Popconfirm;
 
 /***/ }),
-/* 227 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27356,7 +27734,7 @@
 	exports.default = Loading;
 
 /***/ }),
-/* 228 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27437,7 +27815,7 @@
 	exports.default = BackTop;
 
 /***/ }),
-/* 229 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27488,7 +27866,7 @@
 	exports.default = StandardApp;
 
 /***/ }),
-/* 230 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

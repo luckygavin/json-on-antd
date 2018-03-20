@@ -47,7 +47,8 @@ const ComponentList = [
         {path: 'TableCrud', name: 'Table Crud 表格扩展', component: require('src/table/docs/crud.js').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('src/tree/docs').default},
         {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
-        {path: 'Ueditor', name: 'Ueditor 富文本', component: require('src/ueditor/docs').default}
+        {path: 'Ueditor', name: 'Ueditor 富文本', component: require('src/ueditor/docs').default},
+        {path: 'Echarts', name: 'Echarts 图表', component: require('src/echarts/docs').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('src/antd/docs/antd-button').default},

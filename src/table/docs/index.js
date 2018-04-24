@@ -10,7 +10,7 @@ import md from './markdown.md';
 const dataSource = [{
     key: '1',
     name: '胡彦斌',
-    age: 32,
+    age: 330,
     address: '西湖区湖底公园1号',
     sex: '男',
     json: {
@@ -68,7 +68,7 @@ const columns = [{
     filterConfig: {
         filterType: 'checkbox',
         filters: ['斌', '祖']
-    }
+    },
 }, {
     title: '性别',
     dataIndex: 'sex',
@@ -91,12 +91,13 @@ const columns = [{
     filterConfig: {
         filterType: 'input'
     },
-    ellipsis: true
+    ellipsis: true,
+    editAble: true
 }, {
     title: 'JSON字段',
     dataIndex: 'json',
     key: 'json',
-    textType: 'json'
+    textType: 'json',
 }, {
     title: 'html字段',
     dataIndex: 'html',
@@ -281,6 +282,112 @@ const demo2 = {
         }
     ]
 }
+
+const editColumns = [{
+    title: '姓名',
+    dataIndex: 'name',
+    key: 'name',
+    editAble: true
+}, {
+    title: '性别',
+    dataIndex: 'sex',
+    key: 'sex',
+    filterConfig: {
+        filterType: 'checkbox'
+    }
+},{
+    title: '年龄',
+    dataIndex: 'age',
+    key: 'age',
+    filterConfig: {
+        filterType: 'input'
+    },
+    editAble: true
+}];
+
+const editDataSource = [{
+    key: '1',
+    name: '胡彦斌',
+    age: 330,
+    sex: '男',
+}, {
+    key: '2',
+    name: '胡彦祖',
+    age: 42,
+    sex: 'femal',
+}, {
+    key: '3',
+    name: '胡彦祖彦斌',
+    age: 52,
+    sex: '女',
+}, {
+    key: '4',
+    name: '胡彦祖彦斌',
+    age: 62,
+    sex: '女',
+}];
+
+const demo3 = {
+    title: '创建一个可行内编辑的表格',
+    description: '可行内编辑的表格.',
+    config: [
+        {
+            type: 'table',
+            name: 'newtable1',
+            rowKey: 'key',
+            columns: editColumns,
+            rowSelection: {
+                type: 'checkbox',
+                selections: true,
+            },
+            // pagination: {
+            //     // pageSize: 3
+            //     showSizeChanger: true,
+            //     pageSizeOptions: ['1', '2', '3', '4']
+            // },
+            // pagination: false,
+            title: {
+                text: '可行内编辑的表格',
+                basicControls: [
+                    {
+                        name: 'filter',
+                        blacklist: ['json']
+                    },
+                    'setPageSize',
+                    {
+                        name: 'selctAll',
+                        icon: 'like-o',
+                        text: '自定义全选',
+                        onClick: function(table) {
+                            return table.selectAll();
+                        }
+
+                    },
+                    'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
+                menuControls: ['export', 'switchTags', 'refresh', 'fullScreen', {
+                        name: 'selctAll2',
+                        icon: 'like',
+                        text: '自定义全选',
+                        onClick: function(table) {
+                            return table.selectAll();
+                        }
+                    }, 'showAllTags', 'setPageSize'],
+                showText: false,
+            },
+            bordered: true,
+            data: editDataSource,
+            // source: 'docs/php/download.php',
+            // params: {
+            //     "isExport": true,
+            //     "container_id": 484,
+            //     "zone": "china",
+            //     "type": "server"
+            // },
+            // method: 'get'
+        }
+    ]
+
+};
 export default class TableApp extends BaseDoc {
     constructor(props) {
         super(props);
@@ -288,6 +395,6 @@ export default class TableApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo1, demo2);
+        return this.__getDemoSingle(demo1, demo2, demo3);
     }
 }

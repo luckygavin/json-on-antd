@@ -1,17 +1,17 @@
 /**
  * @file 表格组件:antd Table的基础上增加了原来uf Table中的一些功能
  * @author susisi@baidu.com
- * */1
+ * */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
 import Export from 'src/export';
-
 // 扩展功能 - 增删改查等
 import Crud from './Crud.js';
 import Title from './Title.js';
+import EditCell from './Edit';
 
 const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
@@ -22,75 +22,6 @@ const getNeedObject = (obj1, obj2) => {
         }
     }
 };
-// 为每个单元格创建一个包装父类组件
-class EditCell extends React.Component {
-    constructor(props) {
-        super(props);
-        // 设置组件数据state
-        this.state = {
-            value: this.props.value, // 简单类型单元格的值
-            columnChild: this.props.columnChild, // 复杂类型的单元格的值
-            editable: false, // 是否显示编辑框
-            valueSource: this.props.value, // 修改前的单元格的值
-        };
-        // 函数绑定
-        this.edit = this.edit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.check = this.check.bind(this);
-        // 全局变量定义
-    }
-    // 输入值改变触发函数
-    handleChange(e) {
-        let value = e.target.value;
-        this.setState({ value });
-    }
-    // 在编辑状态下点击小勾图标或者回车触发函数
-    check(){
-        if (this.props.onChange) {
-            let value = this.state.value;
-            // 上传修改数据到父组件 返回值为后端返回状态:true/false
-            let checkResult = this.props.onChange(value);
-            this.setState({
-                value: checkResult ? value : this.state.valueSource,
-                editable: false
-            }); 
-        }
-    }
-    // 点击编辑图标触发函数
-    edit() {
-        this.setState({ editable: true });
-    }
-    render() {
-        const { value, editable, columnChild } = this.state;
-        return (
-            <div>
-                {
-                    editable
-                    ? <div className="editable-cell-input-wrapper">
-                        <Input
-                        value={value}
-                        onChange={this.handleChange}
-                        onPressEnter={this.check}
-                        />
-                        <Icon
-                        type="check"
-                        className="editable-cell-icon-check"
-                        onClick={this.check}
-                        />
-                    </div>
-                    : <div className="editable-cell-text-wrapper">
-                        {columnChild || value}
-                        <Icon
-                        type="edit"
-                        className="editable-cell-icon"
-                        onClick={this.edit}
-                        />
-                    </div>
-                }
-            </div>
-        );
-    }
-}
 
 export default class NewTable extends BaseComponent {
     // 以下是函数定义
@@ -121,8 +52,8 @@ export default class NewTable extends BaseComponent {
             selectedRowKeys: [],
             selectedRows: [],
             // 加载状态
-            loading: false,
-        };  
+            loading: false
+        };
         // 用于存储多列的筛选条件
         this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
@@ -269,29 +200,29 @@ export default class NewTable extends BaseComponent {
 
     /* 内部函数 ****************************************************************************/
     // 对编辑状态的表格进行数据提交调用的函数
-    _onCellChange(key, dataIndex){
-            return (value) => {
-                // 对修改后的数据进行提交验证,后面使用action来调用数据验证接口,这里使用checkResult来进行模拟
-                let checkResult = true;
-                let dataSource = [...this.__props.data];
-                 // 根据验证结构判断是否更新数据表格的data
-                if (checkResult) {
-                    let dataResult = dataSource.map(item => {
-                        if(item.key === key) {
-                            item[dataIndex] = value;
-                        }
-                        return item;
-                    });
-                    // 使用UF的修改数据的方式
-                    this.__setProps({data:dataResult});
-                    // this.forceUpdate();
-                    // this.setState({ dataSource:dataResult});
-                    message.success("修改成功");
-                } else {
-                    message.error("修改失败");
-                }
-                return checkResult;
-            };
+    _onCellChange(key, dataIndex) {
+        return value => {
+            // 对修改后的数据进行提交验证,后面使用action来调用数据验证接口,这里使用checkResult来进行模拟
+            let checkResult = true;
+            let dataSource = [...this.__props.data];
+            // 根据验证结构判断是否更新数据表格的data
+            if (checkResult) {
+                let dataResult = dataSource.map(item => {
+                    if (item[this.rowKey] === key) {
+                        item[dataIndex] = value;
+                    }
+                    return item;
+                });
+                // 使用UF的修改数据的方式
+                this.__setProps({data: dataResult});
+                // this.forceUpdate();
+                // this.setState({ dataSource:dataResult});
+                message.success('修改成功');
+            } else {
+                message.error('修改失败');
+            }
+            return checkResult;
+        };
     }
     // 覆盖原生获取异步数据的函数
     _handleAsyncData() {}
@@ -585,7 +516,6 @@ export default class NewTable extends BaseComponent {
             }
             // 用户配置的render是一个uf组建配置，在此转为dom
             if (!!item.render) {
-                // TODO:这里不是很清楚,待明天上班完善, 四种包裹情况中还没有处理的一种
                 defaultColumn.render = (text, record, index) => {
                     // 配置中的render返回的是配置，配置再解析后才是真正的元素
                     let config = item.render(text, record, index);
@@ -593,7 +523,15 @@ export default class NewTable extends BaseComponent {
                     if (defaultColumn.dataIndex === '_operation') {
                         config = this._handleOperationColumn(config, record);
                     }
-                    return this.__analysis(config);
+                    // 根据是否可编辑状态来判断是否包裹编辑组件
+                    let showCell =  item.editable
+                        ? <EditCell
+                        columnChild={this.__analysis(config)}
+                        value={text}
+                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
+                        />
+                        : this.__analysis(config);
+                    return showCell;
                 };
             }
             // 将用户配置的单列筛选选项转换成antd的配置
@@ -652,12 +590,19 @@ export default class NewTable extends BaseComponent {
                     let newText = item.render
                         ? this.__analysis(item.render(text, record, index))
                         : text;
+                    let returnText = (
+                        <Popover content={newText}>
+                            <span className="uf-table-td-ellipsis">{newText}</span>
+                        </Popover>
+                    );
                     // 根据是否可编辑状态来判断是否包裹编辑组件
-                    let sourceColumn = <Popover content={newText}><span className="uf-table-td-ellipsis">{newText}</span></Popover>;
-                    let columnReturn =  item.editAble
-                        ? <EditCell columnChild={sourceColumn} value={newText} onChange={this._onCellChange(record.key, defaultColumn.dataIndex)} />
-                        : sourceColumn
-                    return columnReturn;
+                    let showCell =  item.editable
+                        ? <EditCell
+                        columnChild={returnText}
+                        value={text}
+                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)} />
+                        : returnText;
+                    return showCell;
                 };
             }
             // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
@@ -678,7 +623,6 @@ export default class NewTable extends BaseComponent {
                             dayTime > 0 && timeArr.push(dayTime + '天');
                             hourTime > 0 && timeArr.push(hourTime + '时');
                             minuteTime > 0 && timeArr.push(minuteTime + '分');
-
                             (dayTime === 0 && hourTime === 0 && minuteTime === 0)
                                 && secTime > 0 && timeArr.push(secTime + '秒');
                             let tdData = timeArr.join('');
@@ -688,7 +632,8 @@ export default class NewTable extends BaseComponent {
                                 : tdData;
                             break;
                         case 'json':
-                            let json = JSON.stringify(text, null, 2);
+                            // 会出现重复json字符串编码现象,加入类型判断
+                            let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
                             if (text && json !== '""') {
                                 let html = this._syntaxHighlight(json);
                                 newText = <Popover content={<pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>}>
@@ -697,7 +642,7 @@ export default class NewTable extends BaseComponent {
                             }
                             break;
                         case 'html':
-                            return <span dangerouslySetInnerHTML={{__html: text}}></span>;
+                            newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
                             break;
                         // 默认将格式进行一下转换然后输出
                         default:
@@ -708,26 +653,41 @@ export default class NewTable extends BaseComponent {
                             break;
                     }
                     // 根据是否可编辑状态来判断是否包裹编辑组件
-                    let columnReturn =  item.editAble
-                        ? <EditCell columnChild={newText} value={text} onChange={this._onCellChange(record.key, defaultColumn.dataIndex)} />
+                    // 如果json类型则转换
+                    let transText = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
+                    let showCell =  item.editable
+                        ? <EditCell
+                        columnChild={newText}
+                        value={transText}
+                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
+                        />
                         : newText;
-                    return columnReturn;
+                    return showCell;
                 };
             }
-            // 没设置任何render但是设置了editAble
-            if (!defaultColumn.render && item.editAble) {
-                defaultColumn.render = (text, record, index)=>{
-                    return (
-                        <EditCell
+            if (item.editable && !item.render && !defaultColumn.render) {
+
+                defaultColumn.render = (text, record, index) => {
+                    return <EditCell
                         value={text}
-                        onChange={this._onCellChange(record.key, defaultColumn.dataIndex)}/>
-                    );
+                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
+                        />;
                 };
             }
+            // TODO:会造成循环调用,内存溢出
+            // if (item.editable) {
+            //     let test = this.__analysis(defaultColumn.render(text, record, index));
+            //     defaultColumn.render = (text, record, index) => {
+            //         // 根据是否可编辑状态来判断是否包裹编辑组件
+            //         // 增加渲染属性 showValue={!defaultColumn.render ? text : this.__analysis(defaultColumn.render(text, record, index))}
+            //         let showCell =  <EditCell columnChild={!defaultColumn.render ? text : this.__analysis(defaultColumn.render(text, record, index))} value={text} onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)} />;
+            //         return showCell;
+            //     };
+            // }
             // TODO:后续可能修改,先保留
-            // if (item.editAble) {
+            // if (item.editable) {
             //     // 表格可编辑设置
-            //     let editable = item.editAble;
+            //     let editable = item.editable;
             //     if (Utils.typeof(editable, "object") && !Utils.empty(editable)) {
             //         // 判断是否为非空对象 明天上班再针对个性化配置进行代码编写
             //         console.log("非空对象");
@@ -742,7 +702,7 @@ export default class NewTable extends BaseComponent {
 
             //             console.log(newText);
             //             return (
-            //                 <EditCell 
+            //                 <EditCell
             //                 value={text}
             //                 onChange={this._onCellChange(record.key, defaultColumn.dataIndex)}/>
             //             );
@@ -821,7 +781,6 @@ export default class NewTable extends BaseComponent {
             className += ' uf-table-mini';
             size = 'small';
         }
-        console.log(this.__props.data);
         return <div className={className} style={this.__props.style}>
             <Table {...this.state.antdConfig} size={size}
                 title={this.title && (()=>(

@@ -200,10 +200,10 @@ export default class NewTable extends BaseComponent {
 
     /* 内部函数 ****************************************************************************/
     // 对编辑状态的表格进行数据提交调用的函数
-    _onCellChange(key, dataIndex) {
-        return value => {
-            // 对修改后的数据进行提交验证,后面使用action来调用数据验证接口,这里使用checkResult来进行模拟
-            let checkResult = true;
+    _cellSubmit(key, dataIndex) {
+        return (result, value) => {
+            // 获取编辑提交状况
+            let checkResult = result;
             let dataSource = [...this.__props.data];
             // 根据验证结构判断是否更新数据表格的data
             if (checkResult) {
@@ -215,13 +215,7 @@ export default class NewTable extends BaseComponent {
                 });
                 // 使用UF的修改数据的方式
                 this.__setProps({data: dataResult});
-                // this.forceUpdate();
-                // this.setState({ dataSource:dataResult});
-                message.success('修改成功');
-            } else {
-                message.error('修改失败');
             }
-            return checkResult;
         };
     }
     // 覆盖原生获取异步数据的函数
@@ -524,14 +518,7 @@ export default class NewTable extends BaseComponent {
                         config = this._handleOperationColumn(config, record);
                     }
                     // 根据是否可编辑状态来判断是否包裹编辑组件
-                    let showCell =  item.editable
-                        ? <EditCell
-                        columnChild={this.__analysis(config)}
-                        value={text}
-                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
-                        />
-                        : this.__analysis(config);
-                    return showCell;
+                    return  this.__analysis(config);
                 };
             }
             // 将用户配置的单列筛选选项转换成antd的配置
@@ -596,13 +583,7 @@ export default class NewTable extends BaseComponent {
                         </Popover>
                     );
                     // 根据是否可编辑状态来判断是否包裹编辑组件
-                    let showCell =  item.editable
-                        ? <EditCell
-                        columnChild={returnText}
-                        value={text}
-                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)} />
-                        : returnText;
-                    return showCell;
+                    return returnText;
                 };
             }
             // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
@@ -652,63 +633,30 @@ export default class NewTable extends BaseComponent {
                                 : text;
                             break;
                     }
-                    // 根据是否可编辑状态来判断是否包裹编辑组件
-                    // 如果json类型则转换
-                    let transText = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
-                    let showCell =  item.editable
-                        ? <EditCell
-                        columnChild={newText}
+                    return newText;
+                };
+            }
+            // 根据是否可编辑状态来判断是否包裹编辑组件
+            if (item.editable) {
+                // 声明获取前面设置过的配置
+                let oRender = defaultColumn.render;
+                defaultColumn.render = (text, record, index) => {
+                    // 如果text为对象类型则转换为字符串(编辑用途)
+                    let transText = typeof text === 'object'
+                        ? JSON.stringify(text, null, 2)
+                        : text;
+                    let showCell =  <EditCell
+                        columnChild={!oRender
+                            ? transText
+                            : oRender(text, record, index)
+                        }
+                        parent = {this}
+                        editConf = {item.editable}
                         value={transText}
-                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
-                        />
-                        : newText;
+                        cellSubmit={this._cellSubmit(record[this.rowKey], defaultColumn.dataIndex)} />;
                     return showCell;
                 };
             }
-            if (item.editable && !item.render && !defaultColumn.render) {
-
-                defaultColumn.render = (text, record, index) => {
-                    return <EditCell
-                        value={text}
-                        onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)}
-                        />;
-                };
-            }
-            // TODO:会造成循环调用,内存溢出
-            // if (item.editable) {
-            //     let test = this.__analysis(defaultColumn.render(text, record, index));
-            //     defaultColumn.render = (text, record, index) => {
-            //         // 根据是否可编辑状态来判断是否包裹编辑组件
-            //         // 增加渲染属性 showValue={!defaultColumn.render ? text : this.__analysis(defaultColumn.render(text, record, index))}
-            //         let showCell =  <EditCell columnChild={!defaultColumn.render ? text : this.__analysis(defaultColumn.render(text, record, index))} value={text} onChange={this._onCellChange(record[this.rowKey], defaultColumn.dataIndex)} />;
-            //         return showCell;
-            //     };
-            // }
-            // TODO:后续可能修改,先保留
-            // if (item.editable) {
-            //     // 表格可编辑设置
-            //     let editable = item.editable;
-            //     if (Utils.typeof(editable, "object") && !Utils.empty(editable)) {
-            //         // 判断是否为非空对象 明天上班再针对个性化配置进行代码编写
-            //         console.log("非空对象");
-            //     } else if (Utils.typeof(editable, "boolean") && editable) {
-            //         // 判断布尔值类型是否为true
-            //         defaultColumn.render = (text, record, index)=>{
-            //             // 对text类型做出解析 有两种类型 一为文本 二为经过前面各配置包装过的组件
-            //             // 若用户配置了render，则将转换之后的数据给用户的render
-            //             let newText = item.render
-            //             ? this.__analysis(item.render(text, record, index))
-            //             : text;
-
-            //             console.log(newText);
-            //             return (
-            //                 <EditCell
-            //                 value={text}
-            //                 onChange={this._onCellChange(record.key, defaultColumn.dataIndex)}/>
-            //             );
-            //         };
-            //     }
-            // }
             antdColumnConfig.push(defaultColumn);
         }
         return antdColumnConfig;

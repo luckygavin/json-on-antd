@@ -194,6 +194,46 @@
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+    // 单元格编辑图标样式
+    .editable-cell-text-wrapper, .editable-cell-input-wrapper {
+        &:hover {
+            .editable-cell-icon-edit {
+                visibility: visible;
+            }
+        } 
+    }
+    .editable-cell-text-wrapper >*, .editable-cell-input-wrapper>* {
+        display: inline-block;
+    }
+    .editable-cell-icon-edit {
+        visibility:hidden;
+        margin-left: 6px;
+        &:hover {
+            visibility: visible;
+            color: #108ee9;
+            cursor: pointer;
+        }
+    }
+    .editable-icon-group {
+        float: right;
+        margin: -25px 0 0 0;
+    }
+    .editable-cell-icon-close, .editable-cell-icon-check {
+        margin-right: 5px;
+        position: relative;
+        z-index: 999;
+        &:hover {
+            color: #108ee9;
+            cursor: pointer;
+        }
+    }
+    .editable-cell-input-wrapper .ant-form-item {
+        margin: 0;
+    }
+    .editable-cell-input-wrapper .uf-form {
+        width: 100%;
+        padding-right: 40px;
+    }
 }
 // 弹框样式
 .uf-table-modal {

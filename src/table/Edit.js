@@ -10,8 +10,6 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Input, InputNumber, Button, Icon, Dropdown, Checkbox, message, Option} from 'antd';
-import Form from 'src/form';
-
 
 // 为每个单元格创建一个包装父类组件
 export default class EditCell extends BaseComponent {
@@ -79,12 +77,25 @@ export default class EditCell extends BaseComponent {
     render() {
         const {value, editable, columnChild, editConf} = this.state;
         // 解析配置 icon api editable
+        // 图标默认配置 采用UF书写方式
         let cellIcon = {
-            editIcon: 'edit',
-            submitIcon: 'check',
-            closeIcon: 'close'
+            editIcon: {
+                mode: 'edit'
+            },
+            submitIcon: {
+                mode: 'check-circle',
+                style: {
+                    color: '#0b8235'
+                }
+            },
+            closeIcon: {
+                mode: 'close-circle',
+                style: {
+                    color: 'red'
+                }
+            }
         };
-        // 根据icon配置情况进行操作 不配置为默认图标,配置null为删除
+        // 根据icon配置情况进行解析赋值操作 不配置为默认图标,配置null为删除
         if (Utils.typeof(editConf['icon'], 'object')) {
             let iconConf = editConf['icon'];
             for (let key in iconConf) {
@@ -93,44 +104,53 @@ export default class EditCell extends BaseComponent {
                 : cellIcon[key] = iconConf[key];
             }
         }
-        // 添加输入框默认值
+        // 如果去除勾选图标则添加自动聚焦属性
         editConf['default'] = value;
-        editConf['onBlur'] = () => this.editChange(false);
+        if (Utils.typeof(cellIcon['submitIcon'], 'null')) {
+            editConf['onBlur'] = () => this.editChange(false);
+        }
         editConf['autoFocus'] = true;
         // 整合配置
         let formConf = {
             type: 'form',
-            wrappedComponentRef: ele => this.form = ele,
+            layout: {
+                type: 'vertical'
+            },
+            wrappedComponentRef: ele => {this.form = ele;},
             items: [editConf],
             onSubmit: data => this.submit()
         };
 
         return (
-            <div>
-                {
-                    editable
-                    ? <div className='editable-cell-input-wrapper'>
-                        {this.initInput(formConf)}
-                        <Icon
-                        type={cellIcon['submitIcon']}
-                        className='editable-cell-icon-check'
-                        onClick={this.submit}
-                        />
-                        <Icon
-                        type={cellIcon['closeIcon']}
-                        className='editable-cell-icon-close'
-                        onClick={() => this.editChange(false)}
-                        />
-                    </div>
-                    : <div className='editable-cell-text-wrapper'>
-                        {columnChild || value}
-                        <Icon
-                        type={cellIcon['editIcon']}
-                        className='editable-cell-icon-edit'
-                        onClick={() => this.editChange(true)}
-                        />
-                    </div>
-                }
+            editable
+            ? <div className="editable-cell-input-wrapper">
+                {this.initInput(formConf)}
+                <div className="editable-icon-group">
+                    <Icon
+                    type={cellIcon['submitIcon']['mode']}
+                    className="editable-cell-icon-check"
+                    onClick={this.submit}
+                    spin={cellIcon['submitIcon']['spin']}
+                    style={cellIcon['submitIcon']['style']}
+                    />
+                    <Icon
+                    type={cellIcon['closeIcon']['mode']}
+                    className="editable-cell-icon-close"
+                    onClick={() => this.editChange(false)}
+                    spin={cellIcon['closeIcon']['spin']}
+                    style={cellIcon['closeIcon']['style']}
+                    />
+                </div>
+            </div>
+            : <div className="editable-cell-text-wrapper">
+                {columnChild || value}
+                <Icon
+                type={cellIcon['editIcon']['mode']}
+                className="editable-cell-icon-edit"
+                onClick={() => this.editChange(true)}
+                spin={cellIcon['editIcon']['spin']}
+                style={cellIcon['editIcon']['style']}
+                />
             </div>
         );
     }

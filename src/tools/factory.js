@@ -102,7 +102,7 @@ export default class Factory extends PureComponent {
         props = this.handleChildren(props, item.childrenHolder);
         return props;
     }
-
+    // TODO：由子路由切换到父路由失效BUG
     // 在组件配置中，childrenHolder属性指定把子页面放在父组件的哪个位置
     handleChildren(props, hasChildrenHolder) {
         // 此处把通过路由传入的子组件放在当前配置树的定义了 childrenHolder 的节点下作为组件的子组件

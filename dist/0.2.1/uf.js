@@ -276,6 +276,10 @@
 	    // 整体配置
 	    config: function config(obj) {
 	        var config = _cache.Config.set(_utils.Utils.filter(obj, 'data'));
+	        // 用户自定义 UF 别名
+	        if (config.alias) {
+	            window[config.alias] = window.UF;
+	        }
 	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
 	        _requirejs2.default.config(config.modules);
 	        // 设置默认域，解决跨域问题
@@ -9415,7 +9419,7 @@
 
 	        _this._filter = _utils.Utils.difference(_this._filter, ['source', 'sourceHandler']);
 	        // 暴露给用户使用的函数
-	        _this._openApi.push('loadData', 'refresh', 'showCrud', 'getSelected', 'getSelectedKeys', 'selectAll',
+	        _this._openApi.push('reload', 'refresh', 'showCrud', 'getSelected', 'getSelectedKeys', 'selectAll',
 	        // 纯粹为了 bind this
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags');
 	        _this.__init();
@@ -13838,7 +13842,7 @@
 	            props = this.handleChildren(props, item.childrenHolder);
 	            return props;
 	        }
-
+	        // TODO：由子路由切换到父路由失效BUG
 	        // 在组件配置中，childrenHolder属性指定把子页面放在父组件的哪个位置
 
 	    }, {

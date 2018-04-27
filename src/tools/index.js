@@ -135,6 +135,10 @@ const func = {
     // 整体配置
     config(obj) {
         let config = Config.set(Utils.filter(obj, 'data'));
+        // 用户自定义 UF 别名
+        if (config.alias) {
+            window[config.alias] = window.UF;
+        }
         // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
         requirejs.config(config.modules);
         // 设置默认域，解决跨域问题

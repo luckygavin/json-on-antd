@@ -21,6 +21,9 @@ export function switchCode(config) {
     }, 4);
     cfgStr = cfgStr.replace(/\"\$F(\d+)\$\"/g, (v, v1)=>funcList[v1]);
     cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
+    // 把双引号改为单引号 /(?<!\\)"/g
+    // cfgStr = cfgStr.replace(/(?<!\\)"/g, '\'');
+    // cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
     cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
     cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
     return cfgStr;

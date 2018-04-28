@@ -13,18 +13,16 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="http://uf.baidu.com/css/theme.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/css/uf_v0.2.css" />
-        <script src="http://uf.baidu.com/dist/dll.min.js"></script>
-        <script src="http://uf.baidu.com/dist/antd.min.js"></script>
-        <script src="http://uf.baidu.com/dist/uf_v0.2.js"></script>
-        <!-- <style>html, body {height: auto !important;}</style> -->
+        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css" />
+        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/uf.min.css" />
+        <script src="http://uf.baidu.com/v/%{version}%/dll.min.js"></script>
+        <script src="http://uf.baidu.com/v/%{version}%/antd.min.js"></script>
+        <script src="http://uf.baidu.com/v/%{version}%/uf.min.js"></script>
         <title>一个简单的项目示例</title>
     </head>
     <body>
         <div id="main"></div>
         <script>
-            // document.domain = 'baidu.com';
             UF.config({
                 modules: {
                     baseUrl: './',
@@ -72,7 +70,6 @@ define(function(require) {
                     {path: 'card2', breadcrumbName: '卡片2', component: Page1.Card2,
                         childRoutes: [
                             {path: 'card3', breadcrumbName: '卡片3', component: 'Page2'}
-                            // {path: 'card3', breadcrumbName: '卡片3', component: Page1.Card3}
                         ]
                     }
                 ]
@@ -81,7 +78,7 @@ define(function(require) {
     };
 });
 ```
-router模块主要用于配置路由和各个模块间的关系。`router`组件的用法见 [Router 路由](#/General/Router)。
+router模块主要用于配置路由和各个模块间的关系。`router`组件的用法见组件[Router 路由](#/General/Router)。
 
 和其他模块相同，每一个模块均为`define(function(){ ... })`，define包含的函数中需`return {...};`返回当前模块的配置。
 
@@ -92,7 +89,7 @@ router模块主要用于配置路由和各个模块间的关系。`router`组件
 
 ### 3、App模块
 
-App模块为整个项目的框架，其中定义了页面的布局等。从router.js的配置中也可以看出，App模块是跟模块，其他模块渲染之前都会先渲染App。
+App模块为整个项目的框架，其中定义了页面的布局、子模块位置等。从router.js的配置中也可以看出，App模块是页面的根模块，全部页面的入口。
 
 新建一个`app.js`文件。
 ```javascript
@@ -166,15 +163,9 @@ define(function() {
         bordered: false,
         childrenHolder: true
     };
-    var Card3 = {
-        type: 'card',
-        title: 'Card title 3',
-        loading: true
-    };
     return {
         Card1: Card1,
-        Card2: Card2,
-        Card3: Card3
+        Card2: Card2
     };
 });
 ```
@@ -190,4 +181,3 @@ define({
 ```
 
 至此，配置上面demo的工作就完成了。可以在浏览器上打开刚开始定义的`demo.html`查看效果。
-

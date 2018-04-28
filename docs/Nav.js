@@ -7,11 +7,8 @@ export default class Nav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            current: props.current || 'Introduction'
+            current: props.current || 'Guide'
         };
-        this.NavList = [].concat(this.props.commons, [{
-            path: 'Components', name: 'Components', children: this.props.components
-        }]);
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
@@ -25,10 +22,12 @@ export default class Nav extends Component {
         return <div className="left-side">
             <Menu mode="inline" onClick={this.handleClick.bind(this)}
                 selectedKeys={[this.state.current]}
-                defaultOpenKeys={this.NavList.filter(
-                    v=>!!v.children && (!v.retract || this.props.current.indexOf(v.path) !== -1)).map(v=>v.path)
-                }>
-                {this.NavList.map(first=>!first.children
+                openKeys={this.props.navList.map(v=>v.path)}
+                // defaultOpenKeys={this.props.navList.filter(
+                //     v=>!!v.children && (!v.retract || this.props.current.indexOf(v.path) !== -1)
+                // ).map(v=>v.path)}
+                >
+                {this.props.navList.map(first=>!first.children
                     ? <Menu.Item key={first.path}>
                             <a href={`#/${first.path}`}>{first.name}</a>
                         </Menu.Item>

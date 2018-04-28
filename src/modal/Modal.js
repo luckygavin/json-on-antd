@@ -135,7 +135,7 @@ class NewModal extends BaseComponent {
         switch (item.action) {
             case 'submit':
                 // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
-                this.__props.onSubmit = item.onClick;
+                this.__props.onSubmit = item.onClick || this.__props.onSubmit;
                 result.onClick = this._onSubmit.bind(this);
                 break;
             case 'cancel':

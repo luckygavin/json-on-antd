@@ -77,13 +77,13 @@ h6 {
     }
     .nav {
         display: inline-block;
-        line-height: 50px;
-        li {
-            line-height: 80px;
+        line-height: 80px;
+        .ant-menu {
+            line-height: inherit;
         }
     }
     .search {
-        display: inline-block;
+        // display: inline-block;
         float: right;
         line-height: 80px;
         padding-right: 50px;
@@ -136,6 +136,19 @@ section {
 
 .ant-btn + .ant-btn {
     margin-left: 10px;
+}
+
+.markdown img {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    box-sizing: content-box;
+    border-radius: 5px;
+    box-shadow: 0 6px 12px 0 rgba(0,0,0,.3);
+    transition: all .2s;
+    &:hover {
+        box-shadow: 0 6px 12px 0 rgba(0,0,0,.35);
+    }
 }
 
 // demo

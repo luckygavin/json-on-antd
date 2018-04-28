@@ -5,12 +5,12 @@
 所有组件都有`content`属性，此属性可以是一个子组件的配置，也可以是多个子组件配置组成的一个数组。例如：
 ```javascript
 {
-    "type": "button",
-    "mode": "primary",
-    "content": [
+    type: "button",
+    mode: "primary",
+    content: [
         {
-            "type": "icon",
-            "mode": "left"
+            type: "icon",
+            mode: "left"
         },
         "Backward"
     ]

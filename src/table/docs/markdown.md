@@ -180,7 +180,7 @@ setPageSize |  设置分页条数 |  |
 参数 | 说明 | 参数
 ---- | ---- | ---- 
 refresh | 刷新表格数据，会展示loading等 | refresh()
-loadData | 手动触发表格获取数据 | loadData()
+reload | 手动触发表格获取数据 | reload()
 showCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)
 
 #### *data*

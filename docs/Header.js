@@ -11,42 +11,65 @@ const versionList = json.versionList;
 
 // 导航列表
 const NavList = [
-    {key: 'Introduction', path: '#/Introduction', name: '组件'},
-    {key: 'Standard', path: '#/Standard', name: '规范'},
-    {key: 'ThirdParty', path: '#/ThirdParty', name: '第三方组件'},
-    {key: 'ANT DESIGN', path: 'http://antd.uf.baidu.com/docs/react/introduce-cn', name: 'ANT DESIGN'},
-    {key: 'Old-uf', path: 'http://uf.baidu.com/uf-react.php', name: '返回旧版'}
+    {key: 'Index', name: '首页', path: '#/Index'},
+    {key: 'Docs', name: '文档', path: '#/Docs'},
+    {key: 'Component', name: '组件', path: '#/Component'},
+    {key: 'Other', name: '其他', path: '#/Other', children: [
+        {key: 'Standard', name: '开发规范', path: '#/Standard'},
+        {key: 'ThirdParty', name: '第三方组件', path: '#/ThirdParty'},
+        {key: 'AntdDocs', name: 'Antd 原文档', path: 'http://antd.uf.baidu.com/docs/react/introduce-cn'},
+        {key: 'Old-uf', name: '返回旧版', path: 'http://uf.baidu.com/uf-react.php'}
+    ]},
 ];
 
 export default class Header extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            current: props.current || 'Introduction'
+            current: this.getCurrent(props)
         };
+    }
+    getCurrent(props) {
+        let current;
+        if (props.isComponent) {
+            current = 'Component';
+        } else if (props.isDocs) {
+            current = 'Docs';
+        } else {
+            current = (props.current || 'Component').split('/')[0];
+        }
+        return current;
     }
     componentWillReceiveProps(nextProps) {
         this.setState({
-            current: nextProps.current
+            current: this.getCurrent(nextProps)
         });
     }
     handleClick(e) {
         this.setState({current: e.key});
     }
     render() {
+
+        let highlight = this.state.current;
         return (
             <div id="header">
                 <div className="logo">
+                    {/* <img alt="logo" src="./public/img/UF.svg" /> */}
                     <img alt="logo" src="./public/img/logo.svg" />
                     <span className="version">UF 2.0</span>
                 </div>
                 <div className="nav">
-                    <Menu mode="horizontal" selectedKeys={[this.state.current]}
+                    <Menu mode="horizontal" selectedKeys={[highlight]}
                         onClick={this.handleClick.bind(this)}>
-                        {NavList.map(v=>
-                            <Menu.Item key={v.key}>
-                                <a href={v.path}>{v.name}</a>
-                            </Menu.Item>
+                        {NavList.map(v=>v.children
+                                ? <Menu.SubMenu key={v.key} title={v.name}>
+                                    {v.children.map(c=><Menu.Item key={c.key}>
+                                        <a href={c.path}>{c.name}</a>
+                                    </Menu.Item>)}
+                                </Menu.SubMenu>
+                                : <Menu.Item key={v.key}>
+                                    <a href={v.path}>{v.name}</a>
+                                </Menu.Item>
                         )}
                     </Menu>
                 </div>

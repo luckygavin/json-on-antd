@@ -8,6 +8,27 @@ import {Modal, Card, Row, Col, Icon} from 'antd';
 import UF from 'src/tools';
 import {Utils} from 'src/utils';
 
+// 把配置转换成字符串
+export function switchCode(config) {
+    let funcList = [];
+    let cfgStr = JSON.stringify(config, (key, value)=>{
+        let result = value;
+        if (Utils.typeof(value, 'function')) {
+            result = `$F${funcList.length}$`;
+            funcList.push(value.toString());
+        }
+        return result;
+    }, 4);
+    cfgStr = cfgStr.replace(/\"\$F(\d+)\$\"/g, (v, v1)=>funcList[v1]);
+    cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
+    // 把双引号改为单引号 /(?<!\\)"/g
+    // cfgStr = cfgStr.replace(/(?<!\\)"/g, '\'');
+    // cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
+    cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
+    cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
+    return cfgStr;
+}
+
 export default class Demo extends React.Component {
     constructor(props) {
         super(props);
@@ -38,39 +59,12 @@ export default class Demo extends React.Component {
         this.forceUpdate();
     }
     getSourceCode(config) {
-        let obj = this.handleFunction(config);
-        let cfgStr = JSON.stringify(obj, null, 4);
-        cfgStr = cfgStr.replace(/\"\$F(\d+)\$\"/g, (v, v1)=>this.funcList[v1]);
-        cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
-        cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
-        
-        let code = 'var config = ' + cfgStr + ';\nUF.init(config, \'#demo\');';
+        let code = 'var config = ' + switchCode(config) + ';\nUF.init(config, \'#demo\');';
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
                 <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>
             </pre>
         );
-    }
-    // 处理配置里的函数
-    handleFunction(config) {
-        let result;
-        if (Utils.typeof(config, 'array')) {
-            result = [];
-            for (let v of config) {
-                result.push(this.handleFunction(v));
-            }
-        } else if (Utils.typeof(config, 'object')) {
-            result = {};
-            for (let i in config) {
-                result[i] = this.handleFunction(config[i]);
-            }
-        } else if (Utils.typeof(config, 'function')) {
-            result = `$F${this.funcList.length}$`;
-            this.funcList.push(config.toString());
-        } else {
-            result = config;
-        }
-        return result;
     }
     getCard(item, i) {
         return (

@@ -4,21 +4,15 @@
  */
 
 const webpack = require('webpack');
-const path = require('path');
-const packageConfig = require('../../package.json');
-const __root = path.join(__dirname, '../../');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const {outputPath, production, __root} = require('./env.js');
 
-const production = process.env.NODE_ENV === 'production';
-const version = packageConfig.version;
-// const cssName = !production ? `[name]_v${version}.css` : `[name]_v${version}.min.css`;
 let cssName = process.env.CSS_NAME || 'theme';
-cssName += !production ? `_v${version}.css` : `_v${version}.min.css`;
+cssName += !production ? `.css` : `.min.css`;
 
-console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('CSS_NAME: ', cssName);
 
-const cssBuilder = new ExtractTextPlugin('css/' + cssName);
+const cssBuilder = new ExtractTextPlugin(cssName);
 const jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -36,8 +30,8 @@ module.exports = {
         'antd': __root + '/dist/entry/antd.entry.js'
     },
     output: {
-        path: __root + "/dist",
-        filename: 'js/' + (!production ? '[name].js' : '[name].min.js')
+        path: outputPath,
+        filename: !production ? '[name].js' : '[name].min.js'
     },
     module: {
         loaders: [

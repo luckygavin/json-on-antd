@@ -1,5 +1,5 @@
 /**
- * @file reuqirejs 2.3.5 
+ * @file reuqirejs 2.3.5
  *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
  * vim: et:ts=4:sw=4:sts=4
  * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
@@ -1805,6 +1805,11 @@ var requirejs, require, define;
      * AMD loaders on globally agreed names.
      */
     req.config = function (config) {
+        // if the config is false, then prevent load requirejs to window
+        // update at 2018-03-19 18:47 by liuzechun
+        if (!!config) {
+            window['define'] = window['_define'];
+        }
         return req(config);
     };
 
@@ -2150,7 +2155,8 @@ var requirejs, require, define;
 // 把 define 也一起暴露出去
 requirejs.define = define;
 
-// define 函数需放在 window 上给JSONP回调函数使用
-window['define'] = window['define'] || define;
+// update at 2018-03-19 18:41:28 by liuzechun
+// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
+window['_define'] = window['_define'] || define;
 
 export default requirejs;

@@ -120,7 +120,6 @@ export default class EditCell extends BaseComponent {
             items: [editConf],
             onSubmit: data => this.submit()
         };
-
         return (
             editable
             ? <div className="editable-cell-input-wrapper">
@@ -143,7 +142,9 @@ export default class EditCell extends BaseComponent {
                 </div>
             </div>
             : <div className="editable-cell-text-wrapper">
-                {columnChild || value}
+                <div className="edit-cell">
+                    {columnChild || value}
+                </div>
                 <Icon
                 type={cellIcon['editIcon']['mode']}
                 className="editable-cell-icon-edit"

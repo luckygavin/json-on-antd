@@ -10,7 +10,7 @@ import md from './markdown.md';
 const dataSource = [{
     key: '1',
     name: '胡彦斌',
-    age: 330,
+    age: 32,
     address: '西湖区湖底公园1号',
     sex: '男',
     json: {
@@ -91,8 +91,7 @@ const columns = [{
     filterConfig: {
         filterType: 'input'
     },
-    ellipsis: true,
-    editAble: true
+    ellipsis: true
 }, {
     title: 'JSON字段',
     dataIndex: 'json',
@@ -129,7 +128,8 @@ const columns = [{
             },
             content: text
         };
-    }
+    },
+    
 }];
 
 const demo1 = {
@@ -210,6 +210,7 @@ const demo1 = {
     ]
 
 };
+
 const columns2 = [
     {
         title: 'ID',
@@ -283,48 +284,153 @@ const demo2 = {
     ]
 }
 
+// 下拉框数据字典
+const selectData = {
+    "1" : "男",
+    "2" : "女"
+}
+
 const editColumns = [{
     title: '姓名',
     dataIndex: 'name',
     key: 'name',
-    editAble: true
+    editable: {
+        type: "input",
+        name: "name",
+        rules: {
+            equired: true,
+            message: "必填项"
+        },
+        icon: {
+            editIcon: {
+                mode: "tool",
+                spin: true,
+                style: {
+                    color: "red"
+                }
+            }
+        },
+        api: "http://www.baidu.com"
+    },
 }, {
     title: '性别',
     dataIndex: 'sex',
     key: 'sex',
-    filterConfig: {
-        filterType: 'checkbox'
+    editable: {
+        type: "select",
+        name: "sex",
+        rules: {
+            equired: true,
+            message: "必选项"
+        },
+        options: [
+            {
+                label: "男",
+                value: '1',
+            },
+            {
+                label: "女",
+                value: '2',
+            }
+        ]
+    },
+    render: (text, record, index) => {
+        return {
+            type: "p",
+            content: selectData[text]
+        }
     }
 },{
     title: '年龄',
     dataIndex: 'age',
     key: 'age',
-    filterConfig: {
-        filterType: 'input'
+    editable: {
+        type: "inputNumber",
+        name: "age",
+        rules: {
+            equired: true,
+            type: "number",
+            message: "必须为数字",
+        }
     },
-    editAble: true
+}, {
+    title: '同意协议',
+    dataIndex: 'agreement',
+    key: 'agreement',
+    editable: {
+        type: "switch",
+        name: "agreement",
+    },
+    render: (text, record, index) => {
+        let showText = !!text
+            ? '是'
+            : '否';
+        return {
+            type: "p",
+            content: showText
+        }
+    }
+}, {
+    title: '身份数据',
+    dataIndex: 'data',
+    key: 'data',
+    textType: 'json',
+    editable: {
+        type: "textarea",
+        name: "data",
+        rules: {
+            equired: true,
+            message: "必填项"
+        },
+    },
 }];
 
 const editDataSource = [{
     key: '1',
     name: '胡彦斌',
-    age: 330,
-    sex: '男',
+    age: 30,
+    sex: '1',
+    agreement: true,
+    data: [
+        {
+            "id": 1111111,
+            "company": "baidu"
+        }
+    ],
 }, {
     key: '2',
     name: '胡彦祖',
     age: 42,
-    sex: 'femal',
+    sex: '2',
+    agreement: false,
+    data: [
+        {
+            "id": 222222,
+            "company": "baidu"
+        }
+    ],
 }, {
     key: '3',
     name: '胡彦祖彦斌',
     age: 52,
-    sex: '女',
+    sex: '2',
+    agreement: true,
+    data: [
+        {"id": 33333},
+        {"company": "baidu"}
+    ]
 }, {
     key: '4',
     name: '胡彦祖彦斌',
     age: 62,
-    sex: '女',
+    sex: '1',
+    agreement: false,
+    data: [
+        {
+            "id": 444444,
+            "company": "baidu"
+        }
+    ]
 }];
 
 const demo3 = {
@@ -340,50 +446,11 @@ const demo3 = {
                 type: 'checkbox',
                 selections: true,
             },
-            // pagination: {
-            //     // pageSize: 3
-            //     showSizeChanger: true,
-            //     pageSizeOptions: ['1', '2', '3', '4']
-            // },
-            // pagination: false,
             title: {
                 text: '可行内编辑的表格',
-                basicControls: [
-                    {
-                        name: 'filter',
-                        blacklist: ['json']
-                    },
-                    'setPageSize',
-                    {
-                        name: 'selctAll',
-                        icon: 'like-o',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-
-                    },
-                    'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
-                menuControls: ['export', 'switchTags', 'refresh', 'fullScreen', {
-                        name: 'selctAll2',
-                        icon: 'like',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-                    }, 'showAllTags', 'setPageSize'],
-                showText: false,
             },
             bordered: true,
-            data: editDataSource,
-            // source: 'docs/php/download.php',
-            // params: {
-            //     "isExport": true,
-            //     "container_id": 484,
-            //     "zone": "china",
-            //     "type": "server"
-            // },
-            // method: 'get'
+            data: editDataSource
         }
     ]
 

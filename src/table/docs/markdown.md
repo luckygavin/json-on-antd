@@ -65,12 +65,24 @@
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
-
+| editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
 #### *column.filterConfig*
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | filterType      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |
 | filters      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |
+
+#### *column.editable*
+
+主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置
+
+| 参数       | 说明                       | 类型            |  默认值  | 是否必须 |
+|-----------|----------------------------|-----------------|---------|--------|
+| type | 即为输入类型组件的type。除type外，可以使用一切输入型组件的参数 | string | - | 必须 |
+| name | 表单域名称，key，提交时以此名称为键 | string | - | 必须 |
+| rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |
+| icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能 | Object | 默认图标样式 |  |
+| api | 待定 | string | - | 必须 |
 
 #### *column._operation*
 

@@ -22,11 +22,9 @@ crud属性值为一对象，其中键为当前配置的`"引用名称"`，用于
 --------------|--------------------------|-----------------|-------|-------
 | title      | 列头显示文字               | string &#124; `config` | - |
 action  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'。 | string  | |
-api    | 提交数据的接口 | string | |
-form    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |
-method | api请求类型 | string | 'get'|
-params | api请求初始参数。1、提交数据时，会获取params中的值；2、form会填充params中的值为默认值 | object | |
-paramsHandler | api请求发送前处理参数的函数。直接从form等获取到的参数可能不符合接口格式，可以用此函数处理参数 | function(params) {return params;} | |
+api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,paramsHanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | 
+form   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |
+params | form会填充params中的值为默认值。会覆盖api中的params | object | |
 message | 弹框中的动态内容。content为静态内容，message为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | 
 
 常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)

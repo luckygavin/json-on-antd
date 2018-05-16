@@ -136,11 +136,7 @@ export default class Export extends BaseComponent {
         let params = config.params ? config.params : {};
         let request = Object.assign({}, params, {
             page: page,
-            // pageNum: page,
-            index: page,
             size: this.state.pageSize,
-            // pageSize: this.state.pageSize,
-            limit: this.state.pageSize,
             total: this.state.total
         });
         this.getData(request, res=>{

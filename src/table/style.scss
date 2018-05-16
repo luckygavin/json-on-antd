@@ -196,57 +196,40 @@
     }
     // 单元格编辑图标样式
     .editable-cell-text-wrapper, .editable-cell-input-wrapper {
-        &:hover {
-            .editable-cell-icon-edit {
-                visibility: visible;
-            }
-        } 
-    }
-    .editable-cell-text-wrapper >*, .editable-cell-input-wrapper>* {
-        display: inline-block;
-    }
-    .editable-cell-icon-edit {
-        visibility:hidden;
-        margin-left: 6px;
-        &:hover {
-            visibility: visible;
-            color: #108ee9;
-            cursor: pointer;
+        & > * {
+            display: inline-block;
+        }
+        .ant-form-item{
+            margin: 0;
+        }
+        .uf-form {
+            width: 100%;
+            padding-right: 40px;
+        }
+        .edit-cell {
+            padding-right: 26px;
         }
     }
     .editable-icon-group {
-        float: right;
-        margin: -25px 0 0 0;
+        margin-left: 4px;
     }
     .editable-cell-icon-edit {
-        float: right;
-        margin: -16px 5px 0 0;
-        position: relative;
-        z-index: 999;
+        margin-left: -16px;
+        visibility: hidden;
         &:hover {
             color: #108ee9;
             cursor: pointer;
         }
+    }
+    tr:hover .editable-cell-icon-edit {
+        visibility: visible;
     }
     .editable-cell-icon-close, .editable-cell-icon-check {
         margin-right: 5px;
-        position: relative;
-        z-index: 999;
         &:hover {
             color: #108ee9;
             cursor: pointer;
         }
-    }
-    .editable-cell-input-wrapper .ant-form-item{
-        margin: 0;
-    }
-    .editable-cell-input-wrapper .uf-form {
-        width: 100%;
-        padding-right: 40px;
-    }
-    .editable-cell-text-wrapper .edit-cell {
-        width: 100%;
-        padding-right: 20px;
     }
 }
 // 弹框样式
@@ -277,10 +260,18 @@
             }
         }
     }
-    .ant-table-small .ant-table-thead > tr > th {
-        background: #f7f7f7;
+    .ant-table-small {
+        .ant-table-title {
+            padding: 5px 10px;
+        }
+        .ant-table-thead > tr > th {
+            background: #f7f7f7;
+        }
     }
     &.uf-table-mini {
+        .ant-table-title {
+            padding: 1px 10px;
+        }
         .ant-table-small .ant-table-tbody > tr > td {
             padding: 3px 4px;
         }

@@ -7,7 +7,6 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
-import Export from 'src/export';
 // 扩展功能 - 增删改查等
 import Crud from './Crud.js';
 import Title from './Title.js';
@@ -31,7 +30,7 @@ export default class NewTable extends BaseComponent {
         this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
         // 暴露给用户使用的函数
         this._openApi.push(
-            'loadData', 'refresh',
+            'reload', 'refresh', 'export',
             'showCrud',
             'getSelected', 'getSelectedKeys', 'selectAll',
             // 纯粹为了 bind this
@@ -78,6 +77,7 @@ export default class NewTable extends BaseComponent {
     initTable(nextProps) {
         let objProps = this.__props;
         let state = {};
+        // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
         // 注意：引用类型，this.pagination 和 this.__props.pagination 是同一个东西
         this.pagination = objProps.pagination;
@@ -197,26 +197,23 @@ export default class NewTable extends BaseComponent {
     selectAll() {
         this._selectAllData();
     }
+    // 导出数据
+    export() {
+        this.titleRef && this.titleRef.showExport();
+    }
 
     /* 内部函数 ****************************************************************************/
     // 对编辑状态的表格进行数据提交调用的函数
-    _cellSubmit(key, dataIndex) {
-        return (result, value) => {
-            // 获取编辑提交状况
-            let checkResult = result;
-            let dataSource = [...this.__props.data];
-            // 根据验证结构判断是否更新数据表格的data
-            if (checkResult) {
-                let dataResult = dataSource.map(item => {
-                    if (item[this.rowKey] === key) {
-                        item[dataIndex] = value;
-                    }
-                    return item;
-                });
-                // 使用UF的修改数据的方式
-                this.__setProps({data: dataResult});
+    _cellSubmit(key, dataIndex, value) {
+        let dataSource = [...this.__props.data];
+        let dataResult = dataSource.map(item => {
+            if (item[this.rowKey] === key) {
+                item[dataIndex] = value;
             }
-        };
+            return item;
+        });
+        // 使用UF的修改数据的方式
+        this.__setProps({data: dataResult});
     }
     // 覆盖原生获取异步数据的函数
     _handleAsyncData() {}
@@ -237,9 +234,7 @@ export default class NewTable extends BaseComponent {
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
                 page: pageNum,
-                index: pageNum,
                 size: this.pagination.pageSize,
-                limit: this.pagination.pageSize
             });
         }
         this.setState({loading: true});
@@ -641,20 +636,23 @@ export default class NewTable extends BaseComponent {
                 // 声明获取前面设置过的配置
                 let oRender = defaultColumn.render;
                 defaultColumn.render = (text, record, index) => {
-                    // 如果text为对象类型则转换为字符串(编辑用途)
-                    let transText = typeof text === 'object'
-                        ? JSON.stringify(text, null, 2)
-                        : text;
-                    let showCell =  <EditCell
-                        columnChild={!oRender
-                            ? transText
-                            : oRender(text, record, index)
-                        }
-                        parent = {this}
-                        editConf = {item.editable}
-                        value={transText}
-                        cellSubmit={this._cellSubmit(record[this.rowKey], defaultColumn.dataIndex)} />;
-                    return showCell;
+                    let displayStr = !oRender ? text : oRender(text, record, index);
+                    let editableConf = item.editable;
+                    // 支持配置为一个函数
+                    if (Utils.typeof(editableConf, 'function')) {
+                        editableConf = editableConf(text, record, index);
+                    }
+                    // 如果editableConf返回为false，则直接返回原render
+                    if (!editableConf) {
+                        return displayStr;
+                    }
+                    return <EditCell parent = {this}
+                            value={text}
+                            columnChild={displayStr}
+                            editConf = {editableConf}
+                            api = {editableConf.api}
+                            cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
+                        />;
                 };
             }
             antdColumnConfig.push(defaultColumn);

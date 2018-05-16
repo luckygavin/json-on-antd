@@ -15,6 +15,13 @@ import {Input, InputNumber, Button, Icon, Dropdown, Checkbox, message, Option} f
 export default class EditCell extends BaseComponent {
     constructor(props) {
         super(props);
+        this.__props = Object.assign({
+            // 提交数据使用 BaseCompsonent 的 action 系列参数实现，用于提交数据
+            actionType: 'ajax',
+            actionTrigger: 'onSubmit'
+        }, this.__props);
+        this.__init();
+
         // 设置组件数据state
         this.state = {
             value: this.props.value, // 单元格的值
@@ -23,11 +30,6 @@ export default class EditCell extends BaseComponent {
             valueSource: this.props.value, // 修改前的单元格的值
             editConf: this.props.editConf // 对编辑组件的个性化配置
         };
-        // 函数绑定
-        this.editChange = this.editChange.bind(this);
-        this.submit = this.submit.bind(this);
-        this.initInput = this.initInput.bind(this);
-        this.__init();
     }
     componentWillReceiveProps(nextProps) {
         // 当单元格值改变时强制更新
@@ -45,22 +47,37 @@ export default class EditCell extends BaseComponent {
         // 获取表格数据
         let formData = this.form.getValues();
         let value = formData[cellName];
-        let checkResult = false;
         // 判断输入值是否改变
         if (value !== this.state.valueSource) {
-            // 对修改后的数据进行提交验证,后面使用api来调用数据验证接口,发送参数为formData,这里使用checkResult来进行模拟
-            checkResult = true;
-            // 上传修改结果到父组件
-            this.props.cellSubmit(checkResult, value);
-            // 进行相应渲染
-            checkResult ? message.success('修改成功') : message.error('修改失败');
+            // 对修改后的数据进行提交
+            // this.__filtered.api.params = formData;
+            Utils.merge(this.__filtered.api.params, formData);
+            let result = this.__props.onSubmit && this.__props.onSubmit();
+            // 不管是否为Promise，成功与失败逻辑如下
+            // 如果回调函数返回了promise实例，则展示loading效果
+            let hideLoading;
+            if (result instanceof Promise) {
+                hideLoading = message.loading('提交中，请等待~', 0);
+            }
+            this.__compatePromise(result, success=>{
+                hideLoading && hideLoading();
+                // 上传修改结果到父组件
+                this.props.cellSubmit(value);
+                this.setState({
+                    value: value,
+                    editable: false,
+                    valueSource: value
+                });
+            }, error=>{
+                hideLoading && hideLoading();
+            });
+        } else {
+            this.setState({
+                value: value,
+                editable: false,
+                valueSource: value
+            });
         }
-        let newValue = checkResult ? value : this.state.valueSource;
-        this.setState({
-            value: newValue,
-            editable: false,
-            valueSource: newValue
-        });
     }
     // 点击编辑/关闭图标触发函数
     editChange(type) {
@@ -103,6 +120,9 @@ export default class EditCell extends BaseComponent {
                 ? cellIcon[key] = null
                 : cellIcon[key] = iconConf[key];
             }
+        } else if (Utils.typeof(editConf['icon'], 'null')) {
+            cellIcon['submitIcon'] = null;
+            cellIcon['closeIcon'] = null;
         }
         // 如果去除勾选图标则添加自动聚焦属性
         editConf['default'] = value;
@@ -113,9 +133,7 @@ export default class EditCell extends BaseComponent {
         // 整合配置
         let formConf = {
             type: 'form',
-            layout: {
-                type: 'vertical'
-            },
+            layout: {type: 'vertical'},
             wrappedComponentRef: ele => {this.form = ele;},
             items: [editConf],
             onSubmit: data => this.submit()
@@ -125,33 +143,30 @@ export default class EditCell extends BaseComponent {
             ? <div className="editable-cell-input-wrapper">
                 {this.initInput(formConf)}
                 <div className="editable-icon-group">
-                    <Icon
-                    type={cellIcon['submitIcon']['mode']}
-                    className="editable-cell-icon-check"
-                    onClick={this.submit}
-                    spin={cellIcon['submitIcon']['spin']}
-                    style={cellIcon['submitIcon']['style']}
-                    />
-                    <Icon
-                    type={cellIcon['closeIcon']['mode']}
-                    className="editable-cell-icon-close"
-                    onClick={() => this.editChange(false)}
-                    spin={cellIcon['closeIcon']['spin']}
-                    style={cellIcon['closeIcon']['style']}
-                    />
+                    {!!cellIcon['submitIcon'] && (<Icon
+                        {...cellIcon['submitIcon']}
+                        type={cellIcon['submitIcon']['mode']}
+                        className="editable-cell-icon-check"
+                        onClick={this.submit.bind(this)}
+                    />)}
+                    {cellIcon['closeIcon'] && (<Icon
+                        {...cellIcon['closeIcon']}
+                        type={cellIcon['closeIcon']['mode']}
+                        className="editable-cell-icon-close"
+                        onClick={() => this.editChange(false)}
+                    />)}
                 </div>
             </div>
             : <div className="editable-cell-text-wrapper">
                 <div className="edit-cell">
                     {columnChild || value}
                 </div>
-                <Icon
-                type={cellIcon['editIcon']['mode']}
-                className="editable-cell-icon-edit"
-                onClick={() => this.editChange(true)}
-                spin={cellIcon['editIcon']['spin']}
-                style={cellIcon['editIcon']['style']}
-                />
+                {cellIcon['editIcon'] && (<Icon
+                    {...cellIcon['editIcon']}
+                    type={cellIcon['editIcon']['mode']}
+                    className="editable-cell-icon-edit"
+                    onClick={() => this.editChange(true)}
+                />)}
             </div>
         );
     }

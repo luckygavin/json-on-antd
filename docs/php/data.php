@@ -10,6 +10,8 @@ $data2 = '[{"id":"49","title":"test工单统计","type":"服务报障","relate_s
 // 网络服务台模拟数据2
 $data3 = '[{"id":"45","title":"ates","type":"服务报障","relate_service":"9","content":"<p>fdaf</p>","creator":"liuzhibin02","status":"进行中","priority":"普通","create_time":"2017-06-20 16:27:38","proposer":"","upvote":0,"ostatus":"1","handle_person":"liuzhibin02"},{"id":"28","title":"eeee","type":"服务咨询","relate_service":"9","content":"eeeeeeeee","creator":"liuzhibin02","status":"进行中","priority":"普通","create_time":"2017-06-16 14:57:10","proposer":"","upvote":0,"ostatus":"1","handle_person":"liuzhibin02"},{"id":"27","title":"eeee","type":"服务咨询","relate_service":"9","content":"eeeeeeeee","creator":"liuzhibin02","status":"进行中","priority":"普通","create_time":"2017-06-16 14:55:17","proposer":"","upvote":0,"ostatus":"1","handle_person":"liuzhibin02"},{"id":"26","title":"eeee","type":"服务咨询","relate_service":"9","content":"eeeeeeeee","creator":"liuzhibin02","status":"未处理","priority":"普通","create_time":"2017-06-16 14:54:59","proposer":"","upvote":0,"ostatus":"0","handle_person":"lingjing"},{"id":"25","title":"eeee","type":"服务咨询","relate_service":"9","content":"eeeeeeeee","creator":"liuzhibin02","status":"未处理","priority":"普通","create_time":"2017-06-16 14:50:47","proposer":"","upvote":0,"ostatus":"0","handle_person":"[无]"},{"id":"24","title":"eeee","type":"服务咨询","relate_service":"9","content":"eeeeeeeee","creator":"liuzhibin02","status":"未处理","priority":"普通","create_time":"2017-06-16 14:49:25","proposer":"","upvote":0,"ostatus":"0","handle_person":"[无]"},{"id":"23","title":"BGW","type":"服务报障","relate_service":"12","content":"网络设备异常。运营商电路切断。导致异常。请求紧急处理","creator":"liuzhibin02","status":"未处理","priority":"紧急","create_time":"2017-06-16 14:41:51","proposer":"","upvote":0,"ostatus":"0","handle_person":"[无]"},{"id":"15","title":"a","type":"服务报障","relate_service":"40","content":"a","creator":"liuzhibin02","status":"进行中","priority":"普通","create_time":"2017-06-14 13:35:22","proposer":"","upvote":0,"ostatus":"1","handle_person":"[无]"},{"id":"2","title":"test001","type":"服务咨询","relate_service":"13","content":"cccfff","creator":"liuzhibin02","status":"进行中","priority":"普通","create_time":"0000-00-00 00:00:00","proposer":"","upvote":1,"ostatus":"1","handle_person":"zhanghenghua"}]';
 
+// 树组件数据
+$data4 = '[{"name":"0-0","key":"0-0","isLeaf":false,"disableCheckbox":false,"disabled":false,"type":"leval1","children":[{"name":"0-0-0","key":"0-0-0","isLeaf":true,"disabled":true,"type":"leval2"},{"name":"0-0-1","key":"0-0-1","disableCheckbox":false,"disabled":false,"type":"leval2","children":[{"name":"0-0-1-0","key":"0-0-1-0","disableCheckbox":true,"disabled":false,"type":"leval3"},{"name":"0-0-1-1","key":"0-0-1-1","disableCheckbox":false,"disabled":false,"type":"leval3"}]}]},{"name":"0-1","key":"0-1","isLeaf":false,"disableCheckbox":false,"disabled":false,"type":"leval1","children":[{"name":"0-1-0","key":"0-1-0","type":"leval2","disableCheckbox":false,"disabled":false,"children":[]}]}]';
 
 $datas = $data1;
 
@@ -18,17 +20,27 @@ if (isset($type) && $type == 'pendding') {
     $datas = $data2;
 } else if (isset($type) && $type == 'finished') {
     $datas = $data3;
+} else if (isset($type) && $type == 'tree') {
+    $datas = $data4;
 }
-
 
 // 300ms
 usleep(300000);
 
-$result = json_decode($datas);
+$originData = json_decode($datas);
+$result = $originData;
+$searchName = $_REQUEST['name'];
+if (isset($searchName) && !empty($searchName)) {
+    $result = [];
+    foreach ($originData as $row) {
+        if ($row->name == $searchName) {
+            array_push($result, $row);
+        }
+    }
+}
 
 $page = $_REQUEST['page'];
 $size = $_REQUEST['size'];
-
 $data = $result;
 if (isset($page) && isset($size)) {
     $offset = ($page - 1) * $size;

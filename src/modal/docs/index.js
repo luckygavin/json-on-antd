@@ -47,7 +47,6 @@ const demo2 = {
             content: '编辑弹框',
             // actionType: 'call',
             // actionTarget: 'my-modal2.show',
-            // actionParams: {line_sn: 'sn20134567', idc_id: 'TC'}
             onClick: ()=>UF('my-modal2').show({line_sn: 'sn20134567', idc_id: 'TC', other: 'other data'})
         },
         {

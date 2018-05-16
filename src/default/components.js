@@ -31,6 +31,7 @@ export default {
     },
     // 下拉
     'select': {
+        optionFilterProp: 'children'
         // style: {width: 120}
     },
     // 自动补全
@@ -70,7 +71,7 @@ export default {
             pageType: 'client',
             total: 0
         },
-        // 自动加载数据
+        // 自动加载数据 - 目前和sourceAutoLoad区分
         autoLoadSource: true,
         data: []
     },

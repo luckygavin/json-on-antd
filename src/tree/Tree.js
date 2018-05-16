@@ -35,6 +35,9 @@ const getParentsKeys = (nodes, keyArray) => {
         }
     }
 };
+
+// TODO: 异步获取数据不能用。data字段必须填
+
 export default class OriginTree extends BaseComponent {
     constructor(props) {
         super(props);

@@ -63,7 +63,6 @@ const demo1 = {
                     title: '新增部件:',
                     width: 800,
                     api: 'docs/php/submit.php',
-                    method: 'post',
                     autoReload: true,
                     form: {
                         layout: {
@@ -94,14 +93,16 @@ const demo1 = {
                 },
                 delete: {
                     title: '删除部件:',
-                    api: 'docs/php/submit.php',
+                    api: {
+                        url: 'docs/php/submit.php',
+                        method: 'get'
+                    },
                     autoReload: true
                 },
                 batchAdd: {
                     title: '批量导入:',
                     width: 800,
                     api: 'docs/php/submit.php',
-                    method: 'post',
                     autoReload: true,
                     okText: '导入',
                     content: {

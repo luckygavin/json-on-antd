@@ -1,6 +1,14 @@
 
 为了各个项目引用方便，先把一些常用的组件/库汇总到了一起。
 
+### Preloading.css
+`0.0.1`  
+提供多种页面加载前的loading效果，且效果可以组合使用。具体可以查看css文件的注释
+```
+http://uf.baidu.com/third_party/preloading.css
+```
+
+
 ### jQuery
 `3.2.1`
 ```

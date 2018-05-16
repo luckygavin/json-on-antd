@@ -23,7 +23,7 @@ define(function() {
                         },
                         {
                             key: "setting:2",
-                            link: '/card2/card3',
+                            link: '/card3/自定义头',
                             title: 'Option 2'
                         }
                     ]

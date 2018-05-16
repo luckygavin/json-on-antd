@@ -72,6 +72,8 @@ function request (config) {
             oSuccess(...params);
         };
     }
+    // 使successHandler不为空
+    !successHandler && (successHandler = ()=>{});
     // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
     let errorHandler = !config.error ? (()=>{}) : (config.error || errorMessage);
     if (config.error === true) {

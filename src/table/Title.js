@@ -43,6 +43,10 @@ export default class Title extends BaseComponent {
         this.globalFilterList = null;
         this.init();
     }
+    showExport() {
+        let exportRef = this.refs.basicExport || this.refs.menuExport;
+        exportRef && exportRef.showModal();
+    }
     // 不必多次刷新
     // shouldComponentUpdate(nextProps, nextState) {
     //     return false;
@@ -133,7 +137,7 @@ export default class Title extends BaseComponent {
                 case 'export':
                     result.push(<div className="uf-header-extra" key="export"
                         title={v.text || '导出'}>
-                            <Export {...this.getExportConfig()}>
+                            <Export ref="basicExport" {...this.getExportConfig()}>
                                 <Icon type={v.icon || 'download'} />
                                 {showText && <span>{v.text || '导出'}</span>}
                             </Export>
@@ -224,7 +228,7 @@ export default class Title extends BaseComponent {
                 case 'export':
                     gearsList.push(<MenuItem key="export1">
                         <div onClick={this.hideMenuDropdown.bind(this)}>
-                            <Export {...this.getExportConfig()}>
+                            <Export ref="menuExport" {...this.getExportConfig()}>
                                 <Icon type={v.icon || 'download'} className="menu-item-icon" />
                                 <span>{v.text || '导出数据'}</span>
                             </Export>
@@ -426,7 +430,6 @@ export default class Title extends BaseComponent {
     }
 
     /* 导出控件 **********************************************************************/
-
     // 获取要下载导出数据的配置
     getExportConfig() {
         let tableCfg = this.parent.__props;

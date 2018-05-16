@@ -23,6 +23,7 @@ export const PreventCoverageMap = [
 // // 提供给用户的和生命周期相关的函数，命名更加语义化
 export const ForUserApi = {
     beforeCreate: 'componentWillMount',
+    // TODO: 给自己set时，会不断触发componentDidMount BUG
     afterCreate: 'componentDidMount',
     beforeRender: 'componentWillMount,componentWillUpdate',
     afterRender: 'componentDidMount,componentDidUpdate',
@@ -42,8 +43,11 @@ export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
     // 组件额外动作及组件关联相关属性
     'actionType', 'actionTrigger', 'actionTarget', 'actionParams',
     // 提交/发送数据系列参数
-    'api', 'method', 'paramsHandler',
+    // api 系列参数有： url,method,params,handler
+    // TODO: 增加 success、error 参数
+    'api'
 ]);
+
 
 // 因为组件很少使用 props 和 state，某些时候需要组件刷新的。例如面包屑组件
 export default class BaseComponent extends Component {
@@ -109,6 +113,16 @@ export default class BaseComponent extends Component {
     get(key) {
         return key ? this.__props[key] : this.__props;
     }
+    // 触发组件上的事件。包括用户自定义的各种函数/事件（比如配置的onSubmit）
+    // 可以使用 tigger('onSubmit') 来手动触发某个用户定义的函数/事件
+    //   子类里面可能会重写：例如Antd/Dom中的 focus、change 等原生dom事件的触发，会在重写时实现
+    trigger(event, ...params) {
+        if (this.__props[event]) {
+            this.__props[event](params);
+        } else {
+            console.warn(`there is no event named: ${event}`);
+        }
+    }
     // 隐藏组件
     // 子组件中有可能重写
     hide() {
@@ -143,6 +157,8 @@ export default class BaseComponent extends Component {
         this._transmitComponent();
         // 后面传入组件的参数用 __props 代替 props
         this._initProps();
+        // 格式化 api 系列参数
+        this._handleApiInit();
         // 处理数据绑定页面
         this._handleModel();
         // 把__props上的全部回调函数的最后增加一个参数设置为组件本身，方便使用
@@ -272,6 +288,14 @@ export default class BaseComponent extends Component {
                 error && error();
             }
         }
+    }
+
+    // api 系列参数格式化工具
+    __formatApi(api = {}) {
+        if (Utils.typeof(api, 'string')) {
+            api = {url: api};
+        }
+        return api;
     }
 
     /* 私有方法 ***********************************************************************/
@@ -515,25 +539,35 @@ export default class BaseComponent extends Component {
         }
     }
 
+    // api 系列参数初始化
+    _handleApiInit() {
+        this.__filtered.api = this.__formatApi(this.__filtered.api);
+    }
+
     // 提交数据功能
-    _handleApiProps() {
-        let {api, method = 'post', actionParams, paramsHandler} = this.__filtered;
-        if (api) {
-            let params = actionParams;
-            paramsHandler && (params = paramsHandler(params));
+    _handleApiProps(oParams) {
+        let {url, method = 'post', params = oParams, handler, onSuccess, onError} = this.__filtered.api;
+        if (url) {
+            handler && (params = handler(params));
             return new Promise((resolve, reject)=>{
                 this.__ajax({
-                    url: api,
+                    url: url,
                     method: method,
                     params: params,
                     success(data, res) {
-                        let result = res.msg;
-                        message.success('执行成功，结果返回: ' + result, 2.5);
+                        let result = onSuccess && onSuccess(data, res);
+                        // onSuccess有返回值，则执行默认提示
+                        if (result === undefined || result === true) {
+                            message.success('执行成功，结果返回: ' + res.msg, 2.5);
+                        }
                         resolve();
                     },
                     error(res) {
-                        let result = res.msg;
-                        message.error('执行失败，结果返回: ' + result, 4);
+                        let result = onError && onError(res);
+                        // onError有返回值，则执行默认提示
+                        if (result === undefined || result === true) {
+                            message.error('执行失败，结果返回: ' + res.msg, 4);
+                        }
                         reject();
                     }
                 });

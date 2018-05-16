@@ -81,7 +81,7 @@
 | type | 即为输入类型组件的type。除type外，可以使用一切输入型组件的参数 | string | - | 必须 |
 | name | 表单域名称，key，提交时以此名称为键 | string | - | 必须 |
 | rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |
-| icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能 | Object | 默认图标样式 |  |
+| icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能. 当直接把icon设置为null时，则editIcon为默认值，其余两个设置为null | Object &#124; null | 默认图标样式 |  |
 | api | 待定 | string | - | 必须 |
 
 #### *column._operation*

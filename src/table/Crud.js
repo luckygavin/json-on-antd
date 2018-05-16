@@ -40,6 +40,7 @@ export default class Crud extends BaseComponent {
         for (let i in config) {
             let item = Utils.copy(config[i]);
             let action = this._getAction(i);
+            item.api = this.__formatApi(item.api);
             switch (action) {
                 // 展示信息弹框配置。会在message中传入当前数据
                 case 'show':
@@ -68,7 +69,7 @@ export default class Crud extends BaseComponent {
                 // 删除确认框的配置
                 case 'delete':
                     // 默认把参数处理为：只返回 id（rowKey对应的字段）
-                    item.paramsHandler = item.paramsHandler || (
+                    item.api.handler = item.api.handler || (
                         params=>({[this.parent.rowKey]: params[this.parent.rowKey]})
                     );
                     item.message = item.message || (()=>('确定要删除吗？'));
@@ -100,7 +101,7 @@ export default class Crud extends BaseComponent {
                 // 批量删除确认框的配置
                 case 'batchDelete':
                     // 默认把参数处理为：只返回英文逗号分隔的 id[s]（rowKey对应的字段）如：{ids: 123,456}
-                    item.paramsHandler = item.paramsHandler || (params=>({
+                    item.api.handler = item.api.handler || (params=>({
                         [`${this.parent.rowKey}s`]: params.map(v=>v[this.parent.rowKey]).join(',')
                     }));
                     item.message = item.message || (()=>('确定要执行『 批量删除 』操作吗？'));

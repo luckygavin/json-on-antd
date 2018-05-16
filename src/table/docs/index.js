@@ -295,6 +295,7 @@ const editColumns = [{
     dataIndex: 'name',
     key: 'name',
     editable: {
+        api: 'docs/php/submit.php',
         type: "input",
         name: "name",
         rules: {
@@ -304,19 +305,21 @@ const editColumns = [{
         icon: {
             editIcon: {
                 mode: "tool",
-                spin: true,
                 style: {
                     color: "red"
                 }
             }
-        },
-        api: "http://www.baidu.com"
+        }        
     },
 }, {
     title: '性别',
     dataIndex: 'sex',
     key: 'sex',
     editable: {
+        api: {
+            url: 'docs/php/submit.php',
+            method: 'get'
+        },
         type: "select",
         name: "sex",
         rules: {
@@ -345,6 +348,7 @@ const editColumns = [{
     dataIndex: 'age',
     key: 'age',
     editable: {
+        api: 'docs/php/submit.php',
         type: "inputNumber",
         name: "age",
         rules: {
@@ -352,12 +356,13 @@ const editColumns = [{
             type: "number",
             message: "必须为数字",
         }
-    },
+    }
 }, {
     title: '同意协议',
     dataIndex: 'agreement',
     key: 'agreement',
     editable: {
+        api: 'docs/php/submit.php',
         type: "switch",
         name: "agreement",
     },
@@ -376,6 +381,7 @@ const editColumns = [{
     key: 'data',
     textType: 'json',
     editable: {
+        api: 'docs/php/submit.php',
         type: "textarea",
         name: "data",
         rules: {

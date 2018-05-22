@@ -48,12 +48,10 @@ Demo 演示请点击左侧各组件示例
 UF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：
 
 beta:
-* http://uf.baidu.com/v/%{version}%/theme.css
 * http://uf.baidu.com/v/%{version}%/dll.js
 * http://uf.baidu.com/v/%{version}%/antd.js
 
 stable:
-* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css
 * http://uf.baidu.com/v/%{stableVersion}%/dll.min.js
 * http://uf.baidu.com/v/%{stableVersion}%/antd.min.js
 
@@ -61,11 +59,11 @@ stable:
 
 beta:
 * http://uf.baidu.com/v/%{version}%/uf.js
-* http://uf.baidu.com/v/%{version}%/uf.css
+* http://uf.baidu.com/v/%{version}%/theme.css
 
 stable:
 * http://uf.baidu.com/v/%{stableVersion}%/uf.min.js
-* http://uf.baidu.com/v/%{stableVersion}%/uf.min.css
+* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css
 
 
 ## 加入我们

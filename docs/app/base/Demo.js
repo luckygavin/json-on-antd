@@ -8,6 +8,8 @@ import {Modal, Card, Row, Col, Icon} from 'antd';
 import UF from 'src/tools';
 import {Utils} from 'src/utils';
 
+const ufName = '$uf';
+
 // 把配置转换成字符串
 export function switchCode(config) {
     let funcList = [];
@@ -21,11 +23,13 @@ export function switchCode(config) {
     }, 4);
     cfgStr = cfgStr.replace(/\"\$F(\d+)\$\"/g, (v, v1)=>funcList[v1]);
     cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
-    // 把双引号改为单引号 /(?<!\\)"/g
-    // cfgStr = cfgStr.replace(/(?<!\\)"/g, '\'');
-    // cfgStr = cfgStr.replace(/\"(\w+?)\"\:\s/g, (v, v1)=>`${v1}: `);
-    cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, 'UF');
-    cfgStr = cfgStr.replace(/_tools2\.default/g, 'UF');
+    // 把双引号改为单引号
+    cfgStr = cfgStr.replace(/\\"/g, '$_tmp\'');
+    cfgStr = cfgStr.replace(/\"/g, '\'');
+    cfgStr = cfgStr.replace(/$_tmp\'/g, '\"');
+    // 替换UF名称
+    cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, ufName);
+    cfgStr = cfgStr.replace(/_tools2\.default/g, ufName);
     return cfgStr;
 }
 
@@ -59,7 +63,7 @@ export default class Demo extends React.Component {
         this.forceUpdate();
     }
     getSourceCode(config) {
-        let code = 'var config = ' + switchCode(config) + ';\nUF.init(config, \'#demo\');';
+        let code = `var config = ${switchCode(config)} + ;\n${ufName}.init(config, \'#demo\');`;
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
                 <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>

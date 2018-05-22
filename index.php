@@ -16,15 +16,19 @@ $suffix = '';
         <link rel="stylesheet" href="public/highlight/prism.css" />
 
         <?php if (ENV == 'dev') { ?>
-            <link rel="stylesheet" href="dist/css/theme.min.css?v=<?php echo $_VERSION;?>" />
+            <?php if (in_array($_VERSION, ['0.2.2', '0.2.1', '0.2'])) { ?>
+                <!-- 老版本需要 -->
+                <link rel="stylesheet" href="dist/css/theme.min.css?v=<?php echo $_VERSION;?>" />
+            <?php } ?>
             <script src="dist/js/dll.js?v=<?php echo $_VERSION;?>"></script>
             <script src="dist/js/antd.js?v=<?php echo $_VERSION;?>"></script>
         <?php } else { ?>
-            <link rel="stylesheet" href="css/theme.min.css?v=<?php echo $_VERSION;?>" />
+            <?php if (in_array($_VERSION, ['0.2.2', '0.2.1', '0.2'])) { ?>
+                <link rel="stylesheet" href="css/theme.min.css?v=<?php echo $_VERSION;?>" />
+            <?php } ?>
             <script src="dist/dll.min.js?v=<?php echo $_VERSION;?>"></script>
             <script src="dist/antd.min.js?v=<?php echo $_VERSION;?>"></script>
         <?php }?>
-
         <link rel="stylesheet" href="public/<?php echo $_VERSION; ?>/doc.min.css" />
         <script src="public/highlight/prism.js" data-manual></script>
     </head>
@@ -33,6 +37,7 @@ $suffix = '';
         <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/echarts4/echarts.simple.min.js"></script>
         <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/ueditor/js.php"></script>
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
+        
         <script src="public/<?php echo $_VERSION; ?>/doc.js"></script>
         <script type="text/javascript">
             // makdown代码收/放

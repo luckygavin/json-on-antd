@@ -41,10 +41,9 @@ export default {
                     props.type = props.mode;
                 }
             }
-        // 非 BaseComponent 组件 _root 等属性无效
+        // 非 BaseComponent 组件 _factory 等属性无效
         } else {
             props.name = item.name;
-            delete props._root;
             delete props._factory;
         }
 

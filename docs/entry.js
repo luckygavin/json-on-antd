@@ -9,12 +9,14 @@ import {Row, Col} from 'antd';
 import Header from './Header.js';
 import Nav from './Nav.js';
 
+require('src/style/index.less');
 require('./doc.scss');
 
 // 通用文档
 const DocsList = [
     {path: 'Guide', name: '写在最前面', component: require('./app/guide').default},
     {path: 'Introduction', name: '功能介绍', component: require('./app/introduction').default},
+    {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default},
     {path: 'Usage', name: '入门', children: [
         {path: 'Install', name: '开始使用', component: require('./app/configure-install').default},
         {path: 'Join', name: '组件嵌套', component: require('./app/configure-join').default},
@@ -33,8 +35,7 @@ const DocsList = [
     {path: 'Params', name: '通用参数', component: require('./app/params').default},
     {path: 'Lifecycle', name: '生命周期', component: require('./app/lifecycle').default},
     {path: 'Load', name: '特殊组件', component: require('./app/load').default},
-    {path: 'Others', name: '更多用法', component: require('./app/others').default},
-    {path: 'UpdateLog', name: '更新日志', component: require('./app/update-log').default}
+    {path: 'Others', name: '更多用法', component: require('./app/others').default}
 ];
 
 // 组件文档列表

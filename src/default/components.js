@@ -27,7 +27,7 @@ export default {
     },
     // 面包屑
     'breadcrumb': {
-        style: {padding: '12px 24px', lineHeight: '18px', background: '#f7f7f7'}
+        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
     },
     // 下拉
     'select': {

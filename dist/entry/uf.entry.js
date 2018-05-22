@@ -6,3 +6,4 @@
 
 // UF 组件库构建入口
 window['UF'] = require('uf').default;
+window['$uf'] = require('uf').default;

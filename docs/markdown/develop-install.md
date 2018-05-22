@@ -13,8 +13,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/uf.min.css" />
+        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css">
         <script src="http://uf.baidu.com/v/%{version}%/dll.min.js"></script>
         <script src="http://uf.baidu.com/v/%{version}%/antd.min.js"></script>
         <script src="http://uf.baidu.com/v/%{version}%/uf.min.js"></script>

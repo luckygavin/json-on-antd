@@ -7,11 +7,7 @@ const webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 const {outputPath, production, __root} = require('./env.js');
 
-let cssName = process.env.CSS_NAME || 'theme';
-cssName += !production ? `.css` : `.min.css`;
-
-console.log('CSS_NAME: ', cssName);
-
+let cssName = !production ? `[name].css` : `[name].min.css`;
 const cssBuilder = new ExtractTextPlugin(cssName);
 const jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {

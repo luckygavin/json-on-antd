@@ -33,7 +33,11 @@ export default class Factory extends PureComponent {
         // TODO:
         // 如果模块是一个函数，先执行函数得到返回的配置
         if (Utils.typeof(item, 'function')) {
-            item = item();
+            // 如果组件想要获取到路由等信息，则可以返回一个函数，函数的参数即为路由相关信息
+            let {params, location, route, routes} = this.props;
+            let otherRoutes = {params, location, route, routes};
+            // 第一个参数为路由携带的参数，第二个参数为其余路由信息
+            item = item(params, otherRoutes);
             if (Utils.typeof(item, 'array')) {
                 return this.generateElement(item);
             }

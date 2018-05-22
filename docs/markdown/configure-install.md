@@ -8,7 +8,6 @@ UF 致力于提供给 RD 愉悦的页面开发体验
 
 ```html
 <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css" />
-<link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/uf.min.css" />
 <script src="http://uf.baidu.com/v/%{version}%/dll.min.js"></script>
 <script src="http://uf.baidu.com/v/%{version}%/antd.min.js"></script>
 <script src="http://uf.baidu.com/v/%{version}%/uf.min.js"></script>
@@ -32,7 +31,6 @@ UF 致力于提供给 RD 愉悦的页面开发体验
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/theme.min.css" />
-        <link rel="stylesheet" href="http://uf.baidu.com/v/%{version}%/uf.min.css" />
         <script src="http://uf.baidu.com/v/%{version}%/dll.min.js"></script>
         <script src="http://uf.baidu.com/v/%{version}%/antd.min.js"></script>
         <script src="http://uf.baidu.com/v/%{version}%/uf.min.js"></script>

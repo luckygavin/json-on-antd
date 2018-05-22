@@ -9,7 +9,11 @@ const autoprefixer = require('autoprefixer');
 const {outputPath, production, __root} = require('./env.js');
 
 // 分离css文件
-const cssName = !production ? `[name].css` : `[name].min.css`;
+let cssName = process.env.CSS_NAME || 'theme';
+cssName += !production ? `.css` : `.min.css`;
+
+console.log('CSS_NAME: ', cssName);
+
 const cssBuilder = new ExtractTextPlugin(cssName);
 const jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {

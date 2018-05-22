@@ -12,7 +12,7 @@ import {Spin} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 
-import './style.scss';
+// import './style.scss';
 
 export default class Iframe extends BaseComponent {
     constructor(props) {

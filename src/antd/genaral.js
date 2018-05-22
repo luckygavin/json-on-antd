@@ -46,7 +46,15 @@ export class Button extends Genaral {
         }
     }
     render() {
-        return <Antd.Button {...this.__props}/>;
+        let className = '';
+        className += this.__props.className || '';
+        // 额外加一个mini类型的size
+        let size = this.__props.size;
+        if (size === 'mini') {
+            className += ' uf-btn-mini';
+            size = 'small';
+        }
+        return <Antd.Button {...this.__props} className={className} size={size}/>;
     }
 }
 // 按钮组

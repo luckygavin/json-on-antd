@@ -1,0 +1,112 @@
+/**
+* @file 主题为放大元素文件，部分组件进行放大，包括字体，button, modal等
+* @author susisi@baidu.com 2018-01-29
+*/
+
+@font-size-base: 13px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: @font-size-base - 2px;
+// @uf-font-size-lger: 14px;
+
+// button
+@btn-font-size-lg: 15px;
+@btn-font-size-sm: 11px;// 无作用
+.ant-btn {
+    font-size: @uf-font-size-lger;
+}
+.ant-btn-lg {
+    font-size: @font-size-lg;
+}
+.ant-btn-sm {
+    font-size: @font-size-base;
+}
+.uf-mini {
+    font-size: 12px;
+}
+@btn-padding-base: 0px 16px;
+@btn-padding-lg: 1px 17px;
+// @btn-padding-sm: 1px 14px;
+@btn-height-base: 30px;
+@btn-height-lg: 34px;
+@btn-height-sm: 24px;
+
+// tab (font-size的设定会影响tab组件中)
+@tabs-title-font-size: 14px;
+
+// modal
+@uf-modal-font-size-lg: @font-size-base + 4px;// 17px
+@uf-modal-font-size-base: @font-size-lg;// 15px
+.ant-modal-header {
+    padding: @uf-modal-font-size-base @uf-modal-font-size-lg + 2px;
+    .ant-modal-title {
+        font-size: @uf-modal-font-size-lg;
+        line-height: @uf-modal-font-size-lg + 5px;
+    }
+}
+.ant-modal-close-x {
+    width: @uf-modal-font-size-base * 2 + @uf-modal-font-size-lg + 5px;
+    height: @uf-modal-font-size-base * 2 + @uf-modal-font-size-lg + 5px;
+    line-height: @uf-modal-font-size-base * 2 + @uf-modal-font-size-lg + 5px;
+    font-size: @uf-modal-font-size-base + 5px;// 20px
+}
+.ant-modal-body {
+    padding: @uf-modal-font-size-lg + 2px;
+    font-size: @uf-modal-font-size-base;
+}
+.ant-confirm-body {
+    .ant-confirm-title {
+        font-size: @uf-modal-font-size-lg;
+    }
+    .ant-confirm-content {
+        font-size: @uf-modal-font-size-base;
+    }
+}
+
+// message
+.ant-message {
+    font-size: @font-size-lg;
+    .ant-message-notice-content {
+        padding: 14px 22px;
+    }
+    .anticon {
+        font-size: @font-size-lg + 5px;
+    }
+}
+// notification
+.notice-content {
+    font-size: @uf-font-size-lger;
+}
+.ant-notification-notice-with-icon .ant-notification-notice-message {
+    font-size: 18px;
+}
+// steps
+@steps-font-size-lg: 16px;
+.ant-steps .ant-steps-head-inner {
+    font-size: @steps-font-size-lg;
+    width: @steps-font-size-lg * 2;
+    height: @steps-font-size-lg * 2;
+    line-height: @steps-font-size-lg * 2;
+}
+.ant-steps .ant-steps-title {
+    font-size: @steps-font-size-lg;
+    line-height: @steps-font-size-lg * 2 - 0.5px;
+}
+.ant-steps-item-description {
+    font-size: @steps-font-size-lg - 2px;
+}
+// menu
+.ant-menu {
+    font-size: @uf-font-size-lger;
+}
+.ant-menu-vertical .ant-menu-item,
+.ant-menu-inline .ant-menu-item,
+.ant-menu-vertical .ant-menu-submenu-title,
+.ant-menu-inline .ant-menu-submenu-title {
+    font-size: @uf-font-size-lger;
+}
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-inline .ant-menu-submenu-title,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    height: 47px;
+    line-height: 47px;
+}

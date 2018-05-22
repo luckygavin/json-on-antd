@@ -3,8 +3,5 @@
  * @author liuzechun@baidu.com
  */
 
-// antd 样式
-require('root/theme/default.less');
-
 // antd 组件库
 window.DLL['Antd'] = require('antd');

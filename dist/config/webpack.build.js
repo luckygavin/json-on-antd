@@ -25,6 +25,7 @@ if (production) {
 
 module.exports = {
     entry: {
+        'uf.p': __root + '/dist/entry/uf.p.entry.js',
         'uf': __root + '/dist/entry/uf.entry.js'
     },
     output: {
@@ -51,6 +52,12 @@ module.exports = {
                     // plugins: [['import', {libraryName: 'antd'}]],
                     // compact: false
                 }
+            },
+            {
+                test: /\.(css|less)$/,
+                // loader: 'style!css!sass'
+                // loader: cssBuilder.extract('style', 'css!sass?modules&outputStyle=expanded')
+                loader: cssBuilder.extract('style', 'css!postcss!less') // 分离css和js文件
             },
             {
                 test: /\.json$/,

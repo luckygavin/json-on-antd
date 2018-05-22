@@ -45,3 +45,37 @@
         margin-bottom: 12px;
     }
 }
+
+/**Forms组件样式**/
+.uf-forms {
+    width: 100%;
+    padding-right: 60px;
+    position: relative;
+    .uf-form {
+        width: 100%;
+    }
+    .forms-icons {
+        position: absolute;
+        // height: 100%;
+        width: 60px;
+        right: 0px;
+        top: 0px;
+        .addFormIcon, .deleteFormIcon {
+            display: inline-block;
+            // height: 50%;
+            // width: 100%;
+            float: left;
+            font-size: 14px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+        .deleteFormIcon {
+            margin-left: 5px;
+        }
+        // antd-buttons样式覆盖
+        .ant-btn:not(.ant-btn-circle):not(.ant-btn-circle-outline).ant-btn-icon-only {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+}

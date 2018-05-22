@@ -78,7 +78,7 @@ const treeConfig = {
         // 必须为符合react语法的css样式
         width: '300px',
         paddingTop: '10px',
-        backgroundColor: '#fbfbfb'
+        border: '1px solid #e2e2e2'
     },
     expand: {
         // 全部为可选项，可写可不写
@@ -163,7 +163,7 @@ const treeConfig2 = {
 
 const demo1 = {
     title: '具有搜索功能的树形图',
-    description: '此示例具有多选，复选框，搜索等功能',
+    description: '此示例具有多选，复选框，搜索，右边缘拖动加宽等功能',
     config: treeConfig
 };
 const demo2 = {

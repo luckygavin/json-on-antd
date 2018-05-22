@@ -1,0 +1,39 @@
+/**
+* @file 按钮、输入框等组件为直角
+* @author susisi@baidu.com 2018-01-17
+*/
+
+
+@border-radius-base: 0px;
+@antd-default-border-radius: 4px;
+@avatar-border-radius: @antd-default-border-radius;
+
+// 头像
+@avatar-border-radius: @border-radius-base;
+
+// input
+.ant-input:focus {
+    box-shadow: none;
+}
+.ant-radio-inner:after {// 单选框内部圆点样式
+    border-radius: @antd-default-border-radius;
+}
+.uf-table .umpui-header-extra input {
+    box-shadow: none;
+    border-radius: @border-radius-base;
+}
+
+// select
+.ant-select-focused .ant-select-selection, .ant-select-selection:focus, .ant-select-selection:active {
+    box-shadow: none;
+}
+
+// cascader
+.ant-cascader-picker:focus .ant-cascader-input {
+    box-shadow: none;
+}
+
+// pagination
+.ant-pagination-options-quick-jumper input:focus {
+    box-shadow: none;
+}

@@ -17,16 +17,32 @@
                         Router: 'router',
                         App: 'router-app',
                         Page1: 'router-page.1',
-                        Page2: 'router-page.2'
+                        Page2: 'router-page.2',
+                        Theme: 'router-theme',
+                        Tab1: 'tab1',
+                        Tab2: 'tab2',
+                        Tab3: 'tab3'
                     },
                     showLoading: ['Page2'],
                     // 可以防止缓存
                     urlArgs: 'suffix=' + Date.now()
                 },
                 components: {
-                    loading: {
-                        delay: 500,
-                        size: 'small'
+                    // loading: {
+                    //     delay: 500,
+                    //     size: 'small'
+                    // },
+                    pagination: {
+                        current: 1,
+                        total: 500,
+                        pageSize: 50,
+                        showQuickJumper: true,
+                        showSizeChanger: true,
+                        pageSizeOptions: [
+                            '10',
+                            '25',
+                            '50'
+                        ]
                     },
                     iframe: {
                         showLoading: false

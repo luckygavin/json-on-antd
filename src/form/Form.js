@@ -11,7 +11,7 @@ import {Form, Icon, Button, message, Tooltip, Row, Col} from 'antd';
 
 import Ueditor from 'src/ueditor';
 
-import './style.scss';
+// import './style.scss';
 
 let uuid = 0;
 class OriginForm extends BaseComponent {
@@ -210,12 +210,13 @@ class OriginForm extends BaseComponent {
                     for (let j in item.join[i]) {
                         let result;
                         switch (j) {
-                            case 'value':
-                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();
+                            case 'value': {
+                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();   
                                 result = item.join[i][j](val, oValue, target);
                                 // this.form.setFields({[i]: {value: result, errors: []}});
                                 this.form.setFieldsValue({[i]: result});
                                 break;
+                            }
                             case 'display':
                             default:
                                 result = item.join[i][j](val, target[j], target);
@@ -370,7 +371,7 @@ class OriginForm extends BaseComponent {
                     itemProps.allowClear = false;
                 }
                 break;
-            case 'upload':
+            case 'upload': {
                 // 文件上传
                 let isDisabled = {};
                 // 可根据limit属性限制上传文件个数
@@ -391,6 +392,7 @@ class OriginForm extends BaseComponent {
                     getValueFromEvent: this.normFile.bind(this)
                 };
                 break;
+            }
             case 'date-picker':
             case 'month-picker':
             case 'range-picker':
@@ -611,7 +613,7 @@ class OriginForm extends BaseComponent {
         let items = this.config.items;
         if (this.config.layout.column) {
             let merge = [];
-            items.map((v, i)=>{
+            items.forEach((v, i)=>{
                 let index = Math.floor(i / this.config.layout.column);
                 merge[index] = merge[index] || [];
                 merge[index].push(v);
@@ -669,7 +671,7 @@ class OriginForm extends BaseComponent {
             <Row type="flex" justify={buttonsCfg.layout.type}>
                 <Col {...buttonsCfg.layout}>
                     <Form.Item key="buttons">
-                        <div className='form-buttons'>
+                        <div className="form-buttons">
                         {buttonsCfg.items.map(item => {
                             switch (item.action) {
                                 case 'submit':

@@ -9,7 +9,7 @@ import {BaseComponent} from 'src/base';
 import {Icon, Button, InputNumber, Progress, Alert, Modal} from 'antd';
 import {Utils} from 'src/utils';
 
-import './style.scss';
+// import './style.scss';
 
 export default class Export extends BaseComponent {
     constructor(props) {
@@ -260,7 +260,7 @@ export default class Export extends BaseComponent {
         let format = 'style="vnd.ms-excel.numberformat:@"';
         let table = '<table ' + format + '>' + thead + tbody + '</table>';
         let htmlParts = [table];
-        let dataBlob = new Blob(htmlParts, {'type': 'text\/xls'});
+        let dataBlob = new Blob(htmlParts, {'type': 'text/xls'});
         let link = window.URL.createObjectURL(dataBlob);
         this.url = link;
         return link;
@@ -372,12 +372,12 @@ export default class Export extends BaseComponent {
                     title = "导出数据"
                     onCancel = { this.handleCancel.bind(this) }
                     footer = {[
-                            <Button type="primary" key='btn1'
+                            <Button type="primary" key="btn1"
                                 disabled={ this.state.exporting }
                                 onClick={ this.doExport.bind(this) }>
                                 开始导出
                             </Button>,
-                            <Button type="primary" key='btn2'
+                            <Button type="primary" key="btn2"
                                 onClick={ this.reExport.bind(this) }>
                                 重新导出
                             </Button>
@@ -449,11 +449,11 @@ export default class Export extends BaseComponent {
                         type="error"
                         showIcon />
                 </div>
-                <div hidden={ !this.state.finish } style={{marginTop: '10px'}}>
+                <div hidden={ !this.state.finish } className="finish-export">
                     {/* <Button type="primary"><a ref="download">下载文件</a></Button> */}
                     <a ref="download" style={{color: '#fff'}}><Button type="primary">下载文件</Button></a>
                     <p className="mt8">
-                        <Icon type="check-circle" style={{color: '#90ed7d'}} /> 数据导出完毕，合计{fatchedData}条数据，用时{usedTime}秒
+                        <Icon type="check-circle" className="success-icon" /> 数据导出完毕，合计{fatchedData}条数据，用时{usedTime}秒
                     </p>
                 </div>
             </div>

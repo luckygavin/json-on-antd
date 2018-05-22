@@ -170,6 +170,13 @@ const demo4 = {
         },
         {
             type: 'button',
+            mode: 'primary',
+            size: 'mini',
+            loading: true,
+            content: 'Loading'
+        },
+        {
+            type: 'button',
             shape: 'circle',
             loading: true
         },

@@ -9,7 +9,7 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import UF from 'src/tools';
 
-import './style.scss';
+// import './style.scss';
 
 class NewModal extends BaseComponent {
     constructor(props) {
@@ -163,7 +163,7 @@ class NewModal extends BaseComponent {
             selfProps.footer = this.__props.footerContent;
         }
         // Modal中展示的内容书序是：message > content > form
-        return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps}>
+        return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps} className="uf-modal">
             {this.__props.messageContent}
             {this.__props.children}
             {this.__props.formContent}
@@ -175,12 +175,12 @@ class NewModal extends BaseComponent {
 /**** Modal静态类调用函数 *************************************************************************/
 
 // 可随时随地用来创建新的弹框，且创建完成后返回destroy函数用于销毁弹框
-NewModal.create = function(config) {
+NewModal.create = function (config) {
     config.type = 'modal';
     config.visible = config.visible || true;
     // 增加关闭弹窗删除dom节点逻辑
     return UF._append(config, null, 'onCancel');
-}
+};
 
 
 
@@ -193,6 +193,7 @@ function showMessage(type, config) {
             config[v] = UF.render(config[v]);
         }
     }
+    config.className = 'uf-modal ' + (config.className ? config.className : '');
     return Modal[type](config);
 }
 

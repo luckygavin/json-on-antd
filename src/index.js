@@ -2,7 +2,7 @@
  * @file index.js 汇总所有 src 里对用户暴露的组件
  * @author liuzechun@baidu.com
  */
-import './style/index.scss';
+import './style/index.less';
 
 module.exports = Object.assign(
     // require('./dom'),
@@ -18,7 +18,8 @@ module.exports = Object.assign(
         Export: require('./export'),
         Tree: require('./tree'),
         Table: require('./table'),
-        Form: require('./form'),
+        Form: require('./form').Form,
+        Forms: require('./form').Forms,
         Modal: require('./modal'),
         Ueditor: require('./ueditor'),
         Echarts: require('./echarts'),

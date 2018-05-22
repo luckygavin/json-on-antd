@@ -19,7 +19,7 @@ layout | 表单布局，支持三种常见布局，见`# layout` | object | |
 size | 控件大小。可选 `large` `default` `small` | string | `large` |
 items | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须
 buttons | 表单的按钮配置，见`# buttons` | object[] | |
-formData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能 | object | |
+formData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |
 beforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |
 beforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |
 onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
@@ -61,7 +61,7 @@ regionConfig | 表单域本身的配置，『极少用』。一般只有自定�
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
-layout | 按钮的布局。可选值：`center`、`left`、`right` | string | center |
+layout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |
 items | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |
 
 ##### *buttons.item*

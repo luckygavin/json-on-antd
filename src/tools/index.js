@@ -162,5 +162,14 @@ const UF = func._get;
 Object.assign(UF, uf, func);
 
 export default UF;
-
+// 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行
+let catchArr = window._catch;
+if (Utils.typeof(catchArr, 'array') && catchArr.length > 0) {
+    for (let i in catchArr) {
+        let funcName = catchArr[i].func;
+        let params = catchArr[i].params;
+        UF[funcName](...params);
+    }
+}
 export {Factory, Loader, WhiteList, Model, Adaptor, Authority, requirejs};
+

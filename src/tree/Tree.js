@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Tree, Input} from 'antd';
-import './style.scss';
+// import './style.scss';
 
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
@@ -277,11 +277,10 @@ export default class OriginTree extends BaseComponent {
                 let url = '';
                 if (this.loadData['params'].length > 0 && this.loadData['source'].length > 0) {
                     url = this.loadData['source'];
-                    this.loadData['params'].map(ele => {
+                    this.loadData['params'].forEach(ele => {
                         if (nodeData[ele]) {
                             params[ele] = nodeData[ele];
                         }
-                        return;
                     });
                     this.__getData(url, params, backChildren => {
                         this.insertData(nodeData.key, nodeData.type, backChildren);

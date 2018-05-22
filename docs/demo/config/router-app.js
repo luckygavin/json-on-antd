@@ -4,8 +4,33 @@ define(function() {
             type: "menu",
             mode: "horizontal",
             theme: "dark",
+            style: {
+                paddingLeft: '5%'
+            },
             items: [
                 {
+                    key: "theme",
+                    link: '/theme',
+                    icon: 'mail',
+                    title: "定制主题"
+                },
+                {
+                    type: "menu-item",
+                    key: "theme",
+                    content: {
+                        type: 'link',
+                        to: '/theme',
+                        content: [
+                            {
+                                type: "icon",
+                                mode: "mail"
+                            },
+                            "定制主题"
+                        ]
+                    }
+                },
+                {
+                    type: "menu-item",
                     key: "mail",
                     link: '/card',
                     icon: 'mail',

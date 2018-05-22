@@ -42,6 +42,7 @@ const ComponentList = [
     {path: 'Custom', name: '定制组件', children: [
         {path: 'Export', name: 'Export 导出', component: require('src/export/docs').default},
         {path: 'Form', name: 'Form 表单', component: require('src/form/docs').default},
+        {path: 'Forms', name: 'Forms 复制新增表单', component: require('src/form/docs/formsDemo.js').default},
         {path: 'Modal', name: 'Modal 弹框', component: require('src/modal/docs').default},
         {path: 'Table', name: 'Table 表格', component: require('src/table/docs').default},
         {path: 'TableCrud', name: 'Table Crud 表格扩展', component: require('src/table/docs/crud.js').default},

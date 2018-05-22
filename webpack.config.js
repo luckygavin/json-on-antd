@@ -50,6 +50,9 @@ module.exports = {
                 test: /\.(scss)$/,
                 loader: cssBuilder.extract('style', 'css!sass') // 分离css和js文件
             }, {
+                test: /\.(less)$/,
+                loader: cssBuilder.extract('style', 'css!less') // 分离css和js文件
+            }, {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',

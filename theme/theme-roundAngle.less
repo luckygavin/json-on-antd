@@ -1,0 +1,81 @@
+/**
+* @file 按钮、输入框等组件为圆角
+* @author susisi@baidu.com 2018-01-17
+*/
+
+// @border-radius-base: 15px;
+@antd-default-border-radius: 4px;
+
+@uf-round-border-radius: 15px;
+@round-padding-horizontal: 12px;
+
+// 将@border-radius-base改为15px产生的负面影响多于正面，因此对有正面影响的组件进行单独修改
+// modal
+.ant-modal-content, .ant-modal-header {
+    border-radius: @uf-round-border-radius;
+}
+.ant-modal-footer {
+    .ant-btn {
+        border-radius: @antd-default-border-radius
+    }
+}
+// button
+.ant-btn {
+    border-radius: @btn-height-base / 2;
+}
+.ant-btn-lg {
+    border-radius: @btn-height-lg / 2;
+}
+.ant-btn-sm {
+    border-radius: @btn-height-sm / 2;
+}
+textarea.ant-input {
+    border-radius: @antd-default-border-radius;
+}
+.uf-btn-mini {
+    border-radius: 3px;
+}
+// input
+.ant-input {
+    border-radius: @uf-round-border-radius;
+    padding: 4px @round-padding-horizontal;
+}
+// pagination
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+    border-radius: @uf-round-border-radius;
+}
+.ant-pagination-options .ant-select-selection {
+    border-radius: @antd-default-border-radius;
+}
+// select
+.ant-select-selection {
+    border-radius: @uf-round-border-radius;
+}
+.ant-select-selection__rendered {
+    margin-left: @round-padding-horizontal;
+    margin-right: @round-padding-horizontal;
+    line-height: 28px;
+}
+// alert
+.ant-alert {
+    border-radius: @uf-round-border-radius;
+}
+// notification
+.ant-notification-notice {
+    border-radius: @uf-round-border-radius;
+}
+// message
+.ant-message-notice-content {
+    border-radius: @uf-round-border-radius;
+}
+// radio-button
+.ant-radio-button-wrapper:first-child {
+    border-radius: @uf-round-border-radius 0px 0px @uf-round-border-radius;
+}
+.ant-radio-button-wrapper:last-child {
+    border-radius: 0px @uf-round-border-radius @uf-round-border-radius 0px;
+}
+// tabs
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    border-radius: 10px 10px 0px 0px;   
+}

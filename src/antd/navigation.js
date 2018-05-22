@@ -50,9 +50,11 @@ export class Breadcrumb extends Navigation {
         // 增加了 breadcrumbIcon 属性解析
             this.__props.itemRender = (route, params, routes, paths)=>{
                 const last = routes.indexOf(route) === routes.length - 1;
-                const icon = route.breadcrumbIcon ? <Antd.Icon type={route.breadcrumbIcon} /> : null;
-                const item = !!icon ? [icon, <span>{route.breadcrumbName}</span>] : route.breadcrumbName;
-                return last ? item : <Link to={paths.join('/')} className="ant-breadcrumb-link">{item}</Link>;
+                const icon = route.breadcrumbIcon ? <Antd.Icon key="1" type={route.breadcrumbIcon} /> : null;
+                const item = !!icon ? [icon, <span key="2">{route.breadcrumbName}</span>] : route.breadcrumbName;
+                // 解决跟节点的面包屑paths为空导致不可点问题
+                const to = '/' + paths.join('/');
+                return last ? item : <Link to={to} className="ant-breadcrumb-link">{item}</Link>;
             };
         }
     }

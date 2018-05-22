@@ -63,7 +63,7 @@ export default class Demo extends React.Component {
         this.forceUpdate();
     }
     getSourceCode(config) {
-        let code = `var config = ${switchCode(config)} + ;\n${ufName}.init(config, \'#demo\');`;
+        let code = `var config = ${switchCode(config)};\n${ufName}.init(config, \'#demo\');`;
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
                 <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>

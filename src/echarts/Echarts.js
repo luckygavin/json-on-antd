@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import echarts from 'echarts';
 // import {BaseComponent} from 'src/base';
 import {ComponentsCache} from 'src/cache';
 import {Utils} from 'src/utils';
@@ -25,12 +24,17 @@ export default class Echarts extends React.PureComponent {
         return false;
     }
     componentDidMount() {
-        // 初始化
-        let chart = echarts.init(document.getElementById(this.chartId));
-        chart.setOption(Utils.filter(this.props, ['type', 'name']));
-
-        this.chart = chart;
-        this._transmitComponent();
+        // 执行的时候再获取
+        const echarts = window.echarts;
+        if (echarts) {
+            // 初始化
+            let chart = echarts.init(document.getElementById(this.chartId));
+            chart.setOption(Utils.filter(this.props, ['type', 'name']));
+            this.chart = chart;
+            this._transmitComponent();
+        } else {
+            console.error('There is no echarts, please check.');
+        }
     }
     componentWillUnmount() {
         // 销毁组件

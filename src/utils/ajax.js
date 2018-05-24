@@ -81,7 +81,7 @@ function request (config) {
         errorHandler = errorMessage;
     }
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
-    let onchange = config.onchange || (()=>{return});
+    let onchange = config.onchange || (()=>{});
     // 配置合并
     config = Object.assign({
             method: 'get',
@@ -150,7 +150,7 @@ function request (config) {
     );
 
     reqwest(final);
-};
+}
 
 request.init = function (url, method) {
     return function (params, success, error, onchange) {

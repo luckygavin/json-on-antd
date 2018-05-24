@@ -285,12 +285,10 @@ export default class BaseComponent extends Component {
             }).catch(()=>{
                 error && error();
             });
+        } else if (result !== false) {
+            success && success();
         } else {
-            if (result !== false) {
-                success && success();
-            } else {
-                error && error();
-            }
+            error && error();
         }
     }
 

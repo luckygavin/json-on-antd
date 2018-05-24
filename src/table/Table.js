@@ -430,7 +430,7 @@ export default class NewTable extends BaseComponent {
             json = JSON.stringify(json, undefined, 2);
         }
         json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
-        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;
         return json.replace(reg, match=>{
             let cls = 'number';
             if (/^"/.test(match)) {
@@ -588,7 +588,7 @@ export default class NewTable extends BaseComponent {
                 defaultColumn.render = (text, record, index) => {
                     let newText = text;
                     switch (textType) {
-                        case 'duration':
+                        case 'duration': {
                             const timeDiff = ((+new Date()) - (+new Date(Date.parse(text.replace(/-/g, '/'))))) / 1000;
                             const dayTime = Math.floor(timeDiff / (24 * 3600));
                             const hourTime = Math.floor((timeDiff % (24 * 3600)) / 3600);
@@ -606,7 +606,8 @@ export default class NewTable extends BaseComponent {
                                 ? this.__analysis(item.render(tdData, record, index))
                                 : tdData;
                             break;
-                        case 'json':
+                        }
+                        case 'json': {
                             // 会出现重复json字符串编码现象,加入类型判断
                             let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
                             if (text && json !== '""') {
@@ -616,6 +617,7 @@ export default class NewTable extends BaseComponent {
                                     </Popover>;
                             }
                             break;
+                        }
                         case 'html':
                             newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
                             break;
@@ -729,7 +731,7 @@ export default class NewTable extends BaseComponent {
         return <div className={className} style={this.__props.style}>
             <Table {...this.state.antdConfig} size={size}
                 title={this.title && (()=>(
-                    <Title parent={this} ref={ele=>this.titleRef = ele} config={this.title}/>
+                    <Title parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
                 ))}
                 dataSource={this.__props.data}
                 columns={this.renderColumns()}
@@ -737,7 +739,7 @@ export default class NewTable extends BaseComponent {
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {/* 增删改查 */}
-            {this.__props.crud && (<Crud parent={this} ref={ele=>this.crud = ele}
+            {this.__props.crud && (<Crud parent={this} ref={ele=>(this.crud = ele)}
                 config={this.__props.crud}/>
             )}
         </div>;

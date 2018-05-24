@@ -208,7 +208,7 @@ class OriginForm extends BaseComponent {
                 let target = this.itemsCache[i];
                 if (target) {
                     for (let j in item.join[i]) {
-                        let result = item.join[i][j];;
+                        let result = item.join[i][j];
                         switch (j) {
                             case 'value': {
                                 let oValue = this.itemRef[i] && this.itemRef[i].getValue();   

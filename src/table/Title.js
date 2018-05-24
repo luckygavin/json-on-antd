@@ -423,7 +423,7 @@ export default class Title extends BaseComponent {
     handleString(string) {
         let pattern1 = /<(\w+).*?>(.*?)<\/\1>/g; // 匹配是否有闭合标签
         if (pattern1.test(string)) {
-            return string.replace(/<([\/]?\w+).*?>/g, ''); // 剥掉所有标签
+            return string.replace(/<([/]?\w+).*?>/g, ''); // 剥掉所有标签
         } else {
             return string;
         }

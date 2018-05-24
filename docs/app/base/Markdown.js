@@ -26,7 +26,7 @@ export default class Markdown extends React.Component {
         return <div dangerouslySetInnerHTML={{__html: marked(
                 // markdown 中可以使用变量（package.json中定义的属性）
                 ((this.props.doc && mdfile[this.props.doc]) ? mdfile[this.props.doc] : this.props.doc
-                ).replace(/\%\{(.+?)\}\%/g, function(s, v) {
+                ).replace(/%\{(.+?)\}%/g, function(s, v) {
                     if (config[v]) {
                         return config[v];
                     }

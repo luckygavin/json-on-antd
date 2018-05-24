@@ -271,7 +271,7 @@ export default class OriginTree extends BaseComponent {
             if ((!nodeData.children && nodeData.isLeaf === false)
                 || (nodeData.children.length < 1 && !nodeData.isLeaf)
             ) {
-                let {params} = this.__filtered.source;
+                let params = this.__filtered.source.params;
                 params = Object.assign({}, params, {
                     key: nodeData.key,
                     name: nodeData.name,

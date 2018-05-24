@@ -130,7 +130,7 @@ export default class Export extends BaseComponent {
     _handleAsyncData() {}
     // 导出进程
     getData(page) {
-        let {params} = this.__filtered.source;
+        let params = this.__filtered.source.params;
         params = Object.assign({}, params, {
             page: page,
             size: this.state.pageSize,

@@ -552,7 +552,7 @@ export default class BaseComponent extends Component {
 
     // 自动异步获取数据
     _handleAsyncData() {
-        let {target} = this.__filtered.source;
+        let target = this.__filtered.source.target;
         this.__getSourceData({
             success: data => {
                 // 如果用户自己配置了 target 属性，则按照用户定义的赋值

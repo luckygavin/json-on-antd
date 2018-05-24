@@ -7,8 +7,7 @@
 
 * 🌟 新增
 * 🐞 修复
-* 💄 微调
-* 🛠 改造
+* 💄 改造
 * 📖 发布
 * 🙅 移除
 
@@ -18,16 +17,23 @@
 
 `2017-05-24`
 
-* 🛠 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），详见文档 [通用参数](#/Params)  
-* 🛠 `Table`组件整理`source`系列参数，删除`method`、`sourceHanlder`、`autoLoadSource`参数，并整合到`source`参数中，参数和通用的source系列参数保持一致  
-* 🛠 `Export`组件整理`source`系列参数，删除`method`、`params`参数，并整合到`source`参数中，参数和通用的source系列参数保持一致
+* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），详见文档 [通用参数](#/Params)  
+* `Table`  
+    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  
+    🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数
+* `Export`  
+    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  
+    * 🙅 移除`method`、`params`参数
+* `Tree` 
+    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现
+    * 🙅 移除`loadData`参数，相应功能用`source`替换
 
 `2017-05-22`
 
-* 🛠 样式文件sass改为less，并增加主题配置，定制多份主题
+* 💄 样式文件sass改为less，并增加主题配置，定制多份主题
 * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）
 * 🌟 增`Forms`组件，自身具备复制新增功能
-* 🛠 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)
+* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)
 
 
 

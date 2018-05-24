@@ -69,11 +69,6 @@ export default class OriginTree extends BaseComponent {
                 multiple: false,
                 onSelect: () => {}
             },
-            loadData: {
-                enable: false,
-                source: '',
-                params: []
-            },
             widthResize: {
                 resizeAble: false,
                 minWidth: '',
@@ -106,7 +101,7 @@ export default class OriginTree extends BaseComponent {
         this.checkbox = this.config.checkbox;
         this.search = this.config.search;
         this.select = this.config.select;
-        this.loadData = this.config.loadData;
+        this.loadData = !!this.__filtered.source.url;
         this.widthResize = this.config.widthResize;
         this.showLine = this.config.showLine;
         this.showIcon = this.config.showIcon;
@@ -265,30 +260,35 @@ export default class OriginTree extends BaseComponent {
             searchValue: value
         });
     }
+    // 覆盖原生获取异步数据的函数
+    _handleAsyncData() {}
     // 异步对数据进行加载，满足一定要求再加载
     onLoadData(treeNode) {
         let key = treeNode.props.data.key;
         let nodeData = this.completePointerTree[key];
         return new Promise(resolve => {
+            // 没有children数据又非叶子节点的时候需要去异步请求
             if ((!nodeData.children && nodeData.isLeaf === false)
-                || (nodeData.children.length < 1 && !nodeData.isLeaf)) {
-                // 没有children数据又非叶子节点的时候需要去异步请求
-                let params = {};
-                let url = '';
-                if (this.loadData['params'].length > 0 && this.loadData['source'].length > 0) {
-                    url = this.loadData['source'];
-                    this.loadData['params'].forEach(ele => {
-                        if (nodeData[ele]) {
-                            params[ele] = nodeData[ele];
-                        }
-                    });
-                    this.__getData(url, params, backChildren => {
-                        this.insertData(nodeData.key, nodeData.type, backChildren);
+                || (nodeData.children.length < 1 && !nodeData.isLeaf)
+            ) {
+                let {params} = this.__filtered.source;
+                params = Object.assign({}, params, {
+                    key: nodeData.key,
+                    name: nodeData.name,
+                    type: nodeData.type
+                });
+                // 调用通用source获取数据逻辑
+                this.__getSourceData({
+                    params: params,
+                    success: data => {
+                        this.insertData(nodeData.key, nodeData.type, data);
                         resolve();
-                    });
-                }
-            }
-            else {
+                    },
+                    error: res => {
+                        resolve();
+                    }
+                });
+            } else {
                 resolve();
             }
         });
@@ -415,7 +415,7 @@ export default class OriginTree extends BaseComponent {
                 {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
                 {...(!!checkedKeys ? {checkedKeys: checkedKeys} : null)}
                 {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
-                {...(!!this.loadData['enable'] ? {loadData: this.onLoadData.bind(this)} : null)}
+                {...(!!this.loadData ? {loadData: this.onLoadData.bind(this)} : null)}
             >
                 {this.renderTreeNode(treeData)}
             </Tree>

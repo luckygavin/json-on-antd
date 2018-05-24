@@ -31,7 +31,7 @@ function getErrorMsg(error) {
     try {
         if (Utils.typeof(error, 'string')) {
             message = error;
-        } else if (error.message) {
+        } else if (Utils.typeof(error, 'object') && error.message) {
             message = error.message;
             if (Utils.typeof(message, 'array')) {
                 message = message.join('; ');
@@ -51,6 +51,7 @@ function errorMessage(error) {
     notification.error(Object.assign({}, errorMsg, !message ? null : {
         description: message
     }));
+    return false;
 }
 
 function request (config) {
@@ -136,7 +137,7 @@ function request (config) {
                     result = errorHandler(err);
                 }
                 // handler有返回值，则执行默认错误提示
-                if (result) {
+                if (result !== false) {
                     if (result === true) {
                         errorMessage(err);
                     } else {

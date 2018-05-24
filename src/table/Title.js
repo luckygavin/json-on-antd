@@ -432,7 +432,7 @@ export default class Title extends BaseComponent {
     /* 导出控件 **********************************************************************/
     // 获取要下载导出数据的配置
     getExportConfig() {
-        let tableCfg = this.parent.__props;
+        let source = this.parent.__filtered.source;
         let columns = this.parent.columns;
         let headers = [];
         for (let i in columns) {
@@ -449,7 +449,7 @@ export default class Title extends BaseComponent {
          * 2. 有url但是是client分页-Export需要传递data,默认是client分页
          * 3. 有url但是是server端分页-Export需要传递url配置
          */
-        if (!tableCfg.source || (this.parent.pagination && this.parent.pagination.pageType !== 'server')) {
+        if (!source.url || (this.parent.pagination && this.parent.pagination.pageType !== 'server')) {
             let data = this.parent.__props.data || [];
             return {
                 headers: headers,
@@ -459,8 +459,7 @@ export default class Title extends BaseComponent {
         }
         return {
             headers: headers,
-            source: tableCfg.source,
-            params: tableCfg.params ? tableCfg.params : {},
+            source: source,
             total: this.parent.pagination && this.parent.pagination.total || 0
         };
     }

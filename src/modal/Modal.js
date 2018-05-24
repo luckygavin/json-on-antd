@@ -19,9 +19,6 @@ class NewModal extends BaseComponent {
         // 增加一些默认的事件处理函数
         this.__props = Object.assign({
             onCancel: this._defaultCancelHandler.bind(this),
-            // 提交数据使用 BaseCompsonent 的 action 系列参数实现
-            actionType: 'ajax',
-            actionTrigger: 'onSubmit'
         }, this.__props);
         this.__init();
     }

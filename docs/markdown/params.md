@@ -74,15 +74,29 @@ style: 'margin-top: 16px; font-size: 12px;'
 
 #### # source 系列参数
 
-开发时难免会有一些数据是需要异步获取再展示的，框架提供了一套自动获取数据并处理的机制。
+`string` | `object`
 
-* **`source`** - 异步获取数据的接口
-* **`sourceHandler`** - 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性）  
-函数的参数`sourceHandler(data, res)`，其中`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。函数最终返回格式化后的数据。
-* **`sourceTarget`** - 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）  
-一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）
-* **`sourceMethod`** - `post`、`get`方式
-* **`sourceParams`** - 请求数据时附带的的参数对象
+开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。
+
+目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。
+
+source 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  
+也可以为一个对象，对象中的各个参数如下：
+
+参数       | 说明           | 类型             | 默认值      
+-----------|----------------|------------------|------
+url    | 异步获取数据的接口 | string | 
+method    | ajax方式：`post`、`get`等 | string | 'get'
+params | 请求数据时携带的参数 | object | 
+paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | 
+autoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true
+target | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |
+handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |
+onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |
+onError | 请求数据失败的回调函数 | function(res) {} |
+
+> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  
+> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）
 
 
 下面为一个使用场景较复杂的`下拉框`实现。
@@ -90,27 +104,36 @@ style: 'margin-top: 16px; font-size: 12px;'
 首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：
 
 ```javascript
+// 示例1：
 {
     type: 'select',
     source: '/uf/docs/php/data.php',
-    sourceParams: {},
-    // sourceTarget: 'options', // 默认值
-    sourceHandler(data, res, self) {
-        return data.map(v=>{
-            return {value: v.name, label: v.name};
-        });
+}
+// 示例2：
+{
+    type: 'select',
+    source: {
+        url: '/uf/docs/php/data.php',
+        params: {},
+        hanlder: function (data, res) {
+            return data.map(function (v) {
+                return {value: v.name, label: v.name};
+            }
+        },
+        onError: null
     },
-    beforeCreate(props, self) {
-        props.sourceParams = {id: self._root.props.params.id};
+    beforeCreate: function (props, self) {
+        props.source.params = {id: self._root.props.params.id};
         return props;
     }
 }
 ```
 
-组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 sourceParams 属性，配置中的 sourceParams 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`sourceHandle`对返回的数据进行处理，最后数据会填充到`sourceTarget`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
+组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
 
 
 #### # action 系列参数
+
 
 
 #### # api 系列参数
@@ -119,7 +142,7 @@ style: 'margin-top: 16px; font-size: 12px;'
 
 日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。
 
-目前，全部组件都具备提交数据的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求（需配合上面的 action 系列参数使用）。
+目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求（需配合上面的 action 系列参数使用）。
 
 api 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  
 也可以为一个对象，对象中的各个参数如下：
@@ -128,7 +151,8 @@ api 参数可以是字符串，直接声明提交数据的地址，其余参数�
 -----------|----------------|------------------|------
 url    | 提交数据的接口 | string | 
 method    | ajax方式 | string | 'post'
-params | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object
-handler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {}
-onSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {}
-onError | 提交数据后，失败的回调函数 | function(data, res) {}
+params | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |
+handler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |
+trigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同
+onSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |
+onError | 提交数据后，失败的回调函数 | function(data, res) {} |

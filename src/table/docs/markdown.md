@@ -28,14 +28,12 @@
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
-| title  | 表格标题栏配置,可配置题目及表格控件，见下方`title`     | string&#124;object   | - |
+| title  | 表格标题栏配置,可配置题目及表格控件，见下方`title`     | string &#124; object   | - |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |
-| sourceHandler | 获取数据后，使用 sourceHandler 对数据进行预处理，以兼容各种数据结构 | string  | - |
-| method | 获取数据的方式。可选 `get` `post` | String | `get` | 
-| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | 
-| autoLoadSource | 是否组件渲染完成后自动加载数据（配置 source 属性后有效） | boolean | true | 
+| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params) 中的 # source系列  | string &#124; object | - |
+| source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | 
+| params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | 
 | crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | 
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |

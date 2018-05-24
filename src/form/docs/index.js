@@ -32,21 +32,31 @@ const Step1 = {
             }, */
             {
                 type: 'date-picker',
-                label: '专线SN',
+                label: '日期',
                 name: 'line_sn',
-                // rules: [{required: true, message: '主线SN不能为空'}],
-                // placeholder: 'sn20134567'
-                format: ''
+                format: 'YYYY-MM-DD',
+                join: {
+                    'idc_id': {
+                        source: {
+                            params: {
+                                type: 1
+                            }
+                        }
+                    }
+                }
             },
             {
                 type: 'select',
                 label: '机房',
                 name: 'idc_id',
                 rules: [{required: true, message: '机房不能为空'}],
-                source: 'docs/php/data.php',
-                sourceHandler: data=>data.map(v=>{
-                    return {value: v.name, label: v.name};
-                })
+                source: {
+                    autoLoad: false,
+                    url: 'docs/php/data.php',
+                    handler: data=>data.map(v=>{
+                        return {value: v.name, label: v.name};
+                    })
+                },
             }
         ],
         [

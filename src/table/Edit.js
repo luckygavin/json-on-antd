@@ -12,14 +12,10 @@ import {Utils} from 'src/utils';
 import {Input, InputNumber, Button, Icon, Dropdown, Checkbox, message, Option} from 'antd';
 
 // 为每个单元格创建一个包装父类组件
-export default class EditCell extends BaseComponent {
+export default class TableEdit extends BaseComponent {
     constructor(props) {
-        super(props);
-        this.__props = Object.assign({
-            // 提交数据使用 BaseCompsonent 的 action 系列参数实现，用于提交数据
-            actionType: 'ajax',
-            actionTrigger: 'onSubmit'
-        }, this.__props);
+        super(props, 'table-cell');
+        // 自己制定组件类型
         this.__init();
 
         // 设置组件数据state
@@ -49,7 +45,7 @@ export default class EditCell extends BaseComponent {
         let value = formData[cellName];
         // 判断输入值是否改变
         if (value !== this.state.valueSource) {
-            // 对修改后的数据进行提交
+            // 对修改后的数据进行提交，提交的配置再 config/components.js 中 table-cell
             // this.__filtered.api.params = formData;
             Utils.merge(this.__filtered.api.params, formData);
             let result = this.__props.onSubmit && this.__props.onSubmit();

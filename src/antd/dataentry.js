@@ -64,8 +64,6 @@ export class AutoComplete extends DataEntry {
 export class Cascader extends DataEntry {
     constructor(props) {
         super(props);
-        // 异步属性为 options
-        this._asyncAttr = 'options';
         this.__controlled.defaultVal = [];
         this.__init();
     }
@@ -82,8 +80,6 @@ export class Checkbox extends DataEntry {
         super(props);
         this.__controlled.key = 'checked';
         this.__controlled.defaultVal = false;
-        // 异步属性为 checked
-        this._asyncAttr = 'checked';
         this.__init();
     }
     render() {
@@ -94,8 +90,6 @@ export class Checkbox extends DataEntry {
 export class CheckboxGroup extends DataEntry {
     constructor(props) {
         super(props);
-        // 异步属性为 options
-        this._asyncAttr = 'options';
         this.__controlled.defaultVal = [];
         this.__init();
     }
@@ -255,8 +249,6 @@ export class Rate extends DataEntry {
 export class Radio extends DataEntry {
     constructor(props) {
         super(props);
-        // 异步属性为 options
-        this._asyncAttr = 'options';
         this.__init();
     }
     render() {
@@ -280,12 +272,13 @@ export class Radio extends DataEntry {
 export class Select extends DataEntry {
     constructor(props) {
         super(props);
-        // 异步属性为 options
-        this._asyncAttr = 'options';
         this.__init();
+        // 给 source.onSuccess 绑定默认处理逻辑
+        this.__filtered.source = Object.assign({
+            onSuccess: this._onSourceSuccess.bind(this)
+        }, this.__filtered.source);
     }
-    // TODO: Form报错，需要看下
-    _sourceSuccess(data) {
+    _onSourceSuccess(data) {
         let current = this.__props.value;
         // 如果当前值再列表中，则不做任何处理
         if (Utils.toOptions(data).some(v=>v.value === current)) {
@@ -296,6 +289,7 @@ export class Select extends DataEntry {
             let first = Utils.getFirstOption(data);
             this.props.onChange && this.props.onChange(first);
         } else {
+            // 不能为空的字段会导致出现提示，TODO
             this.props.onChange && this.props.onChange(undefined);
         }
     }
@@ -342,8 +336,6 @@ export class Switch extends DataEntry {
     constructor(props) {
         super(props);
         this.__controlled.key = 'checked';
-        // 异步属性为 checked
-        this._asyncAttr = 'checked';
         this.__init();
     }
     render() {
@@ -358,8 +350,6 @@ export class Upload extends DataEntry {
     constructor(props) {
         super(props);
         this.__controlled.key = 'fileList';
-        // 异步属性为 fileList
-        this._asyncAttr = 'fileList';
         this.__init();
     }
     render() {

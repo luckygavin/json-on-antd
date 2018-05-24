@@ -8,33 +8,51 @@
  */
 
 export default {
-    // 路由
+    'cascader': {
+        source: {
+            target: 'options'
+        }
+    },
+    'checkbox': {
+        source: {
+            target: 'checked'
+        }
+    },
+    'checkbox-group': {
+        source: {
+            target: 'options'
+        }
+    },
+    'radio': {
+        source: {
+            target: 'options'
+        }
+    },
     'router': {
         history: 'hashHistory'
     },
-    // Loading
     'loading': {
         delay: 150
     },
-    // Iframe
     'iframe': {
         mode: 'auto',
         delay: 0,
         showLoading: true
     },
     'select': {
-        optionFilterProp: 'children'
+        optionFilterProp: 'children',
+        source: {
+            target: 'options'
+        }
     },
-    // 面包屑
+    'switch': {
+        source: {
+            target: 'checked'
+        }
+    },
     'breadcrumb': {
         style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
     },
-    // 下拉
-    'select': {
-        optionFilterProp: 'children'
-        // style: {width: 120}
-    },
-    // 自动补全
     'auto-complete': {
         style: {width: 160},
         options: []
@@ -49,10 +67,14 @@ export default {
         // 默认高亮随路由一起变换
         followRoute: true
     },
+    'upload': {
+        source: {
+            target: 'fileList'
+        }
+    },
     /****************************************************************************************/
     /***** 自定义组件默认配置 ******************************************************************/
     /****************************************************************************************/
-    // form
     'form': {
         items: [],
         buttons: null,
@@ -62,7 +84,6 @@ export default {
             wrapperCol: 14
         }
     },
-    // table
     'table': {
         rowKey: 'id',
         pagination: {
@@ -71,15 +92,23 @@ export default {
             pageType: 'client',
             total: 0
         },
-        // 自动加载数据 - 目前和sourceAutoLoad区分
-        autoLoadSource: true,
+        source: {
+            // 自动加载数据
+            autoLoad: true
+        },
         data: []
     },
-    // modal
-    'modal': {
-        visible: false
+    // table 的编辑插件
+    'table-cell': {
+        api: {
+            trigger: 'onSubmit'
+        }
     },
-    'form-modal': {
-        visible: false
+    'modal': {
+        visible: false,
+        // 提交数据默认绑定到onSubmit事件上
+        api: {
+            trigger: 'onSubmit'
+        }
     }
 };

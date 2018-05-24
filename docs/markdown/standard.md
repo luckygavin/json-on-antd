@@ -181,6 +181,13 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 ##### **`__getComponent(item)`**
 获取缓存中的组件
 
+##### **`__getSourceData(config)`**
+从`source`接口获取数据  
+使用`source`系列参数获取数据时，可调用此函数，函数内部已经把source的各种处理做好（比如paramsHandler、handler等调用），只需传入对应的成功和失败处理函数即可。函数内部会在数据返回后经过`handler`处理的结果传递给`success`函数  
+传入的`config`包含`success`和`error`，source一系列处理完成后最终数据才会传给 `success`
+
+
+
 ---
 ## 文档编写规范
 1. 每个文档至少包含 4/5 部分

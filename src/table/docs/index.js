@@ -205,7 +205,6 @@ const demo1 = {
             //     "zone": "china",
             //     "type": "server"
             // },
-            // method: 'get'
         }
     ]
 
@@ -265,14 +264,21 @@ const demo2 = {
                         }
                     }, 'setPageSize']
             },
-            source: 'docs/php/data.php',
+            source: {
+                url: 'docs/php/data.php',
+                method: 'get',
+                paramsHandler(params) {
+                    // 增加 index 参数
+                    params.index = params.page - 1;
+                    return params;
+                }
+            },
             params: {
                 "isExport": true,
                 "container_id": 484,
                 "zone": "china",
                 "type": "server"
             },
-            method: 'get',
             rowKey: 'id',
             pagination: {
                 pageType: 'server'

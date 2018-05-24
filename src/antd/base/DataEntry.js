@@ -16,7 +16,7 @@ export default class DataEntry extends Antd {
     constructor(props) {
         super(props);
         // 默认异步属性为 value
-        this._asyncAttr = 'value';
+        this._sourceTarget = 'value';
         this.__controlled = {
             key: 'value',
             event: 'onChange',

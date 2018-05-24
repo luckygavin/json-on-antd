@@ -208,19 +208,24 @@ class OriginForm extends BaseComponent {
                 let target = this.itemsCache[i];
                 if (target) {
                     for (let j in item.join[i]) {
-                        let result;
+                        let result = item.join[i][j];;
                         switch (j) {
                             case 'value': {
                                 let oValue = this.itemRef[i] && this.itemRef[i].getValue();   
-                                result = item.join[i][j](val, oValue, target);
+                                if (Utils.typeof(item.join[i][j], 'function')) {
+                                    result = item.join[i][j](val, oValue, target);
+                                }
                                 // this.form.setFields({[i]: {value: result, errors: []}});
                                 this.form.setFieldsValue({[i]: result});
                                 break;
                             }
                             case 'display':
                             default:
-                                result = item.join[i][j](val, target[j], target);
-                                target[j] = result;
+                                if (Utils.typeof(item.join[i][j], 'function')) {
+                                    result = item.join[i][j](val, target[j], target);
+                                }
+                                // target[j] = result;
+                                this.__mergeProps(target, {[j]: result});
                                 break;
                         }
                     }
@@ -295,7 +300,7 @@ class OriginForm extends BaseComponent {
         if (this.config.size) {
             itemProps.size = itemProps.size || this.config.size;
         }
-        // 触发Change时实现联动功能, TODO
+        // 触发Change时实现联动功能
         itemProps.onChange = this.onChange.bind(this, item);
         // 存储ref
         itemProps.ref = inst=>{this.itemRef[key] = inst};

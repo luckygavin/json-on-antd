@@ -10,7 +10,7 @@ import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Po
 // 扩展功能 - 增删改查等
 import Crud from './Crud.js';
 import Title from './Title.js';
-import EditCell from './Edit';
+import EditCell from './Edit.js';
 
 const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
@@ -26,8 +26,6 @@ export default class NewTable extends BaseComponent {
     // 以下是函数定义
     constructor(props) {
         super(props);
-        // Table自己实现的source获取数据，不实用BaseComponent中的通用逻辑，也就无需过滤参数
-        this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
         // 暴露给用户使用的函数
         this._openApi.push(
             'reload', 'refresh', 'export',
@@ -57,14 +55,14 @@ export default class NewTable extends BaseComponent {
         this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
         this.requerstIndex = 0;
-        this.initTable();
+        this.initTable(true);
     }
     componentWillReceiveProps(nextProps) {
         // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
         if (this.__shouldUpdate(this.props, nextProps)) {
-            this.initTable(true);
+            this.initTable();
             // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
-            if (this.__props.autoLoadSource) {
+            if (this.__filtered.source.autoLoad) {
                 // 置为第一页
                 this.getData(1);
             }
@@ -74,8 +72,10 @@ export default class NewTable extends BaseComponent {
         // 组件删除时，请求返回的数据无效
         this.requerstIndex = null;
     }
-    initTable(nextProps) {
+    initTable(isFirst) {
         let objProps = this.__props;
+        // 兼容参数处理，兼容params的两种用法（写source外面也可以）
+        this.__filtered.source.params = objProps.params;
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
@@ -158,15 +158,15 @@ export default class NewTable extends BaseComponent {
         }
         this.antdConfig = defaultCif;
         state.antdConfig = this.antdConfig;
-        if (!nextProps) {
+        if (isFirst) {
             this.state = Object.assign({}, this.state, state);
         } else {
             this.setState(state);
         }
     }
     componentDidMount() {
-        // 可以通过给 autoLoadSource 设置 false 来阻止自动加载数据
-        if (this.__props.source && this.__props.autoLoadSource) {
+        // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
+        if (this.__filtered.source.autoLoad) {
             this.getData();
         }
     }
@@ -219,7 +219,7 @@ export default class NewTable extends BaseComponent {
     _handleAsyncData() {}
     // 异步获取数据
     getData(pageNum) {
-        let url = this.__props.source;
+        let {url, params} = this.__filtered.source;
         if (!url) {
             return;
         }
@@ -229,8 +229,6 @@ export default class NewTable extends BaseComponent {
         } else {
             pageNum = this.pagination.current || 1;
         }
-        let method = this.__props.method || 'get';
-        let params = this.__props.params;
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
                 page: pageNum,
@@ -238,29 +236,30 @@ export default class NewTable extends BaseComponent {
             });
         }
         this.setState({loading: true});
-        let ajax = method === 'post' ? this.__postData : this.__getData;
         // 当前请求的标号
         let index = ++this.requerstIndex;
-        ajax(url, params, (data, res) => {
-            if (index !== this.requerstIndex) {
-                return;
+        // 调用通用source获取数据逻辑
+        this.__getSourceData({
+            params: params,
+            success: (data, res) => {
+                if (index !== this.requerstIndex) {
+                    return;
+                }
+                let displayData = data || [];
+                if (this.pagination.pageType === 'server') {
+                    displayData = displayData.slice(0, this.pagination.pageSize);
+                }
+                this.pagination.total = +(res.total || res.count || data.length);
+                this.__setProps({data: displayData}, false);
+                this.setState({completeData: displayData});
+                this.onRefreshData(data);
+            },
+            onchange: loading => {
+                if (index !== this.requerstIndex) {
+                    return;
+                }
+                this.setState({loading});
             }
-            let displayData = data || [];
-            if (this.__props.sourceHandler) {
-                displayData = this.__props.sourceHandler(data, res);
-            }
-            if (this.pagination.pageType === 'server') {
-                displayData = displayData.slice(0, this.pagination.pageSize);
-            }
-            this.pagination.total = res.total || res.count || data.length;
-            this.__setProps({data: displayData}, false);
-            this.setState({completeData: displayData});
-            this.onRefreshData(data);
-        }, true, loading=>{
-            if (index !== this.requerstIndex) {
-                return;
-            }
-            this.setState({loading});
         });
     }
     // 数据刷新
@@ -272,11 +271,11 @@ export default class NewTable extends BaseComponent {
         // 清空某些控制状态
         this.clearState();
         this.__setProps({data: this.state.completeData}, false);
-        if (this.__props.source) {
+        if (this.__filtered.source.url) {
             this.getData();
         } else {
             this.onRefreshData(this.state.completeData);
-        }``
+        }
     }
     // 清空某些控制状态
     clearState() {

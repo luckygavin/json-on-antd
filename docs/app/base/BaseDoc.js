@@ -14,6 +14,16 @@ export default class BaseDoc extends React.Component {
         this.className = '';
     }
 
+    componentDidMount() {
+        // 增加定位到页面指定位置的逻辑，根据id查找
+        let pos = this.props.params.pos;
+        let offset = 0;
+        if (pos && document.getElementById(pos)) {
+            offset = document.getElementById(pos).offsetTop + 100;
+        }
+        window.scrollTo(0, offset);
+    }
+
     __init() {
         let originRender = this.render;
         this.render = function () {

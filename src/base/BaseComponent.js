@@ -544,38 +544,32 @@ export default class BaseComponent extends Component {
             if (Utils.typeof(target, 'function')) {
                 targetStr = target(...params);
             }
-            // 1、动作类型为：链接跳转
-            if (type === 'link') {
-                Utils.goto(targetStr);
-            } else {
-                // 否则，把逻辑绑定到trigger对应的事件上
+            let [targetName, ...targetAttr] = targetStr.split('.');
+            let target = this.__getComponent(targetName);
+            if (target) {
                 this._inject(this.__props, trigger, (...para)=>{
-                    let [targetName, ...targetAttr] = targetStr.split('.');
-                    let target = this.__getComponent(targetName);
-                    if (target) {
-                        // 如果没设置type，则根据target的类型确定
-                        if (!type) {
-                            let attr = Utils.fromObject(targetAttr.join('.'), target);
-                            type = Utils.typeof(attr, 'function') ? 'call' : 'assign';
+                    // 如果没设置type，则根据target的类型确定
+                    if (!type) {
+                        let attr = Utils.fromObject(targetAttr.join('.'), target);
+                        type = Utils.typeof(attr, 'function') ? 'call' : 'assign';
+                    }
+                    switch (type) {
+                        // 2、动作类型为：调用
+                        case 'call': {
+                            let func = Utils.fromObject(targetAttr.join('.'), target);
+                            func(...params);
+                            break;
                         }
-                        switch (type) {
-                            // 2、动作类型为：调用
-                            case 'call': {
-                                let func = Utils.fromObject(targetAttr.join('.'), target);
-                                func(...params);
-                                break;
-                            }
-                            // 3、动作类型为：赋值
-                            case 'assign': {
-                                let result = handler && handler(...para, target, this);
-                                let tData = Utils.generateObject(targetAttr.join('.'), result);
-                                // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
-                                target.set(tData);
-                                break;
-                            }
-                            default:
-                                break;
+                        // 3、动作类型为：赋值
+                        case 'assign': {
+                            let result = handler && handler(...para, target, this);
+                            let tData = Utils.generateObject(targetAttr.join('.'), result);
+                            // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
+                            target.set(tData);
+                            break;
                         }
+                        default:
+                            break;
                     }
                 }, true);
             }

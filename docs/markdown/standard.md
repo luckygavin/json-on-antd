@@ -1,3 +1,9 @@
+## 加入我们
+
+* Hi 群： 1615792   
+* 邮件组： umpfe@baidu.com  
+* 接口人： 刘泽春（liuzechun@baidu.com）  
+
 ## 开发标准
 > 技术标准: ES6编码标准，React+npm+Webpack技术  
 

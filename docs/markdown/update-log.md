@@ -7,7 +7,7 @@
 
 * 🌟 新增
 * 🐞 修复
-* 💄 改造
+* 💄 调整
 * 📖 发布
 * 🙅 移除
 
@@ -15,16 +15,17 @@
 
 ### 0.2.3
 
+`2018-05-25`
+
+* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，详见文档 [通用参数](#/Params/-control-)
+* ⚙ 改造内部代码，默认参数全部走配置形式
+
 `2018-05-24`
 
-* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，详见文档 [通用参数](#/Params)
-
-`2018-05-24`
-
-* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），详见文档 [通用参数](#/Params)  
+* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），详见文档 [通用参数](#/Params/-source-)  
 * `Table`  
     * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  
-    🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数
+    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数
 * `Export`  
     * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  
     * 🙅 移除`method`、`params`参数

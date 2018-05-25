@@ -7,130 +7,133 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'src/tools';
 import md from './markdown.md';
 
-const dataSource = [{
-    key: '1',
-    name: '胡彦斌',
-    age: 32,
-    address: '西湖区湖底公园1号',
-    sex: '男',
-    json: {
-        a: 1,
-        b: 2
-    },
-    html: '<i>表格</i>',
-    duration: '2017-05-21 00:00:00',
-    customRender: '1'
-}, {
-    key: '2',
-    name: '胡彦祖',
-    age: 42,
-    address: '西湖区湖底公园2号',
-    sex: 'femal',
-    json: [
-        {
+const dataSource = [
+    {
+        key: '1',
+        name: '胡彦斌',
+        age: 32,
+        address: '西湖区湖底公园1号',
+        sex: '男',
+        json: {
             a: 1,
             b: 2
         },
-        {
-            a: 3,
-            b: 4
-        }
-    ],
-    html: '<i>表格</i>',
-    duration: '2017-05-21 00:00:00',
-    customRender: '2'
-}, {
-    key: '3',
-    name: '胡彦祖彦斌',
-    age: 52,
-    address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
-    sex: '女',
-    json: {a: '哈哈', b: 2},
-    html: '<i>表格</i>',
-    duration: '2017-05-21 00:00:00',
-    customRender: '3'
-}, {
-    key: '4',
-    name: '胡彦祖彦斌',
-    age: 62,
-    address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
-    sex: '女',
-    json: {a: '哈哈', b: 2},
-    html: '<i>表格</i>',
-    duration: '2017-05-21 00:00:00',
-    customRender: '4'
-}];
+        html: '<i>表格</i>',
+        duration: '2017-05-21 00:00:00',
+        customRender: '1'
+    }, {
+        key: '2',
+        name: '胡彦祖',
+        age: 42,
+        address: '西湖区湖底公园2号',
+        sex: 'femal',
+        json: [
+            {
+                a: 1,
+                b: 2
+            },
+            {
+                a: 3,
+                b: 4
+            }
+        ],
+        html: '<i>表格</i>',
+        duration: '2017-05-21 00:00:00',
+        customRender: '2'
+    }, {
+        key: '3',
+        name: '胡彦祖彦斌',
+        age: 52,
+        address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
+        sex: '女',
+        json: {a: '哈哈', b: 2},
+        html: '<i>表格</i>',
+        duration: '2017-05-21 00:00:00',
+        customRender: '3'
+    }, {
+        key: '4',
+        name: '胡彦祖彦斌',
+        age: 62,
+        address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
+        sex: '女',
+        json: {a: '哈哈', b: 2},
+        html: '<i>表格</i>',
+        duration: '2017-05-21 00:00:00',
+        customRender: '4'
+    }
+];
 
-const columns = [{
-    title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
-    filterConfig: {
-        filterType: 'checkbox',
-        filters: ['斌', '祖']
-    },
-}, {
-    title: '性别',
-    dataIndex: 'sex',
-    key: 'sex',
-    filterConfig: {
-        filterType: 'checkbox'
-    },
-    display: false
-},{
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-    filterConfig: {
-        filterType: 'input'
+const columns = [
+    {
+        title: '姓名',
+        dataIndex: 'name',
+        key: 'name',
+        filterConfig: {
+            filterType: 'checkbox',
+            filters: ['斌', '祖']
+        },
+    }, {
+        title: '性别',
+        dataIndex: 'sex',
+        key: 'sex',
+        filterConfig: {
+            filterType: 'checkbox'
+        },
+        display: false
+    },{
+        title: '年龄',
+        dataIndex: 'age',
+        key: 'age',
+        filterConfig: {
+            filterType: 'input'
+        }
+    }, {
+        title: '住址',
+        dataIndex: 'address',
+        key: 'address',
+        filterConfig: {
+            filterType: 'input'
+        },
+        ellipsis: true
+    }, {
+        title: 'JSON字段',
+        dataIndex: 'json',
+        key: 'json',
+        textType: 'json',
+    }, {
+        title: 'html字段',
+        dataIndex: 'html',
+        key: 'html',
+        textType: 'html'
+    }, {
+        title: '时间段',
+        dataIndex: 'duration',
+        key: 'duration',
+        textType: 'duration',
+        render: function (text, record, index) {
+            return {
+                type: 'span',
+                style: {
+                    color: '#0aea0a'
+                },
+                content: text
+            };
+        }
+    }, {
+        title: '自定义render',
+        dataIndex: 'customRender',
+        key: 'customRender',
+        render: function (text, record, index) {
+            return {
+                type: 'span',
+                style: {
+                    color: '#0aea0a'
+                },
+                content: text
+            };
+        }
     }
-}, {
-    title: '住址',
-    dataIndex: 'address',
-    key: 'address',
-    filterConfig: {
-        filterType: 'input'
-    },
-    ellipsis: true
-}, {
-    title: 'JSON字段',
-    dataIndex: 'json',
-    key: 'json',
-    textType: 'json',
-}, {
-    title: 'html字段',
-    dataIndex: 'html',
-    key: 'html',
-    textType: 'html'
-}, {
-    title: '时间段',
-    dataIndex: 'duration',
-    key: 'duration',
-    textType: 'duration',
-    render: function (text, record, index) {
-        return {
-            type: 'span',
-            style: {
-                color: '#0aea0a'
-            },
-            content: text
-        };
-    }
-}, {
-    title: '自定义render',
-    dataIndex: 'customRender',
-    key: 'customRender',
-    render: function (text, record, index) {
-        return {
-            type: 'span',
-            style: {
-                color: '#0aea0a'
-            },
-            content: text
-        };
-    },
-    
-}];
+];
 
 const demo1 = {
     title: '基本用法',

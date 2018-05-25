@@ -43,4 +43,21 @@ define(function (require) {
 > `routes`为除params外的更多路由信息。
 
 
+## 关于 Ajax 中的 error 配置
 
+使用 `UF.ajax`、`source`系列参数、`api`系列参数时，如果不配置`error`之类的错误处理函数，会有默认的处理逻辑把错误报出来。
+
+可以通过配置`error`函数加入自己错误处理逻辑。如果自定义的错误处理函数没有任何返回结果，或者返回的不为`false`，则依然会执行默认的错误处理逻辑把错误报出来。只有当`return false;`时，才会阻止执行默认报错逻辑（有点像dom中的阻止事件冒泡）。
+
+如下，当获取数据出错时，只会再控制台打印出错误信息，不会再给用户提示：
+```javascript
+{
+    source: {
+        url: '/uf/docs/php/data2.php',
+        onError: function (res) {
+            console.log(res);
+            return false;
+        }
+    }
+}
+```

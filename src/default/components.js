@@ -8,6 +8,37 @@
  */
 
 export default {
+    /****************************************************************************************/
+    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
+    /****************************************************************************************/
+    'base-component': {
+        control: {
+            trigger: 'onClick'
+        }
+    },
+    'antd': {},
+    'data-entry': {
+        api: {
+            trigger: 'onChange'
+        },
+        source: {
+            target: 'value'
+        },
+        control: {
+            trigger: 'onChange',
+            handler: (...p)=>p[p.length - 1].getValue()
+        }
+    },
+    /****************************************************************************************/
+    /******* 普通组件默认配置 ******************************************************************/
+    /****************************************************************************************/
+    'auto-complete': {
+        style: {width: 160},
+        options: []
+    },
+    'breadcrumb': {
+        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
+    },
     'cascader': {
         source: {
             target: 'options'
@@ -21,6 +52,14 @@ export default {
     'checkbox-group': {
         source: {
             target: 'options'
+        }
+    },
+    'input': {
+        api: {
+            trigger: 'onPressEnter'
+        },
+        control: {
+            trigger: 'onPressEnter'
         }
     },
     'radio': {
@@ -50,13 +89,6 @@ export default {
             target: 'checked'
         }
     },
-    'breadcrumb': {
-        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
-    },
-    'auto-complete': {
-        style: {width: 160},
-        options: []
-    },
     'month-picker': {
         format: 'YYYY-MM'
     },
@@ -72,6 +104,7 @@ export default {
             target: 'fileList'
         }
     },
+
     /****************************************************************************************/
     /***** 自定义组件默认配置 ******************************************************************/
     /****************************************************************************************/
@@ -82,6 +115,13 @@ export default {
             type: 'horizontal',
             labelCol: 6,
             wrapperCol: 14
+        },
+        api: {
+            trigger: 'onSubmit'
+        },
+        control: {
+            trigger: 'onSubmit',
+            handler: v=>v
         }
     },
     'table': {
@@ -106,9 +146,12 @@ export default {
     },
     'modal': {
         visible: false,
-        // 提交数据默认绑定到onSubmit事件上
         api: {
             trigger: 'onSubmit'
+        },
+        control: {
+            trigger: 'onSubmit',
+            handler: v=>v
         }
     }
 };

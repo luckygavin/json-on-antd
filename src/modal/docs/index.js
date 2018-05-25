@@ -37,9 +37,7 @@ const demo2 = {
         {
             type: 'button',
             mode: 'primary',
-            content: '新增弹框',
-            actionType: 'call',
-            actionTarget: 'my-modal2.show'
+            content: '新增弹框'
         },
         {
             type: 'button',

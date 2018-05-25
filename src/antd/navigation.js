@@ -121,15 +121,20 @@ export class Menu extends Navigation {
         this.allKeys = {};
         this.__init();
     }
-    // 继承父组件的函数，并在__props上设置history属性
-    // 此函数会在初始化以及componentWillReceiveProps时调用
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
+    // 继承父组件的函数，_initProps 后增加额外处理逻辑
+    _afterInitProps() {
         if (this.__props.items) {
             this.__props.children = this.handleItems(this.__props.items);
             delete this.__props.items;
         }
     }
+    // __setProps 后，增加附加处理逻辑
+    // __afterSetProps() {
+    //     if (this.__props.items) {
+    //         this.__props.children = this.handleItems(this.__props.items);
+    //         delete this.__props.items;
+    //     }
+    // }
     // 见 BaseComponent
     _onControlEvent(...params) {
         let {selectedKeys} = params[0];

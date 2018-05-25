@@ -9,8 +9,9 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 
 export default class Antd extends BaseComponent {
-    constructor(props) {
-        super(props);
+    constructor(props, type) {
+        // 追加中间基类
+        super(props, `antd.${type}`);
         // __props 需要过滤的属性
         // this._filter.push();
         // 开放给用户使用的 Api

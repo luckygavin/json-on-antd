@@ -132,17 +132,13 @@ onError | 请求数据失败的回调函数 | function(res) {} |
 组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。
 
 
-#### # action 系列参数
-
-
-
 #### # api 系列参数
 
 `string` | `object`
 
 日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。
 
-目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求（需配合上面的 action 系列参数使用）。
+目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。
 
 api 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  
 也可以为一个对象，对象中的各个参数如下：
@@ -156,3 +152,87 @@ handler | 提交数据前对数据进行处理，函数返回的结果作为ajax
 trigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同
 onSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |
 onError | 提交数据后，失败的回调函数 | function(data, res) {} |
+
+以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：
+```javascript
+// 示例1：
+{
+    type: 'form',
+    layout: {type: 'inline'},
+    items: [
+        {type: 'input', name: 'name', label: '姓名：'},
+        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}
+    ],
+    api: 'http://uf.baidu.com/docs/php/submit.php'
+}
+// 示例2：
+{
+    type: 'form',
+    layout: {type: 'inline'},
+    items: [
+        {type: 'input', name: 'name', label: '姓名：'},
+        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}
+    ],
+    api: {
+        url: 'http://uf.baidu.com/docs/php/submit.php',
+        handler: function (params) {
+            return {newName: params.name, age: 18};
+        },
+        onSuccess: function () {
+            UF.message.success('保存成功');
+            return false;
+        }
+    }
+}
+```
+更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单
+
+
+#### # `control` 系列参数
+
+`string` | `object`
+
+日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。
+
+全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。
+
+control 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  
+也可以为一个对象，对象中的各个参数如下：
+
+参数       | 说明           | 类型             | 默认值      
+-----------|----------------|------------------|------
+type    | 声明交互方式。可选值为：`call`:函数调用、`assign`:赋值 | string | 默认根据`target`属性为函数还是属性动态变化
+trigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`
+target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string | 
+params    | 函数调用时传递的参数。*（仅`函数调用`类型可用）* | array | 
+handler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`
+
+
+以上面提到的使用场景为例——带有高级查询功能的一个表格场景：
+
+```javascript
+[
+    {
+        type: 'form',
+        layout: {type: 'inline'},
+        items: [
+            {type: 'input', name: 'name', label: '机房名称：'},
+            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}
+        ],
+        control: 'newtable.params'
+    },
+    {
+        type: 'table',
+        name: 'newtable',
+        columns: [
+            {title: 'ID', dataIndex: 'id'},
+            {title: '机房', dataIndex: 'name'},
+            {title: '地区', dataIndex: 'region'},
+            {title: '描述', dataIndex: 'description'}
+        ],
+        source: 'http://uf.baidu.com/docs/php/data.php',
+        params: {}
+    }
+]
+```
+示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。

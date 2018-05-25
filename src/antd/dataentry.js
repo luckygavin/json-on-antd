@@ -12,6 +12,7 @@ import * as Antd from 'antd';
 
 /************ AutoComplete 自动补全 *************************************************************************** */
 // 简单的补全功能
+// TODO: 完善
 export class AutoComplete extends DataEntry {
     constructor(props) {
         super(props);
@@ -102,10 +103,8 @@ export class CheckboxGroup extends DataEntry {
 /************* DatePicker 日期选择框 ************************************************************************** */
 
 class BasePicker extends DataEntry {
-    // 继承父组件的函数，并在__props上追加一些属性
-    // 此函数会在初始化以及componentWillReceiveProps时调用
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
+    // 继承父组件的函数，_initProps 后增加额外处理逻辑
+    _afterInitProps() {
         this.__props = this.__mergeProps({format: 'YYYY-MM-DD'}, this.__props);
         // 如果没有设置showTime，根据format自动增删showTime属性
         if (Utils.typeof(this.__props.showTime, 'undefined')) {

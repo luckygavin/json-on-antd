@@ -359,6 +359,26 @@ const Utils = Object.assign({
             dangerouslySetInnerHTML: {__html: this._syntaxHighlight(data)}
         };
     },
+    // 根据一个字符串，生成一个深层的对象
+    // 例如：根据 a.b.c 生成 {a:{b:{c: 1}}}
+    generateObject(strc, value) {
+        let tData = value;
+        if (strc) {
+            for (let v of strc.split('.').reverse()) {
+                tData = {[v]: tData};
+            }
+        }
+        return tData;
+    },
+    // 根据一个字符串，从一个深层的对象中取数据
+    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
+    fromObject(strc, obj) {
+        let target = obj;
+        for (let v of strc.split('.')) {
+            target[v] && (target = target[v]);
+        }
+        return target;
+    },
 
     /************************************************************************/
     // 私有方法

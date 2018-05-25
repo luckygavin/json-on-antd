@@ -541,29 +541,20 @@ class OriginForm extends BaseComponent {
         let handleClick;
         let icon;
         switch (item.action) {
-            // case 'add':
-            //     handleClick = this.addClick.bind(this, item.onClick)
-            //     break;
-            // case 'copy':
-            //     handleClick = this.copyClick.bind(this, item.onClick)
-            //     break;
-            // case 'delete':
-            //     handleClick = this.deleteClick.bind(this, item.onClick, key)
-            //     break;
             case 'clear':
-                icon = 'delete'
-                handleClick = this.clearClick.bind(this, item.onClick, key)
+                icon = 'delete';
+                handleClick = this.clearClick.bind(this, item.onClick, key);
                 break;
             case 'reset':
-                icon = 'reload'
-                handleClick = this.resetClick.bind(this, item.onClick, key)
+                icon = 'reload';
+                handleClick = this.resetClick.bind(this, item.onClick, key);
                 break;
             case 'submit':
-                icon = 'search'
-                handleClick = this.handleSubmit.bind(this, null, item.onClick, key)
+                icon = 'search';
+                handleClick = this.handleSubmit.bind(this, null, item.onClick, key);
                 break;
             default:
-                handleClick = this.othersClick.bind(this, item.onClick)
+                handleClick = this.othersClick.bind(this, item.onClick);
                 break;
         }
         let props = Object.assign({
@@ -772,6 +763,9 @@ const ReactForm = Form.create({
 // Form.create生成的组件是非BaseComponent类型的，需要外面再包一层壳子。
 // 注意壳子只是用来声明组件类型的，不需要对参数进行任何处理，所以无需调用 __init() 函数
 export default class NewForm extends BaseComponent {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return <ReactForm {...this.props}/>;
     }

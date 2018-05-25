@@ -95,8 +95,8 @@ export default class BaseComponent extends Component {
         let conf = Config.get(`components.${this.type}`) || {};
         // 取中间各基类的默认配置，并合并全部配置
         let confArr = this.class.split('.')
-                .filter(v=>v !== 'undefined')
-                .map(v=>(Config.get(`components.${v}`) || {}));
+            .filter(v=>v !== 'undefined')
+            .map(v=>(Config.get(`components.${v}`) || {}));
         conf = this.__mergeProps(...confArr, conf);
         return conf;
     }

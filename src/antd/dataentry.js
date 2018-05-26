@@ -195,10 +195,11 @@ export class Textarea extends DataEntry {
         return <Antd.Input.TextArea {...this.__props}/>;
     }
 }
-// 带搜索按钮
-export class InputSearch extends DataEntry {
+// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
+export class InputSearch extends Input {
     constructor(props) {
         super(props);
+        this.class.push('input');
         this.__init();
     }
     render() {

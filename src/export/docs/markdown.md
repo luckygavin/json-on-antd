@@ -21,6 +21,16 @@ fileFormat | 选择导出的文件扩展名，目前支持`.xls`格式和`.csv`�
 #### *headers*
 > 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名
 
+
+### 函数调用
+
+> 组件自身带有的函数，调用方法如：`UF('export').export()`。
+
+参数 | 说明 | 参数
+---- | ---- | ---- 
+export | 开始导出 | export()
+
+
 ```javascript
 headers: [
     {

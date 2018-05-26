@@ -18,12 +18,6 @@ export default class Dom extends BaseComponent {
         this.__init();
     }
 
-    __init(...params) {
-        super.__init.call(this, ...params);
-        // 保存原始antd组件的引用
-        this.__props['ref'] = ele => this._component = ele;
-    }
-
     // 触发组件上的原生事件，例如 focus、change 等
     trigger(event, ...params) {
         if (this._component && this._component[event]) {
@@ -33,6 +27,6 @@ export default class Dom extends BaseComponent {
         }
     }
     render() {
-        return <this.props.__type {...this.__props} />
+        return <this.props.__type {...this.__props} ref={ele=>(this._component = ele)}/>
     }
 }

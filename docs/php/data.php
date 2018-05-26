@@ -33,11 +33,22 @@ usleep(300000);
 
 $originData = json_decode($datas);
 $result = $originData;
+$search = $_REQUEST['search'];
 $searchName = $_REQUEST['name'];
+// 根据名称搜索
 if (isset($searchName) && !empty($searchName)) {
     $result = [];
     foreach ($originData as $row) {
         if ($row->name == $searchName) {
+            array_push($result, $row);
+        }
+    }
+}
+// 模糊搜索
+if (isset($search) && !empty($search)) {
+    $result = [];
+    foreach ($originData as $row) {
+        if (stristr(json_encode($row), $search) !== false) {
             array_push($result, $row);
         }
     }

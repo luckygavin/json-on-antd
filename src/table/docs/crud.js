@@ -11,10 +11,7 @@ const columns1 = [
     {
         title: 'ID',
         dataIndex: 'id',
-        key: 'id',
-        filterConfig: {
-            filterType: 'checkbox'
-        }
+        key: 'id'
     },
     {
         title: '机房',
@@ -50,10 +47,7 @@ const demo1 = {
             type: 'table',
             name: 'newtable',
             columns: columns1,
-            title: {
-                text: 'Table Crud 功能展示',
-                basicControls: [],
-            },
+            title: 'Table Crud 功能展示',
             source: 'docs/php/data.php',
             pagination: {
                 pageType: 'server'

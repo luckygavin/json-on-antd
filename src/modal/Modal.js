@@ -16,15 +16,18 @@ class NewModal extends BaseComponent {
         super(props);
         // 开放给用户使用的 Api，需处理下
         this._openApi.push('show', 'close');
+        
+        this.__init();
+    }
+    __beforeInit() {
+        super.__beforeInit();
         // 增加一些默认的事件处理函数
         this.__props = Object.assign({
             onCancel: this._defaultCancelHandler.bind(this),
         }, this.__props);
-        this.__init();
     }
-    __init(...params) {
-        super.__init(...params);
-        // 需额外处理的属性
+    __afterInit() {
+        super.__afterInit();
         // footer的按钮点击时增加一些默认处理逻辑
         if (this.__props.footer) {
             let buttons = this.__props.footer;
@@ -50,7 +53,6 @@ class NewModal extends BaseComponent {
             // 可以写其他内容在content中，置于form之上
             this.__props.formContent = this.__analysis(formConf);
         }
-
     }
 
     /********** 外部调用函数 *************************************************/

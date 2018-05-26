@@ -50,7 +50,7 @@ const func = {
         if (Utils.typeof(selector, 'string')) {
             let result = document.querySelector(selector);
             if (!result) {
-                console.warn('The specified element is not found.');
+                console.error('Error: The specified element is not found.');
             }
             return result;
         // 如果传入的是dom元素，直接返回

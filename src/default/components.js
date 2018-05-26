@@ -14,6 +14,9 @@ export default {
     'base-component': {
         control: {
             trigger: 'onClick'
+        },
+        source: {
+            target: 'content'
         }
     },
     'antd': {},
@@ -135,6 +138,9 @@ export default {
         source: {
             // 自动加载数据
             autoLoad: true
+        },
+        rowSelection: {
+            keepSelected: false
         },
         data: []
     },

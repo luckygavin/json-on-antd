@@ -54,16 +54,15 @@ export default class BaseComponent extends Component {
     // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
     constructor(props, type) {
         super(props);
-        // 组件基类类型，可以是多个类组成的串，如：base-component.antd.data-entry
-        this.class = `base-component.${type}`;
+        // 组件类型，用于组件及其基类基础配置的获取
+        this.class = ['base-component'];
+        // 未使用__init的组件，手动传入组件类型
         this.type = this.props.__type || type;
         this.key = this.props.__key;
         // 组件缓存的key。有值的话组件才会缓存，如果值为null，则不会做缓存
         this.cacheName = this._getTransmitName();
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
-        // 如果用户自己配置了 sourceTarget 属性，则按照用户定义的赋值
-        this._sourceTarget = 'children';
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -79,6 +78,18 @@ export default class BaseComponent extends Component {
         this._openApi = ['set', 'get', 'show', 'hide', 'refresh'];
         // 存储一些程序执行过程中的数据
         this._tempData = {};
+        this.__defaultProps = {};
+        this.__props = {};
+        // 更新前的__props
+        this.__prevProps = {};
+        // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
+        this.__filtered = {};
+    }
+    /**
+     * __init 之前，构造函数中未能执行的逻辑（比如需要在子类构造函数中继续处理的属性，最后再进行初始化）
+     *      开发时，如果是要在 this.__props 初始化之后执行的逻辑，请覆写__beforeInit
+     */
+    __beforeInit() {
         // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
         // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
@@ -86,17 +97,11 @@ export default class BaseComponent extends Component {
         this.__props = Utils.clone(this.__defaultProps);
         // 复用配置模板。
         this.__props = this.__getConfigTpl(this.props, this.__props);
-        // 更新前的__props
-        this.__prevProps = {};
-        // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
-        this.__filtered = {};
     }
     _getDefautlProps() {
         let conf = Config.get(`components.${this.type}`) || {};
         // 取中间各基类的默认配置，并合并全部配置
-        let confArr = this.class.split('.')
-            .filter(v=>v !== 'undefined')
-            .map(v=>(Config.get(`components.${v}`) || {}));
+        let confArr = this.class.map(v=>(Config.get(`components.${v}`) || {}));
         conf = this.__mergeProps(...confArr, conf);
         return conf;
     }
@@ -132,7 +137,8 @@ export default class BaseComponent extends Component {
         if (this.__props[event]) {
             this.__props[event](params);
         } else {
-            console.warn(`there is no event named: ${event}`);
+            console.error(`Warning: There is no event named: ${event}. `
+                + `Check the component \`${this.type}\` which named \`${this.cacheName}\``);
         }
     }
     // 隐藏组件
@@ -162,6 +168,9 @@ export default class BaseComponent extends Component {
 
     // 供子组件调用初始化 使用子组件this调用
     __init() {
+        // 初始化之前，执行一些构造函数中未能执行的初始化逻辑
+        this.__beforeInit();
+
         // 以下几个函数执行顺序固定，请慎重调整！！
         // 把父类中设置的需注入到生命周期中的逻辑注入到对应生命周期函数中
         this._injectFunction();
@@ -184,6 +193,14 @@ export default class BaseComponent extends Component {
 
         // 开放给用户使用的 Api，需处理下
         this._handleOpenApi();
+
+        // 初始化之后，执行子类内部初始化逻辑
+        this.__afterInit();
+    }
+
+    // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
+    __afterInit() {
+        
     }
 
     // 获取可复用的配置模板。
@@ -376,7 +393,7 @@ export default class BaseComponent extends Component {
         // 组件加载完成后再中心共享一次组件，保证渲染完成后缓存中一定存在。
         //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，再销毁原来组件，再把新组件渲染（未验证...）
         //   如果如上面的流程，则会导致新组件写入缓存中后有被老组件销毁掉，最终缓存中不再有新组件
-        this._transmitComponent();
+        this._transmitComponent(false);
         // 如果设置了自动获取异步数据，则执行逻辑
         if (this.__filtered.source.autoLoad === undefined || this.__filtered.source.autoLoad) {
             this._handleAsyncData();
@@ -458,9 +475,9 @@ export default class BaseComponent extends Component {
     }
 
     // 共享组件
-    _transmitComponent() {
+    _transmitComponent(isCheck) {
         if (!!this.cacheName) {
-            ComponentsCache.set(this.cacheName, this);
+            ComponentsCache.set(this.cacheName, this, isCheck);
         }
     }
 
@@ -544,32 +561,35 @@ export default class BaseComponent extends Component {
             if (Utils.typeof(target, 'function')) {
                 targetStr = target(...params);
             }
-            let [targetName, ...targetAttr] = targetStr.split('.');
-            let target = this.__getComponent(targetName);
             if (target) {
                 this._inject(this.__props, trigger, (...para)=>{
-                    // 如果没设置type，则根据target的类型确定
-                    if (!type) {
-                        let attr = Utils.fromObject(targetAttr.join('.'), target);
-                        type = Utils.typeof(attr, 'function') ? 'call' : 'assign';
-                    }
-                    switch (type) {
-                        // 2、动作类型为：调用
-                        case 'call': {
-                            let func = Utils.fromObject(targetAttr.join('.'), target);
-                            func(...params);
-                            break;
+                    // targetAttr 可以为空数组，即目标直接指向组件
+                    let [targetName, ...targetAttr] = targetStr.split('.');
+                    let target = this.__getComponent(targetName);
+                    if (target) {
+                        // 如果没设置type，则根据target的类型确定
+                        if (!type) {
+                            let attr = Utils.fromObject(targetAttr.join('.'), target);
+                            type = Utils.typeof(attr, 'function') ? 'call' : 'assign';
                         }
-                        // 3、动作类型为：赋值
-                        case 'assign': {
-                            let result = handler && handler(...para, target, this);
-                            let tData = Utils.generateObject(targetAttr.join('.'), result);
-                            // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
-                            target.set(tData);
-                            break;
+                        switch (type) {
+                            // 2、动作类型为：调用
+                            case 'call': {
+                                let func = Utils.fromObject(targetAttr.join('.'), target);
+                                func(...params);
+                                break;
+                            }
+                            // 3、动作类型为：赋值
+                            case 'assign': {
+                                let result = handler && handler(...para, target, this);
+                                let tData = Utils.generateObject(targetAttr.join('.'), result);
+                                // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
+                                target.set(tData);
+                                break;
+                            }
+                            default:
+                                break;
                         }
-                        default:
-                            break;
                     }
                 }, true);
             }
@@ -604,7 +624,6 @@ export default class BaseComponent extends Component {
         this.__getSourceData({
             success: data => {
                 // 如果用户自己配置了 target 属性，则按照用户定义的赋值
-                target = target || this._sourceTarget;
                 target = target === 'content' ? 'children' : target;
                 // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
                 let tData = Utils.generateObject(target, data);

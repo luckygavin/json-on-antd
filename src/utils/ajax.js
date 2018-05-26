@@ -40,7 +40,7 @@ function getErrorMsg(error) {
             message = JSON.stringify(error);
         }
     } catch(e) {
-        console.warn(e);
+        console.error(`Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
     }
     return message;
 }

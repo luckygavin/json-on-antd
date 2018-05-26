@@ -363,6 +363,7 @@ const Utils = Object.assign({
     // 例如：根据 a.b.c 生成 {a:{b:{c: 1}}}
     generateObject(strc, value) {
         let tData = value;
+        // 如果 strc 为空，则返回 value 本身
         if (strc) {
             for (let v of strc.split('.').reverse()) {
                 tData = {[v]: tData};
@@ -374,8 +375,11 @@ const Utils = Object.assign({
     // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
     fromObject(strc, obj) {
         let target = obj;
-        for (let v of strc.split('.')) {
-            target[v] && (target = target[v]);
+        // 如果 strc 为空字符串，则返回 obj 本身
+        if (strc) {
+            for (let v of strc.split('.')) {
+                target[v] && (target = target[v]);
+            }
         }
         return target;
     },

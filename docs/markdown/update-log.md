@@ -15,6 +15,24 @@
 
 ### 0.2.3
 
+
+
+
+`2018-05-26`
+
+* `Table`
+    * 🌟 增加支持后端分页时的`模糊搜索`功能
+    * 🌟 增加函数API：`export()`，支持手动调用导出功能
+    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件
+    * 💄 属性名称调整（以下为调整前后的对照关系）
+        * `column.filterConfig` => `column.filter`
+        * `column.filterConfig.filterType` => `column.filter.type`
+        * `column.filterConfig.filters` => `column.filter.options`
+        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*
+        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*
+* `Export`
+    * 🌟 增加函数API：`export()`，支持手动调用导出功能
+
 `2018-05-25`
 
 * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，详见文档 [通用参数](#/Params/-control-)

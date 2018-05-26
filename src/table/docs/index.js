@@ -8,59 +8,10 @@ import UF from 'src/tools';
 import md from './markdown.md';
 
 const dataSource = [
-    {
-        key: '1',
-        name: '胡彦斌',
-        age: 32,
-        address: '西湖区湖底公园1号',
-        sex: '男',
-        json: {
-            a: 1,
-            b: 2
-        },
-        html: '<i>表格</i>',
-        duration: '2017-05-21 00:00:00',
-        customRender: '1'
-    }, {
-        key: '2',
-        name: '胡彦祖',
-        age: 42,
-        address: '西湖区湖底公园2号',
-        sex: 'femal',
-        json: [
-            {
-                a: 1,
-                b: 2
-            },
-            {
-                a: 3,
-                b: 4
-            }
-        ],
-        html: '<i>表格</i>',
-        duration: '2017-05-21 00:00:00',
-        customRender: '2'
-    }, {
-        key: '3',
-        name: '胡彦祖彦斌',
-        age: 52,
-        address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
-        sex: '女',
-        json: {a: '哈哈', b: 2},
-        html: '<i>表格</i>',
-        duration: '2017-05-21 00:00:00',
-        customRender: '3'
-    }, {
-        key: '4',
-        name: '胡彦祖彦斌',
-        age: 62,
-        address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号',
-        sex: '女',
-        json: {a: '哈哈', b: 2},
-        html: '<i>表格</i>',
-        duration: '2017-05-21 00:00:00',
-        customRender: '4'
-    }
+    {key: '1', name: '胡彦斌', age: 32, address: '西湖区湖底公园1号', sex: '男', json: {a: 1, b: 2}, html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '1'},
+    {key: '2',name: '胡彦祖',age: 42,address: '西湖区湖底公园2号',sex: 'femal', json: [{a: 1, b: 2}, {a: 3, b: 4}], html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '2'},
+    {key: '3', name: '胡彦祖彦斌', age: 52, address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号', sex: '女', json: {a: '哈哈', b: 2}, html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '3'},
+    {key: '4', name: '胡彦祖彦斌', age: 62, address: '东湖区湖底公园3号东湖区湖底公园3号东湖区湖底公园3号', sex: '女', json: {a: '哈哈', b: 2}, html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '4'}
 ];
 
 const columns = [
@@ -68,44 +19,33 @@ const columns = [
         title: '姓名',
         dataIndex: 'name',
         key: 'name',
-        filterConfig: {
-            filterType: 'checkbox',
-            filters: ['斌', '祖']
-        },
-    }, {
+        filter: {
+            type: 'checkbox',
+            options: ['斌', '祖']
+        }
+    },
+    {
         title: '性别',
         dataIndex: 'sex',
         key: 'sex',
-        filterConfig: {
-            filterType: 'checkbox'
+        filter: {
+            type: 'checkbox'
         },
         display: false
-    },{
-        title: '年龄',
-        dataIndex: 'age',
-        key: 'age',
-        filterConfig: {
-            filterType: 'input'
-        }
-    }, {
+    },
+    {title: '年龄', dataIndex: 'age', key: 'age'},
+    {
         title: '住址',
         dataIndex: 'address',
         key: 'address',
-        filterConfig: {
-            filterType: 'input'
+        filter: {
+            type: 'input'
         },
         ellipsis: true
-    }, {
-        title: 'JSON字段',
-        dataIndex: 'json',
-        key: 'json',
-        textType: 'json',
-    }, {
-        title: 'html字段',
-        dataIndex: 'html',
-        key: 'html',
-        textType: 'html'
-    }, {
+    },
+    {title: 'JSON字段', dataIndex: 'json', key: 'json', textType: 'json'},
+    {title: 'html字段', dataIndex: 'html', key: 'html', textType: 'html'},
+    {
         title: '时间段',
         dataIndex: 'duration',
         key: 'duration',
@@ -119,7 +59,8 @@ const columns = [
                 content: text
             };
         }
-    }, {
+    },
+    {
         title: '自定义render',
         dataIndex: 'customRender',
         key: 'customRender',
@@ -173,30 +114,19 @@ const demo1 = {
             // pagination: false,
             title: {
                 text: 'Table前端分页表格测试',
-                basicControls: [
+                basicWidget: [
                     {
                         name: 'filter',
                         blacklist: ['json']
                     },
                     'setPageSize',
-                    {
-                        name: 'selctAll',
-                        icon: 'like-o',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-
-                    },
-                    'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
-                menuControls: ['export', 'switchTags', 'refresh', 'fullScreen', {
-                        name: 'selctAll2',
-                        icon: 'like',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-                    }, 'showAllTags', 'setPageSize'],
+                    'export',
+                    'switchTags',
+                    'refresh',
+                    'fullScreen',
+                    'showAllTags'
+                ],
+                menuWidget: ['export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags', 'setPageSize'],
                 showText: false,
             },
             bordered: true,
@@ -217,10 +147,7 @@ const columns2 = [
     {
         title: 'ID',
         dataIndex: 'id',
-        key: 'id',
-        filterConfig: {
-            filterType: 'checkbox'
-        }
+        key: 'id'
     },
     {
         title: '机房',
@@ -244,11 +171,11 @@ const demo2 = {
     config: [
         {
             type: 'table',
-            name: 'newtable',
+            name: 'newtable2',
             columns: columns2,
             title: {
-                text: 'Table后端分页表格',
-                basicControls: ['filter', 'setPageSize',
+                // text: 'Table后端分页表格',
+                basicWidget: ['filter', 'setPageSize',
                     {
                         name: 'selctAll',
                         icon: 'like-o',
@@ -256,16 +183,15 @@ const demo2 = {
                         onClick: function(table) {
                             return table.selectAll();
                         }
-
-                    },'export', 'switchTags', 'refresh', 'fullScreen', 'showAllTags'],
-                menuControls: ['refresh', 'fullScreen', {
-                        name: 'selctAll2',
-                        icon: 'like',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-                    }, 'setPageSize']
+                    }, 'export', 'switchTags'],
+                menuWidget: ['refresh', 'fullScreen', 'setPageSize'],
+                extra: [{
+                    type: 'button',
+                    mode: 'primary',
+                    icon: 'sync',
+                    content: '刷新',
+                    control: 'newtable2.refresh'
+                }]
             },
             source: {
                 url: 'docs/php/data.php',
@@ -299,154 +225,115 @@ const selectData = {
     "2" : "女"
 }
 
-const editColumns = [{
-    title: '姓名',
-    dataIndex: 'name',
-    key: 'name',
-    editable: {
-        api: 'docs/php/submit.php',
-        type: "input",
-        name: "name",
-        rules: {
-            equired: true,
-            message: "必填项"
-        },
-        icon: {
-            editIcon: {
-                mode: "tool",
-                style: {
-                    color: "red"
+const columns3 = [
+    {
+        title: '姓名',
+        dataIndex: 'name',
+        key: 'name',
+        editable: {
+            api: 'docs/php/submit.php',
+            type: "input",
+            name: "name",
+            rules: {
+                equired: true,
+                message: "必填项"
+            },
+            icon: {
+                editIcon: {
+                    mode: "tool",
+                    style: {
+                        color: "red"
+                    }
                 }
             }
-        }        
-    },
-}, {
-    title: '性别',
-    dataIndex: 'sex',
-    key: 'sex',
-    editable: {
-        api: {
-            url: 'docs/php/submit.php',
-            method: 'get'
         },
-        type: "select",
-        name: "sex",
-        rules: {
-            equired: true,
-            message: "必选项"
-        },
-        options: [
-            {
-                label: "男",
-                value: '1',
+    }, {
+        title: '性别',
+        dataIndex: 'sex',
+        key: 'sex',
+        editable: {
+            api: {
+                url: 'docs/php/submit.php',
+                method: 'get'
             },
-            {
-                label: "女",
-                value: '2',
-            }
-        ]
-    },
-    render: (text, record, index) => {
-        return {
-            type: "p",
-            content: selectData[text]
-        }
-    }
-},{
-    title: '年龄',
-    dataIndex: 'age',
-    key: 'age',
-    editable: {
-        api: 'docs/php/submit.php',
-        type: "inputNumber",
-        name: "age",
-        rules: {
-            equired: true,
-            type: "number",
-            message: "必须为数字",
-        }
-    }
-}, {
-    title: '同意协议',
-    dataIndex: 'agreement',
-    key: 'agreement',
-    editable: {
-        api: 'docs/php/submit.php',
-        type: "switch",
-        name: "agreement",
-    },
-    render: (text, record, index) => {
-        let showText = !!text
-            ? '是'
-            : '否';
-        return {
-            type: "p",
-            content: showText
-        }
-    }
-}, {
-    title: '身份数据',
-    dataIndex: 'data',
-    key: 'data',
-    textType: 'json',
-    editable: {
-        api: 'docs/php/submit.php',
-        type: "textarea",
-        name: "data",
-        rules: {
-            equired: true,
-            message: "必填项"
+            type: "select",
+            name: "sex",
+            rules: {
+                equired: true,
+                message: "必选项"
+            },
+            options: [
+                {
+                    label: "男",
+                    value: '1',
+                },
+                {
+                    label: "女",
+                    value: '2',
+                }
+            ]
         },
-    },
-}];
+        render: (text, record, index) => {
+            return {
+                type: "p",
+                content: selectData[text]
+            }
+        }
+    },{
+        title: '年龄',
+        dataIndex: 'age',
+        key: 'age',
+        editable: {
+            api: 'docs/php/submit.php',
+            type: "inputNumber",
+            name: "age",
+            rules: {
+                equired: true,
+                type: "number",
+                message: "必须为数字",
+            }
+        }
+    }, {
+        title: '同意协议',
+        dataIndex: 'agreement',
+        key: 'agreement',
+        editable: {
+            api: 'docs/php/submit.php',
+            type: "switch",
+            name: "agreement",
+        },
+        render: (text, record, index) => {
+            let showText = !!text
+                ? '是'
+                : '否';
+            return {
+                type: "p",
+                content: showText
+            }
+        }
+    }, {
+        title: '身份数据',
+        dataIndex: 'data',
+        key: 'data',
+        textType: 'json',
+        editable: {
+            api: 'docs/php/submit.php',
+            type: "textarea",
+            name: "data",
+            rules: {
+                equired: true,
+                message: "必填项"
+            },
+        },
+    }
+];
 
-const editDataSource = [{
-    key: '1',
-    name: '胡彦斌',
-    age: 30,
-    sex: '1',
-    agreement: true,
-    data: [
-        {
-            "id": 1111111,
-            "company": "baidu"
-        }
-    ],
-}, {
-    key: '2',
-    name: '胡彦祖',
-    age: 42,
-    sex: '2',
-    agreement: false,
-    data: [
-        {
-            "id": 222222,
-            "company": "baidu"
-        }
-    ],
-}, {
-    key: '3',
-    name: '胡彦祖彦斌',
-    age: 52,
-    sex: '2',
-    agreement: true,
-    data: [
-        {"id": 33333},
-        {"company": "baidu"}
-    ]
-}, {
-    key: '4',
-    name: '胡彦祖彦斌',
-    age: 62,
-    sex: '1',
-    agreement: false,
-    data: [
-        {
-            "id": 444444,
-            "company": "baidu"
-        }
-    ]
-}];
+const editDataSource = [
+    {key: '1', name: '胡彦斌', age: 30, sex: '1', agreement: true, data: [{id: 111111, company: "baidu"}]},
+    {key: '2', name: '胡彦祖', age: 42, sex: '2', agreement: false, data: [{id: 222222, company: "baidu"}]},
+    {key: '3', name: '胡彦祖彦斌', age: 52, sex: '2', agreement: true, data: [{id: 33333}, {company: "baidu"}]},
+    {key: '4', name: '胡彦祖彦斌', age: 62,sex: '1', agreement: false, data: [{id: 444444, company: "baidu"}]}
+];
 
 const demo3 = {
     title: '创建一个可行内编辑的表格',
@@ -454,9 +341,9 @@ const demo3 = {
     config: [
         {
             type: 'table',
-            name: 'newtable1',
+            name: 'newtable3',
             rowKey: 'key',
-            columns: editColumns,
+            columns: columns3,
             rowSelection: {
                 type: 'checkbox',
                 selections: true,
@@ -477,6 +364,6 @@ export default class TableApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo1, demo2, demo3);
+        return this.__getDemoSingle(demo2, demo1, demo3);
     }
 }

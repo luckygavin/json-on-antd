@@ -14,7 +14,8 @@ import {Utils} from 'src/utils';
 
 export default class DataEntry extends Antd {
     constructor(props) {
-        super(props, 'data-entry');
+        super(props);
+        this.class.push('data-entry');
         this.__controlled = {
             key: 'value',
             event: 'onChange',

@@ -14,6 +14,7 @@ import {Utils} from 'src/utils';
 export default class Export extends BaseComponent {
     constructor(props) {
         super(props);
+        this._openApi.push('export');
         this.__init();
         this.state = {};
         // 默认配置
@@ -109,6 +110,13 @@ export default class Export extends BaseComponent {
                 this.setState({lastTime: this.state.lastTime - 1});
             }
         }, 1000);
+    }
+    export() {
+        if (this.config.type === 'asyn') {
+            this.showModal();
+        } else {
+            this.aRef && this.aRef.click();
+        }
     }
     showModal() {
         this.setState({visible: true});
@@ -323,13 +331,6 @@ export default class Export extends BaseComponent {
             lastTime: 0
         });
     }
-    render() {
-        if (this.config.type === 'asyn') {
-            return this.asynExportRender();
-        } else {
-            return this.syncExportRender();
-        }
-    }
     // 同步导出方式页面 - 即实例化组件时直接传入数据
     syncExportRender() {
         let data = this.data;
@@ -344,7 +345,7 @@ export default class Export extends BaseComponent {
         let name = this.getFileName();
         return (
             <div className="uf-export">
-                <a href={link} download={name}>
+                <a ref={ele=>(this.aRef = ele)} href={link} download={name}>
                     {this.props.children}
                 </a>
             </div>
@@ -469,6 +470,13 @@ export default class Export extends BaseComponent {
                     })}
                 </div>
             );
+        }
+    }
+    render() {
+        if (this.config.type === 'asyn') {
+            return this.asynExportRender();
+        } else {
+            return this.syncExportRender();
         }
     }
 }

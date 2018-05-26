@@ -8,9 +8,9 @@ define(function() {
                 title: '姓名',
                 dataIndex: 'name',
                 key: 'name',
-                filterConfig: {
-                    filterType: 'checkBox',
-                    filters: [
+                filter: {
+                    type: 'checkBox',
+                    options: [
                         '斌',
                         '祖'
                     ]
@@ -20,8 +20,8 @@ define(function() {
                 title: '性别',
                 dataIndex: 'sex',
                 key: 'sex',
-                filterConfig: {
-                    filterType: 'checkBox'
+                filter: {
+                    type: 'checkBox'
                 },
                 display: false
             },
@@ -29,16 +29,16 @@ define(function() {
                 title: '年龄',
                 dataIndex: 'age',
                 key: 'age',
-                filterConfig: {
-                    filterType: 'input'
+                filter: {
+                    type: 'input'
                 }
             },
             {
                 title: '住址',
                 dataIndex: 'address',
                 key: 'address',
-                filterConfig: {
-                    filterType: 'input'
+                filter: {
+                    type: 'input'
                 },
                 ellipsis: true
             },

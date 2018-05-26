@@ -35,8 +35,8 @@ export class Breadcrumb extends Navigation {
         super(props);
         this.__init();
     }
-    __init(...params) {
-        super.__init.call(this, ...params);
+    __afterInit() {
+        super.__afterInit();
         // itemRender 用户返回的是一个配置，这里根据配置生成组件
         if (this.__props.itemRender) {
             // this._inject(this.__props, 'itemRender')

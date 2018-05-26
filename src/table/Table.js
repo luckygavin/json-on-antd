@@ -239,7 +239,6 @@ export default class NewTable extends BaseComponent {
             data: data,
             total: data.length
         };
-        
     }
     // 对编辑状态的表格进行数据提交调用的函数
     _cellSubmit(key, dataIndex, value) {

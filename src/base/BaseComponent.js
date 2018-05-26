@@ -85,6 +85,7 @@ export default class BaseComponent extends Component {
         // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
         this.__filtered = {};
     }
+
     /**
      * __init 之前，构造函数中未能执行的逻辑（比如需要在子类构造函数中继续处理的属性，最后再进行初始化）
      *      开发时，如果是要在 this.__props 初始化之后执行的逻辑，请覆写__beforeInit
@@ -199,9 +200,7 @@ export default class BaseComponent extends Component {
     }
 
     // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
-    __afterInit() {
-        
-    }
+    __afterInit() {}
 
     // 获取可复用的配置模板。
     // 除定义全局组件通用配置外，还可以额外再定义一些配置模板供组件复用

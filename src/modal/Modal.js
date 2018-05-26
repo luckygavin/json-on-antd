@@ -16,7 +16,6 @@ class NewModal extends BaseComponent {
         super(props);
         // 开放给用户使用的 Api，需处理下
         this._openApi.push('show', 'close');
-        
         this.__init();
     }
     __beforeInit() {

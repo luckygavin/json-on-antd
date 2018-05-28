@@ -272,9 +272,10 @@ export default class NewTable extends BaseComponent {
                 size: this.pagination.pageSize,
             });
         }
-        this.setState({loading: true});
         // 当前请求的标号
-        let index = ++this.requerstIndex;
+        // 快速多次相同的请求会被合并到第一个（ajax中实现）
+        let index = Utils.hash(params);
+        this.requerstIndex = index;
         // 调用通用source获取数据逻辑
         this.__getSourceData({
             params: params,

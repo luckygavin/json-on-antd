@@ -15,7 +15,16 @@
 
 ### 0.2.3
 
+`2018-05-27`
 
+* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题
+* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断
+* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加
+* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`
+* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)
+* 🌟 增加`source.requestMerge	`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)
+* `DatePicker`系列组件
+    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间
 
 
 `2018-05-26`
@@ -35,12 +44,12 @@
 
 `2018-05-25`
 
-* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，详见文档 [通用参数](#/Params/-control-)
+* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)
 * ⚙ 改造内部代码，默认参数全部走配置形式
 
 `2018-05-24`
 
-* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），详见文档 [通用参数](#/Params/-source-)  
+* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  
 * `Table`  
     * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  
     * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数

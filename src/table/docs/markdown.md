@@ -201,8 +201,9 @@ getSelectedKeys | 获取当前全部选中行的key | getSelectedKeys()
 selectAll | 手动触发全选 | selectAll()
 clearSelect | 手动触发全选 | clearSelect()
 
+### 其余一些 Tips
 
-#### *data*
+#### data 数据格式
 表格的数据数组格式如下：
 ```javascript
 [{
@@ -215,11 +216,6 @@ clearSelect | 手动触发全选 | clearSelect()
     name: '胡彦祖',
     age: 42,
     address: '西湖区湖底公园2号'
-}, {
-    key: '3',
-    name: '胡彦祖',
-    age: 52,
-    address: '西湖区湖底公园3号'
 }]
 ```
 **注意：**  
@@ -228,3 +224,10 @@ clearSelect | 手动触发全选 | clearSelect()
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 
+#### 关于后端分页数据缓存问题
+
+如`Table`组件中使用后端分页，如果数据不是实时更新的，可以开启数据缓存功能，切换分页后，再查看原来分页的数据即可无需再次请求。
+
+具体方法有两种：
+* 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法
+* 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`

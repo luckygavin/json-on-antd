@@ -121,28 +121,28 @@ UF.init({
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
 domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
-ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：`ajax` | object |  | 
+ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | 
 data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
 cacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
 
 
 #### # *global.ajax*
 
-更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。
+定义 Ajax 全局通用属性/行为。
 
+可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。
 
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
-baseUrl |  | string |  | 
-method | 默认数据请求方式 | string | `GET` | 
+baseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | 
 headers | 设置http请求的headers | object | {} | 
-data | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
-beforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`data`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(data, conf){} | | 
+data | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | 
 type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
 contentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |
 crossOrigin | 设置`cross-origin`请求 | boolean | | 
-success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [组件交互](#/Api) 的 `UF.ajax` 部分 | 
-error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(){res, errorHandler} | | 
+beforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`params`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(params, conf){} | | 
+success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | 
+error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
 jsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | 
 
@@ -213,6 +213,7 @@ UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{
 ```
 如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。
 
+> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求
 
 ### # authority
 

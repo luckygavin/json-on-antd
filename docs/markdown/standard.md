@@ -161,19 +161,6 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  
 > arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串
 
-##### **`__getData(url, params, success, error, onchange)`**
-使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
-`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
-`error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
->  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
-
-`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
->  开始执行请求时执行 onchange 参数为 (true, 'sending')  
->  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
-
-##### **`__postData(url, params, success, error, onchange)`**
-使用 `post` 的方式向后端发送请求，参数同上。
-
 ##### **`__ajax(obj)`**
 通用的 `ajax` 函数。参数为一个对象。
 > 常用参数有：url、method、data、type、onchange、success、error

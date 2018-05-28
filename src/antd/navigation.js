@@ -14,7 +14,6 @@ import {Utils} from 'src/utils';
 import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
 
-
 /************ Affix 图钉 *************************************************************************** */
 
 export class Affix extends Navigation {

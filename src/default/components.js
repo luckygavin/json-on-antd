@@ -92,6 +92,12 @@ export default {
             target: 'checked'
         }
     },
+    'date-picker': {
+        format: 'YYYY-MM-DD'
+    },
+    'range-picker': {
+        format: 'YYYY-MM-DD'
+    },
     'month-picker': {
         format: 'YYYY-MM'
     },

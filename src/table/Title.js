@@ -483,6 +483,7 @@ export default class Title extends BaseComponent {
                 defaultValue.push(allColumns[item].dataIndex);
             }
         }
+        this.columnsCheckedValues = defaultValue;
         if (options.length > 0) {
             return <CheckboxGroup options={options}
                 defaultValue={defaultValue}

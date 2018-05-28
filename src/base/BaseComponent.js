@@ -61,6 +61,8 @@ export default class BaseComponent extends Component {
         this.key = this.props.__key;
         // 组件缓存的key。有值的话组件才会缓存，如果值为null，则不会做缓存
         this.cacheName = this._getTransmitName();
+        // 标志组件是否已被销毁
+        this.unmounted = false;
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
         // 供用户使用，例如获取路由信息/参数等
@@ -231,6 +233,10 @@ export default class BaseComponent extends Component {
     // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
     // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
     __setProps(nextProps, follow) {
+        // 如果组件已销毁，则不再进行任何操作
+        if (this.unmounted) {
+            return;
+        }
         // 去除掉多余的属性（解决报warning问题）
         let __props = this._filterHandler(nextProps, true);
         this.__prevProps = this.__props;
@@ -240,7 +246,7 @@ export default class BaseComponent extends Component {
         if (follow !== false) {
             this.forceUpdate();
             // 延迟执行
-            // TODO:
+            // TODO: 一点都不优雅
             setTimeout(follow, 10);
         }
     }
@@ -272,19 +278,21 @@ export default class BaseComponent extends Component {
         );
     }
 
-    // ajax的get方法
-    __getData(...params) {
-        Ajax.get(...params);
-    }
-
-    // ajax的post方法
-    __postData(...params) {
-        Ajax.post(...params);
-    }
-
     // ajax通用方法
-    __ajax(params) {
-        Ajax(params);
+    __ajax(config) {
+        this._inject(config, 'success', ()=>{
+            // 增加逻辑：如果组件已销毁，则不再往下执行
+            if (this.unmounted) {
+                return false;
+            }
+        });
+        this._inject(config, 'error', ()=>{
+            // 增加逻辑：如果组件已销毁，则不再往下执行
+            if (this.unmounted) {
+                return false;
+            }
+        });
+        return Ajax(config);
     }
 
     // 解析某个属性的配置。方便开发组件时定义一些可以为配置的属性
@@ -331,7 +339,7 @@ export default class BaseComponent extends Component {
     // 从source接口获取数据
     // 传入的config包含 success 和 error，source一系列处理完成后最终数据才会传给 success
     __getSourceData(config) {
-        let {paramsHandler, handler, target, onError, onSuccess} = this.__filtered.source;
+        let {paramsHandler, handler, target, onError, onSuccess, ...others} = this.__filtered.source;
         // success 和 error 等来自子组件调用，其余参数如果子组件传入，则进行覆盖
         let {url, method, params, success, error, onchange} = Object.assign(
             {},
@@ -341,9 +349,11 @@ export default class BaseComponent extends Component {
         paramsHandler && (params = paramsHandler(params));
         if (url) {
             this.__ajax({
+                // 用户配置的source中的其他参数直接传入
+                ...others,
                 url: url,
                 method: method || 'get',
-                data: params,
+                params: params,
                 success: (data, res)=>{
                     // 如果用户定义了数据处理函数，先对数据进行处理
                     handler && (data = handler(data, res, this));
@@ -403,6 +413,7 @@ export default class BaseComponent extends Component {
     // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
     _componentWillUnmount() {
         this._unsetTransmitComponent();
+        this.unmounted = true;
     }
 
     // 过滤 props，生成 __props 和 __filtered
@@ -412,9 +423,10 @@ export default class BaseComponent extends Component {
         let haveFiltered = false;
         for (let i in props) {
             if (props.hasOwnProperty(i)) {
-                if ( this._filter.indexOf(i) === -1) {
+                if (this._filter.indexOf(i) === -1) {
                     // 过滤掉为函数的属性
-                    if (!filterFunc || !Utils.typeof(props[i], 'function')) {
+                    // 如果设置不过滤函数、或者不为函数、或者__props上没有此属性
+                    if (!filterFunc || !Utils.typeof(props[i], 'function') || !this.__props[i]) {
                         newProps[i] = props[i];
                     }
                 } else {
@@ -436,8 +448,9 @@ export default class BaseComponent extends Component {
         // 先把 this.__props 中初始化的多余属性过滤掉
         // 在这里执行是为了方便子类中__init之前在去更改__props
         this.__props = this._filterHandler(this.__props);
+        // 待观察...
         // 因为会对函数进行绑定、注入等操作，所以仅在 init 时把配置的函数转移到__props上，之后不会再更新函数
-        this._setPropsFunctions();
+        // this._setPropsFunctions();
         // 然后把组件原props作为新值传给__setProps做合并
         this.__setProps(this.props, false);
         // 执行附加逻辑
@@ -448,14 +461,14 @@ export default class BaseComponent extends Component {
     _afterInitProps() {}
 
     // 把 this.props 上配置的函数转移到 this.__props 上
-    _setPropsFunctions() {
-        let props = this.props;
-        for (let i in props) {
-            if (props.hasOwnProperty(i) && Utils.typeof(props[i], 'function')) {
-                this.__props[i] = props[i];
-            }
-        }
-    }
+    // _setPropsFunctions() {
+    //     let props = this.props;
+    //     for (let i in props) {
+    //         if (props.hasOwnProperty(i) && Utils.typeof(props[i], 'function') && this._filter.indexOf(i) === -1) {
+    //             this.__props[i] = props[i];
+    //         }
+    //     }
+    // }
 
     // 获取key的名称
     _getTransmitName() {
@@ -640,7 +653,7 @@ export default class BaseComponent extends Component {
 
     // 提交数据功能
     _handleApiProps(oParams) {
-        let {url, method = 'post', params = oParams, handler, onSuccess, onError} = this.__filtered.api;
+        let {url, method = 'post', params = oParams, handler, onSuccess, onError, ...others} = this.__filtered.api;
         if (url) {
             handler && (params = handler(params));
             return new Promise((resolve, reject)=>{
@@ -648,6 +661,7 @@ export default class BaseComponent extends Component {
                     url: url,
                     method: method,
                     params: params,
+                    ...others,
                     success(data, res) {
                         let result = onSuccess && onSuccess(data, res);
                         // onSuccess有返回值，则执行默认提示
@@ -670,20 +684,22 @@ export default class BaseComponent extends Component {
     }
 
     // 函数替换 函数
-    // 参数依次为 父级 、 目标函数 、 新函数 、 是否把原来逻辑提前
+    // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前
     _inject(parent, target, newFunc, oldAhead) {
-        let origin = parent[target];
-        parent[target] = !!origin
-            ? (...params) => {
-                // return原函数执行结果
-                let result;
-                oldAhead ? (result = origin.call(this, ...params)) : null;
-                newFunc.call(this, ...params);
-                oldAhead ? null : (result = origin.call(this, ...params));
-                return result;
-            }
-            : newFunc.bind(this);
-        return parent;
+        return Utils.inject(parent, target, newFunc, oldAhead, this);
+        // let origin = parent[target];
+        // parent[target] = !!origin
+        //     ? (...params) => {
+        //         // return原函数执行结果
+        //         let result;
+        //         oldAhead ? (result = origin.call(this, ...params)) : null;
+        //         let newResult = newFunc.call(this, ...params);
+        //         // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
+        //         !oldAhead && newResult !== false ? (result = origin.call(this, ...params)) : null;
+        //         return result;
+        //     }
+        //     : newFunc.bind(this);
+        // return parent;
     }
 
 }

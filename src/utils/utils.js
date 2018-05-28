@@ -5,6 +5,7 @@
 import React from 'react';
 import underscore from 'underscore';
 import moment from 'moment';
+import 'moment/locale/zh-cn';
 
 const I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
 const s4 = () => {
@@ -28,7 +29,7 @@ const Utils = Object.assign({
         let len = ('' + num).length;
         return Array(n > len ? (n - len + 1) : 0).join(0) + num;
     },
-    // 生成随机唯一ID
+    // 生成随机唯一ID，32位
     uniqueId() {
         return (s4() + s4() + s4() + s4() + s4() + s4() + s4() + s4());
     },
@@ -382,6 +383,23 @@ const Utils = Object.assign({
             }
         }
         return target;
+    },
+    // 想某个对象上的某个函数注入额外逻辑
+    // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前、bind的对象
+    inject(parent, target, newFunc, oldAhead = false, thisArg = null) {
+        let origin = parent[target];
+        parent[target] = !!origin
+            ? (...params) => {
+                // return原函数执行结果
+                let result;
+                oldAhead ? (result = origin.call(thisArg, ...params)) : null;
+                // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
+                let newResult = newFunc.call(thisArg, ...params);
+                !oldAhead && newResult !== false ? (result = origin.call(thisArg, ...params)) : null;
+                return result;
+            }
+            : newFunc.bind(thisArg);
+        return parent;
     },
 
     /************************************************************************/

@@ -86,6 +86,8 @@ source 参数可以是字符串，直接声明获取数据的地址，其余参�
 参数       | 说明           | 类型             | 默认值      
 -----------|----------------|------------------|------
 url    | 异步获取数据的接口 | string | 
+cache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false
+requestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true
 method    | ajax方式：`post`、`get`等 | string | 'get'
 params | 请求数据时携带的参数 | object | 
 paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | 

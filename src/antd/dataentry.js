@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Utils} from 'src/utils';
 import DataEntry from './base/DataEntry.js';
-// import moment from 'moment';
+import moment from 'moment';
 import * as Antd from 'antd';
 
 
@@ -103,17 +103,18 @@ export class CheckboxGroup extends DataEntry {
 /************* DatePicker 日期选择框 ************************************************************************** */
 
 class BasePicker extends DataEntry {
+    constructor(props) {
+        super(props);
+        this._filter.push('current');
+        this.__init();
+    }
     // 继承父组件的函数，_initProps 后增加额外处理逻辑
     _afterInitProps() {
-        this.__props = this.__mergeProps({format: 'YYYY-MM-DD'}, this.__props);
-        // 如果没有设置showTime，根据format自动增删showTime属性
-        if (Utils.typeof(this.__props.showTime, 'undefined')) {
-            this.__props.showTime = this._judgeShowTime(this.__props.format);
+        super._afterInitProps();
+        // 如果设置了 value='current'，则把current转换为当前时间
+        if (this.__props.value === 'current') {
+            this.__props.value = moment().format(this.__props.format);
         }
-    }
-    // 根据format自动增删showTime属性
-    _judgeShowTime(format) {
-        return format && format.toLowerCase().indexOf('h') !== -1;
     }
 }
 // 日期[时间]选择
@@ -123,6 +124,18 @@ export class DatePicker extends BasePicker {
         this.__controlled.paramsIndex = 1;
         this.__init();
     }
+    // 继承父组件的函数，_initProps 后增加额外处理逻辑
+    _afterInitProps() {
+        super._afterInitProps();
+        // 如果没有设置showTime，根据format自动增删showTime属性
+        if (Utils.typeof(this.__props.showTime, 'undefined')) {
+            this.__props.showTime = this._judgeShowTime(this.__props.format);
+        }
+    }
+    // 根据format自动增删showTime属性
+    _judgeShowTime(format) {
+        return format && format.toLowerCase().indexOf('h') !== -1;
+    }
     render() {
         let value = this.__props.value;
         return <Antd.DatePicker {...this.__props}
@@ -130,12 +143,24 @@ export class DatePicker extends BasePicker {
     }
 }
 // 范围选择
-export class RangePicker extends BasePicker {
+export class RangePicker extends DatePicker {
     constructor(props) {
         super(props);
         this.__controlled.paramsIndex = 1;
         this.__controlled.defaultVal = [];
         this.__init();
+    }
+    _afterInitProps() {
+        super._afterInitProps();
+        // 如果设置了 value='current'，则把current转换为当前时间
+        let value = this.__props.value;
+        if (value && value[0] === 'current') {
+            value[0] = moment().format(this.__props.format);
+        }
+        if (value && value[1] === 'current') {
+            value[1] = moment().format(this.__props.format);
+        }
+        this.__props.value = value;
     }
     render() {
         // 需注意，RangePicker 的value是一个数组
@@ -145,8 +170,8 @@ export class RangePicker extends BasePicker {
             value={value ? [Utils.moment(value[0], format), Utils.moment(value[1], format)] : value}/>;
     }
 }
-// 月份选择 ------ 注意，此处用的是 DataEntry，为的是防止 format 被覆盖成 datepicker 的默认值
-export class MonthPicker extends DataEntry {
+// 月份选择
+export class MonthPicker extends BasePicker {
     constructor(props) {
         super(props);
         this.__controlled.paramsIndex = 1;
@@ -161,7 +186,7 @@ export class MonthPicker extends DataEntry {
 
 /************* TimePicker 时间选择 *************** */
 // 时间选择，注意是继承的 DataEntry
-export class TimePicker extends DataEntry {
+export class TimePicker extends BasePicker {
     constructor(props) {
         super(props);
         this.__controlled.paramsIndex = 1;

@@ -76,7 +76,7 @@ export function checkCache(config) {
  *
  * @param {string} key 调用处传入，保证一致性
  * @param {string} result 执行结果：success/error
- * @param {...*} args 执行函数所需的参数列表
+ * @param {...*} params 执行函数所需的参数列表
  */
 function executeQueue(key, result, ...params) {
     if (ajaxQueue[key] && ajaxQueue[key].length > 0) {

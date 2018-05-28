@@ -76,7 +76,7 @@ export default class NewTable extends BaseComponent {
     initTable(isFirst) {
         let objProps = this.__props;
         // 兼容参数处理，兼容params的两种用法（写source外面也可以）
-        this.__filtered.source.params = objProps.params;
+        this.__filtered.source.params = Object.assign({}, this.__filtered.source.params, objProps.params);
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';

@@ -32,9 +32,10 @@ const Step1 = {
             }, */
             {
                 type: 'date-picker',
-                label: '日期',
+                label: '批次号',
                 name: 'line_sn',
-                format: 'YYYY-MM-DD',
+                format: 'YYYYMMDD',
+                default: 'current',
                 join: {
                     'idc_id': {
                         source: {

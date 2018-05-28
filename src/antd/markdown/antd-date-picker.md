@@ -19,6 +19,7 @@
 
 | 参数          | 说明            | 类型     | 默认值        |
 |--------------|----------------|----------|--------------|
+| default   | `Form`中配置时，使用`default`设置默认值 |   |     |
 | allowClear   | 是否显示清除按钮 | boolean     | true         |
 | disabled     | 禁用           | boolean     | false        |
 | className    | 选择器 className | string | '' |
@@ -36,7 +37,7 @@
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期。特殊值：`'current'`，自动转换为当前日期 | '2018-05-28' | 无           |
+| value        | 日期。特殊值：`'current'`，自动转换为当前日期 （`Form`中使用时，请在`default`属性上配置'current'） | '2018-05-28' | 无   |
 | format       | 展示的日期格式，Y表示年，M表示月，D表示天，H表示小时，m表示分钟，s表示秒钟 | string   | "YYYY-MM-DD" |
 | onChange     | 时间发生变化的回调 | function(date: moment, dateString: string) | 无           |
 | showTime     | 增加时间选择功能  | Object&#124;boolean | 根据`format`的值确定是否展示 |

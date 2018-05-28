@@ -404,6 +404,10 @@ class OriginForm extends BaseComponent {
             case 'time-picker':
                 // 日期时间选择
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
+                // current转换为当前时间
+                if (item.default === 'current') {
+                    item.default = {};
+                }
                 if (item.default) {
                     item.default = Utils.moment(item.default);
                 }

@@ -48,8 +48,9 @@ export function errorMessage(error) {
 
 /**
  * 检查是否有缓存
- * 如果有直接调用缓存数据，返回true
+ *
  * @param {Object} config ajax的配置
+ * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
  */
 export function checkCache(config) {
     // 如果需要做缓存，key不为空
@@ -67,10 +68,12 @@ export function checkCache(config) {
             AjaxCache.setCacheData(key, params);
         });
     }
+    return false;
 }
 
 /**
  * 执行队列中缓存的待执行逻辑
+ *
  * @param {string} key 调用处传入，保证一致性
  * @param {string} result 执行结果：success/error
  * @param {...*} args 执行函数所需的参数列表
@@ -87,7 +90,9 @@ function executeQueue(key, result, ...params) {
 /**
  * 检查当前是否已有相同的请求正在进行中
  * 如果有，则把后续逻辑放入队列中，中断后续逻辑。待请求返回数据后统一调用
+ *
  * @param {Object} config ajax的配置
+ * @return {boolean} 如果有，则返回true，否则返回false
  */
 export function checkQueue(config) {
     let key = Utils.hash(config, 32);
@@ -105,4 +110,5 @@ export function checkQueue(config) {
             executeQueue(key, 'error', ...params);
         }, true);
     }
+    return false;
 }

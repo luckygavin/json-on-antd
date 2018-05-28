@@ -99,8 +99,7 @@ define(function() {
                 duration: '2017-05-21 00:00:00',
                 customRender: '3'
             }
-        ],
-        pagination: false
+        ]
     }; 
     var Tab2 = [
         {
@@ -114,6 +113,7 @@ define(function() {
                     value: 'pendding',
                     size: 'large',
                     options: [
+                        {label: 'large类型', value: 'large'},
                         {label: '待处理工单', value: 'table'},
                         {label: '已完成工单', value: 'content2'}
                     ]
@@ -138,6 +138,23 @@ define(function() {
                 margin: '16px 0px',
                 width: '50%',
                 minHeight: '100px'
+            }
+        },
+        {
+            type: 'card',
+            title: 'Card title',
+            style: {
+                width: '400px',
+                position: 'relative',
+                margin: ' 16px auto'
+            },
+            extra: {
+                type: 'a',
+                content: 'More'
+            },
+            content: {
+                type: 'html',
+                content: '包含标题包含标题、内容、操作区域的卡片内容区域包含标题、内容、操作区域的卡片内容区域包含标题、内容、操作区域的卡片内容区域'
             }
         },
         Table

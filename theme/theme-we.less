@@ -1,0 +1,140 @@
+/**
+* @file 微服务框架使用主题
+* @author susisi@baidu.com 2018-05-24
+*/
+
+// @primary-color: #4CAF50;
+// @link-color: #3d8b40;
+// @link-color: #4CAF50;
+
+@primary-color: #00cdec;
+// @link-color: #42b983;
+
+// 字体大小
+@font-size-base: 12px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 10px;
+
+// 圆角
+@border-radius-base: 0px;
+@border-radius-sm: 0px;
+// 单选按钮中内部图标显示要保持是原型
+.ant-radio-inner:after {
+    border-radius: 50%;
+}
+
+// menu（参照阿里云）
+@menu-inline-toplevel-item-height: 35px;// 无作用
+@menu-item-height: 35px;// 无作用
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    line-height: @menu-inline-toplevel-item-height;
+    height: @menu-item-height;
+}
+
+
+// dark theme
+
+@uf-menu-dark-bg: #333744;
+@uf-menu-dark-selected-bg: #00c1de; // 选中后背景色
+@uf-menu-dark-active-bg: #4a5064; // hover背景色
+@uf-menu-dark-color: #dadada;
+@uf-menu-dark-selected-color: #fff;
+
+@menu-dark-color: @uf-menu-dark-color;
+@menu-dark-bg: @uf-menu-dark-bg;
+// @menu-dark-arrow-color: #fff;
+@menu-dark-submenu-bg: @uf-menu-dark-bg; // 子menu背景色
+@menu-dark-highlight-color: @uf-menu-dark-selected-color; // 不起作用，通过css使其有效
+@menu-dark-item-selected-bg: @uf-menu-dark-selected-bg; // 不起作用，所以通过css写
+
+.ant-menu-dark {
+    color: @menu-dark-color;
+    .ant-menu-item,
+    .ant-menu-item-group-title,
+    .ant-menu-item > a {
+        color: @menu-dark-color;
+    }
+    
+    .ant-menu-item:hover,
+    .ant-menu-item-active,
+    .ant-menu-submenu-active,
+    &:not(.ant-menu-inline) .ant-menu-submenu-open,
+    // .ant-menu-submenu-selected,
+    .ant-menu-submenu-title:hover {
+        background: @uf-menu-dark-active-bg;
+    }
+    // 样式解释
+    // .ant-menu-item:hover, // 无父子关系的item为hover
+    // .ant-menu-item-active, // 无父子关系的item为active,鼠标hover为active状态
+    // .ant-menu-submenu-active, // 父item为avtive
+    // &:not(.ant-menu-inline) .ant-menu-submenu-open,
+    // .ant-menu-submenu-selected, // 父item选中
+    // .ant-menu-submenu-title:hover // 父item为hover
+
+    // 纵向放置menu
+    .ant-menu-vertical .ant-menu-submenu-title,
+    .ant-menu-submenu-inline .ant-menu-submenu-title {
+        background: #424856;
+    }
+    // 水平放置menu
+    &:not(.ant-menu-inline) .ant-menu-submenu-selected {
+        color: @menu-dark-highlight-color;
+        background: @menu-dark-item-selected-bg;
+    }
+    // .ant-menu-horizontal > .ant-menu-item:hover,
+    // .ant-menu-horizontal > .ant-menu-item-active,
+    // &.ant-menu-horizontal > .ant-menu-submenu:hover,
+    // .ant-menu-horizontal > .ant-menu-submenu .ant-menu-submenu-title:hover {
+    //     color: @menu-dark-highlight-color; // 可解决选择子item时父item字体颜色为primary-color的问题
+    //     background: @uf-menu-dark-active-bg;
+    // }
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+    // 设置选中项样式，并且hover时不被以上hover样式覆盖
+    // background: @menu-dark-item-selected-bg;
+    background: @menu-dark-item-selected-bg;
+    color: @menu-dark-highlight-color;
+    a {
+        color: @menu-dark-highlight-color;
+    }
+}
+
+// light theme 中针对纵向导航条
+@menu-bg: #f0f2f5;
+@menu-item-active-bg: #fff;
+.ant-menu-light {
+    .ant-menu-submenu-inline .ant-menu-submenu-title {
+        background: @menu-bg;
+    }
+    .ant-menu-inline .ant-menu-item,
+    .ant-menu-inline .ant-menu-submenu-title {
+        background: @menu-bg;
+    }
+    .ant-menu-inline .ant-menu-item-selected {
+        background: @menu-item-active-bg;
+    }
+}
+
+// 输入型组件规定
+.ant-input {
+    width: 200px;
+    height: 28px;
+}
+.ant-select-selection {
+    width: 200px;
+}
+.ant-pagination-options {
+    .ant-select-selection {
+        width: auto;
+    }
+}
+
+// table组件-变为密集型组件
+@table-padding-vertical: 10px;
+
+// tabs组件
+.ant-tabs-bar {
+    margin-bottom: 20px;
+}

@@ -3,15 +3,24 @@ define(function(require) {
     var Tab2 = require('Tab2');
     var Tab3 = require('Tab3');
     var config = {
-        type: 'div',
-        style: {padding: '20px', background: '#f7f7f7'},
-        content: {
+        // type: 'div',
+        // style: {padding: '20px', background: '#f7f7f7'},
+        // content: {
             type: 'layout',
+            style: {
+                height: '100%'
+            },
             content: [
                 {
                     type: 'sider',
                     name: 'theme-sider',
                     className: 'test-menu-dark-sider',
+                    style: {
+                        width: '180px',
+                        minWidth: '180px',
+                        maxWidth: '180px',
+                        // background: '#fff'
+                    },
                     content: [
                         {
                             type: 'div',
@@ -166,15 +175,17 @@ define(function(require) {
                         },
                         {
                             type: 'breadcrumb',
-                            style: {margin: '12px 24px', background: '#ececec'},
-                            options: [
-                                'Home',
-                                '我的工单'
-                            ]
+                            style: {
+                                background: '#f3f3f3'
+                            },
+                            // options: [
+                            //     'Home',
+                            //     '我的工单'
+                            // ]
                         },
                         {
                             type: 'content',
-                            style: {padding: '20px', background: '#fff', minHeight: '500px'},
+                            style: {padding: '25px 30px', background: '#fff', minHeight: '500px'},
                             content: {
                                 type: 'tabs',
                                 mode: 'card',
@@ -204,7 +215,7 @@ define(function(require) {
                     ]
                 }
             ]
-        }
+        // }
     }
     return config;
 });

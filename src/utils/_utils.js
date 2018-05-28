@@ -8,7 +8,7 @@ const s4 = () => {
     return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
 };
 
-const _utils = {
+const utils = {
     // 数字前面补充0
     padNum(num, n) {
         let len = ('' + num).length;
@@ -33,7 +33,7 @@ const _utils = {
         } while (value >>= 1);
         // 凑长度
         if (len) {
-            while(retValue.length < len) {
+            while (retValue.length < len) {
                 retValue = retValue + retValue;
             }
             if (retValue.length > len) {
@@ -115,7 +115,7 @@ const _utils = {
             target = ghost;
         }
         if (level <= 0) {
-            return _utils.copy(objs[0]);
+            return utils.copy(objs[0]);
         }
         let result = target;
         for (let obj of objs) {
@@ -186,10 +186,8 @@ const _utils = {
                 if (obj1[i].toString() !== obj2[i].toString()) {
                     return false;
                 }
-            } else {
-                if (!Object.is(obj1[i], obj2[i])) {
-                    return false;
-                }
+            } else if (!Object.is(obj1[i], obj2[i])) {
+                return false;
             }
         }
         return true;
@@ -241,7 +239,7 @@ const _utils = {
     },
     // 获取数据的类型，返回的类型名称为全小写
     // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
-    // 推荐使用 _utils.typeof 函数
+    // 推荐使用 utils.typeof 函数
     getType(value) {
         return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
     },
@@ -263,7 +261,9 @@ const _utils = {
     // 判断组件是否继承自某个类，支持验证自己
     // 根据组件的引用（通过import获得）判断，支持深层查找
     isExtendsOf(item, superClass) {
-        if (item === superClass) return true;
+        if (item === superClass) {
+            return true;
+        }
         // item.prototype.__proto__.__proto__.constructor === SuperClass
         // let Item = item.prototype && item.prototype.__proto__;
         // while(Item) {
@@ -316,17 +316,16 @@ const _utils = {
         if (format[0]) {
             return format[0].value;
         }
-        return;
     },
     // 把数据格式化成json展示
     prettyJson(data, origin) {
         if (origin) {
-            return this._syntaxHighlight(data);
+            return this.syntaxHighlight(data);
         }
         return {
             type: 'pre',
             className: 'json',
-            dangerouslySetInnerHTML: {__html: this._syntaxHighlight(data)}
+            dangerouslySetInnerHTML: {__html: this.syntaxHighlight(data)}
         };
     },
     // 根据一个字符串，生成一个深层的对象
@@ -373,12 +372,12 @@ const _utils = {
 
     /************************************************************************/
     // 私有方法
-    _syntaxHighlight(json) {
+    syntaxHighlight(json) {
         if (typeof json !== 'string') {
             json = JSON.stringify(json, undefined, 2);
         }
         json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
-        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;
         return json.replace(reg, match=>{
             let cls = 'number';
             if (/^"/.test(match)) {
@@ -388,7 +387,7 @@ const _utils = {
                     try {
                         let type = JSON.parse(match);
                         if (typeof(JSON.parse(type)) === 'object') {
-                            return this._syntaxHighlight(JSON.parse(type));
+                            return this.syntaxHighlight(JSON.parse(type));
                         } else {
                             cls = 'string';
                         }
@@ -406,4 +405,4 @@ const _utils = {
     }
 };
 
-export default _utils;
+export default utils;

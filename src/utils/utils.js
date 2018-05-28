@@ -8,7 +8,7 @@ import underscore from 'underscore';
 import moment from 'moment';
 
 // 引入了underscore的功能，并在其上增加了自定义的一些函数
-const Utils = Object.assign({}, _utils, {
+const utils = Object.assign({}, _utils, {
     // 如果要使用原生的功能，可通过 _ 来访问
     _: underscore,
     // 如果数据合法，返回moment数据；否则返回null
@@ -37,4 +37,4 @@ const Utils = Object.assign({}, _utils, {
     }
 });
 
-export default Utils;
+export default utils;

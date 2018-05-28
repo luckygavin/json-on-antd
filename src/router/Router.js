@@ -50,11 +50,7 @@ export class Router extends BaseRouter {
             delete this.__props.routes;
         }
     }
-    // 继承父组件的函数，并在__props上设置history属性
-    // 此函数会在初始化以及componentWillReceiveProps时调用
-    // _initProps(...params) {
-    //     super._initProps.call(this, ...params);
-    // }
+
     handleRoutes(routes) {
         let arr = routes;
         if (!Utils.typeof(routes, 'array')) {

@@ -8,36 +8,95 @@
  */
 
 export default {
-    // 路由
+    /****************************************************************************************/
+    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
+    /****************************************************************************************/
+    'base-component': {
+        control: {
+            trigger: 'onClick'
+        },
+        source: {
+            target: 'content'
+        }
+    },
+    'antd': {},
+    'data-entry': {
+        api: {
+            trigger: 'onChange'
+        },
+        source: {
+            target: 'value'
+        },
+        control: {
+            trigger: 'onChange',
+            handler: (...p)=>p[p.length - 1].getValue()
+        }
+    },
+    /****************************************************************************************/
+    /******* 普通组件默认配置 ******************************************************************/
+    /****************************************************************************************/
+    'auto-complete': {
+        style: {width: 160},
+        options: []
+    },
+    'breadcrumb': {
+        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
+    },
+    'cascader': {
+        source: {
+            target: 'options'
+        }
+    },
+    'checkbox': {
+        source: {
+            target: 'checked'
+        }
+    },
+    'checkbox-group': {
+        source: {
+            target: 'options'
+        }
+    },
+    'input': {
+        api: {
+            trigger: 'onPressEnter'
+        },
+        control: {
+            trigger: 'onPressEnter'
+        }
+    },
+    'radio': {
+        source: {
+            target: 'options'
+        }
+    },
     'router': {
         history: 'hashHistory'
     },
-    // Loading
     'loading': {
         delay: 150
     },
-    // Iframe
     'iframe': {
         mode: 'auto',
         delay: 0,
         showLoading: true
     },
     'select': {
-        optionFilterProp: 'children'
+        optionFilterProp: 'children',
+        source: {
+            target: 'options'
+        }
     },
-    // 面包屑
-    'breadcrumb': {
-        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
+    'switch': {
+        source: {
+            target: 'checked'
+        }
     },
-    // 下拉
-    'select': {
-        optionFilterProp: 'children'
-        // style: {width: 120}
+    'date-picker': {
+        format: 'YYYY-MM-DD'
     },
-    // 自动补全
-    'auto-complete': {
-        style: {width: 160},
-        options: []
+    'range-picker': {
+        format: 'YYYY-MM-DD'
     },
     'month-picker': {
         format: 'YYYY-MM'
@@ -49,10 +108,15 @@ export default {
         // 默认高亮随路由一起变换
         followRoute: true
     },
+    'upload': {
+        source: {
+            target: 'fileList'
+        }
+    },
+
     /****************************************************************************************/
     /***** 自定义组件默认配置 ******************************************************************/
     /****************************************************************************************/
-    // form
     'form': {
         items: [],
         buttons: null,
@@ -60,9 +124,15 @@ export default {
             type: 'horizontal',
             labelCol: 6,
             wrapperCol: 14
+        },
+        api: {
+            trigger: 'onSubmit'
+        },
+        control: {
+            trigger: 'onSubmit',
+            handler: v=>v
         }
     },
-    // table
     'table': {
         rowKey: 'id',
         pagination: {
@@ -71,15 +141,29 @@ export default {
             pageType: 'client',
             total: 0
         },
-        // 自动加载数据 - 目前和sourceAutoLoad区分
-        autoLoadSource: true,
+        source: {
+            // 自动加载数据
+            autoLoad: true
+        },
+        rowSelection: {
+            keepSelected: false
+        },
         data: []
     },
-    // modal
-    'modal': {
-        visible: false
+    // table 的编辑插件
+    'table-cell': {
+        api: {
+            trigger: 'onSubmit'
+        }
     },
-    'form-modal': {
-        visible: false
+    'modal': {
+        visible: false,
+        api: {
+            trigger: 'onSubmit'
+        },
+        control: {
+            trigger: 'onSubmit',
+            handler: v=>v
+        }
     }
 };

@@ -3,7 +3,7 @@
 * 配置`checkbox`实现复选框功能
 * 配置`search`实现搜索功能
 * 配置`select`实现点击选择功能
-* 配置`loadData`实现异步加载功能
+* 配置`source`实现异步加载功能
 * 配置`widthResize`实现右边缘拖动加宽功能
 * 配置`showLine`实现带连接线的树
 * 若没有进行任何配置，则为树形图展示1中的样式
@@ -19,10 +19,12 @@
 | checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
 | search | 搜索功能 | Object | - |  |
 | select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
-| loadData | 异步加载功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
+| source | 异步加载功能。参数和通用source参数一致，实际用法略有不同 | Object | - |  |
 | widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
 | showLine | 是否展示连接线 | Boolean | false | . |
 | data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |
+
+> 当配置了`source`参数时，树组件即具备了异步获取子树的功能，当点击到没有`children`数据又非叶子节点的时候，就会自动去用`source`系列参数获取数据。可见第一个demo的用法
 
 #### expand
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |
@@ -56,17 +58,6 @@
 | selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |
 | multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |
 | onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |
-
-#### loadData
-| 参数 | 说明 | 类型 | 默认值 | 是否必填 |
-| ---- | ---- | ----- | ----- | ----- |
-| enable | 开启异步请求功能，只有为`true`时以下几项配置才有效 | Bealoon | false |  |
-| source | 异步请求地址 | String | - |  |
-| params | 异步请求所需要的各种参数，这些参数要在数据中包含 | Object | - | . |
-> 请求回来的数据格式必须是：`{ status: 0/1, data: [], msg: ''}`
-> `status`为0时，请求数据成功，1失败(注意是number类型);
-> `data`为请求回来的数据;
-> `msg`为请求结果文字表述。
 
 #### widthResize
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |

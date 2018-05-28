@@ -208,19 +208,24 @@ class OriginForm extends BaseComponent {
                 let target = this.itemsCache[i];
                 if (target) {
                     for (let j in item.join[i]) {
-                        let result;
+                        let result = item.join[i][j];
                         switch (j) {
                             case 'value': {
                                 let oValue = this.itemRef[i] && this.itemRef[i].getValue();   
-                                result = item.join[i][j](val, oValue, target);
+                                if (Utils.typeof(item.join[i][j], 'function')) {
+                                    result = item.join[i][j](val, oValue, target);
+                                }
                                 // this.form.setFields({[i]: {value: result, errors: []}});
                                 this.form.setFieldsValue({[i]: result});
                                 break;
                             }
                             case 'display':
                             default:
-                                result = item.join[i][j](val, target[j], target);
-                                target[j] = result;
+                                if (Utils.typeof(item.join[i][j], 'function')) {
+                                    result = item.join[i][j](val, target[j], target);
+                                }
+                                // target[j] = result;
+                                this.__mergeProps(target, {[j]: result});
                                 break;
                         }
                     }
@@ -295,7 +300,7 @@ class OriginForm extends BaseComponent {
         if (this.config.size) {
             itemProps.size = itemProps.size || this.config.size;
         }
-        // 触发Change时实现联动功能, TODO
+        // 触发Change时实现联动功能
         itemProps.onChange = this.onChange.bind(this, item);
         // 存储ref
         itemProps.ref = inst=>{this.itemRef[key] = inst};
@@ -536,29 +541,20 @@ class OriginForm extends BaseComponent {
         let handleClick;
         let icon;
         switch (item.action) {
-            // case 'add':
-            //     handleClick = this.addClick.bind(this, item.onClick)
-            //     break;
-            // case 'copy':
-            //     handleClick = this.copyClick.bind(this, item.onClick)
-            //     break;
-            // case 'delete':
-            //     handleClick = this.deleteClick.bind(this, item.onClick, key)
-            //     break;
             case 'clear':
-                icon = 'delete'
-                handleClick = this.clearClick.bind(this, item.onClick, key)
+                icon = 'delete';
+                handleClick = this.clearClick.bind(this, item.onClick, key);
                 break;
             case 'reset':
-                icon = 'reload'
-                handleClick = this.resetClick.bind(this, item.onClick, key)
+                icon = 'reload';
+                handleClick = this.resetClick.bind(this, item.onClick, key);
                 break;
             case 'submit':
-                icon = 'search'
-                handleClick = this.handleSubmit.bind(this, null, item.onClick, key)
+                icon = 'search';
+                handleClick = this.handleSubmit.bind(this, null, item.onClick, key);
                 break;
             default:
-                handleClick = this.othersClick.bind(this, item.onClick)
+                handleClick = this.othersClick.bind(this, item.onClick);
                 break;
         }
         let props = Object.assign({
@@ -767,6 +763,9 @@ const ReactForm = Form.create({
 // Form.create生成的组件是非BaseComponent类型的，需要外面再包一层壳子。
 // 注意壳子只是用来声明组件类型的，不需要对参数进行任何处理，所以无需调用 __init() 函数
 export default class NewForm extends BaseComponent {
+    constructor(props) {
+        super(props);
+    }
     render() {
         return <ReactForm {...this.props}/>;
     }

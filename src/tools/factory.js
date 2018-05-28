@@ -42,8 +42,7 @@ export default class Factory extends PureComponent {
                 return this.generateElement(item);
             }
         }
-        // TODO:
-        // 如果是字符串直接返回
+        // 如果不是对象直接返回
         if (!Utils.typeof(item, 'object')) {
             return item;
         }

@@ -113,16 +113,14 @@ const treeConfig = {
         enable: true, // 树搜索功能，默认值为false
         onlyShowSearchResult: true // 仅展示搜索的结果, 默认为true
     },
-    loadData: {
-        enable: true, // 开启异步请求功能，默认为false，只有为true时以下几项配置才有效
-        source: 'docs/php/tree-data.php', // 异步请求地址
-        params: ['key', 'type'] // 异步请求所需要的各种参数，这些参数要在数据中包含
-        // 请求回来的数据格式必须是
-        // {
-        //     status: 0/1, // 0成功，1失败(注意是number类型)
-        //     data: ['key'], // 请求回来的子节点数据
-        //     msg: '', // 请求结果文字表述
-        // }
+    source: {
+        url: 'docs/php/tree-data2.php',
+        paramsHandler(params) {
+            return {
+                key: params.key,
+                type: params.type
+            };
+        }
     },
     widthResize: {
         resizeAble: true, // 允许改变宽度

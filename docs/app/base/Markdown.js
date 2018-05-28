@@ -23,14 +23,21 @@ export default class Markdown extends React.Component {
         // this.replaceTemplate = {};
     }
     render() {
-        return (this.props.doc && mdfile[this.props.doc])
-            ? <div dangerouslySetInnerHTML={{__html: marked(
+        return <div dangerouslySetInnerHTML={{__html: marked(
                 // markdown 中可以使用变量（package.json中定义的属性）
-                mdfile[this.props.doc].replace(/\%\{(.+?)\}\%/g, function(s, v) {
-                    return config[v] || s;
+                ((this.props.doc && mdfile[this.props.doc]) ? mdfile[this.props.doc] : this.props.doc
+                ).replace(/%\{(.+?)\}%/g, function(s, v) {
+                    if (config[v]) {
+                        return config[v];
+                    }
+                    // 支持使用表达式
+                    try {
+                        return eval(v);
+                    } catch (e) {
+                        return s;
+                    }
                 })
-            )}}></div>
-            : <div dangerouslySetInnerHTML={{__html: marked(this.props.doc)}}></div>;
+            )}}/>;
     }
 
     // 增加异步引用文件功能

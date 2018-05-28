@@ -11,6 +11,13 @@ $json = json_decode(file_get_contents(__DIR__ . '/package.json'));
 // 默认和 package.json 的 版本相同
 if ($_GET['v']) {
     $_VERSION = $_GET['v'];
+    $_FIXED = '';
 } else {
     $_VERSION = $json->version;
+    $_FIXED = $json->fixedVersion;
+    if ($_VERSION !== $_FIXED) {
+        $_FIXED = '?v=' . $_FIXED;
+    } else {
+        $_FIXED = '';
+    }
 }

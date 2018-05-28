@@ -7,7 +7,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
+import {Table, Button, Icon, Dropdown, Menu, Modal, Popover, Popconfirm, message} from 'antd';
+import {Input, Checkbox} from 'antd';
+
 import Export from 'src/export';
 
 const CheckboxGroup = Checkbox.Group;
@@ -35,27 +37,15 @@ export default class Title extends BaseComponent {
             showTableMenu: false,
             // 是否展示全部字段
             showAllTags: false,
-            showSetTagsModal: false
+            showSetTagsModal: false,
+            // 存储模糊搜索输入的值
+            filterValue: ''
         };
-        // 用于存储多列的筛选条件
-        this.globalFilterInput = '';
         // 过滤字段黑名单/白名单
         this.globalFilterList = null;
-        this.init();
-    }
-    showExport() {
-        let exportRef = this.refs.basicExport || this.refs.menuExport;
-        exportRef && exportRef.showModal();
-    }
-    // 不必多次刷新
-    // shouldComponentUpdate(nextProps, nextState) {
-    //     return false;
-    // }
-    init() {
-
     }
     clearState() {
-        this.globalFilterInput = '';
+        this.setState({filterValue: ''});
         this.hideMenuDropdown();
     }
 
@@ -65,12 +55,20 @@ export default class Title extends BaseComponent {
         if (!this.title) {
             return null;
         }
-        let text = this.title.text || '';
+        let {text = '', extra} = this.title;
         let result = [];
         // 表头标题
         if (text) {
             result.push(<div key="table-title" className="uf-header">
                     <span>{this.parent.__analysis(text)}</span>
+                </div>
+            );
+        }
+        // 标题之后额外自定义内容
+        if (extra) {
+            let extraConf = this.parent.handleAction(extra);
+            result.push(<div key="table-extra" className="uf-extra">
+                    <span>{this.parent.__analysis(extraConf)}</span>
                 </div>
             );
         }
@@ -82,12 +80,13 @@ export default class Title extends BaseComponent {
         if (gearsList) {
             divList.push(gearsList);
         }
-        result.push(<div key="table-extra" className="uf-header-extra-con">{divList}</div>);
+        result.push(<div key="table-widget" className="uf-header-widget-con">{divList}</div>);
         return result;
     }
     // 基本控件
     getBasicWidghts() {
-        let arrBasic = this.title.basicControls;
+        // 因为使用频率较高，暂时保留原参数，后续版本中移除
+        let arrBasic = this.title.basicWidget || this.title.basicControls;
         let result = [];
         if (!arrBasic) {
             return result;
@@ -106,14 +105,15 @@ export default class Title extends BaseComponent {
                             blacklist: v.blacklist
                         };
                     }
-                    result.push(<div className="uf-header-extra filter no-hover" key="uf-header-extra">
-                            <Input name="filter" prefix={<Icon type={v.icon || 'filter'}/>}
-                                placeholder={v.text || '要过滤的内容'}
-                                onChange={this.globalFilterChange.bind(this)}/>
+                    result.push(<div className="uf-header-widget filter no-hover" key="uf-header-widget">
+                            <Input.Search name="filter" placeholder={v.text || '模糊搜索'}
+                                value={this.state.filterValue}
+                                onChange={this.onFilterChange.bind(this)}
+                                onSearch={this.onFilterSearch.bind(this)}/>
                         </div>);
                     break;
                 case 'refresh':
-                    result.push(<div className="uf-header-extra" key="refresh"
+                    result.push(<div className="uf-header-widget" key="refresh"
                                 title={v.text || '刷新'}
                                 onClick={this.parent.refreshTable}>
                             <Icon type={v.icon || 'retweet'} />
@@ -121,7 +121,7 @@ export default class Title extends BaseComponent {
                         </div>);
                     break;
                 case 'fullScreen':
-                    result.push(<div className="uf-header-extra" key="fullscreen"
+                    result.push(<div className="uf-header-widget" key="fullscreen"
                             title={!this.parent.state.fullScreen ? v.text || '全屏' : v.text || '退出全屏'}
                             onClick={this.parent.toggleFullScreen}>
                             {!this.parent.state.fullScreen
@@ -135,16 +135,15 @@ export default class Title extends BaseComponent {
                         </div>);
                     break;
                 case 'export':
-                    result.push(<div className="uf-header-extra" key="export"
-                        title={v.text || '导出'}>
-                            <Export ref="basicExport" {...this.getExportConfig()}>
-                                <Icon type={v.icon || 'download'} />
-                                {showText && <span>{v.text || '导出'}</span>}
-                            </Export>
+                    result.push(<div className="uf-header-widget" key="export"
+                        title={v.text || '导出'}
+                        onClick={this.parent._handleExport}>
+                            <Icon type={v.icon || 'download'} />
+                            {showText && <span>{v.text || '导出'}</span>}
                         </div>);
                     break;
                 case 'switchTags':
-                    result.push(<div className="uf-header-extra" key="switchTags"
+                    result.push(<div className="uf-header-widget" key="switchTags"
                                 title={v.text || '展示字段'}
                                 onClick={this.showSwitchTags.bind(this)}>
                             <Icon type={v.icon || 'setting'} />
@@ -154,7 +153,7 @@ export default class Title extends BaseComponent {
                 case 'showAllTags':
                     result.push(<div key="showAllTags"
                                 title={v.text || '展示全部'}
-                                className={'uf-header-extra ' + (this.parent.state.showAllTags ? 'active' : '')}
+                                className={'uf-header-widget ' + (this.parent.state.showAllTags ? 'active' : '')}
                                 onClick={this.parent.toShowAllTags}>
                             <Icon type={v.icon || 'eye-o'} />
                             {showText && <span>{v.text || '展示全部'}</span>}
@@ -165,7 +164,7 @@ export default class Title extends BaseComponent {
                             title={this.renderPageInput('basic')}
                             onConfirm={this.getPageSizeSetting.bind(this, 'basic')}
                             okText="Yes" cancelText="No">
-                            <div className="uf-header-extra"
+                            <div className="uf-header-widget"
                                 title={v.text || '分页设置'}
                                 onClick={this.showSetPageSize.bind(this, 'basic')}>
                                 <Icon type={v.icon || 'switcher'} />
@@ -174,7 +173,7 @@ export default class Title extends BaseComponent {
                         </Popconfirm>);
                     break;
                 default:
-                    result.push(<div key={v.name} className={'uf-header-extra ' + (v.name || '')}
+                    result.push(<div key={v.name} className={'uf-header-widget ' + (v.name || '')}
                             title={v.text}
                             onClick={v.onClick && v.onClick.bind(null, this.parent)}>
                             <Icon type={v.icon || 'file-unknown'} />
@@ -186,7 +185,8 @@ export default class Title extends BaseComponent {
     }
     // 下拉列表中的控件
     getMenuWidghts() {
-        let arrMenus = this.title.menuControls;
+        // 因为使用频率较高，暂时保留原参数，后续版本中移除
+        let arrMenus = this.title.menuWidget || this.title.menuControls;
         let result = null;
         let gearsList = [];
         if (!arrMenus) {
@@ -227,11 +227,12 @@ export default class Title extends BaseComponent {
                     break;
                 case 'export':
                     gearsList.push(<MenuItem key="export1">
-                        <div onClick={this.hideMenuDropdown.bind(this)}>
-                            <Export ref="menuExport" {...this.getExportConfig()}>
-                                <Icon type={v.icon || 'download'} className="menu-item-icon" />
-                                <span>{v.text || '导出数据'}</span>
-                            </Export>
+                        <div onClick={()=>{
+                                this.parent._handleExport();
+                                this.hideMenuDropdown();
+                            }}>
+                            <Icon type={v.icon || 'download'} className="menu-item-icon" />
+                            <span>{v.text || '导出数据'}</span>
                         </div>
                     </MenuItem>);
                     break;
@@ -287,7 +288,7 @@ export default class Title extends BaseComponent {
                 onVisibleChange={this.switchMenuList.bind(this)}
                 placement="bottomRight"
                 visible={this.state.showTableMenu}>
-                <span className={'uf-header-extra menu ' + (this.state.showTableMenu ? 'active' : '')}
+                <span className={'uf-header-widget menu ' + (this.state.showTableMenu ? 'active' : '')}
                     title="菜单">
                     {this.state.showTableMenu
                         ? <Icon type="menu-unfold" />
@@ -302,10 +303,21 @@ export default class Title extends BaseComponent {
 
     /* 模糊搜索 **********************************************************************/
 
-    // 过滤输入框变化时
-    globalFilterChange(e) {
+    // 过滤输入框点回车搜索时 (用于后端分页)
+    onFilterSearch(value) {
+        // 在原有参数基础上，追加一个search参数
+        let oParams = this.parent.__filtered.source.params;
+        oParams.search = value;
+        this.parent.set({params: oParams});
+    }
+    // 过滤输入框变化时(用于前端分页)
+    onFilterChange(e) {
         let iVal = e.target.value;
-        this.globalFilterInput = iVal;
+        this.setState({filterValue: iVal});
+        // 如果为后端分页，则不立刻搜索，onSearch 时才会搜索
+        if (this.parent.serverPaging) {
+            return;
+        }
         clearTimeout(this.filterTimer);
         this.filterTimer = setTimeout(()=>{
             this.onFilterData();
@@ -320,8 +332,8 @@ export default class Title extends BaseComponent {
         let total = pagination && pagination.total;
         let current = pagination && pagination.current;
         // 对数据进行全局过滤
-        if (this.globalFilterInput.length !== 0) {
-            data = this.globalFilterData(this.globalFilterInput, data);
+        if (this.state.filterValue.length !== 0) {
+            data = this.doFilterData(this.state.filterValue, data);
             this.cacheTotal = this.cacheTotal || total;
             this.cacheCurrent = this.cacheCurrent || current;
             total = data.length;
@@ -339,7 +351,7 @@ export default class Title extends BaseComponent {
         this.parent.__setProps(newProps);
     }
     // 全局搜索数据
-    globalFilterData(iVal, content) {
+    doFilterData(iVal, content) {
         let strVal = iVal.toLowerCase().replace(/(^\s*)|(\s*$)/g, '').replace(/\s+/g, ' ');
         // 过滤使用的数据，如果是有传入的数据则进行过滤，没有则需要进行
         if (strVal) {
@@ -423,46 +435,10 @@ export default class Title extends BaseComponent {
     handleString(string) {
         let pattern1 = /<(\w+).*?>(.*?)<\/\1>/g; // 匹配是否有闭合标签
         if (pattern1.test(string)) {
-            return string.replace(/<([\/]?\w+).*?>/g, ''); // 剥掉所有标签
+            return string.replace(/<([/]?\w+).*?>/g, ''); // 剥掉所有标签
         } else {
             return string;
         }
-    }
-
-    /* 导出控件 **********************************************************************/
-    // 获取要下载导出数据的配置
-    getExportConfig() {
-        let tableCfg = this.parent.__props;
-        let columns = this.parent.columns;
-        let headers = [];
-        for (let i in columns) {
-            // 只导出展示的字段
-            if (this.parent.state.showAllTags || columns[i].display !== false) {
-                headers.push({
-                    key: columns[i].dataIndex || columns[i].key,
-                    title: columns[i].title
-                });
-            }
-        }
-        /**
-         * 1. 没有url就是直接传递了content的数据
-         * 2. 有url但是是client分页-Export需要传递data,默认是client分页
-         * 3. 有url但是是server端分页-Export需要传递url配置
-         */
-        if (!tableCfg.source || (this.parent.pagination && this.parent.pagination.pageType !== 'server')) {
-            let data = this.parent.__props.data || [];
-            return {
-                headers: headers,
-                data: data,
-                total: data.length
-            };
-        }
-        return {
-            headers: headers,
-            source: tableCfg.source,
-            params: tableCfg.params ? tableCfg.params : {},
-            total: this.parent.pagination && this.parent.pagination.total || 0
-        };
     }
 
     /* 展示字段设置 **********************************************************************/
@@ -507,6 +483,7 @@ export default class Title extends BaseComponent {
                 defaultValue.push(allColumns[item].dataIndex);
             }
         }
+        this.columnsCheckedValues = defaultValue;
         if (options.length > 0) {
             return <CheckboxGroup options={options}
                 defaultValue={defaultValue}

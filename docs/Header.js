@@ -74,8 +74,7 @@ export default class Header extends Component {
                     </Menu>
                 </div>
                 <div className="search">
-                    {/*<AutoComplete dataSource={DataList}
-                        placeholder="搜索组件... " />*/}
+                    <AutoComplete dataSource={[]} placeholder="搜索组件... " />
                     <Dropdown overlay={
                             <Menu>
                                 {versionList.reverse().map(v=>

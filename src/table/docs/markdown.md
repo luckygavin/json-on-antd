@@ -28,15 +28,13 @@
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
 | footer | 表格尾部         | Function(currentPageData)   | |
-| title  | 表格标题栏配置,可配置题目及表格控件，见下方`title`     | string&#124;object   | - |
+| title  | 表格标题栏配置,可配置题目及表格控件，见下方[`title`](#/Table/-title-)     | string &#124; object   | - |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
-| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取  | string  | - |
-| sourceHandler | 获取数据后，使用 sourceHandler 对数据进行预处理，以兼容各种数据结构 | string  | - |
-| method | 获取数据的方式。可选 `get` `post` | String | `get` | 
-| params | 通过source向后端请求时传的参数（一般用于外部搜索) | Object |  | 
-| autoLoadSource | 是否组件渲染完成后自动加载数据（配置 source 属性后有效） | boolean | true | 
+| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
+| source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | 
+| params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | 
 | crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | 
+| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
@@ -57,7 +55,7 @@
 | className  | 列的 className             | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
 | render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |
-| filterConfig    | 表头的筛选设置，详见下方`columns.filterConfig`           | Object           | - |
+| filter    | 表头的筛选设置，详见下方`columns.filter`           | Object           | - |
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
@@ -66,11 +64,11 @@
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
-#### *column.filterConfig*
+#### *column.filter*
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
-| filterType      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |
-| filters      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |
+| type      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |
+| options      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |
 
 #### *column.editable*
 
@@ -151,24 +149,27 @@ columns: [
 
 #### *title*
 
-| 参数              | 说明                     | 类型             |  默认值   |
-|------------------|--------------------------|-----------------|---------------------|
-| text | 表格标题 | string&#124;`config` | -  |
-| basicControls | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array | -  |
-| menuControls | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | -   |
-| showText | 是否显示控件图标后面的说明文字 | Boolean | true  |
+参数              | 说明                     | 类型             |  默认值
+-----------------|--------------------------|-----------------|--------
+text | 表格标题 | string&#124;`config` | -  |
+basicWidget | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array |
+menuWidget | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | 
+showText | 是否显示控件图标后面的说明文字 | Boolean | true 
+extra | 额外自定义 控件/组件 列表，本身为一个数组，数组中每一项为一个组件配置，例如一个按钮 | array | 
+
+> extra或者widget中的自定义控件，都有一个额外的`action`属性，可以关联配置的`crud`，用法类似上面介绍的[`column._operation`](#/Custom/Table/-column-_operation-)
 
 ##### *所有可选基础控件说明*
 
-控件 | 说明 | 位置 | 是否必填
----- | ---- | ----- | -----
-filter |  过滤功能 | 只能用于basic中 |
-export |  导出数据 |  |
-switchTags |  选择要展示的列 |  |
-refresh |  刷新表格按钮 |  |
-fullScreen |  全屏展示 |  |
-showAllTags |  展示全部列功能 |  |
-setPageSize |  设置分页条数 |  |
+控件 | 说明 | 位置
+---- | ---- | -----
+filter |  模糊搜索功能。`前端分页`、`后端分页`都支持。当表格为后端分页时模糊搜索不再为实时获取，而是输入完成后点击回车或者🔍，组件会重新调用source接口，并额外传递一个`search`参数，参数值为输入内容。控件会随Table的分页形式自行切换 | 只能用于basic中
+export |  导出数据。会随Table的分页形式自行切换交互形式 |
+switchTags |  选择要展示的列 |
+refresh |  刷新表格按钮 |
+fullScreen |  全屏展示 |
+showAllTags |  展示全部列功能 |
+setPageSize |  设置分页条数 |
 
 使用基础控件，可以直接使用字符串形式（控件名），如果想更改控件的默认展示效果，可改用对象的方式，参数和自定义控件类似。`name`即为组件名称，`icon`和`text`可自定义。
 
@@ -194,8 +195,15 @@ setPageSize |  设置分页条数 |  |
 refresh | 刷新表格数据，会展示loading等 | refresh()
 reload | 手动触发表格获取数据 | reload()
 showCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)
+export | 手动触发导出数据功能，可以用于置于任何位置的按钮点击后调用表格的导出功能 | export()
+getSelected | 手动获取已选中的数据 | getSelected()
+getSelectedKeys | 获取当前全部选中行的key | getSelectedKeys()
+selectAll | 手动触发全选 | selectAll()
+clearSelect | 手动触发全选 | clearSelect()
 
-#### *data*
+### 其余一些 Tips
+
+#### data 数据格式
 表格的数据数组格式如下：
 ```javascript
 [{
@@ -208,11 +216,6 @@ showCrud | 展示crud属性中配置的增删改查等弹框。第一个参数�
     name: '胡彦祖',
     age: 42,
     address: '西湖区湖底公园2号'
-}, {
-    key: '3',
-    name: '胡彦祖',
-    age: 52,
-    address: '西湖区湖底公园3号'
 }]
 ```
 **注意：**  
@@ -221,3 +224,10 @@ showCrud | 展示crud属性中配置的增删改查等弹框。第一个参数�
 
 如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。
 
+#### 关于后端分页数据缓存问题
+
+如`Table`组件中使用后端分页，如果数据不是实时更新的，可以开启数据缓存功能，切换分页后，再查看原来分页的数据即可无需再次请求。
+
+具体方法有两种：
+* 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法
+* 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`

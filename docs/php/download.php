@@ -1,4 +1,6 @@
 <?php
+include('add-header.php');
+
 // 后端的模拟单条数据
 $pis = '{"id":"1925","hostname":"tc-click-log1-off.tc","sn":"686N32X","status":"14","model_id":"15","rack":"TC706-03-11-4","container_id":"488","rms_product_id":"174"}';
 $pis = json_decode($pis);

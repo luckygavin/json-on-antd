@@ -20,25 +20,25 @@ $suffix = '';
                 <!-- 老版本需要 -->
                 <link rel="stylesheet" href="dist/css/theme.min.css?v=<?php echo $_VERSION;?>" />
             <?php } ?>
-            <script src="dist/js/dll.js?v=<?php echo $_VERSION;?>"></script>
-            <script src="dist/js/antd.js?v=<?php echo $_VERSION;?>"></script>
+            <script src="dist/<?php echo $_VERSION;?>/dll.js<?php echo $_FIXED;?>"></script>
+            <script src="dist/<?php echo $_VERSION;?>/antd.js<?php echo $_FIXED;?>"></script>
         <?php } else { ?>
             <?php if (in_array($_VERSION, ['0.2.2', '0.2.1', '0.2'])) { ?>
                 <link rel="stylesheet" href="css/theme.min.css?v=<?php echo $_VERSION;?>" />
             <?php } ?>
-            <script src="dist/dll.min.js?v=<?php echo $_VERSION;?>"></script>
-            <script src="dist/antd.min.js?v=<?php echo $_VERSION;?>"></script>
+            <script src="v/<?php echo $_VERSION;?>/dll.js<?php echo $_FIXED;?>"></script>
+            <script src="v/<?php echo $_VERSION;?>/antd.js<?php echo $_FIXED;?>"></script>
         <?php }?>
-        <link rel="stylesheet" href="public/<?php echo $_VERSION; ?>/doc.min.css" />
+        <link rel="stylesheet" href="public/<?php echo $_VERSION; ?>/doc.min.css<?php echo $_FIXED;?>" />
         <script src="public/highlight/prism.js" data-manual></script>
     </head>
     <body>
         <div id="container"></div>
-        <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/echarts4/echarts.simple.min.js"></script>
-        <script src="http://antd.uf.baidu.com:8000/uf-online/third_party/ueditor/js.php"></script>
+        <script src="http://uf.baidu.com/third_party/echarts4/echarts.simple.min.js"></script>
+        <script src="http://uf.baidu.com/third_party/ueditor/js.php"></script>
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
         
-        <script src="public/<?php echo $_VERSION; ?>/doc.js"></script>
+        <script src="public/<?php echo $_VERSION; ?>/doc.js<?php echo $_FIXED;?>"></script>
         <script type="text/javascript">
             // makdown代码收/放
             $(document).on('click', 'pre', function(e) {
@@ -51,9 +51,7 @@ $suffix = '';
             });
         </script>
         <?php if (ENV == 'dev') { ?>
-            <script src="dist/<?php echo $_VERSION;?>/dll.js"></script>
-            <script src="dist/<?php echo $_VERSION;?>/antd.js"></script>
-            <script src="dist/<?php echo $_VERSION;?>/uf.js"></script>
+            <script src="dist/<?php echo $_VERSION;?>/uf.js<?php echo $_FIXED;?>"></script>
         <?php }?>
     </body>
 </html>

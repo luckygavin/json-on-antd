@@ -17,6 +17,17 @@ http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js
 ```
 
 
+### Echarts4
+`4.0.4`
+
+```
+http://uf.baidu.com/third_party/echarts4/echarts.js
+http://uf.baidu.com/third_party/echarts4/echarts.min.js
+http://uf.baidu.com/third_party/echarts4/echarts.simple.min.js
+http://uf.baidu.com/third_party/echarts4/echarts.common.min.js
+```
+
+
 ### Echarts
 `3.6.2`
 

@@ -17,8 +17,7 @@ const demo1 = {
                 width: '200px',
                 marginBottom: '15px'
             },
-            value: '2017/08/31',
-            format: 'YYYY/MM/DD'
+            value: 'current'
         },
         {
             type: 'month-picker',
@@ -27,7 +26,7 @@ const demo1 = {
                 width: '200px',
                 marginBottom: '15px'
             },
-            value: '2017/08',
+            value: 'current',
             format: 'YYYY/MM'
         },
         {
@@ -35,7 +34,7 @@ const demo1 = {
             style: {
                 display: 'block'
             },
-            value: ['2017/08/31', '2017/09/01'],
+            value: ['2017/08/31', 'current'],
             format: 'YYYY/MM/DD'
         }
     ]

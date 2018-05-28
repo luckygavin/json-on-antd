@@ -8,9 +8,10 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
 // 扩展功能 - 增删改查等
+import Export from 'src/export';
 import Crud from './Crud.js';
 import Title from './Title.js';
-import EditCell from './Edit';
+import EditCell from './Edit.js';
 
 const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
@@ -26,15 +27,13 @@ export default class NewTable extends BaseComponent {
     // 以下是函数定义
     constructor(props) {
         super(props);
-        // Table自己实现的source获取数据，不实用BaseComponent中的通用逻辑，也就无需过滤参数
-        this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
         // 暴露给用户使用的函数
         this._openApi.push(
             'reload', 'refresh', 'export',
             'showCrud',
-            'getSelected', 'getSelectedKeys', 'selectAll',
+            'getSelected', 'getSelectedKeys', 'selectAll', 'clearSelect',
             // 纯粹为了 bind this
-            'toggleFullScreen', 'refreshTable', 'toShowAllTags'
+            'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction'
         );
         this.__init();
         this.state = {
@@ -47,24 +46,24 @@ export default class NewTable extends BaseComponent {
             fullScreen: false,
             // 是否展示全部字段
             showAllTags: false,
-            // 存储选择的行信息
-            selectedRowKeys: [],
-            selectedRows: [],
             // 加载状态
-            loading: false
+            loading: false,
+            selectedRowKeys: []
         };
+        // 保存选中的行数据
+        this.selectedRows = [];
         // 用于存储多列的筛选条件
         this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
         this.requerstIndex = 0;
-        this.initTable();
+        this.initTable(true);
     }
     componentWillReceiveProps(nextProps) {
         // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
         if (this.__shouldUpdate(this.props, nextProps)) {
-            this.initTable(true);
+            this.initTable();
             // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
-            if (this.__props.autoLoadSource) {
+            if (this.__filtered.source.autoLoad) {
                 // 置为第一页
                 this.getData(1);
             }
@@ -74,24 +73,27 @@ export default class NewTable extends BaseComponent {
         // 组件删除时，请求返回的数据无效
         this.requerstIndex = null;
     }
-    initTable(nextProps) {
+    initTable(isFirst) {
         let objProps = this.__props;
+        // 兼容参数处理，兼容params的两种用法（写source外面也可以）
+        this.__filtered.source.params = objProps.params;
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
         // 注意：引用类型，this.pagination 和 this.__props.pagination 是同一个东西
         this.pagination = objProps.pagination;
+        // 是否为后端分页
+        this.serverPaging = this.__filtered.source.url && (this.pagination && this.pagination.pageType === 'server');
         // 列配置
         this.columns = objProps.columns;
         let propsData = objProps.data;
         // 行配置
+        this.rowSelection = null;
         if (!!objProps.rowSelection) {
             this.rowSelection = objProps.rowSelection;
             if (this.rowSelection.selectedRowKeys) {
                 state.selectedRowKeys = this.rowSelection.selectedRowKeys;
             }
-        } else {
-            this.rowSelection = null;
         }
         // 判断数据是disable。如果没定义，默认处理逻辑为数据中是否有disable/disabled === true
         // this.disabledRow = this.rowSelection && (this.rowSelection.disabledRow !== undefined)
@@ -158,15 +160,15 @@ export default class NewTable extends BaseComponent {
         }
         this.antdConfig = defaultCif;
         state.antdConfig = this.antdConfig;
-        if (!nextProps) {
+        if (isFirst) {
             this.state = Object.assign({}, this.state, state);
         } else {
             this.setState(state);
         }
     }
     componentDidMount() {
-        // 可以通过给 autoLoadSource 设置 false 来阻止自动加载数据
-        if (this.__props.source && this.__props.autoLoadSource) {
+        // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
+        if (this.__filtered.source.autoLoad) {
             this.getData();
         }
     }
@@ -187,7 +189,7 @@ export default class NewTable extends BaseComponent {
     }
     // 获取当前全部选中行的数据
     getSelected() {
-        return this.state.selectedRows;
+        return this.selectedRows;
     }
     // 获取当前全部选中行的key
     getSelectedKeys() {
@@ -197,12 +199,47 @@ export default class NewTable extends BaseComponent {
     selectAll() {
         this._selectAllData();
     }
+    clearSelect() {
+        this.rowOnChange([], []);
+    }
     // 导出数据
     export() {
-        this.titleRef && this.titleRef.showExport();
+        this.exportRef && this.exportRef.export();
     }
 
     /* 内部函数 ****************************************************************************/
+    _handleExport() {
+        this.export();
+    }
+    // 获取要下载导出数据的配置
+    _getExportConfig() {
+        let columns = this.columns;
+        let headers = [];
+        for (let i in columns) {
+            // 只导出展示的字段
+            if (columns[i].display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
+                headers.push({
+                    key: columns[i].dataIndex || columns[i].key,
+                    title: columns[i].title
+                });
+            }
+        }
+        // 如果为后端分页，则传递 source 配置
+        if (this.serverPaging) {
+            return {
+                headers: headers,
+                source: this.__filtered.source,
+                total: this.pagination && this.pagination.total || 0
+            };
+        }
+        // 否则传递 data
+        let data = this.__props.data || [];
+        return {
+            headers: headers,
+            data: data,
+            total: data.length
+        };
+    }
     // 对编辑状态的表格进行数据提交调用的函数
     _cellSubmit(key, dataIndex, value) {
         let dataSource = [...this.__props.data];
@@ -219,7 +256,7 @@ export default class NewTable extends BaseComponent {
     _handleAsyncData() {}
     // 异步获取数据
     getData(pageNum) {
-        let url = this.__props.source;
+        let {url, params} = this.__filtered.source;
         if (!url) {
             return;
         }
@@ -229,38 +266,38 @@ export default class NewTable extends BaseComponent {
         } else {
             pageNum = this.pagination.current || 1;
         }
-        let method = this.__props.method || 'get';
-        let params = this.__props.params;
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
                 page: pageNum,
                 size: this.pagination.pageSize,
             });
         }
-        this.setState({loading: true});
-        let ajax = method === 'post' ? this.__postData : this.__getData;
         // 当前请求的标号
-        let index = ++this.requerstIndex;
-        ajax(url, params, (data, res) => {
-            if (index !== this.requerstIndex) {
-                return;
+        // 快速多次相同的请求会被合并到第一个（ajax中实现）
+        let index = Utils.hash(params);
+        this.requerstIndex = index;
+        // 调用通用source获取数据逻辑
+        this.__getSourceData({
+            params: params,
+            success: (data, res) => {
+                if (index !== this.requerstIndex) {
+                    return;
+                }
+                let displayData = data || [];
+                if (this.pagination.pageType === 'server') {
+                    displayData = displayData.slice(0, this.pagination.pageSize);
+                }
+                this.pagination.total = +(res.total || res.count || data.length);
+                this.__setProps({data: displayData}, false);
+                this.setState({completeData: displayData});
+                this.onRefreshData(data);
+            },
+            onchange: loading => {
+                if (index !== this.requerstIndex) {
+                    return;
+                }
+                this.setState({loading});
             }
-            let displayData = data || [];
-            if (this.__props.sourceHandler) {
-                displayData = this.__props.sourceHandler(data, res);
-            }
-            if (this.pagination.pageType === 'server') {
-                displayData = displayData.slice(0, this.pagination.pageSize);
-            }
-            this.pagination.total = res.total || res.count || data.length;
-            this.__setProps({data: displayData}, false);
-            this.setState({completeData: displayData});
-            this.onRefreshData(data);
-        }, true, loading=>{
-            if (index !== this.requerstIndex) {
-                return;
-            }
-            this.setState({loading});
         });
     }
     // 数据刷新
@@ -272,11 +309,11 @@ export default class NewTable extends BaseComponent {
         // 清空某些控制状态
         this.clearState();
         this.__setProps({data: this.state.completeData}, false);
-        if (this.__props.source) {
+        if (this.__filtered.source.url) {
             this.getData();
         } else {
             this.onRefreshData(this.state.completeData);
-        }``
+        }
     }
     // 清空某些控制状态
     clearState() {
@@ -372,8 +409,7 @@ export default class NewTable extends BaseComponent {
             if (this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
                 // 当满足不可选条件时，不可以进行选择
                 return false;
-            }
-            else {
+            } else {
                 selectedRowKeys.push(record[rowKey]);
                 return true;
             }
@@ -381,14 +417,11 @@ export default class NewTable extends BaseComponent {
         // 通过组件的onChange函数完成全选
         this.rowOnChange(selectedRowKeys, selectedRows);
     }
-    clearSelect() {
-        this.rowOnChange([], []);
-    }
     // 行change时触发此函数
     rowOnChange(selectedRowKeys, selectedRows) {
+        this.selectedRows = selectedRows;
         this.setState({
-            selectedRowKeys: selectedRowKeys,
-            selectedRows: selectedRows
+            selectedRowKeys: selectedRowKeys
         });
         if (this.rowSelection.onChange) {
             this.rowSelection.onChange(selectedRowKeys, selectedRows);
@@ -431,7 +464,7 @@ export default class NewTable extends BaseComponent {
             json = JSON.stringify(json, undefined, 2);
         }
         json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
-        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g;
+        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;
         return json.replace(reg, match=>{
             let cls = 'number';
             if (/^"/.test(match)) {
@@ -458,14 +491,14 @@ export default class NewTable extends BaseComponent {
         });
     }
     // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
-    _handleOperationColumn(config, record) {
+    handleAction(config, record) {
         let arr = config;
         if (!Utils.typeof(arr, 'array')) {
             arr = [config];
         }
         for (let v of arr) {
             // action的值与crud中的配置的key一一对应
-            if (v.action && !v.onClick) {
+            if (v.action) {
                 v.onClick = e=>{
                     e && e.preventDefault();
                     e && e.stopPropagation();
@@ -510,44 +543,44 @@ export default class NewTable extends BaseComponent {
                     let config = item.render(text, record, index);
                     // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
                     if (defaultColumn.dataIndex === '_operation') {
-                        config = this._handleOperationColumn(config, record);
+                        config = this.handleAction(config, record);
                     }
                     // 根据是否可编辑状态来判断是否包裹编辑组件
                     return  this.__analysis(config);
                 };
             }
             // 将用户配置的单列筛选选项转换成antd的配置
-            if (!!item.filterConfig) {
-                let filterConfig = item.filterConfig;
-                if (!filterConfig.filterType) {
-                    // 若没有配置filterType则直接返回
+            if (!!item.filter) {
+                let filter = item.filter;
+                if (!filter.type) {
+                    // 若没有配置type则直接返回
                     return;
                 }
                 let dataIndex = item.dataIndex;
-                if (filterConfig.filterType === 'checkbox' || filterConfig.filterType === 'radio') {
+                if (filter.type === 'checkbox' || filter.type === 'radio') {
                     // 多选框或单选框筛选
                     let filterObj = {
-                        filters: null,
+                        options: null,
                         filterMultiple: false,
                         onFilter: null
                     };
-                    if (!!filterConfig.filters) {
-                        // 用户配置了filters,则将用户配置进行转换
-                        filterObj.filters = filterConfig.filters.map(o => {
+                    if (!!filter.options) {
+                        // 用户配置了options,则将用户配置进行转换
+                        filterObj.filters = filter.options.map(o => {
                             return {text: o, value: o};
                         });
                     }
                     else {
-                        // 用户没有配置filters，则将该字段的所有可能值展示出来
+                        // 用户没有配置options，则将该字段的所有可能值展示出来
                         filterObj.filters = this.getAllFilterValue(dataIndex);
                     }
-                    filterObj.filterMultiple = filterConfig.filterType === 'checkbox' ? true : false;
+                    filterObj.filterMultiple = filter.type === 'checkbox' ? true : false;
                     filterObj.onFilter = (value, record) => {
                         return record[item.dataIndex].indexOf(value) !== -1;
                     };
                     defaultColumn = Object.assign({}, defaultColumn, filterObj);
                 }
-                else if (filterConfig.filterType === 'input') {
+                else if (filter.type === 'input') {
                     // 通过输入筛选
                     let filterObj = {
                         filterDropdown: null,
@@ -589,7 +622,7 @@ export default class NewTable extends BaseComponent {
                 defaultColumn.render = (text, record, index) => {
                     let newText = text;
                     switch (textType) {
-                        case 'duration':
+                        case 'duration': {
                             const timeDiff = ((+new Date()) - (+new Date(Date.parse(text.replace(/-/g, '/'))))) / 1000;
                             const dayTime = Math.floor(timeDiff / (24 * 3600));
                             const hourTime = Math.floor((timeDiff % (24 * 3600)) / 3600);
@@ -607,7 +640,8 @@ export default class NewTable extends BaseComponent {
                                 ? this.__analysis(item.render(tdData, record, index))
                                 : tdData;
                             break;
-                        case 'json':
+                        }
+                        case 'json': {
                             // 会出现重复json字符串编码现象,加入类型判断
                             let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
                             if (text && json !== '""') {
@@ -617,6 +651,7 @@ export default class NewTable extends BaseComponent {
                                     </Popover>;
                             }
                             break;
+                        }
                         case 'html':
                             newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
                             break;
@@ -730,15 +765,17 @@ export default class NewTable extends BaseComponent {
         return <div className={className} style={this.__props.style}>
             <Table {...this.state.antdConfig} size={size}
                 title={this.title && (()=>(
-                    <Title parent={this} ref={ele=>this.titleRef = ele} config={this.title}/>
+                    <Title parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
                 ))}
                 dataSource={this.__props.data}
                 columns={this.renderColumns()}
                 rowSelection={this.renderRowSelection()}
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
+            {/* 导出功能 */}
+            <Export ref={ele=>(this.exportRef = ele)} {...this._getExportConfig()} />
             {/* 增删改查 */}
-            {this.__props.crud && (<Crud parent={this} ref={ele=>this.crud = ele}
+            {this.__props.crud && (<Crud parent={this} ref={ele=>(this.crud = ele)}
                 config={this.__props.crud}/>
             )}
         </div>;

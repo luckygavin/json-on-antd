@@ -14,7 +14,6 @@ import {Utils} from 'src/utils';
 import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
 
-
 /************ Affix 图钉 *************************************************************************** */
 
 export class Affix extends Navigation {
@@ -35,8 +34,8 @@ export class Breadcrumb extends Navigation {
         super(props);
         this.__init();
     }
-    __init(...params) {
-        super.__init.call(this, ...params);
+    __afterInit() {
+        super.__afterInit();
         // itemRender 用户返回的是一个配置，这里根据配置生成组件
         if (this.__props.itemRender) {
             // this._inject(this.__props, 'itemRender')
@@ -50,9 +49,11 @@ export class Breadcrumb extends Navigation {
         // 增加了 breadcrumbIcon 属性解析
             this.__props.itemRender = (route, params, routes, paths)=>{
                 const last = routes.indexOf(route) === routes.length - 1;
-                const icon = route.breadcrumbIcon ? <Antd.Icon type={route.breadcrumbIcon} /> : null;
-                const item = !!icon ? [icon, <span>{route.breadcrumbName}</span>] : route.breadcrumbName;
-                return last ? item : <Link to={paths.join('/')} className="ant-breadcrumb-link">{item}</Link>;
+                const icon = route.breadcrumbIcon ? <Antd.Icon key="1" type={route.breadcrumbIcon} /> : null;
+                const item = !!icon ? [icon, <span key="2">{route.breadcrumbName}</span>] : route.breadcrumbName;
+                // 解决跟节点的面包屑paths为空导致不可点问题
+                const to = '/' + paths.join('/');
+                return last ? item : <Link to={to} className="ant-breadcrumb-link">{item}</Link>;
             };
         }
     }
@@ -119,15 +120,20 @@ export class Menu extends Navigation {
         this.allKeys = {};
         this.__init();
     }
-    // 继承父组件的函数，并在__props上设置history属性
-    // 此函数会在初始化以及componentWillReceiveProps时调用
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
+    // 继承父组件的函数，_initProps 后增加额外处理逻辑
+    _afterInitProps() {
         if (this.__props.items) {
             this.__props.children = this.handleItems(this.__props.items);
             delete this.__props.items;
         }
     }
+    // __setProps 后，增加附加处理逻辑
+    // __afterSetProps() {
+    //     if (this.__props.items) {
+    //         this.__props.children = this.handleItems(this.__props.items);
+    //         delete this.__props.items;
+    //     }
+    // }
     // 见 BaseComponent
     _onControlEvent(...params) {
         let {selectedKeys} = params[0];

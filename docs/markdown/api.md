@@ -101,53 +101,72 @@ console.log(UF.get('test.list'));
 
 ## # UF.ajax(params)
 
-Ajax 获取数据。params 参数如下：
+Ajax 获取数据。`params` 为一个对象，属性列表如下：
 
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | ----
+url | ajax接口地址 | string |  | 必填
+method | 默认数据请求方式 | string | `GET` | 
+cache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |
+requestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |
+params | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
+type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
+success | 成功时的处理逻辑 | function(data, res){} |  | 
+error | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | 
+complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
+onchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | 
+
+更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数
+
+**注意：**
+
+* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
+
+* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  
+> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法
+](#/Others/-ajax-error-)
+
+* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  
+> * 开始执行请求时执行 onchange 参数为 (true, 'sending')
+> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')
+
+**接口返回值格式为：**
 ```json
-{
-    url: url,
-    method: 'get',
-    data: params,
-    type: 'json',
-    success: function(){},
-    error: function(){},
-    onchange: function(){}
-}
+success: {status: 0, data: [{}]}
+error:   {status: 1, msg: 'error'}
 ```
-`data`: 需要发送的参数对象
 
-`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
-
-`error`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理
-
->  tips: 如果error执行完返回true，则会继续执行默认的error处理函数
-
-`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态
->  开始执行请求时执行 onchange 参数为 (true, 'sending')
->  请求完成时执行 onchange 参数为 (false, 'success'/'error')
-
-更多参数可见 [全局配置](#/Develop/Config) 的 *`ajax`* 部分
-
-
-*接口返回值为：*
-```json
-success:
-{
-    status:0,
-    data:{}
+##### requestMerge使用效果展示：
+```javascript
+let count = 0;
+let getData = ()=>{
+    let cur = ++count;
+    UF.ajax({
+	    url: 'http://uf.baidu.com/docs/php/data.php',
+	    params: {page: 1, size: 1},
+	    success(data) {
+	        console.log(`第${cur}次调接口取得数据：`, data);
+	    }
+	});
 }
-error:
-{
-    status: 1,
-    msg: 'error'
-}
+getData();
+getData();
+getData();
+setTimeout(()=>{
+    getData();
+}, 1000);
 ```
-*快捷用法：*
+以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  
+延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录
 
-#### UF.ajax.get(url, params, success, error, onchange)
+#### 快捷用法：
+
+#### **UF.ajax.get(url, params, success, error, onchange)**
+
 以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。
 
-#### UF.ajax.post(url, params, success, error, onchange)
+#### **UF.ajax.post(url, params, success, error, onchange)**
+
 以 POST 方式发送数据。
 
 

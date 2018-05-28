@@ -18,16 +18,18 @@ let commonHeaders = [
 let config1 = {
     type: 'export',
     // 导出数据接口的url（一般可直接使用分页接口）
-    source: 'docs/php/download.php',
+    source: {
+        url: 'docs/php/download.php',
+        params: {
+            isExport: true,
+            container_id: 484,
+            zone: 'china',
+            type:'server'
+        }
+    },
     // 表格中要显示的字段，以及字段对应的表头
     // headers: {'id': 'ID', 'hostname': '主机名', 'sn': 'SN', 'status': '状态', 'model_id': '型号', 'rack': '机架位'},
     headers: commonHeaders,
-    params: {
-        isExport: true,
-        container_id: 484,
-        zone: 'china',
-        type:'server'
-    },
     content: {
         type: 'button',
         mode: 'primary',
@@ -39,14 +41,16 @@ let config1 = {
 };
 let config2 = {
     type: 'export',
-    source: 'docs/php/download.php',
-    headers: commonHeaders,
-    params: {
-        isExport: true,
-        container_id: 484,
-        zone: 'china',
-        type:'server'
+    source: {
+        url: 'docs/php/download.php',
+        params: {
+            isExport: true,
+            container_id: 484,
+            zone: 'china',
+            type:'server'
+        }
     },
+    headers: commonHeaders,
     total: 720,
     fileName: '异步导出CSV文件demo',
     fileFormat: '.csv',

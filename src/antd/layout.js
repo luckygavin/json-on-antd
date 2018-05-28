@@ -80,8 +80,8 @@ export class Sider extends BaseLayout {
         this.__init();
         this.handleCollapsed();
     }
-    _initProps(...params) {
-        super._initProps.call(this, ...params);
+    // __setProps 后，增加附加处理逻辑
+    __afterSetProps() {
         let topClass = ' top-trigger';
         let className = this.__props.className || '';
         if (this.__filtered.triggerPosition === 'top' && className.indexOf(topClass) === -1) {

@@ -109,6 +109,7 @@ const ComponentList = [
 
 // 全部路由列表
 const RouteList = [
+    {path: 'Index', name: '首页', component: require('./app/home').default},
     {path: 'Standard', name: '规范', component: require('./app/standard').default},
     {path: 'ThirdParty', name: '第三方组件', component: require('./app/third-party').default}
 ].concat(DocsList, ComponentList);
@@ -158,13 +159,13 @@ class Routes extends React.Component {
     render() {
         return <Router history={hashHistory}>
             <Route path="/" component={App}>
-                <IndexRedirect to="Docs"/>
+                <IndexRedirect to="Index"/>
                 {RouteList.map(first=>!first.children
                     ? <Route key={first.name} name={first.name}
-                            path={first.path} component={first.component}/>
+                            path={`${first.path}(/:pos)`} component={first.component}/>
                     : (first.children.map(second=>
                         <Route key={second.name} name={second.name}
-                                path={`${first.path}/${second.path}`} component={second.component}/>
+                                path={`${first.path}/${second.path}(/:pos)`} component={second.component}/>
                     ).concat(
                         <Redirect path={first.path} to={`${first.path}/${first.children[0].path}`}/>
                     ))

@@ -14,7 +14,7 @@ import {Utils} from 'src/utils';
 export default class Export extends BaseComponent {
     constructor(props) {
         super(props);
-        this._filter = Utils.difference(this._filter, ['source', 'sourceHandler']);
+        this._openApi.push('export');
         this.__init();
         this.state = {};
         // 默认配置
@@ -29,9 +29,6 @@ export default class Export extends BaseComponent {
             type: 'asyn',
             // 记录参数中有没有message传入,如果没有传入,导出完成时进度条不隐藏
             noMessage: true,
-            // 后端请求数据接口
-            source: '',
-            params: null,
             // 异步数据导出时的提示信息
             message: null,
             total: 0,
@@ -114,6 +111,13 @@ export default class Export extends BaseComponent {
             }
         }, 1000);
     }
+    export() {
+        if (this.config.type === 'asyn') {
+            this.showModal();
+        } else {
+            this.aRef && this.aRef.click();
+        }
+    }
     showModal() {
         this.setState({visible: true});
     }
@@ -128,43 +132,51 @@ export default class Export extends BaseComponent {
     doExport() {
         this.setState({exporting: true});
         this.setTimer();
-        this.handleExport(1);
+        this.getData(1);
     }
+    // 覆盖原生获取异步数据的函数
+    _handleAsyncData() {}
     // 导出进程
-    handleExport(page) {
-        let config = this.config;
-        let params = config.params ? config.params : {};
-        let request = Object.assign({}, params, {
+    getData(page) {
+        let params = this.__filtered.source.params;
+        params = Object.assign({}, params, {
             page: page,
             size: this.state.pageSize,
             total: this.state.total
         });
-        this.getData(request, res=>{
-            if (this.state.exporting && !this.state.error) {
-                // 存储数据
-                this.saveData(res);
-                let size = this.state.pageSize;
-                let total = this.state.total;
-                // 计算剩余时间
-                let fatchedData = this.state.fatchedData;
-                let usedTime = this.state.usedTime;
-                let lastTime = this.state.lastTime;
-                let newLastTime = 0;
-                if (usedTime !== 0 && fatchedData !== 0) {
-                    newLastTime = usedTime * (total - fatchedData) / fatchedData;
-                    newLastTime = Math.max(0, Math.ceil(newLastTime));
+        // 调用通用source获取数据逻辑
+        this.__getSourceData({
+            params: params,
+            success: (data, res) => {
+                if (this.state.exporting && !this.state.error) {
+                    // 存储数据
+                    this.saveData(res);
+                    let size = this.state.pageSize;
+                    let total = this.state.total;
+                    // 计算剩余时间
+                    let fatchedData = this.state.fatchedData;
+                    let usedTime = this.state.usedTime;
+                    let lastTime = this.state.lastTime;
+                    let newLastTime = 0;
+                    if (usedTime !== 0 && fatchedData !== 0) {
+                        newLastTime = usedTime * (total - fatchedData) / fatchedData;
+                        newLastTime = Math.max(0, Math.ceil(newLastTime));
+                    }
+                    // 防止剩余时间一直波动，如果波动区间在5秒之内就用原来的值
+                    let range = Math.abs(newLastTime - lastTime);
+                    if (range > 5 || (newLastTime < 10 && range > 1)) {
+                        this.setState({lastTime: newLastTime});
+                    }
+                    // 判断是否已经取得全部数据
+                    if (page * size < total) {
+                        this.getData(page + 1);
+                    } else {
+                        this.finish();
+                    }
                 }
-                // 防止剩余时间一直波动，如果波动区间在5秒之内就用原来的值
-                let range = Math.abs(newLastTime - lastTime);
-                if (range > 5 || (newLastTime < 10 && range > 1)) {
-                    this.setState({lastTime: newLastTime});
-                }
-                // 判断是否已经取得全部数据
-                if (page * size < total) {
-                    this.handleExport(page + 1);
-                } else {
-                    this.finish();
-                }
+            },
+            error: err => {
+                this.error(err);
             }
         });
     }
@@ -319,26 +331,6 @@ export default class Export extends BaseComponent {
             lastTime: 0
         });
     }
-    // 覆盖原生获取异步数据的函数
-    _handleAsyncData() {}
-    // 向后端请求
-    getData(params, callback) {
-        let url = this.config.source;
-        let method = this.config.method || 'get';
-        let ajax = method === 'post' ? this.__postData : this.__getData;
-        ajax(url, params, (data, res) => {
-            callback(res);
-        }, err=>{
-            this.error(err);
-        });
-    }
-    render() {
-        if (this.config.type === 'asyn') {
-            return this.asynExportRender();
-        } else {
-            return this.syncExportRender();
-        }
-    }
     // 同步导出方式页面 - 即实例化组件时直接传入数据
     syncExportRender() {
         let data = this.data;
@@ -353,7 +345,7 @@ export default class Export extends BaseComponent {
         let name = this.getFileName();
         return (
             <div className="uf-export">
-                <a href={link} download={name}>
+                <a ref={ele=>(this.aRef = ele)} href={link} download={name}>
                     {this.props.children}
                 </a>
             </div>
@@ -478,6 +470,13 @@ export default class Export extends BaseComponent {
                     })}
                 </div>
             );
+        }
+    }
+    render() {
+        if (this.config.type === 'asyn') {
+            return this.asynExportRender();
+        } else {
+            return this.syncExportRender();
         }
     }
 }

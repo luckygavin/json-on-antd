@@ -11,10 +11,7 @@ const columns1 = [
     {
         title: 'ID',
         dataIndex: 'id',
-        key: 'id',
-        filterConfig: {
-            filterType: 'checkbox'
-        }
+        key: 'id'
     },
     {
         title: '机房',
@@ -50,10 +47,7 @@ const demo1 = {
             type: 'table',
             name: 'newtable',
             columns: columns1,
-            title: {
-                text: 'Table Crud 功能展示',
-                basicControls: [],
-            },
+            title: 'Table Crud 功能展示',
             source: 'docs/php/data.php',
             pagination: {
                 pageType: 'server'
@@ -76,10 +70,12 @@ const demo1 = {
                                 label: '机房',
                                 name: 'name',
                                 rules: [{required: true, message: '机房不能为空'}],
-                                source: 'docs/php/data.php',
-                                sourceHandler: data=>data.map(v=>{
-                                    return {value: v.name, label: v.name};
-                                })
+                                source: {
+                                    url: 'docs/php/data.php',
+                                    handler: data=>data.map(v=>{
+                                        return {value: v.name, label: v.name};
+                                    })
+                                }
                             },
                             {type: 'input', label: '地区', name: 'region', required: true},
                             {type: 'input', label: '描述', name: 'description', required: true}

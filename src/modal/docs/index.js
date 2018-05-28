@@ -37,16 +37,12 @@ const demo2 = {
         {
             type: 'button',
             mode: 'primary',
-            content: '新增弹框',
-            actionType: 'call',
-            actionTarget: 'my-modal2.show'
+            content: '新增弹框'
         },
         {
             type: 'button',
             mode: 'primary',
             content: '编辑弹框',
-            // actionType: 'call',
-            // actionTarget: 'my-modal2.show',
             onClick: ()=>UF('my-modal2').show({line_sn: 'sn20134567', idc_id: 'TC', other: 'other data'})
         },
         {
@@ -70,10 +66,12 @@ const demo2 = {
                         label: '机房',
                         name: 'idc_id',
                         rules: [{required: true, message: '机房不能为空'}],
-                        source: 'docs/php/data.php',
-                        sourceHandler: data=>data.map(v=>{
-                            return {value: v.name, label: v.name};
-                        })
+                        source: {
+                            url: 'docs/php/data.php',
+                            handler: data=>data.map(v=>{
+                                return {value: v.name, label: v.name};
+                            })
+                        }
                     }
                 ]
                 

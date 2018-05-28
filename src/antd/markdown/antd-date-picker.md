@@ -13,9 +13,9 @@
 * MonthPicker
 * RangePicker
 
-### 共同的 API
+### 共同的参数
 
-以下 API 为 DatePicker、MonthPicker、RangePicker 共享的 API。
+以下参数为 DatePicker、MonthPicker、RangePicker 共享的参数。
 
 | 参数          | 说明            | 类型     | 默认值        |
 |--------------|----------------|----------|--------------|
@@ -36,11 +36,11 @@
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期           | [moment](http://momentjs.com/)   | 无           |
+| value        | 日期。特殊值：`'current'`，自动转换为当前日期 | '2018-05-28' | 无           |
 | format       | 展示的日期格式，Y表示年，M表示月，D表示天，H表示小时，m表示分钟，s表示秒钟 | string   | "YYYY-MM-DD" |
 | onChange     | 时间发生变化的回调 | function(date: moment, dateString: string) | 无           |
 | showTime     | 增加时间选择功能  | Object&#124;boolean | 根据`format`的值确定是否展示 |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](http://antd.uf.baidu.com/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/) | moment() |
+| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](http://antd.uf.baidu.com/components/date-picker/#components-date-picker-demo-disabled-date) |string | moment() |
 | showToday    | 是否展示“今天”按钮 | boolean | true |
 | disabledTime | 不可选择的时间 | function(date) | 无 |
 | onOk | 点击确定按钮的回调 | function() | - |
@@ -50,20 +50,20 @@
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期           | [moment](http://momentjs.com/)   | 无           |
+| value        | 日期。特殊值：`'current'`，自动转换为当前日期 | string  | 无           |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(date: moment, dateString: string) | -    |
 
 ### # range-picker
 
 | 参数         | 说明           | 类型     | 默认值       |
 |--------------|----------------|----------|--------------|
-| value        | 日期          | [moment](http://momentjs.com/)[] | 无           |
+| value        | 日期。 特殊值：`'current'`，自动转换为当前日期 | string[] | 无           |
 | format       | 展示的日期格式  | string    | "YYYY-MM-DD HH:mm:ss" |
 | onChange     | 时间发生变化的回调，发生在用户选择时间时 | function(dates: [moment, moment], dateStrings: [string, string]) | 无           |
 | showTime     | 增加时间选择功能  | Object&#124;boolean | `TimePicker` |
-| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](http://antd.uf.baidu.com/components/date-picker/#components-date-picker-demo-disabled-date) | [moment](http://momentjs.com/)[] | [moment(), moment()] |
+| showTime.defaultValue | 设置用户选择日期时默认的时分秒，[例子](http://antd.uf.baidu.com/components/date-picker/#components-date-picker-demo-disabled-date) |string[] | [moment(), moment()] |
 | disabledTime | 不可选择的时间 | function(dates: [moment, moment], partial: `'start'/'end'`) | 无 |
-| ranges       | 预设时间范围快捷选择 | { [range: string]: [moment](http://momentjs.com/)[] } | 无 |
+| ranges       | 预设时间范围快捷选择 | { [range: string]:string[] } | 无 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => UF.init({...}) | - |
 | onOk | 点击确定按钮的回调 | function() | - |
 
@@ -71,8 +71,8 @@
 
 | 参数                 | 说明 | 类型 | 默认值 |
 |---------------------|-----|-----|-------|
-| value               | 当前时间 | [moment](http://momentjs.com/) | 无 |
-| defaultOpenValue    | 无选中值时，面板打开时高亮的值 | [moment](http://momentjs.com/) | moment() |
+| value               | 当前时间。特殊值：`'current'`，自动转换为当前时间 | string | 无 |
+| defaultOpenValue    | 无选中值时，面板打开时高亮的值 |string | moment() |
 | open                | 面板是否打开 | boolean | false |
 | onOpenChange        | 面板打开/关闭时的回调 | (open: boolean): void | 无 |
 | placeholder         | 没有值的时候显示的内容 | string | "请选择时间" |

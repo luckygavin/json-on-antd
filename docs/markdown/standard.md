@@ -1,3 +1,9 @@
+## 加入我们
+
+* Hi 群： 1615792   
+* 邮件组： umpfe@baidu.com  
+* 接口人： 刘泽春（liuzechun@baidu.com）  
+
 ## 开发标准
 > 技术标准: ES6编码标准，React+npm+Webpack技术  
 
@@ -155,19 +161,6 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  
 > arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串
 
-##### **`__getData(url, params, success, error, onchange)`**
-使用 `get` 的方式向后端发送请求，除url外，其他参数可以不传  
-`success`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)  
-`error`:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
->  tips: 如果error执行完返回true，则会继续执行默认的error处理函数       
-
-`onchange`: 请求开始/结束时执行。可以用于绑定 loading 状态     
->  开始执行请求时执行 onchange 参数为 (true, 'sending')  
->  请求完成时执行 onchange 参数为 (false, 'success'/'error')  
-
-##### **`__postData(url, params, success, error, onchange)`**
-使用 `post` 的方式向后端发送请求，参数同上。
-
 ##### **`__ajax(obj)`**
 通用的 `ajax` 函数。参数为一个对象。
 > 常用参数有：url、method、data、type、onchange、success、error
@@ -180,6 +173,13 @@ _componentWillReceiveProps = (nextProps, ...params) => {
 
 ##### **`__getComponent(item)`**
 获取缓存中的组件
+
+##### **`__getSourceData(config)`**
+从`source`接口获取数据  
+使用`source`系列参数获取数据时，可调用此函数，函数内部已经把source的各种处理做好（比如paramsHandler、handler等调用），只需传入对应的成功和失败处理函数即可。函数内部会在数据返回后经过`handler`处理的结果传递给`success`函数  
+传入的`config`包含`success`和`error`，source一系列处理完成后最终数据才会传给 `success`
+
+
 
 ---
 ## 文档编写规范

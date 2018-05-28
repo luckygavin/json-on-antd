@@ -31,7 +31,7 @@ function getErrorMsg(error) {
         } else {
             message = JSON.stringify(error);
         }
-    } catch(e) {
+    } catch (e) {
         console.error(`Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
     }
     return message;
@@ -49,6 +49,7 @@ export function errorMessage(error) {
 /**
  * 检查是否有缓存
  * 如果有直接调用缓存数据，返回true
+ * @param {Object} config ajax的配置
  */
 export function checkCache(config) {
     // 如果需要做缓存，key不为空
@@ -72,7 +73,7 @@ export function checkCache(config) {
  * 执行队列中缓存的待执行逻辑
  * @param {string} key 调用处传入，保证一致性
  * @param {string} result 执行结果：success/error
- * @param {array} params 执行函数所需的参数列表
+ * @param {...*} args 执行函数所需的参数列表
  */
 function executeQueue(key, result, ...params) {
     if (ajaxQueue[key] && ajaxQueue[key].length > 0) {
@@ -86,6 +87,7 @@ function executeQueue(key, result, ...params) {
 /**
  * 检查当前是否已有相同的请求正在进行中
  * 如果有，则把后续逻辑放入队列中，中断后续逻辑。待请求返回数据后统一调用
+ * @param {Object} config ajax的配置
  */
 export function checkQueue(config) {
     let key = Utils.hash(config, 32);

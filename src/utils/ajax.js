@@ -9,7 +9,7 @@
  *              onchange: 请求开始/结束时执行。
  *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
  *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
- *              complete: 
+ *              complete:
  *
  * @author liuzechun@baidu.com
  * **/
@@ -73,7 +73,7 @@ function request (config) {
                         // handler有返回值，则执行默认错误提示
                         if (result) {
                             if (result === true) {
-                                errorMessage(err);
+                                errorMessage(res);
                             } else {
                                 errorMessage(result);
                             }

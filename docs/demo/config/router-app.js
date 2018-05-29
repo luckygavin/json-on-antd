@@ -12,6 +12,7 @@ define(function() {
                 style: {
                     paddingLeft: '5%'
                 },
+                followRoute: true,
                 items: [
                     {
                         key: "theme",

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import uf from 'src';
+import underscore from 'underscore';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import {Utils, Ajax} from 'src/utils';
@@ -101,6 +102,8 @@ const func = {
     utils: Utils,
     // moment 暴露全部功能
     moment: moment,
+    // underscore工具函数
+    _: underscore,
     // model 数据绑定页面
     model: Model,
     get: Model.get,

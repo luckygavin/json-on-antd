@@ -24,7 +24,7 @@
 * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)
 * 🌟 增加`source.requestMerge	`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)
 * `DatePicker`系列组件
-    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间
+    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）
 
 
 `2018-05-26`

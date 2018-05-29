@@ -145,9 +145,6 @@ export default {
             // 自动加载数据
             autoLoad: true
         },
-        rowSelection: {
-            keepSelected: false
-        },
         data: []
     },
     // table 的编辑插件

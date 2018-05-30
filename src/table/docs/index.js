@@ -21,7 +21,7 @@ const columns = [
         key: 'name',
         filter: {
             type: 'checkbox',
-            options: ['斌', '祖']
+            options: ['斌', '祖', '西']
         }
     },
     {
@@ -157,7 +157,11 @@ const columns2 = [
     {
         title: '地区',
         dataIndex: 'region',
-        key: 'region'
+        key: 'region',
+        filter: {
+            type: 'radio',
+            options: ['华北', '华南', '华东']
+        }
     },
     {
         title: '描述',

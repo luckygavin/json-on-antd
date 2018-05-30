@@ -305,6 +305,10 @@ export default class Title extends BaseComponent {
 
     // 过滤输入框点回车搜索时 (用于后端分页)
     onFilterSearch(value) {
+        // 如果为后端分页，则不立刻搜索，onSearch 时才会搜索
+        if (!this.parent.serverPaging) {
+            return;
+        }
         // 在原有参数基础上，追加一个search参数
         let oParams = this.parent.__filtered.source.params;
         oParams.search = value;
@@ -376,7 +380,7 @@ export default class Title extends BaseComponent {
                         data.push(this.handleString(value));
                     } else if (Utils.typeof(value, 'object')) {
                         data.push(this.parent._getKeyDataOfObject(value));
-                    } else {
+                    } else if (value) {
                         data.push(value.toString ? value.toString() : value);
                     }
                 }

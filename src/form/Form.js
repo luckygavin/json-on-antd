@@ -85,12 +85,16 @@ class OriginForm extends BaseComponent {
                 // item 为时间类型的表单，需要格式化成moment类型
                 if (['date-picker', 'month-picker', 'range-picker', 'time-picker'].indexOf(item.type) > -1) {
                     if (!(result[i] instanceof moment)) {
-                        result[i] = Utils.moment(result[i], item.format);
+                        result[i] = Utils.moment(result[i]);
                     }
                 }
                 // 数字类型表单
                 if (item.type === 'number') {
                     result[i] = +result[i];
+                }
+                // 
+                if (item.type === 'checkbox' || item.type === 'switch') {
+                    result[i] = !!+result[i];
                 }
             }
         }
@@ -344,6 +348,7 @@ class OriginForm extends BaseComponent {
                 item.rules[0]['type'] = item.rules[0]['type'] || 'integer';
                 // 验证前先把数据强制转换成数字
                 item.rules[0]['transform'] = item.rules[0]['transform'] || (v=>v !== '' ? +v : '');
+                item.default = +item.default;
                 break;
             case 'checkbox':
             case 'switch':
@@ -352,6 +357,7 @@ class OriginForm extends BaseComponent {
                     valuePropName: 'checked'
                 };
                 item.rules[0]['type'] = item.rules[0]['type'] || 'boolean';
+                item.default = !!+item.default;
                 break;
             case 'checkbox-group':
                 // 复选框组

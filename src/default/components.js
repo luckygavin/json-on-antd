@@ -17,6 +17,10 @@ export default {
         },
         source: {
             target: 'content'
+        },
+        api: {
+            showLoading: true,
+            trigger: 'onClick'
         }
     },
     'antd': {},

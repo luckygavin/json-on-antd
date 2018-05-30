@@ -85,7 +85,7 @@ source 参数可以是字符串，直接声明获取数据的地址，其余参�
 
 参数       | 说明           | 类型             | 默认值      
 -----------|----------------|------------------|------
-url    | 异步获取数据的接口 | string | 
+url    | 异步获取数据的接口 | string |  必填
 cache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false
 requestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true
 method    | ajax方式：`post`、`get`等 | string | 'get'
@@ -147,7 +147,7 @@ api 参数可以是字符串，直接声明提交数据的地址，其余参数�
 
 参数       | 说明           | 类型             | 默认值      
 -----------|----------------|------------------|------
-url    | 提交数据的接口 | string | 
+url    | 提交数据的接口 | string | 必填
 method    | ajax方式 | string | 'post'
 params | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |
 handler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |
@@ -205,7 +205,7 @@ control 参数可以是字符串，直接声明要操作的目标，其余参数
 -----------|----------------|------------------|------
 type    | 声明交互方式。可选值为：`call`:函数调用、`assign`:赋值 | string | 默认根据`target`属性为函数还是属性动态变化
 trigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`
-target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string | 
+target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string | 必填
 params    | 函数调用时传递的参数。*（仅`函数调用`类型可用）* | array | 
 handler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`
 

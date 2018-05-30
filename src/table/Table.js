@@ -113,7 +113,7 @@ export default class NewTable extends BaseComponent {
             showHeader: true,
             footer: null,
             scroll: {},
-            onChange: () => {},
+            onChange: (...params) => {console.log(params)},
             onExpand: () => {},
             onExpandedRowsChange: () => {},
             onRowClick: () => {},
@@ -566,17 +566,19 @@ export default class NewTable extends BaseComponent {
                     };
                     if (!!filter.options) {
                         // 用户配置了options,则将用户配置进行转换
-                        filterObj.filters = filter.options.map(o => {
-                            return {text: o, value: o};
+                        filterObj.filters = Utils.toOptions(filter.options).map(o => {
+                            return {text: o.label, value: o.value};
                         });
-                    }
-                    else {
+                    } else {
                         // 用户没有配置options，则将该字段的所有可能值展示出来
                         filterObj.filters = this.getAllFilterValue(dataIndex);
                     }
                     filterObj.filterMultiple = filter.type === 'checkbox' ? true : false;
                     filterObj.onFilter = (value, record) => {
-                        return record[item.dataIndex].indexOf(value) !== -1;
+                        // if (this.serverPaging) {
+                        // } else {
+                            return record[item.dataIndex].indexOf(value) !== -1;
+                        // }
                     };
                     defaultColumn = Object.assign({}, defaultColumn, filterObj);
                 }

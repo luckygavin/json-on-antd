@@ -46,6 +46,7 @@ export default {
             props.name = item.name;
             delete props._factory;
         }
+        // props = this.formatOthers(props);
 
         return props;
     },
@@ -82,5 +83,13 @@ export default {
             obj[newKey] = value;
         }
         return obj;
+    },
+
+    /****** 针对组件的参数处理 ****************************************************************/
+
+    formatOthers(props) {
+        switch (props.type) {
+        }
+        return props;
     }
 };

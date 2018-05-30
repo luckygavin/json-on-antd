@@ -35,6 +35,8 @@ export const Uncomplex = ['params', 'data', 'options'];
 
 // // 转化为__props时需过滤的属性 - 用户配置的特殊功能的属性
 export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
+    // 权限
+    'authority',
     // 复用配置模板。
     'configTpl',
     // 获取系列参数
@@ -346,7 +348,8 @@ export default class BaseComponent extends Component {
             this.__filtered.source,
             config
         );
-        paramsHandler && (params = paramsHandler(params));
+        let pResult = paramsHandler && paramsHandler(params);
+        params = pResult || params;
         if (url) {
             this.__ajax({
                 // 用户配置的source中的其他参数直接传入
@@ -653,9 +656,26 @@ export default class BaseComponent extends Component {
 
     // 提交数据功能
     _handleApiProps(oParams) {
-        let {url, method = 'post', params = oParams, handler, onSuccess, onError, ...others} = this.__filtered.api;
+        let {
+            url,
+            method = 'post',
+            params = oParams,
+            handler,
+            onSuccess,
+            onError,
+            showLoading,
+            ...others
+        } = this.__filtered.api;
+        // 如果传入或者设置的params不是简单对象，则重置params
+        if (!Utils.directInstanceof(params, Object)) {
+            params = {};
+        }
         if (url) {
             handler && (params = handler(params));
+            let hideLoading;
+            if (showLoading) {
+                hideLoading = message.loading('提交中，请等待~', 0);
+            }
             return new Promise((resolve, reject)=>{
                 this.__ajax({
                     url: url,
@@ -663,6 +683,7 @@ export default class BaseComponent extends Component {
                     params: params,
                     ...others,
                     success(data, res) {
+                        hideLoading && hideLoading();
                         let result = onSuccess && onSuccess(data, res);
                         // onSuccess有返回值，则执行默认提示
                         if (result === undefined || result === true) {
@@ -671,6 +692,7 @@ export default class BaseComponent extends Component {
                         resolve();
                     },
                     error(res) {
+                        hideLoading && hideLoading();
                         let result = onError && onError(res);
                         // onError有返回值，则执行默认提示
                         if (result === undefined || result === true) {

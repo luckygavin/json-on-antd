@@ -228,6 +228,8 @@ clearSelect | 手动触发全选 | clearSelect()
 
 如`Table`组件中使用后端分页，如果数据不是实时更新的，可以开启数据缓存功能，切换分页后，再查看原来分页的数据即可无需再次请求。
 
+**但是需要注意**：可能会影响编辑、查询等刷新表格的功能，所以需要谨慎使用。
+
 具体方法有两种：
 * 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法
 * 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`

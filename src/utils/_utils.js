@@ -21,7 +21,7 @@ const utils = {
     // 字符串哈希
     hash(text, len) {
         let hash = 5381;
-        text = JSON.stringify(text);
+        text = JSON.stringify(text) + '';
         let i = text.length - 1;
         for (; i > -1; i--) {
             hash += (hash << 5) + text.charCodeAt(i);

@@ -50,13 +50,7 @@ export default class TableEdit extends BaseComponent {
             Utils.merge(this.__filtered.api.params, formData);
             let result = this.__props.onSubmit && this.__props.onSubmit();
             // 不管是否为Promise，成功与失败逻辑如下
-            // 如果回调函数返回了promise实例，则展示loading效果
-            let hideLoading;
-            if (result instanceof Promise) {
-                hideLoading = message.loading('提交中，请等待~', 0);
-            }
             this.__compatePromise(result, success=>{
-                hideLoading && hideLoading();
                 // 上传修改结果到父组件
                 this.props.cellSubmit(value);
                 this.setState({
@@ -64,8 +58,6 @@ export default class TableEdit extends BaseComponent {
                     editable: false,
                     valueSource: value
                 });
-            }, error=>{
-                hideLoading && hideLoading();
             });
         } else {
             this.setState({

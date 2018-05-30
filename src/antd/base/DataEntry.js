@@ -24,6 +24,14 @@ export default class DataEntry extends Antd {
         };
     }
 
+    __afterSetProps() {
+        super.__afterSetProps();
+        // 把值为boolean类型的数据进行强制转换
+        if (this.__controlled.key === 'checked') {
+            this.__props.data = !!+this.__props.data;
+        }
+    }
+
     // 增加 onChange 时默认保存数据的函数
     // 父类的 _onControlEvent 函数不能满足需求，直接覆盖了
     _onControlEvent(...params) {

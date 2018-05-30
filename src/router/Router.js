@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import * as OriRouter from 'react-router';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Factory} from 'src/tools';
+import {Factory, Authority} from 'src/tools';
 
 // 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
 export class RouteHolder extends React.Component {
@@ -19,12 +19,18 @@ export class RouteHolder extends React.Component {
         //     console.log(this.action === lastAction || nextProps.location.action === "POP");
         //     return this.action === lastAction || nextProps.location.action === "POP";
         // }
-        // console.log(this.props.router.location.action);
+        // console.log(nextProps.router);
+        // console.log(this.props, this.props.router.location.action);
         return true;
         // 待观察效果
         // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
         // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
     }
+    // componentWillReceiveProps(nextProps) {
+    //     console.log(this.props.router.location.action);
+    //     console.log(nextProps.router.location.action);
+    // }
+
     render() {
         return <Factory {...this.props} config={this.props.route.__component} />;
     }
@@ -58,6 +64,10 @@ export class Router extends BaseRouter {
         }
         let children = [];
         for (let v of arr) {
+            // 校验权限，没权限的元素返回 null
+            if (!Authority.check(v)) {
+                continue;
+            }
             v = this.setRoute(v);
             v.children = [];
             // indexRoute 字段 => IndexRoute
@@ -106,12 +116,10 @@ export class Router extends BaseRouter {
         return item;
     }
     render() {
+        // console.log('router init');
         return <OriRouter.Router {...this.__props}/>;
     }
 }
-
-
-
 
 // Link
 export class Link extends BaseRouter {
@@ -119,6 +127,12 @@ export class Link extends BaseRouter {
         super(props);
         this.__init();
     }
+    // __afterInit() {
+    //     this._inject(this.__props, 'onClick', e=>{
+    //         e.preventDefault();
+    //         OriRouter.browserHistory.push('#' + this.__props.to);
+    //     });
+    // }
     render() {
         return <OriRouter.Link {...this.__props}/>;
     }

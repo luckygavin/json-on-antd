@@ -92,7 +92,6 @@ class OriginForm extends BaseComponent {
                 if (item.type === 'number') {
                     result[i] = +result[i];
                 }
-                // 
                 if (item.type === 'checkbox' || item.type === 'switch') {
                     result[i] = !!+result[i];
                 }

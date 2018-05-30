@@ -656,15 +656,22 @@ export default class BaseComponent extends Component {
 
     // 提交数据功能
     _handleApiProps(oParams) {
-        let {url, method = 'post', params = oParams, handler,
-            onSuccess, onError, showLoading, ...others} = this.__filtered.api;
+        let {
+            url,
+            method = 'post',
+            params = oParams,
+            handler,
+            onSuccess,
+            onError,
+            showLoading,
+            ...others
+        } = this.__filtered.api;
         // 如果传入或者设置的params不是简单对象，则重置params
         if (!Utils.directInstanceof(params, Object)) {
             params = {};
         }
         if (url) {
             handler && (params = handler(params));
-            // showLoading && 
             let hideLoading;
             if (showLoading) {
                 hideLoading = message.loading('提交中，请等待~', 0);

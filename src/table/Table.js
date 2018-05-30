@@ -113,7 +113,7 @@ export default class NewTable extends BaseComponent {
             showHeader: true,
             footer: null,
             scroll: {},
-            onChange: (...params) => {console.log(params)},
+            onChange: () => {},
             onExpand: () => {},
             onExpandedRowsChange: () => {},
             onRowClick: () => {},

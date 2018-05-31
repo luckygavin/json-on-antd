@@ -91,8 +91,18 @@ export class Checkbox extends DataEntry {
 export class CheckboxGroup extends DataEntry {
     constructor(props) {
         super(props);
+        this._openApi.push('checkAll');
         this.__controlled.defaultVal = [];
         this.__init();
+    }
+    __afterSetProps() {
+        super.__afterSetProps();
+        this.__props.options = Utils.toOptions(this.__props.options);
+    }
+    checkAll(status = true) {
+        let value = status ? this.__props.options.map(v=>v.value) : [];
+        this.__setProps({value});
+        this.__props.onChange && this.__props.onChange(value);
     }
     render() {
         return <Antd.Checkbox.Group {...this.__props}/>;

@@ -69,7 +69,7 @@ export default class Crud extends BaseComponent {
                 // 删除确认框的配置
                 case 'delete':
                     // 默认把参数处理为：只返回 id（rowKey对应的字段）
-                    item.api.handler = item.api.handler || (
+                    item.api.paramsHandler = item.api.paramsHandler || (
                         params=>({[this.parent.rowKey]: params[this.parent.rowKey]})
                     );
                     item.message = item.message || (()=>('确定要删除吗？'));
@@ -101,7 +101,7 @@ export default class Crud extends BaseComponent {
                 // 批量删除确认框的配置
                 case 'batchDelete':
                     // 默认把参数处理为：只返回英文逗号分隔的 id[s]（rowKey对应的字段）如：{ids: 123,456}
-                    item.api.handler = item.api.handler || (params=>({
+                    item.api.paramsHandler = item.api.paramsHandler || (params=>({
                         [`${this.parent.rowKey}s`]: params.map(v=>v[this.parent.rowKey]).join(',')
                     }));
                     item.message = item.message || (()=>('确定要执行『 批量删除 』操作吗？'));

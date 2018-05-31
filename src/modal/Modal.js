@@ -52,6 +52,10 @@ class NewModal extends BaseComponent {
             // 可以写其他内容在content中，置于form之上
             this.__props.formContent = this.__analysis(formConf);
         }
+        // COMPAT: 兼容原来的 message 参数，后续版本中移除
+        if (this.__props.message) {
+            this.__props.render = this.__props.message;
+        }
     }
 
     /********** 外部调用函数 *************************************************/
@@ -62,9 +66,9 @@ class NewModal extends BaseComponent {
         if (data) {
             newProps.params = data;
         }
-        // 重新执行 message 函数
-        if (Utils.typeof(this.__props.message, 'function')) {
-            newProps.messageContent = this.__analysis(this.__props.message(data));
+        // 重新执行 render 函数
+        if (Utils.typeof(this.__props.render, 'function')) {
+            newProps.renderContent = this.__analysis(this.__props.render(data));
         }
         this.__setProps(newProps, ()=>{
             // 如果是form弹框，填充form内容为data或重置
@@ -160,9 +164,9 @@ class NewModal extends BaseComponent {
         if (this.__props.footerContent) {
             selfProps.footer = this.__props.footerContent;
         }
-        // Modal中展示的内容书序是：message > content > form
+        // Modal中展示的内容书序是：render > content > form
         return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps} className="uf-modal">
-            {this.__props.messageContent}
+            {this.__props.renderContent}
             {this.__props.children}
             {this.__props.formContent}
         </Modal>;

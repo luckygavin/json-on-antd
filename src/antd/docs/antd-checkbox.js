@@ -29,18 +29,23 @@ const demo1 = {
 const demo2 = {
     title: 'Checkbox组',
     description: '由数组生成复选框组',
-    config: {
-        type: 'checkbox-group',
-        options: [
-            { label: 'Apple', value: 'Apple' },
-            { label: 'Pear', value: 'Pear' },
-            { label: 'Orange', value: 'Orange' },
-        ],
-        value: ['Pear'],
-        onChange: function(checkedValues) {
-            console.log('checked = ', checkedValues);
+    config:[
+        {
+            type: 'checkbox',
+            style: 'margin-bottom: 10px',
+            content: '全选',
+            control: 'checkboxgroup.checkAll'
+        },
+        {
+            type: 'checkbox-group',
+            name: 'checkboxgroup',
+            options: ['Apple', 'Pear', 'Orange'],
+            value: ['Pear'],
+            onChange: function (checkedValues) {
+                console.log('checked = ', checkedValues);
+            }
         }
-    }
+    ]
 };
 
 export default class Checkbox extends BaseDoc {

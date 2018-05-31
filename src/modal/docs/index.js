@@ -95,7 +95,7 @@ const demo3 = {
             visible: false,
             title: '删除数据：',
             api: 'docs/php/submit.php',
-            message: (data)=>{
+            render: (data)=>{
                 return {
                     type: 'p',
                     content: '确定要删除以下选中数据吗？' + data.id

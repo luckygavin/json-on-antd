@@ -225,6 +225,7 @@ export default class NewTable extends BaseComponent {
         // 如果为后端分页，则传递 source 配置
         if (this.serverPaging) {
             return {
+                type: 'asyn',
                 headers: headers,
                 source: this.__filtered.source,
                 total: this.pagination.total || 0
@@ -233,6 +234,7 @@ export default class NewTable extends BaseComponent {
         // 否则传递 data
         let data = this.__props.data || [];
         return {
+            type: 'sync',
             headers: headers,
             data: data,
             total: data.length

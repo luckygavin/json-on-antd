@@ -39,7 +39,10 @@ function request (config) {
     // successHandler不为空
     let successHandler = config.success || (()=>{});
     // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-    let errorHandler = config.error || (()=>{});
+    let errorHandler = config.error;
+    if ([null, false].indexOf(errorHandler) > -1) {
+        errorHandler = ()=>{};
+    }
     errorHandler = config.error === true ? errorMessage : config.error;
     // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
     let onchange = config.onchange || (()=>{});
@@ -51,6 +54,24 @@ function request (config) {
     }
 
     onchange(true, 'sending');
+
+    // onerror 处理逻辑
+    let onerror = err => {
+        // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
+        if (globalAjax.error) {
+            globalAjax.error(err, errorHandler, config);
+        } else {
+            let result = errorHandler(err);
+            // handler有返回值，则执行默认错误提示
+            if (result !== false) {
+                if (result === true || result === undefined) {
+                    errorMessage(err);
+                } else {
+                    errorMessage(result);
+                }
+            }
+        }
+    };
     return reqwest(Object.assign({}, config,
         {
             // data 可能来自 globalAjax
@@ -68,35 +89,13 @@ function request (config) {
                     if (+res.status === 0) {
                         successHandler(res.data, res);
                     } else {
-                        // 如果错误处理函数返回 true，则继续执行 errorHandle 把错误提示抛出
-                        let result = errorHandler(res);
-                        // handler有返回值，则执行默认错误提示
-                        if (result) {
-                            if (result === true) {
-                                errorMessage(res);
-                            } else {
-                                errorMessage(result);
-                            }
-                        }
+                        onerror(res);
                     }
                 }
                 onchange(false, 'success');
             },
             error: err=>{
-                // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
-                if (globalAjax.error) {
-                    globalAjax.error(err, errorHandler, config);
-                } else {
-                    let result = errorHandler(err);
-                    // handler有返回值，则执行默认错误提示
-                    if (result !== false) {
-                        if (result === true) {
-                            errorMessage(err);
-                        } else {
-                            errorMessage(result);
-                        }
-                    }
-                }
+                onerror(err);
                 onchange(false, 'error');
             }
         }

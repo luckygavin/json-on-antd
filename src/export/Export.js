@@ -43,8 +43,8 @@ export default class Export extends BaseComponent {
         this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
         this.data = [];
         if (objProps.data === undefined) {
-            this.config.type = 'asyn';
-            this.state = {
+            this.config.type = this.config.type || 'asyn';
+            let state = {
                 visible: false,
                 pageSize: 200,
                 exporting: false,  // 正在导出或导出完成时的界面为true
@@ -61,25 +61,33 @@ export default class Export extends BaseComponent {
             if (!!message && !!message['page2']) {
                 this.config.noMessage = false;
             }
+            if (nextProps) {
+                this.setState(state);
+            } else {
+                this.state = state;
+            }
         } else {
-            this.config.type = 'sync';
+            this.config.type = this.config.type || 'sync';
             // 用于存储导出的数据，为避免合并数据时出错，请求过来的数据没有合并到一个数组
             // data里面的数据是这样的：[[{...},{...},...],[],[]]
             this.data = [objProps.data];
         }
     }
     componentWillReceiveProps(nextProps) {
-        if (nextProps.data) {
-            this.config.type = 'sync';
-            this.data = [nextProps.data];
+        if (this.__shouldUpdate(this.props, nextProps)) {
+            this.initExport(nextProps);
         }
-        this.config = this.__mergeProps(this.config, nextProps);
-        // Table后端分页的情况会用到
-        if (this.config.total && this.config.total !== this.state.total) {
-            this.setState({
-                total: this.config.total
-            });
-        }
+        // if (nextProps.data) {
+        //     this.config.type = 'sync';
+        //     this.data = [nextProps.data];
+        // }
+        // this.config = this.__mergeProps(this.config, nextProps);
+        // // Table后端分页的情况会用到
+        // if (this.config.total && this.config.total !== this.state.total) {
+        //     this.setState({
+        //         total: this.config.total
+        //     });
+        // }
     }
     // 重置数据
     initState() {

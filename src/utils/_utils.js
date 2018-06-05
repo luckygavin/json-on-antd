@@ -293,7 +293,7 @@ const utils = {
         let result = [];
         if (this.typeof(data, 'array')) {
             // ['value', 'value2']
-            if (this.typeof(data[0], 'string')) {
+            if (this.typeof(data[0], ['string', 'number', 'boolean'])) {
                 result = this.distinct(data).map(v=>({label: v, value: v}));
             // {label:1, value:'a'}，已格式化好的数据
             } else {

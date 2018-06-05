@@ -193,7 +193,7 @@ onError | 提交数据后，失败的回调函数 | function(data, res) {} |
 
 #### # `control` 系列参数
 
-`string` | `object`
+`string` | `object` | `array`
 
 日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。
 
@@ -206,11 +206,12 @@ control 参数可以是字符串，直接声明要操作的目标，其余参数
 -----------|----------------|------------------|------
 type    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化
 trigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`
-target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string | 必填
+target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&nbsp;Array | 必填
 params    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | 
 params    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | 
 handler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`
 
+> target 可以为一个数组，指定同时操作多个组件
 
 以上面提到的使用场景为例——带有高级查询功能的一个表格场景：
 

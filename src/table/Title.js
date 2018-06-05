@@ -513,7 +513,7 @@ export default class Title extends BaseComponent {
             pageSize = 10;
         }
         this.parent.pagination.pageSize = pageSize;
-        this.parent.forceUpdate();
+        this.parent.refreshTable();
         this.setState({showTableMenu: false});
     }
     // 展示分页设置输入框时，使得输入框获取焦点

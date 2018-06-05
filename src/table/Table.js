@@ -137,7 +137,7 @@ export default class NewTable extends BaseComponent {
         // 关于异步操作
         if (propsData) {
             state.completeData = propsData;
-            this.pagination.total = propsData.length
+            this.pagination.total = propsData.length;
         }
         // 关于行样式与不可选相关联，不可选时至为灰色
         if (this.rowSelection && this.rowSelection.disabledRow) {

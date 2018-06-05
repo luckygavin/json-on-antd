@@ -30,6 +30,12 @@ let demo1 = {
                     'sn-input': '这是第二个input'
                 }
             ],
+            // formData: {
+            //     'inventory-time': '20180723',
+            //     'idc_id': 'f',
+            //     'inventory-method': '2',
+            //     'sn-input': '这是第二个input'
+            // },
             buttons: {
                 layout: 'center',
                 items: [
@@ -75,20 +81,20 @@ let demo1 = {
                     wrapperCol: 16
                 },
                 items: [
-                    // [
-                    //     {
-                    //         type: 'date-picker',
-                    //         label: '盘点时间',
-                    //         name: 'inventory-time',
-                    //         format: 'YYYYMMDD',
-                    //     },
-                    //     {
-                    //         type: 'input',
-                    //         name: 'sn-input',
-                    //         label: 'SN',
-                    //         rules: [{required: true, message: '请输入sn名称'}]
-                    //     }
-                    // ],
+                    [
+                        {
+                            type: 'date-picker',
+                            label: '盘点时间',
+                            name: 'inventory-time',
+                            format: 'YYYYMMDD',
+                        },
+                        {
+                            type: 'input',
+                            name: 'sn-input',
+                            label: 'SN',
+                            rules: [{required: true, message: '请输入sn名称'}]
+                        }
+                    ],
                     [
                         {
                             type: 'select',

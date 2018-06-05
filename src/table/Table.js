@@ -48,7 +48,8 @@ export default class NewTable extends BaseComponent {
             showAllTags: false,
             // 加载状态
             loading: false,
-            selectedRowKeys: []
+            selectedRowKeys: [],
+            expandedRowKeys: []
         };
         // 保存选中的行数据
         this.selectedRows = [];
@@ -99,13 +100,17 @@ export default class NewTable extends BaseComponent {
         // this.disabledRow = this.rowSelection && (this.rowSelection.disabledRow !== undefined)
         //         ? this.rowSelection.disabledRow
         //         : v=>v.disable || v.disabled;
+        // 展开相关
+        if (!!objProps.expandedRowKeys) {
+            state.expandedRowKeys = objProps.expandedRowKeys;
+        }
         let defaultCif = {
             size: 'default',
             rowKey: 'id',
             rowClassName: () => {},
             expandedRowRender: null,
             defaultExpandedRowKeys: [],
-            expandedRowKeys: [],
+            // expandedRowKeys: [], // 配置之后会变为受控组件
             defaultExpandAllRows: false,
             locale: {filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'},
             indentSize: 15,
@@ -240,6 +245,13 @@ export default class NewTable extends BaseComponent {
             total: data.length
         };
     }
+    // 行展开收起相关的两个方法
+    onExpandedRowsChange(expandedRows) {
+        this.setState({
+            expandedRowKeys: expandedRows
+        });
+        this.antdConfig.onExpandedRowsChange(expandedRows);
+    }
     // 对编辑状态的表格进行数据提交调用的函数
     _cellSubmit(key, dataIndex, value) {
         let dataSource = [...this.__props.data];
@@ -269,7 +281,7 @@ export default class NewTable extends BaseComponent {
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
                 page: pageNum,
-                size: this.pagination.pageSize,
+                size: this.pagination.pageSize
             });
         }
         // 当前请求的标号
@@ -503,7 +515,7 @@ export default class NewTable extends BaseComponent {
                     e && e.preventDefault();
                     e && e.stopPropagation();
                     this.showCrud(v.action, record);
-                }
+                };
             }
         }
         return config;
@@ -577,7 +589,7 @@ export default class NewTable extends BaseComponent {
                     filterObj.onFilter = (value, record) => {
                         // if (this.serverPaging) {
                         // } else {
-                            return record[item.dataIndex].indexOf(value) !== -1;
+                        return record[item.dataIndex].indexOf(value) !== -1;
                         // }
                     };
                     defaultColumn = Object.assign({}, defaultColumn, filterObj);
@@ -764,11 +776,23 @@ export default class NewTable extends BaseComponent {
             className += ' uf-table-mini';
             size = 'small';
         }
+        let expandedRowRender = this.state.antdConfig.expandedRowRender;
+        let footer = this.state.antdConfig.footer;
         return <div className={className} style={this.__props.style}>
             <Table {...this.state.antdConfig} size={size}
                 title={this.title && (()=>(
                     <Title parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
                 ))}
+                onExpandedRowsChange = {this.onExpandedRowsChange.bind(this)}
+                {...(expandedRowRender
+                    ? {expandedRowRender: record => this.__analysis(expandedRowRender(record))}
+                    : null)
+                }
+                {...(!!this.state.expandedRowKeys ? {expandedRowKeys: this.state.expandedRowKeys} : null)}
+                {...(footer
+                    ? {footer: currentPageData => this.__analysis(footer(currentPageData))}
+                    : null)
+                }
                 dataSource={this.__props.data}
                 columns={this.renderColumns()}
                 rowSelection={this.renderRowSelection()}

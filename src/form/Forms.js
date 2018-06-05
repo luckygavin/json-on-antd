@@ -49,11 +49,11 @@ export default class CopyOrDeleteForm extends BaseComponent {
         return this.__analysis(formConfig);
     }
     // 获取所有表单的值
-    getValues() {
+    getValues(check = true) {
         // 获取每个Form的值
         let values = [];
         for (let i in this.formsName) {
-            values.push(this.__getComponent(this.formsName[i]).getValues());
+            values.push(this.__getComponent(this.formsName[i]).getValues(check));
         }
         return values;
     }
@@ -71,43 +71,25 @@ export default class CopyOrDeleteForm extends BaseComponent {
     }
     // 自定义按钮点击事件，返回表单数据
     customClick(callback) {
-        let values = this.getValues();
+        let values = this.getValues(false);
         callback && callback(values, this);
     }
     // 复制新增
     copyAddForm(formName, index) {
+        // 获取已经填写的form内容
+        let formData = this.getValues(false);
         // 为formData增加一个元素并重新渲染
-        let curFormValue = this.__getComponent(formName).getValues(false);
-        console.log('curFormValue:', curFormValue);
-        let formData = this.state.formData;
-        if (formData instanceof Array) {
-            formData[index] = curFormValue;
-            formData.splice(index + 1, 0, curFormValue);
-        }
-        else {
-            // 将对象变为数组，并且将新值作为下一个form的内容
-            formData = [].concat([curFormValue, curFormValue]);
-        }
+        formData.splice(index + 1, 0, formData[index]);
         this.setState({
             formData: formData
         });
     }
     // 简单新增
     addForm(formName, index) {
-        console.log('add-name:', formName);
+        // 获取已经填写的form内容
+        let formData = this.getValues(false);
         // 新增的form的formdata为一个空对象
-        let curFormValue = this.__getComponent(formName).getValues(false);// 跳过验证得到值
-        console.log('curFormValue:', curFormValue);
-        let formData = this.state.formData;
-        if (formData instanceof Array) {
-            formData[index] = curFormValue;
-            formData.splice(index + 1, 0, {});
-        }
-        else {
-            // 将对象变为数组，并且将新值作为下一个form的内容
-            formData = [].concat([curFormValue, {}]);
-        }
-        console.log('formData:', formData);
+        formData.splice(index + 1, 0, {});
         this.setState({
             formData: formData
         });
@@ -193,7 +175,6 @@ export default class CopyOrDeleteForm extends BaseComponent {
                 onClick: () => {
                     if (addType === 'add') {
                         // 简单新增
-                        console.log('formConfig.name:', formConfig.name);
                         this.addForm(formConfig.name, index);
                     }
                     else {

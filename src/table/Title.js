@@ -185,7 +185,7 @@ export default class Title extends BaseComponent {
     }
     // 下拉列表中的控件
     getMenuWidghts() {
-        // 因为使用频率较高，暂时保留原参数，后续版本中移除
+        // COMPAT: 因为使用频率较高，暂时保留原参数，后续版本中移除
         let arrMenus = this.title.menuWidget || this.title.menuControls;
         let result = null;
         let gearsList = [];
@@ -513,7 +513,7 @@ export default class Title extends BaseComponent {
             pageSize = 10;
         }
         this.parent.pagination.pageSize = pageSize;
-        this.parent.forceUpdate();
+        this.parent.refreshTable();
         this.setState({showTableMenu: false});
     }
     // 展示分页设置输入框时，使得输入框获取焦点

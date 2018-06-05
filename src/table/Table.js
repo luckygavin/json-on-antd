@@ -80,10 +80,10 @@ export default class NewTable extends BaseComponent {
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
-        // 注意：引用类型，this.pagination 和 this.__props.pagination 是同一个东西
-        this.pagination = objProps.pagination;
+        // 注意：引用类型，this.pagination 和 this.__props.pagination 基本上是同一个东西
+        this.pagination = objProps.pagination || {};
         // 是否为后端分页
-        this.serverPaging = this.__filtered.source.url && (this.pagination && this.pagination.pageType === 'server');
+        this.serverPaging = this.__filtered.source.url && this.pagination.pageType === 'server';
         // 列配置
         this.columns = objProps.columns;
         let propsData = objProps.data;
@@ -137,9 +137,7 @@ export default class NewTable extends BaseComponent {
         // 关于异步操作
         if (propsData) {
             state.completeData = propsData;
-            if (this.pagination) {
-                this.pagination.total = propsData.length
-            }
+            this.pagination.total = propsData.length;
         }
         // 关于行样式与不可选相关联，不可选时至为灰色
         if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -227,14 +225,16 @@ export default class NewTable extends BaseComponent {
         // 如果为后端分页，则传递 source 配置
         if (this.serverPaging) {
             return {
+                type: 'asyn',
                 headers: headers,
                 source: this.__filtered.source,
-                total: this.pagination && this.pagination.total || 0
+                total: this.pagination.total || 0
             };
         }
         // 否则传递 data
         let data = this.__props.data || [];
         return {
+            type: 'sync',
             headers: headers,
             data: data,
             total: data.length
@@ -733,7 +733,7 @@ export default class NewTable extends BaseComponent {
         return rowSelection;
     }
     renderPagination() {
-        if (!this.pagination) {
+        if (!this.__props.pagination) {
             return false;
         }
         let pagination = {

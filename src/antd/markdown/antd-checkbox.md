@@ -14,6 +14,7 @@
 |----------|------------------|----------|--------|
 | checked | 指定当前是否选中 | boolean  | false |
 | onChange | 变化时回调函数 | Function(e:Event) | - |
+| indeterminate | 设置半选中状态，只负责样式控制 | boolean | false |
 
 ### # checkbox-group
 
@@ -22,3 +23,10 @@
 | value | 指定选中的选项| string[] | [] |
 | options  | 指定可选项 [*默认异步属性*] | object[] | [] |
 | onChange | 变化时回调函数 | Function(checkedValue) | - |
+
+### 函数调用
+> 组件自身带有的函数，调用方法如：`UF('checkbox').checkAll(true)`。
+
+参数       | 说明           | 参数    
+-----------|----------------|-----------
+checkAll  | 适用于`checkbox-group`，进行全选或取消全选 |  checkAll(boolean)  

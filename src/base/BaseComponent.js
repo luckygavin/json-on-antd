@@ -332,7 +332,7 @@ export default class BaseComponent extends Component {
     // api/source/control 系列参数格式化工具
     // 保证格式化后必需为对象
     __formatApi(value = {}, attr = 'url') {
-        if (Utils.typeof(value, 'string')) {
+        if (!Utils.typeof(value, 'object')) {
             value = {[attr]: value};
         }
         return value;
@@ -568,16 +568,21 @@ export default class BaseComponent extends Component {
 
     // 绑定组件额外动作处理逻辑
     _injectControl() {
-        let {type, trigger, target, params = [], handler} = this.__filtered.control;
+        let {trigger, target} = this.__filtered.control;
         if (target) {
-            // target可以为一个函数，函数的参数为trigger的参数列表
-            // 函数返回一个target的字符串
-            let targetStr = target;
-            if (Utils.typeof(target, 'function')) {
-                targetStr = target(...params);
-            }
-            if (target) {
-                this._inject(this.__props, trigger, (...para)=>{
+            this._inject(this.__props, trigger, (...para)=>{
+                let {type, params, handler} = this.__filtered.control;
+                // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
+                let targetArr = target;
+                if (Utils.typeof(target, 'function')) {
+                    targetArr = target(...para);
+                }
+                // 支持target为一个数组，配置同时操作多个同类的target
+                if (!Utils.typeof(targetArr, 'array')) {
+                    targetArr = [targetArr];
+                }
+                for (let v of targetArr) {
+                    let targetStr = v;
                     // targetAttr 可以为空数组，即目标直接指向组件
                     let [targetName, ...targetAttr] = targetStr.split('.');
                     let target = this.__getComponent(targetName);
@@ -591,6 +596,10 @@ export default class BaseComponent extends Component {
                             // 2、动作类型为：调用
                             case 'call': {
                                 let func = Utils.fromObject(targetAttr.join('.'), target);
+                                // 如果没有设置params，则尝试执行handler
+                                (!params && handler) && (params = handler(...para, target, this));
+                                // 转成数组以便解构
+                                !Utils.typeof(params, 'array') && (params = [params]);
                                 func(...params);
                                 break;
                             }
@@ -598,6 +607,10 @@ export default class BaseComponent extends Component {
                             case 'assign': {
                                 let result = handler && handler(...para, target, this);
                                 let tData = Utils.generateObject(targetAttr.join('.'), result);
+                                // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
+                                if (params) {
+                                    tData = Object.assign({}, params, tData);
+                                }
                                 // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
                                 target.set(tData);
                                 break;
@@ -606,8 +619,8 @@ export default class BaseComponent extends Component {
                                 break;
                         }
                     }
-                }, true);
-            }
+                }
+            }, true);
         }
     }
 
@@ -661,6 +674,7 @@ export default class BaseComponent extends Component {
             method = 'post',
             params = oParams,
             handler,
+            paramsHandler,
             onSuccess,
             onError,
             showLoading,
@@ -670,6 +684,8 @@ export default class BaseComponent extends Component {
         if (!Utils.directInstanceof(params, Object)) {
             params = {};
         }
+        // COMPAT: 后面移除 handler
+        handler = handler || paramsHandler;
         if (url) {
             handler && (params = handler(params));
             let hideLoading;

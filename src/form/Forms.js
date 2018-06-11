@@ -7,101 +7,108 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import moment from 'moment';
-import {Form, Icon, Button, message, Tooltip, Row, Col} from 'antd';
-
-import Ueditor from 'src/ueditor';
-
-let uuid = 0;
+import {Icon, Button, Row, Col} from 'antd';
 
 export default class CopyOrDeleteForm extends BaseComponent {
     constructor(props) {
         super(props);
-        this.config = null;
-        this._openApi.push('getValues', 'resetValues');
+        this._openApi.push('getValues', 'resetValues', 'resetItem');
+        // 不复杂的属性，即无需merge处理直接覆盖的属性
+        this._uncomplex.push('formData');
         this.__init();
         this.state = {
-            formData: this.__props.formData
+            loading: false
         };
-        this.formsName = [];// 用于记录所有form的name
-        this.init();
-    }
-    init(nextProps) {
-        let props = this.__props;
-        if (nextProps) {
-            props = Utils.merge({}, props, nextProps);
-        }
-        this.config = props;
+        // this.__props.formData = this.__props.formData || [{}];
+        this.formRef = {}; // 用于存储子Form的引用（因为无法直接拿到refs）
     }
     componentDidMount() {
         // 把this抛出，供外部调用，因为使用refs找不到包装前的ReactForm对象
-        // this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
+        this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
         // this.initValues();
         // this.init();
     }
     componentWillReceiveProps(nextProps) {
         if (this.__shouldUpdate(this.props, nextProps)) {
-            this.init(nextProps);
+            // 使之成为受控组件，实现Form嵌套
+            if (nextProps.formData && !Utils.equals(this.__props.formData, nextProps.formData)) {
+                // this.setDefaultValues(props.formData);
+                // nextProps && this.initValues();
+            }
         }
     }
-    // 专门负责解析配置的函数
-    analysisConfig(formConfig) {
-        return this.__analysis(formConfig);
-    }
+
+    /* 外部调用函数 **********************************************************************/
+
     // 获取所有表单的值
     getValues(check = true) {
         // 获取每个Form的值
-        let values = [];
-        for (let i in this.formsName) {
-            values.push(this.__getComponent(this.formsName[i]).getValues(check));
-        }
-        return values;
+        return Utils.each(this.formRef, item=>item.getValues(check));
     }
     // 重置所有表单的值
-    resetValues(callback) {
-        let formData = [];
-        for (let i in this.formsName) {
-            this.__getComponent(this.formsName[i]).resetValues();
-            formData.push({});// 因为formData进行的页面渲染，如做清空操作
+    resetValues(o) {
+        // 如果是数组，则直接重置全部内容，数组有几项就展示几个表单
+        // 否则认为传入的是重置各个表单的某些值，即循环各个表单，并把内容设置进去
+        if (Utils.typeof(o, 'array')) {
+
+        } else {
+            Utils.each(this.formRef, item => {
+                item.resetValues(o);
+            });
         }
-        callback && callback(this);
-        this.setState({
-            formData: formData
+    }
+    resetItem(...params) {
+        Utils.each(this.formRef, item => {
+            item.resetItem(...params)
         });
     }
-    // 自定义按钮点击事件，返回表单数据
-    customClick(callback) {
-        let values = this.getValues(false);
-        callback && callback(values, this);
+
+    /* 组件内部逻辑 **********************************************************************/
+
+    // 校验数据
+    validateFields() {
+        let haveErr = false;
+        // 校验子form
+        let childForms = this.formRef;
+        if (childForms) {
+            for (let i in childForms) {
+                if (childForms[i].validateFields()) {
+                    haveErr = true;
+                }
+            }
+        }
+        return haveErr;
+    }
+    // 同步给父组件
+    onChange(...p) {
+        this.__props.onChange && this.__props.onChange(...p);
     }
     // 复制新增
-    copyAddForm(formName, index) {
+    copyAddForm(key, index) {
         // 获取已经填写的form内容
         let formData = this.getValues(false);
         // 为formData增加一个元素并重新渲染
         formData.splice(index + 1, 0, formData[index]);
-        this.setState({
-            formData: formData
-        });
+        this.__setProps({formData});
+        this.onChange(formData);
     }
     // 简单新增
-    addForm(formName, index) {
+    addForm(key, index) {
         // 获取已经填写的form内容
         let formData = this.getValues(false);
         // 新增的form的formdata为一个空对象
         formData.splice(index + 1, 0, {});
-        this.setState({
-            formData: formData
-        });
+        this.__setProps({formData});
+        this.onChange(formData);
     }
     // 删除表单
-    deleteForm(formName, index) {
+    deleteForm(key, index) {
         // 为formData减少一个元素并重新渲染
-        let formData = this.state.formData;
+        let formData = this.__props.formData;
         formData.splice(index, 1);
-        this.setState({
-            formData: formData
-        });
+        delete this.formRef[key];
+        this.__setProps({formData});
+        this.onChange(formData);
     }
     handleSubmit(e, callback) {
         // 否则阻止提交按钮默认事件
@@ -117,10 +124,8 @@ export default class CopyOrDeleteForm extends BaseComponent {
             // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
             if (result instanceof Promise) {
                 this.setState({loading: true});
-                result.then(
+                result.catch(()=>{}).finally(
                     resolve=>this.setState({loading: false})
-                ).catch(
-                    reject=>this.setState({loading: false})
                 );
             }
         }
@@ -128,72 +133,51 @@ export default class CopyOrDeleteForm extends BaseComponent {
     submitClick(callback, e) {
         this.handleSubmit(e, callback);
     }
-    renderForms() {
-        /**方法二，外层包裹div，为外层div增加buttons功能以操作内层form**/
-        let formData = this.state.formData;
-        let formConfig = Object.assign({}, this.config.form);
-        let formsName = [];
-        if (formData  instanceof Array) {
-            // 当出入数据为数组时，将渲染多个form
-            let childForms = [];
-            formData.forEach((v, index) => {
-                let newFormConfig = Object.assign({}, formConfig, {
-                    type: 'form',
-                    name: '-' + index.toString(),
-                    formData: v
-                });
-                formsName.push('-' + index.toString());
-                // console.log('formsName:', formsName);
-                // 检测是否只剩下一个表单，是：不显示删除键
-                let newDivConfig = formData.length > 1
-                    ? this.renderForm(newFormConfig, index, false)
-                    : this.renderForm(newFormConfig, index, true);
-                childForms.push(newDivConfig);
-            });
-            this.formsName = formsName;
-            return this.analysisConfig(childForms);
+    resetClick(callback) {
+        let formData = [];
+        for (let i in this.formRef) {
+            this.formRef[i].resetValues();
+            formData.push({});// 因为formData进行的页面渲染，如做清空操作
         }
-        formConfig = Object.assign({}, formConfig, {
-            type: 'form',
-            name: '-0',
-            formData: formData
+        callback && callback(this);
+        this.__setProps({formData});
+    }
+    // 自定义按钮点击事件，返回表单数据
+    customClick(callback) {
+        let values = this.getValues(false);
+        callback && callback(values, this);
+    }
+    handleChange(index, data) {
+        if (this.__props.formData[index]) {
+            this.__props.formData[index] = data;
+        }
+        this.onChange(this.__props.formData);
+    }
+    renderForms() {
+        let formData = this.__props.formData;
+        if (Utils.typeof(formData, 'object')) {
+            formData = [formData];
+        }
+        // 清空原来记录的formRef，因为index会变
+        this.formRef = {};
+        // 渲染多个form
+        return formData.map((v, index) => {
+            let key = this.key + '-' + index;
+            let formConfig = Object.assign({}, this.__props.form, {
+                type: 'form',
+                key: key,
+                wrappedComponentRef: inst=>(this.formRef[key] = inst),
+                onChange: this.handleChange.bind(this, index),
+                formData: v
+            });
+            // 检测是否只剩下一个表单，是：不显示删除键
+            return this.renderForm(formConfig, index, formData.length <= 1);
         });
-        formsName.push('-0');
-        this.formsName = formsName;
-        return this.analysisConfig(this.renderForm(formConfig));
     }
     renderForm(formConfig, index = 0, onlyOne = true) {
-        // 判断是用户配置的新增方式是复制新增(copy-add)还是新增(add)
-        let addType = !!this.config.addType ? this.config.addType : 'copy-add';
-
-        let icons = [
-            {
-                type: 'button',
-                mode: 'dashed',
-                className: 'addFormIcon',
-                icon: 'plus-circle-o',
-                onClick: () => {
-                    if (addType === 'add') {
-                        // 简单新增
-                        this.addForm(formConfig.name, index);
-                    }
-                    else {
-                        // 复制新增
-                        this.copyAddForm(formConfig.name, index);
-                    }
-                }
-            },
-            !onlyOne && {
-                type: 'button',
-                mode: 'dashed',
-                className: 'deleteFormIcon',
-                icon: 'minus-circle-o',
-                onClick: () => {
-                    this.deleteForm(formConfig.name, index);
-                }
-            }
-        ];
         let divConfig = {
+            // key 不应该是用 index
+            key: this.key + '-' + index,
             type: 'div',
             className: 'uf-forms',
             content: [
@@ -201,16 +185,38 @@ export default class CopyOrDeleteForm extends BaseComponent {
                 {
                     type: 'div',
                     className: 'forms-icons',
-                    content: icons
+                    content: [
+                        {
+                            type: 'button',
+                            mode: 'dashed',
+                            className: 'addFormIcon',
+                            icon: 'plus-circle-o',
+                            onClick: () => {
+                                if (this.__props.addType === 'add') {
+                                    this.addForm(formConfig.key, index);
+                                } else {
+                                    this.copyAddForm(formConfig.key, index);
+                                }
+                            }
+                        },
+                        !onlyOne && {
+                            type: 'button',
+                            mode: 'dashed',
+                            className: 'deleteFormIcon',
+                            icon: 'minus-circle-o',
+                            onClick: () => {
+                                this.deleteForm(formConfig.key, index);
+                            }
+                        }
+                    ]
                 }
             ]
         };
-        // return this.analysisConfig(divConfig);
-        return divConfig;
+        return this.__analysis(divConfig);
     }
     // 解析 Button 的配置，格式化成统一格式
     analysisButtonConfig() {
-        const buttonsCfg = this.config.buttons;
+        const buttonsCfg = this.__props.buttons;
         if (!buttonsCfg) {
             return;
         }
@@ -260,7 +266,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
                                     item.icon = 'reload';
                                 }
                                 return <Button key="reset" {...item}
-                                        onClick={this.resetValues.bind(this, item.onClick)}>
+                                        onClick={this.resetClick.bind(this, item.onClick)}>
                                         {item.value}
                                         </Button>;
                                 break;
@@ -278,8 +284,6 @@ export default class CopyOrDeleteForm extends BaseComponent {
         );
     }
     render() {
-        // return this.initValues();
-        // return this.renderForms();
         return (<div className="uf-add-delete-forms">
             {this.renderForms()}
             {this.generateButton()}

@@ -29,7 +29,7 @@ export default class TableEdit extends BaseComponent {
     }
     componentWillReceiveProps(nextProps) {
         // 当单元格值改变时强制更新
-        if (nextProps.columnChild && nextProps.value !== this.props.value) {
+        if (nextProps.value !== this.props.value) {
             this.setState({
                 columnChild: nextProps.columnChild,
                 value: nextProps.value

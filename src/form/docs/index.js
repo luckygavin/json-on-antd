@@ -57,7 +57,7 @@ const Step1 = {
                     handler: data=>data.map(v=>{
                         return {value: v.name, label: v.name};
                     })
-                },
+                }
             }
         ],
         [

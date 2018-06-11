@@ -168,29 +168,60 @@ const utils = {
         }
         return newObj;
     },
-    // 对比两个对象是否相等
-    // 只检查了一层
-    equals(obj1, obj2) {
+    // 对比两个值是否相等
+    // 注意：不要随意切换其余的对比函数，例如underscore的isEqual
+    equals(value1, value2) {
         // 方式1
-        // return JSON.stringify(obj1) === JSON.stringify(obj2);
+        // return JSON.stringify(value1) === JSON.stringify(value2);
         // 方式2
-        // return underscore.isEqual(obj1, obj2);
+        // return underscore.isEqual(value1, value2);
         // 方式3
-        if (!this.typeof(obj1, 'object') || !this.typeof(obj2, 'object')) {
+        // 检测类型，类型一致才继续后续的对比
+        if (this.getType(value1) !== this.getType(value2)) {
             return false;
         }
-        let keys = Object.keys(Object.assign({}, obj1, obj2));
-        for (let i of keys) {
-            // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
-            if (this.typeof(obj1[i], 'function') && this.typeof(obj2[i], 'function')) {
-                if (obj1[i].toString() !== obj2[i].toString()) {
+        // 普通类型校验
+        if (value1 === value2) {
+            return true;
+        }
+        // 对象或数组的话，只检查了一层
+        if (this.typeof(value1, ['object', 'array'])) {
+            let keys = Object.keys(Object.assign({}, value1, value2));
+            for (let i of keys) {
+                // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
+                if (this.typeof(value1[i], 'function') && this.typeof(value2[i], 'function')) {
+                    if (this.toString(value1[i]) !== this.toString(value2[i])) {
+                        return false;
+                    }
+                } else if (!Object.is(value1[i], value2[i])) {
                     return false;
                 }
-            } else if (!Object.is(obj1[i], obj2[i])) {
-                return false;
+            }
+            return true;
+        }
+        // 包括：function、null、undefined、regexp、number、string、boolean、date ...
+        if (this.toString(value1) === this.toString(value2)) {
+            return true;
+        }
+        return false;
+    },
+    // 检查是否有改变内容
+    isChange(newVal, oldVal) {
+        // 检测类型，类型一致才继续后续的对比
+        if (this.getType(newVal) !== this.getType(oldVal)) {
+            return true;
+        }
+        if (this.typeof(newVal, ['object', 'array'])) {
+            for (let i of Object.keys(newVal)) {
+                if (this.isChange(newVal[i], oldVal[i])) {
+                    return true;
+                }
             }
         }
-        return true;
+        if (this.toString(newVal) !== this.toString(oldVal)) {
+            return true;
+        }
+        return false;
     },
     // 子串是否处于字符串最末尾
     isLast(sub, str) {
@@ -236,6 +267,10 @@ const utils = {
             // 之所以不用hashHistory.push()是因为会自动执行两次push
             window.location.href = path;
         }
+    },
+    // 转换为字符串，原生的toString方法不适用于undefined，null等
+    toString(value) {
+        return '' + value;
     },
     // 获取数据的类型，返回的类型名称为全小写
     // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
@@ -354,19 +389,19 @@ const utils = {
     },
     // 想某个对象上的某个函数注入额外逻辑
     // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前、bind的对象
-    inject(parent, target, newFunc, oldAhead = false, thisArg = null) {
+    inject(parent, target, newFunc, oldAhead = false, thisObj = null) {
         let origin = parent[target];
         parent[target] = !!origin
             ? (...params) => {
                 // return原函数执行结果
                 let result;
-                oldAhead ? (result = origin.call(thisArg, ...params)) : null;
+                oldAhead ? (result = origin.call(thisObj, ...params)) : null;
                 // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
-                let newResult = newFunc.call(thisArg, ...params);
-                !oldAhead && newResult !== false ? (result = origin.call(thisArg, ...params)) : null;
+                let newResult = newFunc.call(thisObj, ...params);
+                !oldAhead && newResult !== false ? (result = origin.call(thisObj, ...params)) : null;
                 return result;
             }
-            : newFunc.bind(thisArg);
+            : newFunc.bind(thisObj);
         return parent;
     },
 

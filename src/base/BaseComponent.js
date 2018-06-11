@@ -74,7 +74,7 @@ export default class BaseComponent extends Component {
         // 转化为 __props 时需过滤的属性
         this._filter = (Utils.copy(FilterProps)).concat([
             // 一些隐藏的属性
-            '__cache', '__type', '__key', '_factory'
+            '__cache', '__type', '__key', '__sending', '_factory'
         ]);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex = Utils.copy(Uncomplex);
@@ -133,7 +133,8 @@ export default class BaseComponent extends Component {
     }
     // 如果有key则返回key的值；如果没有key，则返回全部参数
     get(key) {
-        return key ? this.__props[key] : this.__props;
+        let props = Object.assign({}, this.__filtered, this.__props);
+        return key ? Utils.fromObject(key, props) : props;
     }
     // 触发组件上的事件。包括用户自定义的各种函数/事件（比如配置的onSubmit）
     // 可以使用 tigger('onSubmit') 来手动触发某个用户定义的函数/事件
@@ -341,7 +342,7 @@ export default class BaseComponent extends Component {
     // 从source接口获取数据
     // 传入的config包含 success 和 error，source一系列处理完成后最终数据才会传给 success
     __getSourceData(config) {
-        let {paramsHandler, handler, target, onError, onSuccess, ...others} = this.__filtered.source;
+        let {paramsHandler, handler, target, onError, onSuccess, showLoading, ...others} = this.__filtered.source;
         // success 和 error 等来自子组件调用，其余参数如果子组件传入，则进行覆盖
         let {url, method, params, success, error, onchange} = Object.assign(
             {},
@@ -371,7 +372,10 @@ export default class BaseComponent extends Component {
                     // 失败后额外操作
                     return onError && onError(res);
                 },
-                onchange: onchange
+                onchange: !showLoading ? onchange  : status => {
+                    this.__setProps({__sending: status});
+                    onchange && onchange(status);
+                }
             });
         }
     }
@@ -387,10 +391,7 @@ export default class BaseComponent extends Component {
         currentProps = !Utils.empty(currentProps) ? currentProps : this.props
         if (this.__shouldUpdate(currentProps, nextProps)) {
             // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-            let reGetData = nextProps.source && nextProps.source.params && !Utils.equals(
-                nextProps.source.params,
-                this.__filtered.source.params
-            );
+            let reGetData = nextProps.source && Utils.isChange(nextProps.source, this.__filtered.source);
             // 重新设置 __props
             this.__setProps(nextProps);
             // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
@@ -655,7 +656,9 @@ export default class BaseComponent extends Component {
                 target = target === 'content' ? 'children' : target;
                 // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
                 let tData = Utils.generateObject(target, data);
-                this.__setProps(tData);
+                // table、form等自定义组件不适用
+                // this.__setProps(tData);
+                this.set(tData);
             }
         });
     }

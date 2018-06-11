@@ -19,7 +19,9 @@ class OriginForm extends BaseComponent {
         super(props);
         // 过滤掉Form.create传入的form属性
         this._filter.push('form');
-        this._openApi.push('getValues', 'resetValues', 'clearValues');
+        this._openApi.push('getValues', 'resetValues', 'clearValues', 'resetItem');
+        // 不复杂的属性，即无需merge处理直接覆盖的属性
+        this._uncomplex.push('formData');
         this.__init();
         this.state = {
             loading: false
@@ -110,6 +112,7 @@ class OriginForm extends BaseComponent {
                     if (this.itemsCache[i] && this.itemsCache[i].format) {
                         result[i] = values[i].format(this.itemsCache[i].format);
                     }
+                // } else if (['group', 'form', 'forms'].indexOf(item.type) !== -1) {
                 } else {
                     result[i] = values[i];
                 }
@@ -145,6 +148,14 @@ class OriginForm extends BaseComponent {
         values = this._encodeValues(values);
         this.form.setFieldsValue(values);
     }
+    // 更新某个表单项的配置
+    resetItem(target, conf) {
+        let targetConf = this.itemsCache[target];
+        if (targetConf) {
+            this.itemRef[target].set(conf);
+            this.__mergeProps(targetConf, conf);
+        }
+    }
 
     /* 组件内部逻辑 **********************************************************************/
 
@@ -175,6 +186,7 @@ class OriginForm extends BaseComponent {
     // 根据传入的 formData 设置初始值
     // TODO: 新数据传入，要重设全部字段？
     initValues(values) {
+        this.form.resetFields();
         values = values || this.defaultValues;
         values = this._encodeValues(values);
         if (values && !Utils.empty(values)) {
@@ -190,15 +202,13 @@ class OriginForm extends BaseComponent {
                     this.onChange(item, values[i]);
                 }
             }
-        } else {
-            this.form.resetFields();
         }
     }
     // 实现联动功能
     onChange(item, val, string) {
         if (string) {
             val = string;
-        } else if (val && val.target) {
+        } else if (Utils.typeof(val, 'object') && val.target) {
             if (val.target.value) {
                 val = val.target.value;
             } else if (val.target.checked) {
@@ -208,30 +218,51 @@ class OriginForm extends BaseComponent {
         // 实现联动
         if (item.join) {
             for (let i in item.join) {
-                let target = this.itemsCache[i];
-                if (target) {
-                    for (let j in item.join[i]) {
-                        let result = item.join[i][j];
-                        switch (j) {
-                            case 'value': {
-                                let oValue = this.itemRef[i] && this.itemRef[i].getValue();   
-                                if (Utils.typeof(item.join[i][j], 'function')) {
-                                    result = item.join[i][j](val, oValue, target);
-                                }
-                                // this.form.setFields({[i]: {value: result, errors: []}});
-                                this.form.setFieldsValue({[i]: result});
-                                break;
+                // 如果目标组件名称中间使用了.进行了分隔，则目标为一个复杂的组件（最终操作的目标不在同级）
+                let nameArr = i.split('.');
+                let isComplex = nameArr.length > 1;
+                let parentName = nameArr[0];
+                let attrName = nameArr[1];
+                let parentTarget = this.formRef[parentName];
+
+                // 处理属性
+                let newConf = {};
+                for (let j in item.join[i]) {
+                    // 目标组件的ref
+                    let target = this.itemRef[i];
+                    // 本组件的ref
+                    let self = this.itemRef[item.name];
+                    // 属性结果
+                    let attrVal = item.join[i][j];
+                    if (Utils.typeof(attrVal, 'function')) {
+                        let oValue;
+                        target && (oValue = target.get(j));
+                        // 参数依次为：当前组件值，目标组件原值，目标组件ref，当前组件ref
+                        attrVal = attrVal(val, oValue, target || parentTarget, self);
+                    }
+                    switch (j) {
+                        case 'checked':
+                        case 'value': {
+                            if (isComplex) {
+                                parentTarget.resetValues({[attrName]: attrVal});
+                            } else {
+                                this.form.setFieldsValue({[i]: attrVal});
                             }
-                            case 'display':
-                            default:
-                                if (Utils.typeof(item.join[i][j], 'function')) {
-                                    result = item.join[i][j](val, target[j], target);
-                                }
-                                // target[j] = result;
-                                this.__mergeProps(target, {[j]: result});
-                                break;
+                            break;
+                        }
+                        case 'display':
+                        default: {
+                            newConf[j] = attrVal;
+                            break;
                         }
                     }
+                }
+                if (isComplex) {
+                    parentTarget.resetItem(attrName, newConf);
+                } else {
+                    // 保证能引起组件刷新（例如重新获取数据）
+                    this.itemRef[i].set(newConf);
+                    this.__mergeProps(this.itemsCache[i], newConf);
                 }
             }
             this.forceUpdate();
@@ -285,6 +316,7 @@ class OriginForm extends BaseComponent {
             itemLayout = this.config.layout.type === 'horizontal' ? this.formItemLayout : null;
         }
         let item = Object.assign({rules: [{}]}, oitem);
+        delete item.layout;
         // 兼容只定义一个rules的情况，即如下形式：rules: {required: true}
         if (Utils.typeof(item.rules, 'object')) {
             item.rules = [item.rules];
@@ -304,25 +336,29 @@ class OriginForm extends BaseComponent {
             itemProps.size = itemProps.size || this.config.size;
         }
         // 触发Change时实现联动功能
-        itemProps.onChange = this.onChange.bind(this, item);
+        this._inject(itemProps, 'onChange', this.onChange.bind(this, item), true)
         // 存储ref
         itemProps.ref = inst=>{this.itemRef[key] = inst};
         let itemContent;
         let otherOptions = {};
         switch (item.type) {
             case 'group':
+                // 子form如果使用group的type则去掉label
+                itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
+            case 'forms':
+                // forms组件的formData为一个数组
+                item.rules[0]['type'] = item.rules[0]['type'] || 'array';
+                item.default = item.default || item.formData || [{}];
             case 'form':
                 // 实现分组，本质上是form嵌套
                 // parent属性用来传递一些父Form的函数
-                itemProps.wrappedComponentRef = inst=>{
-                    this.formRef[key] = inst;
-                };
+                itemProps.wrappedComponentRef = inst=>(this.formRef[key] = inst);
                 delete itemProps.ref;
-                itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
                 otherOptions = {
                     valuePropName: 'formData',
                 };
-                item.default = item.default || {};
+                item.default = item.default || item.formData || {};
+                delete item.formData;
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
                 break;
             case 'input':
@@ -403,9 +439,11 @@ class OriginForm extends BaseComponent {
                 };
                 break;
             }
+            case 'range-picker':
+                // range-picker 组件的value为一个数组
+                item.rules[0]['type'] = item.rules[0]['type'] || 'array';
             case 'date-picker':
             case 'month-picker':
-            case 'range-picker':
             case 'time-picker':
                 // 日期时间选择
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
@@ -434,7 +472,7 @@ class OriginForm extends BaseComponent {
             item.rules[0]['message'] = item.rules[0]['message'] || `${item.label || ''}不能为空`;
         }
         // 保存默认值，以form渲染完成后执行initValues
-        if (item.default) {
+        if (item.default !== undefined) {
             this.defaultValues[item.name] = item.default;
         }
         let fieldProps = {
@@ -472,10 +510,8 @@ class OriginForm extends BaseComponent {
             // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
             if (result instanceof Promise) {
                 this.setState({loading: true});
-                result.then(
+                result.catch(()=>{}).finally(
                     resolve=>this.setState({loading: false})
-                ).catch(
-                    reject=>this.setState({loading: false})
                 );
             }
         }

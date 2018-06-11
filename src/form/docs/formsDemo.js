@@ -30,12 +30,6 @@ let demo1 = {
                     'sn-input': '这是第二个input'
                 }
             ],
-            // formData: {
-            //     'inventory-time': '20180723',
-            //     'idc_id': 'f',
-            //     'inventory-method': '2',
-            //     'sn-input': '这是第二个input'
-            // },
             buttons: {
                 layout: 'center',
                 items: [

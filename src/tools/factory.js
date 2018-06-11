@@ -19,6 +19,8 @@ export default class Factory extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {};
+        // 解析结果缓存
+        this.__cache = {};
     }
 
     componentWillReceiveProps(nextProps) {
@@ -45,6 +47,12 @@ export default class Factory extends PureComponent {
         // 如果不是对象直接返回
         if (!Utils.typeof(item, 'object')) {
             return item;
+        }
+        // 检验是否有缓存
+        let key = Utils.hash(item);
+        if (this.__cache[key]) {
+            let {Item, props} = this.__cache[key];
+            return <Item {...props} />;
         }
         // 如果没有定义type，且有configTpl配置模板，则从模板中取出type
         if (!item.type && item.configTpl) {
@@ -91,6 +99,9 @@ export default class Factory extends PureComponent {
 
         // Update at 2018-03-13 17:02:46. 使用完后，要把在原配置中增加的多余的属性删除掉
         delete item._factory;
+        
+        // 有bug，路由切换了，页面无法刷新
+        // this.__cache[key] = {Item, props};
 
         return <Item {...props} />;
     }

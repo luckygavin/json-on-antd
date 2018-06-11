@@ -29,6 +29,8 @@ export default {
             trigger: 'onChange'
         },
         source: {
+            // 获取数据时展示loading
+            showLoading: false,
             target: 'value'
         },
         control: {
@@ -129,6 +131,9 @@ export default {
             labelCol: 6,
             wrapperCol: 14
         },
+        source: {
+            target: 'formData'
+        },
         api: {
             trigger: 'onSubmit'
         },
@@ -136,6 +141,9 @@ export default {
             trigger: 'onSubmit',
             handler: v=>v
         }
+    },
+    forms: {
+        addType: 'copy-add'
     },
     'table': {
         rowKey: 'id',

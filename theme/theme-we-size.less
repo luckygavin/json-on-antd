@@ -1,0 +1,51 @@
+
+/**
+* @file 统一框架与大小、间距相关样式
+*/
+
+// 字体大小
+@font-size-base: 12px;
+@font-size-lg: @font-size-base + 2px;
+@font-size-sm: 10px;
+
+// 圆角
+@border-radius-base: 0px;
+@border-radius-sm: 0px;
+// 单选按钮中内部图标显示要保持是原型
+.ant-radio-inner:after {
+    border-radius: 50%;
+}
+
+// menu（参照阿里云）
+// 行高改变
+@menu-inline-toplevel-item-height: 35px;// 无作用
+@menu-item-height: 35px;// 无作用
+// 纵向menu及横向的下拉menu
+.ant-menu-vertical .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-item,
+.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
+    line-height: @menu-inline-toplevel-item-height;
+    height: @menu-item-height;
+}
+
+// 输入型组件规定
+.ant-input {
+    width: 200px;
+    height: 28px;
+}
+.ant-select-selection {
+    width: 200px;
+}
+.ant-pagination-options {
+    .ant-select-selection {
+        width: auto;
+    }
+}
+
+// table组件-变为密集型组件
+@table-padding-vertical: 10px;
+
+// tabs组件
+.ant-tabs-bar {
+    margin-bottom: 20px;
+}

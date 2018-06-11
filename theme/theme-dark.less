@@ -1,0 +1,361 @@
+/**
+* @file dark主题
+* @author susisi@baidu.com 2018-06-01
+*/
+
+@import './theme-we-size.less';
+
+// 颜色相关
+@primary-color: #293144;
+@link-color: #2d8cf0;
+@link-hover-color       : color(~`colorPalette("@{link-color}", 5)`);
+@link-active-color      : color(~`colorPalette("@{link-color}", 7)`);
+// @primary-color: rgba(41, 49, 68, 0.3);
+@body-background        : #3e536e;
+// Base background color for most components
+@component-background   : #3e536e;
+
+@background-color-light : #3e4657; 
+@background-color-base  : #293144;
+
+@heading-color          : #fff;
+@text-color             : fade(#fff, 85%);
+@text-color-secondary: fade(#fff, 65%);
+
+@border-color-base      : #3e4657;
+@border-color-split     : #3e4657;
+
+@item-active-bg         : @background-color-base;
+
+@disabled-color: fade(#fff, 25%);
+@disabled-bg: @background-color-light;
+/*******************uf定义颜色*************************/
+// 输入型组件样式
+@uf-entry-component-bg   : rgba(41, 49, 68, 0.3);
+@uf-entry-component-color: rgba(255, 255, 255, 0.8);
+
+// 标题型组件背景
+@uf-header-bg: #364559;
+
+// @uf-component-highlight-bg: #406e8f;
+@uf-component-highlight-bg: #263243;
+@uf-component-highlight-text-color: #2d8cf0;
+/******************************************************/
+
+// layout
+@layout-body-background      : @component-background;
+@layout-header-background    : @component-background;
+@layout-footer-background    : @layout-body-background;
+@layout-sider-background     : @layout-header-background;
+// @layout-trigger-background   : #002140;
+// @layout-trigger-color        : #fff;
+
+// popover
+@popover-bg: @uf-component-highlight-bg;
+
+// input
+@input-bg: @uf-entry-component-bg;
+@input-addon-bg              : @uf-component-highlight-bg;
+// @input-color                 : @uf-entry-component-color;
+
+// radio
+@radio-dot-color        : @uf-component-highlight-text-color;// 无作用
+.ant-radio-checked .ant-radio-inner {
+    border-color: @uf-component-highlight-text-color;
+    &:after {
+        background-color: @uf-component-highlight-text-color;
+    }
+}
+.ant-radio-wrapper:hover .ant-radio .ant-radio-inner, .ant-radio:hover .ant-radio-inner, .ant-radio-focused .ant-radio-inner {
+    border-color: @uf-component-highlight-text-color;
+}
+.ant-radio-button-wrapper:hover, .ant-radio-button-wrapper-focused {
+    color: @uf-component-highlight-text-color;
+}
+.ant-radio-button-wrapper-checked {
+    background: @uf-component-highlight-text-color;
+    color: @text-color;
+    border-color: @uf-component-highlight-text-color;
+    &:hover {
+        color: @text-color;
+    }
+}
+// checkbox
+.ant-checkbox-inner {
+    background: @uf-entry-component-bg;
+}
+.ant-checkbox-checked .ant-checkbox-inner,
+.ant-checkbox-indeterminate .ant-checkbox-inner {
+    background: @uf-component-highlight-text-color;
+    border-color: @uf-component-highlight-text-color;
+}
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner {
+    border-color: @uf-component-highlight-text-color;
+}
+
+// calendar
+.ant-calendar-date:hover {
+    border: 1px solid fade(#fff, 65%);
+    background: @background-color-light;
+}
+
+// button
+@btn-default-bg: @uf-entry-component-bg;
+.ant-btn:not(.ant-btn-primary):hover,
+.ant-btn:not(.ant-btn-primary):focus,
+.ant-btn:not(.ant-btn-primary):active,
+.ant-btn:not(.ant-btn-primary).active {
+    // background: #5c6271;
+    background: @background-color-light;
+    border-color: @background-color-light;
+    color: @text-color;
+}
+
+// select
+.ant-select-dropdown-menu-item:hover, .ant-select-dropdown-menu-item-active {
+    background-color: @background-color-light;
+}
+.ant-select-dropdown-menu-item-selected, .ant-select-dropdown-menu-item-selected:hover {
+    background-color: #4f5767;
+}
+.ant-select-dropdown {
+    background: @background-color-base;
+}
+.ant-cascader-menu-item:hover {
+    background: @background-color-light;
+}
+
+// Tabs
+@tabs-card-head-background: @background-color-light;
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+    background: @uf-component-highlight-text-color;
+    color: @text-color;
+}
+.ant-tabs-nav .ant-tabs-tab:hover {
+    color: @link-hover-color;
+}
+.ant-tabs-nav .ant-tabs-tab-active {
+    // color: @uf-component-highlight-text-color;
+    color: @link-color;
+}
+
+// Switch
+.ant-switch {
+    background-color: @background-color-base;
+}
+.ant-switch-checked {
+    background-color: @uf-component-highlight-text-color;
+}
+
+// Table
+// @table-header-bg: @background-color-light;
+.ant-table-thead > tr.ant-table-row-hover > td,
+.ant-table-tbody > tr.ant-table-row-hover > td,
+.ant-table-thead > tr:hover > td,
+.ant-table-tbody > tr:hover > td {
+    background: @background-color-light;
+}
+// dropdown
+.ant-dropdown-menu {
+    background: @background-color-light;
+}
+.ant-dropdown-menu-item:hover,
+.ant-dropdown-menu-submenu-title:hover {
+    background-color: @background-color-base;
+}
+// pagination
+.ant-pagination-item:not(.ant-pagination-item-active) {
+    &:focus, &:hover {
+        border-color: @uf-component-highlight-text-color;
+        a {
+            color: @uf-component-highlight-text-color;
+        }
+    }
+}
+
+// Tag
+@tag-default-bg: @background-color-light;
+
+// process
+@processing-color       : @uf-component-highlight-text-color;// 无作用
+.ant-progress-bg {
+    background: @uf-component-highlight-text-color;
+}
+
+// spin
+.ant-spin-dot i {
+    background-color: @uf-component-highlight-text-color;
+}
+
+// breadcrumb
+.ant-breadcrumb {
+    background: rgba(41, 49, 68, 0.5);
+}
+
+@uf-black-text-color: fade(#000, 85%);
+// Alert
+.ant-alert, .ant-alert-with-description {
+    color: @uf-black-text-color;
+}
+.ant-alert-with-description .ant-alert-message {
+    color: @uf-black-text-color;
+}
+
+// menu
+// @uf-menu-dark-bg: #19233C;
+// @uf-menu-dark-selected-bg: @uf-component-highlight-text-color; // 选中后背景色
+// @uf-menu-dark-active-bg: @background-color-base; // hover背景色
+// @uf-menu-dark-color: #fff;
+// @uf-menu-dark-selected-color: #fff;
+
+// @menu-dark-color: @uf-menu-dark-color;
+// @menu-dark-bg: @uf-menu-dark-bg;
+// @menu-dark-submenu-bg: @uf-menu-dark-bg; // 子menu背景色
+// @menu-dark-highlight-color: @uf-menu-dark-selected-color; // 不起作用，通过css使其有效
+// @menu-dark-item-selected-bg: @uf-menu-dark-selected-bg; // 不起作用，所以通过css写
+
+// .ant-menu.ant-menu-dark {
+//     color: @menu-dark-color;
+//     .ant-menu-item,
+//     .ant-menu-item-group-title,
+//     .ant-menu-item > a {
+//         color: @menu-dark-color;
+//     }
+//     // item在鼠标引入或者状态为active时的背景色
+//     .ant-menu-item:hover,
+//     .ant-menu-item-active,
+//     .ant-menu-submenu-active,
+//     &:not(.ant-menu-inline) .ant-menu-submenu-open,
+//     // .ant-menu-submenu-selected,
+//     .ant-menu-submenu-title:hover {
+//         background: @uf-menu-dark-active-bg;
+//     }
+//     .ant-menu-item-selected, .ant-menu-item-selected:hover {// 普通item选中
+//         background: @uf-menu-dark-selected-bg;
+//     }
+//     // 样式解释
+//     // .ant-menu-item:hover, // 无父子关系的item为hover
+//     // .ant-menu-item-active, // 无父子关系的item为active,鼠标hover为active状态
+//     // .ant-menu-submenu-active, // 父item为avtive
+//     // &:not(.ant-menu-inline) .ant-menu-submenu-open,
+//     // .ant-menu-submenu-selected, // 父item选中
+//     // .ant-menu-submenu-title:hover // 父item为hover
+
+//     // 纵向放置menu组标题
+//     .ant-menu-vertical .ant-menu-submenu-title,
+//     .ant-menu-submenu-inline .ant-menu-submenu-title {
+//         background: @uf-header-bg;
+//     }
+//     // 水平放置menu(mode不为为inline)
+//     &:not(.ant-menu-inline) .ant-menu-submenu-selected {
+//         color: @menu-dark-highlight-color;
+//         background: @menu-dark-item-selected-bg;
+//     }
+// }
+
+// menu function
+
+// @uf-menu-dark-bg: #19233C;
+@uf-menu-dark-bg: #203144;
+@uf-menu-dark-selected-bg: @uf-component-highlight-text-color; // 选中后背景色
+@uf-menu-dark-active-bg: @background-color-base; // hover背景色
+@uf-menu-dark-color: #fff;
+@uf-menu-dark-selected-color: #fff;
+
+// @menu-dark-bg: @uf-menu-dark-bg;
+// @menu-dark-submenu-bg: @uf-menu-dark-bg; // 子menu背景色
+
+@menu-dark-bg: @uf-menu-dark-bg;
+@menu-dark-submenu-bg: @uf-menu-dark-bg;
+@menu-dark-color: @uf-menu-dark-color;
+
+.uf-menu-dark(@uf-menu-dark-selected-bg; @uf-menu-dark-active-bg; @uf-menu-dark-color; @uf-menu-dark-selected-color);
+.uf-menu-dark(@menu-dark-item-selected-bg; @menu-dark-active-bg;@menu-dark-color;@menu-dark-highlight-color) {
+    .ant-menu.ant-menu-dark {
+        color: @menu-dark-color;
+        .ant-menu-item,
+        .ant-menu-item-group-title,
+        .ant-menu-item > a {
+            color: @menu-dark-color;
+        }
+        // item在鼠标引入或者状态为active时的背景色
+        .ant-menu-item:hover,
+        .ant-menu-item-active,
+        .ant-menu-submenu-active,
+        &:not(.ant-menu-inline) .ant-menu-submenu-open {
+        // .ant-menu-submenu-selected,
+        // .ant-menu-submenu-title:hover {
+            background: @menu-dark-active-bg;
+        }
+        .ant-menu-item-selected, .ant-menu-item-selected:hover {// 普通item选中
+            background: @menu-dark-item-selected-bg;
+        }
+        // 样式解释
+        // .ant-menu-item:hover, // 无父子关系的item为hover
+        // .ant-menu-item-active, // 无父子关系的item为active,鼠标hover为active状态
+        // .ant-menu-submenu-active, // 父item为avtive
+        // &:not(.ant-menu-inline) .ant-menu-submenu-open,
+        // .ant-menu-submenu-selected, // 父item选中
+        // .ant-menu-submenu-title:hover // 父item为hover（包括inline, vertical模式）
+
+        // menu组标题
+        .ant-menu-vertical .ant-menu-submenu-title,
+        .ant-menu-submenu-inline .ant-menu-submenu-title {
+            background: @uf-header-bg;// 此颜色仅使用于UF-dark主题
+        }
+        
+        // 水平放置menu(mode不为为inline)
+        &:not(.ant-menu-inline) .ant-menu-submenu-selected {
+            color: @menu-dark-highlight-color;
+            background: @menu-dark-item-selected-bg;
+        }
+    }
+}
+
+
+// mode为horizontal 主题不为dark
+@menu-highlight-color: @uf-component-highlight-text-color; // 对item-selected无作用
+.ant-menu.ant-menu-light {
+    &.ant-menu-horizontal > .ant-menu-item:hover,
+    &.ant-menu-horizontal > .ant-menu-submenu:hover,
+    &.ant-menu-horizontal > .ant-menu-item-active,
+    // .ant-menu-horizontal > .ant-menu-submenu-active,
+    &.ant-menu-horizontal > .ant-menu-item-open,
+    // .ant-menu-horizontal > .ant-menu-submenu-open,
+    &.ant-menu-horizontal > .ant-menu-item-selected,
+    &.ant-menu-horizontal > .ant-menu-submenu-selected {
+        color: @uf-component-highlight-text-color;
+        border-color: @uf-component-highlight-text-color;
+    }
+    &.ant-menu-horizontal > .ant-menu-item-selected {
+        a {
+            color: @uf-component-highlight-text-color;
+        }
+    }
+    &.ant-menu-horizontal > .ant-menu-item > a:hover,
+    &.ant-menu-horizontal > .ant-menu-submenu > a:hover
+    {
+        color: @uf-component-highlight-text-color;
+    }
+    // 下拉列表中的item的链接
+    .ant-menu-vertical .ant-menu-item > a:hover {
+        color: @uf-component-highlight-text-color;
+    }
+
+    // 针对所有的item
+    .ant-menu-item:hover,
+    .ant-menu-item-active,
+    .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, 
+    .ant-menu-submenu-active,
+    .ant-menu-submenu-title:hover 
+    {
+        color: @uf-component-highlight-text-color;
+    }
+    .ant-menu-item-selected {
+        color: @uf-component-highlight-text-color;
+        & > a {
+            color: @uf-component-highlight-text-color;
+        }
+    }
+}

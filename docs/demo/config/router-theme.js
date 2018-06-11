@@ -69,12 +69,12 @@ define(function(require) {
                                         {
                                             key: 'service',
                                             title: '服务目录配置'
-                                        },
-                                        {
-                                            key: 'help',
-                                            title: '帮助中心配置'
                                         }
                                     ]
+                                },
+                                {
+                                    key: 'help',
+                                    title: '帮助中心配置'
                                 }
                             ]
                         }
@@ -85,7 +85,7 @@ define(function(require) {
                     content: [
                         {
                             type: 'header',
-                            style: { background: '#fff', height: '48px', lineHeight: '48px', padding: '0px 15px'},
+                            style: { height: '48px', lineHeight: '48px', padding: '0px 15px'},
                             content: [
                                 {
                                     type: 'switch',
@@ -175,9 +175,9 @@ define(function(require) {
                         },
                         {
                             type: 'breadcrumb',
-                            style: {
-                                background: '#f3f3f3'
-                            },
+                            // style: {
+                            //     background: '#f3f3f3'
+                            // },
                             // options: [
                             //     'Home',
                             //     '我的工单'
@@ -185,10 +185,10 @@ define(function(require) {
                         },
                         {
                             type: 'content',
-                            style: {padding: '25px 30px', background: '#fff', minHeight: '500px'},
+                            style: {padding: '25px 30px', minHeight: '500px'},
                             content: {
                                 type: 'tabs',
-                                mode: 'card',
+                                // mode: 'card',
                                 activeKey: '1',
                                 content: [
                                     {

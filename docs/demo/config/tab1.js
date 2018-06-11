@@ -203,12 +203,18 @@ define(function() {
                 {
                     type: 'col',
                     span: '14',
-                    content: {
-                        type: 'radio',
-                        showAsButton: true,
-                        defaultValue: '移动',
-                        options: ['移动', '联通', '电信']
-                    }
+                    content: [
+                        {
+                            type: 'radio',
+                            showAsButton: true,
+                            defaultValue: '移动',
+                            options: ['移动', '联通', '电信']
+                        },
+                        {
+                            type: 'checkbox-group',
+                            options: ['移动', '联通', '电信']
+                        }
+                    ]
                 }
             ]
         },

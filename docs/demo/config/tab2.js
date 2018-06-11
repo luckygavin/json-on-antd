@@ -60,6 +60,11 @@ define(function() {
                 'fullScreen',
                 'showAllTags'
             ],
+            menuWidget: [
+                'refresh',
+                'fullScreen',
+                'setPageSize'
+            ],
             showText: true
         },
         bordered: true,

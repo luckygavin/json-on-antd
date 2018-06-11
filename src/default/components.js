@@ -44,7 +44,7 @@ export default {
         options: []
     },
     'breadcrumb': {
-        style: {padding: '12px 24px', lineHeight: '18px', background: '#ececec'}
+        style: {padding: '12px 24px', lineHeight: '18px'}
     },
     'cascader': {
         source: {

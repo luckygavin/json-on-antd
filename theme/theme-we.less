@@ -3,6 +3,7 @@
 * @author susisi@baidu.com 2018-05-24
 */
 
+@import './theme-we-size.less';
 // @primary-color: #4CAF50;
 // @link-color: #3d8b40;
 // @link-color: #4CAF50;
@@ -10,32 +11,6 @@
 // @primary-color: #00cdec;
 // @primary-color: #20c1dc;
 // @link-color: #42b983;
-
-// 字体大小
-@font-size-base: 12px;
-@font-size-lg: @font-size-base + 2px;
-@font-size-sm: 10px;
-
-// 圆角
-@border-radius-base: 0px;
-@border-radius-sm: 0px;
-// 单选按钮中内部图标显示要保持是原型
-.ant-radio-inner:after {
-    border-radius: 50%;
-}
-
-// menu（参照阿里云）
-// 行高改变
-@menu-inline-toplevel-item-height: 35px;// 无作用
-@menu-item-height: 35px;// 无作用
-// 纵向menu及横向的下拉menu
-.ant-menu-vertical .ant-menu-item,
-.ant-menu-sub.ant-menu-inline > .ant-menu-item,
-.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-    line-height: @menu-inline-toplevel-item-height;
-    height: @menu-item-height;
-}
-
 
 
 // dark theme 参照阿里云，但是选中后背景色可以考虑是primary-color
@@ -121,6 +96,15 @@
     .ant-menu-inline .ant-menu-item-selected {
         background: @menu-item-active-bg;
     }
+    // mode为horizontal时select-Item为路由跳转时的字体颜色
+    // &.ant-menu-horizontal > .ant-menu-item > a,
+    // &.ant-menu-horizontal > .ant-menu-submenu > a {
+    //     color: @primary-color;
+    // }
+    &.ant-menu-horizontal > .ant-menu-item-selected > a,
+    &.ant-menu-horizontal > .ant-menu-item-selected > a:hover {
+        color: @primary-color;
+    }
 }
 
 // 参照资产监控平台
@@ -172,31 +156,17 @@
     }
 }
 
-
-// 输入型组件规定
-.ant-input {
-    width: 200px;
-    height: 28px;
-}
-.ant-select-selection {
-    width: 200px;
-}
-.ant-pagination-options {
-    .ant-select-selection {
-        width: auto;
-    }
-}
-
-// table组件-变为密集型组件
-@table-padding-vertical: 10px;
-
-// tabs组件
-.ant-tabs-bar {
-    margin-bottom: 20px;
-}
-
 // popover
 @popover-bg: #f4f5f9;
 
 // collapse
-@collapse-header-bg: #f3f3f3;
+@collapse-header-bg: @uf-header-bg;
+
+// layout 
+@layout-body-background      : @component-background;
+@layout-header-background    : @component-background;
+
+// breadcrumb
+.ant-breadcrumb {
+    background: @uf-header-bg;
+}

@@ -89,18 +89,14 @@
     .ant-menu-submenu-inline .ant-menu-submenu-title {
         background: @menu-bg;
     }
-    .ant-menu-inline .ant-menu-item,
-    .ant-menu-inline .ant-menu-submenu-title {
+    &.ant-menu-inline .ant-menu-item,
+    &.ant-menu-inline .ant-menu-submenu-title {
         background: @menu-bg;
     }
-    .ant-menu-inline .ant-menu-item-selected {
+    &.ant-menu-inline .ant-menu-item-selected {
         background: @menu-item-active-bg;
     }
     // mode为horizontal时select-Item为路由跳转时的字体颜色
-    // &.ant-menu-horizontal > .ant-menu-item > a,
-    // &.ant-menu-horizontal > .ant-menu-submenu > a {
-    //     color: @primary-color;
-    // }
     &.ant-menu-horizontal > .ant-menu-item-selected > a,
     &.ant-menu-horizontal > .ant-menu-item-selected > a:hover {
         color: @primary-color;

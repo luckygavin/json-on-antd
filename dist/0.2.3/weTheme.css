@@ -18643,6 +18643,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   height: 18px;
   border-radius: -2px;
 }
+.ant-breadcrumb {
+  background: #f3f3f3;
+}
 /**
 * @file 微服务框架使用主题
 * @author susisi@baidu.com 2018-05-24
@@ -18675,11 +18678,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-menu-light .ant-menu-submenu-inline .ant-menu-submenu-title {
   background: #f4f5f9;
 }
-.ant-menu-light .ant-menu-inline .ant-menu-item,
-.ant-menu-light .ant-menu-inline .ant-menu-submenu-title {
+.ant-menu-light.ant-menu-inline .ant-menu-item,
+.ant-menu-light.ant-menu-inline .ant-menu-submenu-title {
   background: #f4f5f9;
 }
-.ant-menu-light .ant-menu-inline .ant-menu-item-selected {
+.ant-menu-light.ant-menu-inline .ant-menu-item-selected {
   background: #fff;
 }
 .ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected > a,

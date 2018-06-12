@@ -13,6 +13,9 @@ $data3 = '[{"id":"45","title":"ates","type":"服务报障","relate_service":"9",
 // 树组件数据
 $data4 = '[{"name":"0-0","key":"0-0","isLeaf":false,"disableCheckbox":false,"disabled":false,"type":"leval1","children":[{"name":"0-0-0","key":"0-0-0","isLeaf":true,"disabled":true,"type":"leval2"},{"name":"0-0-1","key":"0-0-1","disableCheckbox":false,"disabled":false,"type":"leval2","children":[{"name":"0-0-1-0","key":"0-0-1-0","disableCheckbox":true,"disabled":false,"type":"leval3"},{"name":"0-0-1-1","key":"0-0-1-1","disableCheckbox":false,"disabled":false,"type":"leval3"}]}]},{"name":"0-1","key":"0-1","isLeaf":false,"disableCheckbox":false,"disabled":false,"type":"leval1","children":[{"name":"0-1-0","key":"0-1-0","type":"leval2","disableCheckbox":false,"disabled":false,"children":[]}]}]';
 
+// echarts 数据
+$data5 = "[5, 20, 36, 10, 10, 20]";
+
 $datas = $data1;
 
 $type = $_REQUEST['type'];
@@ -22,10 +25,19 @@ if (isset($type) && $type == 'pendding') {
     $datas = $data3;
 } else if (isset($type) && $type == 'tree') {
     $datas = $data4;
+} else if (isset($type) && $type == 'echarts') {
+    $basic = json_decode($data5);
+    $datas = [];
+    shuffle($basic);
+    $datas[] = ["data" => $basic];
+    shuffle($basic);
+    $datas[] = ["data" => $basic];
+    $datas = json_encode($datas);
 }
 
-// 300ms
-usleep(150000);
+$sleep = $_REQUEST['sleep'];
+// 默认延迟 150ms
+isset($sleep) ? sleep($sleep) : usleep(150000);
 
 $originData = json_decode($datas);
 $result = $originData;

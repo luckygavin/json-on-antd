@@ -11,8 +11,6 @@ import {Form, Icon, Button, message, Tooltip, Row, Col} from 'antd';
 
 import Ueditor from 'src/ueditor';
 
-// import './style.scss';
-
 let uuid = 0;
 class OriginForm extends BaseComponent {
     constructor(props) {
@@ -69,9 +67,6 @@ class OriginForm extends BaseComponent {
         if (!data) {
             this.defaultValues = {};
         } else {
-            // if (!this.isArrayForm && data instanceof Array) {
-            //     this.isArrayForm = true;
-            // }
             this.defaultValues = data;
         }
     }
@@ -84,12 +79,6 @@ class OriginForm extends BaseComponent {
             let item = this.itemsCache[i];
             if (item && item.display !== false && item.type !== 'button') {
                 result[i] = values[i];
-                // item 为时间类型的表单，需要格式化成moment类型
-                if (['date-picker', 'month-picker', 'range-picker', 'time-picker'].indexOf(item.type) > -1) {
-                    if (!(result[i] instanceof moment)) {
-                        result[i] = Utils.moment(result[i]);
-                    }
-                }
                 // 数字类型表单
                 if (item.type === 'number') {
                     result[i] = +result[i];
@@ -106,16 +95,14 @@ class OriginForm extends BaseComponent {
         let result = {};
         for (let i in values) {
             let item = this.itemsCache[i];
-            if (item && item.type !== 'button') {
-                // datepicker等返回的是moment对象，返回前先格式化成字符串
-                if (values[i] instanceof moment) {
-                    if (this.itemsCache[i] && this.itemsCache[i].format) {
-                        result[i] = values[i].format(this.itemsCache[i].format);
-                    }
-                // } else if (['group', 'form', 'forms'].indexOf(item.type) !== -1) {
-                } else {
-                    result[i] = values[i];
+            // datepicker等返回的是moment对象，返回前先格式化成字符串
+            if (values[i] instanceof moment) {
+                if (this.itemsCache[i] && this.itemsCache[i].format) {
+                    values[i] = values[i].format(this.itemsCache[i].format);
                 }
+            }
+            if (item && item.type !== 'button') {
+                result[i] = values[i];
             }
         }
         return result;
@@ -261,7 +248,8 @@ class OriginForm extends BaseComponent {
                     parentTarget.resetItem(attrName, newConf);
                 } else {
                     // 保证能引起组件刷新（例如重新获取数据）
-                    this.itemRef[i].set(newConf);
+                    // 设置display属性由false变为true时，组件不存在
+                    this.itemRef[i] && this.itemRef[i].set(newConf);
                     this.__mergeProps(this.itemsCache[i], newConf);
                 }
             }
@@ -343,6 +331,7 @@ class OriginForm extends BaseComponent {
         let otherOptions = {};
         switch (item.type) {
             case 'group':
+                item.type = 'form';
                 // 子form如果使用group的type则去掉label
                 itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
             case 'forms':
@@ -447,12 +436,20 @@ class OriginForm extends BaseComponent {
             case 'time-picker':
                 // 日期时间选择
                 item.rules[0]['type'] = item.rules[0]['type'] || 'object';
+                // 更改获onchange时form获取组件值的逻辑，传出的为字符串
+                otherOptions = {
+                    // 对从组件内传出的数据进行处理
+                    getValueFromEvent(date, string) {
+                        return string;
+                    },
+                    // 对传入给组件的数据进行处理
+                    // normalize(value) {
+                    //     return Utils.moment(value);
+                    // }
+                };
                 // current转换为当前时间
                 if (item.default === 'current') {
-                    item.default = {};
-                }
-                if (item.default) {
-                    item.default = Utils.moment(item.default);
+                    item.default = Utils.moment({}).format(item.format || 'YYYY-MM-DD HH:mm:ss');
                 }
                 // 限制使用clear按钮
                 if (item.rules[0]['required']) {
@@ -791,14 +788,13 @@ const ReactForm = Form.create({
     onValuesChange(props, values) {
         // Should provide an event to pass values to Form.
         if (typeof props.formData === 'object') {
-            let key = Object.keys(values)[0];
-            if (!Utils.equals(props.formData[key], values[key])) {
+            if (Utils.isChange(values, props.formData)) {
                 props.onChange && props.onChange(Object.assign({}, props.formData, values));
             }
         } else {
             props.onChange && props.onChange(values);
         }
-    },
+    }
     // mapPropsToFields(props) {
     //     return props;
     // }

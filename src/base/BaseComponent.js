@@ -265,7 +265,7 @@ export default class BaseComponent extends Component {
     }
 
     // 从props中过滤掉某些属性，例如原始元素不支持的属性
-    __filterProps(props, arr) {
+    __filterProps(props, arr = this._filter) {
         return Utils.filter(props, arr);
     }
 
@@ -391,7 +391,10 @@ export default class BaseComponent extends Component {
         currentProps = !Utils.empty(currentProps) ? currentProps : this.props
         if (this.__shouldUpdate(currentProps, nextProps)) {
             // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-            let reGetData = nextProps.source && Utils.isChange(nextProps.source, this.__filtered.source);
+            let reGetData = nextProps.source && Utils.isChange(
+                this.__formatApi(nextProps.source),
+                this.__filtered.source
+            );
             // 重新设置 __props
             this.__setProps(nextProps);
             // 如果参数变化，则重新获取数据，此时 __props 已变更完成。

@@ -17,7 +17,7 @@ const utils = Object.assign({}, _utils, {
         if (result.isValid()) {
             return result;
         }
-        return null;
+        return params[0];
     },
     // 获取数组的交集
     without(...params) {

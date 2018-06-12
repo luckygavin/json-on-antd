@@ -15,6 +15,10 @@ let demo1 = {
             type: 'echarts',
             name: 'my-echarts',
             style: {minWidth: 600, height: 400},
+            source: {
+                url: 'docs/php/data.php?type=echarts',
+                target: 'series'
+            },
             title: {
                 text: 'ECharts 入门示例'
             },
@@ -28,24 +32,43 @@ let demo1 = {
             yAxis: {},
             series: [{
                 name: '销量1',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                type: 'bar'
             }, {
                 name: '销量2',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
+                type: 'bar'
             }]
         },
         {
             type: 'button',
-            content: '刷新数据',
+            content: '条形图',
             onClick() {
-                UF('my-echarts').setOption({
-                    series: [{
-                        data: [5, 20, 36, 10, 10, 20].sort((a, b)=>Math.random() > 0.5)
-                    }, {
-                        data: [5, 20, 36, 10, 10, 20].sort((a, b)=>Math.random() > 0.5)
-                    }]
+                UF('my-echarts').set({
+                    source: {
+                        params: {
+                            s: Date.now()
+                        }
+                    },
+                    series: [
+                        {type: 'bar'},
+                        {type: 'bar'}
+                    ]
+                });
+            }
+        },
+        {
+            type: 'button',
+            content: '折线图',
+            onClick() {
+                UF('my-echarts').set({
+                    source: {
+                        params: {
+                            s: Date.now()
+                        }
+                    },
+                    series: [
+                        {type: 'line'},
+                        {type: 'line'}
+                    ]
                 });
             }
         }

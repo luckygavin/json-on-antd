@@ -117,6 +117,9 @@ class BasePicker extends DataEntry {
         super(props);
         this._filter.push('current');
         this.__init();
+        this._inject(this.__props, 'onChange', (...params)=>{
+            
+        });
     }
     // 继承父组件的函数，_initProps 后增加额外处理逻辑
     _afterInitProps() {
@@ -125,6 +128,9 @@ class BasePicker extends DataEntry {
         if (this.__props.value === 'current') {
             this.__props.value = moment().format(this.__props.format);
         }
+    }
+    _onChange() {
+
     }
 }
 // 日期[时间]选择
@@ -307,6 +313,9 @@ export class Radio extends DataEntry {
 export class Select extends DataEntry {
     constructor(props) {
         super(props);
+        if (props.mode === 'multiple' || props.mode === 'tags') {
+            this.__controlled.defaultVal = [];
+        }
         this.__init();
         // 给 source.onSuccess 绑定默认处理逻辑
         this.__filtered.source = Object.assign({
@@ -323,9 +332,10 @@ export class Select extends DataEntry {
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(data);
             this.props.onChange && this.props.onChange(first);
-        } else {
-            // 不能为空的字段会导致出现提示，TODO
-            this.props.onChange && this.props.onChange(undefined);
+        } else if (!Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
+            // 为实现刷新组件时，清空原数据
+            // 同时会带来问题，不能为空的字段会导致出现提示
+            this.props.onChange && this.props.onChange(this.__controlled.defaultVal);
         }
     }
     render() {

@@ -225,7 +225,11 @@ component._root.props.params
 
 `component.get(key)`获取组件的参数。
 
-如果有key，则返回key的值；如果没有key，则返回全部参数。例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：
+如果有key，则返回key的值；如果没有key，则返回全部参数。
+
+> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置
+
+例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：
 
 ```javascript
 var config = [

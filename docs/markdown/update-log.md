@@ -15,6 +15,19 @@
 
 ### 0.2.3
 
+`2018-06-07`
+
+* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题
+* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)
+* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)
+* `Form`
+    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)
+* `Table`
+    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG
+* `Forms`
+    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用
+
+
 `2018-05-30`
 
 * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果
@@ -24,6 +37,7 @@
     * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*
 * `CheckboxGroup`复选框组
     * 🌟 增加函数API：`checkAll()`，全选或取消全选
+
 
 `2018-05-27`
 
@@ -82,6 +96,10 @@
 
 
 ### 0.2.2
+
+`2018-06-06` `bugfix`
+
+* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题
 
 `2018-05-15`
 

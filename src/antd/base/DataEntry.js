@@ -47,7 +47,6 @@ export default class DataEntry extends Antd {
                 delete this.__props.className;
             }
         }
-        
     }
 
     // 增加 onChange 时默认保存数据的函数

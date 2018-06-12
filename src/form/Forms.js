@@ -59,7 +59,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
     }
     resetItem(...params) {
         Utils.each(this.formRef, item => {
-            item.resetItem(...params)
+            item.resetItem(...params);
         });
     }
 

@@ -116,10 +116,7 @@ class BasePicker extends DataEntry {
     constructor(props) {
         super(props);
         this._filter.push('current');
-        this.__init();
-        this._inject(this.__props, 'onChange', (...params)=>{
-            
-        });
+        // this.__init();
     }
     // 继承父组件的函数，_initProps 后增加额外处理逻辑
     _afterInitProps() {
@@ -128,9 +125,8 @@ class BasePicker extends DataEntry {
         if (this.__props.value === 'current') {
             this.__props.value = moment().format(this.__props.format);
         }
-    }
-    _onChange() {
-
+        // this._inject(this.__props, 'onChange', (...params)=>{
+        // });
     }
 }
 // 日期[时间]选择

@@ -789,8 +789,7 @@
 	        var _this5 = _possibleConstructorReturn(this, (BasePicker.__proto__ || Object.getPrototypeOf(BasePicker)).call(this, props));
 
 	        _this5._filter.push('current');
-	        _this5.__init();
-	        _this5._inject(_this5.__props, 'onChange', function () {});
+	        // this.__init();
 	        return _this5;
 	    }
 	    // 继承父组件的函数，_initProps 后增加额外处理逻辑
@@ -804,10 +803,9 @@
 	            if (this.__props.value === 'current') {
 	                this.__props.value = (0, _moment2.default)().format(this.__props.format);
 	            }
+	            // this._inject(this.__props, 'onChange', (...params)=>{
+	            // });
 	        }
-	    }, {
-	        key: '_onChange',
-	        value: function _onChange() {}
 	    }]);
 
 	    return BasePicker;

@@ -26,8 +26,9 @@
         display: none;
     }
     .disabledRow {
-        background-color: #fafafa;
+        background-color: @disabled-bg;
         cursor: not-allowed;
+        color: @disabled-color;
     }
     &.retract {
         .uf-header-widget {
@@ -56,7 +57,7 @@
         width: 100%;
         line-height: 40px;
         vertical-align: middle;
-        border: 1px solid #f7f7f7;
+        border: 1px solid @border-color-base;
         border-top-left-radius: 3px;
         border-top-right-radius: 3px;
     }
@@ -258,7 +259,7 @@
         padding: 0px 10px;
         overflow: hidden;
         line-height: 47px;
-        border: 1px solid #f7f7f7;
+        // border: 1px solid @border-color-base;
         &+.ant-table-content {
             border-radius: 0;
             table {

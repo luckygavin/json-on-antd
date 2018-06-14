@@ -4,7 +4,7 @@ include __DIR__ . '/../../env.php';
 if (ENV == 'dev') {
 ?>
 
-<link rel="stylesheet" href="../../dist/<?php echo $_VERSION; ?>/weTheme.css" />
+<link rel="stylesheet" href="../../dist/<?php echo $_VERSION; ?>/darkTheme.css" />
 <script src="../../dist/<?php echo $_VERSION; ?>/dll.js"></script>
 <script src="../../dist/<?php echo $_VERSION; ?>/antd.js"></script>
 <script src="../../dist/<?php echo $_VERSION; ?>/uf.js"></script>

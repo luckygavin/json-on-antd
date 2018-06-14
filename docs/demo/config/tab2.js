@@ -67,13 +67,15 @@ define(function() {
             ],
             showText: true
         },
+        loading: true,
         bordered: true,
         rowSelection: {
             type: 'checkbox',
             selections: true,
             selectedRowKeys: [
                 '2'
-            ]
+            ],
+            disabledRow: record => record.key === '1'
         },
         data: [
             {

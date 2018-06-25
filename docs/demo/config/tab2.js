@@ -77,6 +77,9 @@ define(function() {
             ],
             disabledRow: record => record.key === '1'
         },
+        expandedRowRender: () => {
+            return '这是一个贼厉害的展开行';
+        },
         data: [
             {
                 key: '1',

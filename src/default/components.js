@@ -16,7 +16,8 @@ export default {
             trigger: 'onClick'
         },
         source: {
-            target: 'content'
+            // 如果组件没有设置target，则
+            // target: 'content'
         },
         api: {
             showLoading: true,
@@ -91,7 +92,11 @@ export default {
         optionFilterProp: 'children',
         source: {
             target: 'options'
-        }
+        },
+        // 默认充满全部
+        style: {width: '100%'},
+        // 搜索时忽略大小写
+        filterOption: (v, opt) => opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
     },
     'switch': {
         source: {

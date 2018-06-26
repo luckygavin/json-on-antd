@@ -86,6 +86,6 @@
 | hideDisabledOptions | 隐藏禁止选择的选项 | boolean | false |
 | getPopupContainer   | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | 无 |
 | addon | 选择框底部显示自定义的内容 | function | 无 |
-| use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |
+| use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `hh:mm:ss` | boolean | false |
 | className | 选择器类名 | string | '' |
 | popupClassName | 弹出层类名 | string | '' |

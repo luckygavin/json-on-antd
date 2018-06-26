@@ -19,25 +19,29 @@ export default class CopyOrDeleteForm extends BaseComponent {
         this.state = {
             loading: false
         };
-        // this.__props.formData = this.__props.formData || [{}];
+        this.setDefaultValues();
         this.formRef = {}; // 用于存储子Form的引用（因为无法直接拿到refs）
     }
     componentDidMount() {
         // 把this抛出，供外部调用，因为使用refs找不到包装前的ReactForm对象
         this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
-        // this.initValues();
-        // this.init();
     }
     componentWillReceiveProps(nextProps) {
         if (this.__shouldUpdate(this.props, nextProps)) {
-            // 使之成为受控组件，实现Form嵌套
-            if (nextProps.formData && !Utils.equals(this.__props.formData, nextProps.formData)) {
-                // this.setDefaultValues(props.formData);
-                // nextProps && this.initValues();
+            // 使之成为受控组件，实现与Form嵌套
+            if (!Utils.equals(this.__prevProps.formData, nextProps.formData)) {
+                this.setDefaultValues(nextProps.formData);
             }
         }
     }
-
+    // 设置 formData 并保证 formData 不会为空
+    setDefaultValues(formData) {
+        formData = formData || this.__props.formData || [{}];
+        if (Utils.typeof(formData, 'object')) {
+            formData = [formData];
+        }
+        this.__props.formData = formData;
+    }
     /* 外部调用函数 **********************************************************************/
 
     // 获取所有表单的值
@@ -50,7 +54,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
         // 如果是数组，则直接重置全部内容，数组有几项就展示几个表单
         // 否则认为传入的是重置各个表单的某些值，即循环各个表单，并把内容设置进去
         if (Utils.typeof(o, 'array')) {
-
+            this.__setProps({formData: o});
         } else {
             Utils.each(this.formRef, item => {
                 item.resetValues(o);
@@ -155,9 +159,6 @@ export default class CopyOrDeleteForm extends BaseComponent {
     }
     renderForms() {
         let formData = this.__props.formData;
-        if (Utils.typeof(formData, 'object')) {
-            formData = [formData];
-        }
         // 清空原来记录的formRef，因为index会变
         this.formRef = {};
         // 渲染多个form

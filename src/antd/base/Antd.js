@@ -37,8 +37,8 @@ export default class Antd extends BaseComponent {
 
     /* 供子组件调用方法 ***********************************************************************/
 
-    __afterInit() {
-        super.__afterInit();
+    _afterInit() {
+        super._afterInit();
         // 保存原始antd组件的引用
         this.__props['ref'] = (ele) => this._component = ele;
         // 受控配置 - 如果不为null,则合并覆盖

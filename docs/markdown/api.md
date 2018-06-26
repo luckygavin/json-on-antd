@@ -277,4 +277,17 @@ UF.init(config, '#demo');
 
 `component.hide()`可以重新展示组件。
 
+
+## # component.loading()
+
+`component.loading([boolean|config])`可以控制组件是否展示loading效果。
+
+参数有如下几种情况：
+
+* 不传参时，认为传入的是`true`，即展示loading；  
+* 传入`false`时，则取消loading状态；
+* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件
+
+
+
 **此外，组件本身具有的api可到组件文档页查询**

@@ -42,6 +42,33 @@ const utils = {
         }
         return retValue;
     },
+    // 数据格式转换
+    format(value, type) {
+        switch (type) {
+            case 'number':
+                value = +value || 0;
+                break;
+            case 'string':
+                value = '' + value;
+                break;
+            case 'boolean':
+                value = value === 'false' ? false : !!value;
+                break;
+            case 'array':
+                if (this.typeof(value, 'undefined')) {
+                    value = [];
+                }
+                if (!this.typeof(value, 'array')) {
+                    value = [value]
+                }
+                break;
+            case 'undefined':
+                value = undefined;
+                break;
+            default:;
+        }
+        return value;
+    },
     // 数组去重
     distinct(arr) {
         return [...(new Set(arr))];
@@ -404,6 +431,9 @@ const utils = {
             : newFunc.bind(thisObj);
         return parent;
     },
+    // 延迟执行
+    // timer(func, delay) {
+    // }
 
     /************************************************************************/
     // 私有方法

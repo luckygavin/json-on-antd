@@ -34,8 +34,8 @@ export class Breadcrumb extends Navigation {
         super(props);
         this.__init();
     }
-    __afterInit() {
-        super.__afterInit();
+    _afterInit() {
+        super._afterInit();
         // itemRender 用户返回的是一个配置，这里根据配置生成组件
         if (this.__props.itemRender) {
             // this._inject(this.__props, 'itemRender')
@@ -121,19 +121,19 @@ export class Menu extends Navigation {
         this.__init();
     }
     // 继承父组件的函数，_initProps 后增加额外处理逻辑
-    _afterInitProps() {
-        if (this.__props.items) {
-            this.__props.children = this.handleItems(this.__props.items);
-            delete this.__props.items;
-        }
-    }
-    // __setProps 后，增加附加处理逻辑
-    // __afterSetProps() {
+    // _afterInitProps() {
     //     if (this.__props.items) {
     //         this.__props.children = this.handleItems(this.__props.items);
     //         delete this.__props.items;
     //     }
     // }
+    // __setProps 后，增加附加处理逻辑
+    _afterSetProps() {
+        if (this.__props.items) {
+            this.__props.children = this.handleItems(this.__props.items);
+            delete this.__props.items;
+        }
+    }
     // 见 BaseComponent
     _onControlEvent(...params) {
         let {selectedKeys} = params[0];

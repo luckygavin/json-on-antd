@@ -18,15 +18,15 @@ class NewModal extends BaseComponent {
         this._openApi.push('show', 'close');
         this.__init();
     }
-    __beforeInit() {
-        super.__beforeInit();
+    _beforeInit() {
+        super._beforeInit();
         // 增加一些默认的事件处理函数
         this.__props = Object.assign({
             onCancel: this._defaultCancelHandler.bind(this),
         }, this.__props);
     }
-    __afterInit() {
-        super.__afterInit();
+    _afterInit() {
+        super._afterInit();
         // footer的按钮点击时增加一些默认处理逻辑
         if (this.__props.footer) {
             let buttons = this.__props.footer;
@@ -79,7 +79,7 @@ class NewModal extends BaseComponent {
     close() {
         this.__setProps({visible: false}, ()=>{
             // 如果是form弹框，重置form内容
-            this.formRef && this.formRef.resetValues();
+            this.formRef && this.formRef.clearValues();
         });
     }
 
@@ -94,7 +94,7 @@ class NewModal extends BaseComponent {
         if (this.formRef) {
             let values = this.formRef.getValues();
             if (values) {
-                return Object.assign({}, this.__props.params, values);
+                return values;
             }
             // 如果验证失败，返回null，阻止提交数据
             return null;

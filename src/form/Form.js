@@ -48,13 +48,15 @@ class OriginForm extends BaseComponent {
         this.formItemLayout = this.getLayout(props.layout);
         // 使之成为受控组件，实现Form嵌套
         if (props.formData && !Utils.equals(this.defaultValues, props.formData)) {
-            this.setDefaultValues(props.formData);
+            let data = this._formDataHandler(props.formData);
+            this.setDefaultValues(data);
             nextProps && this.initValues();
         }
     }
     componentDidMount() {
         // 把this抛出，供外部调用，因为使用refs找不到包装前的ReactForm对象
         this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
+        // 当组件didmount前执行了resetValues时，不再次执行initValues
         this.initValues();
     }
     componentWillReceiveProps(nextProps) {
@@ -62,13 +64,9 @@ class OriginForm extends BaseComponent {
             this.init(nextProps);
         }
     }
-    // 获取初始值，并格式化
+    // 保存初始值
     setDefaultValues(data) {
-        if (!data) {
-            this.defaultValues = {};
-        } else {
-            this.defaultValues = data;
-        }
+        this.defaultValues = data || {};
     }
     // 把数据格式化成需要的格式
     // 调用 setFieldsValue 时，如果多传了字段，会报 warning，所以这里只返回可用的表单项的值
@@ -118,21 +116,21 @@ class OriginForm extends BaseComponent {
         }
         let values = this.form.getFieldsValue();
         values = this._formatValues(values);
+        values = Object.assign({}, this.defaultValues, values);
         if (this.config.beforeSubmit) {
             values = this.config.beforeSubmit(values);
         }
         return values;
     }
     resetValues(o) {
-        this.initValues(o);
+        // this.clearValues();
+        let newData = Utils.clone(this._formDataHandler(o));
+        this.setDefaultValues(newData);
+        this.initValues(newData);
     }
     // 清除表单。有别于重置
     clearValues() {
-        let values = {};
-        for (let i in this.itemsCache) {
-            values[i] = undefined;
-        }
-        values = this._encodeValues(values);
+        let values = this.getClearValues();
         this.form.setFieldsValue(values);
     }
     // 更新某个表单项的配置
@@ -145,7 +143,17 @@ class OriginForm extends BaseComponent {
     }
 
     /* 组件内部逻辑 **********************************************************************/
-
+    // 获取全部字段清空数据
+    getClearValues(encode = true) {
+        let values = {};
+        for (let i in this.itemsCache) {
+            values[i] = undefined;
+        }
+        if (encode) {
+            values = this._encodeValues(values);
+        }
+        return values;
+    }
     // 上传文件回调
     normFile(e) {
         if (Array.isArray(e)) {
@@ -173,8 +181,9 @@ class OriginForm extends BaseComponent {
     // 根据传入的 formData 设置初始值
     // TODO: 新数据传入，要重设全部字段？
     initValues(values) {
-        this.form.resetFields();
         values = values || this.defaultValues;
+        // 清空未设置的值
+        values = Object.assign({}, this.getClearValues(false), values);
         values = this._encodeValues(values);
         if (values && !Utils.empty(values)) {
             // 设置初始值前对传入的 formData 格式化
@@ -190,6 +199,13 @@ class OriginForm extends BaseComponent {
                 }
             }
         }
+    }
+    // 对传入参数进行格式化
+    _formDataHandler(data) {
+        if (this.__props.formDataHandler) {
+            data = this.__props.formDataHandler(data);
+        }
+        return data;
     }
     // 实现联动功能
     onChange(item, val, string) {
@@ -334,10 +350,12 @@ class OriginForm extends BaseComponent {
                 item.type = 'form';
                 // 子form如果使用group的type则去掉label
                 itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
+                // break;
             case 'forms':
                 // forms组件的formData为一个数组
                 item.rules[0]['type'] = item.rules[0]['type'] || 'array';
                 item.default = item.default || item.formData || [{}];
+                // break;
             case 'form':
                 // 实现分组，本质上是form嵌套
                 // parent属性用来传递一些父Form的函数
@@ -365,6 +383,17 @@ class OriginForm extends BaseComponent {
                 // 限制使用clear按钮
                 if (item.rules[0]['required']) {
                     itemProps.allowClear = false;
+                }
+                // break;
+            case 'radio': 
+                // 如果没有设置类型，则根据default定义类型
+                if (!item.rules[0]['type'] && item.default !== null) {
+                    let type = Utils.getType(item.default);
+                    if (['number', 'string', 'boolean'].indexOf(type) > -1) {
+                        item.rules[0]['type'] = type;
+                    }
+                } else {
+                    item.rules[0]['type'] = item.rules[0]['type'] || 'string';
                 }
                 break;
             case 'number':
@@ -434,18 +463,18 @@ class OriginForm extends BaseComponent {
             case 'date-picker':
             case 'month-picker':
             case 'time-picker':
-                // 日期时间选择
-                item.rules[0]['type'] = item.rules[0]['type'] || 'object';
+                // 日期时间选择.如果使用moment,则需要定义object
+                // item.rules[0]['type'] = item.rules[0]['type'] || 'object';
                 // 更改获onchange时form获取组件值的逻辑，传出的为字符串
                 otherOptions = {
-                    // 对从组件内传出的数据进行处理
-                    getValueFromEvent(date, string) {
-                        return string;
-                    },
                     // 对传入给组件的数据进行处理
                     // normalize(value) {
                     //     return Utils.moment(value);
-                    // }
+                    // },
+                    // 对从组件内传出的数据进行处理
+                    getValueFromEvent(date, string) {
+                        return string;
+                    }
                 };
                 // current转换为当前时间
                 if (item.default === 'current') {
@@ -467,6 +496,12 @@ class OriginForm extends BaseComponent {
         // 通用的默认错误提示信息
         if (item.rules[0]['required']) {
             item.rules[0]['message'] = item.rules[0]['message'] || `${item.label || ''}不能为空`;
+        }
+        // 进行类型进行强制转换
+        let type = item.rules[0]['type'];
+        if (['number', 'string', 'boolean'].indexOf(type) > -1) {
+            // item.default !== undefined && (item.default = Utils.format(item.default, type));
+            otherOptions.getValueFromEvent = ((e, value)=>Utils.format(value, type));
         }
         // 保存默认值，以form渲染完成后执行initValues
         if (item.default !== undefined) {

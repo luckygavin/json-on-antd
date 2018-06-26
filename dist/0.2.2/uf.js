@@ -3728,8 +3728,11 @@
 	        style: { padding: '12px 24px', lineHeight: '18px', background: '#f7f7f7' }
 	    }
 	}, _defineProperty(_router$loading$ifram, 'select', {
-	    optionFilterProp: 'children'
-	    // style: {width: 120}
+	    // style: {width: 120},
+	    optionFilterProp: 'children',
+	    filterOption: function filterOption(v, opt) {
+	        return opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
+	    }
 	}), _defineProperty(_router$loading$ifram, 'auto-complete', {
 	    style: { width: 160 },
 	    options: []

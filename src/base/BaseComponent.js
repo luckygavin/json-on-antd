@@ -3,9 +3,11 @@
  * Created by xuziqian on 2017/8/4.
  */
 import React, {Component, PureComponent} from 'react';
-import {message} from 'antd';
+import {message, Spin} from 'antd';
 import {Utils, Ajax} from 'src/utils';
-import {Adaptor, Model, Authority} from 'src/tools';
+import Model from 'src/tools/model.js';
+import Authority from 'src/tools/authority.js';
+
 import {Config, ComponentsCache, Models} from 'src/cache';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
@@ -56,6 +58,7 @@ export default class BaseComponent extends Component {
     // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
     constructor(props, type) {
         super(props);
+        this.state = {};
         // 组件类型，用于组件及其基类基础配置的获取
         this.class = ['base-component'];
         // 未使用__init的组件，手动传入组件类型
@@ -74,12 +77,12 @@ export default class BaseComponent extends Component {
         // 转化为 __props 时需过滤的属性
         this._filter = (Utils.copy(FilterProps)).concat([
             // 一些隐藏的属性
-            '__cache', '__type', '__key', '__sending', '_factory'
+            '__cache', '__type', '__key', '_factory'
         ]);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex = Utils.copy(Uncomplex);
         // 开放给用户使用的 Api，需处理下
-        this._openApi = ['set', 'get', 'show', 'hide', 'refresh'];
+        this._openApi = ['set', 'get', 'show', 'hide', 'loading'];
         // 存储一些程序执行过程中的数据
         this._tempData = {};
         this.__defaultProps = {};
@@ -90,11 +93,19 @@ export default class BaseComponent extends Component {
         this.__filtered = {};
     }
 
+    _getDefautlProps() {
+        let conf = Config.get(`components.${this.type}`) || {};
+        // 取中间各基类的默认配置，并合并全部配置
+        let confArr = this.class.map(v=>(Config.get(`components.${v}`) || {}));
+        conf = this.__mergeProps(...confArr, conf);
+        return conf;
+    }
+
     /**
      * __init 之前，构造函数中未能执行的逻辑（比如需要在子类构造函数中继续处理的属性，最后再进行初始化）
-     *      开发时，如果是要在 this.__props 初始化之后执行的逻辑，请覆写__beforeInit
+     *      开发时，如果是要在 this.__props 初始化之后执行的逻辑，请覆写_beforeInit
      */
-    __beforeInit() {
+    _beforeInit() {
         // 从缓存中读出组件的默认参数。参数来源可以是在 config.js 里配置；也可以是用户通过调用 UF.config() 配置
         // （如 loading 组件的 delay 参数在 config.js 中定义为 150）
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
@@ -103,20 +114,20 @@ export default class BaseComponent extends Component {
         // 复用配置模板。
         this.__props = this.__getConfigTpl(this.props, this.__props);
     }
-    _getDefautlProps() {
-        let conf = Config.get(`components.${this.type}`) || {};
-        // 取中间各基类的默认配置，并合并全部配置
-        let confArr = this.class.map(v=>(Config.get(`components.${v}`) || {}));
-        conf = this.__mergeProps(...confArr, conf);
-        return conf;
-    }
+
+    // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
+    _afterInit() {}
+
+    // 执行完 __setProps 后附加的逻辑，由子类自行实现
+    _afterSetProps() {}
+
     // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
-    // setState(...params) {
-    //     if (!this.isMounted()) {
-    //         return false;
-    //     }
-    //     super.setState.call(this, ...params);
-    // }
+    setState(...params) {
+        if (this.unmounted) {
+            return;
+        }
+        super.setState.call(this, ...params);
+    }
 
     /* 暴露给用户的方法 ***********************************************************************/
 
@@ -169,13 +180,18 @@ export default class BaseComponent extends Component {
         }
         this.__setProps(style);
     }
+    // 展示 loading 效果
+    loading(__showLoading = true) {
+        // this.__setProps({__showLoading: __showLoading});
+        this.setState({__showLoading: __showLoading});
+    }
 
     /* 供子组件调用方法 ***********************************************************************/
 
     // 供子组件调用初始化 使用子组件this调用
     __init() {
         // 初始化之前，执行一些构造函数中未能执行的初始化逻辑
-        this.__beforeInit();
+        this._beforeInit();
 
         // 以下几个函数执行顺序固定，请慎重调整！！
         // 把父类中设置的需注入到生命周期中的逻辑注入到对应生命周期函数中
@@ -196,16 +212,15 @@ export default class BaseComponent extends Component {
         this._injectControl();
         // 绑定 api 系列参数处理逻辑
         this._injectApi();
+        // 替换 render 函数，给render加额外处理逻辑
+        this._injectRender();
 
         // 开放给用户使用的 Api，需处理下
         this._handleOpenApi();
 
         // 初始化之后，执行子类内部初始化逻辑
-        this.__afterInit();
+        this._afterInit();
     }
-
-    // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
-    __afterInit() {}
 
     // 获取可复用的配置模板。
     // 除定义全局组件通用配置外，还可以额外再定义一些配置模板供组件复用
@@ -245,7 +260,7 @@ export default class BaseComponent extends Component {
         this.__prevProps = this.__props;
         this.__props =  this.__mergeProps({}, this.__props, __props);
         // 执行附加逻辑
-        this.__afterSetProps();
+        this._afterSetProps();
         if (follow !== false) {
             this.forceUpdate();
             // 延迟执行
@@ -253,9 +268,6 @@ export default class BaseComponent extends Component {
             setTimeout(follow, 10);
         }
     }
-
-    // 执行完 __setProps 后附加的逻辑，由子类自行实现
-    __afterSetProps() {}
 
     // 把默认配置和当前用户传入配置进行合并，可以传多个参数
     //  如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题
@@ -373,11 +385,24 @@ export default class BaseComponent extends Component {
                     return onError && onError(res);
                 },
                 onchange: !showLoading ? onchange  : status => {
-                    this.__setProps({__sending: status});
+                    let loadingConf = status;
+                    // 展示loading可以自定义展示效果，showLoading为loading的配置
+                    if (status) {
+                        loadingConf = showLoading;
+                        if (!Utils.typeof(loadingConf, 'object')) {
+                            loadingConf = {spinning: !!loadingConf};
+                        }
+                        loadingConf.spinning = true;
+                    }
+                    this._handleSourceLoading(loadingConf);
                     onchange && onchange(status);
                 }
             });
         }
+    }
+    // source获取数据时，通用的展示source的逻辑
+    _handleSourceLoading(status) {
+        // this.loading(status);
     }
 
     /* 私有方法 ***********************************************************************/
@@ -659,8 +684,7 @@ export default class BaseComponent extends Component {
                 target = target === 'content' ? 'children' : target;
                 // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
                 let tData = Utils.generateObject(target, data);
-                // table、form等自定义组件不适用
-                // this.__setProps(tData);
+                // __setProps在table、form等自定义组件不适用
                 this.set(tData);
             }
         });
@@ -725,6 +749,29 @@ export default class BaseComponent extends Component {
                 });
             });
         }
+    }
+
+    // 替换 render 函数，给render加额外处理逻辑
+    _injectRender() {
+        let render = this.render;
+        this.render = this._render.bind(this, render);
+    }
+    // 插入额外render处理逻辑
+    _render(render) {
+        // 如果设置了__showLoading，则在组件外额外追加一个loading组件
+        if (this.state.__showLoading !== undefined) {
+            let loadingConf = this.state.__showLoading;
+            if (Utils.typeof(loadingConf, 'boolean')) {
+                loadingConf = {spinning: loadingConf};
+            }
+            if (loadingConf.spinning === undefined) {
+                loadingConf.spinning = true;
+            }
+            return <Spin {...loadingConf}>
+                {render.call(this)}
+            </Spin>;
+        } 
+        return render.call(this);
     }
 
     // 函数替换 函数

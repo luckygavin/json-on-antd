@@ -18714,8 +18714,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   display: none;
 }
 .uf-table .disabledRow {
-  background-color: #fafafa;
+  background-color: #f7f7f7;
   cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.25);
 }
 .uf-table.retract .uf-header-widget {
   display: none;
@@ -18742,7 +18743,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   width: 100%;
   line-height: 40px;
   vertical-align: middle;
-  border: 1px solid #f7f7f7;
+  border: 1px solid #d9d9d9;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
@@ -18922,7 +18923,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 0px 10px;
   overflow: hidden;
   line-height: 47px;
-  border: 1px solid #f7f7f7;
 }
 .uf-table .ant-table-title + .ant-table-content {
   border-radius: 0;
@@ -18966,12 +18966,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table-modal .ant-modal-header .ant-modal-title {
   line-height: 40px;
 }
-.uf-modal .ant-confirm-btns,
-.uf-table-modal .ant-confirm-btns,
-.uf-modal .ant-modal-footer,
-.uf-table-modal .ant-modal-footer {
-  border-top: 0px;
-}
 .uf-modal .ant-confirm-btns .ant-btn.ant-btn-lg,
 .uf-table-modal .ant-confirm-btns .ant-btn.ant-btn-lg,
 .uf-modal .ant-modal-footer .ant-btn.ant-btn-lg,
@@ -18980,6 +18974,11 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 0px 20px;
   height: 28px;
   border-radius: 4px;
+}
+.uf-modal .ant-modal-footer,
+.uf-table-modal .ant-modal-footer {
+  border-top: 0px;
+  padding: 10px 16px 16px 10px;
 }
 .uf-form.uf-form-inline {
   margin: 15px 0 5px 0;

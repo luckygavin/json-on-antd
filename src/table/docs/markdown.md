@@ -22,7 +22,6 @@
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
-| loading       | 页面是否加载中 | boolean&#124;[`config`](#/Feedback/Loading) | false |
 | locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | `{filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'}` |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |

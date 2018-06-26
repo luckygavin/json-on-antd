@@ -52,6 +52,9 @@ function request (config) {
     if (globalAjax.beforeSend) {
         config.params = globalAjax.beforeSend(config.params, config);
     }
+    if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1) {
+        config.url = globalAjax.baseUrl + config.url;
+    }
 
     onchange(true, 'sending');
 

@@ -127,7 +127,7 @@ export class Link extends BaseRouter {
         super(props);
         this.__init();
     }
-    // __afterInit() {
+    // _afterInit() {
     //     this._inject(this.__props, 'onClick', e=>{
     //         e.preventDefault();
     //         OriRouter.browserHistory.push('#' + this.__props.to);

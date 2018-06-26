@@ -43,11 +43,11 @@ let demo1 = {
             content: '条形图',
             onClick() {
                 UF('my-echarts').set({
-                    source: {
-                        params: {
-                            s: Date.now()
-                        }
-                    },
+                    // source: {
+                    //     params: {
+                    //         s: Date.now()
+                    //     }
+                    // },
                     series: [
                         {type: 'bar'},
                         {type: 'bar'}
@@ -60,6 +60,7 @@ let demo1 = {
             content: '折线图',
             onClick() {
                 UF('my-echarts').set({
+                    className: 'aaa',
                     source: {
                         params: {
                             s: Date.now()

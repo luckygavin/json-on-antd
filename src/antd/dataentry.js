@@ -95,8 +95,8 @@ export class CheckboxGroup extends DataEntry {
         this.__controlled.defaultVal = [];
         this.__init();
     }
-    __afterSetProps() {
-        super.__afterSetProps();
+    _afterSetProps() {
+        super._afterSetProps();
         this.__props.options = Utils.toOptions(this.__props.options);
     }
     checkAll(status = true) {
@@ -294,10 +294,12 @@ export class Radio extends DataEntry {
         if (this.__props.showAsButton) {
             Item = Antd.Radio.Button;
         }
-        return <Antd.Radio.Group {...this.__props} options={undefined}>{
+        return <Antd.Radio.Group {...this.__props} options={undefined} value={
+                this.__props.value !== undefined ? '' + this.__props.value : undefined
+            }>{
             Utils.toOptions(this.__props.options).map(item=>
-                <Item key={item.value} disabled={item.disabled} style={item.style}
-                    value={item.value}>{item.label}</Item>
+                <Item key={'' + item.value} disabled={item.disabled} style={item.style}
+                    value={'' + item.value}>{item.label}</Item>
             )
         }</Antd.Radio.Group>;
     }
@@ -309,7 +311,7 @@ export class Radio extends DataEntry {
 export class Select extends DataEntry {
     constructor(props) {
         super(props);
-        if (props.mode === 'multiple' || props.mode === 'tags') {
+        if (props.type === 'multiple' || props.type === 'tags') {
             this.__controlled.defaultVal = [];
         }
         this.__init();
@@ -321,24 +323,41 @@ export class Select extends DataEntry {
     _onSourceSuccess(data) {
         let current = this.__props.value;
         // 如果当前值再列表中，则不做任何处理
-        if (Utils.toOptions(data).some(v=>v.value === current)) {
+        if (Utils.typeof(current, 'array')) {
+            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
+            let matchVal = Utils.toOptions(data).filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
+            if (matchVal.length === current.length) {
+                return;
+            }
+            this.props.onChange && this.props.onChange(matchVal);
             return;
+        } else {
+            if (Utils.toOptions(data).some(v=>v.value === current)) {
+                return;
+            }
         }
+        
         // 否则把值设置为第一个或者清空
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(data);
             this.props.onChange && this.props.onChange(first);
-        } else if (!Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
+        } else if (this.__props.value !== undefined
+            && !Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
             // 为实现刷新组件时，清空原数据
-            // 同时会带来问题，不能为空的字段会导致出现提示
+            // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
             this.props.onChange && this.props.onChange(this.__controlled.defaultVal);
         }
     }
     render() {
-        return <Antd.Select {...this.__props}>
+        let formatType = Utils.getType(this.__controlled.defaultVal);
+        let value = this.__props.value;
+        if (formatType === 'array') {
+            value = Utils.format(this.__props.value, formatType);
+        }
+        return <Antd.Select {...this.__props} value={value}>
             {Utils.toOptions(this.__props.options).map(item=>
-                <Antd.Select.Option key={item.value} disabled={item.disabled} style={item.style}
-                    value={item.value}>{item.label}</Antd.Select.Option>
+                <Antd.Select.Option key={'' + item.value} disabled={item.disabled} style={item.style}
+                    value={'' + item.value}>{item.label}</Antd.Select.Option>
             )}
         </Antd.Select>;
     }
@@ -377,6 +396,7 @@ export class Switch extends DataEntry {
     constructor(props) {
         super(props);
         this.__controlled.key = 'checked';
+        this.__controlled.defaultVal = false;
         this.__init();
     }
     render() {

@@ -13,7 +13,7 @@ if ($_GET['v']) {
     $_VERSION = $_GET['v'];
     $_FIXED = '';
 } else {
-    $_VERSION = $json->version;
+    $_VERSION = ENV == 'dev' ? 'dev' : $json->version;
     $_FIXED = $json->fixedVersion;
     if ($_VERSION !== $_FIXED) {
         $_FIXED = '?v=' . $_FIXED;

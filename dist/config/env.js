@@ -8,7 +8,8 @@ const path = require('path');
 const __root = path.join(__dirname, '../../');
 const production = process.env.NODE_ENV === 'production';
 const packageConfig = require('../../package.json');
-const version = packageConfig.version;
+// 如果未设置NODE_ENV，默认生成到dev目录
+const version = !process.env.NODE_ENV ? 'dev' : packageConfig.version;
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
 console.log('FILE_VERSION: ', version);

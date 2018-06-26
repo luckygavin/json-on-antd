@@ -9,11 +9,10 @@ const packageConfig = require('./package.json');
 const nodeModulesPath = __dirname + '/node_modules';
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const production = process.env.NODE_ENV === 'production';
-// 用版本号作为生成文件的后缀：版本+次版本号，过滤掉修订版本
-// const version = packageConfig.version.split('.').slice(0, 2).join('.');
-const version = packageConfig.version;
+const version = !process.env.NODE_ENV ? 'dev' : packageConfig.version;
 
 console.log('NODE_ENV: ', process.env.NODE_ENV);
+// 如果未设置NODE_ENV，默认生成到dev目录
 console.log('FILE_VERSION: ', version);
 
 var cssBuilder = new ExtractTextPlugin(`${version}/doc.min.css`);

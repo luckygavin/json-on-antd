@@ -770,7 +770,7 @@ export default class BaseComponent extends Component {
             return <Spin {...loadingConf}>
                 {render.call(this)}
             </Spin>;
-        } 
+        }
         return render.call(this);
     }
 

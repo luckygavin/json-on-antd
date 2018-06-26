@@ -59,7 +59,7 @@ const utils = {
                     value = [];
                 }
                 if (!this.typeof(value, 'array')) {
-                    value = [value]
+                    value = [value];
                 }
                 break;
             case 'undefined':

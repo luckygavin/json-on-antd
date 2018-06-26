@@ -294,7 +294,7 @@ export class Radio extends DataEntry {
         if (this.__props.showAsButton) {
             Item = Antd.Radio.Button;
         }
-        return <Antd.Radio.Group {...this.__props} options={undefined} value={
+        return <Antd.Radio.Group {...Utils.filter(this.__props, 'options')} value={
                 this.__props.value !== undefined ? '' + this.__props.value : undefined
             }>{
             Utils.toOptions(this.__props.options).map(item=>
@@ -336,7 +336,7 @@ export class Select extends DataEntry {
                 return;
             }
         }
-        
+
         // 否则把值设置为第一个或者清空
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(data);
@@ -354,7 +354,7 @@ export class Select extends DataEntry {
         if (formatType === 'array') {
             value = Utils.format(this.__props.value, formatType);
         }
-        return <Antd.Select {...this.__props} value={value}>
+        return <Antd.Select {...Utils.filter(this.__props, 'options')} value={value}>
             {Utils.toOptions(this.__props.options).map(item=>
                 <Antd.Select.Option key={'' + item.value} disabled={item.disabled} style={item.style}
                     value={'' + item.value}>{item.label}</Antd.Select.Option>

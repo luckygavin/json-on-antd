@@ -6,7 +6,7 @@ UF 致力于解放业务中各类简单枯燥的前端交互开发工作。直�
 
 Demo 演示请点击左侧各组件示例
 
-> 如有需求可以联系`liuzechun@baidu.com`、[`Hi`](baidu://message/?id=861260447) 咨询。
+> 如有疑问可以加群 **`1615792`** 咨询。
 
 ## 特性
 
@@ -34,36 +34,36 @@ Demo 演示请点击左侧各组件示例
 
 
 ## 版本
-* 开发版：%{version}%
+* 开发版：dev - [查看最新功能](http://antd.uf.baidu.com:8000/uf/#/UpdateLog)
+* Beta版：%{version}%
 * 稳定版：%{stableVersion}%
 
 
 ## 浏览器引入
-> 以下库文件分为两个版本：
-> beta 版：多用于开发，开发中的一些 warning 以及 error 会在浏览器控制台中打印出来，方便排查问题。因此 beta 版文件较大。
-> stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。
-
-#### 公共基础库
-
-UF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：
-
-beta:
-* http://uf.baidu.com/v/%{version}%/dll.js
-* http://uf.baidu.com/v/%{version}%/antd.js
-
-stable:
-* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js
-* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js
+> 以下库文件分为三个版本：
+> * dev 版：为当前研发版本，可对遇到的问题进行及时响应并修复，前期推荐使用dev版。
+> * beta 版：新上线的版本，不会频繁迭代，稳定性有待检测。
+> * stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。
 
 #### UF组件库
 
+dev:
+* http://antd.uf.baidu.com:8099/v/dev/theme.css
+* http://antd.uf.baidu.com:8099/v/dev/dll.js
+* http://antd.uf.baidu.com:8099/v/dev/antd.js
+* http://antd.uf.baidu.com:8099/v/dev/uf.js
+
 beta:
-* http://uf.baidu.com/v/%{version}%/uf.js
 * http://uf.baidu.com/v/%{version}%/theme.css
+* http://uf.baidu.com/v/%{version}%/dll.js
+* http://uf.baidu.com/v/%{version}%/antd.js
+* http://uf.baidu.com/v/%{version}%/uf.js
 
 stable:
-* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js
 * http://uf.baidu.com/v/%{stableVersion}%/theme.min.css
+* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js
+* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js
+* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js
 
 
 ## 加入我们

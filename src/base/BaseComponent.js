@@ -77,7 +77,7 @@ export default class BaseComponent extends Component {
         // 转化为 __props 时需过滤的属性
         this._filter = (Utils.copy(FilterProps)).concat([
             // 一些隐藏的属性
-            '__cache', '__type', '__key', '_factory'
+            '__cache', '__type', '__key', '_factory', '_selfCalling'
         ]);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex = Utils.copy(Uncomplex);
@@ -136,16 +136,29 @@ export default class BaseComponent extends Component {
         // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
         options = this._factory.handleProps(Object.assign({type: this.type}, options));
         // 要保证调用cwr时传入的nextProps的完整性
-        let props = this.__mergeProps({}, this.__props, options);
+        // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
+        let props = this.__mergeProps({_selfCalling: true}, this.__props, options);
         // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
         // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
         this.componentWillReceiveProps(props, this.__props);
         return this;
     }
-    // 如果有key则返回key的值；如果没有key，则返回全部参数
-    get(key) {
+    // 获取属性key的配置
+    // 可以传递多个key，从前到后依次尝试获取，直至获取到数据为止
+    // 如果未传入可以，则返回整个配置
+    get(...keys) {
         let props = Object.assign({}, this.__filtered, this.__props);
-        return key ? Utils.fromObject(key, props) : props;
+        if (keys.length > 0) {
+            let result;
+            for (let key of keys) {
+                result = Utils.fromObject(key, props);
+                if (result) {
+                    break;
+                }
+            }
+            return result;
+        }
+        return props;
     }
     // 触发组件上的事件。包括用户自定义的各种函数/事件（比如配置的onSubmit）
     // 可以使用 tigger('onSubmit') 来手动触发某个用户定义的函数/事件
@@ -162,23 +175,22 @@ export default class BaseComponent extends Component {
     // 子组件中有可能重写
     hide() {
         let oStyle = this.__props.style || {};
-        let oDisplay = oStyle.display;
-        this._tempData.display = oDisplay;
+        this._tempData.display = oStyle.display;
         this.__setProps({
-            style: Object.assign(oStyle, {
+            style: Object.assign({}, oStyle, {
                 display: 'none'
             })
         });
     }
     // 展示组件
     show() {
-        let style = this.__props.style || {};
-        if (this._tempData.display) {
+        let style = Object.assign({} ,this.__props.style);
+        if (this._tempData.display && this._tempData.display !== 'none') {
             style.display = this._tempData.display;
         } else {
-            delete style.display;
+            style.display = undefined;
         }
-        this.__setProps(style);
+        this.__setProps({style});
     }
     // 展示 loading 效果
     loading(__showLoading = true) {
@@ -385,24 +397,24 @@ export default class BaseComponent extends Component {
                     return onError && onError(res);
                 },
                 onchange: !showLoading ? onchange  : status => {
-                    let loadingConf = status;
-                    // 展示loading可以自定义展示效果，showLoading为loading的配置
-                    if (status) {
-                        loadingConf = showLoading;
-                        if (!Utils.typeof(loadingConf, 'object')) {
-                            loadingConf = {spinning: !!loadingConf};
-                        }
-                        loadingConf.spinning = true;
-                    }
-                    this._handleSourceLoading(loadingConf);
+                    this._handleSourceLoading(status, showLoading);
                     onchange && onchange(status);
                 }
             });
         }
     }
     // source获取数据时，通用的展示source的逻辑
-    _handleSourceLoading(status) {
-        // this.loading(status);
+    _handleSourceLoading(status, showLoading) {
+        // 展示loading可以自定义展示效果，showLoading为loading的配置
+        let loadingConf = status;
+        if (status) {
+            loadingConf = showLoading;
+            if (!Utils.typeof(loadingConf, 'object')) {
+                loadingConf = {spinning: !!loadingConf};
+            }
+            loadingConf.spinning = true;
+        }
+        this.loading(loadingConf);
     }
 
     /* 私有方法 ***********************************************************************/
@@ -414,7 +426,10 @@ export default class BaseComponent extends Component {
     _componentWillReceiveProps(nextProps, currentProps) {
         // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
         currentProps = !Utils.empty(currentProps) ? currentProps : this.props
-        if (this.__shouldUpdate(currentProps, nextProps)) {
+        // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
+        let autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
+        // autoReload，可以使组件无论如何都进行刷新
+        if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
             // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
             let reGetData = nextProps.source && Utils.isChange(
                 this.__formatApi(nextProps.source),
@@ -422,8 +437,10 @@ export default class BaseComponent extends Component {
             );
             // 重新设置 __props
             this.__setProps(nextProps);
-            // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
-            if (reGetData) {
+            // 自动重新加载的两种情况：
+            // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
+            // 2、如果设置了autoReload为true，则重新加载数据
+            if (reGetData || autoReload) {
                 this._handleAsyncData();
             }
         }

@@ -42,10 +42,10 @@ export default class DataEntry extends Antd {
         }
     }
     // 覆盖source获取数据时展示 loading 逻辑
-    _handleSourceLoading(status) {
+    _handleSourceLoading(status, showLoading) {
         // 如果配置了 showLoading: 'simple'，则更改loading展示效果，更简单，不防止用户操作
         // 否则使用原效果
-        if (this.__filtered.source.showLoading === 'simple') {
+        if (showLoading === 'simple') {
             if (status) {
                 let className = this.__filtered.__className || '';
                 className += ' has-feedback is-validating';
@@ -54,7 +54,7 @@ export default class DataEntry extends Antd {
                 this.__setProps({className: this.__filtered.__className});
             }
         } else {
-            super._handleSourceLoading.call(this, status);
+            super._handleSourceLoading.call(this, status, showLoading);
         }
     }
 

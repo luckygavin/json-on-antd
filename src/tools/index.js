@@ -108,6 +108,8 @@ const func = {
     model: Model,
     get: Model.get,
     set: Model.set,
+    // 获取当前页面路由信息
+    getRouter: uf.Router.getRouter,
     // 根据组件配置 生成&渲染组件实例
     init(config, selector) {
         if (!this.waiting) {

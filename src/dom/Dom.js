@@ -27,6 +27,10 @@ export default class Dom extends BaseComponent {
         }
     }
     render() {
-        return <this.props.__type {...this.__props} ref={ele=>(this._component = ele)}/>
+        // style传一个可变对象且对象进行变化时，会报warning
+        // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
+        return <this.props.__type {...this.__props} ref={ele=>(this._component = ele)}
+            style={{...this.__props.style}}
+        />
     }
 }

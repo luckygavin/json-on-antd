@@ -9,8 +9,26 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Factory, Authority} from 'src/tools';
 
+// 保存当前页面的路由信息
+let lastRouter;
+// 用于获取当前页面的路由信息
+function getRouter() {
+    return lastRouter;
+}
+function setRouter(props) {
+    let {params, location, route, routes} = props;
+    lastRouter = {
+        params: params,
+        detials: {params, location, route, routes}
+    };
+}
+
 // 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
 export class RouteHolder extends React.Component {
+    constructor(props) {
+        super(props);
+        setRouter(props);
+    }
     shouldComponentUpdate(nextProps, nextState) {
         // console.log(nextProps);
         // if (nextProps, nextProps.location, nextProps.location.action) {
@@ -30,6 +48,10 @@ export class RouteHolder extends React.Component {
     //     console.log(this.props.router.location.action);
     //     console.log(nextProps.router.location.action);
     // }
+    // 组件更新时，保存最新的路由信息
+    componentWillUpdate(nextProps, nextState) {
+        setRouter(nextProps);
+    }
 
     render() {
         return <Factory {...this.props} config={this.props.route.__component} />;
@@ -37,11 +59,7 @@ export class RouteHolder extends React.Component {
 }
 
 // 抽象类 用于做组件种类区分
-export class BaseRouter extends BaseComponent {
-    // constructor(props) {
-    //     super(props);
-    // }
-}
+export class BaseRouter extends BaseComponent {}
 
 // Router
 export class Router extends BaseRouter {
@@ -120,6 +138,8 @@ export class Router extends BaseRouter {
         return <OriRouter.Router {...this.__props}/>;
     }
 }
+// 获取当前页面的路由信息
+Router.getRouter = getRouter;
 
 // Link
 export class Link extends BaseRouter {

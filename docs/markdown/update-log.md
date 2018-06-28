@@ -13,6 +13,24 @@
 
 - - -
 
+### 0.2.5
+
+
+`2018-06-28`
+
+* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)
+* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG
+* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)
+* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新
+* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题
+
+
+`2018-06-26`
+
+* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)
+
+
+
 ### 0.2.4
 
 `2018-06-26`
@@ -31,11 +49,10 @@
 * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug
 * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题
 
-
 `2018-06-13`
 
 * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)
-* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Params/-component-loading-)
+* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)
 
 
 ### 0.2.3
@@ -158,7 +175,7 @@
 `2018-02-06`
 
 * 上线 0.2.1 版本，对框架进行整体优化
-* 在 **`虚拟资源管理中心`** 项目中投入使用
+* 📖 在 **`虚拟资源管理中心`** 项目中投入使用
 
 
 
@@ -168,7 +185,7 @@
 
 * 上线 0.2 版本
 * 支持整个项目配置化
-* 在 **`RMS GPU部件管理`** 项目中投入使用
+* 📖 在 **`RMS GPU部件管理`** 项目中投入使用
 
 ### 0.1.1
 

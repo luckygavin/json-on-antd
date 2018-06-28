@@ -8868,7 +8868,7 @@
 	    }, {
 	        key: 'componentWillUpdate',
 	        value: function componentWillUpdate(nextProps, nextState) {
-	            setRouter(this.props);
+	            setRouter(nextProps);
 	        }
 	    }, {
 	        key: 'render',

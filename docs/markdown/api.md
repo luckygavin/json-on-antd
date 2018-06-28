@@ -98,6 +98,16 @@ UF.set('test.list', list);
 console.log(UF.get('test.list'));
 ```
 
+## # UF.getRouter()
+
+随时随地获取当前页面的路由信息。
+
+函数返回值为一个对象，包含两个参数：`params`、`detials`。
+
+> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  
+> `detials`为包括params在内的更多路由信息，比如当前路由路径的
+
+具体用法可见，[示例](#/Others/-2-)
 
 ## # UF.ajax(params)
 

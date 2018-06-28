@@ -2295,7 +2295,7 @@
 /* 123 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有需求可以联系`liuzechun@baidu.com`、[`Hi`](baidu://message/?id=861260447) 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 50 余种组件，从元素级到页面级的组件都有，可轻松满足多数日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为两个版本：\n> beta 版：多用于开发，开发中的一些 warning 以及 error 会在浏览器控制台中打印出来，方便排查问题。因此 beta 版文件较大。\n> stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### 公共基础库\n\nUF 底层使用 React / Antd 开发完成的，所以在使用 UF 框架之前，要先引入通用公共基础库，如下：\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n\n#### UF组件库\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/uf.js\n* http://uf.baidu.com/v/%{version}%/theme.css\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
+	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有疑问可以加群 **`1615792`** 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 50 余种组件，从元素级到页面级的组件都有，可轻松满足多数日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：dev - [查看最新功能](http://antd.uf.baidu.com:8099/#/UpdateLog)\n* Beta版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为三个版本：\n> * dev 版：为当前研发版本，可对遇到的问题进行及时响应并修复，前期推荐使用dev版。\n> * beta 版：新上线的版本，不会频繁迭代，稳定性有待检测。\n> * stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### UF组件库\n\ndev:\n* http://antd.uf.baidu.com:8099/v/dev/theme.css\n* http://antd.uf.baidu.com:8099/v/dev/dll.js\n* http://antd.uf.baidu.com:8099/v/dev/antd.js\n* http://antd.uf.baidu.com:8099/v/dev/uf.js\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/theme.css\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n* http://uf.baidu.com/v/%{version}%/uf.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
 
 /***/ }),
 /* 124 */
@@ -2361,13 +2361,13 @@
 /* 134 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。可以类比为jQuery的`$`符号\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址 | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
+	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。可以类比为jQuery的`$`符号\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n## # UF.getRouter()\n\n随时随地获取当前页面的路由信息。\n\n函数返回值为一个对象，包含两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n具体用法可见，[示例](#/Others/-2-)\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址 | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
 
 /***/ }),
 /* 135 */
 /***/ (function(module, exports) {
 
-	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 的说明\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # configTpl \n\n配置模板。用于指定复用在`UF.config`函数中定义的`components`属性中定义的通用模板配置。\n\n> 优先级：默认值 < configTpl < 组件本身配置\n\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className/class \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true\nshowLoading | 拉取数据时展示loading（仅部分输入型组件可用） | boolean | false\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&nbsp;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
+	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 的说明\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # configTpl \n\n配置模板。用于指定复用在`UF.config`函数中定义的`components`属性中定义的通用模板配置。\n\n> 优先级：默认值 < configTpl < 组件本身配置\n\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className/class \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true\nautoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false\nshowLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
 
 /***/ }),
 /* 136 */
@@ -2385,13 +2385,13 @@
 /* 138 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n## 关于组件中获取 路由 携带的数据\n\n最常用的场景是：点击列表页的查看详情，页面跳转到详情页面，一般会在url上携带详情页的id等信息，如：`/blog/101`\n\n那么，具体在项目中如何使用呢：\n\n**1、首先配置路由如下：**\n```javascript\n{\n    path: 'blog/:id',\n    component: require('blog/details'),\n    breadcrumbName: '详情'\n}\n// 也可以有多个参数\n{\n    path: 'blog/:type/:id',\n    component: require('blog/details'),\n    breadcrumbName: '详情'\n}\n```\n`:xxx` 格式为定义的参数，和其他语言用法基本一致，也可以有多个参数。\n\n**2、再来看 blog/details 模块中参数的用法**\n\n此处举个最简单的例子，在details中把路由中传递的参数展示出来：\n\n```javascript\ndefine(function (require) {\n    return function(params, routes) {\n        return {\n            type: 'card',\n            title: '详情页：',\n            content: 'id为：' + params.id\n        }\n    };\n});\n```\n\n如上，本来一个普通的组件是直接 return 一个组件配置的。不过框架也提供了可以返回一个函数，函数内部再返回组件配置。如此，函数会传入两个参数：`params`、`routes`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `routes`为除params外的更多路由信息。\n\n\n## 关于 Ajax 中的 error 配置\n\n使用 `UF.ajax`、`source`系列参数、`api`系列参数时，如果不配置`error`之类的错误处理函数，会有默认的处理逻辑把错误报出来。\n\n可以通过配置`error`函数加入自己错误处理逻辑。如果自定义的错误处理函数没有任何返回结果，或者返回的不为`false`，则依然会执行默认的错误处理逻辑把错误报出来。只有当`return false;`时，才会阻止执行默认报错逻辑（有点像dom中的阻止事件冒泡）。\n\n如下，当获取数据出错时，只会再控制台打印出错误信息，不会再给用户提示：\n```javascript\n{\n    source: {\n        url: '/uf/docs/php/data2.php',\n        onError: function (res) {\n            console.log(res);\n            return false;\n        }\n    }\n}\n```"
+	module.exports = "\n## 关于组件中获取 路由 携带的数据\n\n最常用的场景是：点击列表页的查看详情，页面跳转到详情页面，一般会在url上携带详情页的id等信息，如：`/blog/101`\n\n那么，具体在项目中如何使用呢：\n\n#### 用法一：\n\n**1、首先配置路由如下：**\n```javascript\n{\n    path: 'blog/:id',\n    component: require('blog/details'),\n    breadcrumbName: '详情'\n}\n// 也可以有多个参数\n{\n    path: 'blog/:type/:id',\n    component: require('blog/details'),\n    breadcrumbName: '详情'\n}\n```\n`:xxx` 格式为定义的参数，和其他语言用法基本一致，也可以有多个参数。\n\n**2、再来看 blog/details 模块中参数的用法**\n\n此处举个最简单的例子，在details中把路由中传递的参数展示出来：\n\n```javascript\ndefine(function (require) {\n    return function(params, detials) {\n        return {\n            type: 'card',\n            title: '详情页：',\n            content: 'id为：' + params.id\n        }\n    };\n});\n```\n\n如上，本来一个普通的组件是直接 return 一个组件配置的。不过框架也提供了可以返回一个函数，函数内部再返回组件配置。如此，函数会传入两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n#### 用法2：\n\n调用`UF.getRouter()`函数获取参数\n\n```javascript\ndefine(function (require) {\n    return function() {\n        return {\n            type: 'card',\n            title: '详情页：',\n            content: 'id为：' + UF.getRouter().params.id\n        }\n    };\n});\n```\n\n\n## 关于 Ajax 中的 error 配置\n\n使用 `UF.ajax`、`source`系列参数、`api`系列参数时，如果不配置`error`之类的错误处理函数，会有默认的处理逻辑把错误报出来。\n\n可以通过配置`error`函数加入自己错误处理逻辑。如果自定义的错误处理函数没有任何返回结果，或者返回的不为`false`，则依然会执行默认的错误处理逻辑把错误报出来。只有当`return false;`时，才会阻止执行默认报错逻辑（有点像dom中的阻止事件冒泡）。\n\n如下，当获取数据出错时，只会再控制台打印出错误信息，不会再给用户提示：\n```javascript\n{\n    source: {\n        url: '/uf/docs/php/data2.php',\n        onError: function (res) {\n            console.log(res);\n            return false;\n        }\n    }\n}\n```"
 
 /***/ }),
 /* 139 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.2.4\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Params/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.2.5\n\n\n`2018-06-28`\n\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 140 */
@@ -3056,6 +3056,8 @@
 	    model: _model2.default,
 	    get: _model2.default.get,
 	    set: _model2.default.set,
+	    // 获取当前页面路由信息
+	    getRouter: _src2.default.Router.getRouter,
 	    // 根据组件配置 生成&渲染组件实例
 	    init: function init(config, selector) {
 	        if (!this.waiting) {
@@ -4664,7 +4666,10 @@
 	                for (var _iterator7 = strc.split('.')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                    var v = _step7.value;
 
-	                    target[v] && (target = target[v]);
+	                    if (!target || !this.typeof(target, 'object')) {
+	                        return undefined;
+	                    }
+	                    target = target[v];
 	                }
 	            } catch (err) {
 	                _didIteratorError7 = true;
@@ -7239,10 +7244,10 @@
 
 	    }, {
 	        key: '_handleSourceLoading',
-	        value: function _handleSourceLoading(status) {
+	        value: function _handleSourceLoading(status, showLoading) {
 	            // 如果配置了 showLoading: 'simple'，则更改loading展示效果，更简单，不防止用户操作
 	            // 否则使用原效果
-	            if (this.__filtered.source.showLoading === 'simple') {
+	            if (showLoading === 'simple') {
 	                if (status) {
 	                    var className = this.__filtered.__className || '';
 	                    className += ' has-feedback is-validating';
@@ -7251,7 +7256,7 @@
 	                    this.__setProps({ className: this.__filtered.__className });
 	                }
 	            } else {
-	                _get(DataEntry.prototype.__proto__ || Object.getPrototypeOf(DataEntry.prototype), '_handleSourceLoading', this).call(this, status);
+	                _get(DataEntry.prototype.__proto__ || Object.getPrototypeOf(DataEntry.prototype), '_handleSourceLoading', this).call(this, status, showLoading);
 	            }
 	        }
 
@@ -7607,7 +7612,7 @@
 	        // 转化为 __props 时需过滤的属性
 	        _this._filter = _utils.Utils.copy(FilterProps).concat([
 	        // 一些隐藏的属性
-	        '__cache', '__type', '__key', '_factory']);
+	        '__cache', '__type', '__key', '_factory', '_selfCalling']);
 	        // 不复杂的属性，即无需merge处理直接覆盖的属性
 	        _this._uncomplex = _utils.Utils.copy(Uncomplex);
 	        // 开放给用户使用的 Api，需处理下
@@ -7692,19 +7697,59 @@
 	            // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
-	            var props = this.__mergeProps({}, this.__props, options);
+	            // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
+	            var props = this.__mergeProps({ _selfCalling: true }, this.__props, options);
 	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
 	            return this;
 	        }
-	        // 如果有key则返回key的值；如果没有key，则返回全部参数
+	        // 获取属性key的配置
+	        // 可以传递多个key，从前到后依次尝试获取，直至获取到数据为止
+	        // 如果未传入可以，则返回整个配置
 
 	    }, {
 	        key: 'get',
-	        value: function get(key) {
+	        value: function get() {
 	            var props = Object.assign({}, this.__filtered, this.__props);
-	            return key ? _utils.Utils.fromObject(key, props) : props;
+
+	            for (var _len2 = arguments.length, keys = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                keys[_key2] = arguments[_key2];
+	            }
+
+	            if (keys.length > 0) {
+	                var result = void 0;
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    for (var _iterator = keys[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var key = _step.value;
+
+	                        result = _utils.Utils.fromObject(key, props);
+	                        if (result) {
+	                            break;
+	                        }
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+
+	                return result;
+	            }
+	            return props;
 	        }
 	        // 触发组件上的事件。包括用户自定义的各种函数/事件（比如配置的onSubmit）
 	        // 可以使用 tigger('onSubmit') 来手动触发某个用户定义的函数/事件
@@ -7714,8 +7759,8 @@
 	        key: 'trigger',
 	        value: function trigger(event) {
 	            if (this.__props[event]) {
-	                for (var _len2 = arguments.length, params = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-	                    params[_key2 - 1] = arguments[_key2];
+	                for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+	                    params[_key3 - 1] = arguments[_key3];
 	                }
 
 	                this.__props[event](params);
@@ -7730,10 +7775,9 @@
 	        key: 'hide',
 	        value: function hide() {
 	            var oStyle = this.__props.style || {};
-	            var oDisplay = oStyle.display;
-	            this._tempData.display = oDisplay;
+	            this._tempData.display = oStyle.display;
 	            this.__setProps({
-	                style: Object.assign(oStyle, {
+	                style: Object.assign({}, oStyle, {
 	                    display: 'none'
 	                })
 	            });
@@ -7743,13 +7787,13 @@
 	    }, {
 	        key: 'show',
 	        value: function show() {
-	            var style = this.__props.style || {};
-	            if (this._tempData.display) {
+	            var style = Object.assign({}, this.__props.style);
+	            if (this._tempData.display && this._tempData.display !== 'none') {
 	                style.display = this._tempData.display;
 	            } else {
-	                delete style.display;
+	                style.display = undefined;
 	            }
-	            this.__setProps(style);
+	            this.__setProps({ style: style });
 	        }
 	        // 展示 loading 效果
 
@@ -7861,8 +7905,8 @@
 	    }, {
 	        key: '__mergeProps',
 	        value: function __mergeProps() {
-	            for (var _len3 = arguments.length, props = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                props[_key3] = arguments[_key3];
+	            for (var _len4 = arguments.length, props = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                props[_key4] = arguments[_key4];
 	            }
 
 	            return _utils.Utils.merge.apply(_utils.Utils, [this._uncomplex].concat(props));
@@ -8020,16 +8064,7 @@
 	                        return onError && onError(res);
 	                    },
 	                    onchange: !showLoading ? onchange : function (status) {
-	                        var loadingConf = status;
-	                        // 展示loading可以自定义展示效果，showLoading为loading的配置
-	                        if (status) {
-	                            loadingConf = showLoading;
-	                            if (!_utils.Utils.typeof(loadingConf, 'object')) {
-	                                loadingConf = { spinning: !!loadingConf };
-	                            }
-	                            loadingConf.spinning = true;
-	                        }
-	                        _this3._handleSourceLoading(loadingConf);
+	                        _this3._handleSourceLoading(status, showLoading);
 	                        onchange && onchange(status);
 	                    }
 	                }));
@@ -8039,9 +8074,18 @@
 
 	    }, {
 	        key: '_handleSourceLoading',
-	        value: function _handleSourceLoading(status) {}
-	        // this.loading(status);
-
+	        value: function _handleSourceLoading(status, showLoading) {
+	            // 展示loading可以自定义展示效果，showLoading为loading的配置
+	            var loadingConf = status;
+	            if (status) {
+	                loadingConf = showLoading;
+	                if (!_utils.Utils.typeof(loadingConf, 'object')) {
+	                    loadingConf = { spinning: !!loadingConf };
+	                }
+	                loadingConf.spinning = true;
+	            }
+	            this.loading(loadingConf);
+	        }
 
 	        /* 私有方法 ***********************************************************************/
 
@@ -8055,13 +8099,18 @@
 	        value: function _componentWillReceiveProps(nextProps, currentProps) {
 	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
 	            currentProps = !_utils.Utils.empty(currentProps) ? currentProps : this.props;
-	            if (this.__shouldUpdate(currentProps, nextProps)) {
+	            // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
+	            var autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
+	            // autoReload，可以使组件无论如何都进行刷新
+	            if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
 	                // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
 	                var reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source);
 	                // 重新设置 __props
 	                this.__setProps(nextProps);
-	                // 如果参数变化，则重新获取数据，此时 __props 已变更完成。
-	                if (reGetData) {
+	                // 自动重新加载的两种情况：
+	                // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
+	                // 2、如果设置了autoReload为true，则重新加载数据
+	                if (reGetData || autoReload) {
 	                    this._handleAsyncData();
 	                }
 	            }
@@ -8209,51 +8258,16 @@
 	    }, {
 	        key: '_handleOpenApi',
 	        value: function _handleOpenApi() {
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = this._openApi[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
-
-	                    if (_utils.Utils.typeof(this[v], 'function')) {
-	                        this[v] = this[v].bind(this);
-	                    }
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        }
-
-	        // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
-
-	    }, {
-	        key: '_injectFunction',
-	        value: function _injectFunction() {
 	            var _iteratorNormalCompletion2 = true;
 	            var _didIteratorError2 = false;
 	            var _iteratorError2 = undefined;
 
 	            try {
-	                for (var _iterator2 = PreventCoverageMap[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                for (var _iterator2 = this._openApi[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var v = _step2.value;
 
-	                    // 如果父组件中有等待注入的函数
-	                    var inject = this['_' + v];
-	                    if (inject) {
-	                        this._inject(this, v, inject);
+	                    if (_utils.Utils.typeof(this[v], 'function')) {
+	                        this[v] = this[v].bind(this);
 	                    }
 	                }
 	            } catch (err) {
@@ -8272,22 +8286,23 @@
 	            }
 	        }
 
-	        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
+	        // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
 
 	    }, {
-	        key: '_injectEventFunction',
-	        value: function _injectEventFunction() {
+	        key: '_injectFunction',
+	        value: function _injectFunction() {
 	            var _iteratorNormalCompletion3 = true;
 	            var _didIteratorError3 = false;
 	            var _iteratorError3 = undefined;
 
 	            try {
-	                for (var _iterator3 = this._injectEvent[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                for (var _iterator3 = PreventCoverageMap[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 	                    var v = _step3.value;
 
+	                    // 如果父组件中有等待注入的函数
 	                    var inject = this['_' + v];
 	                    if (inject) {
-	                        this._inject(this.__props, v, inject);
+	                        this._inject(this, v, inject);
 	                    }
 	                }
 	            } catch (err) {
@@ -8306,67 +8321,22 @@
 	            }
 	        }
 
-	        // 挂载用户传入的需要关联到生命周期中的函数
+	        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
 
 	    }, {
-	        key: '_loadUserFunction',
-	        value: function _loadUserFunction() {
-	            var _this4 = this;
-
-	            var _loop = function _loop(f) {
-	                // 如果props中有等待注入的函数
-	                var inject = _this4.__filtered[f];
-	                if (inject) {
-	                    var _iteratorNormalCompletion5 = true;
-	                    var _didIteratorError5 = false;
-	                    var _iteratorError5 = undefined;
-
-	                    try {
-	                        for (var _iterator5 = ForUserApi[f].split(',')[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-	                            var v = _step5.value;
-
-	                            _this4._inject(_this4, v, function () {
-	                                var result = inject.call(_this4, _this4.__props, _this4);
-	                                // 组件渲染/刷新前可以让用户有机会改参数
-	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
-	                                    // 防止用户设置过滤属性
-	                                    _this4.__props = _this4._filterHandler(result);
-	                                }
-	                            }, true);
-	                        }
-	                    } catch (err) {
-	                        _didIteratorError5 = true;
-	                        _iteratorError5 = err;
-	                    } finally {
-	                        try {
-	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-	                                _iterator5.return();
-	                            }
-	                        } finally {
-	                            if (_didIteratorError5) {
-	                                throw _iteratorError5;
-	                            }
-	                        }
-	                    }
-	                }
-	            };
-
-	            for (var f in ForUserApi) {
-	                _loop(f);
-	            }
-	            // 支持高级用户（专业前端）直接使用原始的生命周期函数
+	        key: '_injectEventFunction',
+	        value: function _injectEventFunction() {
 	            var _iteratorNormalCompletion4 = true;
 	            var _didIteratorError4 = false;
 	            var _iteratorError4 = undefined;
 
 	            try {
-	                for (var _iterator4 = PreventCoverageMap[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                for (var _iterator4 = this._injectEvent[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
 	                    var v = _step4.value;
 
-	                    // 如果父组件中有等待注入的函数
-	                    var _inject2 = this.__filtered['_' + v];
-	                    if (_inject2) {
-	                        this._inject(this, v, _inject2);
+	                    var inject = this['_' + v];
+	                    if (inject) {
+	                        this._inject(this.__props, v, inject);
 	                    }
 	                }
 	            } catch (err) {
@@ -8385,6 +8355,85 @@
 	            }
 	        }
 
+	        // 挂载用户传入的需要关联到生命周期中的函数
+
+	    }, {
+	        key: '_loadUserFunction',
+	        value: function _loadUserFunction() {
+	            var _this4 = this;
+
+	            var _loop = function _loop(f) {
+	                // 如果props中有等待注入的函数
+	                var inject = _this4.__filtered[f];
+	                if (inject) {
+	                    var _iteratorNormalCompletion6 = true;
+	                    var _didIteratorError6 = false;
+	                    var _iteratorError6 = undefined;
+
+	                    try {
+	                        for (var _iterator6 = ForUserApi[f].split(',')[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                            var v = _step6.value;
+
+	                            _this4._inject(_this4, v, function () {
+	                                var result = inject.call(_this4, _this4.__props, _this4);
+	                                // 组件渲染/刷新前可以让用户有机会改参数
+	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
+	                                    // 防止用户设置过滤属性
+	                                    _this4.__props = _this4._filterHandler(result);
+	                                }
+	                            }, true);
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError6 = true;
+	                        _iteratorError6 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion6 && _iterator6.return) {
+	                                _iterator6.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError6) {
+	                                throw _iteratorError6;
+	                            }
+	                        }
+	                    }
+	                }
+	            };
+
+	            for (var f in ForUserApi) {
+	                _loop(f);
+	            }
+	            // 支持高级用户（专业前端）直接使用原始的生命周期函数
+	            var _iteratorNormalCompletion5 = true;
+	            var _didIteratorError5 = false;
+	            var _iteratorError5 = undefined;
+
+	            try {
+	                for (var _iterator5 = PreventCoverageMap[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                    var v = _step5.value;
+
+	                    // 如果父组件中有等待注入的函数
+	                    var _inject2 = this.__filtered['_' + v];
+	                    if (_inject2) {
+	                        this._inject(this, v, _inject2);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError5 = true;
+	                _iteratorError5 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                        _iterator5.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError5) {
+	                        throw _iteratorError5;
+	                    }
+	                }
+	            }
+	        }
+
 	        // 绑定组件额外动作处理逻辑
 
 	    }, {
@@ -8398,8 +8447,8 @@
 
 	            if (target) {
 	                this._inject(this.__props, trigger, function () {
-	                    for (var _len4 = arguments.length, para = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                        para[_key4] = arguments[_key4];
+	                    for (var _len5 = arguments.length, para = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                        para[_key5] = arguments[_key5];
 	                    }
 
 	                    var _filtered$control2 = _this5.__filtered.control,
@@ -8416,13 +8465,13 @@
 	                    if (!_utils.Utils.typeof(targetArr, 'array')) {
 	                        targetArr = [targetArr];
 	                    }
-	                    var _iteratorNormalCompletion6 = true;
-	                    var _didIteratorError6 = false;
-	                    var _iteratorError6 = undefined;
+	                    var _iteratorNormalCompletion7 = true;
+	                    var _didIteratorError7 = false;
+	                    var _iteratorError7 = undefined;
 
 	                    try {
-	                        for (var _iterator6 = targetArr[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	                            var v = _step6.value;
+	                        for (var _iterator7 = targetArr[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+	                            var v = _step7.value;
 
 	                            var targetStr = v;
 	                            // targetAttr 可以为空数组，即目标直接指向组件
@@ -8470,16 +8519,16 @@
 	                            }
 	                        }
 	                    } catch (err) {
-	                        _didIteratorError6 = true;
-	                        _iteratorError6 = err;
+	                        _didIteratorError7 = true;
+	                        _iteratorError7 = err;
 	                    } finally {
 	                        try {
-	                            if (!_iteratorNormalCompletion6 && _iterator6.return) {
-	                                _iterator6.return();
+	                            if (!_iteratorNormalCompletion7 && _iterator7.return) {
+	                                _iterator7.return();
 	                            }
 	                        } finally {
-	                            if (_didIteratorError6) {
-	                                throw _iteratorError6;
+	                            if (_didIteratorError7) {
+	                                throw _iteratorError7;
 	                            }
 	                        }
 	                    }
@@ -10513,7 +10562,8 @@
 	    }, {
 	        key: 'followRoute',
 	        value: function followRoute() {
-	            if (!this.__props.followRoute) {
+	            // 侧边栏处于收起状态时不再执行高亮判断
+	            if (!this.__props.followRoute || this.__props.inlineCollapsed) {
 	                return;
 	            }
 	            var routes = this._root.props.routes;
@@ -11200,7 +11250,7 @@
 	                                    var inject = function inject(collapsed) {
 	                                        var menu = _cache.ComponentsCache.get(key);
 	                                        if (menu) {
-	                                            var defaultOpenKeys = menu.get('_defaultOpenKeys') || menu.get('defaultOpenKeys');
+	                                            var defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
 	                                            // 从缓存中获取 Menu 组件，并更改组件状态
 	                                            menu.set({
 	                                                inlineCollapsed: collapsed,
@@ -11429,14 +11479,36 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
+	// 保存当前页面的路由信息
+	var lastRouter = void 0;
+	// 用于获取当前页面的路由信息
+	function getRouter() {
+	    return lastRouter;
+	}
+	function setRouter(props) {
+	    var params = props.params,
+	        location = props.location,
+	        route = props.route,
+	        routes = props.routes;
+
+	    lastRouter = {
+	        params: params,
+	        detials: { params: params, location: location, route: route, routes: routes }
+	    };
+	}
+
 	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
+
 	var RouteHolder = exports.RouteHolder = function (_React$Component) {
 	    _inherits(RouteHolder, _React$Component);
 
-	    function RouteHolder() {
+	    function RouteHolder(props) {
 	        _classCallCheck(this, RouteHolder);
 
-	        return _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).apply(this, arguments));
+	        var _this = _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).call(this, props));
+
+	        setRouter(props);
+	        return _this;
 	    }
 
 	    _createClass(RouteHolder, [{
@@ -11460,7 +11532,13 @@
 	        //     console.log(this.props.router.location.action);
 	        //     console.log(nextProps.router.location.action);
 	        // }
+	        // 组件更新时，保存最新的路由信息
 
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            setRouter(this.props);
+	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
@@ -11487,6 +11565,8 @@
 	}(_base.BaseComponent);
 
 	// Router
+
+
 	var Router = exports.Router = function (_BaseRouter) {
 	    _inherits(Router, _BaseRouter);
 
@@ -11600,9 +11680,12 @@
 
 	    return Router;
 	}(BaseRouter);
+	// 获取当前页面的路由信息
+
+
+	Router.getRouter = getRouter;
 
 	// Link
-
 
 	var Link = exports.Link = function (_BaseRouter2) {
 	    _inherits(Link, _BaseRouter2);
@@ -18303,9 +18386,13 @@
 	        value: function render() {
 	            var _this2 = this;
 
+	            // style传一个可变对象且对象进行变化时，会报warning
+	            // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
 	            return _react2.default.createElement(this.props.__type, _extends({}, this.__props, { ref: function ref(ele) {
 	                    return _this2._component = ele;
-	                } }));
+	                },
+	                style: _extends({}, this.__props.style)
+	            }));
 	        }
 	    }]);
 
@@ -18410,10 +18497,9 @@
 	                    location = _props.location,
 	                    route = _props.route,
 	                    routes = _props.routes;
-
-	                var otherRoutes = { params: params, location: location, route: route, routes: routes };
 	                // 第一个参数为路由携带的参数，第二个参数为其余路由信息
-	                item = item(params, otherRoutes);
+
+	                item = item(params, { params: params, location: location, route: route, routes: routes });
 	                if (_utils.Utils.typeof(item, 'array')) {
 	                    return this.generateElement(item);
 	                }

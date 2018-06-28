@@ -110,7 +110,7 @@ export class Sider extends BaseLayout {
                         let inject = collapsed=>{
                             let menu = ComponentsCache.get(key);
                             if (menu) {
-                                let defaultOpenKeys = menu.get('_defaultOpenKeys') || menu.get('defaultOpenKeys');
+                                let defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
                                 // 从缓存中获取 Menu 组件，并更改组件状态
                                 menu.set({
                                     inlineCollapsed: collapsed,

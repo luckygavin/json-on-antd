@@ -215,7 +215,8 @@ export class Menu extends Navigation {
     }
     // 高亮的菜单项跟随路由一起变换
     followRoute() {
-        if (!this.__props.followRoute) {
+        // 侧边栏处于收起状态时不再执行高亮判断
+        if (!this.__props.followRoute || this.__props.inlineCollapsed) {
             return;
         }
         let routes = this._root.props.routes;

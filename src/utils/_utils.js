@@ -409,7 +409,10 @@ const utils = {
         // 如果 strc 为空字符串，则返回 obj 本身
         if (strc) {
             for (let v of strc.split('.')) {
-                target[v] && (target = target[v]);
+                if (!target || !this.typeof(target, 'object')) {
+                    return undefined;
+                }
+                target = target[v];
             }
         }
         return target;

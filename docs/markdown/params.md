@@ -96,7 +96,8 @@ handler | 接口数据返回后的处理函数（如果数据无需格式化可�
 onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |
 onError | 请求数据失败的回调函数 | function(res) {} |
 autoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true
-showLoading | 拉取数据时展示loading（仅部分输入型组件可用） | boolean | false
+autoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false
+showLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false
 
 > * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  
 > * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）
@@ -207,7 +208,7 @@ control 参数可以是字符串，直接声明要操作的目标，其余参数
 -----------|----------------|------------------|------
 type    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化
 trigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`
-target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&nbsp;Array | 必填
+target    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填
 params    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | 
 params    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | 
 handler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`

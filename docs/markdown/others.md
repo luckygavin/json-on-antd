@@ -5,6 +5,8 @@
 
 那么，具体在项目中如何使用呢：
 
+#### 用法一：
+
 **1、首先配置路由如下：**
 ```javascript
 {
@@ -27,7 +29,7 @@
 
 ```javascript
 define(function (require) {
-    return function(params, routes) {
+    return function(params, detials) {
         return {
             type: 'card',
             title: '详情页：',
@@ -37,10 +39,26 @@ define(function (require) {
 });
 ```
 
-如上，本来一个普通的组件是直接 return 一个组件配置的。不过框架也提供了可以返回一个函数，函数内部再返回组件配置。如此，函数会传入两个参数：`params`、`routes`。
+如上，本来一个普通的组件是直接 return 一个组件配置的。不过框架也提供了可以返回一个函数，函数内部再返回组件配置。如此，函数会传入两个参数：`params`、`detials`。
 
 > `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  
-> `routes`为除params外的更多路由信息。
+> `detials`为包括params在内的更多路由信息，比如当前路由路径的
+
+#### 用法2：
+
+调用`UF.getRouter()`函数获取参数
+
+```javascript
+define(function (require) {
+    return function() {
+        return {
+            type: 'card',
+            title: '详情页：',
+            content: 'id为：' + UF.getRouter().params.id
+        }
+    };
+});
+```
 
 
 ## 关于 Ajax 中的 error 配置

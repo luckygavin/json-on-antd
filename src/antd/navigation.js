@@ -63,7 +63,7 @@ export class Breadcrumb extends Navigation {
     renderBreadcrumbName(name) {
         // 如果有类似于`:id`这种形式的和路由参数匹配的情况，则替换成对应的参数值
         if (name.indexOf(':') > -1) {
-            let {params} = Router.getRouter();
+            let params = Router.getRouter().params;
             for (let i in params) {
                 if (name.indexOf(`:${i}`) > -1) {
                     name = name.replace(`:${i}`, params[i]);

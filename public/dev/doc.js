@@ -2295,7 +2295,7 @@
 /* 123 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有疑问可以加群 **`1615792`** 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 50 余种组件，从元素级到页面级的组件都有，可轻松满足多数日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：dev - [查看最新功能](http://antd.uf.baidu.com:8099/#/UpdateLog)\n* Beta版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为三个版本：\n> * dev 版：为当前研发版本，可对遇到的问题进行及时响应并修复，前期推荐使用dev版。\n> * beta 版：新上线的版本，不会频繁迭代，稳定性有待检测。\n> * stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### UF组件库\n\ndev:\n* http://antd.uf.baidu.com:8099/v/dev/theme.css\n* http://antd.uf.baidu.com:8099/v/dev/dll.js\n* http://antd.uf.baidu.com:8099/v/dev/antd.js\n* http://antd.uf.baidu.com:8099/v/dev/uf.js\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/theme.css\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n* http://uf.baidu.com/v/%{version}%/uf.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
+	module.exports = "## 什么是 UF？\n\nUF 框架是一个面向RD（不仅是FE）的自助配置框架，RD 直接通过简单的 JSON 配置即能生成页面。\n\nUF 致力于解放业务中各类简单枯燥的前端交互开发工作。直接书写页面上需要的组件的配置并调用 API 初始化他们，即可生成整个页面；并能通过指定 API 完成更加定制化的业务需求。\n\nDemo 演示请点击左侧各组件示例\n\n> 如有疑问可以加群 **`1615792`** 咨询。\n\n## 特性\n\n##### 1、界面配置化\n\n用配置的 JSON 声明你需要一个什么样的页面，包含什么交互，框架帮你具体实现。\n\n> 框架中包含有 50 余种组件，从元素级到页面级的组件都有，可轻松满足多数日常使用场景。\n\n\n##### 2、学习成本低\n框架整合了各种交互场景，抽象成了一个简单的定理。何为组件交互？一个组件改变另一个组件，即为交互。\n\n基于此，框架了统一的API来完成各种组件的不同的操作。\n\n##### 3、开发成本低\n* 无需搭建前端环境\n* 无需关注UI风格，后续还会提供多种主题样式，可自由切换\n* 更少的业务逻辑实现\n\n\n\n## 浏览器支持\n现代浏览器和 IE9 及以上。\n\n\n## 版本\n* 开发版：dev - [查看最新功能](http://antd.uf.baidu.com:8000/uf/#/UpdateLog)\n* Beta版：%{version}%\n* 稳定版：%{stableVersion}%\n\n\n## 浏览器引入\n> 以下库文件分为三个版本：\n> * dev 版：为当前研发版本，可对遇到的问题进行及时响应并修复，前期推荐使用dev版。\n> * beta 版：新上线的版本，不会频繁迭代，稳定性有待检测。\n> * stable 版：屏蔽了 warning 及部分 error 问题，使代码尽量可以执行。同时，代码进行了压缩，文件较小，报错及问题定位较困难。\n\n#### UF组件库\n\ndev:\n* http://antd.uf.baidu.com:8099/v/dev/theme.css\n* http://antd.uf.baidu.com:8099/v/dev/dll.js\n* http://antd.uf.baidu.com:8099/v/dev/antd.js\n* http://antd.uf.baidu.com:8099/v/dev/uf.js\n\nbeta:\n* http://uf.baidu.com/v/%{version}%/theme.css\n* http://uf.baidu.com/v/%{version}%/dll.js\n* http://uf.baidu.com/v/%{version}%/antd.js\n* http://uf.baidu.com/v/%{version}%/uf.js\n\nstable:\n* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css\n* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js\n* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js\n\n\n## 加入我们\n\n欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)\n"
 
 /***/ }),
 /* 124 */
@@ -2391,7 +2391,7 @@
 /* 139 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.2.5\n\n\n`2018-06-28`\n\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.2.5\n\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 140 */
@@ -2613,7 +2613,7 @@
 /* 168 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n显示当前页面在系统层级结构中的位置，并能向上返回。\n\n## 何时使用\n\n- 当系统拥有超过两级以上的层级结构时；\n- 当需要告知用户『你在哪里』时；\n- 当需要向上导航的功能时。\n\n## 组件&配置\n\n### # breadcrumb\n\n 参数      | 说明                              | 类型              |  可选值 | 默认值 \n-----------|-----------------------------------|-----------------|---------|--------\nseparator | 分隔符自定义                      | string &#124; `config` |         | '/'    \nitemRender | 自定义链接函数，和 `items属性`/`Router` 配合使用 | (route, params, items, paths) => `{...config}` | |\nitems | 自定义内容。值为一个数组，数组的每一项包含两个值，如：`[{path: 'index', breadcrumbName: 'Home'}]` | array |  |\n\n\n***可配合[`Router`](#/General/Router)使用***\n\n需在`Router`的各项配置中增加`breadcrumbName`作为面包屑展示的名称，可以配置`breadcrumbIcon`作为面包屑名称前面的图标。\n\n当某一层级的路由没有配置 `breadcrumbName` 和 `breadcrumbIcon`，则会在面包屑中把这一层过滤掉\n\n和 `Router` 配合使用能满足大部分应用场景，所以一般不使用`items`属性。\n\n所以使用面包屑时的配置很简单，如下：\n\n```javascript\n{\n    type: 'breadcrumb'\n}\n```"
+	module.exports = "\n显示当前页面在系统层级结构中的位置，并能向上返回。\n\n## 何时使用\n\n- 当系统拥有超过两级以上的层级结构时；\n- 当需要告知用户『你在哪里』时；\n- 当需要向上导航的功能时。\n\n## 组件&配置\n\n### # breadcrumb\n\n 参数      | 说明                              | 类型              |  可选值 | 默认值 \n-----------|-----------------------------------|-----------------|---------|--------\nseparator | 分隔符自定义                      | string &#124; `config` |         | '/'    \nitemRender | 自定义链接函数，和 `items属性`/`Router` 配合使用 | (route, params, items, paths) => `{...config}` | |\nitems | 自定义内容。值为一个数组，数组的每一项包含两个值，如：`[{path: 'index', breadcrumbName: 'Home'}]` | array |  |\n\n\n* #### 可配合[`Router`](#/General/Router)使用\n\n需在`Router`的各项配置中增加`breadcrumbName`作为面包屑展示的名称，可以配置`breadcrumbIcon`作为面包屑名称前面的图标。\n\n当某一层级的路由没有配置 `breadcrumbName` 和 `breadcrumbIcon`，则会在面包屑中把这一层过滤掉\n\n和 `Router` 配合使用能满足大部分应用场景，所以一般不使用`items`属性。\n\n所以使用面包屑时的配置很简单，如下：\n\n```javascript\n{\n    type: 'breadcrumb'\n}\n```\n\n* #### `breadcrumbName`可使用路由中的动态参数\n\n即面包屑中的内容可以随着路由的参数变化，如下 Router 配置：\n\n```javascript\n{\n    path: 'list',\n    breadcrumbName: '应用列表',\n    childRoutes: [\n        {\n            path: ':id',\n            component: require('details'),\n            breadcrumbName: '详情-:id'\n        }\n    ]\n}\n```\n\n当访问链接 `/list/123` 时，面包屑展示为 `应用列表 / 详情-123`"
 
 /***/ }),
 /* 169 */
@@ -3148,7 +3148,7 @@
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(184),
 	// 路由组件
-	__webpack_require__(219),
+	__webpack_require__(215),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
@@ -3191,11 +3191,11 @@
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(215);
+	var _feedback = __webpack_require__(217);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(217);
+	var _layout = __webpack_require__(219);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -7698,7 +7698,7 @@
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
 	            // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
-	            var props = this.__mergeProps({ _selfCalling: true }, this.__props, options);
+	            var props = this.__mergeProps({ '_selfCalling': true }, this.__props, options);
 	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
@@ -10191,6 +10191,8 @@
 
 	var Antd = _interopRequireWildcard(_antd);
 
+	var _router = __webpack_require__(215);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -10270,11 +10272,12 @@
 	                this.__props.itemRender = function (route, params, routes, paths) {
 	                    var last = routes.indexOf(route) === routes.length - 1;
 	                    var icon = route.breadcrumbIcon ? _react2.default.createElement(Antd.Icon, { key: '1', type: route.breadcrumbIcon }) : null;
+	                    var breadcrumbName = _this3.renderBreadcrumbName(route.breadcrumbName);
 	                    var item = !!icon ? [icon, _react2.default.createElement(
 	                        'span',
 	                        { key: '2' },
-	                        route.breadcrumbName
-	                    )] : route.breadcrumbName;
+	                        breadcrumbName
+	                    )] : breadcrumbName;
 	                    // 解决跟节点的面包屑paths为空导致不可点问题
 	                    var to = '/' + paths.join('/');
 	                    return last ? item : _react2.default.createElement(
@@ -10284,6 +10287,24 @@
 	                    );
 	                };
 	            }
+	        }
+	        // 面包屑展示处理
+
+	    }, {
+	        key: 'renderBreadcrumbName',
+	        value: function renderBreadcrumbName(name) {
+	            // 如果有类似于`:id`这种形式的和路由参数匹配的情况，则替换成对应的参数值
+	            if (name.indexOf(':') > -1) {
+	                var _Router$getRouter = _router.Router.getRouter(),
+	                    params = _Router$getRouter.params;
+
+	                for (var i in params) {
+	                    if (name.indexOf(':' + i) > -1) {
+	                        name = name.replace(':' + i, params[i]);
+	                    }
+	                }
+	            }
+	            return name;
 	        }
 	        // 每次render都需要重新获取routes
 
@@ -10743,6 +10764,331 @@
 
 	'use strict';
 
+	var _Router = __webpack_require__(216);
+
+	var Router = _interopRequireWildcard(_Router);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	module.exports = Router;
+
+	// module.exports = require('./Router.js').default;
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.IndexLink = exports.Link = exports.Router = exports.BaseRouter = exports.RouteHolder = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(102);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(103);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(104);
+
+	var OriRouter = _interopRequireWildcard(_reactRouter);
+
+	var _base = __webpack_require__(201);
+
+	var _utils = __webpack_require__(186);
+
+	var _tools = __webpack_require__(182);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 路由 类组件
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	// 保存当前页面的路由信息
+	var lastRouter = void 0;
+	// 用于获取当前页面的路由信息
+	function getRouter() {
+	    return lastRouter;
+	}
+	function setRouter(props) {
+	    var params = props.params,
+	        location = props.location,
+	        route = props.route,
+	        routes = props.routes;
+
+	    lastRouter = {
+	        params: params,
+	        detials: { params: params, location: location, route: route, routes: routes }
+	    };
+	}
+
+	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
+
+	var RouteHolder = exports.RouteHolder = function (_React$Component) {
+	    _inherits(RouteHolder, _React$Component);
+
+	    function RouteHolder(props) {
+	        _classCallCheck(this, RouteHolder);
+
+	        var _this = _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).call(this, props));
+
+	        setRouter(props);
+	        return _this;
+	    }
+
+	    _createClass(RouteHolder, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            // console.log(nextProps);
+	            // if (nextProps, nextProps.location, nextProps.location.action) {
+	            //     let lastAction = this.action;
+	            //     this.action = nextProps.location.action;
+	            //     console.log(this.action === lastAction || nextProps.location.action === "POP");
+	            //     return this.action === lastAction || nextProps.location.action === "POP";
+	            // }
+	            // console.log(nextProps.router);
+	            // console.log(this.props, this.props.router.location.action);
+	            return true;
+	            // 待观察效果
+	            // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
+	            // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
+	        }
+	        // componentWillReceiveProps(nextProps) {
+	        //     console.log(this.props.router.location.action);
+	        //     console.log(nextProps.router.location.action);
+	        // }
+	        // 组件更新时，保存最新的路由信息
+
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            setRouter(nextProps);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
+	        }
+	    }]);
+
+	    return RouteHolder;
+	}(_react2.default.Component);
+
+	// 抽象类 用于做组件种类区分
+
+
+	var BaseRouter = exports.BaseRouter = function (_BaseComponent) {
+	    _inherits(BaseRouter, _BaseComponent);
+
+	    function BaseRouter() {
+	        _classCallCheck(this, BaseRouter);
+
+	        return _possibleConstructorReturn(this, (BaseRouter.__proto__ || Object.getPrototypeOf(BaseRouter)).apply(this, arguments));
+	    }
+
+	    return BaseRouter;
+	}(_base.BaseComponent);
+
+	// Router
+
+
+	var Router = exports.Router = function (_BaseRouter) {
+	    _inherits(Router, _BaseRouter);
+
+	    function Router(props) {
+	        _classCallCheck(this, Router);
+
+	        var _this3 = _possibleConstructorReturn(this, (Router.__proto__ || Object.getPrototypeOf(Router)).call(this, props));
+
+	        _this3.__init();
+	        // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
+	        _this3.__props.history = OriRouter[_this3.__props.history];
+	        // 把 routes 的内容转换为真正的路由组件
+	        if (_this3.__props.routes) {
+	            _this3.__props.children = _this3.handleRoutes(_this3.__props.routes);
+	            delete _this3.__props.routes;
+	        }
+	        return _this3;
+	    }
+
+	    _createClass(Router, [{
+	        key: 'handleRoutes',
+	        value: function handleRoutes(routes) {
+	            var arr = routes;
+	            if (!_utils.Utils.typeof(routes, 'array')) {
+	                arr = [routes];
+	            }
+	            var children = [];
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    // 校验权限，没权限的元素返回 null
+	                    if (!_tools.Authority.check(v)) {
+	                        continue;
+	                    }
+	                    v = this.setRoute(v);
+	                    v.children = [];
+	                    // indexRoute 字段 => IndexRoute
+	                    if (v.indexRoute) {
+	                        v.children.push(_react2.default.createElement(OriRouter.IndexRoute, this.setRoute(v.indexRoute)));
+	                        delete v.indexRoute;
+	                    }
+	                    //  indexRedirect 字段 => IndexRedirect
+	                    if (v.indexRedirect) {
+	                        v.children.push(_react2.default.createElement(OriRouter.IndexRedirect, { to: v.indexRedirect, query: v.query }));
+	                        delete v.indexRedirect;
+	                    }
+	                    // childRoutes 字段 => 子路由 (Route、Redirect)
+	                    if (v.childRoutes) {
+	                        v.children = v.children.concat(this.handleRoutes(v.childRoutes));
+	                        delete v.childRoutes;
+	                    }
+	                    if (v.children.length === 0) {
+	                        delete v.children;
+	                    }
+	                    // if (v.breadcrumbName) {
+	                    //     v.breadcrumbName = this.__analysis(v.breadcrumbName);
+	                    // }
+	                    // 不含 component && 包含 from & to 字段 => Redirect
+	                    // 否则为普通的 Route 组件
+	                    var Item = void 0;
+	                    if (!v.component && v.path && v.to) {
+	                        Item = OriRouter.Redirect;
+	                    } else {
+	                        Item = OriRouter.Route;
+	                    }
+	                    children.push(_react2.default.createElement(Item, v));
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            return children;
+	        }
+	        // Route/IndexRoute 类型的组件
+	        // component 转换为 RouteHolder
+
+	    }, {
+	        key: 'setRoute',
+	        value: function setRoute(item) {
+	            if (item.component) {
+	                // 组件实例放在新属性content里
+	                item.__component = item.component;
+	                // component属性为一个抽象类
+	                item.component = RouteHolder;
+	            }
+	            return item;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            // console.log('router init');
+	            return _react2.default.createElement(OriRouter.Router, this.__props);
+	        }
+	    }]);
+
+	    return Router;
+	}(BaseRouter);
+	// 获取当前页面的路由信息
+
+
+	Router.getRouter = getRouter;
+
+	// Link
+
+	var Link = exports.Link = function (_BaseRouter2) {
+	    _inherits(Link, _BaseRouter2);
+
+	    function Link(props) {
+	        _classCallCheck(this, Link);
+
+	        var _this4 = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
+
+	        _this4.__init();
+	        return _this4;
+	    }
+	    // _afterInit() {
+	    //     this._inject(this.__props, 'onClick', e=>{
+	    //         e.preventDefault();
+	    //         OriRouter.browserHistory.push('#' + this.__props.to);
+	    //     });
+	    // }
+
+
+	    _createClass(Link, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.Link, this.__props);
+	        }
+	    }]);
+
+	    return Link;
+	}(BaseRouter);
+
+	// IndexLink
+
+
+	var IndexLink = exports.IndexLink = function (_BaseRouter3) {
+	    _inherits(IndexLink, _BaseRouter3);
+
+	    function IndexLink(props) {
+	        _classCallCheck(this, IndexLink);
+
+	        var _this5 = _possibleConstructorReturn(this, (IndexLink.__proto__ || Object.getPrototypeOf(IndexLink)).call(this, props));
+
+	        _this5.__init();
+	        return _this5;
+	    }
+
+	    _createClass(IndexLink, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.IndexLink, this.__props);
+	        }
+	    }]);
+
+	    return IndexLink;
+	}(BaseRouter);
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -10760,7 +11106,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(216);
+	var _Feedback4 = __webpack_require__(218);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
@@ -10961,7 +11307,7 @@
 	});
 
 /***/ }),
-/* 216 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11012,7 +11358,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 217 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11032,7 +11378,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(218);
+	var _Layout = __webpack_require__(220);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -11366,7 +11712,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 218 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11415,331 +11761,6 @@
 	}(_Antd3.default);
 
 	exports.default = Layout;
-
-/***/ }),
-/* 219 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _Router = __webpack_require__(220);
-
-	var Router = _interopRequireWildcard(_Router);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	module.exports = Router;
-
-	// module.exports = require('./Router.js').default;
-
-/***/ }),
-/* 220 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.IndexLink = exports.Link = exports.Router = exports.BaseRouter = exports.RouteHolder = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(102);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(103);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _reactRouter = __webpack_require__(104);
-
-	var OriRouter = _interopRequireWildcard(_reactRouter);
-
-	var _base = __webpack_require__(201);
-
-	var _utils = __webpack_require__(186);
-
-	var _tools = __webpack_require__(182);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 路由 类组件
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	// 保存当前页面的路由信息
-	var lastRouter = void 0;
-	// 用于获取当前页面的路由信息
-	function getRouter() {
-	    return lastRouter;
-	}
-	function setRouter(props) {
-	    var params = props.params,
-	        location = props.location,
-	        route = props.route,
-	        routes = props.routes;
-
-	    lastRouter = {
-	        params: params,
-	        detials: { params: params, location: location, route: route, routes: routes }
-	    };
-	}
-
-	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
-
-	var RouteHolder = exports.RouteHolder = function (_React$Component) {
-	    _inherits(RouteHolder, _React$Component);
-
-	    function RouteHolder(props) {
-	        _classCallCheck(this, RouteHolder);
-
-	        var _this = _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).call(this, props));
-
-	        setRouter(props);
-	        return _this;
-	    }
-
-	    _createClass(RouteHolder, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            // console.log(nextProps);
-	            // if (nextProps, nextProps.location, nextProps.location.action) {
-	            //     let lastAction = this.action;
-	            //     this.action = nextProps.location.action;
-	            //     console.log(this.action === lastAction || nextProps.location.action === "POP");
-	            //     return this.action === lastAction || nextProps.location.action === "POP";
-	            // }
-	            // console.log(nextProps.router);
-	            // console.log(this.props, this.props.router.location.action);
-	            return true;
-	            // 待观察效果
-	            // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
-	            // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
-	        }
-	        // componentWillReceiveProps(nextProps) {
-	        //     console.log(this.props.router.location.action);
-	        //     console.log(nextProps.router.location.action);
-	        // }
-	        // 组件更新时，保存最新的路由信息
-
-	    }, {
-	        key: 'componentWillUpdate',
-	        value: function componentWillUpdate(nextProps, nextState) {
-	            setRouter(this.props);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
-	        }
-	    }]);
-
-	    return RouteHolder;
-	}(_react2.default.Component);
-
-	// 抽象类 用于做组件种类区分
-
-
-	var BaseRouter = exports.BaseRouter = function (_BaseComponent) {
-	    _inherits(BaseRouter, _BaseComponent);
-
-	    function BaseRouter() {
-	        _classCallCheck(this, BaseRouter);
-
-	        return _possibleConstructorReturn(this, (BaseRouter.__proto__ || Object.getPrototypeOf(BaseRouter)).apply(this, arguments));
-	    }
-
-	    return BaseRouter;
-	}(_base.BaseComponent);
-
-	// Router
-
-
-	var Router = exports.Router = function (_BaseRouter) {
-	    _inherits(Router, _BaseRouter);
-
-	    function Router(props) {
-	        _classCallCheck(this, Router);
-
-	        var _this3 = _possibleConstructorReturn(this, (Router.__proto__ || Object.getPrototypeOf(Router)).call(this, props));
-
-	        _this3.__init();
-	        // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
-	        _this3.__props.history = OriRouter[_this3.__props.history];
-	        // 把 routes 的内容转换为真正的路由组件
-	        if (_this3.__props.routes) {
-	            _this3.__props.children = _this3.handleRoutes(_this3.__props.routes);
-	            delete _this3.__props.routes;
-	        }
-	        return _this3;
-	    }
-
-	    _createClass(Router, [{
-	        key: 'handleRoutes',
-	        value: function handleRoutes(routes) {
-	            var arr = routes;
-	            if (!_utils.Utils.typeof(routes, 'array')) {
-	                arr = [routes];
-	            }
-	            var children = [];
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
-
-	                    // 校验权限，没权限的元素返回 null
-	                    if (!_tools.Authority.check(v)) {
-	                        continue;
-	                    }
-	                    v = this.setRoute(v);
-	                    v.children = [];
-	                    // indexRoute 字段 => IndexRoute
-	                    if (v.indexRoute) {
-	                        v.children.push(_react2.default.createElement(OriRouter.IndexRoute, this.setRoute(v.indexRoute)));
-	                        delete v.indexRoute;
-	                    }
-	                    //  indexRedirect 字段 => IndexRedirect
-	                    if (v.indexRedirect) {
-	                        v.children.push(_react2.default.createElement(OriRouter.IndexRedirect, { to: v.indexRedirect, query: v.query }));
-	                        delete v.indexRedirect;
-	                    }
-	                    // childRoutes 字段 => 子路由 (Route、Redirect)
-	                    if (v.childRoutes) {
-	                        v.children = v.children.concat(this.handleRoutes(v.childRoutes));
-	                        delete v.childRoutes;
-	                    }
-	                    if (v.children.length === 0) {
-	                        delete v.children;
-	                    }
-	                    // if (v.breadcrumbName) {
-	                    //     v.breadcrumbName = this.__analysis(v.breadcrumbName);
-	                    // }
-	                    // 不含 component && 包含 from & to 字段 => Redirect
-	                    // 否则为普通的 Route 组件
-	                    var Item = void 0;
-	                    if (!v.component && v.path && v.to) {
-	                        Item = OriRouter.Redirect;
-	                    } else {
-	                        Item = OriRouter.Route;
-	                    }
-	                    children.push(_react2.default.createElement(Item, v));
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            return children;
-	        }
-	        // Route/IndexRoute 类型的组件
-	        // component 转换为 RouteHolder
-
-	    }, {
-	        key: 'setRoute',
-	        value: function setRoute(item) {
-	            if (item.component) {
-	                // 组件实例放在新属性content里
-	                item.__component = item.component;
-	                // component属性为一个抽象类
-	                item.component = RouteHolder;
-	            }
-	            return item;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            // console.log('router init');
-	            return _react2.default.createElement(OriRouter.Router, this.__props);
-	        }
-	    }]);
-
-	    return Router;
-	}(BaseRouter);
-	// 获取当前页面的路由信息
-
-
-	Router.getRouter = getRouter;
-
-	// Link
-
-	var Link = exports.Link = function (_BaseRouter2) {
-	    _inherits(Link, _BaseRouter2);
-
-	    function Link(props) {
-	        _classCallCheck(this, Link);
-
-	        var _this4 = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
-
-	        _this4.__init();
-	        return _this4;
-	    }
-	    // _afterInit() {
-	    //     this._inject(this.__props, 'onClick', e=>{
-	    //         e.preventDefault();
-	    //         OriRouter.browserHistory.push('#' + this.__props.to);
-	    //     });
-	    // }
-
-
-	    _createClass(Link, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(OriRouter.Link, this.__props);
-	        }
-	    }]);
-
-	    return Link;
-	}(BaseRouter);
-
-	// IndexLink
-
-
-	var IndexLink = exports.IndexLink = function (_BaseRouter3) {
-	    _inherits(IndexLink, _BaseRouter3);
-
-	    function IndexLink(props) {
-	        _classCallCheck(this, IndexLink);
-
-	        var _this5 = _possibleConstructorReturn(this, (IndexLink.__proto__ || Object.getPrototypeOf(IndexLink)).call(this, props));
-
-	        _this5.__init();
-	        return _this5;
-	    }
-
-	    _createClass(IndexLink, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(OriRouter.IndexLink, this.__props);
-	        }
-	    }]);
-
-	    return IndexLink;
-	}(BaseRouter);
 
 /***/ }),
 /* 221 */

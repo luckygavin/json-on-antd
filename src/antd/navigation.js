@@ -13,6 +13,7 @@ import {Link} from 'react-router';
 import {Utils} from 'src/utils';
 import Navigation from './base/Navigation.js';
 import * as Antd from 'antd';
+import {Router} from 'src/router';
 
 /************ Affix 图钉 *************************************************************************** */
 
@@ -50,12 +51,26 @@ export class Breadcrumb extends Navigation {
             this.__props.itemRender = (route, params, routes, paths)=>{
                 const last = routes.indexOf(route) === routes.length - 1;
                 const icon = route.breadcrumbIcon ? <Antd.Icon key="1" type={route.breadcrumbIcon} /> : null;
-                const item = !!icon ? [icon, <span key="2">{route.breadcrumbName}</span>] : route.breadcrumbName;
+                const breadcrumbName = this.renderBreadcrumbName(route.breadcrumbName);
+                const item = !!icon ? [icon, <span key="2">{breadcrumbName}</span>] : breadcrumbName;
                 // 解决跟节点的面包屑paths为空导致不可点问题
                 const to = '/' + paths.join('/');
                 return last ? item : <Link to={to} className="ant-breadcrumb-link">{item}</Link>;
             };
         }
+    }
+    // 面包屑展示处理
+    renderBreadcrumbName(name) {
+        // 如果有类似于`:id`这种形式的和路由参数匹配的情况，则替换成对应的参数值
+        if (name.indexOf(':') > -1) {
+            let {params} = Router.getRouter();
+            for (let i in params) {
+                if (name.indexOf(`:${i}`) > -1) {
+                    name = name.replace(`:${i}`, params[i]);
+                }
+            }
+        }
+        return name;
     }
     // 每次render都需要重新获取routes
     beforeRender() {

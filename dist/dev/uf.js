@@ -458,7 +458,7 @@
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(112),
 	// 路由组件
-	__webpack_require__(149),
+	__webpack_require__(145),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
@@ -510,11 +510,11 @@
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(145);
+	var _feedback = __webpack_require__(147);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(147);
+	var _layout = __webpack_require__(149);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -5023,7 +5023,7 @@
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
 	            // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
-	            var props = this.__mergeProps({ _selfCalling: true }, this.__props, options);
+	            var props = this.__mergeProps({ '_selfCalling': true }, this.__props, options);
 	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
@@ -7516,6 +7516,8 @@
 
 	var Antd = _interopRequireWildcard(_antd);
 
+	var _router = __webpack_require__(145);
+
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -7595,11 +7597,12 @@
 	                this.__props.itemRender = function (route, params, routes, paths) {
 	                    var last = routes.indexOf(route) === routes.length - 1;
 	                    var icon = route.breadcrumbIcon ? _react2.default.createElement(Antd.Icon, { key: '1', type: route.breadcrumbIcon }) : null;
+	                    var breadcrumbName = _this3.renderBreadcrumbName(route.breadcrumbName);
 	                    var item = !!icon ? [icon, _react2.default.createElement(
 	                        'span',
 	                        { key: '2' },
-	                        route.breadcrumbName
-	                    )] : route.breadcrumbName;
+	                        breadcrumbName
+	                    )] : breadcrumbName;
 	                    // 解决跟节点的面包屑paths为空导致不可点问题
 	                    var to = '/' + paths.join('/');
 	                    return last ? item : _react2.default.createElement(
@@ -7609,6 +7612,24 @@
 	                    );
 	                };
 	            }
+	        }
+	        // 面包屑展示处理
+
+	    }, {
+	        key: 'renderBreadcrumbName',
+	        value: function renderBreadcrumbName(name) {
+	            // 如果有类似于`:id`这种形式的和路由参数匹配的情况，则替换成对应的参数值
+	            if (name.indexOf(':') > -1) {
+	                var _Router$getRouter = _router.Router.getRouter(),
+	                    params = _Router$getRouter.params;
+
+	                for (var i in params) {
+	                    if (name.indexOf(':' + i) > -1) {
+	                        name = name.replace(':' + i, params[i]);
+	                    }
+	                }
+	            }
+	            return name;
 	        }
 	        // 每次render都需要重新获取routes
 
@@ -8074,6 +8095,331 @@
 
 	'use strict';
 
+	var _Router = __webpack_require__(146);
+
+	var Router = _interopRequireWildcard(_Router);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	module.exports = Router;
+
+	// module.exports = require('./Router.js').default;
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.IndexLink = exports.Link = exports.Router = exports.BaseRouter = exports.RouteHolder = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(105);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(106);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(143);
+
+	var OriRouter = _interopRequireWildcard(_reactRouter);
+
+	var _base = __webpack_require__(130);
+
+	var _utils = __webpack_require__(114);
+
+	var _tools = __webpack_require__(104);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 路由 类组件
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	// 保存当前页面的路由信息
+	var lastRouter = void 0;
+	// 用于获取当前页面的路由信息
+	function getRouter() {
+	    return lastRouter;
+	}
+	function setRouter(props) {
+	    var params = props.params,
+	        location = props.location,
+	        route = props.route,
+	        routes = props.routes;
+
+	    lastRouter = {
+	        params: params,
+	        detials: { params: params, location: location, route: route, routes: routes }
+	    };
+	}
+
+	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
+
+	var RouteHolder = exports.RouteHolder = function (_React$Component) {
+	    _inherits(RouteHolder, _React$Component);
+
+	    function RouteHolder(props) {
+	        _classCallCheck(this, RouteHolder);
+
+	        var _this = _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).call(this, props));
+
+	        setRouter(props);
+	        return _this;
+	    }
+
+	    _createClass(RouteHolder, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            // console.log(nextProps);
+	            // if (nextProps, nextProps.location, nextProps.location.action) {
+	            //     let lastAction = this.action;
+	            //     this.action = nextProps.location.action;
+	            //     console.log(this.action === lastAction || nextProps.location.action === "POP");
+	            //     return this.action === lastAction || nextProps.location.action === "POP";
+	            // }
+	            // console.log(nextProps.router);
+	            // console.log(this.props, this.props.router.location.action);
+	            return true;
+	            // 待观察效果
+	            // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
+	            // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
+	        }
+	        // componentWillReceiveProps(nextProps) {
+	        //     console.log(this.props.router.location.action);
+	        //     console.log(nextProps.router.location.action);
+	        // }
+	        // 组件更新时，保存最新的路由信息
+
+	    }, {
+	        key: 'componentWillUpdate',
+	        value: function componentWillUpdate(nextProps, nextState) {
+	            setRouter(nextProps);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
+	        }
+	    }]);
+
+	    return RouteHolder;
+	}(_react2.default.Component);
+
+	// 抽象类 用于做组件种类区分
+
+
+	var BaseRouter = exports.BaseRouter = function (_BaseComponent) {
+	    _inherits(BaseRouter, _BaseComponent);
+
+	    function BaseRouter() {
+	        _classCallCheck(this, BaseRouter);
+
+	        return _possibleConstructorReturn(this, (BaseRouter.__proto__ || Object.getPrototypeOf(BaseRouter)).apply(this, arguments));
+	    }
+
+	    return BaseRouter;
+	}(_base.BaseComponent);
+
+	// Router
+
+
+	var Router = exports.Router = function (_BaseRouter) {
+	    _inherits(Router, _BaseRouter);
+
+	    function Router(props) {
+	        _classCallCheck(this, Router);
+
+	        var _this3 = _possibleConstructorReturn(this, (Router.__proto__ || Object.getPrototypeOf(Router)).call(this, props));
+
+	        _this3.__init();
+	        // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
+	        _this3.__props.history = OriRouter[_this3.__props.history];
+	        // 把 routes 的内容转换为真正的路由组件
+	        if (_this3.__props.routes) {
+	            _this3.__props.children = _this3.handleRoutes(_this3.__props.routes);
+	            delete _this3.__props.routes;
+	        }
+	        return _this3;
+	    }
+
+	    _createClass(Router, [{
+	        key: 'handleRoutes',
+	        value: function handleRoutes(routes) {
+	            var arr = routes;
+	            if (!_utils.Utils.typeof(routes, 'array')) {
+	                arr = [routes];
+	            }
+	            var children = [];
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    // 校验权限，没权限的元素返回 null
+	                    if (!_tools.Authority.check(v)) {
+	                        continue;
+	                    }
+	                    v = this.setRoute(v);
+	                    v.children = [];
+	                    // indexRoute 字段 => IndexRoute
+	                    if (v.indexRoute) {
+	                        v.children.push(_react2.default.createElement(OriRouter.IndexRoute, this.setRoute(v.indexRoute)));
+	                        delete v.indexRoute;
+	                    }
+	                    //  indexRedirect 字段 => IndexRedirect
+	                    if (v.indexRedirect) {
+	                        v.children.push(_react2.default.createElement(OriRouter.IndexRedirect, { to: v.indexRedirect, query: v.query }));
+	                        delete v.indexRedirect;
+	                    }
+	                    // childRoutes 字段 => 子路由 (Route、Redirect)
+	                    if (v.childRoutes) {
+	                        v.children = v.children.concat(this.handleRoutes(v.childRoutes));
+	                        delete v.childRoutes;
+	                    }
+	                    if (v.children.length === 0) {
+	                        delete v.children;
+	                    }
+	                    // if (v.breadcrumbName) {
+	                    //     v.breadcrumbName = this.__analysis(v.breadcrumbName);
+	                    // }
+	                    // 不含 component && 包含 from & to 字段 => Redirect
+	                    // 否则为普通的 Route 组件
+	                    var Item = void 0;
+	                    if (!v.component && v.path && v.to) {
+	                        Item = OriRouter.Redirect;
+	                    } else {
+	                        Item = OriRouter.Route;
+	                    }
+	                    children.push(_react2.default.createElement(Item, v));
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            return children;
+	        }
+	        // Route/IndexRoute 类型的组件
+	        // component 转换为 RouteHolder
+
+	    }, {
+	        key: 'setRoute',
+	        value: function setRoute(item) {
+	            if (item.component) {
+	                // 组件实例放在新属性content里
+	                item.__component = item.component;
+	                // component属性为一个抽象类
+	                item.component = RouteHolder;
+	            }
+	            return item;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            // console.log('router init');
+	            return _react2.default.createElement(OriRouter.Router, this.__props);
+	        }
+	    }]);
+
+	    return Router;
+	}(BaseRouter);
+	// 获取当前页面的路由信息
+
+
+	Router.getRouter = getRouter;
+
+	// Link
+
+	var Link = exports.Link = function (_BaseRouter2) {
+	    _inherits(Link, _BaseRouter2);
+
+	    function Link(props) {
+	        _classCallCheck(this, Link);
+
+	        var _this4 = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
+
+	        _this4.__init();
+	        return _this4;
+	    }
+	    // _afterInit() {
+	    //     this._inject(this.__props, 'onClick', e=>{
+	    //         e.preventDefault();
+	    //         OriRouter.browserHistory.push('#' + this.__props.to);
+	    //     });
+	    // }
+
+
+	    _createClass(Link, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.Link, this.__props);
+	        }
+	    }]);
+
+	    return Link;
+	}(BaseRouter);
+
+	// IndexLink
+
+
+	var IndexLink = exports.IndexLink = function (_BaseRouter3) {
+	    _inherits(IndexLink, _BaseRouter3);
+
+	    function IndexLink(props) {
+	        _classCallCheck(this, IndexLink);
+
+	        var _this5 = _possibleConstructorReturn(this, (IndexLink.__proto__ || Object.getPrototypeOf(IndexLink)).call(this, props));
+
+	        _this5.__init();
+	        return _this5;
+	    }
+
+	    _createClass(IndexLink, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(OriRouter.IndexLink, this.__props);
+	        }
+	    }]);
+
+	    return IndexLink;
+	}(BaseRouter);
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
@@ -8091,7 +8437,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(146);
+	var _Feedback4 = __webpack_require__(148);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
@@ -8292,7 +8638,7 @@
 	});
 
 /***/ }),
-/* 146 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8343,7 +8689,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 147 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8363,7 +8709,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(148);
+	var _Layout = __webpack_require__(150);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -8697,7 +9043,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 148 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8746,331 +9092,6 @@
 	}(_Antd3.default);
 
 	exports.default = Layout;
-
-/***/ }),
-/* 149 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _Router = __webpack_require__(150);
-
-	var Router = _interopRequireWildcard(_Router);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	module.exports = Router;
-
-	// module.exports = require('./Router.js').default;
-
-/***/ }),
-/* 150 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.IndexLink = exports.Link = exports.Router = exports.BaseRouter = exports.RouteHolder = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(105);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(106);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _reactRouter = __webpack_require__(143);
-
-	var OriRouter = _interopRequireWildcard(_reactRouter);
-
-	var _base = __webpack_require__(130);
-
-	var _utils = __webpack_require__(114);
-
-	var _tools = __webpack_require__(104);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 路由 类组件
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-
-	// 保存当前页面的路由信息
-	var lastRouter = void 0;
-	// 用于获取当前页面的路由信息
-	function getRouter() {
-	    return lastRouter;
-	}
-	function setRouter(props) {
-	    var params = props.params,
-	        location = props.location,
-	        route = props.route,
-	        routes = props.routes;
-
-	    lastRouter = {
-	        params: params,
-	        detials: { params: params, location: location, route: route, routes: routes }
-	    };
-	}
-
-	// 抽象类 每个配置均使用这个抽象类作为外壳，把组件实例转换为类
-
-	var RouteHolder = exports.RouteHolder = function (_React$Component) {
-	    _inherits(RouteHolder, _React$Component);
-
-	    function RouteHolder(props) {
-	        _classCallCheck(this, RouteHolder);
-
-	        var _this = _possibleConstructorReturn(this, (RouteHolder.__proto__ || Object.getPrototypeOf(RouteHolder)).call(this, props));
-
-	        setRouter(props);
-	        return _this;
-	    }
-
-	    _createClass(RouteHolder, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            // console.log(nextProps);
-	            // if (nextProps, nextProps.location, nextProps.location.action) {
-	            //     let lastAction = this.action;
-	            //     this.action = nextProps.location.action;
-	            //     console.log(this.action === lastAction || nextProps.location.action === "POP");
-	            //     return this.action === lastAction || nextProps.location.action === "POP";
-	            // }
-	            // console.log(nextProps.router);
-	            // console.log(this.props, this.props.router.location.action);
-	            return true;
-	            // 待观察效果
-	            // 有五种情况 PUSH、PUSH->POP、REPLACE、REPLACE->POP、POP
-	            // return ['PUSH', 'REPLACE'].indexOf(this.props.router.location.action) !== -1;
-	        }
-	        // componentWillReceiveProps(nextProps) {
-	        //     console.log(this.props.router.location.action);
-	        //     console.log(nextProps.router.location.action);
-	        // }
-	        // 组件更新时，保存最新的路由信息
-
-	    }, {
-	        key: 'componentWillUpdate',
-	        value: function componentWillUpdate(nextProps, nextState) {
-	            setRouter(this.props);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
-	        }
-	    }]);
-
-	    return RouteHolder;
-	}(_react2.default.Component);
-
-	// 抽象类 用于做组件种类区分
-
-
-	var BaseRouter = exports.BaseRouter = function (_BaseComponent) {
-	    _inherits(BaseRouter, _BaseComponent);
-
-	    function BaseRouter() {
-	        _classCallCheck(this, BaseRouter);
-
-	        return _possibleConstructorReturn(this, (BaseRouter.__proto__ || Object.getPrototypeOf(BaseRouter)).apply(this, arguments));
-	    }
-
-	    return BaseRouter;
-	}(_base.BaseComponent);
-
-	// Router
-
-
-	var Router = exports.Router = function (_BaseRouter) {
-	    _inherits(Router, _BaseRouter);
-
-	    function Router(props) {
-	        _classCallCheck(this, Router);
-
-	        var _this3 = _possibleConstructorReturn(this, (Router.__proto__ || Object.getPrototypeOf(Router)).call(this, props));
-
-	        _this3.__init();
-	        // 从 OriRouter 上获取真正的 hashHistory（用户设置的是字符串）
-	        _this3.__props.history = OriRouter[_this3.__props.history];
-	        // 把 routes 的内容转换为真正的路由组件
-	        if (_this3.__props.routes) {
-	            _this3.__props.children = _this3.handleRoutes(_this3.__props.routes);
-	            delete _this3.__props.routes;
-	        }
-	        return _this3;
-	    }
-
-	    _createClass(Router, [{
-	        key: 'handleRoutes',
-	        value: function handleRoutes(routes) {
-	            var arr = routes;
-	            if (!_utils.Utils.typeof(routes, 'array')) {
-	                arr = [routes];
-	            }
-	            var children = [];
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
-
-	                    // 校验权限，没权限的元素返回 null
-	                    if (!_tools.Authority.check(v)) {
-	                        continue;
-	                    }
-	                    v = this.setRoute(v);
-	                    v.children = [];
-	                    // indexRoute 字段 => IndexRoute
-	                    if (v.indexRoute) {
-	                        v.children.push(_react2.default.createElement(OriRouter.IndexRoute, this.setRoute(v.indexRoute)));
-	                        delete v.indexRoute;
-	                    }
-	                    //  indexRedirect 字段 => IndexRedirect
-	                    if (v.indexRedirect) {
-	                        v.children.push(_react2.default.createElement(OriRouter.IndexRedirect, { to: v.indexRedirect, query: v.query }));
-	                        delete v.indexRedirect;
-	                    }
-	                    // childRoutes 字段 => 子路由 (Route、Redirect)
-	                    if (v.childRoutes) {
-	                        v.children = v.children.concat(this.handleRoutes(v.childRoutes));
-	                        delete v.childRoutes;
-	                    }
-	                    if (v.children.length === 0) {
-	                        delete v.children;
-	                    }
-	                    // if (v.breadcrumbName) {
-	                    //     v.breadcrumbName = this.__analysis(v.breadcrumbName);
-	                    // }
-	                    // 不含 component && 包含 from & to 字段 => Redirect
-	                    // 否则为普通的 Route 组件
-	                    var Item = void 0;
-	                    if (!v.component && v.path && v.to) {
-	                        Item = OriRouter.Redirect;
-	                    } else {
-	                        Item = OriRouter.Route;
-	                    }
-	                    children.push(_react2.default.createElement(Item, v));
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            return children;
-	        }
-	        // Route/IndexRoute 类型的组件
-	        // component 转换为 RouteHolder
-
-	    }, {
-	        key: 'setRoute',
-	        value: function setRoute(item) {
-	            if (item.component) {
-	                // 组件实例放在新属性content里
-	                item.__component = item.component;
-	                // component属性为一个抽象类
-	                item.component = RouteHolder;
-	            }
-	            return item;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            // console.log('router init');
-	            return _react2.default.createElement(OriRouter.Router, this.__props);
-	        }
-	    }]);
-
-	    return Router;
-	}(BaseRouter);
-	// 获取当前页面的路由信息
-
-
-	Router.getRouter = getRouter;
-
-	// Link
-
-	var Link = exports.Link = function (_BaseRouter2) {
-	    _inherits(Link, _BaseRouter2);
-
-	    function Link(props) {
-	        _classCallCheck(this, Link);
-
-	        var _this4 = _possibleConstructorReturn(this, (Link.__proto__ || Object.getPrototypeOf(Link)).call(this, props));
-
-	        _this4.__init();
-	        return _this4;
-	    }
-	    // _afterInit() {
-	    //     this._inject(this.__props, 'onClick', e=>{
-	    //         e.preventDefault();
-	    //         OriRouter.browserHistory.push('#' + this.__props.to);
-	    //     });
-	    // }
-
-
-	    _createClass(Link, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(OriRouter.Link, this.__props);
-	        }
-	    }]);
-
-	    return Link;
-	}(BaseRouter);
-
-	// IndexLink
-
-
-	var IndexLink = exports.IndexLink = function (_BaseRouter3) {
-	    _inherits(IndexLink, _BaseRouter3);
-
-	    function IndexLink(props) {
-	        _classCallCheck(this, IndexLink);
-
-	        var _this5 = _possibleConstructorReturn(this, (IndexLink.__proto__ || Object.getPrototypeOf(IndexLink)).call(this, props));
-
-	        _this5.__init();
-	        return _this5;
-	    }
-
-	    _createClass(IndexLink, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(OriRouter.IndexLink, this.__props);
-	        }
-	    }]);
-
-	    return IndexLink;
-	}(BaseRouter);
 
 /***/ }),
 /* 151 */

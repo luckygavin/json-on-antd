@@ -31,6 +31,6 @@ export default class Dom extends BaseComponent {
         // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
         return <this.props.__type {...this.__props} ref={ele=>(this._component = ele)}
             style={{...this.__props.style}}
-        />
+        />;
     }
 }

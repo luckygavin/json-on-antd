@@ -18,7 +18,7 @@ itemRender | 自定义链接函数，和 `items属性`/`Router` 配合使用 | (
 items | 自定义内容。值为一个数组，数组的每一项包含两个值，如：`[{path: 'index', breadcrumbName: 'Home'}]` | array |  |
 
 
-***可配合[`Router`](#/General/Router)使用***
+* #### 可配合[`Router`](#/General/Router)使用
 
 需在`Router`的各项配置中增加`breadcrumbName`作为面包屑展示的名称，可以配置`breadcrumbIcon`作为面包屑名称前面的图标。
 
@@ -33,3 +33,23 @@ items | 自定义内容。值为一个数组，数组的每一项包含两个值
     type: 'breadcrumb'
 }
 ```
+
+* #### `breadcrumbName`可使用路由中的动态参数
+
+即面包屑中的内容可以随着路由的参数变化，如下 Router 配置：
+
+```javascript
+{
+    path: 'list',
+    breadcrumbName: '应用列表',
+    childRoutes: [
+        {
+            path: ':id',
+            component: require('details'),
+            breadcrumbName: '详情-:id'
+        }
+    ]
+}
+```
+
+当访问链接 `/list/123` 时，面包屑展示为 `应用列表 / 详情-123`

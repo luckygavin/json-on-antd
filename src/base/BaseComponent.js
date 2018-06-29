@@ -137,7 +137,7 @@ export default class BaseComponent extends Component {
         options = this._factory.handleProps(Object.assign({type: this.type}, options));
         // 要保证调用cwr时传入的nextProps的完整性
         // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
-        let props = this.__mergeProps({_selfCalling: true}, this.__props, options);
+        let props = this.__mergeProps({'_selfCalling': true}, this.__props, options);
         // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
         // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
         this.componentWillReceiveProps(props, this.__props);
@@ -184,7 +184,7 @@ export default class BaseComponent extends Component {
     }
     // 展示组件
     show() {
-        let style = Object.assign({} ,this.__props.style);
+        let style = Object.assign({}, this.__props.style);
         if (this._tempData.display && this._tempData.display !== 'none') {
             style.display = this._tempData.display;
         } else {

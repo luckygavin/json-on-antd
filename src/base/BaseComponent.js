@@ -116,7 +116,7 @@ export default class BaseComponent extends Component {
     //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
     _componentWillReceiveProps(nextProps, currentProps) {
         // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
-        currentProps = !Utils.empty(currentProps) ? currentProps : this.props
+        currentProps = !Utils.empty(currentProps) ? currentProps : this.props;
         // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
         let autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
         // autoReload，可以使组件无论如何都进行刷新

@@ -141,7 +141,7 @@ export class Tabs extends DataDisplay {
         // 每次点击tab页切换时，展示内容强制刷新
         if (this.__filtered.forceRefresh) {
             this.__props.animated = this.__props.animated || false;
-            this._inject(this.__props, 'onTabClick', function(activeKey) {
+            this._inject(this.__props, 'onTabClick', activeKey => {
                 // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
                 if (this.tabRefs[activeKey]) {
                     this.tabRefs[activeKey].refresh();
@@ -151,7 +151,6 @@ export class Tabs extends DataDisplay {
                         content: this.__filtered._children
                     });
                 }
-                
             });
         }
     }

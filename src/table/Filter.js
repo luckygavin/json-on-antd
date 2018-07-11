@@ -3,7 +3,9 @@
  * @author liuzechun@baidu.com
  * */
 
- export default class Filter {
+import {Utils} from 'src/utils';
+
+export default class Filter {
     constructor(parent) {
         this.parent = parent;
         this.filterValue = '';

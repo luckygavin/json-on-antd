@@ -7051,18 +7051,20 @@
 	    _createClass(Tabs, [{
 	        key: '_afterInit',
 	        value: function _afterInit() {
+	            var _this11 = this;
+
 	            _get(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), '_afterInit', this).call(this);
 	            // 每次点击tab页切换时，展示内容强制刷新
 	            if (this.__filtered.forceRefresh) {
 	                this.__props.animated = this.__props.animated || false;
 	                this._inject(this.__props, 'onTabClick', function (activeKey) {
 	                    // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
-	                    if (this.tabRefs[activeKey]) {
-	                        this.tabRefs[activeKey].refresh();
+	                    if (_this11.tabRefs[activeKey]) {
+	                        _this11.tabRefs[activeKey].refresh();
 	                    } else {
 	                        // 全部Tab都会解析一遍
-	                        this.set({
-	                            content: this.__filtered._children
+	                        _this11.set({
+	                            content: _this11.__filtered._children
 	                        });
 	                    }
 	                });
@@ -7071,14 +7073,14 @@
 	    }, {
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            // 如果是使用items属性配置子tab，则做额外处理
 	            if (this.__props.items) {
 	                this.__props.children = this.__analysis(this.__props.items.map(function (v) {
 	                    v.type = 'tab-pane';
 	                    v.wrappedComponentRef = function (inst) {
-	                        return _this11.tabRefs[v.key] = inst;
+	                        return _this12.tabRefs[v.key] = inst;
 	                    };
 	                    return v;
 	                }));
@@ -7103,10 +7105,10 @@
 	    function TabPane(props) {
 	        _classCallCheck(this, TabPane);
 
-	        var _this12 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(TabPane, [{
@@ -7132,10 +7134,10 @@
 	    function Tag(props) {
 	        _classCallCheck(this, Tag);
 
-	        var _this13 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(Tag, [{
@@ -7154,10 +7156,10 @@
 	    function CheckableTag(props) {
 	        _classCallCheck(this, CheckableTag);
 
-	        var _this14 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this15.__init();
+	        return _this15;
 	    }
 
 	    _createClass(CheckableTag, [{
@@ -7178,10 +7180,10 @@
 	    function Timeline(props) {
 	        _classCallCheck(this, Timeline);
 
-	        var _this15 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
+	        var _this16 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this16.__init();
+	        return _this16;
 	    }
 
 	    _createClass(Timeline, [{
@@ -7200,10 +7202,10 @@
 	    function TimelineItem(props) {
 	        _classCallCheck(this, TimelineItem);
 
-	        var _this16 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(TimelineItem, [{
@@ -13473,7 +13475,7 @@
 
 /***/ }),
 /* 164 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -13485,14 +13487,14 @@
 
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Table扩展 - 搜索/过滤相关逻辑实现
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
+
+	var _utils = __webpack_require__(115);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	/**
-	 * @file Table扩展 - 搜索/过滤相关逻辑实现
-	 * @author liuzechun@baidu.com
-	 * */
 
 	var Filter = function () {
 	    function Filter(parent) {
@@ -13604,9 +13606,9 @@
 	                                continue;
 	                            }
 	                            var value = oRow[i];
-	                            if (Utils.typeof(value, 'string')) {
+	                            if (_utils.Utils.typeof(value, 'string')) {
 	                                data.push(this.handleString(value));
-	                            } else if (Utils.typeof(value, 'object')) {
+	                            } else if (_utils.Utils.typeof(value, 'object')) {
 	                                data.push(this.parent._getKeyDataOfObject(value));
 	                            } else if (value) {
 	                                data.push(value.toString ? value.toString() : value);

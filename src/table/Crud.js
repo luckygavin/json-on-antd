@@ -69,7 +69,7 @@ export default class Crud extends BaseComponent {
                     item = this.handleReuse(item, tempConf['add']);
                     item.okText = item.okText || '搜索';
                     // 点击搜索时，对Table进行赋值操作
-                    this._inject(item, 'onSubmit', (params)=>{
+                    this._inject(item, 'onSubmit', params=>{
                         this.parent.set({params});
                     });
                     break;

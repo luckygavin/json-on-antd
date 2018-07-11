@@ -62,15 +62,7 @@ export class Breadcrumb extends Navigation {
     // 面包屑展示处理
     renderBreadcrumbName(name) {
         // 如果有类似于`:id`这种形式的和路由参数匹配的情况，则替换成对应的参数值
-        if (name.indexOf(':') > -1) {
-            let params = Router.getRouter().params;
-            for (let i in params) {
-                if (name.indexOf(`:${i}`) > -1) {
-                    name = name.replace(`:${i}`, params[i]);
-                }
-            }
-        }
-        return name;
+        return Utils.urlAnalysis(name, Router.getRouter().params, false);
     }
     // 每次render都需要重新获取routes
     beforeRender() {
@@ -135,13 +127,6 @@ export class Menu extends Navigation {
         this.allKeys = {};
         this.__init();
     }
-    // 继承父组件的函数，_initProps 后增加额外处理逻辑
-    // _afterInitProps() {
-    //     if (this.__props.items) {
-    //         this.__props.children = this.handleItems(this.__props.items);
-    //         delete this.__props.items;
-    //     }
-    // }
     // __setProps 后，增加附加处理逻辑
     _afterSetProps() {
         if (this.__props.items) {
@@ -149,7 +134,7 @@ export class Menu extends Navigation {
             delete this.__props.items;
         }
     }
-    // 见 BaseComponent
+    // 见 Antd.js
     _onControlEvent(...params) {
         let {selectedKeys} = params[0];
         this.__props['selectedKeys'] = selectedKeys;
@@ -236,18 +221,25 @@ export class Menu extends Navigation {
         }
         let routes = this._root.props.routes;
         let location = this._root.props.location;
+        let params = this._root.props.params;
         if (routes && location) {
             let key = routes[routes.length - 1].path;
-            let path = location.pathname.slice(1);
+            key = Utils.urlAnalysis(key, params, false);
+            let path = location.pathname;
+            path = Utils.urlAnalysis(path, params, false);
+            let subPath = location.pathname.slice(1);
             // 分两种情况：
             //   1、每个菜单项都有key，且key为最简单（仅含当前层级的路由信息）的情况。如果路由的最后一项和菜单项相匹配，则高亮菜单项
-            //   2、具有path的菜单项没有设置key，则默认使用path值。path值为路由全路径，所有需要再用path和allKeys进行一次比对
+            //   2、具有link的菜单项没有设置key，则默认使用link值。link值为路由全路径，所有需要再用path和allKeys进行一次比对
             if (this.allKeys[key]) {
                 this.__props.selectedKeys = [key];
                 this.changeDefaultOpenKeys(this.allKeys[key]);
             } else if (this.allKeys[path]) {
                 this.__props.selectedKeys = [path];
                 this.changeDefaultOpenKeys(this.allKeys[path]);
+            } else if (this.allKeys[subPath]) {
+                this.__props.selectedKeys = [subPath];
+                this.changeDefaultOpenKeys(this.allKeys[subPath]);
             }
         }
     }

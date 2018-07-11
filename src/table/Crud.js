@@ -10,7 +10,7 @@ import {Utils} from 'src/utils';
 
 export default class Crud extends BaseComponent {
     constructor(props) {
-        super(props);
+        super(props, 'table-crud');
         // 其本身无需初始化组件
         // this.__init();
         this.parent = props.parent;
@@ -42,13 +42,6 @@ export default class Crud extends BaseComponent {
             let action = this._getAction(i);
             item.api = this.__formatApi(item.api);
             switch (action) {
-                // 展示信息弹框配置。会在message中传入当前数据
-                case 'show':
-                    item.okText = item.okText || '关闭';
-                    item.footer = item.footer || [{
-                        type: 'button', mode: 'primary', action: 'cancel', content: item.okText
-                    }];
-                    break;
                 // 新增弹框的配置
                 case 'add':
                     // add 可以复用 edit 的配置，可以减少配置书写
@@ -57,14 +50,28 @@ export default class Crud extends BaseComponent {
                     break;
                 // 编辑弹框的配置
                 case 'edit':
-                    // edit 可以复用 add 的配置，可以减少配置书写
-                    tempConf['add'] && (item = Object.assign(Utils.clone(tempConf['add']), item));
-                    // 可以通过forbidden字段指定编辑的时候哪些字段不可编辑。便于复用add的form时
-                    if (item.forbidden && item.form) {
-                        item.form.forbidden = item.forbidden.split(',');
-                        delete item.forbidden;
-                    }
+                    // 处理复用相关参数
+                    item = this.handleReuse(item, tempConf['add']);
                     item.okText = item.okText || '提交';
+                    break;
+                // 搜索弹框的配置
+                case 'search':
+                    // search 的表单可以复用 add 的配置，并移除必填限制以及校验规则
+                    if (!item.form && tempConf['add']) {
+                        item.form = Utils.clone(tempConf['add'].form);
+                        // 移除必填限制以及校验规则
+                        item.form.items.forEach(v=>{
+                            delete v.rules;
+                            delete v.required;
+                        });
+                    }
+                    // 处理复用相关参数
+                    item = this.handleReuse(item, tempConf['add']);
+                    item.okText = item.okText || '搜索';
+                    // 点击搜索时，对Table进行赋值操作
+                    this._inject(item, 'onSubmit', (params)=>{
+                        this.parent.set({params});
+                    });
                     break;
                 // 删除确认框的配置
                 case 'delete':
@@ -72,7 +79,7 @@ export default class Crud extends BaseComponent {
                     item.api.paramsHandler = item.api.paramsHandler || (
                         params=>({[this.parent.rowKey]: params[this.parent.rowKey]})
                     );
-                    item.message = item.message || (()=>('确定要删除吗？'));
+                    item.render = item.render || (()=>('确定要删除吗？'));
                     item.okText = item.okText || '删除';
                     break;
                 // 批量展示table中选中的数据
@@ -104,9 +111,15 @@ export default class Crud extends BaseComponent {
                     item.api.paramsHandler = item.api.paramsHandler || (params=>({
                         [`${this.parent.rowKey}s`]: params.map(v=>v[this.parent.rowKey]).join(',')
                     }));
-                    item.message = item.message || (()=>('确定要执行『 批量删除 』操作吗？'));
+                    item.render = item.render || (()=>('确定要执行『 批量删除 』操作吗？'));
                     break;
+                // 展示信息弹框配置。会在render中传入当前数据
+                case 'show':
                 default:
+                    item.okText = item.okText || '关闭';
+                    item.footer = item.footer || [{
+                        type: 'button', mode: 'primary', action: 'cancel', content: item.okText
+                    }];
                     break;
             }
             item.type = item.type || 'modal';
@@ -114,14 +127,14 @@ export default class Crud extends BaseComponent {
             // 默认点击提交时自动刷新表格。
             if (item.autoReload !== false) {
                 // 不用this.parent._inject，edit复用add的配置时，这里回把两个同样的函数合并到一起，导致table刷新两次
-                item.onSuccess = ()=>{
+                this._inject(item, 'onSuccess', ()=>{
                     return new Promise((resolve, reject)=>{
                         setTimeout(()=>{
                             this.parent.refreshTable();
                             resolve();
                         }, +item.autoReload || 0);
                     });
-                };
+                });
             }
 
             result[i] = item;
@@ -130,6 +143,22 @@ export default class Crud extends BaseComponent {
         }
         this.oConfig = result;
         this.config = Object.values(result);
+    }
+    // 处理配置复用相关参数
+    handleReuse(item, reuseConf) {
+        // 可以复用的配置，以减少配置书写
+        reuseConf && (item = Object.assign(Utils.clone(reuseConf), item));
+        // 可以通过forbidden字段指定编辑的时候哪些字段不可编辑。便于复用add的form时
+        if (item.forbidden && item.form) {
+            item.form.forbidden = item.forbidden.split(',');
+            delete item.forbidden;
+        }
+        // 在form.items中过滤掉需要删除的属性
+        if (item.remove && item.form) {
+            item.form.items = item.form.items.filter(v=>item.remove.split(',').indexOf(v.name) === -1);
+            delete item.remove;
+        }
+        return item;
     }
 
     // 展示各种弹框框

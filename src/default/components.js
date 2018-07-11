@@ -94,7 +94,7 @@ export default {
             target: 'options'
         },
         // 默认充满全部
-        style: {width: '100%'},
+        style: {width: '100%', minWidth: 50},
         // 搜索时忽略大小写
         filterOption: (v, opt) => opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
     },
@@ -165,7 +165,7 @@ export default {
         data: []
     },
     // table 的编辑插件
-    'table-cell': {
+    'table-edit': {
         api: {
             trigger: 'onSubmit'
         }

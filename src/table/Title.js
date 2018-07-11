@@ -26,10 +26,12 @@ const getNeedObject = (obj1, obj2) => {
 
 export default class Title extends BaseComponent {
     constructor(props) {
-        super(props);
+        super(props, 'table-title');
         // 其本身无需初始化组件
         // this.__init();
         this.parent = props.parent;
+        // 搜索/过滤功能
+        this.filter = this.parent.filter;
         this.title = props.config;
         this.state = {
             antdConfig: null,

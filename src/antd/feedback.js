@@ -58,10 +58,8 @@ export class Loading extends Feedback {
 // 统一处理config（某些属性需要二次解析）
 function messageHandler(type, config, ...params) {
     let list = WhiteList.get(config, 'message');
-    if (list) {
-        for (let v of list) {
-            config[v] = UF.render(config[v]);
-        }
+    for (let v of list) {
+        config[v] = UF.render(config[v]);
     }
     return Antd.message[type](config, ...params);
 }
@@ -80,10 +78,8 @@ export const message = Object.assign({}, Antd.message, {
 
 function notificationHandler(type, config) {
     let list = WhiteList.get(config, 'notification');
-    if (list) {
-        for (let v of list) {
-            config[v] = UF.render(config[v]);
-        }
+    for (let v of list) {
+        config[v] = UF.render(config[v]);
     }
     return Antd.notification[type](config);
 }

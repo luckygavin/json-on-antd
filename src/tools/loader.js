@@ -6,6 +6,7 @@
 import React from 'react';
 import {BaseConf} from 'src/base';
 import {Utils} from 'src/utils';
+import Config from 'src/cache/config.js';
 import Model from './model.js';
 import Dom from 'src/dom';
 import * as UF from 'src';
@@ -28,11 +29,8 @@ export default {
         if (!result) {
             // 检查是否为React原生元素
             if (React.DOM.hasOwnProperty(type)) {
-                // 1、如果有name，说明用户想要操作组件；
-                // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
-                // 3、如果配置了具有特殊功能的属性
-                // 否则用原生的增强性能
-                if (item.name || Model.if(item) || Utils.isIntersection(FilterProps, Object.keys(item))) {
+                // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
+                if (this.isUfComponent(item)) {
                     result = Dom;
                 } else {
                     result = type;
@@ -42,6 +40,34 @@ export default {
             }
         }
         return result;
+    },
+
+    // 获取完整的组件配置
+    // 1、普通组件本身配置了默认属性，此处进行属性合并
+    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
+    getConf(item) {
+        let oType = item.type;
+        let conf = Config.get(`components.${oType}`);
+        if (conf) {
+            if (Utils.typeof(conf, 'function')) {
+                conf = conf();
+            }
+            item.type = conf.type || oType;
+            item = Utils.merge({}, conf, item);
+        }
+        // 如果type进行了变换，则再次进行配置获取
+        if (oType !== item.type) {
+            item = this.getConf(item);
+        }
+        return item;
+    },
+
+    // 是否是UF组件
+    // 1、如果有name，说明用户想要操作组件；
+    // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+    // 3、如果配置了具有特殊功能的属性
+    isUfComponent(item) {
+        return item.name || Model.if(item) || Utils.isIntersection(FilterProps, Object.keys(item));
     },
 
     // 打印错误信息

@@ -1130,7 +1130,7 @@
 	            }
 	            return _react2.default.createElement(
 	                Antd.Radio.Group,
-	                _extends({}, this.__props, { options: undefined, value: this.__props.value !== undefined ? '' + this.__props.value : undefined }),
+	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: this.__props.value !== undefined ? '' + this.__props.value : undefined }),
 	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
 	                    return _react2.default.createElement(
 	                        Item,
@@ -1212,7 +1212,7 @@
 	            }
 	            return _react2.default.createElement(
 	                Antd.Select,
-	                _extends({}, this.__props, { value: value }),
+	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: value }),
 	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
 	                    return _react2.default.createElement(
 	                        Antd.Select.Option,
@@ -4585,6 +4585,8 @@
 	    }, {
 	        key: '_updateOnChange',
 	        value: function _updateOnChange() {
+	            var _this2 = this;
+
 	            if (this.__props.onChange) {
 	                var _controlled = this.__controlled,
 	                    key = _controlled.key,
@@ -4603,6 +4605,16 @@
 	                        value = params[paramsIndex];
 	                    }
 	                    oriOnChange.apply(undefined, params.concat([value]));
+	                };
+	            }
+	            if (this.__props.onBlur) {
+	                var oriOnBlur = this.__props.onBlur;
+	                this.__props.onBlur = function () {
+	                    for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                        params[_key2] = arguments[_key2];
+	                    }
+
+	                    oriOnBlur.apply(undefined, params.concat([_this2.getValue()]));
 	                };
 	            }
 	        }
@@ -13617,6 +13629,8 @@
 	                    if (itemProps.onPressEnter === undefined) {
 	                        itemProps.onPressEnter = this.handleSubmit.bind(this);
 	                    }
+	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
+	                    otherOptions.trigger = 'onBlur';
 	                    break;
 	                case 'select':
 	                    item.rules[0]['message'] = item.rules[0]['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
@@ -13640,14 +13654,16 @@
 	                        item.rules[0]['type'] = item.rules[0]['type'] || 'string';
 	                    }
 	                    break;
-	                case 'number':
+	                case 'input-number':
 	                    // 数字输入框
 	                    item.rules[0]['type'] = item.rules[0]['type'] || 'integer';
 	                    // 验证前先把数据强制转换成数字
 	                    item.rules[0]['transform'] = item.rules[0]['transform'] || function (v) {
 	                        return v !== '' ? +v : '';
 	                    };
-	                    item.default = +item.default;
+	                    item.default = +item.default || 0;
+	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
+	                    otherOptions.trigger = 'onBlur';
 	                    break;
 	                case 'checkbox':
 	                case 'switch':

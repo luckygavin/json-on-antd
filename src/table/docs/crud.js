@@ -47,82 +47,78 @@ const demo1 = {
             type: 'table',
             name: 'newtable',
             columns: columns1,
-            title: 'Table Crud 功能展示',
+            title: {
+                text: null,
+                basicWidget: [{name: 'filter', text: '快捷查询'}],
+                extra: [
+                    {type: 'button', mode: 'primary', content: '新增', action: 'add'},
+                    {type: 'button', mode: 'primary', content: '查询', action: 'search'},
+                    {type: 'button', mode: 'primary', content: '批量编辑', action: 'batchEdit'},
+                    {type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete'}
+                ]
+            },
             source: 'docs/php/data.php',
             pagination: {
                 pageType: 'server'
             },
+            rowSelection: {
+                selections: true
+            },
             crud: {
                 add: {
-                    title: '新增部件:',
-                    width: 800,
+                    title: '新增机房:',
                     api: 'docs/php/submit.php',
-                    autoReload: true,
+                    method: 'post',
                     form: {
-                        layout: {
-                            type: 'horizontal',
-                            labelCol: 7,
-                            wrapperCol: 14
-                        },
                         items: [
-                            {
-                                type: 'select',
-                                label: '机房',
-                                name: 'name',
-                                rules: [{required: true, message: '机房不能为空'}],
-                                source: {
-                                    url: 'docs/php/data.php',
-                                    handler: data=>data.map(v=>{
-                                        return {value: v.name, label: v.name};
-                                    })
-                                }
-                            },
-                            {type: 'input', label: '地区', name: 'region', required: true},
-                            {type: 'input', label: '描述', name: 'description', required: true}
+                            {type: 'input', label: '机房', name: 'name', rules: {required: true}},
+                            {type: 'input', label: '地区', name: 'region', rules: {required: true}},
+                            {type: 'textarea', label: '描述', name: 'description'}
                         ]
                     }
                 },
-                // 复用了 add 的配置
                 edit: {
-                    title: '编辑部件:',
-                    forbidden: 'name'
+                    title: '编辑机房信息:',
+                    api: 'docs/php/submit.php',
+                    forbidden: 'id'
+                },
+                search: {
+                    title: '高级搜索:',
+                    remove: 'description'
                 },
                 delete: {
-                    title: '删除部件:',
-                    api: {
-                        url: 'docs/php/submit.php',
-                        method: 'get'
-                    },
-                    autoReload: true
-                },
-                batchAdd: {
-                    title: '批量导入:',
-                    width: 800,
+                    title: '删除机房:',
                     api: 'docs/php/submit.php',
-                    autoReload: true,
-                    okText: '导入',
-                    content: {
-                        type: 'html',
-                        content: '提示信息。。。'
+                    render: row=>{
+                        return {
+                            type: 'html',
+                            content: '确定要<span class="remind">删除</span>『 <span class="wgt7">' + row.name + '</span> 』机房吗?'
+                        };
                     }
                 },
                 batchEdit: {
+                    // action 声明还是使用批量导入类型的功能，相当于另一种批量导入
                     title: '批量更新:',
-                    api: 'docs/php/submit.php',
-                    autoReload: true,
-                    // 需编辑的数据的字段列表
+                    width: 800,
+                    api: '?r=batchUpdate',
+                    method: 'post',
                     keys: 'id,name,region,description',
                     okText: '更新',
-                    content: {
-                        type: 'html',
-                        content: '提示信息。。。'
-                    }
+                    content: 'aaa'
                 },
                 batchDelete: {
                     title: '批量删除:',
-                    api: 'docs/php/submit.php',
-                    autoReload: true,
-                    okText: '批量报废'
+                    api: '?r=batchDelete',
+                    okText: '批量删除',
+                    render: rows=>{
+                        return {
+                            type: 'div',
+                            content: [
+                                {type: 'html', content: '确定要<span class="remind">批量删除</span>以下选中机房吗？'},
+                                {type: 'html', content: '<p style="margin: 5px 0">' + rows.map(v=>v.name).join(', ') + '</p>'}
+                            ]
+                        };
+                    }
                 }
             }
         }

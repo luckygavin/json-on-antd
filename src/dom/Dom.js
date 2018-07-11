@@ -17,7 +17,12 @@ export default class Dom extends BaseComponent {
         this._component = null;
         this.__init();
     }
-
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.__props.preventUpdate) {
+            return false;
+        }
+        return true;
+    }
     // 触发组件上的原生事件，例如 focus、change 等
     trigger(event, ...params) {
         if (this._component && this._component[event]) {

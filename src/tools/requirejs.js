@@ -1696,6 +1696,19 @@ var requirejs, require, define;
              * @private
              */
             execCb: function (name, callback, args, exports) {
+                // update at 2018-07-10 by liuzechun
+                // 当符合以下条件时：
+                //     1、不为依赖注入写法（define(['foo'], function(foo){})），此处的体现是name格式为`_@r5`
+                //     2、不是仅包含require的回调函数
+                // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
+                var cbStr = callback.toString().slice(0, 50);
+                if (name.indexOf('_@r') === -1
+                    && cbStr.indexOf('(require)') === -1
+                    && cbStr.indexOf('require=>') === -1
+                    && cbStr.indexOf('require =>') === -1) {
+                    var uf = (window._ufRegion && window._ufRegion[this.config.ufRegion || 'UF']) || window.UF;
+                    args.unshift(uf);
+                }
                 return callback.apply(exports, args);
             },
 

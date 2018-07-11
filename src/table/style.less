@@ -256,7 +256,8 @@
 // 更改antd-样式
 .uf-table {
     .ant-table-title {
-        padding: 0px 10px;
+        // padding: 0px 10px;
+        padding: 0px;
         overflow: hidden;
         line-height: 47px;
         // border: 1px solid @border-color-base;
@@ -284,6 +285,15 @@
         }
         .ant-table-small .ant-table-tbody > tr > td {
             padding: 3px 4px;
+        }
+    }
+    // 选择框样式
+    .ant-table-thead > tr > th,
+    .ant-table-tbody > tr > td {
+        &.ant-table-selection-column:not(.ant-table-selection-column-custom) {
+            text-align: center;
+            min-width: auto;
+            width: auto;
         }
     }
 }

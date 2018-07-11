@@ -110,8 +110,9 @@ class NewModal extends BaseComponent {
             return;
         }
         // 由于复用 BaseComponent 通用发送数据逻辑，从Form中获取到的数据直接放到 api.params 中，供action注册的onSubmit取用
-        // this.__filtered.api.params = params;
-        Utils.merge(this.__filtered.api.params, params);
+        // this.__filtered.api.params 可能等于 undefined，此时merge无效
+        // Utils.merge(this.__filtered.api.params, params);
+        this.__filtered.api.params = params;
         // this.__props.onSubmit 有可能是用户自定义的，也有可能是action注册上去的
         let result = this.__props.onSubmit && this.__props.onSubmit(params, ...op);
         // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击

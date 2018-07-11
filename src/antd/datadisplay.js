@@ -131,7 +131,40 @@ export class Tabs extends DataDisplay {
         this.__controlled = {
             key: 'activeKey'
         };
+        this._filter.push('forceRefresh');
         this.__init();
+        // 标签页的引用
+        this.tabRefs = {};
+    }
+    _afterInit() {
+        super._afterInit();
+        // 每次点击tab页切换时，展示内容强制刷新
+        if (this.__filtered.forceRefresh) {
+            this.__props.animated = this.__props.animated || false;
+            this._inject(this.__props, 'onTabClick', function(activeKey) {
+                // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
+                if (this.tabRefs[activeKey]) {
+                    this.tabRefs[activeKey].refresh();
+                } else {
+                    // 全部Tab都会解析一遍
+                    this.set({
+                        content: this.__filtered._children
+                    });
+                }
+                
+            });
+        }
+    }
+    _afterSetProps() {
+        // 如果是使用items属性配置子tab，则做额外处理
+        if (this.__props.items) {
+            this.__props.children = this.__analysis(this.__props.items.map(v=>{
+                v.type = 'tab-pane';
+                v.wrappedComponentRef = inst=>(this.tabRefs[v.key] = inst);
+                return v;
+            }));
+            delete this.__props.items;
+        }
     }
     render() {
         return <Antd.Tabs {...this.__props} />;
@@ -142,6 +175,9 @@ export class TabPane extends DataDisplay {
     constructor(props) {
         super(props);
         this.__init();
+    }
+    componentDidMount() {
+        this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
     }
     render() {
         return <Antd.Tabs.TabPane {...this.__props}/>;

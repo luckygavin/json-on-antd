@@ -12,6 +12,7 @@ import Export from 'src/export';
 import Crud from './Crud.js';
 import Title from './Title.js';
 import EditCell from './Edit.js';
+import Filter from './Filter.js';
 
 const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
@@ -36,6 +37,8 @@ export default class NewTable extends BaseComponent {
             'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction'
         );
         this.__init();
+        // 存储source中的初始化params参数
+        this.oriSourceParams = {};
         this.state = {
             antdConfig: null,
             // 数据默认为空
@@ -57,6 +60,7 @@ export default class NewTable extends BaseComponent {
         this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
         this.requerstIndex = 0;
+        this.filter = new Filter(this);
         this.initTable(true);
     }
     componentWillReceiveProps(nextProps) {
@@ -73,11 +77,18 @@ export default class NewTable extends BaseComponent {
     componentWillUnmount() {
         // 组件删除时，请求返回的数据无效
         this.requerstIndex = null;
+        // 防止循环引用导致内存泄漏
+        delete this.crud;
+        delete this.titleRef;
+        delete this.exportRef;
     }
     initTable(isFirst) {
         let objProps = this.__props;
+        isFirst && (this.oriSourceParams = Utils.clone(this.__filtered.source.params));
         // 兼容参数处理，兼容params的两种用法（写source外面也可以）
-        this.__filtered.source.params = Object.assign({}, this.__filtered.source.params, objProps.params);
+        if (objProps.params) {
+            this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
+        }
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
@@ -713,7 +724,8 @@ export default class NewTable extends BaseComponent {
             return null;
         }
         let rowSelection = {
-            type: 'checkbox'
+            type: 'checkbox',
+            hideDefaultSelections: true
         };
         getNeedObject(rowSelection, this.rowSelection);
         // 对行进行受控选择

@@ -144,6 +144,17 @@ const func = {
         if (config.alias) {
             window[config.alias] = window.UF;
         }
+        // 如果设置了app名称，则传递给模块以给每个module加域
+        if (config.appName) {
+            // 产生一份新的uf置于域中
+            window._ufRegion = Object.assign({}, window._ufRegion, {
+                [config.appName]: window.UF
+            });
+            // 传递给模块以给每个module加域
+            if (config.modules) {
+                config.modules.ufRegion = config.appName;
+            }
+        }
         // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
         requirejs.config(config.modules);
         // 设置默认域，解决跨域问题

@@ -7,6 +7,7 @@ import {message, Spin} from 'antd';
 import {Utils, Ajax} from 'src/utils';
 import Model from 'src/tools/model.js';
 import Authority from 'src/tools/authority.js';
+import WhiteList from 'src/tools/whitelist.js';
 
 import {Config, ComponentsCache, Models} from 'src/cache';
 
@@ -25,7 +26,6 @@ export const PreventCoverageMap = [
 // // 提供给用户的和生命周期相关的函数，命名更加语义化
 export const ForUserApi = {
     beforeCreate: 'componentWillMount',
-    // TODO: 给自己set时，会不断触发componentDidMount BUG
     afterCreate: 'componentDidMount',
     beforeRender: 'componentWillMount,componentWillUpdate',
     afterRender: 'componentDidMount,componentDidUpdate',
@@ -35,12 +35,10 @@ export const ForUserApi = {
 // 不复杂的属性，即无需merge处理直接覆盖的属性
 export const Uncomplex = ['params', 'data', 'options'];
 
-// // 转化为__props时需过滤的属性 - 用户配置的特殊功能的属性
+// 转化为__props时需过滤的属性 - 用户配置的特殊功能的属性
 export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
     // 权限
     'authority',
-    // 复用配置模板。
-    'configTpl',
     // 获取系列参数
     // source 系列参数有：url,method,params,handler,targe
     'source',
@@ -74,17 +72,20 @@ export default class BaseComponent extends Component {
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
         this._injectEvent = [];
-        // 转化为 __props 时需过滤的属性
-        this._filter = (Utils.copy(FilterProps)).concat([
+        this._filter = (Utils.copy(FilterProps)).concat(
             // 一些隐藏的属性
-            '__cache', '__type', '__key', '_factory', '_selfCalling'
-        ]);
+            ['__cache', '__type', '__key', '_factory', '_selfCalling'],
+            // 二次解析白名单里的属性的原值存储在 _${v} 中
+            WhiteList.getall(this.type).map(v=>`_${v}`)
+        );
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex = Utils.copy(Uncomplex);
         // 开放给用户使用的 Api，需处理下
-        this._openApi = ['set', 'get', 'show', 'hide', 'loading'];
+        this._openApi = ['set', 'get', 'show', 'hide', 'loading', 'reload'];
         // 存储一些程序执行过程中的数据
         this._tempData = {};
+        // 临时存储组件更新之后执行的逻辑。类似于 setState 之后的回调函数（但是 forceUpdate 没有）
+        this._afterUpdateQueue = [];
         this.__defaultProps = {};
         this.__props = {};
         // 更新前的__props
@@ -101,6 +102,60 @@ export default class BaseComponent extends Component {
         return conf;
     }
 
+
+    // forceUpdate 完成之后执行并清空队列
+    _componentDidUpdate(prevProps, prevState) {
+        for (let func of this._afterUpdateQueue.splice(0)) {
+            func();
+        }
+    }
+
+    // 组件的 componentWillReceiveProps 中注入的处理逻辑
+    // 有两种情况会调用cwr：
+    //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
+    //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
+    _componentWillReceiveProps(nextProps, currentProps) {
+        // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
+        currentProps = !Utils.empty(currentProps) ? currentProps : this.props
+        // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
+        let autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
+        // autoReload，可以使组件无论如何都进行刷新
+        if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
+            // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
+            let reGetData = nextProps.source && Utils.isChange(
+                this.__formatApi(nextProps.source),
+                this.__filtered.source
+            );
+            // 重新设置 __props
+            this.__setProps(nextProps);
+            // 自动重新加载的两种情况：
+            // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
+            // 2、如果设置了autoReload为true，则重新加载数据
+            if (reGetData || autoReload) {
+                this._handleAsyncData();
+            }
+        }
+    }
+
+    // componentDidMount 中注入的处理逻辑
+    _componentDidMount() {
+        // 组件加载完成后再中心共享一次组件，保证渲染完成后缓存中一定存在。
+        //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，再销毁原来组件，再把新组件渲染（未验证...）
+        //   如果如上面的流程，则会导致新组件写入缓存中后有被老组件销毁掉，最终缓存中不再有新组件
+        this._transmitComponent(false);
+        // 如果设置了自动获取异步数据，则执行逻辑
+        if (this.__filtered.source.autoLoad === undefined || this.__filtered.source.autoLoad) {
+            this._handleAsyncData();
+        }
+    }
+
+    // componentWillUnmount 中注入的处理逻辑
+    // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
+    _componentWillUnmount() {
+        this._unsetTransmitComponent();
+        this.unmounted = true;
+    }
+
     /**
      * __init 之前，构造函数中未能执行的逻辑（比如需要在子类构造函数中继续处理的属性，最后再进行初始化）
      *      开发时，如果是要在 this.__props 初始化之后执行的逻辑，请覆写_beforeInit
@@ -111,8 +166,6 @@ export default class BaseComponent extends Component {
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
         this.__defaultProps = this._getDefautlProps();
         this.__props = Utils.clone(this.__defaultProps);
-        // 复用配置模板。
-        this.__props = this.__getConfigTpl(this.props, this.__props);
     }
 
     // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
@@ -197,6 +250,21 @@ export default class BaseComponent extends Component {
         // this.__setProps({__showLoading: __showLoading});
         this.setState({__showLoading: __showLoading});
     }
+    // 重新获取source数据
+    reload() {
+        this._handleAsyncData();
+    }
+    // 强制刷新组件
+    // TODO: 不完全刷新
+    refresh() {
+        // 取出全部二次解析的属性，并重新解析一次
+        let newProps = {};
+        WhiteList.getall(this.type).forEach(v=>{
+            let oItem = this.__filtered[`_${v}`];
+            oItem && (newProps[v] = oItem);
+        });
+        this.set(newProps);
+    }
 
     /* 供子组件调用方法 ***********************************************************************/
 
@@ -234,28 +302,9 @@ export default class BaseComponent extends Component {
         this._afterInit();
     }
 
-    // 获取可复用的配置模板。
-    // 除定义全局组件通用配置外，还可以额外再定义一些配置模板供组件复用
-    // 使用时用户只需使用 configTpl 字段指定要复用哪个模板即可
-    __getConfigTpl(props, currentProps) {
-        if (props && props.configTpl) {
-            let tpl = Config.get(`components.${props.configTpl}`);
-            if (tpl) {
-                if (Utils.typeof(tpl, 'function')) {
-                    tpl = tpl();
-                }
-                if (currentProps) {
-                    return this.__mergeProps({}, currentProps, tpl);
-                } else {
-                    // 如果没有传入已有currentProps参数，则默认和自己当前的配置合并
-                    currentProps = Utils.copy(props);
-                    delete currentProps.configTpl;
-                    // 此处要注意，是原props往tpl上覆盖
-                    return this.__mergeProps({}, tpl, currentProps);
-                }
-            }
-        }
-        return currentProps || props;
+    // 获取完整的组件配置：会把config中的通用组件配置合并进来；也会解析自定义组件配置
+    __getConf(props) {
+        return this._factory.getConf(props);
     }
 
     // 用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props
@@ -276,8 +325,12 @@ export default class BaseComponent extends Component {
         if (follow !== false) {
             this.forceUpdate();
             // 延迟执行
-            // TODO: 一点都不优雅
-            setTimeout(follow, 10);
+            // setTimeout(follow, 10);
+            // TODO: 待观察效果，update at 2018-07-03
+            // forceUpdate 完成之后执行
+            if (Utils.typeof(follow, 'function')) {
+                this._afterUpdateQueue.push(follow);
+            }
         }
     }
 
@@ -418,52 +471,6 @@ export default class BaseComponent extends Component {
     }
 
     /* 私有方法 ***********************************************************************/
-
-    // 组件的 componentWillReceiveProps 中注入的处理逻辑
-    // 有两种情况会调用cwr：
-    //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
-    //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
-    _componentWillReceiveProps(nextProps, currentProps) {
-        // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
-        currentProps = !Utils.empty(currentProps) ? currentProps : this.props
-        // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
-        let autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
-        // autoReload，可以使组件无论如何都进行刷新
-        if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
-            // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-            let reGetData = nextProps.source && Utils.isChange(
-                this.__formatApi(nextProps.source),
-                this.__filtered.source
-            );
-            // 重新设置 __props
-            this.__setProps(nextProps);
-            // 自动重新加载的两种情况：
-            // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
-            // 2、如果设置了autoReload为true，则重新加载数据
-            if (reGetData || autoReload) {
-                this._handleAsyncData();
-            }
-        }
-    }
-
-    // componentDidMount 中注入的处理逻辑
-    _componentDidMount() {
-        // 组件加载完成后再中心共享一次组件，保证渲染完成后缓存中一定存在。
-        //   貌似如果组件需重新解析渲染时，时先执行构造函数生成新组件，再销毁原来组件，再把新组件渲染（未验证...）
-        //   如果如上面的流程，则会导致新组件写入缓存中后有被老组件销毁掉，最终缓存中不再有新组件
-        this._transmitComponent(false);
-        // 如果设置了自动获取异步数据，则执行逻辑
-        if (this.__filtered.source.autoLoad === undefined || this.__filtered.source.autoLoad) {
-            this._handleAsyncData();
-        }
-    }
-
-    // componentWillUnmount 中注入的处理逻辑
-    // 最外层的子类实例化的时候会调用 _injectFunction 函数，把函数注入到子类示例的 componentWillUnmount 中
-    _componentWillUnmount() {
-        this._unsetTransmitComponent();
-        this.unmounted = true;
-    }
 
     // 过滤 props，生成 __props 和 __filtered
     // 第二个参数为是否过滤掉为函数的属性
@@ -728,7 +735,7 @@ export default class BaseComponent extends Component {
             ...others
         } = this.__filtered.api;
         // 如果传入或者设置的params不是简单对象，则重置params
-        if (!Utils.directInstanceof(params, Object)) {
+        if (!Utils.directInstanceof(params, [Object, Array])) {
             params = {};
         }
         // COMPAT: 后面移除 handler

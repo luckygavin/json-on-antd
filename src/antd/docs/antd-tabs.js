@@ -7,21 +7,18 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import {Utils} from 'src/utils';
 import UF from 'src/tools';
 
-const content = [
+const items = [
     {
-        type: 'tab-pane',
         key: '1',
         tab: 'Tab 1',
         content: 'Content of Tab Pane 1'
     },
     {
-        type: 'tab-pane',
         key: '2',
         tab: 'Tab 2',
         content: 'Content of Tab Pane 2'
     },
     {
-        type: 'tab-pane',
         key: '3',
         tab: 'Tab 3',
         content: 'Content of Tab Pane 3'
@@ -34,7 +31,7 @@ const demo1 = {
     config: {
         type: 'tabs',
         activeKey: '1',
-        content: content
+        items: items
     }
 };
 
@@ -44,9 +41,8 @@ const demo2 = {
     config: {
         type: 'tabs',
         activeKey: '1',
-        content: [
+        items: [
             {
-                type: 'tab-pane',
                 key: '1',
                 tab: {
                     type: 'span',
@@ -68,7 +64,7 @@ const demo3 = {
         type: 'tabs',
         activeKey: '1',
         size: 'small',
-        content: content
+        items: items
     }
 };
 
@@ -95,7 +91,7 @@ const demo4 = {
             style: {marginTop: 16},
             activeKey: '1',
             size: 'small',
-            content: content
+            items: items
         }
     ]
 };
@@ -107,7 +103,7 @@ const demo5 = {
         type: 'tabs',
         mode: 'card',
         activeKey: '1',
-        content: content
+        items: items
     }
 };
 

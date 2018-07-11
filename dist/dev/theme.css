@@ -18920,7 +18920,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   color: inherit;
 }
 .uf-table .ant-table-title {
-  padding: 0px 10px;
+  padding: 0px;
   overflow: hidden;
   line-height: 47px;
 }
@@ -18944,6 +18944,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .uf-table.uf-table-mini .ant-table-small .ant-table-tbody > tr > td {
   padding: 3px 4px;
+}
+.uf-table .ant-table-thead > tr > th.ant-table-selection-column:not(.ant-table-selection-column-custom),
+.uf-table .ant-table-tbody > tr > td.ant-table-selection-column:not(.ant-table-selection-column-custom) {
+  text-align: center;
+  min-width: auto;
+  width: auto;
 }
 .uf-modal .ant-modal-content,
 .uf-table-modal .ant-modal-content {
@@ -19125,6 +19131,16 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   top: 0;
   right: 0;
   background-color: rgba(0, 0, 0, 0);
+}
+.uf-fieldset {
+  padding: 4px;
+  width: auto;
+  border: 1px solid #DFEFFC;
+  border-radius: 4px;
+}
+.uf-fieldset legend {
+  font-weight: bold;
+  color: #2E6E9E;
 }
 .test-menu-dark-sider {
   background: #404040;

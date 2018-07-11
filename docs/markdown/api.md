@@ -115,7 +115,7 @@ Ajax 获取数据。`params` 为一个对象，属性列表如下：
 
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
-url | ajax接口地址 | string |  | 必填
+url | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填
 method | 默认数据请求方式 | string | `GET` | 
 cache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |
 requestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |
@@ -129,6 +129,8 @@ onchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | fu
 更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数
 
 **注意：**
+
+* **`url`**: url字符串中，可以类似路由声明一样定义一些动态参数，例如：`/update/:id`，`:id`为动态内容，动态内容的值来自于同级的`params`参数中。同时，在`params`取值后，params中的相应字段会被删除。
 
 * **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
 
@@ -287,10 +289,14 @@ UF.init(config, '#demo');
 
 `component.hide()`可以重新展示组件。
 
-
 ## # component.loading()
 
 `component.loading([boolean|config])`可以控制组件是否展示loading效果。
+
+## # component.reload()
+
+`component.reload()`可以控制组件重新获取数据（和`source`属性配合）。
+
 
 参数有如下几种情况：
 

@@ -77,6 +77,8 @@ function request (config) {
     };
     return reqwest(Object.assign({}, config,
         {
+            // url中可以使用来自params中的动态参数
+            url: Utils.urlAnalysis(config.url, config.params),
             // data 可能来自 globalAjax
             data: Object.assign({}, config.params, config.data),
             success: res=>{

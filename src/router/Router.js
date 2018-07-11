@@ -13,7 +13,7 @@ import {Factory, Authority} from 'src/tools';
 let lastRouter;
 // 用于获取当前页面的路由信息
 function getRouter() {
-    return lastRouter;
+    return Utils.copy(lastRouter);
 }
 function setRouter(props) {
     let {params, location, route, routes} = props;

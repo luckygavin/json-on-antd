@@ -12,7 +12,6 @@ import Adaptor from './adaptor.js';
 import Authority from './authority.js';
 import Validator from './validator.js';
 import WhiteList from './whitelist.js';
-// import Html from './html.js';
 import requirejs from './requirejs';
 
 export default class Factory extends PureComponent {
@@ -48,26 +47,21 @@ export default class Factory extends PureComponent {
             return item;
         }
         // 检验是否有缓存
-        let key = Utils.hash(item);
-        if (this.__cache[key]) {
-            let {Item, props} = this.__cache[key];
-            return <Item {...props} />;
-        }
-        // 如果没有定义type，且有configTpl配置模板，则从模板中取出type
-        if (!item.type && item.configTpl) {
-            let tpl = Config.get(`components.${item.configTpl}`);
-            if (tpl) {
-                if (Utils.typeof(tpl, 'function')) {
-                    tpl = tpl();
-                }
-                item.type = tpl.type;
-            }
-        }
+        // let key = Utils.hash(item);
+        // if (this.__cache[key]) {
+        //     let {Item, props} = this.__cache[key];
+        //     return <Item {...props} />;
+        // }
+
         // 校验是否有 type 属性且
         // TODO:
         if (!Validator.check(item, 'type', 'string')) {
             return item;
         }
+
+        // 整合组件的全部配置（包括通用配置，自定义组件配置等）
+        item = this.getConf(item);
+
         // 校验权限，没权限的元素返回 null
         if (!Authority.check(item)) {
             return null;
@@ -75,10 +69,6 @@ export default class Factory extends PureComponent {
 
         // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
         if (item.type === 'html') {
-            // return new Html(item.content);
-            // 直接使用InnerHTML，以节省性能
-            // return <section className={'uf-html ' + (item.className || '')} style={item.style}
-            //     dangerouslySetInnerHTML={{__html: item.content}}></section>;
             // 按照正常流程走
             item.type = 'section';
             item.className = 'uf-html ' + (item.className || '');
@@ -103,6 +93,10 @@ export default class Factory extends PureComponent {
         // this.__cache[key] = {Item, props};
 
         return <Item {...props} />;
+    }
+    // 获取完整的组件配置
+    getConf(item) {
+        return Loader.getConf(item);
     }
 
     // 处理用户配置的参数，并生成组件需要使用的 props
@@ -152,10 +146,8 @@ export default class Factory extends PureComponent {
     // 有些属性可以是ReactNode，也就是也可以配置成一个组件，所以需要再次把这些属性解析为组件
     analysisAgain(props, type) {
         let list = WhiteList.get(props, type);
-        if (list) {
-            for (let v of list) {
-                props[v] = this.generateElement(props[v]);
-            }
+        for (let v of list) {
+            props[v] = this.generateElement(props[v]);
         }
         return props;
     }

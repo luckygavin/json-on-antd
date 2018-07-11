@@ -13,7 +13,7 @@ import {Utils} from 'src/utils';
 
 export default class Export extends BaseComponent {
     constructor(props) {
-        super(props);
+        super(props, 'export');
         this._openApi.push('export');
         this.__init();
         this.state = {};
@@ -26,7 +26,7 @@ export default class Export extends BaseComponent {
             // 数据导出方式 异步/同步[asyn/sync]
             // 异步 - 通过source获取要导出的数据
             // 同步 - 实例化组件是直接传入data
-            type: 'asyn',
+            mode: 'asyn',
             // 记录参数中有没有message传入,如果没有传入,导出完成时进度条不隐藏
             noMessage: true,
             // 异步数据导出时的提示信息
@@ -43,7 +43,7 @@ export default class Export extends BaseComponent {
         this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
         this.data = [];
         if (objProps.data === undefined) {
-            this.config.type = this.config.type || 'asyn';
+            this.config.mode = this.config.mode || 'asyn';
             let state = {
                 visible: false,
                 pageSize: 200,
@@ -67,7 +67,7 @@ export default class Export extends BaseComponent {
                 this.state = state;
             }
         } else {
-            this.config.type = this.config.type || 'sync';
+            this.config.mode = this.config.mode || 'sync';
             // 用于存储导出的数据，为避免合并数据时出错，请求过来的数据没有合并到一个数组
             // data里面的数据是这样的：[[{...},{...},...],[],[]]
             this.data = [objProps.data];
@@ -78,7 +78,7 @@ export default class Export extends BaseComponent {
             this.initExport(nextProps);
         }
         // if (nextProps.data) {
-        //     this.config.type = 'sync';
+        //     this.config.mode = 'sync';
         //     this.data = [nextProps.data];
         // }
         // this.config = this.__mergeProps(this.config, nextProps);
@@ -120,7 +120,7 @@ export default class Export extends BaseComponent {
         }, 1000);
     }
     export() {
-        if (this.config.type === 'asyn') {
+        if (this.config.mode === 'asyn') {
             this.showModal();
         } else {
             this.aRef && this.aRef.click();
@@ -481,7 +481,7 @@ export default class Export extends BaseComponent {
         }
     }
     render() {
-        if (this.config.type === 'asyn') {
+        if (this.config.mode === 'asyn') {
             return this.asynExportRender();
         } else {
             return this.syncExportRender();

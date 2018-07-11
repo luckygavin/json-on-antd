@@ -318,7 +318,7 @@ const utils = {
     },
     // 把中横线命名的字符串转换成帕斯卡命名形式
     toPascal(str) {
-        return str.split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
+        return (str || '').split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     },
     // 判断组件是否继承自某个类，支持验证自己
     // 根据组件的引用（通过import获得）判断，支持深层查找
@@ -416,6 +416,19 @@ const utils = {
             }
         }
         return target;
+    },
+    // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
+    urlAnalysis(url, params, delParams = true) {
+        if (url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+            return url;
+        }
+        for (let i in params) {
+            if (url.indexOf(`:${i}`) > -1) {
+                url = url.replace(`:${i}`, params[i]);
+                delParams && (delete params[i]);
+            }
+        }
+        return url;
     },
     // 想某个对象上的某个函数注入额外逻辑
     // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前、bind的对象

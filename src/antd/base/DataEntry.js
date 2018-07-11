@@ -31,7 +31,7 @@ export default class DataEntry extends Antd {
 
     _afterInit() {
         super._afterInit();
-        this._updateOnChange();
+        this._updateEvent();
     }
 
     _afterSetProps() {
@@ -58,8 +58,8 @@ export default class DataEntry extends Antd {
         }
     }
 
-    // 更新onchange逻辑，额外返回一个参数，为当前组件的值
-    _updateOnChange() {
+    // 更新 onChange/onBlur 逻辑，额外返回一个参数，为当前组件的值
+    _updateEvent() {
         if (this.__props.onChange) {
             const {key, paramsIndex} = this.__controlled;
             const oriOnChange = this.__props.onChange;
@@ -71,6 +71,12 @@ export default class DataEntry extends Antd {
                     value = params[paramsIndex];
                 }
                 oriOnChange(...params, value);
+            };
+        }
+        if (this.__props.onBlur) {
+            const oriOnBlur = this.__props.onBlur;
+            this.__props.onBlur = (...params)=>{
+                oriOnBlur(...params, this.getValue());
             };
         }
     }

@@ -29,7 +29,8 @@ export default class BaseDoc extends React.Component {
         if (pos && document.getElementById(pos)) {
             offset = document.getElementById(pos).offsetTop + 100;
         }
-        window.scrollTo(0, offset);
+        // window.scrollTo(0, offset);
+        offset && window.scrollTo(0, offset);
     }
 
     __init() {

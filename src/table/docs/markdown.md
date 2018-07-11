@@ -22,7 +22,6 @@
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
-| locale        | 默认文案设置，目前包括排序、过滤、空数据文案 | object | `{filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'}` |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
@@ -49,6 +48,7 @@
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string &#124; `config` | - |
 | key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
+| display    | 默认是否展示列当前列             | boolean | true |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |
 | width      | 列宽度 | string&#124;number | -  |
 | className  | 列的 className             | string          |  -      |
@@ -58,12 +58,13 @@
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
-| onFilter   | 本地模式下，确定筛选的运行函数 | Function    | - |
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
+
 #### *column.filter*
+
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | type      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |

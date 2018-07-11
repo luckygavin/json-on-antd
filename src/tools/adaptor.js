@@ -6,6 +6,7 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import Antd from 'src/antd/base/Antd.js';
 import Loader from './loader.js';
+import WhiteList from './whitelist.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
 const KeyWord = ['name', 'type', 'content', 'childrenHolder'];
@@ -40,6 +41,11 @@ export default {
                 if (props.mode) {
                     props.type = props.mode;
                 }
+            }
+            // 因为后面要对白名单里的属性进行二次解析并覆盖属性，这里把配置转存一份，并会在BaseComponent中filter掉
+            let list = WhiteList.get(props, item.type);
+            for (let v of list) {
+                props[`_${v}`] = props[v]
             }
         // 非 BaseComponent 组件 _factory 等属性无效
         } else {

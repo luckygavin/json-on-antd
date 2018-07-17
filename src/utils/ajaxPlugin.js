@@ -5,7 +5,6 @@
 
 import {notification} from 'antd';
 import Utils from './utils.js';
-import AjaxCache from 'src/cache/ajaxData.js';
 
 // Ajajx队列，用于缓存待执行的 ajax 回调函数相关内容
 const ajaxQueue = {};
@@ -52,7 +51,7 @@ export function errorMessage(error) {
  * @param {Object} config ajax的配置
  * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
  */
-export function checkCache(config) {
+export function checkCache(config, AjaxCache) {
     // 如果需要做缓存，key不为空
     let key = AjaxCache.getCacheKey(config);
     if (key) {

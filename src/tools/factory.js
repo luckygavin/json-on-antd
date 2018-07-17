@@ -5,18 +5,29 @@
  */
 import React, {Component, PureComponent} from 'react';
 import {Utils} from 'src/utils';
-import {Config} from 'src/cache';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
 import Authority from './authority.js';
 import Validator from './validator.js';
 import WhiteList from './whitelist.js';
-import requirejs from './requirejs';
 
+import {getAjax, getComponentsCache, getConfig, getRequirejs} from 'src/tools/instance.js';
+
+// 所有使用Factory的地方，都需要传入一个insName属性
+// Factory根据insName获取各个工具实例
 export default class Factory extends PureComponent {
     constructor(props) {
         super(props);
+        // 应用名称
+        this.insName = props.insName || '_$default';
+        // ajax 实例
+        this.$ajax = getAjax(this.insName);
+        // cache实例
+        this.$config = getConfig(this.insName);
+        this.$components = getComponentsCache(this.insName);
+        this.$requirejs = getRequirejs(this.insName);
+
         this.state = {};
         // 解析结果缓存
         this.__cache = {};
@@ -58,7 +69,8 @@ export default class Factory extends PureComponent {
         if (!Validator.check(item, 'type', 'string')) {
             return item;
         }
-
+        // 临时存储的变量，供各个tools使用
+        item.insName = this.insName;
         // 整合组件的全部配置（包括通用配置，自定义组件配置等）
         item = this.getConf(item);
 
@@ -96,7 +108,7 @@ export default class Factory extends PureComponent {
     }
     // 获取完整的组件配置
     getConf(item) {
-        return Loader.getConf(item);
+        return Loader.getConf(item, this.insName);
     }
 
     // 处理用户配置的参数，并生成组件需要使用的 props
@@ -154,24 +166,29 @@ export default class Factory extends PureComponent {
 
     // 获取模块配置。
     // 如果模块为异步模块，则做异步处理
-    // TODO：加载完异步模块后路由失效BUG
     getConfig() {
-        let config = this.state.config || this.props.config;
+        let config = this.props.config;
         if (Utils.typeof(config, 'string')) {
-            requirejs([config], foo=>{
-                // 删除缓存，保证配置刷新
-                this._cacheContent = null;
-                this.setState({config: foo});
-            });
-            let showLoading = Config.get('modules.showLoading');
-            if (Utils.typeof(showLoading, 'array')) {
-                // config 此时为模块名称
-                showLoading = showLoading.indexOf(config) !== -1;
+            let path = this.props.config;
+            // 先检查缓存配置中是否已存在，如果不存在再重新获取
+            config = this.state[path];
+            if (!config) {
+                this.$requirejs([path], foo=>{
+                    // 删除缓存，保证配置刷新
+                    this._cacheContent = null;
+                    // 缓存获取回来的配置
+                    this.setState({[path]: foo});
+                });
+                let showLoading = this.$config.get('modules.showLoading');
+                if (Utils.typeof(showLoading, 'array')) {
+                    // config 此时为模块名称
+                    showLoading = showLoading.indexOf(config) !== -1;
+                }
+                config = {
+                    type: 'loading',
+                    loading: !!showLoading
+                };
             }
-            config = {
-                type: 'loading',
-                loading: !!showLoading
-            };
         }
         return config;
     }

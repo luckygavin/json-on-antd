@@ -31,6 +31,7 @@ params | form会填充params中的值为默认值。会覆盖api中的params | o
 render | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | 
 forbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |
 remove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |
+autoReload | 点击提交时自动刷新表格 | boolean | true |
 
 
 常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)

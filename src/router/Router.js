@@ -7,7 +7,8 @@ import ReactDOM from 'react-dom';
 import * as OriRouter from 'react-router';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Factory, Authority} from 'src/tools';
+import {Factory, Authority} from 'src';
+import {getConfig, getRequirejs} from 'src/tools/instance.js';
 
 // 保存当前页面的路由信息
 let lastRouter;
@@ -54,7 +55,11 @@ export class RouteHolder extends React.Component {
     }
 
     render() {
-        return <Factory {...this.props} config={this.props.route.__component} />;
+        return <Factory {...this.props}
+            // config={this.getConfig()}
+            config={this.props.route.__component}
+            insName={this.props.route._insName}
+        />;
     }
 }
 
@@ -83,7 +88,7 @@ export class Router extends BaseRouter {
         let children = [];
         for (let v of arr) {
             // 校验权限，没权限的元素返回 null
-            if (!Authority.check(v)) {
+            if (!this.__authority(v)) {
                 continue;
             }
             v = this.setRoute(v);
@@ -125,9 +130,12 @@ export class Router extends BaseRouter {
     // Route/IndexRoute 类型的组件
     // component 转换为 RouteHolder
     setRoute(item) {
+        // @bugfix at 2018-07-12, 不能改变原配置。修复再次渲染router时报错问题
+        item = Utils.copy(item);
         if (item.component) {
             // 组件实例放在新属性content里
             item.__component = item.component;
+            item._insName = this._insName;
             // component属性为一个抽象类
             item.component = RouteHolder;
         }

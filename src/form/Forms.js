@@ -47,7 +47,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
     // 获取所有表单的值
     getValues(check = true) {
         // 获取每个Form的值
-        return Utils.each(this.formRef, item=>item.getValues(check));
+        return Utils.map(this.formRef, item=>item.getValues(check));
     }
     // 重置所有表单的值
     resetValues(o) {

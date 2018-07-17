@@ -10,7 +10,6 @@
 import React from 'react';
 import BaseLayout from './base/Layout.js';
 import {Utils} from 'src/utils';
-import {ComponentsCache} from 'src/cache';
 import * as Antd from 'antd';
 
 /************* Layout 布局 ************************************************************************** */
@@ -108,7 +107,7 @@ export class Sider extends BaseLayout {
                     if (v.props.__type === 'menu') {
                         let key = v.props.__cache || v.props.__key;
                         let inject = collapsed=>{
-                            let menu = ComponentsCache.get(key);
+                            let menu = this.__getComponent(key);
                             if (menu) {
                                 let defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
                                 // 从缓存中获取 Menu 组件，并更改组件状态
@@ -141,12 +140,13 @@ export class Sider extends BaseLayout {
 export class SiderTrigger extends BaseLayout {
     constructor(props) {
         super(props);
+        this._filter.push('reverse');
         this.__init();
         this.target = null;
     }
     _componentDidMount() {
         super._componentDidMount && super._componentDidMount();
-        this.target = ComponentsCache.get(this.__props.target);
+        this.target = this._factory.$components.get(this.__props.target);
         this.forceUpdate();
     }
     onClick() {
@@ -157,7 +157,9 @@ export class SiderTrigger extends BaseLayout {
     render() {
         let style = Object.assign({cursor: 'pointer'}, this.__props.style);
         return <Antd.Icon {...this.__props}
-            type={(this.target && this.target.get('collapsed')) ? 'menu-unfold' : 'menu-fold'}
+            type={(this.target && this.target.get('collapsed'))
+                ? (!this.__filtered.reverse ? 'menu-unfold' : 'menu-fold')
+                : (this.__filtered.reverse ? 'menu-unfold' : 'menu-fold')}
             onClick={this.target && this.onClick.bind(this)}/>;
     }
 }

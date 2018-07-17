@@ -7,10 +7,14 @@
 import components from './components.js';
 
 export default {
+    insName: '_$default',
     // 模块引入相关配置
     modules: {
         // 加载模块时是否展示loading
-        showLoading: false
+        showLoading: false,
+        paths: {
+            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+        }
     },
     // 全局系统配置
     global: {

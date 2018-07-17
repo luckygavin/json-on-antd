@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import {Modal, message} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import UF from 'src/tools';
+import UF from 'src';
 
 // import './style.scss';
 

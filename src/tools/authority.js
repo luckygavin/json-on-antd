@@ -4,12 +4,12 @@
  */
 
 import {Utils} from 'src/utils';
-import {Config} from 'src/cache';
+import {getConfig} from './instance.js';
 
 export default {
 
-    check(item) {
-        let authorityList = Config.get('authority');
+    check(item, insName = item.insName) {
+        let authorityList = getConfig(insName).get('authority');
         let result = true;
         if (!Utils.typeof(item.authority, 'undefined')) {
             result = !!authorityList[item.authority];

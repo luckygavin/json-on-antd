@@ -12,31 +12,17 @@ export default class BaseCache {
         this._cache = _cache || {};
     }
     get(names) {
-        // 如果传递了name，则只去config中查找name字段，否则返回全部
-        let result = this._cache;
-        if (names) {
-            // 可以传递多个name依次向下查找，查找不到返回null
-            for (let v of names.split('.')) {
-                if (result && Utils.typeof(result, 'object') && result[v]) {
-                    result = result[v];
-                } else {
-                    return null;
-                }
-            }
-        }
-        return result;
+        // 可以传递多个name依次向下查找，例如：'a.b.c'
+        return Utils.fromObject(names, this._cache);
     }
     // set函数有两种用法
-    // 如果 target 为字符串，则直接替换缓存中 target 保存的值
-    // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
     set(target, component) {
+        // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
         if (Utils.typeof(target, 'object')) {
-            let origin = this.get();
-            let config = Utils.merge(10, origin, target);
-            // 存完后返回存储的值
-            return config;
+            return Utils.merge(10, this._cache, target);
+        // 如果 target 为字符串，则直接替换缓存中 target 保存的值
         } else {
-            this._cache[target] = component;
+            Utils.toObject(this._cache, target, component);
             return component;
         }
     }

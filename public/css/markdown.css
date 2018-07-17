@@ -257,7 +257,9 @@ code, kbd, pre, samp {
 .markdown.log {
     position: relative;
 }
+
 .markdown.log hr ~ h3,
+.markdown.log hr ~ h4,
 .markdown.log hr ~ ul {
     margin-left: 40px;
 }

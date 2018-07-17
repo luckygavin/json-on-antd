@@ -6,6 +6,7 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import Antd from 'src/antd/base/Antd.js';
 import Loader from './loader.js';
+// import Model from './model.js';
 import WhiteList from './whitelist.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
@@ -15,7 +16,9 @@ export default {
 
     get(item) {
         // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-        item.key = item.key || item.name || Utils.uniqueId();
+        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+        // TODO: 性能待观察，不能小于3
+        item.key = item.key || item.name || Utils.hash(item, null, 4);
 
         let Item = Loader.get(item);
         let props = Utils.filter(item, KeyWord);
@@ -35,6 +38,11 @@ export default {
             if (item.name) {
                 props['__cache'] = item.name;
             }
+            // if (props['__key']) {
+            //     if (Model.if(item)) {
+            //         props['__cache'] = props['__key'];
+            //     }
+            // }
             // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
             // 实例化组件时，还要把 type 还原
             if (Utils.isExtendsOf(Item, Antd)) {
@@ -52,6 +60,8 @@ export default {
             props.name = item.name;
             delete props._factory;
         }
+        // 删除供各个tools使用的临时变量 insName
+        delete props.insName;
         // props = this.formatOthers(props);
 
         return props;

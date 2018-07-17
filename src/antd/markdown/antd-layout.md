@@ -95,6 +95,7 @@ toggleCollapsed | 切换收起/展开状态 | 无
 参数      | 说明                                     | 类型       | 默认值
 ----------|-----------------------------------------|------------|-------
 target | 关联`sider`组件的名称 | boolean | false
+reverse | 反转方向 | boolean | false
 
 
 ### # header、content、footer

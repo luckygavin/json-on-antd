@@ -312,7 +312,7 @@ export default class Title extends BaseComponent {
             return;
         }
         // 在原有参数基础上，追加一个search参数
-        let oParams = this.parent.__filtered.source.params;
+        let oParams = this.parent.__filtered.source.params || {};
         oParams.search = value;
         this.parent.set({params: oParams});
     }

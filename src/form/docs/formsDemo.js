@@ -5,8 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
 import md from './formsMarkdown.md';
-import UF from 'uf';
-
+import UF from 'src';
 
 let demo1 = {
     title: 'Forms组件基本用法',

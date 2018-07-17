@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import UF from 'src/tools';
+import UF from 'src';
 
 const demo1 = {
     title: '顶部导航',

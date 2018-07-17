@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import Form from 'src/form';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import UF from 'src/tools';
+import UF from 'src';
 import md from './markdown.md';
 
 const Step1 = {
@@ -108,13 +108,10 @@ const Step1 = {
                     port_type: {display: v=>!!+v},
                     is_converge: {display: v=>!!+v}
                 },
-                options: [{
-                    value: '0',
-                    label: 'VPN'
-                }, {
-                    value: '1',
-                    label: '专线'
-                }]
+                options: [
+                    {value: '0', label: 'VPN'},
+                    {value: '1', label: '专线'}
+                ]
             }
         ],
         [

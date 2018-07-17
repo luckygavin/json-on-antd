@@ -5,7 +5,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import {BaseComponent} from 'src/base';
-import {ComponentsCache} from 'src/cache';
 
 export default class Ueditor extends React.PureComponent {
     constructor(props) {
@@ -83,13 +82,13 @@ export default class Ueditor extends React.PureComponent {
     // 共享组件
     _transmitComponent() {
         if (!!this.name) {
-            ComponentsCache.set(this.name, this.ue);
+            this._factory$components.set(this.name, this.ue);
         }
     }
     // 解除共享
     _unsetTransmitComponent() {
         if (!!this.name) {
-            ComponentsCache.del(this.name);
+            this._factory$components.del(this.name);
         }
     }
     triggerChange(changedValue) {

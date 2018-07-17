@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import marked from 'marked';
 import {Modal, Card, Row, Col, Icon} from 'antd';
-import UF from 'src/tools';
+import UF from 'src';
 import {Utils} from 'src/utils';
 
 const ufName = '$uf';

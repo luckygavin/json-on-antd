@@ -12,10 +12,11 @@
 import BaseCache from './base/BaseCache.js';
 import Default from 'src/default';
 import Utils from 'src/utils/utils.js';
+import {generate} from 'src/tools/instance.js';
 
 class Config extends BaseCache {
     get(names) {
-        let result = super.get.call(this, names);
+        let result = super.get(names);
         // 组件全局配置components为引用类型，组件使用时对配置进行更改会影响全局，需要clone一份
         if (names && names.split('.')[0] === 'components') {
             result = Utils.clone(result);
@@ -24,4 +25,8 @@ class Config extends BaseCache {
     }
 }
 
-export default (new Config(Default));
+// export default (new Config(Default));
+
+export default generate(()=>(
+    new Config(Default)
+));

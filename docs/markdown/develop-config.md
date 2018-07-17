@@ -15,10 +15,11 @@
 
 ## 具体用法
 
-一般在页面初始化之前调用`UF.config({})`做一些全局的配置。其参数为一个对象，参数如下：
+一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：
 
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
+name | 实例名称，根据不同的名称产生不同的实例 | String | default | 
 modules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
 components | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
 global | 其他一些全局配置。见：`global`表 | Object |  | 
@@ -140,7 +141,7 @@ data | 请求数据时携带的**`额外参数`**，这里指的是一些和内�
 type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
 contentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |
 crossOrigin | 设置`cross-origin`请求 | boolean | | 
-beforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`params`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(params, conf){} | | 
+beforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | 
 success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | 
 error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 

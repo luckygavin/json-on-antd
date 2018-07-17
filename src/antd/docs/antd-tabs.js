@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
 import {Utils} from 'src/utils';
-import UF from 'src/tools';
+import UF from 'src';
 
 const items = [
     {

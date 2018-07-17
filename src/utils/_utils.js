@@ -19,9 +19,15 @@ const utils = {
         return (s4() + s4() + s4() + s4() + s4() + s4() + s4() + s4());
     },
     // 字符串哈希
-    hash(text, len) {
+    //  当传入第3个属性时，说明对象不是简单对象，走自定义处理逻辑，过滤掉非p
+    hash(text, len, level) {
         let hash = 5381;
-        text = JSON.stringify(text) + '';
+        if (level) {
+            text = this.stringify(text, level);
+        } else {
+            text = JSON.stringify(text);
+        }
+        text += '';
         let i = text.length - 1;
         for (; i > -1; i--) {
             hash += (hash << 5) + text.charCodeAt(i);
@@ -41,6 +47,24 @@ const utils = {
             }
         }
         return retValue;
+    },
+    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
+    stringify(data, level = 5) {
+        if (level <= 0) {
+            return '_$leaf';
+        }
+        if (this.typeof(data, ['object', 'array', 'symbol'])) {
+            if (this.directInstanceof(data, [Object, Array])) {
+                data = this.each(data, v=>this.stringify(v, level - 1));
+                data = JSON.stringify(data);
+            } else {
+                // Symbol(react.element)
+                data = '_$Symbol';
+            }
+        } else if (this.typeof(data, 'function')) {
+            data = '_$function';
+        }
+        return `${data}`;
     },
     // 数据格式转换
     format(value, type) {
@@ -142,7 +166,9 @@ const utils = {
             target = ghost;
         }
         if (level <= 0) {
-            return utils.copy(objs[0]);
+            // 如果存储内容不为普通对象，例如类的实例，copy不能拷贝继承的函数
+            // return this.copy(objs[0]);
+            return objs[0];
         }
         let result = target;
         for (let obj of objs) {
@@ -256,7 +282,17 @@ const utils = {
     },
     // each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
     // callback 为回调函数，支持三个参数：依次是 item, index, obj
+    // 注意：返回结果随着传入的参数变化，如果传入的是数组，则返回数组；如果传入的是对象，则返回对象
     each(obj, callback) {
+        let result = this.typeof(obj, 'array') ? [] : {};
+        for (let i in obj) {
+            result[i] = callback(obj[i], i, obj);
+        }
+        return result;
+    },
+    // map 遍历对象属性，类似于上面的each
+    // 不同点在于：永远返回数组，对象也会遍历成数组
+    map(obj, callback) {
         let result = [];
         for (let i in obj) {
             result.push(callback(obj[i], i, obj));
@@ -417,9 +453,15 @@ const utils = {
         }
         return target;
     },
+    // 根据一个字符串，把数据塞入一个深层的对象中
+    toObject(origin, strc, value) {
+        let tData = this.generateObject(strc, value);
+        let level = strc.split('.').length;
+        this.merge(level, origin, tData);
+    },
     // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
     urlAnalysis(url, params, delParams = true) {
-        if (url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+        if (!url || url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
             return url;
         }
         for (let i in params) {

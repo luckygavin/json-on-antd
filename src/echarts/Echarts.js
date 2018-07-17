@@ -4,7 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
-import {ComponentsCache} from 'src/cache';
 import {Utils} from 'src/utils';
 
 export default class Echarts extends BaseComponent {
@@ -13,6 +12,7 @@ export default class Echarts extends BaseComponent {
         this._filter.push('type');
         // 保证每次实例化都有一个唯一的id
         this.chartId = (props.__key || 'create_echarts') + '_' + Utils.uniqueId();
+        this.echarts;
         this.chart;
         this.__init();
     }
@@ -33,16 +33,33 @@ export default class Echarts extends BaseComponent {
         // 执行的时候再获取
         const echarts = window.echarts;
         if (echarts) {
+            this.echarts = echarts;
+            this.initEcharts();
+        } else {
+            console.error('There is no echarts, please check.');
+            // 打包的代码不支持requirejs方式
+            // _$echarts 的路径见 src/default/index.js 中的配置
+            // this._factory.$requirejs(['_$echarts'], echarts=>{
+            //     this.echarts = echarts;
+            //     this.initEcharts();
+            // });
+            // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
+            // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
+            //     this.echarts = window.echarts;
+            //     this.initEcharts();
+            // });
+        }
+    }
+    initEcharts() {
+        if (this.echarts) {
             // 初始化
-            let chart = echarts.init(document.getElementById(this.chartId));
+            let chart = this.echarts.init(document.getElementById(this.chartId));
             chart.setOption(this.__props);
             this.chart = chart;
             this._transmitComponent();
             // 把echarts的api全部转移到当前组件上
             this._agencyFunction(chart);
             this._agencyFunction(Object.getPrototypeOf(chart));
-        } else {
-            console.error('There is no echarts, please check.');
         }
     }
     _agencyFunction(origin) {

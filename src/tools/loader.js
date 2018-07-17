@@ -6,12 +6,11 @@
 import React from 'react';
 import {BaseConf} from 'src/base';
 import {Utils} from 'src/utils';
-import Config from 'src/cache/config.js';
-import Model from './model.js';
+// import Model from './model.js';
 import Dom from 'src/dom';
-import * as UF from 'src';
+import * as UF from 'src/lib.js';
 
-let {FilterProps} = BaseConf;
+import {getConfig} from './instance.js';
 
 export default {
     component: Object.assign(UF),
@@ -45,9 +44,9 @@ export default {
     // 获取完整的组件配置
     // 1、普通组件本身配置了默认属性，此处进行属性合并
     // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-    getConf(item) {
+    getConf(item, insName = item.insName) {
         let oType = item.type;
-        let conf = Config.get(`components.${oType}`);
+        let conf = getConfig(insName).get(`components.${oType}`);
         if (conf) {
             if (Utils.typeof(conf, 'function')) {
                 conf = conf();
@@ -67,7 +66,8 @@ export default {
     // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
     // 3、如果配置了具有特殊功能的属性
     isUfComponent(item) {
-        return item.name || Model.if(item) || Utils.isIntersection(FilterProps, Object.keys(item));
+        // return item.name || Model.if(item) || Utils.isIntersection(BaseConf.FilterProps, Object.keys(item));
+        return item.name || Utils.isIntersection(BaseConf.FilterProps, Object.keys(item));
     },
 
     // 打印错误信息

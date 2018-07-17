@@ -3,10 +3,17 @@
 
 ### Preloading.css
 `0.0.1`  
-提供多种页面加载前的loading效果，且效果可以组合使用。具体可以查看css文件的注释
+提供多种页面加载前的loading效果，且效果可以组合使用。
 ```
 http://uf.baidu.com/third_party/preloading.css
 ```
+
+例如： 
+```
+<div class="preloading goafter2"></div>
+```
+
+可选项：`overturn`、`scaleout`、`rotate`、`goafter`、`goafter2`、`cubemove`、`cubemove2`、`dot`、
 
 
 ### jQuery

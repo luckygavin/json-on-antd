@@ -15,6 +15,7 @@ export default class Dom extends BaseComponent {
         this._openApi.push('trigger');
         // 壳子调用antd组件，调用的组件的实例存储在_component中
         this._component = null;
+        this._filter.push('preventUpdate');
         this.__init();
     }
     shouldComponentUpdate(nextProps, nextState) {

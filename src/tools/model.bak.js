@@ -3,7 +3,6 @@
  * @author liuzechun
  */
 import {Utils} from 'src/utils';
-import {ModelCache, ComponentsCache} from 'src/cache';
 
 // 使用model表达式格式 ${xxx}
 const Expre = /\${(\S+?)}/g;

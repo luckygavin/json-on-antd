@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
-import Uf from 'src/tools';
+import Uf from 'src';
 
 const demo1 = {
     title: '基本用法',

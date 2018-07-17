@@ -499,7 +499,7 @@
 /* 108 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5"],"version":"0.2.5","fixedVersion":"0.2.5.1","stableVersion":"0.2.4","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.2.5","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 109 */
@@ -2393,7 +2393,7 @@
 /* 140 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.2.5\n\n`2018-07-11`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n#### # 新增功能\n\n`2018-07-12`\n\n* 🌟 `SiderTrigger`组件增加`reverse`属性\n\n\n\n### 0.2.5\n\n`2018-07-11`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 141 */
@@ -2471,7 +2471,7 @@
 /* 145 */
 /***/ (function(module, exports) {
 
-	module.exports = "协助进行页面级整体布局。\n\n## 设计规则\n\n### 尺寸\n\n一级导航项偏左靠近 logo 放置，辅助菜单偏右放置。\n\n- 顶部导航（大部分系统）：一级导航高度 `64px`，二级导航 `48px`。\n- 顶部导航（展示类页面）：一级导航高度 `80px`，二级导航 `56px`。\n- 顶部导航高度的范围计算公式为：`48+8n`。\n- 侧边导航宽度的范围计算公式：`200+8n`。\n\n### 交互\n\n- 一级导航和末级的导航需要在可视化的层面被强调出来；\n- 当前项应该在呈现上优先级最高；\n- 当导航收起的时候，当前项的样式自动赋予给它的上一个层级；\n- 左侧导航栏的收放交互同时支持手风琴和全展开的样式，根据业务的要求进行适当的选择。\n\n### 视觉\n\n导航样式上需要根据信息层级合理的选择样式：\n\n- **大色块强调**\n\n  建议用于底色为深色系时，当前页面父级的导航项。\n\n- **高亮火柴棍**\n\n  当导航栏底色为浅色系时使用，可用于当前页面对应导航项，建议尽量在导航路径的最终项使用。\n\n- **字体高亮变色**\n\n  从可视化层面，字体高亮的视觉强化力度低于大色块，通常在当前项的上一级使用。\n\n- **字体放大**\n\n  `12px`、`14px` 是导航的标准字号，14 号字体用在一、二级导航中。字号可以考虑导航项的等级做相应选择。\n\n## 组件概述\n\n- `Layout`：布局容器，其下可嵌套 `Header` `Sider` `Content` `Footer` 或 `Layout` 本身，可以放在任何父容器中。\n- `Header`：顶部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Sider`：侧边栏，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Content`：内容部分，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Footer`：底部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n\n> 注意：采用 flex 布局实现，请注意[浏览器兼容性](http://caniuse.com/#search=flex)问题。\n\n## 组件&配置\n\n### # layout\n\n布局容器。\n\n| 参数      | 说明                                      | 类型         | 默认值 |\n|----------|------------------------------------------|-------------|-------|\n| style | 指定样式 | object | - |\n| className | 容器 className | string | - |\n\n> `Header` `Footer` `Content` API 与 `Layout` 相同\n\n### # sider\n\n侧边栏。\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|----------|-----------------------------------------|------------|-------|\n| collapsible | 是否可收起 | boolean | false  |\n| defaultCollapsed | 是否默认收起 | boolean | false  |\n| reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false  |\n| collapsed | 当前收起状态 | boolean |  |\n| onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |\n| trigger | 自定义 trigger。设置为 null 时隐藏 trigger（隐藏trigger后可以在其他任何地方使用`sider-trigger`组件关联当前的sider） | string&#124;`config` |  |\n| triggerPosition | 自定义 trigger 的位置，可选值`top`、`bottom` | string | `bottom` |\n| width | 宽度 | number&#124;string | 200 |\n| collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 64 |\n| breakpoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |\n| style | 指定样式 | object | - |\n| className | 容器 className | string | - |\n\n#### 函数调用\n\n> 组件自身带有的函数，调用方法如：`UF('my-sider').toggleCollapsed()`\n\n函数名称   | 说明             | 参数   \n----------|--------------------|----------\ntoggleCollapsed | 切换收起/展开状态 | 无 \n\n### # sider-trigger\n\n从`sider`中独立出来的`trigger`，可以放在任何地方，通过`target`属性和`sider`组件关联\n\n参数      | 说明                                     | 类型       | 默认值\n----------|-----------------------------------------|------------|-------\ntarget | 关联`sider`组件的名称 | boolean | false\n\n\n### # header、content、footer\n\n这三个组件没有特殊功能，参数见 `# layout`\n"
+	module.exports = "协助进行页面级整体布局。\n\n## 设计规则\n\n### 尺寸\n\n一级导航项偏左靠近 logo 放置，辅助菜单偏右放置。\n\n- 顶部导航（大部分系统）：一级导航高度 `64px`，二级导航 `48px`。\n- 顶部导航（展示类页面）：一级导航高度 `80px`，二级导航 `56px`。\n- 顶部导航高度的范围计算公式为：`48+8n`。\n- 侧边导航宽度的范围计算公式：`200+8n`。\n\n### 交互\n\n- 一级导航和末级的导航需要在可视化的层面被强调出来；\n- 当前项应该在呈现上优先级最高；\n- 当导航收起的时候，当前项的样式自动赋予给它的上一个层级；\n- 左侧导航栏的收放交互同时支持手风琴和全展开的样式，根据业务的要求进行适当的选择。\n\n### 视觉\n\n导航样式上需要根据信息层级合理的选择样式：\n\n- **大色块强调**\n\n  建议用于底色为深色系时，当前页面父级的导航项。\n\n- **高亮火柴棍**\n\n  当导航栏底色为浅色系时使用，可用于当前页面对应导航项，建议尽量在导航路径的最终项使用。\n\n- **字体高亮变色**\n\n  从可视化层面，字体高亮的视觉强化力度低于大色块，通常在当前项的上一级使用。\n\n- **字体放大**\n\n  `12px`、`14px` 是导航的标准字号，14 号字体用在一、二级导航中。字号可以考虑导航项的等级做相应选择。\n\n## 组件概述\n\n- `Layout`：布局容器，其下可嵌套 `Header` `Sider` `Content` `Footer` 或 `Layout` 本身，可以放在任何父容器中。\n- `Header`：顶部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Sider`：侧边栏，自带默认样式及基本功能，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Content`：内容部分，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n- `Footer`：底部布局，自带默认样式，其下可嵌套任何元素，只能放在 `Layout` 中。\n\n> 注意：采用 flex 布局实现，请注意[浏览器兼容性](http://caniuse.com/#search=flex)问题。\n\n## 组件&配置\n\n### # layout\n\n布局容器。\n\n| 参数      | 说明                                      | 类型         | 默认值 |\n|----------|------------------------------------------|-------------|-------|\n| style | 指定样式 | object | - |\n| className | 容器 className | string | - |\n\n> `Header` `Footer` `Content` API 与 `Layout` 相同\n\n### # sider\n\n侧边栏。\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|----------|-----------------------------------------|------------|-------|\n| collapsible | 是否可收起 | boolean | false  |\n| defaultCollapsed | 是否默认收起 | boolean | false  |\n| reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false  |\n| collapsed | 当前收起状态 | boolean |  |\n| onCollapse | 展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发 | (collapsed, type) => {} | - |\n| trigger | 自定义 trigger。设置为 null 时隐藏 trigger（隐藏trigger后可以在其他任何地方使用`sider-trigger`组件关联当前的sider） | string&#124;`config` |  |\n| triggerPosition | 自定义 trigger 的位置，可选值`top`、`bottom` | string | `bottom` |\n| width | 宽度 | number&#124;string | 200 |\n| collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 64 |\n| breakpoint | 触发响应式布局的断点 | Enum { 'xs', 'sm', 'md', 'lg', 'xl' } | - |\n| style | 指定样式 | object | - |\n| className | 容器 className | string | - |\n\n#### 函数调用\n\n> 组件自身带有的函数，调用方法如：`UF('my-sider').toggleCollapsed()`\n\n函数名称   | 说明             | 参数   \n----------|--------------------|----------\ntoggleCollapsed | 切换收起/展开状态 | 无 \n\n### # sider-trigger\n\n从`sider`中独立出来的`trigger`，可以放在任何地方，通过`target`属性和`sider`组件关联\n\n参数      | 说明                                     | 类型       | 默认值\n----------|-----------------------------------------|------------|-------\ntarget | 关联`sider`组件的名称 | boolean | false\nreverse | 反转方向 | boolean | false\n\n\n### # header、content、footer\n\n这三个组件没有特殊功能，参数见 `# layout`\n"
 
 /***/ }),
 /* 146 */
@@ -3001,7 +3001,7 @@
 	        if (_utils.Utils.typeof(selector, 'string')) {
 	            var result = document.querySelector(selector);
 	            if (!result) {
-	                console.error('Error: The specified element is not found.');
+	                console.error('Error: The specified element `' + selector + '` is not found.');
 	            }
 	            return result;
 	            // 如果传入的是dom元素，直接返回
@@ -3122,6 +3122,7 @@
 	                _precondition2.default.handle(obj.precondition, this);
 	            }
 	        }
+	        return window._ufRegion[config.appName];
 	    }
 	};
 
@@ -4116,9 +4117,15 @@
 	    },
 
 	    // 字符串哈希
-	    hash: function hash(text, len) {
+	    //  当传入第3个属性时，说明对象不是简单对象，走自定义处理逻辑，过滤掉非p
+	    hash: function hash(text, len, level) {
 	        var hash = 5381;
-	        text = JSON.stringify(text) + '';
+	        if (level) {
+	            text = this.stringify(text, level);
+	        } else {
+	            text = JSON.stringify(text);
+	        }
+	        text += '';
 	        var i = text.length - 1;
 	        for (; i > -1; i--) {
 	            hash += (hash << 5) + text.charCodeAt(i);
@@ -4138,6 +4145,31 @@
 	            }
 	        }
 	        return retValue;
+	    },
+
+	    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
+	    stringify: function stringify(data) {
+	        var _this = this;
+
+	        var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+
+	        if (level <= 0) {
+	            return '_$leaf';
+	        }
+	        if (this.typeof(data, ['object', 'array', 'symbol'])) {
+	            if (this.directInstanceof(data, [Object, Array])) {
+	                data = this.each(data, function (v) {
+	                    return _this.stringify(v, level - 1);
+	                });
+	                data = JSON.stringify(data);
+	            } else {
+	                // Symbol(react.element)
+	                data = '_$Symbol';
+	            }
+	        } else if (this.typeof(data, 'function')) {
+	            data = '_$function';
+	        }
+	        return '' + data;
 	    },
 
 	    // 数据格式转换
@@ -4255,7 +4287,7 @@
 	            target = ghost;
 	        }
 	        if (level <= 0) {
-	            return utils.copy(objs[0]);
+	            return this.copy(objs[0]);
 	        }
 	        var result = target;
 	        var _iteratorNormalCompletion = true;
@@ -4437,7 +4469,18 @@
 
 	    // each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
 	    // callback 为回调函数，支持三个参数：依次是 item, index, obj
+	    // 注意：返回结果随着传入的参数变化，如果传入的是数组，则返回数组；如果传入的是对象，则返回对象
 	    each: function each(obj, callback) {
+	        var result = this.typeof(obj, 'array') ? [] : {};
+	        for (var i in obj) {
+	            result[i] = callback(obj[i], i, obj);
+	        }
+	        return result;
+	    },
+
+	    // map 遍历对象属性，类似于上面的each
+	    // 不同点在于：永远返回数组，对象也会遍历成数组
+	    map: function map(obj, callback) {
 	        var result = [];
 	        for (var i in obj) {
 	            result.push(callback(obj[i], i, obj));
@@ -4749,7 +4792,7 @@
 	    /************************************************************************/
 	    // 私有方法
 	    syntaxHighlight: function syntaxHighlight(json) {
-	        var _this = this;
+	        var _this2 = this;
 
 	        if (typeof json !== 'string') {
 	            json = JSON.stringify(json, undefined, 2);
@@ -4765,7 +4808,7 @@
 	                    try {
 	                        var type = JSON.parse(match);
 	                        if (_typeof2(JSON.parse(type)) === 'object') {
-	                            return _this.syntaxHighlight(JSON.parse(type));
+	                            return _this2.syntaxHighlight(JSON.parse(type));
 	                        } else {
 	                            cls = 'string';
 	                        }
@@ -6691,6 +6734,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
+	    appName: '_$default',
 	    // 模块引入相关配置
 	    modules: {
 	        // 加载模块时是否展示loading
@@ -9727,18 +9771,20 @@
 	    _createClass(Tabs, [{
 	        key: '_afterInit',
 	        value: function _afterInit() {
+	            var _this11 = this;
+
 	            _get(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), '_afterInit', this).call(this);
 	            // 每次点击tab页切换时，展示内容强制刷新
 	            if (this.__filtered.forceRefresh) {
 	                this.__props.animated = this.__props.animated || false;
 	                this._inject(this.__props, 'onTabClick', function (activeKey) {
 	                    // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
-	                    if (this.tabRefs[activeKey]) {
-	                        this.tabRefs[activeKey].refresh();
+	                    if (_this11.tabRefs[activeKey]) {
+	                        _this11.tabRefs[activeKey].refresh();
 	                    } else {
 	                        // 全部Tab都会解析一遍
-	                        this.set({
-	                            content: this.__filtered._children
+	                        _this11.set({
+	                            content: _this11.__filtered._children
 	                        });
 	                    }
 	                });
@@ -9747,14 +9793,14 @@
 	    }, {
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            // 如果是使用items属性配置子tab，则做额外处理
 	            if (this.__props.items) {
 	                this.__props.children = this.__analysis(this.__props.items.map(function (v) {
 	                    v.type = 'tab-pane';
 	                    v.wrappedComponentRef = function (inst) {
-	                        return _this11.tabRefs[v.key] = inst;
+	                        return _this12.tabRefs[v.key] = inst;
 	                    };
 	                    return v;
 	                }));
@@ -9779,10 +9825,10 @@
 	    function TabPane(props) {
 	        _classCallCheck(this, TabPane);
 
-	        var _this12 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(TabPane, [{
@@ -9808,10 +9854,10 @@
 	    function Tag(props) {
 	        _classCallCheck(this, Tag);
 
-	        var _this13 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(Tag, [{
@@ -9830,10 +9876,10 @@
 	    function CheckableTag(props) {
 	        _classCallCheck(this, CheckableTag);
 
-	        var _this14 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this15.__init();
+	        return _this15;
 	    }
 
 	    _createClass(CheckableTag, [{
@@ -9854,10 +9900,10 @@
 	    function Timeline(props) {
 	        _classCallCheck(this, Timeline);
 
-	        var _this15 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
+	        var _this16 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this16.__init();
+	        return _this16;
 	    }
 
 	    _createClass(Timeline, [{
@@ -9876,10 +9922,10 @@
 	    function TimelineItem(props) {
 	        _classCallCheck(this, TimelineItem);
 
-	        var _this16 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(TimelineItem, [{
@@ -11216,6 +11262,8 @@
 	    }, {
 	        key: 'setRoute',
 	        value: function setRoute(item) {
+	            // @bugfix at 2018-07-12, 不能改变原配置。修复再次渲染router时报错问题
+	            item = _utils.Utils.copy(item);
 	            if (item.component) {
 	                // 组件实例放在新属性content里
 	                item.__component = item.component;
@@ -11887,7 +11935,7 @@
 	        value: function render() {
 	            var style = Object.assign({ cursor: 'pointer' }, this.__props.style);
 	            return _react2.default.createElement(Antd.Icon, _extends({}, this.__props, {
-	                type: this.target && this.target.get('collapsed') ? 'menu-unfold' : 'menu-fold',
+	                type: this.target && this.target.get('collapsed') ? !this.__props.reverse ? 'menu-unfold' : 'menu-fold' : this.__props.reverse ? 'menu-unfold' : 'menu-fold',
 	                onClick: this.target && this.onClick.bind(this) }));
 	        }
 	    }]);
@@ -15511,7 +15559,7 @@
 	                return;
 	            }
 	            // 在原有参数基础上，追加一个search参数
-	            var oParams = this.parent.__filtered.source.params;
+	            var oParams = this.parent.__filtered.source.params || {};
 	            oParams.search = value;
 	            this.parent.set({ params: oParams });
 	        }
@@ -16143,7 +16191,7 @@
 
 /***/ }),
 /* 234 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -16155,14 +16203,14 @@
 
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Table扩展 - 搜索/过滤相关逻辑实现
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
+
+	var _utils = __webpack_require__(187);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	/**
-	 * @file Table扩展 - 搜索/过滤相关逻辑实现
-	 * @author liuzechun@baidu.com
-	 * */
 
 	var Filter = function () {
 	    function Filter(parent) {
@@ -16274,9 +16322,9 @@
 	                                continue;
 	                            }
 	                            var value = oRow[i];
-	                            if (Utils.typeof(value, 'string')) {
+	                            if (_utils.Utils.typeof(value, 'string')) {
 	                                data.push(this.handleString(value));
-	                            } else if (Utils.typeof(value, 'object')) {
+	                            } else if (_utils.Utils.typeof(value, 'object')) {
 	                                data.push(this.parent._getKeyDataOfObject(value));
 	                            } else if (value) {
 	                                data.push(value.toString ? value.toString() : value);
@@ -17786,7 +17834,7 @@
 	            var check = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 	            // 获取每个Form的值
-	            return _utils.Utils.each(this.formRef, function (item) {
+	            return _utils.Utils.map(this.formRef, function (item) {
 	                return item.getValues(check);
 	            });
 	        }
@@ -18699,7 +18747,9 @@
 	exports.default = {
 	    get: function get(item) {
 	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        item.key = item.key || item.name || _utils.Utils.uniqueId();
+	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	        // TODO: 性能待观察，不能小于3
+	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
 
 	        var Item = _loader2.default.get(item);
 	        var props = _utils.Utils.filter(item, KeyWord);
@@ -19008,6 +19058,7 @@
 	        _this._openApi.push('trigger');
 	        // 壳子调用antd组件，调用的组件的实例存储在_component中
 	        _this._component = null;
+	        _this._filter.push('preventUpdate');
 	        _this.__init();
 	        return _this;
 	    }
@@ -21140,7 +21191,8 @@
 
 	                    //Join the path parts together, then figure out if baseUrl is needed.
 	                    url = syms.join('/');
-	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt ? '' : '.js');
+	                    //支持用户自己写.js文件后缀，如：require('path/to/app.js');
+	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
 	                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
 	                }
 
@@ -24445,7 +24497,7 @@
 /* 285 */
 /***/ (function(module, exports) {
 
-	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框，只有关闭按钮，本身没有其他交互 (当action不与任何类型匹配时，默认是show)  \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * search: 高级查询弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n> * batchShow: 批量展示Table中选中的数据\n\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\ntitle      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |\napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,hanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | \nform   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nparams | form会填充params中的值为默认值。会覆盖api中的params | object | |\nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \nforbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |\nremove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |\n\n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n\n>"
+	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框，只有关闭按钮，本身没有其他交互 (当action不与任何类型匹配时，默认是show)  \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * search: 高级查询弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n> * batchShow: 批量展示Table中选中的数据\n\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\ntitle      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |\napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,hanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | \nform   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nparams | form会填充params中的值为默认值。会覆盖api中的params | object | |\nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \nforbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |\nremove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |\nautoReload | 点击提交时自动刷新表格 | boolean | true |\n\n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n\n>"
 
 /***/ }),
 /* 286 */

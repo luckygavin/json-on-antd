@@ -117,7 +117,7 @@ export default class NewTable extends BaseComponent {
         }
         let defaultCif = {
             size: 'default',
-            rowKey: 'id',
+            rowKey: this.rowKey,
             rowClassName: () => {},
             expandedRowRender: null,
             defaultExpandedRowKeys: [],
@@ -793,7 +793,7 @@ export default class NewTable extends BaseComponent {
         return <div className={className} style={this.__props.style}>
             <Table {...this.state.antdConfig} size={size}
                 title={this.title && (()=>(
-                    <Title parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
+                    <Title _factory={this._factory} parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
                 ))}
                 onExpandedRowsChange = {this.onExpandedRowsChange.bind(this)}
                 {...(expandedRowRender
@@ -811,9 +811,9 @@ export default class NewTable extends BaseComponent {
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {/* 导出功能 */}
-            <Export ref={ele=>(this.exportRef = ele)} {...this._getExportConfig()} />
+            <Export _factory={this._factory} ref={ele=>(this.exportRef = ele)} {...this._getExportConfig()} />
             {/* 增删改查 */}
-            {this.__props.crud && (<Crud parent={this} ref={ele=>(this.crud = ele)}
+            {this.__props.crud && (<Crud _factory={this._factory} parent={this} ref={ele=>(this.crud = ele)}
                 config={this.__props.crud}/>
             )}
         </div>;

@@ -4,7 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseComponent from './BaseComponent.js';
-import {ComponentsCache} from 'src/cache';
 import {Utils} from 'src/utils';
 
 export default class ExtendComponent extends BaseComponent {
@@ -29,13 +28,13 @@ export default class ExtendComponent extends BaseComponent {
     // 共享组件
     _transmitComponent() {
         if (!!this.name) {
-            ComponentsCache.set(this.name, this.component);
+            this._factory.$components.set(this.name, this.component);
         }
     }
     // 解除共享
     _unsetTransmitComponent() {
         if (!!this.name) {
-            ComponentsCache.del(this.name);
+            this._factory.$components.del(this.name);
         }
     }
 }

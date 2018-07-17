@@ -183,7 +183,7 @@
 /* 104 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5"],"version":"0.2.5","fixedVersion":"0.2.5.0","stableVersion":"0.2.4","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.2.5","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 105 */
@@ -298,7 +298,7 @@
 	        if (_utils.Utils.typeof(selector, 'string')) {
 	            var result = document.querySelector(selector);
 	            if (!result) {
-	                console.error('Error: The specified element is not found.');
+	                console.error('Error: The specified element `' + selector + '` is not found.');
 	            }
 	            return result;
 	            // 如果传入的是dom元素，直接返回
@@ -419,6 +419,7 @@
 	                _precondition2.default.handle(obj.precondition, this);
 	            }
 	        }
+	        return window._ufRegion[config.appName];
 	    }
 	};
 
@@ -1434,9 +1435,15 @@
 	    },
 
 	    // 字符串哈希
-	    hash: function hash(text, len) {
+	    //  当传入第3个属性时，说明对象不是简单对象，走自定义处理逻辑，过滤掉非p
+	    hash: function hash(text, len, level) {
 	        var hash = 5381;
-	        text = JSON.stringify(text) + '';
+	        if (level) {
+	            text = this.stringify(text, level);
+	        } else {
+	            text = JSON.stringify(text);
+	        }
+	        text += '';
 	        var i = text.length - 1;
 	        for (; i > -1; i--) {
 	            hash += (hash << 5) + text.charCodeAt(i);
@@ -1456,6 +1463,31 @@
 	            }
 	        }
 	        return retValue;
+	    },
+
+	    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
+	    stringify: function stringify(data) {
+	        var _this = this;
+
+	        var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
+
+	        if (level <= 0) {
+	            return '_$leaf';
+	        }
+	        if (this.typeof(data, ['object', 'array', 'symbol'])) {
+	            if (this.directInstanceof(data, [Object, Array])) {
+	                data = this.each(data, function (v) {
+	                    return _this.stringify(v, level - 1);
+	                });
+	                data = JSON.stringify(data);
+	            } else {
+	                // Symbol(react.element)
+	                data = '_$Symbol';
+	            }
+	        } else if (this.typeof(data, 'function')) {
+	            data = '_$function';
+	        }
+	        return '' + data;
 	    },
 
 	    // 数据格式转换
@@ -1573,7 +1605,7 @@
 	            target = ghost;
 	        }
 	        if (level <= 0) {
-	            return utils.copy(objs[0]);
+	            return this.copy(objs[0]);
 	        }
 	        var result = target;
 	        var _iteratorNormalCompletion = true;
@@ -1755,7 +1787,18 @@
 
 	    // each 遍历对象属性，类似于jQuery的each函数，方便react的render函数中遍历对象
 	    // callback 为回调函数，支持三个参数：依次是 item, index, obj
+	    // 注意：返回结果随着传入的参数变化，如果传入的是数组，则返回数组；如果传入的是对象，则返回对象
 	    each: function each(obj, callback) {
+	        var result = this.typeof(obj, 'array') ? [] : {};
+	        for (var i in obj) {
+	            result[i] = callback(obj[i], i, obj);
+	        }
+	        return result;
+	    },
+
+	    // map 遍历对象属性，类似于上面的each
+	    // 不同点在于：永远返回数组，对象也会遍历成数组
+	    map: function map(obj, callback) {
 	        var result = [];
 	        for (var i in obj) {
 	            result.push(callback(obj[i], i, obj));
@@ -2067,7 +2110,7 @@
 	    /************************************************************************/
 	    // 私有方法
 	    syntaxHighlight: function syntaxHighlight(json) {
-	        var _this = this;
+	        var _this2 = this;
 
 	        if (typeof json !== 'string') {
 	            json = JSON.stringify(json, undefined, 2);
@@ -2083,7 +2126,7 @@
 	                    try {
 	                        var type = JSON.parse(match);
 	                        if (_typeof2(JSON.parse(type)) === 'object') {
-	                            return _this.syntaxHighlight(JSON.parse(type));
+	                            return _this2.syntaxHighlight(JSON.parse(type));
 	                        } else {
 	                            cls = 'string';
 	                        }
@@ -4015,6 +4058,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	exports.default = {
+	    appName: '_$default',
 	    // 模块引入相关配置
 	    modules: {
 	        // 加载模块时是否展示loading
@@ -7051,18 +7095,20 @@
 	    _createClass(Tabs, [{
 	        key: '_afterInit',
 	        value: function _afterInit() {
+	            var _this11 = this;
+
 	            _get(Tabs.prototype.__proto__ || Object.getPrototypeOf(Tabs.prototype), '_afterInit', this).call(this);
 	            // 每次点击tab页切换时，展示内容强制刷新
 	            if (this.__filtered.forceRefresh) {
 	                this.__props.animated = this.__props.animated || false;
 	                this._inject(this.__props, 'onTabClick', function (activeKey) {
 	                    // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
-	                    if (this.tabRefs[activeKey]) {
-	                        this.tabRefs[activeKey].refresh();
+	                    if (_this11.tabRefs[activeKey]) {
+	                        _this11.tabRefs[activeKey].refresh();
 	                    } else {
 	                        // 全部Tab都会解析一遍
-	                        this.set({
-	                            content: this.__filtered._children
+	                        _this11.set({
+	                            content: _this11.__filtered._children
 	                        });
 	                    }
 	                });
@@ -7071,14 +7117,14 @@
 	    }, {
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            // 如果是使用items属性配置子tab，则做额外处理
 	            if (this.__props.items) {
 	                this.__props.children = this.__analysis(this.__props.items.map(function (v) {
 	                    v.type = 'tab-pane';
 	                    v.wrappedComponentRef = function (inst) {
-	                        return _this11.tabRefs[v.key] = inst;
+	                        return _this12.tabRefs[v.key] = inst;
 	                    };
 	                    return v;
 	                }));
@@ -7103,10 +7149,10 @@
 	    function TabPane(props) {
 	        _classCallCheck(this, TabPane);
 
-	        var _this12 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (TabPane.__proto__ || Object.getPrototypeOf(TabPane)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(TabPane, [{
@@ -7132,10 +7178,10 @@
 	    function Tag(props) {
 	        _classCallCheck(this, Tag);
 
-	        var _this13 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (Tag.__proto__ || Object.getPrototypeOf(Tag)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(Tag, [{
@@ -7154,10 +7200,10 @@
 	    function CheckableTag(props) {
 	        _classCallCheck(this, CheckableTag);
 
-	        var _this14 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (CheckableTag.__proto__ || Object.getPrototypeOf(CheckableTag)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this15.__init();
+	        return _this15;
 	    }
 
 	    _createClass(CheckableTag, [{
@@ -7178,10 +7224,10 @@
 	    function Timeline(props) {
 	        _classCallCheck(this, Timeline);
 
-	        var _this15 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
+	        var _this16 = _possibleConstructorReturn(this, (Timeline.__proto__ || Object.getPrototypeOf(Timeline)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this16.__init();
+	        return _this16;
 	    }
 
 	    _createClass(Timeline, [{
@@ -7200,10 +7246,10 @@
 	    function TimelineItem(props) {
 	        _classCallCheck(this, TimelineItem);
 
-	        var _this16 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (TimelineItem.__proto__ || Object.getPrototypeOf(TimelineItem)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(TimelineItem, [{
@@ -8546,6 +8592,8 @@
 	    }, {
 	        key: 'setRoute',
 	        value: function setRoute(item) {
+	            // @bugfix at 2018-07-12, 不能改变原配置。修复再次渲染router时报错问题
+	            item = _utils.Utils.copy(item);
 	            if (item.component) {
 	                // 组件实例放在新属性content里
 	                item.__component = item.component;
@@ -9217,7 +9265,7 @@
 	        value: function render() {
 	            var style = Object.assign({ cursor: 'pointer' }, this.__props.style);
 	            return _react2.default.createElement(Antd.Icon, _extends({}, this.__props, {
-	                type: this.target && this.target.get('collapsed') ? 'menu-unfold' : 'menu-fold',
+	                type: this.target && this.target.get('collapsed') ? !this.__props.reverse ? 'menu-unfold' : 'menu-fold' : this.__props.reverse ? 'menu-unfold' : 'menu-fold',
 	                onClick: this.target && this.onClick.bind(this) }));
 	        }
 	    }]);
@@ -12841,7 +12889,7 @@
 	                return;
 	            }
 	            // 在原有参数基础上，追加一个search参数
-	            var oParams = this.parent.__filtered.source.params;
+	            var oParams = this.parent.__filtered.source.params || {};
 	            oParams.search = value;
 	            this.parent.set({ params: oParams });
 	        }
@@ -13473,7 +13521,7 @@
 
 /***/ }),
 /* 164 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
@@ -13485,14 +13533,14 @@
 
 	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Table扩展 - 搜索/过滤相关逻辑实现
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
+
+	var _utils = __webpack_require__(115);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	/**
-	 * @file Table扩展 - 搜索/过滤相关逻辑实现
-	 * @author liuzechun@baidu.com
-	 * */
 
 	var Filter = function () {
 	    function Filter(parent) {
@@ -13604,9 +13652,9 @@
 	                                continue;
 	                            }
 	                            var value = oRow[i];
-	                            if (Utils.typeof(value, 'string')) {
+	                            if (_utils.Utils.typeof(value, 'string')) {
 	                                data.push(this.handleString(value));
-	                            } else if (Utils.typeof(value, 'object')) {
+	                            } else if (_utils.Utils.typeof(value, 'object')) {
 	                                data.push(this.parent._getKeyDataOfObject(value));
 	                            } else if (value) {
 	                                data.push(value.toString ? value.toString() : value);
@@ -15116,7 +15164,7 @@
 	            var check = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
 
 	            // 获取每个Form的值
-	            return _utils.Utils.each(this.formRef, function (item) {
+	            return _utils.Utils.map(this.formRef, function (item) {
 	                return item.getValues(check);
 	            });
 	        }
@@ -16029,7 +16077,9 @@
 	exports.default = {
 	    get: function get(item) {
 	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        item.key = item.key || item.name || _utils.Utils.uniqueId();
+	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	        // TODO: 性能待观察，不能小于3
+	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
 
 	        var Item = _loader2.default.get(item);
 	        var props = _utils.Utils.filter(item, KeyWord);
@@ -16338,6 +16388,7 @@
 	        _this._openApi.push('trigger');
 	        // 壳子调用antd组件，调用的组件的实例存储在_component中
 	        _this._component = null;
+	        _this._filter.push('preventUpdate');
 	        _this.__init();
 	        return _this;
 	    }
@@ -18470,7 +18521,8 @@
 
 	                    //Join the path parts together, then figure out if baseUrl is needed.
 	                    url = syms.join('/');
-	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt ? '' : '.js');
+	                    //支持用户自己写.js文件后缀，如：require('path/to/app.js');
+	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
 	                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
 	                }
 

@@ -9,5 +9,5 @@ const {version} = require('./package.json');
 
 module.exports = {
     VERSION: version,
-    ...require('./src/tools/index.js')
+    ...require('./src/index.js')
 };

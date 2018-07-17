@@ -5,8 +5,7 @@
  */
 
 import BaseCache from './base/BaseCache.js';
-
-// export default (new BaseCache());
+import {generate} from 'src/tools/instance.js';
 
 class Component extends BaseCache {
     set(target, component, isCheck = true) {
@@ -25,4 +24,10 @@ class Component extends BaseCache {
     }
 }
 
-export default (new Component());
+// export default (new Component());
+
+// export default generate(new Component());
+
+export default generate(()=>(
+    new Component()
+));

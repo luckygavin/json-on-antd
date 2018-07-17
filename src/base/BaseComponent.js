@@ -4,12 +4,10 @@
  */
 import React, {Component, PureComponent} from 'react';
 import {message, Spin} from 'antd';
-import {Utils, Ajax} from 'src/utils';
-import Model from 'src/tools/model.js';
+import {Utils} from 'src/utils';
+// import Model from 'src/tools/model.js';
 import Authority from 'src/tools/authority.js';
 import WhiteList from 'src/tools/whitelist.js';
-
-import {Config, ComponentsCache, Models} from 'src/cache';
 
 // React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
 // 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
@@ -68,6 +66,7 @@ export default class BaseComponent extends Component {
         this.unmounted = false;
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
+        this._insName = this._factory.insName;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -95,9 +94,9 @@ export default class BaseComponent extends Component {
     }
 
     _getDefautlProps() {
-        let conf = Config.get(`components.${this.type}`) || {};
+        let conf = this._factory.$config.get(`components.${this.type}`) || {};
         // 取中间各基类的默认配置，并合并全部配置
-        let confArr = this.class.map(v=>(Config.get(`components.${v}`) || {}));
+        let confArr = this.class.map(v=>(this._factory.$config.get(`components.${v}`) || {}));
         conf = this.__mergeProps(...confArr, conf);
         return conf;
     }
@@ -283,7 +282,7 @@ export default class BaseComponent extends Component {
         this._initProps();
 
         // 处理数据绑定页面
-        this._handleModel();
+        // this._handleModel();
         // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
         this._loadUserFunction();
         // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
@@ -372,7 +371,7 @@ export default class BaseComponent extends Component {
                 return false;
             }
         });
-        return Ajax(config);
+        return this._factory.$ajax(config);
     }
 
     // 解析某个属性的配置。方便开发组件时定义一些可以为配置的属性
@@ -382,12 +381,12 @@ export default class BaseComponent extends Component {
 
     // 判断是否为权限点 && 是否有权限
     __authority(item) {
-        return Authority.check(item);
+        return Authority.check(item, this._insName);
     }
 
     // 获取缓存中的组件
     __getComponent(name) {
-        return ComponentsCache.get(name);
+        return this._factory.$components.get(name);
     }
 
     // 兼容自定义额外操作返回结果有可能为 Promise 的情况。
@@ -533,33 +532,27 @@ export default class BaseComponent extends Component {
         if (!!this.props.route && this.props.route.__cache) {
             key = this.props.route.__cache;
         }
-        // 如果没有key，则根据是否关联model数据判断
-        if (!key) {
-            if (Model.if(this.props)) {
-                key = this.props.__key;
-            }
-        }
         return key;
     }
 
     // 共享组件
     _transmitComponent(isCheck) {
         if (!!this.cacheName) {
-            ComponentsCache.set(this.cacheName, this, isCheck);
+            this._factory.$components.set(this.cacheName, this, isCheck);
         }
     }
 
     // 解除共享
     _unsetTransmitComponent() {
         if (!!this.cacheName) {
-            ComponentsCache.del(this.cacheName);
+            this._factory.$components.del(this.cacheName);
         }
     }
 
     // 处理数据绑定页面。设置关联关系 && 替换模板
-    _handleModel() {
-        this.__props = Model.setCache(this.cacheName, this.__props);
-    }
+    // _handleModel() {
+    //     this.__props = Model.setCache(this.cacheName, this.__props);
+    // }
 
     // 开放给用户使用的 Api，需处理下
     _handleOpenApi() {

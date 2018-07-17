@@ -7,7 +7,6 @@
 import components from './components.js';
 
 export default {
-    insName: '_$default',
     // 模块引入相关配置
     modules: {
         // 加载模块时是否展示loading

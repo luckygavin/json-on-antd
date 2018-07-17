@@ -8,7 +8,6 @@ const cache = new BaseCache();
 // {
 //     [insName]: {_$uf, _$cache: {Config, ComponentCache, ModelCache}}
 // }
-window._cache = cache;
 
 const ins = {
     // 类似于依赖注入，depend声明依赖什么模块，func执行的时候把模块取出来传进去

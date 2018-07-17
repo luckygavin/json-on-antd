@@ -58,7 +58,7 @@ export class RouteHolder extends React.Component {
         return <Factory {...this.props}
             // config={this.getConfig()}
             config={this.props.route.__component}
-            insName={this.props.route._insName}
+            insName={this.props.route.insName}
         />;
     }
 }
@@ -135,7 +135,7 @@ export class Router extends BaseRouter {
         if (item.component) {
             // 组件实例放在新属性content里
             item.__component = item.component;
-            item._insName = this._insName;
+            item.insName = this.insName;
             // component属性为一个抽象类
             item.component = RouteHolder;
         }

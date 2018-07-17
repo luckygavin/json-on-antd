@@ -13,7 +13,7 @@ import WhiteList from 'src/tools/whitelist.js';
 import Precondition from 'src/tools/precondition.js';
 
 import Tools from 'src/tools/init.js';
-import {setInstance, getInstance, setAjax} from 'src/tools/instance.js';
+import {setInstance, getInstance, setAjax, getAll} from 'src/tools/instance.js';
 
 // 设置 moment 的 locale
 moment.locale('zh-cn');
@@ -170,6 +170,11 @@ const create = ({name})=>{
                     }, 0);
                 }
             }
+        },
+        // 获取全部实例，可以和其他实例做交互
+        getIns(name) {
+            const allIns = getAll();
+            return allIns;
         }
     };
     
@@ -195,6 +200,7 @@ const UF = (conf = {}) => {
     }
     // 默认使用default名称
     conf.name = conf.name || conf.appName || defaultName;
+    delete conf.appName;
     // 获取当前name的uf实例
     let ufIns = getInstance(conf.name);
     // 如果不存在生成一个新的实例

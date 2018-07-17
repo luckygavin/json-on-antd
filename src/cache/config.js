@@ -28,5 +28,5 @@ class Config extends BaseCache {
 // export default (new Config(Default));
 
 export default generate(()=>(
-    new Config(Default)
+    new Config(Utils.clone(Default))
 ));

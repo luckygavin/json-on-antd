@@ -11,6 +11,7 @@ import WhiteList from './whitelist.js';
 
 // 不属于config的参数，适配用户配置的参数时使用
 const KeyWord = ['name', 'type', 'content', 'childrenHolder'];
+const hashKeys = {};
 
 export default {
 

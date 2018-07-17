@@ -54,7 +54,7 @@
 
 	// UF 组件库构建入口
 	window['UF'] = __webpack_require__(103).default;
-	window['$uf'] = __webpack_require__(103).default;
+	// window['$uf'] = require('uf').default;
 
 /***/ }),
 /* 1 */,
@@ -183,7 +183,7 @@
 /* 104 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.2.5","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 105 */
@@ -194,7 +194,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.requirejs = exports.Authority = exports.Adaptor = exports.Model = exports.WhiteList = exports.Loader = exports.Factory = undefined;
+	exports.WhiteList = exports.Loader = exports.Factory = undefined;
 
 	var _react = __webpack_require__(106);
 
@@ -204,33 +204,23 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _src = __webpack_require__(108);
+	var _lib = __webpack_require__(108);
 
-	var _src2 = _interopRequireDefault(_src);
-
-	var _underscore = __webpack_require__(118);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
+	var _lib2 = _interopRequireDefault(_lib);
 
 	var _moment = __webpack_require__(119);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(178);
+	__webpack_require__(171);
 
 	var _utils = __webpack_require__(115);
 
-	var _cache = __webpack_require__(134);
+	var _cache = __webpack_require__(172);
 
-	var _adaptor = __webpack_require__(179);
+	var _cache2 = _interopRequireDefault(_cache);
 
-	var _adaptor2 = _interopRequireDefault(_adaptor);
-
-	var _authority = __webpack_require__(137);
-
-	var _authority2 = _interopRequireDefault(_authority);
-
-	var _factory = __webpack_require__(183);
+	var _factory = __webpack_require__(179);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
@@ -238,27 +228,25 @@
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(138);
+	var _whitelist = __webpack_require__(131);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _model = __webpack_require__(133);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _precondition = __webpack_require__(186);
+	var _precondition = __webpack_require__(185);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _requirejs = __webpack_require__(185);
+	var _init = __webpack_require__(186);
 
-	var _requirejs2 = _interopRequireDefault(_requirejs);
+	var _init2 = _interopRequireDefault(_init);
+
+	var _instance = __webpack_require__(124);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	// import Model from 'src/tools/model.js';
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	// 设置 moment 的 locale
 	_moment2.default.locale('zh-cn');
@@ -267,165 +255,220 @@
 	// 本地访问的时候，domain为''，不能给domain赋值''
 	!!document.domain && (document.domain = document.domain);
 
-	var func = {
-	    /*******************************************************/
-	    /******** 私有属性/方法 *********************************/
-	    /*****************************************************/
+	// 生成UF实例
+	var create = function create(_ref) {
+	    var name = _ref.name;
 
-	    // 是否阻塞
-	    waiting: false,
-	    waitingCache: {},
-	    // 异步逻辑执行完成后，重新执行init函数
-	    _reInit: function _reInit() {
-	        this.waiting = false;
-	        var config = this.waitingCache.config;
-	        var selector = this.waitingCache.selector;
-	        this.waitingCache = {};
-	        this.render(config, selector);
-	    },
-
-	    // 获取组件
-	    _get: function _get(name, key) {
-	        var cp = _cache.ComponentsCache.get(name);
-	        if (key && cp) {
-	            return cp.get(key);
-	        }
-	        return cp;
-	    },
-
-	    // 根据选择器获取目标元素
-	    _getTarget: function _getTarget(selector) {
-	        if (_utils.Utils.typeof(selector, 'string')) {
-	            var result = document.querySelector(selector);
-	            if (!result) {
-	                console.error('Error: The specified element `' + selector + '` is not found.');
-	            }
-	            return result;
-	            // 如果传入的是dom元素，直接返回
-	        } else if (selector instanceof Element) {
-	            return selector;
-	        } else {
-	            return null;
-	        }
-	    },
-
-	    // 向selector中插入新的组件
-	    _append: function _append(config, selector) {
-	        var destoryHandler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-
-	        var div = document.createElement('div');
-	        var target = document.body;
-	        if (selector) {
-	            target = this._getTarget(selector) || target;
-	        }
-	        target.appendChild(div);
-	        function destory() {
-	            var unmountResult = _reactDom2.default.unmountComponentAtNode(div);
-	            if (unmountResult && div.parentNode) {
-	                div.parentNode.removeChild(div);
-	            }
-	        }
-	        // 给config增加destory逻辑
-	        if (destoryHandler) {
-	            var origin = config[destoryHandler];
-	            config[destoryHandler] = !!origin ? function () {
-	                origin.apply(undefined, arguments);
-	                destory();
-	            } : destory;
-	        }
-	        this.render(config, div);
-	        return {
-	            element: div,
-	            destory: destory
-	        };
-	    },
+	    // 初始化缓存空间
+	    var _Cache$init = _cache2.default.init(name),
+	        Config = _Cache$init.Config,
+	        ModelCache = _Cache$init.ModelCache,
+	        ComponentsCache = _Cache$init.ComponentsCache;
+	    // 初始化其他工具实例，如ajax
 
 
-	    /*******************************************************/
-	    /******** 公共属性/方法 *********************************/
-	    /*****************************************************/
+	    var _Tools$init = _init2.default.init(name),
+	        Ajax = _Tools$init.Ajax,
+	        Requirejs = _Tools$init.Requirejs;
 
-	    // ajax请求。包含 ajax(), ajax.get(), ajax.post()
-	    ajax: _utils.Ajax,
-	    // 暴露全部工具类
-	    utils: _utils.Utils,
-	    // moment 暴露全部功能
-	    moment: _moment2.default,
-	    // underscore工具函数
-	    _: _underscore2.default,
-	    // model 数据绑定页面
-	    model: _model2.default,
-	    get: _model2.default.get,
-	    set: _model2.default.set,
-	    // 获取当前页面路由信息
-	    getRouter: _src2.default.Router.getRouter,
-	    // 根据组件配置 生成&渲染组件实例
-	    init: function init(config, selector) {
-	        if (!this.waiting) {
+	    // UF实例上的工具函数
+
+
+	    var func = {
+	        /*******************************************************/
+	        /******** 私有属性/方法 *********************************/
+	        /*****************************************************/
+	        insName: name,
+	        // 是否阻塞
+	        waiting: false,
+	        waitingCache: {},
+	        // 异步逻辑执行完成后，重新执行init函数
+	        _reInit: function _reInit() {
+	            this.waiting = false;
+	            var config = this.waitingCache.config;
+	            var selector = this.waitingCache.selector;
+	            this.waitingCache = {};
 	            this.render(config, selector);
-	        } else {
-	            this.waitingCache = { config: config, selector: selector };
-	        }
-	    },
+	        },
 
-	    // 根据组件配置 生成&渲染组件实例
-	    render: function render(config, selector) {
-	        var result = _react2.default.createElement(_factory2.default, { config: config });
-	        // 如果没有指定目标容器的id，则直接返回生成的组件实例
-	        if (!selector || !this._getTarget(selector)) {
-	            return result;
-	        }
-	        return _reactDom2.default.render(_react2.default.createElement(_factory2.default, { config: config }), this._getTarget(selector));
-	    },
-
-	    // 向selector中插入新的组件
-	    append: function append(config, selector) {
-	        return this._append(config, selector);
-	    },
-
-	    // 载入自定义组件
-	    load: function load(components) {
-	        _loader2.default.add(components);
-	    },
-
-	    // 整体配置
-	    config: function config(obj) {
-	        var config = _cache.Config.set(_utils.Utils.filter(obj, 'data'));
-	        // 用户自定义 UF 别名
-	        if (config.alias) {
-	            window[config.alias] = window.UF;
-	        }
-	        // 如果设置了app名称，则传递给模块以给每个module加域
-	        if (config.appName) {
-	            // 产生一份新的uf置于域中
-	            window._ufRegion = Object.assign({}, window._ufRegion, _defineProperty({}, config.appName, window.UF));
-	            // 传递给模块以给每个module加域
-	            if (config.modules) {
-	                config.modules.ufRegion = config.appName;
+	        // 获取组件
+	        _get: function _get(name, key) {
+	            var cp = ComponentsCache.get(name);
+	            if (key && cp) {
+	                return cp.get(key);
 	            }
-	        }
-	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-	        _requirejs2.default.config(config.modules);
-	        // 设置默认域，解决跨域问题
-	        !!document.domain && (document.domain = config.global['domain']);
-	        // 设置默认公用数据，存入 model 中
-	        if (obj.data) {
-	            _cache.ModelCache.setData(null, obj.data);
-	        }
-	        // 执行阻塞页面加载的函数
-	        if (obj.precondition) {
-	            if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
-	                this.waiting = true;
-	                _precondition2.default.handle(obj.precondition, this);
+	            return cp;
+	        },
+
+	        // 根据选择器获取目标元素
+	        _getTarget: function _getTarget(selector) {
+	            if (_utils.Utils.typeof(selector, 'string')) {
+	                var result = document.querySelector(selector);
+	                if (!result) {
+	                    console.error('Error: The specified element `' + selector + '` is not found.');
+	                }
+	                return result;
+	                // 如果传入的是dom元素，直接返回
+	            } else if (selector instanceof Element) {
+	                return selector;
+	            } else {
+	                return null;
 	            }
+	        },
+
+	        // 向selector中插入新的组件
+	        _append: function _append(config, selector) {
+	            var destoryHandler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+	            var div = document.createElement('div');
+	            var target = document.body;
+	            if (selector) {
+	                target = this._getTarget(selector) || target;
+	            }
+	            target.appendChild(div);
+	            function destory() {
+	                var unmountResult = _reactDom2.default.unmountComponentAtNode(div);
+	                if (unmountResult && div.parentNode) {
+	                    div.parentNode.removeChild(div);
+	                }
+	            }
+	            // 给config增加destory逻辑
+	            if (destoryHandler) {
+	                var origin = config[destoryHandler];
+	                config[destoryHandler] = !!origin ? function () {
+	                    origin.apply(undefined, arguments);
+	                    destory();
+	                } : destory;
+	            }
+	            this.render(config, div);
+	            return {
+	                element: div,
+	                destory: destory
+	            };
+	        },
+
+
+	        /*******************************************************/
+	        /******** 公共属性/方法 *********************************/
+	        /*****************************************************/
+
+	        // ajax请求。包含 ajax(), ajax.get(), ajax.post()
+	        ajax: Ajax,
+	        // 暴露全部工具类
+	        utils: _utils.Utils,
+	        // moment 暴露全部功能
+	        moment: _moment2.default,
+	        // underscore工具函数
+	        _: _utils.Utils._,
+	        // model 数据绑定页面
+	        // model: Model,
+	        // 全局数据
+	        get: ModelCache.get.bind(ModelCache),
+	        set: ModelCache.set.bind(ModelCache),
+	        // 获取当前页面路由信息
+	        getRouter: _lib2.default.Router.getRouter,
+	        // 根据组件配置 生成&渲染组件实例
+	        init: function init(config, selector) {
+	            if (!this.waiting) {
+	                this.render(config, selector);
+	            } else {
+	                this.waitingCache = { config: config, selector: selector };
+	            }
+	        },
+
+	        // 根据组件配置 生成&渲染组件实例
+	        render: function render(config, selector) {
+	            var result = _react2.default.createElement(_factory2.default, { config: config, insName: this.insName });
+	            // 如果没有指定目标容器的id，则直接返回生成的组件实例
+	            if (!selector || !this._getTarget(selector)) {
+	                return result;
+	            }
+	            return _reactDom2.default.render(result, this._getTarget(selector));
+	        },
+
+	        // 向selector中插入新的组件
+	        append: function append(config, selector) {
+	            return this._append(config, selector);
+	        },
+
+	        // 载入自定义组件
+	        load: function load(components) {
+	            _loader2.default.add(components);
+	        },
+
+	        // 整体配置
+	        config: function config(obj) {
+	            var _this = this;
+
+	            var config = Config.set(_utils.Utils.filter(obj, 'data'));
+	            // 用户自定义 UF 别名
+	            if (config.alias) {
+	                window[config.alias] = window.UF;
+	            }
+	            // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
+	            Requirejs.config(config.modules);
+	            // 设置默认域，解决跨域问题
+	            !!document.domain && (document.domain = config.global['domain']);
+	            // 设置默认公用数据，存入 model 中
+	            if (obj.data) {
+	                ModelCache.set(obj.data);
+	            }
+	            // 执行阻塞页面加载的函数
+	            if (obj.precondition) {
+	                if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
+	                    this.waiting = true;
+	                    // 置为异步，保证实例能成功返回后再调用预处理函数
+	                    setTimeout(function () {
+	                        _precondition2.default.handle(obj.precondition, _this);
+	                    }, 0);
+	                }
+	            }
+	        },
+
+	        // 获取全部实例，可以和其他实例做交互
+	        getIns: function getIns(name) {
+	            var allIns = (0, _instance.getAll)();
+	            return allIns;
 	        }
-	        return window._ufRegion[config.appName];
-	    }
+	    };
+
+	    // 绑定获取组件的函数
+	    var UF = func._get;
+	    Object.assign(UF, _lib2.default, func);
+
+	    // 存储新产生的uf实例
+	    (0, _instance.setInstance)(name, UF);
+
+	    return UF;
 	};
 
-	var UF = func._get;
+	// 先产生一个默认实例，以兼容以前的用法
+	var defaultName = '_$default';
+	var defUF = create({ name: defaultName });
 
-	Object.assign(UF, _src2.default, func);
+	// 重写window上的UF函数，使其增加创建uf实例功能
+	var UF = function UF() {
+	    var conf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	    // 如果传入的是字符串，则走原来的获取组件的逻辑
+	    if (typeof conf === 'string') {
+	        return defUF(conf);
+	    }
+	    // 默认使用default名称
+	    conf.name = conf.name || conf.appName || defaultName;
+	    delete conf.appName;
+	    // 获取当前name的uf实例
+	    var ufIns = (0, _instance.getInstance)(conf.name);
+	    // 如果不存在生成一个新的实例
+	    if (!ufIns) {
+	        ufIns = create(conf);
+	    }
+	    ufIns.config(conf);
+	    return ufIns;
+	};
+
+	// 并把默认实例抛出以供直接调用
+	Object.assign(UF, defUF);
 
 	exports.default = UF;
 	// 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行
@@ -438,13 +481,10 @@
 	        UF[funcName].apply(UF, _toConsumableArray(params));
 	    }
 	}
+
 	exports.Factory = _factory2.default;
 	exports.Loader = _loader2.default;
 	exports.WhiteList = _whitelist2.default;
-	exports.Model = _model2.default;
-	exports.Adaptor = _adaptor2.default;
-	exports.Authority = _authority2.default;
-	exports.requirejs = _requirejs2.default;
 
 /***/ }),
 /* 106 */
@@ -471,21 +511,21 @@
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(113),
 	// 路由组件
-	__webpack_require__(147),
+	__webpack_require__(140),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(153),
+	    Iframe: __webpack_require__(146),
 
-	    Export: __webpack_require__(155),
-	    Tree: __webpack_require__(157),
-	    Table: __webpack_require__(159),
-	    Form: __webpack_require__(165).Form,
-	    Forms: __webpack_require__(165).Forms,
-	    Modal: __webpack_require__(172),
-	    Ueditor: __webpack_require__(167),
-	    Echarts: __webpack_require__(174),
-	    Fieldset: __webpack_require__(176)
+	    Export: __webpack_require__(148),
+	    Tree: __webpack_require__(150),
+	    Table: __webpack_require__(152),
+	    Form: __webpack_require__(158).Form,
+	    Forms: __webpack_require__(158).Forms,
+	    Modal: __webpack_require__(165),
+	    Ueditor: __webpack_require__(160),
+	    Echarts: __webpack_require__(167),
+	    Fieldset: __webpack_require__(169)
 	    // ...require('./modal'),
 	    // Table2: require('./uf-old/table')
 	}); /**
@@ -512,23 +552,23 @@
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(140);
+	var _datadisplay = __webpack_require__(133);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(142);
+	var _genaral = __webpack_require__(135);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(144);
+	var _navigation = __webpack_require__(137);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(149);
+	var _feedback = __webpack_require__(142);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(151);
+	var _layout = __webpack_require__(144);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -570,7 +610,7 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _DataEntry15 = __webpack_require__(129);
+	var _DataEntry15 = __webpack_require__(126);
 
 	var _DataEntry16 = _interopRequireDefault(_DataEntry15);
 
@@ -1605,7 +1645,9 @@
 	            target = ghost;
 	        }
 	        if (level <= 0) {
-	            return this.copy(objs[0]);
+	            // 如果存储内容不为普通对象，例如类的实例，copy不能拷贝继承的函数
+	            // return this.copy(objs[0]);
+	            return objs[0];
 	        }
 	        var result = target;
 	        var _iteratorNormalCompletion = true;
@@ -2064,11 +2106,18 @@
 	        return target;
 	    },
 
+	    // 根据一个字符串，把数据塞入一个深层的对象中
+	    toObject: function toObject(origin, strc, value) {
+	        var tData = this.generateObject(strc, value);
+	        var level = strc.split('.').length;
+	        this.merge(level, origin, tData);
+	    },
+
 	    // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
 	    urlAnalysis: function urlAnalysis(url, params) {
 	        var delParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-	        if (url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+	        if (!url || url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
 	            return url;
 	        }
 	        for (var i in params) {
@@ -3722,22 +3771,131 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _config = __webpack_require__(122);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	var _ajaxData = __webpack_require__(126);
-
-	var _ajaxData2 = _interopRequireDefault(_ajaxData);
-
-	var _reqwest = __webpack_require__(127);
+	var _reqwest = __webpack_require__(122);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
-	var _ajaxPlugin = __webpack_require__(128);
+	var _ajaxPlugin = __webpack_require__(123);
+
+	var _instance = __webpack_require__(124);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// 依赖 Config, AjaxCache 两个实例，通过generete获取
+	exports.default = (0, _instance.generate)(['Config', 'AjaxCache'], function (Config, AjaxCache) {
+
+	    // 通用ajax函数，参数为一个对象
+	    function request(config) {
+	        // 兼容，合并两个参数
+	        if (config.data) {
+	            config.params = Object.assign({}, config.params, config.data);
+	            delete config.data;
+	        }
+	        var globalAjax = Config.get('global.ajax');
+	        // 检查是否有缓存，如果有，则直接中断后续逻辑
+	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
+	            return;
+	        }
+	        // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
+	        if ((0, _ajaxPlugin.checkQueue)(config)) {
+	            return;
+	        }
+	        // successHandler不为空
+	        var successHandler = config.success || function () {};
+	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
+	        var errorHandler = config.error;
+	        if ([null, false].indexOf(errorHandler) > -1) {
+	            errorHandler = function errorHandler() {};
+	        }
+	        errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+	        // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
+	        var onchange = config.onchange || function () {};
+	        // 配置合并
+	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
+	        // baseUrl 参数处理
+	        if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1 && config.url.indexOf('https://') === -1) {
+	            config.url = globalAjax.baseUrl + config.url;
+	        }
+	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
+	        if (globalAjax.beforeSend) {
+	            config = globalAjax.beforeSend(config);
+	        }
+
+	        onchange(true, 'sending');
+
+	        // onerror 处理逻辑
+	        var onerror = function onerror(err) {
+	            // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
+	            if (globalAjax.error) {
+	                globalAjax.error(err, errorHandler, config);
+	            } else {
+	                var result = errorHandler(err);
+	                // handler有返回值，则执行默认错误提示
+	                if (result !== false) {
+	                    if (result === true || result === undefined) {
+	                        (0, _ajaxPlugin.errorMessage)(err);
+	                    } else {
+	                        (0, _ajaxPlugin.errorMessage)(result);
+	                    }
+	                }
+	            }
+	        };
+	        return (0, _reqwest2.default)(Object.assign({}, config, {
+	            // url中可以使用来自params中的动态参数
+	            url: _utils2.default.urlAnalysis(config.url, config.params),
+	            // data 可能来自 globalAjax
+	            data: Object.assign({}, config.params, config.data),
+	            success: function success(res) {
+	                // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
+	                if (globalAjax.success) {
+	                    globalAjax.success(res, successHandler, errorHandler, config);
+	                } else {
+	                    // 默认成功处理逻辑
+	                    // 兼容 message/msg、status/code
+	                    res.status = res.status || res.code || 0;
+	                    res.message = res.message || res.msg;
+	                    res.msg = res.message;
+	                    if (+res.status === 0) {
+	                        successHandler(res.data, res);
+	                    } else {
+	                        onerror(res);
+	                    }
+	                }
+	                onchange(false, 'success');
+	            },
+	            error: function error(err) {
+	                onerror(err);
+	                onchange(false, 'error');
+	            }
+	        }));
+	    }
+
+	    request.init = function (url, method) {
+	        return function (params, success, error, onchange) {
+	            return request({ url: url, method: method, params: params, success: success, error: error, onchange: onchange });
+	        };
+	    };
+
+	    // 增加 RESTful 函数
+	    var _arr = ['get', 'post', 'put', 'delete'];
+
+	    var _loop = function _loop() {
+	        var v = _arr[_i];
+	        request[v] = function (url, params, success, error, onchange) {
+	            return request.init(url, v)(params, success, error, onchange);
+	        };
+	    };
+
+	    for (var _i = 0; _i < _arr.length; _i++) {
+	        _loop();
+	    }
+
+	    // 抛出错误处理函数
+	    request.errorMessage = _ajaxPlugin.errorMessage;
+
+	    return request;
+	});
+	// export default request;
 	/**
 	 * @file 通用的请求发送+错误处理工具
 	 *       全部请求都通过这里处理
@@ -3754,116 +3912,6 @@
 	 * @author liuzechun@baidu.com
 	 * **/
 
-	function request(config) {
-	    // 兼容，合并两个参数
-	    if (config.data) {
-	        config.params = Object.assign({}, config.params, config.data);
-	        delete config.data;
-	    }
-	    var globalAjax = _config2.default.get('global.ajax');
-	    // 检查是否有缓存，如果有，则直接中断后续逻辑
-	    if ((0, _ajaxPlugin.checkCache)(config)) {
-	        return;
-	    }
-	    // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
-	    if ((0, _ajaxPlugin.checkQueue)(config)) {
-	        return;
-	    }
-	    // successHandler不为空
-	    var successHandler = config.success || function () {};
-	    // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-	    var errorHandler = config.error;
-	    if ([null, false].indexOf(errorHandler) > -1) {
-	        errorHandler = function errorHandler() {};
-	    }
-	    errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
-	    // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
-	    var onchange = config.onchange || function () {};
-	    // 配置合并
-	    config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
-	    // 用户可配置通用数据处理方法，比如把传入的参数序列化
-	    if (globalAjax.beforeSend) {
-	        config.params = globalAjax.beforeSend(config.params, config);
-	    }
-	    if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1) {
-	        config.url = globalAjax.baseUrl + config.url;
-	    }
-
-	    onchange(true, 'sending');
-
-	    // onerror 处理逻辑
-	    var onerror = function onerror(err) {
-	        // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
-	        if (globalAjax.error) {
-	            globalAjax.error(err, errorHandler, config);
-	        } else {
-	            var result = errorHandler(err);
-	            // handler有返回值，则执行默认错误提示
-	            if (result !== false) {
-	                if (result === true || result === undefined) {
-	                    (0, _ajaxPlugin.errorMessage)(err);
-	                } else {
-	                    (0, _ajaxPlugin.errorMessage)(result);
-	                }
-	            }
-	        }
-	    };
-	    return (0, _reqwest2.default)(Object.assign({}, config, {
-	        // url中可以使用来自params中的动态参数
-	        url: _utils2.default.urlAnalysis(config.url, config.params),
-	        // data 可能来自 globalAjax
-	        data: Object.assign({}, config.params, config.data),
-	        success: function success(res) {
-	            // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
-	            if (globalAjax.success) {
-	                globalAjax.success(res, successHandler, errorHandler, config);
-	            } else {
-	                // 默认成功处理逻辑
-	                // 兼容 message/msg、status/code
-	                res.status = res.status || res.code || 0;
-	                res.message = res.message || res.msg;
-	                res.msg = res.message;
-	                if (+res.status === 0) {
-	                    successHandler(res.data, res);
-	                } else {
-	                    onerror(res);
-	                }
-	            }
-	            onchange(false, 'success');
-	        },
-	        error: function error(err) {
-	            onerror(err);
-	            onchange(false, 'error');
-	        }
-	    }));
-	}
-
-	request.init = function (url, method) {
-	    return function (params, success, error, onchange) {
-	        return request({ url: url, method: method, params: params, success: success, error: error, onchange: onchange });
-	    };
-	};
-
-	// 增加 RESTful 函数
-	var _arr = ['get', 'post', 'put', 'delete'];
-
-	var _loop = function _loop() {
-	    var v = _arr[_i];
-	    request[v] = function (url, params, success, error, onchange) {
-	        return request.init(url, v)(params, success, error, onchange);
-	    };
-	};
-
-	for (var _i = 0; _i < _arr.length; _i++) {
-	    _loop();
-	}
-
-	// 抛出错误处理函数
-	request.errorMessage = _ajaxPlugin.errorMessage;
-
-	// 通用ajax函数，参数为一个对象
-	exports.default = request;
-
 /***/ }),
 /* 121 */
 /***/ (function(module, exports) {
@@ -3872,519 +3920,12 @@
 
 /***/ }),
 /* 122 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _BaseCache2 = __webpack_require__(123);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	var _default = __webpack_require__(124);
-
-	var _default2 = _interopRequireDefault(_default);
-
-	var _utils = __webpack_require__(116);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 默认配置
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      可以用于配置各个组件通用的默认参数
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-11 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-11 01:42:17
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var Config = function (_BaseCache) {
-	    _inherits(Config, _BaseCache);
-
-	    function Config() {
-	        _classCallCheck(this, Config);
-
-	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).apply(this, arguments));
-	    }
-
-	    _createClass(Config, [{
-	        key: 'get',
-	        value: function get(names) {
-	            var result = _get(Config.prototype.__proto__ || Object.getPrototypeOf(Config.prototype), 'get', this).call(this, names);
-	            // 组件全局配置components为引用类型，组件使用时对配置进行更改会影响全局，需要clone一份
-	            if (names && names.split('.')[0] === 'components') {
-	                result = _utils2.default.clone(result);
-	            }
-	            return result;
-	        }
-	    }]);
-
-	    return Config;
-	}(_BaseCache3.default);
-
-	exports.default = new Config(_default2.default);
-
-/***/ }),
-/* 123 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file 缓存基类
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      每 new 一次，会产生一个对象实例来做一类缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created Date: 2017-10-24 11:05:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-
-	var _utils = __webpack_require__(116);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var BaseCache = function () {
-	    // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
-	    function BaseCache(_cache) {
-	        _classCallCheck(this, BaseCache);
-
-	        this._cache = _cache || {};
-	    }
-
-	    _createClass(BaseCache, [{
-	        key: 'get',
-	        value: function get(names) {
-	            // 如果传递了name，则只去config中查找name字段，否则返回全部
-	            var result = this._cache;
-	            if (names) {
-	                // 可以传递多个name依次向下查找，查找不到返回null
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = names.split('.')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var v = _step.value;
-
-	                        if (result && _utils2.default.typeof(result, 'object') && result[v]) {
-	                            result = result[v];
-	                        } else {
-	                            return null;
-	                        }
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	            return result;
-	        }
-	        // set函数有两种用法
-	        // 如果 target 为字符串，则直接替换缓存中 target 保存的值
-	        // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
-
-	    }, {
-	        key: 'set',
-	        value: function set(target, component) {
-	            if (_utils2.default.typeof(target, 'object')) {
-	                var origin = this.get();
-	                var config = _utils2.default.merge(10, origin, target);
-	                // 存完后返回存储的值
-	                return config;
-	            } else {
-	                this._cache[target] = component;
-	                return component;
-	            }
-	        }
-	    }, {
-	        key: 'del',
-	        value: function del(key) {
-	            delete this._cache[key];
-	        }
-	    }]);
-
-	    return BaseCache;
-	}();
-
-	exports.default = BaseCache;
-	;
-
-/***/ }),
-/* 124 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _components = __webpack_require__(125);
-
-	var _components2 = _interopRequireDefault(_components);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	    appName: '_$default',
-	    // 模块引入相关配置
-	    modules: {
-	        // 加载模块时是否展示loading
-	        showLoading: false
-	    },
-	    // 全局系统配置
-	    global: {
-	        // 设置文档域 document.domain，默认为原始值
-	        domain: document.domain,
-	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
-	        ajax: {}
-	    },
-	    // 组件默认配置
-	    components: _components2.default,
-	    // 权限点，用户有权限的权限点列表
-	    // key（权限点） => value（boolen/object）
-	    authority: {}
-	}; /**
-	    * @file 全局默认配置
-	    * @author liuzechun
-	    * Created Date: 2018-01-30 10:55:45
-	    */
-
-/***/ }),
-/* 125 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	/**
-	 * @file 组件默认参数定义
-	 * @author liuzechun
-	 * Created Date: 2017-10-12 03:23:12
-	 *
-	 * Last Modified: 2017-10-12 03:23:16
-	 * Modified By: liuzechun
-	 */
-
-	exports.default = {
-	    /****************************************************************************************/
-	    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
-	    /****************************************************************************************/
-	    'base-component': {
-	        control: {
-	            trigger: 'onClick'
-	        },
-	        source: {
-	            // 如果组件没有设置target，则
-	            // target: 'content'
-	        },
-	        api: {
-	            showLoading: true,
-	            trigger: 'onClick'
-	        }
-	    },
-	    'antd': {},
-	    'data-entry': {
-	        api: {
-	            trigger: 'onChange'
-	        },
-	        source: {
-	            // 获取数据时展示loading
-	            showLoading: false,
-	            target: 'value'
-	        },
-	        control: {
-	            trigger: 'onChange',
-	            handler: function handler() {
-	                for (var _len = arguments.length, p = Array(_len), _key = 0; _key < _len; _key++) {
-	                    p[_key] = arguments[_key];
-	                }
-
-	                return p[p.length - 1].getValue();
-	            }
-	        }
-	    },
-	    /****************************************************************************************/
-	    /******* 普通组件默认配置 ******************************************************************/
-	    /****************************************************************************************/
-	    'auto-complete': {
-	        style: { width: 160 },
-	        options: []
-	    },
-	    'breadcrumb': {
-	        style: { padding: '12px 24px', lineHeight: '18px' }
-	    },
-	    'cascader': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'checkbox': {
-	        source: {
-	            target: 'checked'
-	        }
-	    },
-	    'checkbox-group': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'input': {
-	        api: {
-	            trigger: 'onPressEnter'
-	        },
-	        control: {
-	            trigger: 'onPressEnter'
-	        }
-	    },
-	    'radio': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'router': {
-	        history: 'hashHistory'
-	    },
-	    'loading': {
-	        delay: 150
-	    },
-	    'iframe': {
-	        mode: 'auto',
-	        delay: 0,
-	        showLoading: true
-	    },
-	    'select': {
-	        optionFilterProp: 'children',
-	        source: {
-	            target: 'options'
-	        },
-	        // 默认充满全部
-	        style: { width: '100%', minWidth: 50 },
-	        // 搜索时忽略大小写
-	        filterOption: function filterOption(v, opt) {
-	            return opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
-	        }
-	    },
-	    'switch': {
-	        source: {
-	            target: 'checked'
-	        }
-	    },
-	    'date-picker': {
-	        format: 'YYYY-MM-DD'
-	    },
-	    'range-picker': {
-	        format: 'YYYY-MM-DD'
-	    },
-	    'month-picker': {
-	        format: 'YYYY-MM'
-	    },
-	    'time-picker': {
-	        format: 'HH:mm:ss'
-	    },
-	    'menu': {
-	        // 默认高亮随路由一起变换
-	        followRoute: true
-	    },
-	    'upload': {
-	        source: {
-	            target: 'fileList'
-	        }
-	    },
-
-	    /****************************************************************************************/
-	    /***** 自定义组件默认配置 ******************************************************************/
-	    /****************************************************************************************/
-	    'form': {
-	        items: [],
-	        buttons: null,
-	        layout: {
-	            type: 'horizontal',
-	            labelCol: 6,
-	            wrapperCol: 14
-	        },
-	        source: {
-	            target: 'formData'
-	        },
-	        api: {
-	            trigger: 'onSubmit'
-	        },
-	        control: {
-	            trigger: 'onSubmit',
-	            handler: function handler(v) {
-	                return v;
-	            }
-	        }
-	    },
-	    forms: {
-	        addType: 'copy-add'
-	    },
-	    'table': {
-	        rowKey: 'id',
-	        pagination: {
-	            current: 1,
-	            pageSize: 10,
-	            pageType: 'client',
-	            total: 0
-	        },
-	        source: {
-	            // 自动加载数据
-	            autoLoad: true
-	        },
-	        data: []
-	    },
-	    // table 的编辑插件
-	    'table-edit': {
-	        api: {
-	            trigger: 'onSubmit'
-	        }
-	    },
-	    'modal': {
-	        visible: false,
-	        api: {
-	            trigger: 'onSubmit'
-	        },
-	        control: {
-	            trigger: 'onSubmit',
-	            handler: function handler(v) {
-	                return v;
-	            }
-	        }
-	    }
-	};
-
-/***/ }),
-/* 126 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _BaseCache2 = __webpack_require__(123);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	var _utils = __webpack_require__(116);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	var _config = __webpack_require__(122);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ajax 数据缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var AjaxCache = function (_BaseCache) {
-	    _inherits(AjaxCache, _BaseCache);
-
-	    function AjaxCache() {
-	        _classCallCheck(this, AjaxCache);
-
-	        return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
-	    }
-
-	    _createClass(AjaxCache, [{
-	        key: 'getCacheKey',
-
-
-	        // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
-	        value: function getCacheKey(config) {
-	            var cacheApis = _config2.default.get('global.cacheApis');
-	            // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
-	            if (config.cache || cacheApis && cacheApis.indexOf(config.url) > -1) {
-	                return _utils2.default.hash(config, 32);
-	            }
-	            return null;
-	        }
-
-	        // 向缓存池中设置缓存数据
-
-	    }, {
-	        key: 'setCacheData',
-	        value: function setCacheData(key, res) {
-	            // key 通过调用处传入，保证一致性
-	            // let key = this.getCacheKey(config);
-	            if (key) {
-	                this.set(key, _utils2.default.clone(res));
-	            }
-	        }
-
-	        // 从缓存池中获取缓存数据
-
-	    }, {
-	        key: 'getCacheData',
-	        value: function getCacheData(key) {
-	            // key 通过调用处传入，保证一致性
-	            // let key = this.getCacheKey(config);
-	            if (key) {
-	                return this.get(key);
-	            }
-	            return null;
-	        }
-	    }]);
-
-	    return AjaxCache;
-	}(_BaseCache3.default);
-
-	exports.default = new AjaxCache();
-
-/***/ }),
-/* 127 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.reqwest;
 
 /***/ }),
-/* 128 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4401,10 +3942,6 @@
 	var _utils = __webpack_require__(116);
 
 	var _utils2 = _interopRequireDefault(_utils);
-
-	var _ajaxData = __webpack_require__(126);
-
-	var _ajaxData2 = _interopRequireDefault(_ajaxData);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4458,12 +3995,12 @@
 	 * @param {Object} config ajax的配置
 	 * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
 	 */
-	function checkCache(config) {
+	function checkCache(config, AjaxCache) {
 	    // 如果需要做缓存，key不为空
-	    var key = _ajaxData2.default.getCacheKey(config);
+	    var key = AjaxCache.getCacheKey(config);
 	    if (key) {
 	        // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
-	        var cacheData = _ajaxData2.default.getCacheData(key);
+	        var cacheData = AjaxCache.getCacheData(key);
 	        if (cacheData) {
 	            // 保证异步
 	            setTimeout(function () {
@@ -4477,7 +4014,7 @@
 	                params[_key] = arguments[_key];
 	            }
 
-	            _ajaxData2.default.setCacheData(key, params);
+	            AjaxCache.setCacheData(key, params);
 	        });
 	    }
 	    return false;
@@ -4559,7 +4096,207 @@
 	}
 
 /***/ }),
-/* 129 */
+/* 124 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _BaseCache = __webpack_require__(125);
+
+	var _BaseCache2 = _interopRequireDefault(_BaseCache);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var cache = new _BaseCache2.default();
+	// 结构为
+	// {
+	//     [insName]: {_$uf, _$cache: {Config, ComponentCache, ModelCache}}
+	// }
+
+	/**
+	 * UF 实例存储类
+	 */
+	var ins = {
+	    // 类似于依赖注入，depend声明依赖什么模块，func执行的时候把模块取出来传进去
+	    generate: function generate(depend, func) {
+	        // 如果只传一个参
+	        if (!func) {
+	            func = depend;
+	            depend = [];
+	        }
+	        return {
+	            init: function init(insName) {
+	                var args = [];
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    for (var _iterator = depend[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var v = _step.value;
+
+	                        args.push(ins['get' + v] && ins['get' + v](insName));
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+
+	                return func.apply(undefined, args.concat([insName]));
+	            }
+	        };
+	    },
+
+	    // 获取全部实例
+	    getAll: function getAll() {
+	        return cache.get();
+	    },
+
+
+	    // 获取uf实例
+	    getInstance: function getInstance(insName) {
+	        return cache.get(insName + '._$uf');
+	    },
+	    setInstance: function setInstance(insName, obj) {
+	        return cache.set(insName + '._$uf', obj);
+	    },
+
+
+	    // Cache相关获取/设置函数
+	    getCache: function getCache(insName) {
+	        return cache.get(insName + '._$cache');
+	    },
+	    setCache: function setCache(insName, obj) {
+	        return cache.set(insName + '._$cache', obj);
+	    },
+	    getConfig: function getConfig(insName) {
+	        return cache.get(insName + '._$cache.Config');
+	    },
+	    setConfig: function setConfig(insName, obj) {
+	        return cache.set(insName + '._$cache.Config', obj);
+	    },
+	    getComponentsCache: function getComponentsCache(insName) {
+	        return cache.get(insName + '._$cache.ComponentCache');
+	    },
+	    setComponentCache: function setComponentCache(insName, obj) {
+	        return cache.set(insName + '._$cache.ComponentCache', obj);
+	    },
+	    getModelCache: function getModelCache(insName) {
+	        return cache.get(insName + '._$cache.ModelCache');
+	    },
+	    setModelCache: function setModelCache(insName, obj) {
+	        return cache.set(insName + '._$cache.ModelCache', obj);
+	    },
+	    getAjaxCache: function getAjaxCache(insName) {
+	        return cache.get(insName + '._$cache.AjaxCache');
+	    },
+	    setAjaxCache: function setAjaxCache(insName, obj) {
+	        return cache.set(insName + '._$cache.AjaxCache', obj);
+	    },
+
+
+	    // Tools相关获取/设置函数
+	    getTools: function getTools(insName) {
+	        return cache.get(insName + '._$tools');
+	    },
+	    setTools: function setTools(insName, obj) {
+	        return cache.set(insName + '._$tools', obj);
+	    },
+	    getAjax: function getAjax(insName) {
+	        return cache.get(insName + '._$tools.Ajax');
+	    },
+	    setAjax: function setAjax(insName, obj) {
+	        return cache.set(insName + '._$tools.Ajax', obj);
+	    },
+	    getRequirejs: function getRequirejs(insName) {
+	        return cache.get(insName + '._$tools.Requirejs');
+	    },
+	    setRequirejs: function setRequirejs(insName, obj) {
+	        return cache.set(insName + '._$tools.Requirejs', obj);
+	    }
+	};
+
+	module.exports = ins;
+
+/***/ }),
+/* 125 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file 缓存基类
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      每 new 一次，会产生一个对象实例来做一类缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created Date: 2017-10-24 11:05:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+
+	var _utils = __webpack_require__(116);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var BaseCache = function () {
+	    // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
+	    function BaseCache(_cache) {
+	        _classCallCheck(this, BaseCache);
+
+	        this._cache = _cache || {};
+	    }
+
+	    _createClass(BaseCache, [{
+	        key: 'get',
+	        value: function get(names) {
+	            // 可以传递多个name依次向下查找，例如：'a.b.c'
+	            return _utils2.default.fromObject(names, this._cache);
+	        }
+	        // set函数有两种用法
+
+	    }, {
+	        key: 'set',
+	        value: function set(target, component) {
+	            // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
+	            if (_utils2.default.typeof(target, 'object')) {
+	                return _utils2.default.merge(10, this._cache, target);
+	                // 如果 target 为字符串，则直接替换缓存中 target 保存的值
+	            } else {
+	                _utils2.default.toObject(this._cache, target, component);
+	                return component;
+	            }
+	        }
+	    }, {
+	        key: 'del',
+	        value: function del(key) {
+	            delete this._cache[key];
+	        }
+	    }]);
+
+	    return BaseCache;
+	}();
+
+	exports.default = BaseCache;
+	;
+
+/***/ }),
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4580,7 +4317,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -4737,7 +4474,7 @@
 	exports.default = DataEntry;
 
 /***/ }),
-/* 130 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4758,7 +4495,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4895,19 +4632,19 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 131 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(132).default,
-	    BaseConf: __webpack_require__(132),
-	    ExtendComponent: __webpack_require__(139)
+	    BaseComponent: __webpack_require__(129).default,
+	    BaseConf: __webpack_require__(129),
+	    ExtendComponent: __webpack_require__(132)
 	};
 
 /***/ }),
-/* 132 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4931,19 +4668,13 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _model = __webpack_require__(133);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _authority = __webpack_require__(137);
+	var _authority = __webpack_require__(130);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(138);
+	var _whitelist = __webpack_require__(131);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
-
-	var _cache = __webpack_require__(134);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4963,6 +4694,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 基础类
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by xuziqian on 2017/8/4.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	// import Model from 'src/tools/model.js';
 
 
 	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
@@ -5018,6 +4751,7 @@
 	        _this.unmounted = false;
 	        // _factory 是最初 Factory 的 this
 	        _this._factory = _this.props._factory;
+	        _this.insName = _this._factory.insName;
 	        // 供用户使用，例如获取路由信息/参数等
 	        _this._root = _this._factory;
 	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -5049,10 +4783,12 @@
 	    _createClass(BaseComponent, [{
 	        key: '_getDefautlProps',
 	        value: function _getDefautlProps() {
-	            var conf = _cache.Config.get('components.' + this.type) || {};
+	            var _this2 = this;
+
+	            var conf = this._factory.$config.get('components.' + this.type) || {};
 	            // 取中间各基类的默认配置，并合并全部配置
 	            var confArr = this.class.map(function (v) {
-	                return _cache.Config.get('components.' + v) || {};
+	                return _this2._factory.$config.get('components.' + v) || {};
 	            });
 	            conf = this.__mergeProps.apply(this, _toConsumableArray(confArr).concat([conf]));
 	            return conf;
@@ -5317,12 +5053,12 @@
 	    }, {
 	        key: 'refresh',
 	        value: function refresh() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            // 取出全部二次解析的属性，并重新解析一次
 	            var newProps = {};
 	            _whitelist2.default.getall(this.type).forEach(function (v) {
-	                var oItem = _this2.__filtered['_' + v];
+	                var oItem = _this3.__filtered['_' + v];
 	                oItem && (newProps[v] = oItem);
 	            });
 	            this.set(newProps);
@@ -5348,7 +5084,7 @@
 	            this._initProps();
 
 	            // 处理数据绑定页面
-	            this._handleModel();
+	            // this._handleModel();
 	            // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
 	            this._loadUserFunction();
 	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
@@ -5446,21 +5182,21 @@
 	    }, {
 	        key: '__ajax',
 	        value: function __ajax(config) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            this._inject(config, 'success', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this3.unmounted) {
+	                if (_this4.unmounted) {
 	                    return false;
 	                }
 	            });
 	            this._inject(config, 'error', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this3.unmounted) {
+	                if (_this4.unmounted) {
 	                    return false;
 	                }
 	            });
-	            return (0, _utils.Ajax)(config);
+	            return this._factory.$ajax(config);
 	        }
 
 	        // 解析某个属性的配置。方便开发组件时定义一些可以为配置的属性
@@ -5476,7 +5212,7 @@
 	    }, {
 	        key: '__authority',
 	        value: function __authority(item) {
-	            return _authority2.default.check(item);
+	            return _authority2.default.check(item, this.insName);
 	        }
 
 	        // 获取缓存中的组件
@@ -5484,7 +5220,7 @@
 	    }, {
 	        key: '__getComponent',
 	        value: function __getComponent(name) {
-	            return _cache.ComponentsCache.get(name);
+	            return this._factory.$components.get(name);
 	        }
 
 	        // 兼容自定义额外操作返回结果有可能为 Promise 的情况。
@@ -5528,7 +5264,7 @@
 	    }, {
 	        key: '__getSourceData',
 	        value: function __getSourceData(config) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            var _filtered$source = this.__filtered.source,
 	                paramsHandler = _filtered$source.paramsHandler,
@@ -5558,11 +5294,11 @@
 	                    params: params,
 	                    success: function success(data, res) {
 	                        // 如果用户定义了数据处理函数，先对数据进行处理
-	                        handler && (data = handler(data, res, _this4));
+	                        handler && (data = handler(data, res, _this5));
 	                        // 实际的调用处传入的成功处理逻辑
 	                        _success && _success(data, res);
 	                        // 成功后的额外操作
-	                        onSuccess && onSuccess(data, res, _this4);
+	                        onSuccess && onSuccess(data, res, _this5);
 	                    },
 	                    error: function error(res) {
 	                        // 实际的调用处传入的失败处理逻辑
@@ -5571,7 +5307,7 @@
 	                        return onError && onError(res);
 	                    },
 	                    onchange: !showLoading ? onchange : function (status) {
-	                        _this4._handleSourceLoading(status, showLoading);
+	                        _this5._handleSourceLoading(status, showLoading);
 	                        onchange && onchange(status);
 	                    }
 	                }));
@@ -5671,12 +5407,6 @@
 	            if (!!this.props.route && this.props.route.__cache) {
 	                key = this.props.route.__cache;
 	            }
-	            // 如果没有key，则根据是否关联model数据判断
-	            if (!key) {
-	                if (_model2.default.if(this.props)) {
-	                    key = this.props.__key;
-	                }
-	            }
 	            return key;
 	        }
 
@@ -5686,7 +5416,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent(isCheck) {
 	            if (!!this.cacheName) {
-	                _cache.ComponentsCache.set(this.cacheName, this, isCheck);
+	                this._factory.$components.set(this.cacheName, this, isCheck);
 	            }
 	        }
 
@@ -5696,17 +5426,14 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.cacheName) {
-	                _cache.ComponentsCache.del(this.cacheName);
+	                this._factory.$components.del(this.cacheName);
 	            }
 	        }
 
 	        // 处理数据绑定页面。设置关联关系 && 替换模板
-
-	    }, {
-	        key: '_handleModel',
-	        value: function _handleModel() {
-	            this.__props = _model2.default.setCache(this.cacheName, this.__props);
-	        }
+	        // _handleModel() {
+	        //     this.__props = Model.setCache(this.cacheName, this.__props);
+	        // }
 
 	        // 开放给用户使用的 Api，需处理下
 
@@ -5815,11 +5542,11 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this5 = this;
+	            var _this6 = this;
 
 	            var _loop = function _loop(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this5.__filtered[f];
+	                var inject = _this6.__filtered[f];
 	                if (inject) {
 	                    var _iteratorNormalCompletion7 = true;
 	                    var _didIteratorError7 = false;
@@ -5829,12 +5556,12 @@
 	                        for (var _iterator7 = ForUserApi[f].split(',')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                            var v = _step7.value;
 
-	                            _this5._inject(_this5, v, function () {
-	                                var result = inject.call(_this5, _this5.__props, _this5);
+	                            _this6._inject(_this6, v, function () {
+	                                var result = inject.call(_this6, _this6.__props, _this6);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this5.__props = _this5._filterHandler(result);
+	                                    _this6.__props = _this6._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
@@ -5894,7 +5621,7 @@
 	    }, {
 	        key: '_injectControl',
 	        value: function _injectControl() {
-	            var _this6 = this;
+	            var _this7 = this;
 
 	            var _filtered$control = this.__filtered.control,
 	                trigger = _filtered$control.trigger,
@@ -5906,7 +5633,7 @@
 	                        para[_key5] = arguments[_key5];
 	                    }
 
-	                    var _filtered$control2 = _this6.__filtered.control,
+	                    var _filtered$control2 = _this7.__filtered.control,
 	                        type = _filtered$control2.type,
 	                        params = _filtered$control2.params,
 	                        handler = _filtered$control2.handler;
@@ -5936,7 +5663,7 @@
 	                                targetName = _targetStr$split2[0],
 	                                targetAttr = _targetStr$split2.slice(1);
 
-	                            var _target = _this6.__getComponent(targetName);
+	                            var _target = _this7.__getComponent(targetName);
 	                            if (_target) {
 	                                // 如果没设置type，则根据target的类型确定
 	                                if (!type) {
@@ -5949,7 +5676,7 @@
 	                                        {
 	                                            var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
 	                                            // 如果没有设置params，则尝试执行handler
-	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this6])));
+	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this7])));
 	                                            // 转成数组以便解构
 	                                            !_utils.Utils.typeof(params, 'array') && (params = [params]);
 	                                            func.apply(undefined, _toConsumableArray(params));
@@ -5958,7 +5685,7 @@
 	                                    // 3、动作类型为：赋值
 	                                    case 'assign':
 	                                        {
-	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this6]));
+	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this7]));
 	                                            var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
 	                                            // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
 	                                            if (params) {
@@ -6021,7 +5748,7 @@
 	    }, {
 	        key: '_handleAsyncData',
 	        value: function _handleAsyncData() {
-	            var _this7 = this;
+	            var _this8 = this;
 
 	            var target = this.__filtered.source.target;
 	            this.__getSourceData({
@@ -6031,7 +5758,7 @@
 	                    // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
 	                    var tData = _utils.Utils.generateObject(target, data);
 	                    // __setProps在table、form等自定义组件不适用
-	                    _this7.set(tData);
+	                    _this8.set(tData);
 	                }
 	            });
 	        }
@@ -6051,7 +5778,7 @@
 	    }, {
 	        key: '_handleApiProps',
 	        value: function _handleApiProps(oParams) {
-	            var _this8 = this;
+	            var _this9 = this;
 
 	            var _filtered$api = this.__filtered.api,
 	                url = _filtered$api.url,
@@ -6080,7 +5807,7 @@
 	                    hideLoading = _antd.message.loading('提交中，请等待~', 0);
 	                }
 	                return new Promise(function (resolve, reject) {
-	                    _this8.__ajax(_extends({
+	                    _this9.__ajax(_extends({
 	                        url: url,
 	                        method: method,
 	                        params: params
@@ -6168,7 +5895,7 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 133 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6179,404 +5906,7 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _cache = __webpack_require__(134);
-
-	// 使用model表达式格式 ${xxx}
-	/**
-	 * @file 数据/页面绑定 处理模块
-	 * @author liuzechun
-	 */
-	var Expre = /\${(\S+?)}/g;
-	// const Expre = /\${(\S+?)}/;
-
-	exports.default = {
-
-	    // 给用户使用
-	    set: function set(model, data) {
-	        // 更新data的数据
-	        _cache.ModelCache.setData(model, data);
-	        // 更新完数据后刷新相关联的组件
-	        var connections = _cache.ModelCache.getConnections(model);
-	        for (var i in connections) {
-	            // 获取缓存中的组件
-	            var comp = _cache.ComponentsCache.get(i);
-	            if (!!comp) {
-	                var item = connections[i];
-	                var options = {};
-	                for (var j in item) {
-	                    // 从ModelCache中取出当前对应值把模板内容替换掉
-	                    options[j] = this.replaceModel(item[j]);
-	                }
-	                // 调用组件的set函数刷新组件全部受影响的属性
-	                comp.set(options);
-	            }
-	        }
-	        // console.log(ModelCache);
-	    },
-	    get: function get(model) {
-	        return _cache.ModelCache.getData(model);
-	    },
-
-
-	    /* 程序内部调用 *************************************************************/
-
-	    // 替换模板中的内容
-	    replaceModel: function replaceModel(item) {
-	        return item.replace(Expre, function (p1, model) {
-	            return _cache.ModelCache.getData(model);
-	        });
-	    },
-
-
-	    // 设置组件及属性和数据的关联关系
-	    setCache: function setCache(cacheName, options) {
-	        var _this = this;
-
-	        // let currComp = ComponentsCache.get(cacheName);
-	        var models = _cache.ModelCache.getModel();
-
-	        var _loop = function _loop(i) {
-	            var item = options[i];
-	            if (_this.is(item)) {
-	                // match会返回全部匹配到的数组
-	                item.match(Expre).map(function (v) {
-	                    var model = v.slice(2, -1);
-	                    if (!models[model]) {
-	                        models[model] = {};
-	                    }
-	                    if (!models[model][cacheName]) {
-	                        models[model][cacheName] = {};
-	                    }
-	                    if (!models[model][cacheName][i]) {
-	                        models[model][cacheName][i] = item;
-	                    }
-	                });
-	                // 顺便把模板替换掉（初始化）
-	                options[i] = _this.replaceModel(item);
-	            }
-	        };
-
-	        for (var i in options) {
-	            _loop(i);
-	        }
-	        return options;
-	    },
-
-
-	    // 把数据插入到模板中，返回新的字符串
-	    insert: function insert(tml, data) {
-	        return tml.replace();
-	    },
-
-
-	    // 判断是否关联model数据
-	    if: function _if(item) {
-	        for (var i in item) {
-	            // 只要有一条数据是使用了model，则为true
-	            if (this.is(item[i])) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    },
-
-
-	    // 判断一个值是否使用model
-	    is: function is(value) {
-	        return _utils.Utils.typeof(value, 'string') && value.search(Expre) >= 0;
-	    }
-	};
-
-/***/ }),
-/* 134 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	    Config: __webpack_require__(122).default,
-	    ComponentsCache: __webpack_require__(135).default,
-	    ModelCache: __webpack_require__(136).default
-	};
-
-/***/ }),
-/* 135 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _BaseCache2 = __webpack_require__(123);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// export default (new BaseCache());
-
-	var Component = function (_BaseCache) {
-	    _inherits(Component, _BaseCache);
-
-	    function Component() {
-	        _classCallCheck(this, Component);
-
-	        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
-	    }
-
-	    _createClass(Component, [{
-	        key: 'set',
-	        value: function set(target, component) {
-	            var isCheck = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-	            // 检查name是否冲突
-	            // 升级完router再看能不能用
-	            // if (isCheck) {
-	            //     let theSame = this.get(target);
-	            //     if (theSame && theSame.key !== component.key) {
-	            //         console.error(`Warning: The prop "name" should be unique. `
-	            //             + `Check the component \`${component.type}\` named "${component.cacheName}" `
-	            //             + `which has the same name as the other component \`${theSame.type}\``
-	            //         );
-	            //     }
-	            // }
-	            _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'set', this).call(this, target, component);
-	        }
-	    }]);
-
-	    return Component;
-	}(_BaseCache3.default);
-
-	exports.default = new Component();
-
-/***/ }),
-/* 136 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _utils = __webpack_require__(115);
-
-	var _BaseCache2 = __webpack_require__(123);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var _key = '_uf-models';
-	var _cache = {
-
-	    // 数据存储
-	    data: {
-	        // a: 1
-	    },
-
-	    // model关联的属性，以model为单位。(数据驱动页面)
-	    model: {}
-	    // 'a': {
-	    //     'input': {
-	    //         'value': '${a}',
-	    //     },
-	    //     'span': {
-	    //         'children': '${a}'
-	    //     }
-	    // }
-
-
-	    // 属性关联的model，以组件为单位。(页面驱动数据，使用 $model/$join 属性)
-	    // attr: {
-	    //     'my-table': {
-	    //         'title': 'a',
-	    //     }
-	    // }
-
-	};
-
-	var Models = function (_BaseCache) {
-	    _inherits(Models, _BaseCache);
-
-	    function Models() {
-	        _classCallCheck(this, Models);
-
-	        return _possibleConstructorReturn(this, (Models.__proto__ || Object.getPrototypeOf(Models)).apply(this, arguments));
-	    }
-
-	    _createClass(Models, [{
-	        key: 'getData',
-
-	        // 获取摸个model点关联的数据
-	        value: function getData(model) {
-	            var result = this._cache.data;
-	            if (!!model) {
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = model.split('.')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var v = _step.value;
-
-	                        if (_utils.Utils.typeof(result, 'object')) {
-	                            result = result[v];
-	                        } else {
-	                            // console.error(`Uncaught TypeError: model '${model}' is invalid.`);
-	                            // 获取不到的数据全部返回空字符串
-	                            result = '';
-	                            break;
-	                        }
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	            return result || '';
-	        }
-	        // 获取摸个model点关联的组件
-
-	    }, {
-	        key: 'getModel',
-	        value: function getModel(name) {
-	            return !!name ? this._cache.model[name] : this._cache.model;
-	        }
-	        // 获取某个model点影响的所有组件及属性
-
-	    }, {
-	        key: 'getConnections',
-	        value: function getConnections(model) {
-	            var models = this.getModel();
-	            var connectionsMode = model + '.';
-	            var result = _utils.Utils.copy(models[model]);
-	            for (var i in models) {
-	                if (i.indexOf(connectionsMode) !== -1) {
-	                    var item = models[i];
-	                    for (var j in item) {
-	                        if (result[j]) {
-	                            var itemComp = item[j];
-	                            var resultComp = result[j];
-	                            for (var k in itemComp) {
-	                                resultComp[k] = resultComp[k] || itemComp[k];
-	                            }
-	                        } else {
-	                            result[j] = item[j];
-	                        }
-	                    }
-	                }
-	            }
-	            return result;
-	        }
-
-	        // 给某个一model点设置数据
-
-	    }, {
-	        key: 'setData',
-	        value: function setData(model, data) {
-	            // 如果没有设置model点，则直接更改整个data。用于一开始用户使用 UF.config 配置通用数据
-	            if (!model) {
-	                this._cache.data = data;
-	                return;
-	            }
-	            var origin = this.getData();
-	            var arr = model.split('.');
-	            var target = origin;
-	            var parent = void 0,
-	                v = void 0;
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-
-	            try {
-	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    v = _step2.value;
-
-	                    if (!_utils.Utils.typeof(target[v], 'object')) {
-	                        target[v] = {};
-	                    }
-	                    parent = target;
-	                    target = parent[v];
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-
-	            parent[v] = data;
-	        }
-	    }, {
-	        key: 'setModel',
-	        value: function setModel(model, data) {}
-	    }]);
-
-	    return Models;
-	}(_BaseCache3.default);
-
-	exports.default = new Models(_cache);
-
-/***/ }),
-/* 137 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _utils = __webpack_require__(115);
-
-	var _cache = __webpack_require__(134);
+	var _instance = __webpack_require__(124);
 
 	/**
 	 * @file 权限控制模块
@@ -6585,7 +5915,9 @@
 
 	exports.default = {
 	    check: function check(item) {
-	        var authorityList = _cache.Config.get('authority');
+	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
+
+	        var authorityList = (0, _instance.getConfig)(insName).get('authority');
 	        var result = true;
 	        if (!_utils.Utils.typeof(item.authority, 'undefined')) {
 	            result = !!authorityList[item.authority];
@@ -6595,7 +5927,7 @@
 	};
 
 /***/ }),
-/* 138 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6683,7 +6015,7 @@
 	};
 
 /***/ }),
-/* 139 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6702,11 +6034,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseComponent2 = __webpack_require__(132);
+	var _BaseComponent2 = __webpack_require__(129);
 
 	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
-
-	var _cache = __webpack_require__(134);
 
 	var _utils = __webpack_require__(115);
 
@@ -6779,7 +6109,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.set(this.name, this.component);
+	                this._factory.$components.set(this.name, this.component);
 	            }
 	        }
 	        // 解除共享
@@ -6788,7 +6118,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.del(this.name);
+	                this._factory.$components.del(this.name);
 	            }
 	        }
 	    }]);
@@ -6799,7 +6129,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 140 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6825,7 +6155,7 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _DataDisplay16 = __webpack_require__(141);
+	var _DataDisplay16 = __webpack_require__(134);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
@@ -7263,7 +6593,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 141 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7280,7 +6610,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -7314,7 +6644,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 142 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7338,7 +6668,7 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _Genaral14 = __webpack_require__(143);
+	var _Genaral14 = __webpack_require__(136);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
@@ -7698,7 +7028,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 143 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7715,7 +7045,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -7749,7 +7079,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 144 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7771,11 +7101,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(145);
+	var _reactRouter = __webpack_require__(138);
 
 	var _utils = __webpack_require__(115);
 
-	var _Navigation9 = __webpack_require__(146);
+	var _Navigation9 = __webpack_require__(139);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
@@ -7783,7 +7113,7 @@
 
 	var Antd = _interopRequireWildcard(_antd);
 
-	var _router = __webpack_require__(147);
+	var _router = __webpack_require__(140);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -8290,13 +7620,13 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 145 */
+/* 138 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
 
 /***/ }),
-/* 146 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8313,7 +7643,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8347,12 +7677,12 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 147 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(148);
+	var _Router = __webpack_require__(141);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -8363,7 +7693,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 148 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8385,15 +7715,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(145);
+	var _reactRouter = __webpack_require__(138);
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
-	var _tools = __webpack_require__(105);
+	var _src = __webpack_require__(105);
+
+	var _instance = __webpack_require__(124);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -8472,7 +7804,11 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
+	            return _react2.default.createElement(_src.Factory, _extends({}, this.props, {
+	                // config={this.getConfig()}
+	                config: this.props.route.__component,
+	                insName: this.props.route.insName
+	            }));
 	        }
 	    }]);
 
@@ -8533,7 +7869,7 @@
 	                    var v = _step.value;
 
 	                    // 校验权限，没权限的元素返回 null
-	                    if (!_tools.Authority.check(v)) {
+	                    if (!this.__authority(v)) {
 	                        continue;
 	                    }
 	                    v = this.setRoute(v);
@@ -8597,6 +7933,7 @@
 	            if (item.component) {
 	                // 组件实例放在新属性content里
 	                item.__component = item.component;
+	                item.insName = this.insName;
 	                // component属性为一个抽象类
 	                item.component = RouteHolder;
 	            }
@@ -8674,7 +8011,7 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 149 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8696,15 +8033,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(150);
+	var _Feedback4 = __webpack_require__(143);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
 	var _utils = __webpack_require__(115);
 
-	var _tools = __webpack_require__(105);
+	var _src = __webpack_require__(105);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _antd = __webpack_require__(121);
 
@@ -8810,7 +8147,7 @@
 	function messageHandler(type, config) {
 	    var _Antd$message;
 
-	    var list = _tools.WhiteList.get(config, 'message');
+	    var list = _src.WhiteList.get(config, 'message');
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -8819,7 +8156,7 @@
 	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var v = _step.value;
 
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    } catch (err) {
 	        _didIteratorError = true;
@@ -8855,7 +8192,7 @@
 	/************* notification 提示 ************************************************************************** */
 
 	function notificationHandler(type, config) {
-	    var list = _tools.WhiteList.get(config, 'notification');
+	    var list = _src.WhiteList.get(config, 'notification');
 	    var _iteratorNormalCompletion2 = true;
 	    var _didIteratorError2 = false;
 	    var _iteratorError2 = undefined;
@@ -8864,7 +8201,7 @@
 	        for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var v = _step2.value;
 
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    } catch (err) {
 	        _didIteratorError2 = true;
@@ -8894,7 +8231,7 @@
 	});
 
 /***/ }),
-/* 150 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8911,7 +8248,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8945,7 +8282,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 151 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8965,13 +8302,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(152);
+	var _Layout = __webpack_require__(145);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
 	var _utils = __webpack_require__(115);
-
-	var _cache = __webpack_require__(134);
 
 	var _antd = __webpack_require__(121);
 
@@ -9181,7 +8516,7 @@
 	                                (function () {
 	                                    var key = v.props.__cache || v.props.__key;
 	                                    var inject = function inject(collapsed) {
-	                                        var menu = _cache.ComponentsCache.get(key);
+	                                        var menu = _this5.__getComponent(key);
 	                                        if (menu) {
 	                                            var defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
 	                                            // 从缓存中获取 Menu 组件，并更改组件状态
@@ -9241,6 +8576,7 @@
 
 	        var _this6 = _possibleConstructorReturn(this, (SiderTrigger.__proto__ || Object.getPrototypeOf(SiderTrigger)).call(this, props));
 
+	        _this6._filter.push('reverse');
 	        _this6.__init();
 	        _this6.target = null;
 	        return _this6;
@@ -9250,7 +8586,7 @@
 	        key: '_componentDidMount',
 	        value: function _componentDidMount() {
 	            _get(SiderTrigger.prototype.__proto__ || Object.getPrototypeOf(SiderTrigger.prototype), '_componentDidMount', this) && _get(SiderTrigger.prototype.__proto__ || Object.getPrototypeOf(SiderTrigger.prototype), '_componentDidMount', this).call(this);
-	            this.target = _cache.ComponentsCache.get(this.__props.target);
+	            this.target = this._factory.$components.get(this.__props.target);
 	            this.forceUpdate();
 	        }
 	    }, {
@@ -9265,7 +8601,7 @@
 	        value: function render() {
 	            var style = Object.assign({ cursor: 'pointer' }, this.__props.style);
 	            return _react2.default.createElement(Antd.Icon, _extends({}, this.__props, {
-	                type: this.target && this.target.get('collapsed') ? !this.__props.reverse ? 'menu-unfold' : 'menu-fold' : this.__props.reverse ? 'menu-unfold' : 'menu-fold',
+	                type: this.target && this.target.get('collapsed') ? !this.__filtered.reverse ? 'menu-unfold' : 'menu-fold' : this.__filtered.reverse ? 'menu-unfold' : 'menu-fold',
 	                onClick: this.target && this.onClick.bind(this) }));
 	        }
 	    }]);
@@ -9299,7 +8635,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 152 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9316,7 +8652,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(130);
+	var _Antd2 = __webpack_require__(127);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9350,15 +8686,15 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 153 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(154).default;
+	module.exports = __webpack_require__(147).default;
 
 /***/ }),
-/* 154 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9377,7 +8713,7 @@
 
 	var _antd = __webpack_require__(121);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -9514,7 +8850,7 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 155 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9522,10 +8858,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(156).default;
+	module.exports = __webpack_require__(149).default;
 
 /***/ }),
-/* 156 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9546,7 +8882,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _antd = __webpack_require__(121);
 
@@ -10246,7 +9582,7 @@
 	exports.default = Export;
 
 /***/ }),
-/* 157 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10254,10 +9590,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(158).default;
+	module.exports = __webpack_require__(151).default;
 
 /***/ }),
-/* 158 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10278,7 +9614,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -10876,7 +10212,7 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 159 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10884,10 +10220,10 @@
 	/**
 	 * @file table组件默认访问文件
 	 */
-	module.exports = __webpack_require__(160).default;
+	module.exports = __webpack_require__(153).default;
 
 /***/ }),
-/* 160 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10910,29 +10246,29 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
 	var _antd = __webpack_require__(121);
 
-	var _export2 = __webpack_require__(155);
+	var _export2 = __webpack_require__(148);
 
 	var _export3 = _interopRequireDefault(_export2);
 
-	var _Crud = __webpack_require__(161);
+	var _Crud = __webpack_require__(154);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(162);
+	var _Title = __webpack_require__(155);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Edit = __webpack_require__(163);
+	var _Edit = __webpack_require__(156);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _Filter = __webpack_require__(164);
+	var _Filter = __webpack_require__(157);
 
 	var _Filter2 = _interopRequireDefault(_Filter);
 
@@ -11066,7 +10402,7 @@
 	            }
 	            var defaultCif = {
 	                size: 'default',
-	                rowKey: 'id',
+	                rowKey: this.rowKey,
 	                rowClassName: function rowClassName() {},
 	                expandedRowRender: null,
 	                defaultExpandedRowKeys: [],
@@ -11926,7 +11262,7 @@
 	                { className: className, style: this.__props.style },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { parent: _this11, ref: function ref(ele) {
+	                        return _react2.default.createElement(_Title2.default, { _factory: _this11._factory, parent: _this11, ref: function ref(ele) {
 	                                return _this11.titleRef = ele;
 	                            }, config: _this11.title });
 	                    },
@@ -11941,10 +11277,10 @@
 	                    rowSelection: this.renderRowSelection(),
 	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
-	                _react2.default.createElement(_export3.default, _extends({ ref: function ref(ele) {
+	                _react2.default.createElement(_export3.default, _extends({ _factory: this._factory, ref: function ref(ele) {
 	                        return _this11.exportRef = ele;
 	                    } }, this._getExportConfig())),
-	                this.__props.crud && _react2.default.createElement(_Crud2.default, { parent: this, ref: function ref(ele) {
+	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
 	                        return _this11.crud = ele;
 	                    },
 	                    config: this.__props.crud })
@@ -11958,7 +11294,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 161 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11979,7 +11315,7 @@
 
 	var _antd = __webpack_require__(121);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -12342,7 +11678,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 162 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12365,13 +11701,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
 	var _antd = __webpack_require__(121);
 
-	var _export = __webpack_require__(155);
+	var _export = __webpack_require__(148);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -13287,7 +12623,7 @@
 	exports.default = Title;
 
 /***/ }),
-/* 163 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13308,7 +12644,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -13520,7 +12856,7 @@
 	exports.default = TableEdit;
 
 /***/ }),
-/* 164 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13817,7 +13153,7 @@
 	exports.default = Filter;
 
 /***/ }),
-/* 165 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13829,8 +13165,8 @@
 	// module.exports = require('./Form.js').default;
 	// module.exports = require('./Forms.js').default;
 	module.exports = {
-	  Form: __webpack_require__(166).default,
-	  Forms: __webpack_require__(171).default
+	  Form: __webpack_require__(159).default,
+	  Forms: __webpack_require__(164).default
 	};
 	// const Form = require('./Form.js');
 	// const Forms = require('./Forms.js');
@@ -13838,7 +13174,7 @@
 	// module.exports = {Form, Forms};
 
 /***/ }),
-/* 166 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13861,7 +13197,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -13871,7 +13207,7 @@
 
 	var _antd = __webpack_require__(121);
 
-	var _ueditor = __webpack_require__(167);
+	var _ueditor = __webpack_require__(160);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
@@ -14891,24 +14227,24 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 167 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(168);
+	__webpack_require__(161);
 
-	module.exports = __webpack_require__(170).default;
+	module.exports = __webpack_require__(163).default;
 
 /***/ }),
-/* 168 */
+/* 161 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 169 */,
-/* 170 */
+/* 162 */,
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14927,8 +14263,6 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _cache = __webpack_require__(134);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -14940,8 +14274,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-	// import {BaseComponent} from 'src/base';
 
+	// import {BaseComponent} from 'src/base';
 
 	var Ueditor = function (_React$PureComponent) {
 	    _inherits(Ueditor, _React$PureComponent);
@@ -15030,7 +14364,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.set(this.name, this.ue);
+	                this._factory$components.set(this.name, this.ue);
 	            }
 	        }
 	        // 解除共享
@@ -15039,7 +14373,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.del(this.name);
+	                this._factory$components.del(this.name);
 	            }
 	        }
 	    }, {
@@ -15069,7 +14403,7 @@
 	exports.default = Ueditor;
 
 /***/ }),
-/* 171 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15090,7 +14424,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -15485,15 +14819,15 @@
 	exports.default = CopyOrDeleteForm;
 
 /***/ }),
-/* 172 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(173).default;
+	module.exports = __webpack_require__(166).default;
 
 /***/ }),
-/* 173 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15518,13 +14852,13 @@
 
 	var _antd = __webpack_require__(121);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
-	var _tools = __webpack_require__(105);
+	var _src = __webpack_require__(105);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15765,7 +15099,7 @@
 	    config.type = 'modal';
 	    config.visible = config.visible || true;
 	    // 增加关闭弹窗删除dom节点逻辑
-	    return _tools2.default._append(config, null, 'onCancel');
+	    return _src2.default._append(config, null, 'onCancel');
 	};
 
 	/**** Modal自带快捷调用函数 *************************************************************************/
@@ -15777,7 +15111,7 @@
 	    for (var _i = 0; _i < _arr.length; _i++) {
 	        var v = _arr[_i];
 	        if (config[v] && !_utils.Utils.typeof(config[v], 'string')) {
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    }
 	    config.className = 'uf-modal ' + (config.className ? config.className : '');
@@ -15793,7 +15127,7 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 174 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15802,10 +15136,10 @@
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(175).default;
+	module.exports = __webpack_require__(168).default;
 
 /***/ }),
-/* 175 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15824,9 +15158,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
-
-	var _cache = __webpack_require__(134);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -15852,6 +15184,7 @@
 	        _this._filter.push('type');
 	        // 保证每次实例化都有一个唯一的id
 	        _this.chartId = (props.__key || 'create_echarts') + '_' + _utils.Utils.uniqueId();
+	        _this.echarts;
 	        _this.chart;
 	        _this.__init();
 	        return _this;
@@ -15880,16 +15213,35 @@
 	            // 执行的时候再获取
 	            var echarts = window.echarts;
 	            if (echarts) {
+	                this.echarts = echarts;
+	                this.initEcharts();
+	            } else {
+	                console.error('There is no echarts, please check.');
+	                // 打包的代码不支持requirejs方式
+	                // _$echarts 的路径见 src/default/index.js 中的配置
+	                // this._factory.$requirejs(['_$echarts'], echarts=>{
+	                //     this.echarts = echarts;
+	                //     this.initEcharts();
+	                // });
+	                // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
+	                // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
+	                //     this.echarts = window.echarts;
+	                //     this.initEcharts();
+	                // });
+	            }
+	        }
+	    }, {
+	        key: 'initEcharts',
+	        value: function initEcharts() {
+	            if (this.echarts) {
 	                // 初始化
-	                var chart = echarts.init(document.getElementById(this.chartId));
+	                var chart = this.echarts.init(document.getElementById(this.chartId));
 	                chart.setOption(this.__props);
 	                this.chart = chart;
 	                this._transmitComponent();
 	                // 把echarts的api全部转移到当前组件上
 	                this._agencyFunction(chart);
 	                this._agencyFunction(Object.getPrototypeOf(chart));
-	            } else {
-	                console.error('There is no echarts, please check.');
 	            }
 	        }
 	    }, {
@@ -15952,7 +15304,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 176 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15961,10 +15313,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(177).default;
+	module.exports = __webpack_require__(170).default;
 
 /***/ }),
-/* 177 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15983,7 +15335,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(131);
+	var _base = __webpack_require__(128);
 
 	var _utils = __webpack_require__(115);
 
@@ -16032,10 +15384,573 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 178 */
+/* 171 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
+
+/***/ }),
+/* 172 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _config = __webpack_require__(173);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _components = __webpack_require__(176);
+
+	var _components2 = _interopRequireDefault(_components);
+
+	var _model = __webpack_require__(177);
+
+	var _model2 = _interopRequireDefault(_model);
+
+	var _ajax = __webpack_require__(178);
+
+	var _ajax2 = _interopRequireDefault(_ajax);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// module.exports = {Config, ComponentsCache, ModelCache};
+
+	module.exports = {
+	    init: function init(insName) {
+	        var obj = {};
+
+	        obj.Config = _config2.default.init(insName);
+	        (0, _instance.setConfig)(insName, obj.Config);
+
+	        obj.ComponentsCache = _components2.default.init(insName);
+	        (0, _instance.setComponentCache)(insName, obj.ComponentsCache);
+
+	        obj.ModelCache = _model2.default.init(insName);
+	        (0, _instance.setModelCache)(insName, obj.ModelCache);
+
+	        obj.AjaxCache = _ajax2.default.init(insName);
+	        (0, _instance.setAjaxCache)(insName, obj.AjaxCache);
+
+	        return obj;
+	    }
+	};
+
+/***/ }),
+/* 173 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _BaseCache2 = __webpack_require__(125);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _default = __webpack_require__(174);
+
+	var _default2 = _interopRequireDefault(_default);
+
+	var _utils = __webpack_require__(116);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 默认配置
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      可以用于配置各个组件通用的默认参数
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-11 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-11 01:42:17
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Config = function (_BaseCache) {
+	    _inherits(Config, _BaseCache);
+
+	    function Config() {
+	        _classCallCheck(this, Config);
+
+	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).apply(this, arguments));
+	    }
+
+	    _createClass(Config, [{
+	        key: 'get',
+	        value: function get(names) {
+	            var result = _get(Config.prototype.__proto__ || Object.getPrototypeOf(Config.prototype), 'get', this).call(this, names);
+	            // 组件全局配置components为引用类型，组件使用时对配置进行更改会影响全局，需要clone一份
+	            if (names && names.split('.')[0] === 'components') {
+	                result = _utils2.default.clone(result);
+	            }
+	            return result;
+	        }
+	    }]);
+
+	    return Config;
+	}(_BaseCache3.default);
+
+	// export default (new Config(Default));
+
+	exports.default = (0, _instance.generate)(function () {
+	    return new Config(_utils2.default.clone(_default2.default));
+	});
+
+/***/ }),
+/* 174 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _components = __webpack_require__(175);
+
+	var _components2 = _interopRequireDefault(_components);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    // 模块引入相关配置
+	    modules: {
+	        // 加载模块时是否展示loading
+	        showLoading: false,
+	        paths: {
+	            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+	        }
+	    },
+	    // 全局系统配置
+	    global: {
+	        // 设置文档域 document.domain，默认为原始值
+	        domain: document.domain,
+	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
+	        ajax: {}
+	    },
+	    // 组件默认配置
+	    components: _components2.default,
+	    // 权限点，用户有权限的权限点列表
+	    // key（权限点） => value（boolen/object）
+	    authority: {}
+	}; /**
+	    * @file 全局默认配置
+	    * @author liuzechun
+	    * Created Date: 2018-01-30 10:55:45
+	    */
+
+/***/ }),
+/* 175 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	/**
+	 * @file 组件默认参数定义
+	 * @author liuzechun
+	 * Created Date: 2017-10-12 03:23:12
+	 *
+	 * Last Modified: 2017-10-12 03:23:16
+	 * Modified By: liuzechun
+	 */
+
+	exports.default = {
+	    /****************************************************************************************/
+	    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
+	    /****************************************************************************************/
+	    'base-component': {
+	        control: {
+	            trigger: 'onClick'
+	        },
+	        source: {
+	            // 如果组件没有设置target，则
+	            // target: 'content'
+	        },
+	        api: {
+	            showLoading: true,
+	            trigger: 'onClick'
+	        }
+	    },
+	    'antd': {},
+	    'data-entry': {
+	        api: {
+	            trigger: 'onChange'
+	        },
+	        source: {
+	            // 获取数据时展示loading
+	            showLoading: false,
+	            target: 'value'
+	        },
+	        control: {
+	            trigger: 'onChange',
+	            handler: function handler() {
+	                for (var _len = arguments.length, p = Array(_len), _key = 0; _key < _len; _key++) {
+	                    p[_key] = arguments[_key];
+	                }
+
+	                return p[p.length - 1].getValue();
+	            }
+	        }
+	    },
+	    /****************************************************************************************/
+	    /******* 普通组件默认配置 ******************************************************************/
+	    /****************************************************************************************/
+	    'auto-complete': {
+	        style: { width: 160 },
+	        options: []
+	    },
+	    'breadcrumb': {
+	        style: { padding: '12px 24px', lineHeight: '18px' }
+	    },
+	    'cascader': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'checkbox': {
+	        source: {
+	            target: 'checked'
+	        }
+	    },
+	    'checkbox-group': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'input': {
+	        api: {
+	            trigger: 'onPressEnter'
+	        },
+	        control: {
+	            trigger: 'onPressEnter'
+	        }
+	    },
+	    'radio': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'router': {
+	        history: 'hashHistory'
+	    },
+	    'loading': {
+	        delay: 150
+	    },
+	    'iframe': {
+	        mode: 'auto',
+	        delay: 0,
+	        showLoading: true
+	    },
+	    'select': {
+	        optionFilterProp: 'children',
+	        source: {
+	            target: 'options'
+	        },
+	        // 默认充满全部
+	        style: { width: '100%', minWidth: 50 },
+	        // 搜索时忽略大小写
+	        filterOption: function filterOption(v, opt) {
+	            return opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
+	        }
+	    },
+	    'switch': {
+	        source: {
+	            target: 'checked'
+	        }
+	    },
+	    'date-picker': {
+	        format: 'YYYY-MM-DD'
+	    },
+	    'range-picker': {
+	        format: 'YYYY-MM-DD'
+	    },
+	    'month-picker': {
+	        format: 'YYYY-MM'
+	    },
+	    'time-picker': {
+	        format: 'HH:mm:ss'
+	    },
+	    'menu': {
+	        // 默认高亮随路由一起变换
+	        followRoute: true
+	    },
+	    'upload': {
+	        source: {
+	            target: 'fileList'
+	        }
+	    },
+
+	    /****************************************************************************************/
+	    /***** 自定义组件默认配置 ******************************************************************/
+	    /****************************************************************************************/
+	    'form': {
+	        items: [],
+	        buttons: null,
+	        layout: {
+	            type: 'horizontal',
+	            labelCol: 6,
+	            wrapperCol: 14
+	        },
+	        source: {
+	            target: 'formData'
+	        },
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    },
+	    forms: {
+	        addType: 'copy-add'
+	    },
+	    'table': {
+	        rowKey: 'id',
+	        pagination: {
+	            current: 1,
+	            pageSize: 10,
+	            pageType: 'client',
+	            total: 0
+	        },
+	        source: {
+	            // 自动加载数据
+	            autoLoad: true
+	        },
+	        data: []
+	    },
+	    // table 的编辑插件
+	    'table-edit': {
+	        api: {
+	            trigger: 'onSubmit'
+	        }
+	    },
+	    'modal': {
+	        visible: false,
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    }
+	};
+
+/***/ }),
+/* 176 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _BaseCache2 = __webpack_require__(125);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Component = function (_BaseCache) {
+	    _inherits(Component, _BaseCache);
+
+	    function Component() {
+	        _classCallCheck(this, Component);
+
+	        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
+	    }
+
+	    _createClass(Component, [{
+	        key: 'set',
+	        value: function set(target, component) {
+	            var isCheck = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+	            // 检查name是否冲突
+	            // 升级完router再看能不能用
+	            // if (isCheck) {
+	            //     let theSame = this.get(target);
+	            //     if (theSame && theSame.key !== component.key) {
+	            //         console.error(`Warning: The prop "name" should be unique. `
+	            //             + `Check the component \`${component.type}\` named "${component.cacheName}" `
+	            //             + `which has the same name as the other component \`${theSame.type}\``
+	            //         );
+	            //     }
+	            // }
+	            _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'set', this).call(this, target, component);
+	        }
+	    }]);
+
+	    return Component;
+	}(_BaseCache3.default);
+
+	// export default (new Component());
+
+	// export default generate(new Component());
+
+	exports.default = (0, _instance.generate)(function () {
+	    return new Component();
+	});
+
+/***/ }),
+/* 177 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _utils = __webpack_require__(115);
+
+	var _BaseCache = __webpack_require__(125);
+
+	var _BaseCache2 = _interopRequireDefault(_BaseCache);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// export default (new Models(_cache));
+
+	exports.default = (0, _instance.generate)(function () {
+	  return new _BaseCache2.default();
+	}); /**
+	     * @file 组件实例缓存
+	     * @author liuzechun
+	     * Created Date: 2017-10-24 01:40:57
+	     */
+
+/***/ }),
+/* 178 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _BaseCache2 = __webpack_require__(125);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _utils = __webpack_require__(116);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ajax 数据缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	exports.default = (0, _instance.generate)(['Config'], function (Config) {
+	    var AjaxCache = function (_BaseCache) {
+	        _inherits(AjaxCache, _BaseCache);
+
+	        function AjaxCache() {
+	            _classCallCheck(this, AjaxCache);
+
+	            return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
+	        }
+
+	        _createClass(AjaxCache, [{
+	            key: 'getCacheKey',
+
+
+	            // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
+	            value: function getCacheKey(config) {
+	                var cacheApis = Config.get('global.cacheApis');
+	                // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
+	                if (config.cache || cacheApis && cacheApis.indexOf(config.url) > -1) {
+	                    return _utils2.default.hash(config, 32);
+	                }
+	                return null;
+	            }
+
+	            // 向缓存池中设置缓存数据
+
+	        }, {
+	            key: 'setCacheData',
+	            value: function setCacheData(key, res) {
+	                // key 通过调用处传入，保证一致性
+	                // let key = this.getCacheKey(config);
+	                if (key) {
+	                    this.set(key, _utils2.default.clone(res));
+	                }
+	            }
+
+	            // 从缓存池中获取缓存数据
+
+	        }, {
+	            key: 'getCacheData',
+	            value: function getCacheData(key) {
+	                // key 通过调用处传入，保证一致性
+	                // let key = this.getCacheKey(config);
+	                if (key) {
+	                    return this.get(key);
+	                }
+	                return null;
+	            }
+	        }]);
+
+	        return AjaxCache;
+	    }(_BaseCache3.default);
+
+	    return new AjaxCache();
+	});
 
 /***/ }),
 /* 179 */
@@ -16047,407 +15962,6 @@
 	    value: true
 	});
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @file 适配器，把组件配置转换为统一规范格式
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
-
-
-	var _base = __webpack_require__(131);
-
-	var _utils = __webpack_require__(115);
-
-	var _Antd = __webpack_require__(130);
-
-	var _Antd2 = _interopRequireDefault(_Antd);
-
-	var _loader = __webpack_require__(180);
-
-	var _loader2 = _interopRequireDefault(_loader);
-
-	var _whitelist = __webpack_require__(138);
-
-	var _whitelist2 = _interopRequireDefault(_whitelist);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// 不属于config的参数，适配用户配置的参数时使用
-	var KeyWord = ['name', 'type', 'content', 'childrenHolder'];
-
-	exports.default = {
-	    get: function get(item) {
-	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
-	        // TODO: 性能待观察，不能小于3
-	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
-
-	        var Item = _loader2.default.get(item);
-	        var props = _utils.Utils.filter(item, KeyWord);
-	        // 把 content 转化成 children。
-	        // update at 2017/10/25,如果没有content,则使用原来的children
-	        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
-	        if (item.content || props.children) {
-	            props.children = item.content || props.children;
-	        }
-	        // 格式化 class 和 style
-	        props = this.formatCS(props);
-	        // 如果是基于BaseComponent的组件内部要用到的属性处理
-	        if (_utils.Utils.isExtendsOf(Item, _base.BaseComponent)) {
-	            props['__type'] = item.type;
-	            props['__key'] = props['key'];
-	            // 如果有name的话，把组件放到缓存池里
-	            if (item.name) {
-	                props['__cache'] = item.name;
-	            }
-	            // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
-	            // 实例化组件时，还要把 type 还原
-	            if (_utils.Utils.isExtendsOf(Item, _Antd2.default)) {
-	                if (props.mode) {
-	                    props.type = props.mode;
-	                }
-	            }
-	            // 因为后面要对白名单里的属性进行二次解析并覆盖属性，这里把配置转存一份，并会在BaseComponent中filter掉
-	            var list = _whitelist2.default.get(props, item.type);
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
-
-	                    props['_' + v] = props[v];
-	                }
-	                // 非 BaseComponent 组件 _factory 等属性无效
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        } else {
-	            props.name = item.name;
-	            delete props._factory;
-	        }
-	        // props = this.formatOthers(props);
-
-	        return props;
-	    },
-
-	    // 供 BaseComponent 使用，在 set 之前
-	    beforeSet: function beforeSet(component, options) {
-	        this.formatCS(options);
-	        // 实例化组件时，还要把 type 还原
-	        if (component instanceof _Antd2.default) {
-	            if (options.mode) {
-	                options.type = options.mode;
-	            }
-	        }
-	        return options;
-	    },
-
-	    // 把 class、style 转换为 react 需要的 className、style对象
-	    formatCS: function formatCS(props) {
-	        if (props.class) {
-	            props.className += ' ' + props.class;
-	            delete props.class;
-	        }
-	        if (props.style && _utils.Utils.typeof(props.style, 'string')) {
-	            props.style = this.toCamalObj(props.style);
-	        }
-	        return props;
-	    },
-
-	    // 把 字符串style 转换为 react 需要的对象
-	    toCamalObj: function toCamalObj(style) {
-	        var arr = style.split(';');
-	        var obj = {};
-	        var _iteratorNormalCompletion2 = true;
-	        var _didIteratorError2 = false;
-	        var _iteratorError2 = undefined;
-
-	        try {
-	            for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                var v = _step2.value;
-
-	                var _v$split = v.split(':'),
-	                    _v$split2 = _slicedToArray(_v$split, 2),
-	                    key = _v$split2[0],
-	                    value = _v$split2[1];
-	                // 可以再优化下
-
-
-	                var newKey = key.split('-').map(function (i) {
-	                    return i.replace(/^\w/g, function (v) {
-	                        return v.toUpperCase();
-	                    });
-	                }).join('').replace(/^\w/g, function (v) {
-	                    return v.toLowerCase();
-	                });
-	                obj[newKey] = value;
-	            }
-	        } catch (err) {
-	            _didIteratorError2 = true;
-	            _iteratorError2 = err;
-	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                    _iterator2.return();
-	                }
-	            } finally {
-	                if (_didIteratorError2) {
-	                    throw _iteratorError2;
-	                }
-	            }
-	        }
-
-	        return obj;
-	    },
-
-
-	    /****** 针对组件的参数处理 ****************************************************************/
-
-	    formatOthers: function formatOthers(props) {
-	        switch (props.type) {}
-	        return props;
-	    }
-	};
-
-/***/ }),
-/* 180 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(106);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(131);
-
-	var _utils = __webpack_require__(115);
-
-	var _config = __webpack_require__(122);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	var _model = __webpack_require__(133);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _dom = __webpack_require__(181);
-
-	var _dom2 = _interopRequireDefault(_dom);
-
-	var _src = __webpack_require__(108);
-
-	var UF = _interopRequireWildcard(_src);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var FilterProps = _base.BaseConf.FilterProps; /**
-	                                               * @file 载入组件，供 Factory 获取
-	                                               *      根据配置的 type，转换成对应组件并返回
-	                                               * @author liuzechun@baidu.com
-	                                               */
-
-	exports.default = {
-	    component: Object.assign(UF),
-
-	    // 添加组件
-	    add: function add(components) {
-	        Object.assign(this.component, components);
-	    },
-
-
-	    // 根据 type 获取组件
-	    get: function get(item) {
-	        var type = item.type;
-	        var name = _utils.Utils.toPascal(type);
-	        var result = this.component[name];
-	        if (!result) {
-	            // 检查是否为React原生元素
-	            if (_react2.default.DOM.hasOwnProperty(type)) {
-	                // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
-	                if (this.isUfComponent(item)) {
-	                    result = _dom2.default;
-	                } else {
-	                    result = type;
-	                }
-	            } else {
-	                this.error(type);
-	            }
-	        }
-	        return result;
-	    },
-
-
-	    // 获取完整的组件配置
-	    // 1、普通组件本身配置了默认属性，此处进行属性合并
-	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-	    getConf: function getConf(item) {
-	        var oType = item.type;
-	        var conf = _config2.default.get('components.' + oType);
-	        if (conf) {
-	            if (_utils.Utils.typeof(conf, 'function')) {
-	                conf = conf();
-	            }
-	            item.type = conf.type || oType;
-	            item = _utils.Utils.merge({}, conf, item);
-	        }
-	        // 如果type进行了变换，则再次进行配置获取
-	        if (oType !== item.type) {
-	            item = this.getConf(item);
-	        }
-	        return item;
-	    },
-
-
-	    // 是否是UF组件
-	    // 1、如果有name，说明用户想要操作组件；
-	    // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
-	    // 3、如果配置了具有特殊功能的属性
-	    isUfComponent: function isUfComponent(item) {
-	        return item.name || _model2.default.if(item) || _utils.Utils.isIntersection(FilterProps, Object.keys(item));
-	    },
-
-
-	    // 打印错误信息
-	    error: function error(type) {
-	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
-	    }
-	};
-
-/***/ }),
-/* 181 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(182).default;
-
-/***/ }),
-/* 182 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _react = __webpack_require__(106);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(131);
-
-	var _utils = __webpack_require__(115);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 需要操作的原生dom继承 BaseComponent
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-17 04:11:07
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var Dom = function (_BaseComponent) {
-	    _inherits(Dom, _BaseComponent);
-
-	    function Dom(props) {
-	        _classCallCheck(this, Dom);
-
-	        // 开放给用户使用的 Api
-	        var _this = _possibleConstructorReturn(this, (Dom.__proto__ || Object.getPrototypeOf(Dom)).call(this, props));
-
-	        _this._openApi.push('trigger');
-	        // 壳子调用antd组件，调用的组件的实例存储在_component中
-	        _this._component = null;
-	        _this._filter.push('preventUpdate');
-	        _this.__init();
-	        return _this;
-	    }
-
-	    _createClass(Dom, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            if (this.__props.preventUpdate) {
-	                return false;
-	            }
-	            return true;
-	        }
-	        // 触发组件上的原生事件，例如 focus、change 等
-
-	    }, {
-	        key: 'trigger',
-	        value: function trigger(event) {
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
-	            }
-
-	            if (this._component && this._component[event]) {
-	                this._component[event](params);
-	            } else {
-	                var _get2;
-
-	                (_get2 = _get(Dom.prototype.__proto__ || Object.getPrototypeOf(Dom.prototype), 'trigger', this)).call.apply(_get2, [this, event].concat(params));
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            // style传一个可变对象且对象进行变化时，会报warning
-	            // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
-	            return _react2.default.createElement(this.props.__type, _extends({}, this.__props, { ref: function ref(ele) {
-	                    return _this2._component = ele;
-	                },
-	                style: _extends({}, this.__props.style)
-	            }));
-	        }
-	    }]);
-
-	    return Dom;
-	}(_base.BaseComponent);
-
-	exports.default = Dom;
-
-/***/ }),
-/* 183 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(106);
@@ -16456,17 +15970,15 @@
 
 	var _utils = __webpack_require__(115);
 
-	var _cache = __webpack_require__(134);
-
 	var _loader = __webpack_require__(180);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(179);
+	var _adaptor = __webpack_require__(183);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(137);
+	var _authority = __webpack_require__(130);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
@@ -16474,15 +15986,15 @@
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(138);
+	var _whitelist = __webpack_require__(131);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _requirejs = __webpack_require__(185);
-
-	var _requirejs2 = _interopRequireDefault(_requirejs);
+	var _instance = __webpack_require__(124);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -16495,13 +16007,24 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
+	// 所有使用Factory的地方，都需要传入一个insName属性
+	// Factory根据insName获取各个工具实例
 	var Factory = function (_PureComponent) {
 	    _inherits(Factory, _PureComponent);
 
 	    function Factory(props) {
 	        _classCallCheck(this, Factory);
 
+	        // 应用名称
 	        var _this = _possibleConstructorReturn(this, (Factory.__proto__ || Object.getPrototypeOf(Factory)).call(this, props));
+
+	        _this.insName = props.insName || '_$default';
+	        // ajax 实例
+	        _this.$ajax = (0, _instance.getAjax)(_this.insName);
+	        // cache实例
+	        _this.$config = (0, _instance.getConfig)(_this.insName);
+	        _this.$components = (0, _instance.getComponentsCache)(_this.insName);
+	        _this.$requirejs = (0, _instance.getRequirejs)(_this.insName);
 
 	        _this.state = {};
 	        // 解析结果缓存
@@ -16555,7 +16078,8 @@
 	            if (!_validator2.default.check(item, 'type', 'string')) {
 	                return item;
 	            }
-
+	            // 临时存储的变量，供各个tools使用
+	            item.insName = this.insName;
 	            // 整合组件的全部配置（包括通用配置，自定义组件配置等）
 	            item = this.getConf(item);
 
@@ -16596,7 +16120,7 @@
 	    }, {
 	        key: 'getConf',
 	        value: function getConf(item) {
-	            return _loader2.default.getConf(item);
+	            return _loader2.default.getConf(item, this.insName);
 	        }
 
 	        // 处理用户配置的参数，并生成组件需要使用的 props
@@ -16709,29 +16233,34 @@
 
 	        // 获取模块配置。
 	        // 如果模块为异步模块，则做异步处理
-	        // TODO：加载完异步模块后路由失效BUG
 
 	    }, {
 	        key: 'getConfig',
 	        value: function getConfig() {
 	            var _this2 = this;
 
-	            var config = this.state.config || this.props.config;
+	            var config = this.props.config;
 	            if (_utils.Utils.typeof(config, 'string')) {
-	                (0, _requirejs2.default)([config], function (foo) {
-	                    // 删除缓存，保证配置刷新
-	                    _this2._cacheContent = null;
-	                    _this2.setState({ config: foo });
-	                });
-	                var showLoading = _cache.Config.get('modules.showLoading');
-	                if (_utils.Utils.typeof(showLoading, 'array')) {
-	                    // config 此时为模块名称
-	                    showLoading = showLoading.indexOf(config) !== -1;
+	                var path = this.props.config;
+	                // 先检查缓存配置中是否已存在，如果不存在再重新获取
+	                config = this.state[path];
+	                if (!config) {
+	                    this.$requirejs([path], function (foo) {
+	                        // 删除缓存，保证配置刷新
+	                        _this2._cacheContent = null;
+	                        // 缓存获取回来的配置
+	                        _this2.setState(_defineProperty({}, path, foo));
+	                    });
+	                    var showLoading = this.$config.get('modules.showLoading');
+	                    if (_utils.Utils.typeof(showLoading, 'array')) {
+	                        // config 此时为模块名称
+	                        showLoading = showLoading.indexOf(config) !== -1;
+	                    }
+	                    config = {
+	                        type: 'loading',
+	                        loading: !!showLoading
+	                    };
 	                }
-	                config = {
-	                    type: 'loading',
-	                    loading: !!showLoading
-	                };
 	            }
 	            return config;
 	        }
@@ -16758,6 +16287,414 @@
 	}(_react.PureComponent);
 
 	exports.default = Factory;
+
+/***/ }),
+/* 180 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(106);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _base = __webpack_require__(128);
+
+	var _utils = __webpack_require__(115);
+
+	var _dom = __webpack_require__(181);
+
+	var _dom2 = _interopRequireDefault(_dom);
+
+	var _lib = __webpack_require__(108);
+
+	var UF = _interopRequireWildcard(_lib);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 载入组件，供 Factory 获取
+	 *      根据配置的 type，转换成对应组件并返回
+	 * @author liuzechun@baidu.com
+	 */
+	exports.default = {
+	    component: Object.assign(UF),
+
+	    // 添加组件
+	    add: function add(components) {
+	        Object.assign(this.component, components);
+	    },
+
+
+	    // 根据 type 获取组件
+	    get: function get(item) {
+	        var type = item.type;
+	        var name = _utils.Utils.toPascal(type);
+	        var result = this.component[name];
+	        if (!result) {
+	            // 检查是否为React原生元素
+	            if (_react2.default.DOM.hasOwnProperty(type)) {
+	                // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
+	                if (this.isUfComponent(item)) {
+	                    result = _dom2.default;
+	                } else {
+	                    result = type;
+	                }
+	            } else {
+	                this.error(type);
+	            }
+	        }
+	        return result;
+	    },
+
+
+	    // 获取完整的组件配置
+	    // 1、普通组件本身配置了默认属性，此处进行属性合并
+	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
+	    getConf: function getConf(item) {
+	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
+
+	        var oType = item.type;
+	        var conf = (0, _instance.getConfig)(insName).get('components.' + oType);
+	        if (conf) {
+	            if (_utils.Utils.typeof(conf, 'function')) {
+	                conf = conf();
+	            }
+	            item.type = conf.type || oType;
+	            item = _utils.Utils.merge({}, conf, item);
+	        }
+	        // 如果type进行了变换，则再次进行配置获取
+	        if (oType !== item.type) {
+	            item = this.getConf(item);
+	        }
+	        return item;
+	    },
+
+
+	    // 是否是UF组件
+	    // 1、如果有name，说明用户想要操作组件；
+	    // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+	    // 3、如果配置了具有特殊功能的属性
+	    isUfComponent: function isUfComponent(item) {
+	        // return item.name || Model.if(item) || Utils.isIntersection(BaseConf.FilterProps, Object.keys(item));
+	        return item.name || _utils.Utils.isIntersection(_base.BaseConf.FilterProps, Object.keys(item));
+	    },
+
+
+	    // 打印错误信息
+	    error: function error(type) {
+	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
+	    }
+	};
+	// import Model from './model.js';
+
+/***/ }),
+/* 181 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(182).default;
+
+/***/ }),
+/* 182 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(106);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _base = __webpack_require__(128);
+
+	var _utils = __webpack_require__(115);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 需要操作的原生dom继承 BaseComponent
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-17 04:11:07
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Dom = function (_BaseComponent) {
+	    _inherits(Dom, _BaseComponent);
+
+	    function Dom(props) {
+	        _classCallCheck(this, Dom);
+
+	        // 开放给用户使用的 Api
+	        var _this = _possibleConstructorReturn(this, (Dom.__proto__ || Object.getPrototypeOf(Dom)).call(this, props));
+
+	        _this._openApi.push('trigger');
+	        // 壳子调用antd组件，调用的组件的实例存储在_component中
+	        _this._component = null;
+	        _this._filter.push('preventUpdate');
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(Dom, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            if (this.__props.preventUpdate) {
+	                return false;
+	            }
+	            return true;
+	        }
+	        // 触发组件上的原生事件，例如 focus、change 等
+
+	    }, {
+	        key: 'trigger',
+	        value: function trigger(event) {
+	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                params[_key - 1] = arguments[_key];
+	            }
+
+	            if (this._component && this._component[event]) {
+	                this._component[event](params);
+	            } else {
+	                var _get2;
+
+	                (_get2 = _get(Dom.prototype.__proto__ || Object.getPrototypeOf(Dom.prototype), 'trigger', this)).call.apply(_get2, [this, event].concat(params));
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            // style传一个可变对象且对象进行变化时，会报warning
+	            // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
+	            return _react2.default.createElement(this.props.__type, _extends({}, this.__props, { ref: function ref(ele) {
+	                    return _this2._component = ele;
+	                },
+	                style: _extends({}, this.__props.style)
+	            }));
+	        }
+	    }]);
+
+	    return Dom;
+	}(_base.BaseComponent);
+
+	exports.default = Dom;
+
+/***/ }),
+/* 183 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @file 适配器，把组件配置转换为统一规范格式
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+
+	// import Model from './model.js';
+
+
+	var _base = __webpack_require__(128);
+
+	var _utils = __webpack_require__(115);
+
+	var _Antd = __webpack_require__(127);
+
+	var _Antd2 = _interopRequireDefault(_Antd);
+
+	var _loader = __webpack_require__(180);
+
+	var _loader2 = _interopRequireDefault(_loader);
+
+	var _whitelist = __webpack_require__(131);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// 不属于config的参数，适配用户配置的参数时使用
+	var KeyWord = ['name', 'type', 'content', 'childrenHolder'];
+	var hashKeys = {};
+
+	exports.default = {
+	    get: function get(item) {
+	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
+	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	        // TODO: 性能待观察，不能小于3
+	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
+
+	        var Item = _loader2.default.get(item);
+	        var props = _utils.Utils.filter(item, KeyWord);
+	        // 把 content 转化成 children。
+	        // update at 2017/10/25,如果没有content,则使用原来的children
+	        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
+	        if (item.content || props.children) {
+	            props.children = item.content || props.children;
+	        }
+	        // 格式化 class 和 style
+	        props = this.formatCS(props);
+	        // 如果是基于BaseComponent的组件内部要用到的属性处理
+	        if (_utils.Utils.isExtendsOf(Item, _base.BaseComponent)) {
+	            props['__type'] = item.type;
+	            props['__key'] = props['key'];
+	            // 如果有name的话，把组件放到缓存池里
+	            if (item.name) {
+	                props['__cache'] = item.name;
+	            }
+	            // if (props['__key']) {
+	            //     if (Model.if(item)) {
+	            //         props['__cache'] = props['__key'];
+	            //     }
+	            // }
+	            // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
+	            // 实例化组件时，还要把 type 还原
+	            if (_utils.Utils.isExtendsOf(Item, _Antd2.default)) {
+	                if (props.mode) {
+	                    props.type = props.mode;
+	                }
+	            }
+	            // 因为后面要对白名单里的属性进行二次解析并覆盖属性，这里把配置转存一份，并会在BaseComponent中filter掉
+	            var list = _whitelist2.default.get(props, item.type);
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    props['_' + v] = props[v];
+	                }
+	                // 非 BaseComponent 组件 _factory 等属性无效
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        } else {
+	            props.name = item.name;
+	            delete props._factory;
+	        }
+	        // 删除供各个tools使用的临时变量 insName
+	        delete props.insName;
+	        // props = this.formatOthers(props);
+
+	        return props;
+	    },
+
+	    // 供 BaseComponent 使用，在 set 之前
+	    beforeSet: function beforeSet(component, options) {
+	        this.formatCS(options);
+	        // 实例化组件时，还要把 type 还原
+	        if (component instanceof _Antd2.default) {
+	            if (options.mode) {
+	                options.type = options.mode;
+	            }
+	        }
+	        return options;
+	    },
+
+	    // 把 class、style 转换为 react 需要的 className、style对象
+	    formatCS: function formatCS(props) {
+	        if (props.class) {
+	            props.className += ' ' + props.class;
+	            delete props.class;
+	        }
+	        if (props.style && _utils.Utils.typeof(props.style, 'string')) {
+	            props.style = this.toCamalObj(props.style);
+	        }
+	        return props;
+	    },
+
+	    // 把 字符串style 转换为 react 需要的对象
+	    toCamalObj: function toCamalObj(style) {
+	        var arr = style.split(';');
+	        var obj = {};
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
+
+	        try {
+	            for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var v = _step2.value;
+
+	                var _v$split = v.split(':'),
+	                    _v$split2 = _slicedToArray(_v$split, 2),
+	                    key = _v$split2[0],
+	                    value = _v$split2[1];
+	                // 可以再优化下
+
+
+	                var newKey = key.split('-').map(function (i) {
+	                    return i.replace(/^\w/g, function (v) {
+	                        return v.toUpperCase();
+	                    });
+	                }).join('').replace(/^\w/g, function (v) {
+	                    return v.toLowerCase();
+	                });
+	                obj[newKey] = value;
+	            }
+	        } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                    _iterator2.return();
+	                }
+	            } finally {
+	                if (_didIteratorError2) {
+	                    throw _iteratorError2;
+	                }
+	            }
+	        }
+
+	        return obj;
+	    },
+
+
+	    /****** 针对组件的参数处理 ****************************************************************/
+
+	    formatOthers: function formatOthers(props) {
+	        switch (props.type) {}
+	        return props;
+	    }
+	};
 
 /***/ }),
 /* 184 */
@@ -16826,2184 +16763,6 @@
 
 /***/ }),
 /* 185 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/**
-	 * @file reuqirejs 2.3.5
-	 *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
-	 * vim: et:ts=4:sw=4:sts=4
-	 * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
-	 * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
-	 */
-	//Not using strict: uneven strict support in browsers, #392, and causes
-	//problems with requirejs.exec()/transpiler plugins that may not be strict.
-	/*jslint regexp: true, nomen: true, sloppy: true */
-	/*global window, navigator, document, importScripts, setTimeout, opera */
-
-	var requirejs, _require, define;
-	(function (global, setTimeout) {
-	    var req,
-	        s,
-	        head,
-	        baseElement,
-	        dataMain,
-	        src,
-	        interactiveScript,
-	        currentlyAddingScript,
-	        mainScript,
-	        subPath,
-	        version = '2.3.5',
-	        commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
-	        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
-	        jsSuffixRegExp = /\.js$/,
-	        currDirRegExp = /^\.\//,
-	        op = Object.prototype,
-	        ostring = op.toString,
-	        hasOwn = op.hasOwnProperty,
-	        isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
-	        isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
-
-	    //PS3 indicates loaded and complete, but need to wait for complete
-	    //specifically. Sequence is 'loading', 'loaded', execution,
-	    // then 'complete'. The UA check is unfortunate, but not sure how
-	    //to feature test w/o causing perf issues.
-	    readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ? /^complete$/ : /^(complete|loaded)$/,
-	        defContextName = '_',
-
-	    //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
-	    isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
-	        contexts = {},
-	        cfg = {},
-	        globalDefQueue = [],
-	        useInteractive = false;
-
-	    //Could match something like ')//comment', do not lose the prefix to comment.
-	    function commentReplace(match, singlePrefix) {
-	        return singlePrefix || '';
-	    }
-
-	    function isFunction(it) {
-	        return ostring.call(it) === '[object Function]';
-	    }
-
-	    function isArray(it) {
-	        return ostring.call(it) === '[object Array]';
-	    }
-
-	    /**
-	     * Helper function for iterating over an array. If the func returns
-	     * a true value, it will break out of the loop.
-	     */
-	    function each(ary, func) {
-	        if (ary) {
-	            var i;
-	            for (i = 0; i < ary.length; i += 1) {
-	                if (ary[i] && func(ary[i], i, ary)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * Helper function for iterating over an array backwards. If the func
-	     * returns a true value, it will break out of the loop.
-	     */
-	    function eachReverse(ary, func) {
-	        if (ary) {
-	            var i;
-	            for (i = ary.length - 1; i > -1; i -= 1) {
-	                if (ary[i] && func(ary[i], i, ary)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    function hasProp(obj, prop) {
-	        return hasOwn.call(obj, prop);
-	    }
-
-	    function getOwn(obj, prop) {
-	        return hasProp(obj, prop) && obj[prop];
-	    }
-
-	    /**
-	     * Cycles over properties in an object and calls a function for each
-	     * property value. If the function returns a truthy value, then the
-	     * iteration is stopped.
-	     */
-	    function eachProp(obj, func) {
-	        var prop;
-	        for (prop in obj) {
-	            if (hasProp(obj, prop)) {
-	                if (func(obj[prop], prop)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * Simple function to mix in properties from source into target,
-	     * but only if target does not already have a property of the same name.
-	     */
-	    function mixin(target, source, force, deepStringMixin) {
-	        if (source) {
-	            eachProp(source, function (value, prop) {
-	                if (force || !hasProp(target, prop)) {
-	                    if (deepStringMixin && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value && !isArray(value) && !isFunction(value) && !(value instanceof RegExp)) {
-
-	                        if (!target[prop]) {
-	                            target[prop] = {};
-	                        }
-	                        mixin(target[prop], value, force, deepStringMixin);
-	                    } else {
-	                        target[prop] = value;
-	                    }
-	                }
-	            });
-	        }
-	        return target;
-	    }
-
-	    //Similar to Function.prototype.bind, but the 'this' object is specified
-	    //first, since it is easier to read/figure out what 'this' will be.
-	    function bind(obj, fn) {
-	        return function () {
-	            return fn.apply(obj, arguments);
-	        };
-	    }
-
-	    function scripts() {
-	        return document.getElementsByTagName('script');
-	    }
-
-	    function defaultOnError(err) {
-	        throw err;
-	    }
-
-	    //Allow getting a global that is expressed in
-	    //dot notation, like 'a.b.c'.
-	    function getGlobal(value) {
-	        if (!value) {
-	            return value;
-	        }
-	        var g = global;
-	        each(value.split('.'), function (part) {
-	            g = g[part];
-	        });
-	        return g;
-	    }
-
-	    /**
-	     * Constructs an error with a pointer to an URL with more information.
-	     * @param {String} id the error ID that maps to an ID on a web page.
-	     * @param {String} message human readable error.
-	     * @param {Error} [err] the original error, if there is one.
-	     *
-	     * @returns {Error}
-	     */
-	    function makeError(id, msg, err, requireModules) {
-	        var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
-	        e.requireType = id;
-	        e.requireModules = requireModules;
-	        if (err) {
-	            e.originalError = err;
-	        }
-	        return e;
-	    }
-
-	    if (typeof define !== 'undefined') {
-	        //If a define is already in play via another AMD loader,
-	        //do not overwrite.
-	        return;
-	    }
-
-	    if (typeof requirejs !== 'undefined') {
-	        if (isFunction(requirejs)) {
-	            //Do not overwrite an existing requirejs instance.
-	            return;
-	        }
-	        cfg = requirejs;
-	        requirejs = undefined;
-	    }
-
-	    //Allow for a require config object
-	    if (typeof _require !== 'undefined' && !isFunction(_require)) {
-	        //assume it is a config object.
-	        cfg = _require;
-	        _require = undefined;
-	    }
-
-	    function newContext(contextName) {
-	        var inCheckLoaded,
-	            Module,
-	            context,
-	            handlers,
-	            checkLoadedTimeoutId,
-	            _config = {
-	            //Defaults. Do not set a default for map
-	            //config to speed up normalize(), which
-	            //will run faster if there is no default.
-	            waitSeconds: 7,
-	            baseUrl: './',
-	            paths: {},
-	            bundles: {},
-	            pkgs: {},
-	            shim: {},
-	            config: {}
-	        },
-	            registry = {},
-
-	        //registry of just enabled modules, to speed
-	        //cycle breaking code when lots of modules
-	        //are registered, but not activated.
-	        enabledRegistry = {},
-	            undefEvents = {},
-	            defQueue = [],
-	            _defined = {},
-	            urlFetched = {},
-	            bundlesMap = {},
-	            requireCounter = 1,
-	            unnormalizedCounter = 1;
-
-	        /**
-	         * Trims the . and .. from an array of path segments.
-	         * It will keep a leading path segment if a .. will become
-	         * the first path segment, to help with module name lookups,
-	         * which act like paths, but can be remapped. But the end result,
-	         * all paths that use this function should look normalized.
-	         * NOTE: this method MODIFIES the input array.
-	         * @param {Array} ary the array of path segments.
-	         */
-	        function trimDots(ary) {
-	            var i, part;
-	            for (i = 0; i < ary.length; i++) {
-	                part = ary[i];
-	                if (part === '.') {
-	                    ary.splice(i, 1);
-	                    i -= 1;
-	                } else if (part === '..') {
-	                    // If at the start, or previous value is still ..,
-	                    // keep them so that when converted to a path it may
-	                    // still work when converted to a path, even though
-	                    // as an ID it is less than ideal. In larger point
-	                    // releases, may be better to just kick out an error.
-	                    if (i === 0 || i === 1 && ary[2] === '..' || ary[i - 1] === '..') {
-	                        continue;
-	                    } else if (i > 0) {
-	                        ary.splice(i - 1, 2);
-	                        i -= 2;
-	                    }
-	                }
-	            }
-	        }
-
-	        /**
-	         * Given a relative module name, like ./something, normalize it to
-	         * a real name that can be mapped to a path.
-	         * @param {String} name the relative name
-	         * @param {String} baseName a real name that the name arg is relative
-	         * to.
-	         * @param {Boolean} applyMap apply the map config to the value. Should
-	         * only be done if this normalization is for a dependency ID.
-	         * @returns {String} normalized name
-	         */
-	        function normalize(name, baseName, applyMap) {
-	            var pkgMain,
-	                mapValue,
-	                nameParts,
-	                i,
-	                j,
-	                nameSegment,
-	                lastIndex,
-	                foundMap,
-	                foundI,
-	                foundStarMap,
-	                starI,
-	                normalizedBaseParts,
-	                baseParts = baseName && baseName.split('/'),
-	                map = _config.map,
-	                starMap = map && map['*'];
-
-	            //Adjust any relative paths.
-	            if (name) {
-	                name = name.split('/');
-	                lastIndex = name.length - 1;
-
-	                // If wanting node ID compatibility, strip .js from end
-	                // of IDs. Have to do this here, and not in nameToUrl
-	                // because node allows either .js or non .js to map
-	                // to same file.
-	                if (_config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
-	                    name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
-	                }
-
-	                // Starts with a '.' so need the baseName
-	                if (name[0].charAt(0) === '.' && baseParts) {
-	                    //Convert baseName to array, and lop off the last part,
-	                    //so that . matches that 'directory' and not name of the baseName's
-	                    //module. For instance, baseName of 'one/two/three', maps to
-	                    //'one/two/three.js', but we want the directory, 'one/two' for
-	                    //this normalization.
-	                    normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
-	                    name = normalizedBaseParts.concat(name);
-	                }
-
-	                trimDots(name);
-	                name = name.join('/');
-	            }
-
-	            //Apply map config if available.
-	            if (applyMap && map && (baseParts || starMap)) {
-	                nameParts = name.split('/');
-
-	                outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
-	                    nameSegment = nameParts.slice(0, i).join('/');
-
-	                    if (baseParts) {
-	                        //Find the longest baseName segment match in the config.
-	                        //So, do joins on the biggest to smallest lengths of baseParts.
-	                        for (j = baseParts.length; j > 0; j -= 1) {
-	                            mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
-
-	                            //baseName segment has config, find if it has one for
-	                            //this name.
-	                            if (mapValue) {
-	                                mapValue = getOwn(mapValue, nameSegment);
-	                                if (mapValue) {
-	                                    //Match, update name to the new value.
-	                                    foundMap = mapValue;
-	                                    foundI = i;
-	                                    break outerLoop;
-	                                }
-	                            }
-	                        }
-	                    }
-
-	                    //Check for a star map match, but just hold on to it,
-	                    //if there is a shorter segment match later in a matching
-	                    //config, then favor over this star map.
-	                    if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
-	                        foundStarMap = getOwn(starMap, nameSegment);
-	                        starI = i;
-	                    }
-	                }
-
-	                if (!foundMap && foundStarMap) {
-	                    foundMap = foundStarMap;
-	                    foundI = starI;
-	                }
-
-	                if (foundMap) {
-	                    nameParts.splice(0, foundI, foundMap);
-	                    name = nameParts.join('/');
-	                }
-	            }
-
-	            // If the name points to a package's name, use
-	            // the package main instead.
-	            pkgMain = getOwn(_config.pkgs, name);
-
-	            return pkgMain ? pkgMain : name;
-	        }
-
-	        function removeScript(name) {
-	            if (isBrowser) {
-	                each(scripts(), function (scriptNode) {
-	                    if (scriptNode.getAttribute('data-requiremodule') === name && scriptNode.getAttribute('data-requirecontext') === context.contextName) {
-	                        scriptNode.parentNode.removeChild(scriptNode);
-	                        return true;
-	                    }
-	                });
-	            }
-	        }
-
-	        function hasPathFallback(id) {
-	            var pathConfig = getOwn(_config.paths, id);
-	            if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
-	                //Pop off the first array value, since it failed, and
-	                //retry
-	                pathConfig.shift();
-	                context.require.undef(id);
-
-	                //Custom require that does not do map translation, since
-	                //ID is "absolute", already mapped/resolved.
-	                context.makeRequire(null, {
-	                    skipMap: true
-	                })([id]);
-
-	                return true;
-	            }
-	        }
-
-	        //Turns a plugin!resource to [plugin, resource]
-	        //with the plugin being undefined if the name
-	        //did not have a plugin prefix.
-	        function splitPrefix(name) {
-	            var prefix,
-	                index = name ? name.indexOf('!') : -1;
-	            if (index > -1) {
-	                prefix = name.substring(0, index);
-	                name = name.substring(index + 1, name.length);
-	            }
-	            return [prefix, name];
-	        }
-
-	        /**
-	         * Creates a module mapping that includes plugin prefix, module
-	         * name, and path. If parentModuleMap is provided it will
-	         * also normalize the name via require.normalize()
-	         *
-	         * @param {String} name the module name
-	         * @param {String} [parentModuleMap] parent module map
-	         * for the module name, used to resolve relative names.
-	         * @param {Boolean} isNormalized: is the ID already normalized.
-	         * This is true if this call is done for a define() module ID.
-	         * @param {Boolean} applyMap: apply the map config to the ID.
-	         * Should only be true if this map is for a dependency.
-	         *
-	         * @returns {Object}
-	         */
-	        function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
-	            var url,
-	                pluginModule,
-	                suffix,
-	                nameParts,
-	                prefix = null,
-	                parentName = parentModuleMap ? parentModuleMap.name : null,
-	                originalName = name,
-	                isDefine = true,
-	                normalizedName = '';
-
-	            //If no name, then it means it is a require call, generate an
-	            //internal name.
-	            if (!name) {
-	                isDefine = false;
-	                name = '_@r' + (requireCounter += 1);
-	            }
-
-	            nameParts = splitPrefix(name);
-	            prefix = nameParts[0];
-	            name = nameParts[1];
-
-	            if (prefix) {
-	                prefix = normalize(prefix, parentName, applyMap);
-	                pluginModule = getOwn(_defined, prefix);
-	            }
-
-	            //Account for relative paths if there is a base name.
-	            if (name) {
-	                if (prefix) {
-	                    if (isNormalized) {
-	                        normalizedName = name;
-	                    } else if (pluginModule && pluginModule.normalize) {
-	                        //Plugin is loaded, use its normalize method.
-	                        normalizedName = pluginModule.normalize(name, function (name) {
-	                            return normalize(name, parentName, applyMap);
-	                        });
-	                    } else {
-	                        // If nested plugin references, then do not try to
-	                        // normalize, as it will not normalize correctly. This
-	                        // places a restriction on resourceIds, and the longer
-	                        // term solution is not to normalize until plugins are
-	                        // loaded and all normalizations to allow for async
-	                        // loading of a loader plugin. But for now, fixes the
-	                        // common uses. Details in #1131
-	                        normalizedName = name.indexOf('!') === -1 ? normalize(name, parentName, applyMap) : name;
-	                    }
-	                } else {
-	                    //A regular module.
-	                    normalizedName = normalize(name, parentName, applyMap);
-
-	                    //Normalized name may be a plugin ID due to map config
-	                    //application in normalize. The map config values must
-	                    //already be normalized, so do not need to redo that part.
-	                    nameParts = splitPrefix(normalizedName);
-	                    prefix = nameParts[0];
-	                    normalizedName = nameParts[1];
-	                    isNormalized = true;
-
-	                    url = context.nameToUrl(normalizedName);
-	                }
-	            }
-
-	            //If the id is a plugin id that cannot be determined if it needs
-	            //normalization, stamp it with a unique ID so two matching relative
-	            //ids that may conflict can be separate.
-	            suffix = prefix && !pluginModule && !isNormalized ? '_unnormalized' + (unnormalizedCounter += 1) : '';
-
-	            return {
-	                prefix: prefix,
-	                name: normalizedName,
-	                parentMap: parentModuleMap,
-	                unnormalized: !!suffix,
-	                url: url,
-	                originalName: originalName,
-	                isDefine: isDefine,
-	                id: (prefix ? prefix + '!' + normalizedName : normalizedName) + suffix
-	            };
-	        }
-
-	        function getModule(depMap) {
-	            var id = depMap.id,
-	                mod = getOwn(registry, id);
-
-	            if (!mod) {
-	                mod = registry[id] = new context.Module(depMap);
-	            }
-
-	            return mod;
-	        }
-
-	        function on(depMap, name, fn) {
-	            var id = depMap.id,
-	                mod = getOwn(registry, id);
-
-	            if (hasProp(_defined, id) && (!mod || mod.defineEmitComplete)) {
-	                if (name === 'defined') {
-	                    fn(_defined[id]);
-	                }
-	            } else {
-	                mod = getModule(depMap);
-	                if (mod.error && name === 'error') {
-	                    fn(mod.error);
-	                } else {
-	                    mod.on(name, fn);
-	                }
-	            }
-	        }
-
-	        function onError(err, errback) {
-	            var ids = err.requireModules,
-	                notified = false;
-
-	            if (errback) {
-	                errback(err);
-	            } else {
-	                each(ids, function (id) {
-	                    var mod = getOwn(registry, id);
-	                    if (mod) {
-	                        //Set error on module, so it skips timeout checks.
-	                        mod.error = err;
-	                        if (mod.events.error) {
-	                            notified = true;
-	                            mod.emit('error', err);
-	                        }
-	                    }
-	                });
-
-	                if (!notified) {
-	                    req.onError(err);
-	                }
-	            }
-	        }
-
-	        /**
-	         * Internal method to transfer globalQueue items to this context's
-	         * defQueue.
-	         */
-	        function takeGlobalQueue() {
-	            //Push all the globalDefQueue items into the context's defQueue
-	            if (globalDefQueue.length) {
-	                each(globalDefQueue, function (queueItem) {
-	                    var id = queueItem[0];
-	                    if (typeof id === 'string') {
-	                        context.defQueueMap[id] = true;
-	                    }
-	                    defQueue.push(queueItem);
-	                });
-	                globalDefQueue = [];
-	            }
-	        }
-
-	        handlers = {
-	            'require': function require(mod) {
-	                if (mod.require) {
-	                    return mod.require;
-	                } else {
-	                    return mod.require = context.makeRequire(mod.map);
-	                }
-	            },
-	            'exports': function exports(mod) {
-	                mod.usingExports = true;
-	                if (mod.map.isDefine) {
-	                    if (mod.exports) {
-	                        return _defined[mod.map.id] = mod.exports;
-	                    } else {
-	                        return mod.exports = _defined[mod.map.id] = {};
-	                    }
-	                }
-	            },
-	            'module': function module(mod) {
-	                if (mod.module) {
-	                    return mod.module;
-	                } else {
-	                    return mod.module = {
-	                        id: mod.map.id,
-	                        uri: mod.map.url,
-	                        config: function config() {
-	                            return getOwn(_config.config, mod.map.id) || {};
-	                        },
-	                        exports: mod.exports || (mod.exports = {})
-	                    };
-	                }
-	            }
-	        };
-
-	        function cleanRegistry(id) {
-	            //Clean up machinery used for waiting modules.
-	            delete registry[id];
-	            delete enabledRegistry[id];
-	        }
-
-	        function breakCycle(mod, traced, processed) {
-	            var id = mod.map.id;
-
-	            if (mod.error) {
-	                mod.emit('error', mod.error);
-	            } else {
-	                traced[id] = true;
-	                each(mod.depMaps, function (depMap, i) {
-	                    var depId = depMap.id,
-	                        dep = getOwn(registry, depId);
-
-	                    //Only force things that have not completed
-	                    //being defined, so still in the registry,
-	                    //and only if it has not been matched up
-	                    //in the module already.
-	                    if (dep && !mod.depMatched[i] && !processed[depId]) {
-	                        if (getOwn(traced, depId)) {
-	                            mod.defineDep(i, _defined[depId]);
-	                            mod.check(); //pass false?
-	                        } else {
-	                            breakCycle(dep, traced, processed);
-	                        }
-	                    }
-	                });
-	                processed[id] = true;
-	            }
-	        }
-
-	        function checkLoaded() {
-	            var err,
-	                usingPathFallback,
-	                waitInterval = _config.waitSeconds * 1000,
-
-	            //It is possible to disable the wait interval by using waitSeconds of 0.
-	            expired = waitInterval && context.startTime + waitInterval < new Date().getTime(),
-	                noLoads = [],
-	                reqCalls = [],
-	                stillLoading = false,
-	                needCycleCheck = true;
-
-	            //Do not bother if this call was a result of a cycle break.
-	            if (inCheckLoaded) {
-	                return;
-	            }
-
-	            inCheckLoaded = true;
-
-	            //Figure out the state of all the modules.
-	            eachProp(enabledRegistry, function (mod) {
-	                var map = mod.map,
-	                    modId = map.id;
-
-	                //Skip things that are not enabled or in error state.
-	                if (!mod.enabled) {
-	                    return;
-	                }
-
-	                if (!map.isDefine) {
-	                    reqCalls.push(mod);
-	                }
-
-	                if (!mod.error) {
-	                    //If the module should be executed, and it has not
-	                    //been inited and time is up, remember it.
-	                    if (!mod.inited && expired) {
-	                        if (hasPathFallback(modId)) {
-	                            usingPathFallback = true;
-	                            stillLoading = true;
-	                        } else {
-	                            noLoads.push(modId);
-	                            removeScript(modId);
-	                        }
-	                    } else if (!mod.inited && mod.fetched && map.isDefine) {
-	                        stillLoading = true;
-	                        if (!map.prefix) {
-	                            //No reason to keep looking for unfinished
-	                            //loading. If the only stillLoading is a
-	                            //plugin resource though, keep going,
-	                            //because it may be that a plugin resource
-	                            //is waiting on a non-plugin cycle.
-	                            return needCycleCheck = false;
-	                        }
-	                    }
-	                }
-	            });
-
-	            if (expired && noLoads.length) {
-	                //If wait time expired, throw error of unloaded modules.
-	                err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
-	                err.contextName = context.contextName;
-	                return onError(err);
-	            }
-
-	            //Not expired, check for a cycle.
-	            if (needCycleCheck) {
-	                each(reqCalls, function (mod) {
-	                    breakCycle(mod, {}, {});
-	                });
-	            }
-
-	            //If still waiting on loads, and the waiting load is something
-	            //other than a plugin resource, or there are still outstanding
-	            //scripts, then just try back later.
-	            if ((!expired || usingPathFallback) && stillLoading) {
-	                //Something is still waiting to load. Wait for it, but only
-	                //if a timeout is not already in effect.
-	                if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
-	                    checkLoadedTimeoutId = setTimeout(function () {
-	                        checkLoadedTimeoutId = 0;
-	                        checkLoaded();
-	                    }, 50);
-	                }
-	            }
-
-	            inCheckLoaded = false;
-	        }
-
-	        Module = function Module(map) {
-	            this.events = getOwn(undefEvents, map.id) || {};
-	            this.map = map;
-	            this.shim = getOwn(_config.shim, map.id);
-	            this.depExports = [];
-	            this.depMaps = [];
-	            this.depMatched = [];
-	            this.pluginMaps = {};
-	            this.depCount = 0;
-
-	            /* this.exports this.factory
-	               this.depMaps = [],
-	               this.enabled, this.fetched
-	            */
-	        };
-
-	        Module.prototype = {
-	            init: function init(depMaps, factory, errback, options) {
-	                options = options || {};
-
-	                //Do not do more inits if already done. Can happen if there
-	                //are multiple define calls for the same module. That is not
-	                //a normal, common case, but it is also not unexpected.
-	                if (this.inited) {
-	                    return;
-	                }
-
-	                this.factory = factory;
-
-	                if (errback) {
-	                    //Register for errors on this module.
-	                    this.on('error', errback);
-	                } else if (this.events.error) {
-	                    //If no errback already, but there are error listeners
-	                    //on this module, set up an errback to pass to the deps.
-	                    errback = bind(this, function (err) {
-	                        this.emit('error', err);
-	                    });
-	                }
-
-	                //Do a copy of the dependency array, so that
-	                //source inputs are not modified. For example
-	                //"shim" deps are passed in here directly, and
-	                //doing a direct modification of the depMaps array
-	                //would affect that config.
-	                this.depMaps = depMaps && depMaps.slice(0);
-
-	                this.errback = errback;
-
-	                //Indicate this module has be initialized
-	                this.inited = true;
-
-	                this.ignore = options.ignore;
-
-	                //Could have option to init this module in enabled mode,
-	                //or could have been previously marked as enabled. However,
-	                //the dependencies are not known until init is called. So
-	                //if enabled previously, now trigger dependencies as enabled.
-	                if (options.enabled || this.enabled) {
-	                    //Enable this module and dependencies.
-	                    //Will call this.check()
-	                    this.enable();
-	                } else {
-	                    this.check();
-	                }
-	            },
-
-	            defineDep: function defineDep(i, depExports) {
-	                //Because of cycles, defined callback for a given
-	                //export can be called more than once.
-	                if (!this.depMatched[i]) {
-	                    this.depMatched[i] = true;
-	                    this.depCount -= 1;
-	                    this.depExports[i] = depExports;
-	                }
-	            },
-
-	            fetch: function fetch() {
-	                if (this.fetched) {
-	                    return;
-	                }
-	                this.fetched = true;
-
-	                context.startTime = new Date().getTime();
-
-	                var map = this.map;
-
-	                //If the manager is for a plugin managed resource,
-	                //ask the plugin to load it now.
-	                if (this.shim) {
-	                    context.makeRequire(this.map, {
-	                        enableBuildCallback: true
-	                    })(this.shim.deps || [], bind(this, function () {
-	                        return map.prefix ? this.callPlugin() : this.load();
-	                    }));
-	                } else {
-	                    //Regular dependency.
-	                    return map.prefix ? this.callPlugin() : this.load();
-	                }
-	            },
-
-	            load: function load() {
-	                var url = this.map.url;
-
-	                //Regular dependency.
-	                if (!urlFetched[url]) {
-	                    urlFetched[url] = true;
-	                    context.load(this.map.id, url);
-	                }
-	            },
-
-	            /**
-	             * Checks if the module is ready to define itself, and if so,
-	             * define it.
-	             */
-	            check: function check() {
-	                if (!this.enabled || this.enabling) {
-	                    return;
-	                }
-
-	                var err,
-	                    cjsModule,
-	                    id = this.map.id,
-	                    depExports = this.depExports,
-	                    exports = this.exports,
-	                    factory = this.factory;
-
-	                if (!this.inited) {
-	                    // Only fetch if not already in the defQueue.
-	                    if (!hasProp(context.defQueueMap, id)) {
-	                        this.fetch();
-	                    }
-	                } else if (this.error) {
-	                    this.emit('error', this.error);
-	                } else if (!this.defining) {
-	                    //The factory could trigger another require call
-	                    //that would result in checking this module to
-	                    //define itself again. If already in the process
-	                    //of doing that, skip this work.
-	                    this.defining = true;
-
-	                    if (this.depCount < 1 && !this.defined) {
-	                        if (isFunction(factory)) {
-	                            //If there is an error listener, favor passing
-	                            //to that instead of throwing an error. However,
-	                            //only do it for define()'d  modules. require
-	                            //errbacks should not be called for failures in
-	                            //their callbacks (#699). However if a global
-	                            //onError is set, use that.
-	                            if (this.events.error && this.map.isDefine || req.onError !== defaultOnError) {
-	                                try {
-	                                    exports = context.execCb(id, factory, depExports, exports);
-	                                } catch (e) {
-	                                    err = e;
-	                                }
-	                            } else {
-	                                exports = context.execCb(id, factory, depExports, exports);
-	                            }
-
-	                            // Favor return value over exports. If node/cjs in play,
-	                            // then will not have a return value anyway. Favor
-	                            // module.exports assignment over exports object.
-	                            if (this.map.isDefine && exports === undefined) {
-	                                cjsModule = this.module;
-	                                if (cjsModule) {
-	                                    exports = cjsModule.exports;
-	                                } else if (this.usingExports) {
-	                                    //exports already set the defined value.
-	                                    exports = this.exports;
-	                                }
-	                            }
-
-	                            if (err) {
-	                                err.requireMap = this.map;
-	                                err.requireModules = this.map.isDefine ? [this.map.id] : null;
-	                                err.requireType = this.map.isDefine ? 'define' : 'require';
-	                                return onError(this.error = err);
-	                            }
-	                        } else {
-	                            //Just a literal value
-	                            exports = factory;
-	                        }
-
-	                        this.exports = exports;
-
-	                        if (this.map.isDefine && !this.ignore) {
-	                            _defined[id] = exports;
-
-	                            if (req.onResourceLoad) {
-	                                var resLoadMaps = [];
-	                                each(this.depMaps, function (depMap) {
-	                                    resLoadMaps.push(depMap.normalizedMap || depMap);
-	                                });
-	                                req.onResourceLoad(context, this.map, resLoadMaps);
-	                            }
-	                        }
-
-	                        //Clean up
-	                        cleanRegistry(id);
-
-	                        this.defined = true;
-	                    }
-
-	                    //Finished the define stage. Allow calling check again
-	                    //to allow define notifications below in the case of a
-	                    //cycle.
-	                    this.defining = false;
-
-	                    if (this.defined && !this.defineEmitted) {
-	                        this.defineEmitted = true;
-	                        this.emit('defined', this.exports);
-	                        this.defineEmitComplete = true;
-	                    }
-	                }
-	            },
-
-	            callPlugin: function callPlugin() {
-	                var map = this.map,
-	                    id = map.id,
-
-	                //Map already normalized the prefix.
-	                pluginMap = makeModuleMap(map.prefix);
-
-	                //Mark this as a dependency for this plugin, so it
-	                //can be traced for cycles.
-	                this.depMaps.push(pluginMap);
-
-	                on(pluginMap, 'defined', bind(this, function (plugin) {
-	                    var load,
-	                        normalizedMap,
-	                        normalizedMod,
-	                        bundleId = getOwn(bundlesMap, this.map.id),
-	                        name = this.map.name,
-	                        parentName = this.map.parentMap ? this.map.parentMap.name : null,
-	                        localRequire = context.makeRequire(map.parentMap, {
-	                        enableBuildCallback: true
-	                    });
-
-	                    //If current map is not normalized, wait for that
-	                    //normalized name to load instead of continuing.
-	                    if (this.map.unnormalized) {
-	                        //Normalize the ID if the plugin allows it.
-	                        if (plugin.normalize) {
-	                            name = plugin.normalize(name, function (name) {
-	                                return normalize(name, parentName, true);
-	                            }) || '';
-	                        }
-
-	                        //prefix and name should already be normalized, no need
-	                        //for applying map config again either.
-	                        normalizedMap = makeModuleMap(map.prefix + '!' + name, this.map.parentMap, true);
-	                        on(normalizedMap, 'defined', bind(this, function (value) {
-	                            this.map.normalizedMap = normalizedMap;
-	                            this.init([], function () {
-	                                return value;
-	                            }, null, {
-	                                enabled: true,
-	                                ignore: true
-	                            });
-	                        }));
-
-	                        normalizedMod = getOwn(registry, normalizedMap.id);
-	                        if (normalizedMod) {
-	                            //Mark this as a dependency for this plugin, so it
-	                            //can be traced for cycles.
-	                            this.depMaps.push(normalizedMap);
-
-	                            if (this.events.error) {
-	                                normalizedMod.on('error', bind(this, function (err) {
-	                                    this.emit('error', err);
-	                                }));
-	                            }
-	                            normalizedMod.enable();
-	                        }
-
-	                        return;
-	                    }
-
-	                    //If a paths config, then just load that file instead to
-	                    //resolve the plugin, as it is built into that paths layer.
-	                    if (bundleId) {
-	                        this.map.url = context.nameToUrl(bundleId);
-	                        this.load();
-	                        return;
-	                    }
-
-	                    load = bind(this, function (value) {
-	                        this.init([], function () {
-	                            return value;
-	                        }, null, {
-	                            enabled: true
-	                        });
-	                    });
-
-	                    load.error = bind(this, function (err) {
-	                        this.inited = true;
-	                        this.error = err;
-	                        err.requireModules = [id];
-
-	                        //Remove temp unnormalized modules for this module,
-	                        //since they will never be resolved otherwise now.
-	                        eachProp(registry, function (mod) {
-	                            if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
-	                                cleanRegistry(mod.map.id);
-	                            }
-	                        });
-
-	                        onError(err);
-	                    });
-
-	                    //Allow plugins to load other code without having to know the
-	                    //context or how to 'complete' the load.
-	                    load.fromText = bind(this, function (text, textAlt) {
-	                        /*jslint evil: true */
-	                        var moduleName = map.name,
-	                            moduleMap = makeModuleMap(moduleName),
-	                            hasInteractive = useInteractive;
-
-	                        //As of 2.1.0, support just passing the text, to reinforce
-	                        //fromText only being called once per resource. Still
-	                        //support old style of passing moduleName but discard
-	                        //that moduleName in favor of the internal ref.
-	                        if (textAlt) {
-	                            text = textAlt;
-	                        }
-
-	                        //Turn off interactive script matching for IE for any define
-	                        //calls in the text, then turn it back on at the end.
-	                        if (hasInteractive) {
-	                            useInteractive = false;
-	                        }
-
-	                        //Prime the system by creating a module instance for
-	                        //it.
-	                        getModule(moduleMap);
-
-	                        //Transfer any config to this other module.
-	                        if (hasProp(_config.config, id)) {
-	                            _config.config[moduleName] = _config.config[id];
-	                        }
-
-	                        try {
-	                            req.exec(text);
-	                        } catch (e) {
-	                            return onError(makeError('fromtexteval', 'fromText eval for ' + id + ' failed: ' + e, e, [id]));
-	                        }
-
-	                        if (hasInteractive) {
-	                            useInteractive = true;
-	                        }
-
-	                        //Mark this as a dependency for the plugin
-	                        //resource
-	                        this.depMaps.push(moduleMap);
-
-	                        //Support anonymous modules.
-	                        context.completeLoad(moduleName);
-
-	                        //Bind the value of that module to the value for this
-	                        //resource ID.
-	                        localRequire([moduleName], load);
-	                    });
-
-	                    //Use parentName here since the plugin's name is not reliable,
-	                    //could be some weird string with no path that actually wants to
-	                    //reference the parentName's path.
-	                    plugin.load(map.name, localRequire, load, _config);
-	                }));
-
-	                context.enable(pluginMap, this);
-	                this.pluginMaps[pluginMap.id] = pluginMap;
-	            },
-
-	            enable: function enable() {
-	                enabledRegistry[this.map.id] = this;
-	                this.enabled = true;
-
-	                //Set flag mentioning that the module is enabling,
-	                //so that immediate calls to the defined callbacks
-	                //for dependencies do not trigger inadvertent load
-	                //with the depCount still being zero.
-	                this.enabling = true;
-
-	                //Enable each dependency
-	                each(this.depMaps, bind(this, function (depMap, i) {
-	                    var id, mod, handler;
-
-	                    if (typeof depMap === 'string') {
-	                        //Dependency needs to be converted to a depMap
-	                        //and wired up to this module.
-	                        depMap = makeModuleMap(depMap, this.map.isDefine ? this.map : this.map.parentMap, false, !this.skipMap);
-	                        this.depMaps[i] = depMap;
-
-	                        handler = getOwn(handlers, depMap.id);
-
-	                        if (handler) {
-	                            this.depExports[i] = handler(this);
-	                            return;
-	                        }
-
-	                        this.depCount += 1;
-
-	                        on(depMap, 'defined', bind(this, function (depExports) {
-	                            if (this.undefed) {
-	                                return;
-	                            }
-	                            this.defineDep(i, depExports);
-	                            this.check();
-	                        }));
-
-	                        if (this.errback) {
-	                            on(depMap, 'error', bind(this, this.errback));
-	                        } else if (this.events.error) {
-	                            // No direct errback on this module, but something
-	                            // else is listening for errors, so be sure to
-	                            // propagate the error correctly.
-	                            on(depMap, 'error', bind(this, function (err) {
-	                                this.emit('error', err);
-	                            }));
-	                        }
-	                    }
-
-	                    id = depMap.id;
-	                    mod = registry[id];
-
-	                    //Skip special modules like 'require', 'exports', 'module'
-	                    //Also, don't call enable if it is already enabled,
-	                    //important in circular dependency cases.
-	                    if (!hasProp(handlers, id) && mod && !mod.enabled) {
-	                        context.enable(depMap, this);
-	                    }
-	                }));
-
-	                //Enable each plugin that is used in
-	                //a dependency
-	                eachProp(this.pluginMaps, bind(this, function (pluginMap) {
-	                    var mod = getOwn(registry, pluginMap.id);
-	                    if (mod && !mod.enabled) {
-	                        context.enable(pluginMap, this);
-	                    }
-	                }));
-
-	                this.enabling = false;
-
-	                this.check();
-	            },
-
-	            on: function on(name, cb) {
-	                var cbs = this.events[name];
-	                if (!cbs) {
-	                    cbs = this.events[name] = [];
-	                }
-	                cbs.push(cb);
-	            },
-
-	            emit: function emit(name, evt) {
-	                each(this.events[name], function (cb) {
-	                    cb(evt);
-	                });
-	                if (name === 'error') {
-	                    //Now that the error handler was triggered, remove
-	                    //the listeners, since this broken Module instance
-	                    //can stay around for a while in the registry.
-	                    delete this.events[name];
-	                }
-	            }
-	        };
-
-	        function callGetModule(args) {
-	            //Skip modules already defined.
-	            if (!hasProp(_defined, args[0])) {
-	                getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
-	            }
-	        }
-
-	        function removeListener(node, func, name, ieName) {
-	            //Favor detachEvent because of IE9
-	            //issue, see attachEvent/addEventListener comment elsewhere
-	            //in this file.
-	            if (node.detachEvent && !isOpera) {
-	                //Probably IE. If not it will throw an error, which will be
-	                //useful to know.
-	                if (ieName) {
-	                    node.detachEvent(ieName, func);
-	                }
-	            } else {
-	                node.removeEventListener(name, func, false);
-	            }
-	        }
-
-	        /**
-	         * Given an event from a script node, get the requirejs info from it,
-	         * and then removes the event listeners on the node.
-	         * @param {Event} evt
-	         * @returns {Object}
-	         */
-	        function getScriptData(evt) {
-	            //Using currentTarget instead of target for Firefox 2.0's sake. Not
-	            //all old browsers will be supported, but this one was easy enough
-	            //to support and still makes sense.
-	            var node = evt.currentTarget || evt.srcElement;
-
-	            //Remove the listeners once here.
-	            removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
-	            removeListener(node, context.onScriptError, 'error');
-
-	            return {
-	                node: node,
-	                id: node && node.getAttribute('data-requiremodule')
-	            };
-	        }
-
-	        function intakeDefines() {
-	            var args;
-
-	            //Any defined modules in the global queue, intake them now.
-	            takeGlobalQueue();
-
-	            //Make sure any remaining defQueue items get properly processed.
-	            while (defQueue.length) {
-	                args = defQueue.shift();
-	                if (args[0] === null) {
-	                    return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
-	                } else {
-	                    //args are id, deps, factory. Should be normalized by the
-	                    //define() function.
-	                    callGetModule(args);
-	                }
-	            }
-	            context.defQueueMap = {};
-	        }
-
-	        context = {
-	            config: _config,
-	            contextName: contextName,
-	            registry: registry,
-	            defined: _defined,
-	            urlFetched: urlFetched,
-	            defQueue: defQueue,
-	            defQueueMap: {},
-	            Module: Module,
-	            makeModuleMap: makeModuleMap,
-	            nextTick: req.nextTick,
-	            onError: onError,
-
-	            /**
-	             * Set a configuration for the context.
-	             * @param {Object} cfg config object to integrate.
-	             */
-	            configure: function configure(cfg) {
-	                //Make sure the baseUrl ends in a slash.
-	                if (cfg.baseUrl) {
-	                    if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
-	                        cfg.baseUrl += '/';
-	                    }
-	                }
-
-	                // Convert old style urlArgs string to a function.
-	                if (typeof cfg.urlArgs === 'string') {
-	                    var urlArgs = cfg.urlArgs;
-	                    cfg.urlArgs = function (id, url) {
-	                        return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
-	                    };
-	                }
-
-	                //Save off the paths since they require special processing,
-	                //they are additive.
-	                var shim = _config.shim,
-	                    objs = {
-	                    paths: true,
-	                    bundles: true,
-	                    config: true,
-	                    map: true
-	                };
-
-	                eachProp(cfg, function (value, prop) {
-	                    if (objs[prop]) {
-	                        if (!_config[prop]) {
-	                            _config[prop] = {};
-	                        }
-	                        mixin(_config[prop], value, true, true);
-	                    } else {
-	                        _config[prop] = value;
-	                    }
-	                });
-
-	                //Reverse map the bundles
-	                if (cfg.bundles) {
-	                    eachProp(cfg.bundles, function (value, prop) {
-	                        each(value, function (v) {
-	                            if (v !== prop) {
-	                                bundlesMap[v] = prop;
-	                            }
-	                        });
-	                    });
-	                }
-
-	                //Merge shim
-	                if (cfg.shim) {
-	                    eachProp(cfg.shim, function (value, id) {
-	                        //Normalize the structure
-	                        if (isArray(value)) {
-	                            value = {
-	                                deps: value
-	                            };
-	                        }
-	                        if ((value.exports || value.init) && !value.exportsFn) {
-	                            value.exportsFn = context.makeShimExports(value);
-	                        }
-	                        shim[id] = value;
-	                    });
-	                    _config.shim = shim;
-	                }
-
-	                //Adjust packages if necessary.
-	                if (cfg.packages) {
-	                    each(cfg.packages, function (pkgObj) {
-	                        var location, name;
-
-	                        pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
-
-	                        name = pkgObj.name;
-	                        location = pkgObj.location;
-	                        if (location) {
-	                            _config.paths[name] = pkgObj.location;
-	                        }
-
-	                        //Save pointer to main module ID for pkg name.
-	                        //Remove leading dot in main, so main paths are normalized,
-	                        //and remove any trailing .js, since different package
-	                        //envs have different conventions: some use a module name,
-	                        //some use a file name.
-	                        _config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main').replace(currDirRegExp, '').replace(jsSuffixRegExp, '');
-	                    });
-	                }
-
-	                //If there are any "waiting to execute" modules in the registry,
-	                //update the maps for them, since their info, like URLs to load,
-	                //may have changed.
-	                eachProp(registry, function (mod, id) {
-	                    //If module already has init called, since it is too
-	                    //late to modify them, and ignore unnormalized ones
-	                    //since they are transient.
-	                    if (!mod.inited && !mod.map.unnormalized) {
-	                        mod.map = makeModuleMap(id, null, true);
-	                    }
-	                });
-
-	                //If a deps array or a config callback is specified, then call
-	                //require with those args. This is useful when require is defined as a
-	                //config object before require.js is loaded.
-	                if (cfg.deps || cfg.callback) {
-	                    context.require(cfg.deps || [], cfg.callback);
-	                }
-	            },
-
-	            makeShimExports: function makeShimExports(value) {
-	                function fn() {
-	                    var ret;
-	                    if (value.init) {
-	                        ret = value.init.apply(global, arguments);
-	                    }
-	                    return ret || value.exports && getGlobal(value.exports);
-	                }
-	                return fn;
-	            },
-
-	            makeRequire: function makeRequire(relMap, options) {
-	                options = options || {};
-
-	                function localRequire(deps, callback, errback) {
-	                    var id, map, requireMod;
-
-	                    if (options.enableBuildCallback && callback && isFunction(callback)) {
-	                        callback.__requireJsBuild = true;
-	                    }
-
-	                    if (typeof deps === 'string') {
-	                        if (isFunction(callback)) {
-	                            //Invalid call
-	                            return onError(makeError('requireargs', 'Invalid require call'), errback);
-	                        }
-
-	                        //If require|exports|module are requested, get the
-	                        //value for them from the special handlers. Caveat:
-	                        //this only works while module is being defined.
-	                        if (relMap && hasProp(handlers, deps)) {
-	                            return handlers[deps](registry[relMap.id]);
-	                        }
-
-	                        //Synchronous access to one module. If require.get is
-	                        //available (as in the Node adapter), prefer that.
-	                        if (req.get) {
-	                            return req.get(context, deps, relMap, localRequire);
-	                        }
-
-	                        //Normalize module name, if it contains . or ..
-	                        map = makeModuleMap(deps, relMap, false, true);
-	                        id = map.id;
-
-	                        if (!hasProp(_defined, id)) {
-	                            return onError(makeError('notloaded', 'Module name "' + id + '" has not been loaded yet for context: ' + contextName + (relMap ? '' : '. Use require([])')));
-	                        }
-	                        return _defined[id];
-	                    }
-
-	                    //Grab defines waiting in the global queue.
-	                    intakeDefines();
-
-	                    //Mark all the dependencies as needing to be loaded.
-	                    context.nextTick(function () {
-	                        //Some defines could have been added since the
-	                        //require call, collect them.
-	                        intakeDefines();
-
-	                        requireMod = getModule(makeModuleMap(null, relMap));
-
-	                        //Store if map config should be applied to this require
-	                        //call for dependencies.
-	                        requireMod.skipMap = options.skipMap;
-
-	                        requireMod.init(deps, callback, errback, {
-	                            enabled: true
-	                        });
-
-	                        checkLoaded();
-	                    });
-
-	                    return localRequire;
-	                }
-
-	                mixin(localRequire, {
-	                    isBrowser: isBrowser,
-
-	                    /**
-	                     * Converts a module name + .extension into an URL path.
-	                     * *Requires* the use of a module name. It does not support using
-	                     * plain URLs like nameToUrl.
-	                     */
-	                    toUrl: function toUrl(moduleNamePlusExt) {
-	                        var ext,
-	                            index = moduleNamePlusExt.lastIndexOf('.'),
-	                            segment = moduleNamePlusExt.split('/')[0],
-	                            isRelative = segment === '.' || segment === '..';
-
-	                        //Have a file extension alias, and it is not the
-	                        //dots from a relative path.
-	                        if (index !== -1 && (!isRelative || index > 1)) {
-	                            ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
-	                            moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
-	                        }
-
-	                        return context.nameToUrl(normalize(moduleNamePlusExt, relMap && relMap.id, true), ext, true);
-	                    },
-
-	                    defined: function defined(id) {
-	                        return hasProp(_defined, makeModuleMap(id, relMap, false, true).id);
-	                    },
-
-	                    specified: function specified(id) {
-	                        id = makeModuleMap(id, relMap, false, true).id;
-	                        return hasProp(_defined, id) || hasProp(registry, id);
-	                    }
-	                });
-
-	                //Only allow undef on top level require calls
-	                if (!relMap) {
-	                    localRequire.undef = function (id) {
-	                        //Bind any waiting define() calls to this context,
-	                        //fix for #408
-	                        takeGlobalQueue();
-
-	                        var map = makeModuleMap(id, relMap, true),
-	                            mod = getOwn(registry, id);
-
-	                        mod.undefed = true;
-	                        removeScript(id);
-
-	                        delete _defined[id];
-	                        delete urlFetched[map.url];
-	                        delete undefEvents[id];
-
-	                        //Clean queued defines too. Go backwards
-	                        //in array so that the splices do not
-	                        //mess up the iteration.
-	                        eachReverse(defQueue, function (args, i) {
-	                            if (args[0] === id) {
-	                                defQueue.splice(i, 1);
-	                            }
-	                        });
-	                        delete context.defQueueMap[id];
-
-	                        if (mod) {
-	                            //Hold on to listeners in case the
-	                            //module will be attempted to be reloaded
-	                            //using a different config.
-	                            if (mod.events.defined) {
-	                                undefEvents[id] = mod.events;
-	                            }
-
-	                            cleanRegistry(id);
-	                        }
-	                    };
-	                }
-
-	                return localRequire;
-	            },
-
-	            /**
-	             * Called to enable a module if it is still in the registry
-	             * awaiting enablement. A second arg, parent, the parent module,
-	             * is passed in for context, when this method is overridden by
-	             * the optimizer. Not shown here to keep code compact.
-	             */
-	            enable: function enable(depMap) {
-	                var mod = getOwn(registry, depMap.id);
-	                if (mod) {
-	                    getModule(depMap).enable();
-	                }
-	            },
-
-	            /**
-	             * Internal method used by environment adapters to complete a load event.
-	             * A load event could be a script load or just a load pass from a synchronous
-	             * load call.
-	             * @param {String} moduleName the name of the module to potentially complete.
-	             */
-	            completeLoad: function completeLoad(moduleName) {
-	                var found,
-	                    args,
-	                    mod,
-	                    shim = getOwn(_config.shim, moduleName) || {},
-	                    shExports = shim.exports;
-
-	                takeGlobalQueue();
-
-	                while (defQueue.length) {
-	                    args = defQueue.shift();
-	                    if (args[0] === null) {
-	                        args[0] = moduleName;
-	                        //If already found an anonymous module and bound it
-	                        //to this name, then this is some other anon module
-	                        //waiting for its completeLoad to fire.
-	                        if (found) {
-	                            break;
-	                        }
-	                        found = true;
-	                    } else if (args[0] === moduleName) {
-	                        //Found matching define call for this script!
-	                        found = true;
-	                    }
-
-	                    callGetModule(args);
-	                }
-	                context.defQueueMap = {};
-
-	                //Do this after the cycle of callGetModule in case the result
-	                //of those calls/init calls changes the registry.
-	                mod = getOwn(registry, moduleName);
-
-	                if (!found && !hasProp(_defined, moduleName) && mod && !mod.inited) {
-	                    if (_config.enforceDefine && (!shExports || !getGlobal(shExports))) {
-	                        if (hasPathFallback(moduleName)) {
-	                            return;
-	                        } else {
-	                            return onError(makeError('nodefine', 'No define call for ' + moduleName, null, [moduleName]));
-	                        }
-	                    } else {
-	                        //A script that does not call define(), so just simulate
-	                        //the call for it.
-	                        callGetModule([moduleName, shim.deps || [], shim.exportsFn]);
-	                    }
-	                }
-
-	                checkLoaded();
-	            },
-
-	            /**
-	             * Converts a module name to a file path. Supports cases where
-	             * moduleName may actually be just an URL.
-	             * Note that it **does not** call normalize on the moduleName,
-	             * it is assumed to have already been normalized. This is an
-	             * internal API, not a public one. Use toUrl for the public API.
-	             */
-	            nameToUrl: function nameToUrl(moduleName, ext, skipExt) {
-	                var paths,
-	                    syms,
-	                    i,
-	                    parentModule,
-	                    url,
-	                    parentPath,
-	                    bundleId,
-	                    pkgMain = getOwn(_config.pkgs, moduleName);
-
-	                if (pkgMain) {
-	                    moduleName = pkgMain;
-	                }
-
-	                bundleId = getOwn(bundlesMap, moduleName);
-
-	                if (bundleId) {
-	                    return context.nameToUrl(bundleId, ext, skipExt);
-	                }
-
-	                //If a colon is in the URL, it indicates a protocol is used and it is just
-	                //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
-	                //or ends with .js, then assume the user meant to use an url and not a module id.
-	                //The slash is important for protocol-less URLs as well as full paths.
-	                if (req.jsExtRegExp.test(moduleName)) {
-	                    //Just a plain path, not module name lookup, so just return it.
-	                    //Add extension if it is included. This is a bit wonky, only non-.js things pass
-	                    //an extension, this method probably needs to be reworked.
-	                    url = moduleName + (ext || '');
-	                } else {
-	                    //A module that needs to be converted to a path.
-	                    paths = _config.paths;
-
-	                    syms = moduleName.split('/');
-	                    //For each module name segment, see if there is a path
-	                    //registered for it. Start with most specific name
-	                    //and work up from it.
-	                    for (i = syms.length; i > 0; i -= 1) {
-	                        parentModule = syms.slice(0, i).join('/');
-
-	                        parentPath = getOwn(paths, parentModule);
-	                        if (parentPath) {
-	                            //If an array, it means there are a few choices,
-	                            //Choose the one that is desired
-	                            if (isArray(parentPath)) {
-	                                parentPath = parentPath[0];
-	                            }
-	                            syms.splice(0, i, parentPath);
-	                            break;
-	                        }
-	                    }
-
-	                    //Join the path parts together, then figure out if baseUrl is needed.
-	                    url = syms.join('/');
-	                    //支持用户自己写.js文件后缀，如：require('path/to/app.js');
-	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
-	                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
-	                }
-
-	                return _config.urlArgs && !/^blob\:/.test(url) ? url + _config.urlArgs(moduleName, url) : url;
-	            },
-
-	            //Delegates to req.load. Broken out as a separate function to
-	            //allow overriding in the optimizer.
-	            load: function load(id, url) {
-	                req.load(context, id, url);
-	            },
-
-	            /**
-	             * Executes a module callback function. Broken out as a separate function
-	             * solely to allow the build system to sequence the files in the built
-	             * layer in the right sequence.
-	             *
-	             * @private
-	             */
-	            execCb: function execCb(name, callback, args, exports) {
-	                // update at 2018-07-10 by liuzechun
-	                // 当符合以下条件时：
-	                //     1、不为依赖注入写法（define(['foo'], function(foo){})），此处的体现是name格式为`_@r5`
-	                //     2、不是仅包含require的回调函数
-	                // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
-	                var cbStr = callback.toString().slice(0, 50);
-	                if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
-	                    var uf = window._ufRegion && window._ufRegion[this.config.ufRegion || 'UF'] || window.UF;
-	                    args.unshift(uf);
-	                }
-	                return callback.apply(exports, args);
-	            },
-
-	            /**
-	             * callback for script loads, used to check status of loading.
-	             *
-	             * @param {Event} evt the event from the browser for the script
-	             * that was loaded.
-	             */
-	            onScriptLoad: function onScriptLoad(evt) {
-	                //Using currentTarget instead of target for Firefox 2.0's sake. Not
-	                //all old browsers will be supported, but this one was easy enough
-	                //to support and still makes sense.
-	                if (evt.type === 'load' || readyRegExp.test((evt.currentTarget || evt.srcElement).readyState)) {
-	                    //Reset interactive script so a script node is not held onto for
-	                    //to long.
-	                    interactiveScript = null;
-
-	                    //Pull out the name of the module and the context.
-	                    var data = getScriptData(evt);
-	                    context.completeLoad(data.id);
-	                }
-	            },
-
-	            /**
-	             * Callback for script errors.
-	             */
-	            onScriptError: function onScriptError(evt) {
-	                var data = getScriptData(evt);
-	                if (!hasPathFallback(data.id)) {
-	                    var parents = [];
-	                    eachProp(registry, function (value, key) {
-	                        if (key.indexOf('_@r') !== 0) {
-	                            each(value.depMaps, function (depMap) {
-	                                if (depMap.id === data.id) {
-	                                    parents.push(key);
-	                                    return true;
-	                                }
-	                            });
-	                        }
-	                    });
-	                    return onError(makeError('scripterror', 'Script error for "' + data.id + (parents.length ? '", needed by: ' + parents.join(', ') : '"'), evt, [data.id]));
-	                }
-	            }
-	        };
-
-	        context.require = context.makeRequire();
-	        return context;
-	    }
-
-	    /**
-	     * Main entry point.
-	     *
-	     * If the only argument to require is a string, then the module that
-	     * is represented by that string is fetched for the appropriate context.
-	     *
-	     * If the first argument is an array, then it will be treated as an array
-	     * of dependency string names to fetch. An optional function callback can
-	     * be specified to execute when all of those dependencies are available.
-	     *
-	     * Make a local req variable to help Caja compliance (it assumes things
-	     * on a require that are not standardized), and to give a short
-	     * name for minification/local scope use.
-	     */
-	    req = requirejs = function requirejs(deps, callback, errback, optional) {
-
-	        //Find the right context, use default
-	        var context,
-	            config,
-	            contextName = defContextName;
-
-	        // Determine if have config object in the call.
-	        if (!isArray(deps) && typeof deps !== 'string') {
-	            // deps is a config object
-	            config = deps;
-	            if (isArray(callback)) {
-	                // Adjust args if there are dependencies
-	                deps = callback;
-	                callback = errback;
-	                errback = optional;
-	            } else {
-	                deps = [];
-	            }
-	        }
-
-	        if (config && config.context) {
-	            contextName = config.context;
-	        }
-
-	        context = getOwn(contexts, contextName);
-	        if (!context) {
-	            context = contexts[contextName] = req.s.newContext(contextName);
-	        }
-
-	        if (config) {
-	            context.configure(config);
-	        }
-
-	        return context.require(deps, callback, errback);
-	    };
-
-	    /**
-	     * Support require.config() to make it easier to cooperate with other
-	     * AMD loaders on globally agreed names.
-	     */
-	    req.config = function (config) {
-	        // if the config is false, then prevent load requirejs to window
-	        // update at 2018-03-19 18:47 by liuzechun
-	        if (!!config) {
-	            window['define'] = window['_define'];
-	        }
-	        return req(config);
-	    };
-
-	    /**
-	     * Execute something after the current tick
-	     * of the event loop. Override for other envs
-	     * that have a better solution than setTimeout.
-	     * @param  {Function} fn function to execute later.
-	     */
-	    req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
-	        setTimeout(fn, 4);
-	    } : function (fn) {
-	        fn();
-	    };
-
-	    /**
-	     * Export require as a global, but only if it does not already exist.
-	     */
-	    if (!_require) {
-	        _require = req;
-	    }
-
-	    req.version = version;
-
-	    //Used to filter out dependencies that are already paths.
-	    req.jsExtRegExp = /^\/|:|\?|\.js$/;
-	    req.isBrowser = isBrowser;
-	    s = req.s = {
-	        contexts: contexts,
-	        newContext: newContext
-	    };
-
-	    //Create default context.
-	    req({});
-
-	    //Exports some context-sensitive methods on global require.
-	    each(['toUrl', 'undef', 'defined', 'specified'], function (prop) {
-	        //Reference from contexts instead of early binding to default context,
-	        //so that during builds, the latest instance of the default context
-	        //with its config gets used.
-	        req[prop] = function () {
-	            var ctx = contexts[defContextName];
-	            return ctx.require[prop].apply(ctx, arguments);
-	        };
-	    });
-
-	    if (isBrowser) {
-	        head = s.head = document.getElementsByTagName('head')[0];
-	        //If BASE tag is in play, using appendChild is a problem for IE6.
-	        //When that browser dies, this can be removed. Details in this jQuery bug:
-	        //http://dev.jquery.com/ticket/2709
-	        baseElement = document.getElementsByTagName('base')[0];
-	        if (baseElement) {
-	            head = s.head = baseElement.parentNode;
-	        }
-	    }
-
-	    /**
-	     * Any errors that require explicitly generates will be passed to this
-	     * function. Intercept/override it if you want custom error handling.
-	     * @param {Error} err the error object.
-	     */
-	    req.onError = defaultOnError;
-
-	    /**
-	     * Creates the node for the load command. Only used in browser envs.
-	     */
-	    req.createNode = function (config, moduleName, url) {
-	        var node = config.xhtml ? document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') : document.createElement('script');
-	        node.type = config.scriptType || 'text/javascript';
-	        node.charset = 'utf-8';
-	        node.async = true;
-	        return node;
-	    };
-
-	    /**
-	     * Does the request to load a module for the browser case.
-	     * Make this a separate function to allow other environments
-	     * to override it.
-	     *
-	     * @param {Object} context the require context to find state.
-	     * @param {String} moduleName the name of the module.
-	     * @param {Object} url the URL to the module.
-	     */
-	    req.load = function (context, moduleName, url) {
-	        var config = context && context.config || {},
-	            node;
-	        if (isBrowser) {
-	            //In the browser so use a script tag
-	            node = req.createNode(config, moduleName, url);
-
-	            node.setAttribute('data-requirecontext', context.contextName);
-	            node.setAttribute('data-requiremodule', moduleName);
-
-	            //Set up load listener. Test attachEvent first because IE9 has
-	            //a subtle issue in its addEventListener and script onload firings
-	            //that do not match the behavior of all other browsers with
-	            //addEventListener support, which fire the onload event for a
-	            //script right after the script execution. See:
-	            //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
-	            //UNFORTUNATELY Opera implements attachEvent but does not follow the script
-	            //script execution mode.
-	            if (node.attachEvent &&
-	            //Check if node.attachEvent is artificially added by custom script or
-	            //natively supported by browser
-	            //read https://github.com/requirejs/requirejs/issues/187
-	            //if we can NOT find [native code] then it must NOT natively supported.
-	            //in IE8, node.attachEvent does not have toString()
-	            //Note the test for "[native code" with no closing brace, see:
-	            //https://github.com/requirejs/requirejs/issues/273
-	            !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) && !isOpera) {
-	                //Probably IE. IE (at least 6-8) do not fire
-	                //script onload right after executing the script, so
-	                //we cannot tie the anonymous define call to a name.
-	                //However, IE reports the script as being in 'interactive'
-	                //readyState at the time of the define call.
-	                useInteractive = true;
-
-	                node.attachEvent('onreadystatechange', context.onScriptLoad);
-	                //It would be great to add an error handler here to catch
-	                //404s in IE9+. However, onreadystatechange will fire before
-	                //the error handler, so that does not help. If addEventListener
-	                //is used, then IE will fire error before load, but we cannot
-	                //use that pathway given the connect.microsoft.com issue
-	                //mentioned above about not doing the 'script execute,
-	                //then fire the script load event listener before execute
-	                //next script' that other browsers do.
-	                //Best hope: IE10 fixes the issues,
-	                //and then destroys all installs of IE 6-9.
-	                //node.attachEvent('onerror', context.onScriptError);
-	            } else {
-	                node.addEventListener('load', context.onScriptLoad, false);
-	                node.addEventListener('error', context.onScriptError, false);
-	            }
-	            node.src = url;
-
-	            //Calling onNodeCreated after all properties on the node have been
-	            //set, but before it is placed in the DOM.
-	            if (config.onNodeCreated) {
-	                config.onNodeCreated(node, config, moduleName, url);
-	            }
-
-	            //For some cache cases in IE 6-8, the script executes before the end
-	            //of the appendChild execution, so to tie an anonymous define
-	            //call to the module name (which is stored on the node), hold on
-	            //to a reference to this node, but clear after the DOM insertion.
-	            currentlyAddingScript = node;
-	            if (baseElement) {
-	                head.insertBefore(node, baseElement);
-	            } else {
-	                head.appendChild(node);
-	            }
-	            currentlyAddingScript = null;
-
-	            return node;
-	        } else if (isWebWorker) {
-	            try {
-	                //In a web worker, use importScripts. This is not a very
-	                //efficient use of importScripts, importScripts will block until
-	                //its script is downloaded and evaluated. However, if web workers
-	                //are in play, the expectation is that a build has been done so
-	                //that only one script needs to be loaded anyway. This may need
-	                //to be reevaluated if other use cases become common.
-
-	                // Post a task to the event loop to work around a bug in WebKit
-	                // where the worker gets garbage-collected after calling
-	                // importScripts(): https://webkit.org/b/153317
-	                setTimeout(function () {}, 0);
-	                importScripts(url);
-
-	                //Account for anonymous modules
-	                context.completeLoad(moduleName);
-	            } catch (e) {
-	                context.onError(makeError('importscripts', 'importScripts failed for ' + moduleName + ' at ' + url, e, [moduleName]));
-	            }
-	        }
-	    };
-
-	    function getInteractiveScript() {
-	        if (interactiveScript && interactiveScript.readyState === 'interactive') {
-	            return interactiveScript;
-	        }
-
-	        eachReverse(scripts(), function (script) {
-	            if (script.readyState === 'interactive') {
-	                return interactiveScript = script;
-	            }
-	        });
-	        return interactiveScript;
-	    }
-
-	    //Look for a data-main script attribute, which could also adjust the baseUrl.
-	    if (isBrowser && !cfg.skipDataMain) {
-	        //Figure out baseUrl. Get it from the script tag with require.js in it.
-	        eachReverse(scripts(), function (script) {
-	            //Set the 'head' where we can append children by
-	            //using the script's parent.
-	            if (!head) {
-	                head = script.parentNode;
-	            }
-
-	            //Look for a data-main attribute to set main script for the page
-	            //to load. If it is there, the path to data main becomes the
-	            //baseUrl, if it is not already set.
-	            dataMain = script.getAttribute('data-main');
-	            if (dataMain) {
-	                //Preserve dataMain in case it is a path (i.e. contains '?')
-	                mainScript = dataMain;
-
-	                //Set final baseUrl if there is not already an explicit one,
-	                //but only do so if the data-main value is not a loader plugin
-	                //module ID.
-	                if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
-	                    //Pull off the directory of data-main for use as the
-	                    //baseUrl.
-	                    src = mainScript.split('/');
-	                    mainScript = src.pop();
-	                    subPath = src.length ? src.join('/') + '/' : './';
-
-	                    cfg.baseUrl = subPath;
-	                }
-
-	                //Strip off any trailing .js since mainScript is now
-	                //like a module name.
-	                mainScript = mainScript.replace(jsSuffixRegExp, '');
-
-	                //If mainScript is still a path, fall back to dataMain
-	                if (req.jsExtRegExp.test(mainScript)) {
-	                    mainScript = dataMain;
-	                }
-
-	                //Put the data-main script in the files to load.
-	                cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
-
-	                return true;
-	            }
-	        });
-	    }
-
-	    /**
-	     * The function that handles definitions of modules. Differs from
-	     * require() in that a string for the module should be the first argument,
-	     * and the function to execute after dependencies are loaded should
-	     * return a value to define the module corresponding to the first argument's
-	     * name.
-	     */
-	    define = function define(name, deps, callback) {
-	        var node, context;
-
-	        //Allow for anonymous modules
-	        if (typeof name !== 'string') {
-	            //Adjust args appropriately
-	            callback = deps;
-	            deps = name;
-	            name = null;
-	        }
-
-	        //This module may not have dependencies
-	        if (!isArray(deps)) {
-	            callback = deps;
-	            deps = null;
-	        }
-
-	        //If no name, and callback is a function, then figure out if it a
-	        //CommonJS thing with dependencies.
-	        if (!deps && isFunction(callback)) {
-	            deps = [];
-	            //Remove comments from the callback string,
-	            //look for require calls, and pull them into the dependencies,
-	            //but only if there are function args.
-	            if (callback.length) {
-	                callback.toString().replace(commentRegExp, commentReplace).replace(cjsRequireRegExp, function (match, dep) {
-	                    deps.push(dep);
-	                });
-
-	                //May be a CommonJS thing even without require calls, but still
-	                //could use exports, and module. Avoid doing exports and module
-	                //work though if it just needs require.
-	                //REQUIRES the function to expect the CommonJS variables in the
-	                //order listed below.
-	                deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
-	            }
-	        }
-
-	        //If in IE 6-8 and hit an anonymous define() call, do the interactive
-	        //work.
-	        if (useInteractive) {
-	            node = currentlyAddingScript || getInteractiveScript();
-	            if (node) {
-	                if (!name) {
-	                    name = node.getAttribute('data-requiremodule');
-	                }
-	                context = contexts[node.getAttribute('data-requirecontext')];
-	            }
-	        }
-
-	        //Always save off evaluating the def call until the script onload handler.
-	        //This allows multiple modules to be in a file without prematurely
-	        //tracing dependencies, and allows for anonymous module support,
-	        //where the module name is not known until the script onload event
-	        //occurs. If no context, use the global queue, and get it processed
-	        //in the onscript load callback.
-	        if (context) {
-	            context.defQueue.push([name, deps, callback]);
-	            context.defQueueMap[name] = true;
-	        } else {
-	            globalDefQueue.push([name, deps, callback]);
-	        }
-	    };
-
-	    define.amd = {
-	        jQuery: true
-	    };
-
-	    /**
-	     * Executes the text. Normally just uses eval, but can be modified
-	     * to use a better, environment-specific call. Only used for transpiling
-	     * loader plugins, not for plain JS modules.
-	     * @param {String} text the text to execute/evaluate.
-	     */
-	    req.exec = function (text) {
-	        /*jslint evil: true */
-	        return eval(text);
-	    };
-
-	    //Set up with config info.
-	    req(cfg);
-	})(undefined, typeof setTimeout === 'undefined' ? undefined : setTimeout);
-
-	// 把 define 也一起暴露出去
-	requirejs.define = define;
-
-	// update at 2018-03-19 18:41:28 by liuzechun
-	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
-	window['_define'] = window['_define'] || define;
-
-	exports.default = requirejs;
-
-/***/ }),
-/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19076,6 +16835,2260 @@
 	    * @author liuzechun
 	    * Created Date: 2017-12-18 07:48:32
 	    */
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _ajax = __webpack_require__(120);
+
+	var _ajax2 = _interopRequireDefault(_ajax);
+
+	var _requirejs = __webpack_require__(187);
+
+	var _requirejs2 = _interopRequireDefault(_requirejs);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = {
+	    init: function init(insName) {
+	        var obj = {};
+
+	        // ajax 实例
+	        obj.Ajax = _ajax2.default.init(insName);
+	        (0, _instance.setAjax)(insName, obj.Ajax);
+
+	        // requirejs 实例
+	        obj.Requirejs = _requirejs2.default.init(insName);
+	        (0, _instance.setRequirejs)(insName, obj.Requirejs);
+
+	        return obj;
+	    }
+	};
+
+/***/ }),
+/* 187 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var require;var require;'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * @file reuqirejs 2.3.5
+	                                                                                                                                                                                                                                                                               *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
+	                                                                                                                                                                                                                                                                               * vim: et:ts=4:sw=4:sts=4
+	                                                                                                                                                                                                                                                                               * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
+	                                                                                                                                                                                                                                                                               * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
+	                                                                                                                                                                                                                                                                               */
+	//Not using strict: uneven strict support in browsers, #392, and causes
+	//problems with requirejs.exec()/transpiler plugins that may not be strict.
+	/*jslint regexp: true, nomen: true, sloppy: true */
+	/*global window, navigator, document, importScripts, setTimeout, opera */
+
+	var _utils = __webpack_require__(116);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(124);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// var appList = {};
+	var globalDefine = [];
+
+	exports.default = (0, _instance.generate)(function (insName) {
+
+	    // 把 insName 转化成 hashName 并缓存起来
+	    // var hashName = Utils.hash(insName, 4);
+	    // appList[hashName] = insName;
+
+	    var requirejs, require, define;
+	    (function (global, setTimeout) {
+	        var req,
+	            s,
+	            head,
+	            baseElement,
+	            dataMain,
+	            src,
+	            interactiveScript,
+	            currentlyAddingScript,
+	            mainScript,
+	            subPath,
+	            version = '2.3.5',
+	            commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
+	            cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
+	            jsSuffixRegExp = /\.js$/,
+	            currDirRegExp = /^\.\//,
+	            op = Object.prototype,
+	            ostring = op.toString,
+	            hasOwn = op.hasOwnProperty,
+	            isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
+	            isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
+
+	        //PS3 indicates loaded and complete, but need to wait for complete
+	        //specifically. Sequence is 'loading', 'loaded', execution,
+	        // then 'complete'. The UA check is unfortunate, but not sure how
+	        //to feature test w/o causing perf issues.
+	        readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ? /^complete$/ : /^(complete|loaded)$/,
+	            defContextName = '_',
+
+	        //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
+	        isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
+	            contexts = {},
+	            cfg = {},
+	            globalDefQueue = [],
+	            useInteractive = false;
+
+	        //Could match something like ')//comment', do not lose the prefix to comment.
+	        function commentReplace(match, singlePrefix) {
+	            return singlePrefix || '';
+	        }
+
+	        function isFunction(it) {
+	            return ostring.call(it) === '[object Function]';
+	        }
+
+	        function isArray(it) {
+	            return ostring.call(it) === '[object Array]';
+	        }
+
+	        /**
+	         * Helper function for iterating over an array. If the func returns
+	         * a true value, it will break out of the loop.
+	         */
+	        function each(ary, func) {
+	            if (ary) {
+	                var i;
+	                for (i = 0; i < ary.length; i += 1) {
+	                    if (ary[i] && func(ary[i], i, ary)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        /**
+	         * Helper function for iterating over an array backwards. If the func
+	         * returns a true value, it will break out of the loop.
+	         */
+	        function eachReverse(ary, func) {
+	            if (ary) {
+	                var i;
+	                for (i = ary.length - 1; i > -1; i -= 1) {
+	                    if (ary[i] && func(ary[i], i, ary)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        function hasProp(obj, prop) {
+	            return hasOwn.call(obj, prop);
+	        }
+
+	        function getOwn(obj, prop) {
+	            return hasProp(obj, prop) && obj[prop];
+	        }
+
+	        /**
+	         * Cycles over properties in an object and calls a function for each
+	         * property value. If the function returns a truthy value, then the
+	         * iteration is stopped.
+	         */
+	        function eachProp(obj, func) {
+	            var prop;
+	            for (prop in obj) {
+	                if (hasProp(obj, prop)) {
+	                    if (func(obj[prop], prop)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        /**
+	         * Simple function to mix in properties from source into target,
+	         * but only if target does not already have a property of the same name.
+	         */
+	        function mixin(target, source, force, deepStringMixin) {
+	            if (source) {
+	                eachProp(source, function (value, prop) {
+	                    if (force || !hasProp(target, prop)) {
+	                        if (deepStringMixin && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value && !isArray(value) && !isFunction(value) && !(value instanceof RegExp)) {
+
+	                            if (!target[prop]) {
+	                                target[prop] = {};
+	                            }
+	                            mixin(target[prop], value, force, deepStringMixin);
+	                        } else {
+	                            target[prop] = value;
+	                        }
+	                    }
+	                });
+	            }
+	            return target;
+	        }
+
+	        //Similar to Function.prototype.bind, but the 'this' object is specified
+	        //first, since it is easier to read/figure out what 'this' will be.
+	        function bind(obj, fn) {
+	            return function () {
+	                return fn.apply(obj, arguments);
+	            };
+	        }
+
+	        function scripts() {
+	            return document.getElementsByTagName('script');
+	        }
+
+	        function defaultOnError(err) {
+	            throw err;
+	        }
+
+	        //Allow getting a global that is expressed in
+	        //dot notation, like 'a.b.c'.
+	        function getGlobal(value) {
+	            if (!value) {
+	                return value;
+	            }
+	            var g = global;
+	            each(value.split('.'), function (part) {
+	                g = g[part];
+	            });
+	            return g;
+	        }
+
+	        /**
+	         * Constructs an error with a pointer to an URL with more information.
+	         * @param {String} id the error ID that maps to an ID on a web page.
+	         * @param {String} message human readable error.
+	         * @param {Error} [err] the original error, if there is one.
+	         *
+	         * @returns {Error}
+	         */
+	        function makeError(id, msg, err, requireModules) {
+	            var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
+	            e.requireType = id;
+	            e.requireModules = requireModules;
+	            if (err) {
+	                e.originalError = err;
+	            }
+	            return e;
+	        }
+
+	        if (typeof define !== 'undefined') {
+	            //If a define is already in play via another AMD loader,
+	            //do not overwrite.
+	            return;
+	        }
+
+	        if (typeof requirejs !== 'undefined') {
+	            if (isFunction(requirejs)) {
+	                //Do not overwrite an existing requirejs instance.
+	                return;
+	            }
+	            cfg = requirejs;
+	            requirejs = undefined;
+	        }
+
+	        //Allow for a require config object
+	        if (typeof require !== 'undefined' && !isFunction(require)) {
+	            //assume it is a config object.
+	            cfg = require;
+	            require = undefined;
+	        }
+
+	        function newContext(contextName) {
+	            var inCheckLoaded,
+	                Module,
+	                context,
+	                handlers,
+	                checkLoadedTimeoutId,
+	                _config = {
+	                //Defaults. Do not set a default for map
+	                //config to speed up normalize(), which
+	                //will run faster if there is no default.
+	                waitSeconds: 7,
+	                baseUrl: './',
+	                paths: {},
+	                bundles: {},
+	                pkgs: {},
+	                shim: {},
+	                config: {}
+	            },
+	                registry = {},
+
+	            //registry of just enabled modules, to speed
+	            //cycle breaking code when lots of modules
+	            //are registered, but not activated.
+	            enabledRegistry = {},
+	                undefEvents = {},
+	                defQueue = [],
+	                _defined = {},
+	                urlFetched = {},
+	                bundlesMap = {},
+	                requireCounter = 1,
+	                unnormalizedCounter = 1;
+
+	            /**
+	             * Trims the . and .. from an array of path segments.
+	             * It will keep a leading path segment if a .. will become
+	             * the first path segment, to help with module name lookups,
+	             * which act like paths, but can be remapped. But the end result,
+	             * all paths that use this function should look normalized.
+	             * NOTE: this method MODIFIES the input array.
+	             * @param {Array} ary the array of path segments.
+	             */
+	            function trimDots(ary) {
+	                var i, part;
+	                for (i = 0; i < ary.length; i++) {
+	                    part = ary[i];
+	                    if (part === '.') {
+	                        ary.splice(i, 1);
+	                        i -= 1;
+	                    } else if (part === '..') {
+	                        // If at the start, or previous value is still ..,
+	                        // keep them so that when converted to a path it may
+	                        // still work when converted to a path, even though
+	                        // as an ID it is less than ideal. In larger point
+	                        // releases, may be better to just kick out an error.
+	                        if (i === 0 || i === 1 && ary[2] === '..' || ary[i - 1] === '..') {
+	                            continue;
+	                        } else if (i > 0) {
+	                            ary.splice(i - 1, 2);
+	                            i -= 2;
+	                        }
+	                    }
+	                }
+	            }
+
+	            /**
+	             * Given a relative module name, like ./something, normalize it to
+	             * a real name that can be mapped to a path.
+	             * @param {String} name the relative name
+	             * @param {String} baseName a real name that the name arg is relative
+	             * to.
+	             * @param {Boolean} applyMap apply the map config to the value. Should
+	             * only be done if this normalization is for a dependency ID.
+	             * @returns {String} normalized name
+	             */
+	            function normalize(name, baseName, applyMap) {
+	                var pkgMain,
+	                    mapValue,
+	                    nameParts,
+	                    i,
+	                    j,
+	                    nameSegment,
+	                    lastIndex,
+	                    foundMap,
+	                    foundI,
+	                    foundStarMap,
+	                    starI,
+	                    normalizedBaseParts,
+	                    baseParts = baseName && baseName.split('/'),
+	                    map = _config.map,
+	                    starMap = map && map['*'];
+
+	                //Adjust any relative paths.
+	                if (name) {
+	                    name = name.split('/');
+	                    lastIndex = name.length - 1;
+
+	                    // If wanting node ID compatibility, strip .js from end
+	                    // of IDs. Have to do this here, and not in nameToUrl
+	                    // because node allows either .js or non .js to map
+	                    // to same file.
+	                    if (_config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
+	                        name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+	                    }
+
+	                    // Starts with a '.' so need the baseName
+	                    if (name[0].charAt(0) === '.' && baseParts) {
+	                        //Convert baseName to array, and lop off the last part,
+	                        //so that . matches that 'directory' and not name of the baseName's
+	                        //module. For instance, baseName of 'one/two/three', maps to
+	                        //'one/two/three.js', but we want the directory, 'one/two' for
+	                        //this normalization.
+	                        normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
+	                        name = normalizedBaseParts.concat(name);
+	                    }
+
+	                    trimDots(name);
+	                    name = name.join('/');
+	                }
+
+	                //Apply map config if available.
+	                if (applyMap && map && (baseParts || starMap)) {
+	                    nameParts = name.split('/');
+
+	                    outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
+	                        nameSegment = nameParts.slice(0, i).join('/');
+
+	                        if (baseParts) {
+	                            //Find the longest baseName segment match in the config.
+	                            //So, do joins on the biggest to smallest lengths of baseParts.
+	                            for (j = baseParts.length; j > 0; j -= 1) {
+	                                mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
+
+	                                //baseName segment has config, find if it has one for
+	                                //this name.
+	                                if (mapValue) {
+	                                    mapValue = getOwn(mapValue, nameSegment);
+	                                    if (mapValue) {
+	                                        //Match, update name to the new value.
+	                                        foundMap = mapValue;
+	                                        foundI = i;
+	                                        break outerLoop;
+	                                    }
+	                                }
+	                            }
+	                        }
+
+	                        //Check for a star map match, but just hold on to it,
+	                        //if there is a shorter segment match later in a matching
+	                        //config, then favor over this star map.
+	                        if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
+	                            foundStarMap = getOwn(starMap, nameSegment);
+	                            starI = i;
+	                        }
+	                    }
+
+	                    if (!foundMap && foundStarMap) {
+	                        foundMap = foundStarMap;
+	                        foundI = starI;
+	                    }
+
+	                    if (foundMap) {
+	                        nameParts.splice(0, foundI, foundMap);
+	                        name = nameParts.join('/');
+	                    }
+	                }
+
+	                // If the name points to a package's name, use
+	                // the package main instead.
+	                pkgMain = getOwn(_config.pkgs, name);
+
+	                return pkgMain ? pkgMain : name;
+	            }
+
+	            function removeScript(name) {
+	                if (isBrowser) {
+	                    each(scripts(), function (scriptNode) {
+	                        if (scriptNode.getAttribute('data-requiremodule') === name && scriptNode.getAttribute('data-requirecontext') === context.contextName) {
+	                            scriptNode.parentNode.removeChild(scriptNode);
+	                            return true;
+	                        }
+	                    });
+	                }
+	            }
+
+	            function hasPathFallback(id) {
+	                var pathConfig = getOwn(_config.paths, id);
+	                if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
+	                    //Pop off the first array value, since it failed, and
+	                    //retry
+	                    pathConfig.shift();
+	                    context.require.undef(id);
+
+	                    //Custom require that does not do map translation, since
+	                    //ID is "absolute", already mapped/resolved.
+	                    context.makeRequire(null, {
+	                        skipMap: true
+	                    })([id]);
+
+	                    return true;
+	                }
+	            }
+
+	            //Turns a plugin!resource to [plugin, resource]
+	            //with the plugin being undefined if the name
+	            //did not have a plugin prefix.
+	            function splitPrefix(name) {
+	                var prefix,
+	                    index = name ? name.indexOf('!') : -1;
+	                if (index > -1) {
+	                    prefix = name.substring(0, index);
+	                    name = name.substring(index + 1, name.length);
+	                }
+	                return [prefix, name];
+	            }
+
+	            /**
+	             * Creates a module mapping that includes plugin prefix, module
+	             * name, and path. If parentModuleMap is provided it will
+	             * also normalize the name via require.normalize()
+	             *
+	             * @param {String} name the module name
+	             * @param {String} [parentModuleMap] parent module map
+	             * for the module name, used to resolve relative names.
+	             * @param {Boolean} isNormalized: is the ID already normalized.
+	             * This is true if this call is done for a define() module ID.
+	             * @param {Boolean} applyMap: apply the map config to the ID.
+	             * Should only be true if this map is for a dependency.
+	             *
+	             * @returns {Object}
+	             */
+	            function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
+	                var url,
+	                    pluginModule,
+	                    suffix,
+	                    nameParts,
+	                    prefix = null,
+	                    parentName = parentModuleMap ? parentModuleMap.name : null,
+	                    originalName = name,
+	                    isDefine = true,
+	                    normalizedName = '';
+
+	                //If no name, then it means it is a require call, generate an
+	                //internal name.
+	                if (!name) {
+	                    isDefine = false;
+	                    name = '_@r' + (requireCounter += 1);
+	                }
+
+	                nameParts = splitPrefix(name);
+	                prefix = nameParts[0];
+	                name = nameParts[1];
+
+	                if (prefix) {
+	                    prefix = normalize(prefix, parentName, applyMap);
+	                    pluginModule = getOwn(_defined, prefix);
+	                }
+
+	                //Account for relative paths if there is a base name.
+	                if (name) {
+	                    if (prefix) {
+	                        if (isNormalized) {
+	                            normalizedName = name;
+	                        } else if (pluginModule && pluginModule.normalize) {
+	                            //Plugin is loaded, use its normalize method.
+	                            normalizedName = pluginModule.normalize(name, function (name) {
+	                                return normalize(name, parentName, applyMap);
+	                            });
+	                        } else {
+	                            // If nested plugin references, then do not try to
+	                            // normalize, as it will not normalize correctly. This
+	                            // places a restriction on resourceIds, and the longer
+	                            // term solution is not to normalize until plugins are
+	                            // loaded and all normalizations to allow for async
+	                            // loading of a loader plugin. But for now, fixes the
+	                            // common uses. Details in #1131
+	                            normalizedName = name.indexOf('!') === -1 ? normalize(name, parentName, applyMap) : name;
+	                        }
+	                    } else {
+	                        //A regular module.
+	                        normalizedName = normalize(name, parentName, applyMap);
+
+	                        //Normalized name may be a plugin ID due to map config
+	                        //application in normalize. The map config values must
+	                        //already be normalized, so do not need to redo that part.
+	                        nameParts = splitPrefix(normalizedName);
+	                        prefix = nameParts[0];
+	                        normalizedName = nameParts[1];
+	                        isNormalized = true;
+
+	                        url = context.nameToUrl(normalizedName);
+	                    }
+	                }
+
+	                //If the id is a plugin id that cannot be determined if it needs
+	                //normalization, stamp it with a unique ID so two matching relative
+	                //ids that may conflict can be separate.
+	                suffix = prefix && !pluginModule && !isNormalized ? '_unnormalized' + (unnormalizedCounter += 1) : '';
+
+	                return {
+	                    prefix: prefix,
+	                    name: normalizedName,
+	                    parentMap: parentModuleMap,
+	                    unnormalized: !!suffix,
+	                    url: url,
+	                    originalName: originalName,
+	                    isDefine: isDefine,
+	                    id: (prefix ? prefix + '!' + normalizedName : normalizedName) + suffix
+	                };
+	            }
+
+	            function getModule(depMap) {
+	                var id = depMap.id,
+	                    mod = getOwn(registry, id);
+
+	                if (!mod) {
+	                    mod = registry[id] = new context.Module(depMap);
+	                }
+
+	                return mod;
+	            }
+
+	            function on(depMap, name, fn) {
+	                var id = depMap.id,
+	                    mod = getOwn(registry, id);
+
+	                if (hasProp(_defined, id) && (!mod || mod.defineEmitComplete)) {
+	                    if (name === 'defined') {
+	                        fn(_defined[id]);
+	                    }
+	                } else {
+	                    mod = getModule(depMap);
+	                    if (mod.error && name === 'error') {
+	                        fn(mod.error);
+	                    } else {
+	                        mod.on(name, fn);
+	                    }
+	                }
+	            }
+
+	            function onError(err, errback) {
+	                var ids = err.requireModules,
+	                    notified = false;
+
+	                if (errback) {
+	                    errback(err);
+	                } else {
+	                    each(ids, function (id) {
+	                        var mod = getOwn(registry, id);
+	                        if (mod) {
+	                            //Set error on module, so it skips timeout checks.
+	                            mod.error = err;
+	                            if (mod.events.error) {
+	                                notified = true;
+	                                mod.emit('error', err);
+	                            }
+	                        }
+	                    });
+
+	                    if (!notified) {
+	                        req.onError(err);
+	                    }
+	                }
+	            }
+
+	            /**
+	             * Internal method to transfer globalQueue items to this context's
+	             * defQueue.
+	             */
+	            function takeGlobalQueue() {
+	                //Push all the globalDefQueue items into the context's defQueue
+	                if (globalDefQueue.length) {
+	                    each(globalDefQueue, function (queueItem) {
+	                        var id = queueItem[0];
+	                        if (typeof id === 'string') {
+	                            context.defQueueMap[id] = true;
+	                        }
+	                        defQueue.push(queueItem);
+	                    });
+	                    globalDefQueue = [];
+	                }
+	            }
+
+	            handlers = {
+	                'require': function require(mod) {
+	                    if (mod.require) {
+	                        return mod.require;
+	                    } else {
+	                        return mod.require = context.makeRequire(mod.map);
+	                    }
+	                },
+	                'exports': function exports(mod) {
+	                    mod.usingExports = true;
+	                    if (mod.map.isDefine) {
+	                        if (mod.exports) {
+	                            return _defined[mod.map.id] = mod.exports;
+	                        } else {
+	                            return mod.exports = _defined[mod.map.id] = {};
+	                        }
+	                    }
+	                },
+	                'module': function module(mod) {
+	                    if (mod.module) {
+	                        return mod.module;
+	                    } else {
+	                        return mod.module = {
+	                            id: mod.map.id,
+	                            uri: mod.map.url,
+	                            config: function config() {
+	                                return getOwn(_config.config, mod.map.id) || {};
+	                            },
+	                            exports: mod.exports || (mod.exports = {})
+	                        };
+	                    }
+	                }
+	            };
+
+	            function cleanRegistry(id) {
+	                //Clean up machinery used for waiting modules.
+	                delete registry[id];
+	                delete enabledRegistry[id];
+	            }
+
+	            function breakCycle(mod, traced, processed) {
+	                var id = mod.map.id;
+
+	                if (mod.error) {
+	                    mod.emit('error', mod.error);
+	                } else {
+	                    traced[id] = true;
+	                    each(mod.depMaps, function (depMap, i) {
+	                        var depId = depMap.id,
+	                            dep = getOwn(registry, depId);
+
+	                        //Only force things that have not completed
+	                        //being defined, so still in the registry,
+	                        //and only if it has not been matched up
+	                        //in the module already.
+	                        if (dep && !mod.depMatched[i] && !processed[depId]) {
+	                            if (getOwn(traced, depId)) {
+	                                mod.defineDep(i, _defined[depId]);
+	                                mod.check(); //pass false?
+	                            } else {
+	                                breakCycle(dep, traced, processed);
+	                            }
+	                        }
+	                    });
+	                    processed[id] = true;
+	                }
+	            }
+
+	            function checkLoaded() {
+	                var err,
+	                    usingPathFallback,
+	                    waitInterval = _config.waitSeconds * 1000,
+
+	                //It is possible to disable the wait interval by using waitSeconds of 0.
+	                expired = waitInterval && context.startTime + waitInterval < new Date().getTime(),
+	                    noLoads = [],
+	                    reqCalls = [],
+	                    stillLoading = false,
+	                    needCycleCheck = true;
+
+	                //Do not bother if this call was a result of a cycle break.
+	                if (inCheckLoaded) {
+	                    return;
+	                }
+
+	                inCheckLoaded = true;
+
+	                //Figure out the state of all the modules.
+	                eachProp(enabledRegistry, function (mod) {
+	                    var map = mod.map,
+	                        modId = map.id;
+
+	                    //Skip things that are not enabled or in error state.
+	                    if (!mod.enabled) {
+	                        return;
+	                    }
+
+	                    if (!map.isDefine) {
+	                        reqCalls.push(mod);
+	                    }
+
+	                    if (!mod.error) {
+	                        //If the module should be executed, and it has not
+	                        //been inited and time is up, remember it.
+	                        if (!mod.inited && expired) {
+	                            if (hasPathFallback(modId)) {
+	                                usingPathFallback = true;
+	                                stillLoading = true;
+	                            } else {
+	                                noLoads.push(modId);
+	                                removeScript(modId);
+	                            }
+	                        } else if (!mod.inited && mod.fetched && map.isDefine) {
+	                            stillLoading = true;
+	                            if (!map.prefix) {
+	                                //No reason to keep looking for unfinished
+	                                //loading. If the only stillLoading is a
+	                                //plugin resource though, keep going,
+	                                //because it may be that a plugin resource
+	                                //is waiting on a non-plugin cycle.
+	                                return needCycleCheck = false;
+	                            }
+	                        }
+	                    }
+	                });
+
+	                if (expired && noLoads.length) {
+	                    //If wait time expired, throw error of unloaded modules.
+	                    err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
+	                    err.contextName = context.contextName;
+	                    return onError(err);
+	                }
+
+	                //Not expired, check for a cycle.
+	                if (needCycleCheck) {
+	                    each(reqCalls, function (mod) {
+	                        breakCycle(mod, {}, {});
+	                    });
+	                }
+
+	                //If still waiting on loads, and the waiting load is something
+	                //other than a plugin resource, or there are still outstanding
+	                //scripts, then just try back later.
+	                if ((!expired || usingPathFallback) && stillLoading) {
+	                    //Something is still waiting to load. Wait for it, but only
+	                    //if a timeout is not already in effect.
+	                    if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
+	                        checkLoadedTimeoutId = setTimeout(function () {
+	                            checkLoadedTimeoutId = 0;
+	                            checkLoaded();
+	                        }, 50);
+	                    }
+	                }
+
+	                inCheckLoaded = false;
+	            }
+
+	            Module = function Module(map) {
+	                this.events = getOwn(undefEvents, map.id) || {};
+	                this.map = map;
+	                this.shim = getOwn(_config.shim, map.id);
+	                this.depExports = [];
+	                this.depMaps = [];
+	                this.depMatched = [];
+	                this.pluginMaps = {};
+	                this.depCount = 0;
+
+	                /* this.exports this.factory
+	                this.depMaps = [],
+	                this.enabled, this.fetched
+	                */
+	            };
+
+	            Module.prototype = {
+	                init: function init(depMaps, factory, errback, options) {
+	                    options = options || {};
+
+	                    //Do not do more inits if already done. Can happen if there
+	                    //are multiple define calls for the same module. That is not
+	                    //a normal, common case, but it is also not unexpected.
+	                    if (this.inited) {
+	                        return;
+	                    }
+
+	                    this.factory = factory;
+
+	                    if (errback) {
+	                        //Register for errors on this module.
+	                        this.on('error', errback);
+	                    } else if (this.events.error) {
+	                        //If no errback already, but there are error listeners
+	                        //on this module, set up an errback to pass to the deps.
+	                        errback = bind(this, function (err) {
+	                            this.emit('error', err);
+	                        });
+	                    }
+
+	                    //Do a copy of the dependency array, so that
+	                    //source inputs are not modified. For example
+	                    //"shim" deps are passed in here directly, and
+	                    //doing a direct modification of the depMaps array
+	                    //would affect that config.
+	                    this.depMaps = depMaps && depMaps.slice(0);
+
+	                    this.errback = errback;
+
+	                    //Indicate this module has be initialized
+	                    this.inited = true;
+
+	                    this.ignore = options.ignore;
+
+	                    //Could have option to init this module in enabled mode,
+	                    //or could have been previously marked as enabled. However,
+	                    //the dependencies are not known until init is called. So
+	                    //if enabled previously, now trigger dependencies as enabled.
+	                    if (options.enabled || this.enabled) {
+	                        //Enable this module and dependencies.
+	                        //Will call this.check()
+	                        this.enable();
+	                    } else {
+	                        this.check();
+	                    }
+	                },
+
+	                defineDep: function defineDep(i, depExports) {
+	                    //Because of cycles, defined callback for a given
+	                    //export can be called more than once.
+	                    if (!this.depMatched[i]) {
+	                        this.depMatched[i] = true;
+	                        this.depCount -= 1;
+	                        this.depExports[i] = depExports;
+	                    }
+	                },
+
+	                fetch: function fetch() {
+	                    if (this.fetched) {
+	                        return;
+	                    }
+	                    this.fetched = true;
+
+	                    context.startTime = new Date().getTime();
+
+	                    var map = this.map;
+
+	                    //If the manager is for a plugin managed resource,
+	                    //ask the plugin to load it now.
+	                    if (this.shim) {
+	                        context.makeRequire(this.map, {
+	                            enableBuildCallback: true
+	                        })(this.shim.deps || [], bind(this, function () {
+	                            return map.prefix ? this.callPlugin() : this.load();
+	                        }));
+	                    } else {
+	                        //Regular dependency.
+	                        return map.prefix ? this.callPlugin() : this.load();
+	                    }
+	                },
+
+	                load: function load() {
+	                    var url = this.map.url;
+
+	                    //Regular dependency.
+	                    if (!urlFetched[url]) {
+	                        urlFetched[url] = true;
+	                        context.load(this.map.id, url);
+	                    }
+	                },
+
+	                /**
+	                 * Checks if the module is ready to define itself, and if so,
+	                 * define it.
+	                 */
+	                check: function check() {
+	                    if (!this.enabled || this.enabling) {
+	                        return;
+	                    }
+
+	                    var err,
+	                        cjsModule,
+	                        id = this.map.id,
+	                        depExports = this.depExports,
+	                        exports = this.exports,
+	                        factory = this.factory;
+
+	                    if (!this.inited) {
+	                        // Only fetch if not already in the defQueue.
+	                        if (!hasProp(context.defQueueMap, id)) {
+	                            this.fetch();
+	                        }
+	                    } else if (this.error) {
+	                        this.emit('error', this.error);
+	                    } else if (!this.defining) {
+	                        //The factory could trigger another require call
+	                        //that would result in checking this module to
+	                        //define itself again. If already in the process
+	                        //of doing that, skip this work.
+	                        this.defining = true;
+
+	                        if (this.depCount < 1 && !this.defined) {
+	                            if (isFunction(factory)) {
+	                                //If there is an error listener, favor passing
+	                                //to that instead of throwing an error. However,
+	                                //only do it for define()'d  modules. require
+	                                //errbacks should not be called for failures in
+	                                //their callbacks (#699). However if a global
+	                                //onError is set, use that.
+	                                if (this.events.error && this.map.isDefine || req.onError !== defaultOnError) {
+	                                    try {
+	                                        exports = context.execCb(id, factory, depExports, exports);
+	                                    } catch (e) {
+	                                        err = e;
+	                                    }
+	                                } else {
+	                                    exports = context.execCb(id, factory, depExports, exports);
+	                                }
+
+	                                // Favor return value over exports. If node/cjs in play,
+	                                // then will not have a return value anyway. Favor
+	                                // module.exports assignment over exports object.
+	                                if (this.map.isDefine && exports === undefined) {
+	                                    cjsModule = this.module;
+	                                    if (cjsModule) {
+	                                        exports = cjsModule.exports;
+	                                    } else if (this.usingExports) {
+	                                        //exports already set the defined value.
+	                                        exports = this.exports;
+	                                    }
+	                                }
+
+	                                if (err) {
+	                                    err.requireMap = this.map;
+	                                    err.requireModules = this.map.isDefine ? [this.map.id] : null;
+	                                    err.requireType = this.map.isDefine ? 'define' : 'require';
+	                                    return onError(this.error = err);
+	                                }
+	                            } else {
+	                                //Just a literal value
+	                                exports = factory;
+	                            }
+
+	                            this.exports = exports;
+
+	                            if (this.map.isDefine && !this.ignore) {
+	                                _defined[id] = exports;
+
+	                                if (req.onResourceLoad) {
+	                                    var resLoadMaps = [];
+	                                    each(this.depMaps, function (depMap) {
+	                                        resLoadMaps.push(depMap.normalizedMap || depMap);
+	                                    });
+	                                    req.onResourceLoad(context, this.map, resLoadMaps);
+	                                }
+	                            }
+
+	                            //Clean up
+	                            cleanRegistry(id);
+
+	                            this.defined = true;
+	                        }
+
+	                        //Finished the define stage. Allow calling check again
+	                        //to allow define notifications below in the case of a
+	                        //cycle.
+	                        this.defining = false;
+
+	                        if (this.defined && !this.defineEmitted) {
+	                            this.defineEmitted = true;
+	                            this.emit('defined', this.exports);
+	                            this.defineEmitComplete = true;
+	                        }
+	                    }
+	                },
+
+	                callPlugin: function callPlugin() {
+	                    var map = this.map,
+	                        id = map.id,
+
+	                    //Map already normalized the prefix.
+	                    pluginMap = makeModuleMap(map.prefix);
+
+	                    //Mark this as a dependency for this plugin, so it
+	                    //can be traced for cycles.
+	                    this.depMaps.push(pluginMap);
+
+	                    on(pluginMap, 'defined', bind(this, function (plugin) {
+	                        var load,
+	                            normalizedMap,
+	                            normalizedMod,
+	                            bundleId = getOwn(bundlesMap, this.map.id),
+	                            name = this.map.name,
+	                            parentName = this.map.parentMap ? this.map.parentMap.name : null,
+	                            localRequire = context.makeRequire(map.parentMap, {
+	                            enableBuildCallback: true
+	                        });
+
+	                        //If current map is not normalized, wait for that
+	                        //normalized name to load instead of continuing.
+	                        if (this.map.unnormalized) {
+	                            //Normalize the ID if the plugin allows it.
+	                            if (plugin.normalize) {
+	                                name = plugin.normalize(name, function (name) {
+	                                    return normalize(name, parentName, true);
+	                                }) || '';
+	                            }
+
+	                            //prefix and name should already be normalized, no need
+	                            //for applying map config again either.
+	                            normalizedMap = makeModuleMap(map.prefix + '!' + name, this.map.parentMap, true);
+	                            on(normalizedMap, 'defined', bind(this, function (value) {
+	                                this.map.normalizedMap = normalizedMap;
+	                                this.init([], function () {
+	                                    return value;
+	                                }, null, {
+	                                    enabled: true,
+	                                    ignore: true
+	                                });
+	                            }));
+
+	                            normalizedMod = getOwn(registry, normalizedMap.id);
+	                            if (normalizedMod) {
+	                                //Mark this as a dependency for this plugin, so it
+	                                //can be traced for cycles.
+	                                this.depMaps.push(normalizedMap);
+
+	                                if (this.events.error) {
+	                                    normalizedMod.on('error', bind(this, function (err) {
+	                                        this.emit('error', err);
+	                                    }));
+	                                }
+	                                normalizedMod.enable();
+	                            }
+
+	                            return;
+	                        }
+
+	                        //If a paths config, then just load that file instead to
+	                        //resolve the plugin, as it is built into that paths layer.
+	                        if (bundleId) {
+	                            this.map.url = context.nameToUrl(bundleId);
+	                            this.load();
+	                            return;
+	                        }
+
+	                        load = bind(this, function (value) {
+	                            this.init([], function () {
+	                                return value;
+	                            }, null, {
+	                                enabled: true
+	                            });
+	                        });
+
+	                        load.error = bind(this, function (err) {
+	                            this.inited = true;
+	                            this.error = err;
+	                            err.requireModules = [id];
+
+	                            //Remove temp unnormalized modules for this module,
+	                            //since they will never be resolved otherwise now.
+	                            eachProp(registry, function (mod) {
+	                                if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
+	                                    cleanRegistry(mod.map.id);
+	                                }
+	                            });
+
+	                            onError(err);
+	                        });
+
+	                        //Allow plugins to load other code without having to know the
+	                        //context or how to 'complete' the load.
+	                        load.fromText = bind(this, function (text, textAlt) {
+	                            /*jslint evil: true */
+	                            var moduleName = map.name,
+	                                moduleMap = makeModuleMap(moduleName),
+	                                hasInteractive = useInteractive;
+
+	                            //As of 2.1.0, support just passing the text, to reinforce
+	                            //fromText only being called once per resource. Still
+	                            //support old style of passing moduleName but discard
+	                            //that moduleName in favor of the internal ref.
+	                            if (textAlt) {
+	                                text = textAlt;
+	                            }
+
+	                            //Turn off interactive script matching for IE for any define
+	                            //calls in the text, then turn it back on at the end.
+	                            if (hasInteractive) {
+	                                useInteractive = false;
+	                            }
+
+	                            //Prime the system by creating a module instance for
+	                            //it.
+	                            getModule(moduleMap);
+
+	                            //Transfer any config to this other module.
+	                            if (hasProp(_config.config, id)) {
+	                                _config.config[moduleName] = _config.config[id];
+	                            }
+
+	                            try {
+	                                req.exec(text);
+	                            } catch (e) {
+	                                return onError(makeError('fromtexteval', 'fromText eval for ' + id + ' failed: ' + e, e, [id]));
+	                            }
+
+	                            if (hasInteractive) {
+	                                useInteractive = true;
+	                            }
+
+	                            //Mark this as a dependency for the plugin
+	                            //resource
+	                            this.depMaps.push(moduleMap);
+
+	                            //Support anonymous modules.
+	                            context.completeLoad(moduleName);
+
+	                            //Bind the value of that module to the value for this
+	                            //resource ID.
+	                            localRequire([moduleName], load);
+	                        });
+
+	                        //Use parentName here since the plugin's name is not reliable,
+	                        //could be some weird string with no path that actually wants to
+	                        //reference the parentName's path.
+	                        plugin.load(map.name, localRequire, load, _config);
+	                    }));
+
+	                    context.enable(pluginMap, this);
+	                    this.pluginMaps[pluginMap.id] = pluginMap;
+	                },
+
+	                enable: function enable() {
+	                    enabledRegistry[this.map.id] = this;
+	                    this.enabled = true;
+
+	                    //Set flag mentioning that the module is enabling,
+	                    //so that immediate calls to the defined callbacks
+	                    //for dependencies do not trigger inadvertent load
+	                    //with the depCount still being zero.
+	                    this.enabling = true;
+
+	                    //Enable each dependency
+	                    each(this.depMaps, bind(this, function (depMap, i) {
+	                        var id, mod, handler;
+
+	                        if (typeof depMap === 'string') {
+	                            //Dependency needs to be converted to a depMap
+	                            //and wired up to this module.
+	                            depMap = makeModuleMap(depMap, this.map.isDefine ? this.map : this.map.parentMap, false, !this.skipMap);
+	                            this.depMaps[i] = depMap;
+
+	                            handler = getOwn(handlers, depMap.id);
+
+	                            if (handler) {
+	                                this.depExports[i] = handler(this);
+	                                return;
+	                            }
+
+	                            this.depCount += 1;
+
+	                            on(depMap, 'defined', bind(this, function (depExports) {
+	                                if (this.undefed) {
+	                                    return;
+	                                }
+	                                this.defineDep(i, depExports);
+	                                this.check();
+	                            }));
+
+	                            if (this.errback) {
+	                                on(depMap, 'error', bind(this, this.errback));
+	                            } else if (this.events.error) {
+	                                // No direct errback on this module, but something
+	                                // else is listening for errors, so be sure to
+	                                // propagate the error correctly.
+	                                on(depMap, 'error', bind(this, function (err) {
+	                                    this.emit('error', err);
+	                                }));
+	                            }
+	                        }
+
+	                        id = depMap.id;
+	                        mod = registry[id];
+
+	                        //Skip special modules like 'require', 'exports', 'module'
+	                        //Also, don't call enable if it is already enabled,
+	                        //important in circular dependency cases.
+	                        if (!hasProp(handlers, id) && mod && !mod.enabled) {
+	                            context.enable(depMap, this);
+	                        }
+	                    }));
+
+	                    //Enable each plugin that is used in
+	                    //a dependency
+	                    eachProp(this.pluginMaps, bind(this, function (pluginMap) {
+	                        var mod = getOwn(registry, pluginMap.id);
+	                        if (mod && !mod.enabled) {
+	                            context.enable(pluginMap, this);
+	                        }
+	                    }));
+
+	                    this.enabling = false;
+
+	                    this.check();
+	                },
+
+	                on: function on(name, cb) {
+	                    var cbs = this.events[name];
+	                    if (!cbs) {
+	                        cbs = this.events[name] = [];
+	                    }
+	                    cbs.push(cb);
+	                },
+
+	                emit: function emit(name, evt) {
+	                    each(this.events[name], function (cb) {
+	                        cb(evt);
+	                    });
+	                    if (name === 'error') {
+	                        //Now that the error handler was triggered, remove
+	                        //the listeners, since this broken Module instance
+	                        //can stay around for a while in the registry.
+	                        delete this.events[name];
+	                    }
+	                }
+	            };
+
+	            function callGetModule(args) {
+	                //Skip modules already defined.
+	                if (!hasProp(_defined, args[0])) {
+	                    getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
+	                }
+	            }
+
+	            function removeListener(node, func, name, ieName) {
+	                //Favor detachEvent because of IE9
+	                //issue, see attachEvent/addEventListener comment elsewhere
+	                //in this file.
+	                if (node.detachEvent && !isOpera) {
+	                    //Probably IE. If not it will throw an error, which will be
+	                    //useful to know.
+	                    if (ieName) {
+	                        node.detachEvent(ieName, func);
+	                    }
+	                } else {
+	                    node.removeEventListener(name, func, false);
+	                }
+	            }
+
+	            /**
+	             * Given an event from a script node, get the requirejs info from it,
+	             * and then removes the event listeners on the node.
+	             * @param {Event} evt
+	             * @returns {Object}
+	             */
+	            function getScriptData(evt) {
+	                //Using currentTarget instead of target for Firefox 2.0's sake. Not
+	                //all old browsers will be supported, but this one was easy enough
+	                //to support and still makes sense.
+	                var node = evt.currentTarget || evt.srcElement;
+
+	                //Remove the listeners once here.
+	                removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
+	                removeListener(node, context.onScriptError, 'error');
+
+	                return {
+	                    node: node,
+	                    id: node && node.getAttribute('data-requiremodule')
+	                };
+	            }
+
+	            function intakeDefines() {
+	                var args;
+
+	                //Any defined modules in the global queue, intake them now.
+	                takeGlobalQueue();
+
+	                //Make sure any remaining defQueue items get properly processed.
+	                while (defQueue.length) {
+	                    args = defQueue.shift();
+	                    if (args[0] === null) {
+	                        return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
+	                    } else {
+	                        //args are id, deps, factory. Should be normalized by the
+	                        //define() function.
+	                        callGetModule(args);
+	                    }
+	                }
+	                context.defQueueMap = {};
+	            }
+
+	            context = {
+	                config: _config,
+	                contextName: contextName,
+	                registry: registry,
+	                defined: _defined,
+	                urlFetched: urlFetched,
+	                defQueue: defQueue,
+	                defQueueMap: {},
+	                Module: Module,
+	                makeModuleMap: makeModuleMap,
+	                nextTick: req.nextTick,
+	                onError: onError,
+
+	                /**
+	                 * Set a configuration for the context.
+	                 * @param {Object} cfg config object to integrate.
+	                 */
+	                configure: function configure(cfg) {
+	                    //Make sure the baseUrl ends in a slash.
+	                    if (cfg.baseUrl) {
+	                        if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
+	                            cfg.baseUrl += '/';
+	                        }
+	                    }
+
+	                    // Convert old style urlArgs string to a function.
+	                    if (typeof cfg.urlArgs === 'string') {
+	                        var urlArgs = cfg.urlArgs;
+	                        cfg.urlArgs = function (id, url) {
+	                            return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
+	                        };
+	                    }
+
+	                    //Save off the paths since they require special processing,
+	                    //they are additive.
+	                    var shim = _config.shim,
+	                        objs = {
+	                        paths: true,
+	                        bundles: true,
+	                        config: true,
+	                        map: true
+	                    };
+
+	                    eachProp(cfg, function (value, prop) {
+	                        if (objs[prop]) {
+	                            if (!_config[prop]) {
+	                                _config[prop] = {};
+	                            }
+	                            mixin(_config[prop], value, true, true);
+	                        } else {
+	                            _config[prop] = value;
+	                        }
+	                    });
+
+	                    //Reverse map the bundles
+	                    if (cfg.bundles) {
+	                        eachProp(cfg.bundles, function (value, prop) {
+	                            each(value, function (v) {
+	                                if (v !== prop) {
+	                                    bundlesMap[v] = prop;
+	                                }
+	                            });
+	                        });
+	                    }
+
+	                    //Merge shim
+	                    if (cfg.shim) {
+	                        eachProp(cfg.shim, function (value, id) {
+	                            //Normalize the structure
+	                            if (isArray(value)) {
+	                                value = {
+	                                    deps: value
+	                                };
+	                            }
+	                            if ((value.exports || value.init) && !value.exportsFn) {
+	                                value.exportsFn = context.makeShimExports(value);
+	                            }
+	                            shim[id] = value;
+	                        });
+	                        _config.shim = shim;
+	                    }
+
+	                    //Adjust packages if necessary.
+	                    if (cfg.packages) {
+	                        each(cfg.packages, function (pkgObj) {
+	                            var location, name;
+
+	                            pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
+
+	                            name = pkgObj.name;
+	                            location = pkgObj.location;
+	                            if (location) {
+	                                _config.paths[name] = pkgObj.location;
+	                            }
+
+	                            //Save pointer to main module ID for pkg name.
+	                            //Remove leading dot in main, so main paths are normalized,
+	                            //and remove any trailing .js, since different package
+	                            //envs have different conventions: some use a module name,
+	                            //some use a file name.
+	                            _config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main').replace(currDirRegExp, '').replace(jsSuffixRegExp, '');
+	                        });
+	                    }
+
+	                    //If there are any "waiting to execute" modules in the registry,
+	                    //update the maps for them, since their info, like URLs to load,
+	                    //may have changed.
+	                    eachProp(registry, function (mod, id) {
+	                        //If module already has init called, since it is too
+	                        //late to modify them, and ignore unnormalized ones
+	                        //since they are transient.
+	                        if (!mod.inited && !mod.map.unnormalized) {
+	                            mod.map = makeModuleMap(id, null, true);
+	                        }
+	                    });
+
+	                    //If a deps array or a config callback is specified, then call
+	                    //require with those args. This is useful when require is defined as a
+	                    //config object before require.js is loaded.
+	                    if (cfg.deps || cfg.callback) {
+	                        context.require(cfg.deps || [], cfg.callback);
+	                    }
+	                },
+
+	                makeShimExports: function makeShimExports(value) {
+	                    function fn() {
+	                        var ret;
+	                        if (value.init) {
+	                            ret = value.init.apply(global, arguments);
+	                        }
+	                        return ret || value.exports && getGlobal(value.exports);
+	                    }
+	                    return fn;
+	                },
+
+	                makeRequire: function makeRequire(relMap, options) {
+	                    options = options || {};
+
+	                    function localRequire(deps, callback, errback) {
+	                        var id, map, requireMod;
+
+	                        if (options.enableBuildCallback && callback && isFunction(callback)) {
+	                            callback.__requireJsBuild = true;
+	                        }
+
+	                        if (typeof deps === 'string') {
+	                            if (isFunction(callback)) {
+	                                //Invalid call
+	                                return onError(makeError('requireargs', 'Invalid require call'), errback);
+	                            }
+
+	                            //If require|exports|module are requested, get the
+	                            //value for them from the special handlers. Caveat:
+	                            //this only works while module is being defined.
+	                            if (relMap && hasProp(handlers, deps)) {
+	                                return handlers[deps](registry[relMap.id]);
+	                            }
+
+	                            //Synchronous access to one module. If require.get is
+	                            //available (as in the Node adapter), prefer that.
+	                            if (req.get) {
+	                                return req.get(context, deps, relMap, localRequire);
+	                            }
+
+	                            //Normalize module name, if it contains . or ..
+	                            map = makeModuleMap(deps, relMap, false, true);
+	                            id = map.id;
+
+	                            if (!hasProp(_defined, id)) {
+	                                return onError(makeError('notloaded', 'Module name "' + id + '" has not been loaded yet for context: ' + contextName + (relMap ? '' : '. Use require([])')));
+	                            }
+	                            return _defined[id];
+	                        }
+
+	                        //Grab defines waiting in the global queue.
+	                        intakeDefines();
+
+	                        //Mark all the dependencies as needing to be loaded.
+	                        context.nextTick(function () {
+	                            //Some defines could have been added since the
+	                            //require call, collect them.
+	                            intakeDefines();
+
+	                            requireMod = getModule(makeModuleMap(null, relMap));
+
+	                            //Store if map config should be applied to this require
+	                            //call for dependencies.
+	                            requireMod.skipMap = options.skipMap;
+
+	                            requireMod.init(deps, callback, errback, {
+	                                enabled: true
+	                            });
+
+	                            checkLoaded();
+	                        });
+
+	                        return localRequire;
+	                    }
+
+	                    mixin(localRequire, {
+	                        isBrowser: isBrowser,
+
+	                        /**
+	                         * Converts a module name + .extension into an URL path.
+	                         * *Requires* the use of a module name. It does not support using
+	                         * plain URLs like nameToUrl.
+	                         */
+	                        toUrl: function toUrl(moduleNamePlusExt) {
+	                            var ext,
+	                                index = moduleNamePlusExt.lastIndexOf('.'),
+	                                segment = moduleNamePlusExt.split('/')[0],
+	                                isRelative = segment === '.' || segment === '..';
+
+	                            //Have a file extension alias, and it is not the
+	                            //dots from a relative path.
+	                            if (index !== -1 && (!isRelative || index > 1)) {
+	                                ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
+	                                moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
+	                            }
+
+	                            return context.nameToUrl(normalize(moduleNamePlusExt, relMap && relMap.id, true), ext, true);
+	                        },
+
+	                        defined: function defined(id) {
+	                            return hasProp(_defined, makeModuleMap(id, relMap, false, true).id);
+	                        },
+
+	                        specified: function specified(id) {
+	                            id = makeModuleMap(id, relMap, false, true).id;
+	                            return hasProp(_defined, id) || hasProp(registry, id);
+	                        }
+	                    });
+
+	                    //Only allow undef on top level require calls
+	                    if (!relMap) {
+	                        localRequire.undef = function (id) {
+	                            //Bind any waiting define() calls to this context,
+	                            //fix for #408
+	                            takeGlobalQueue();
+
+	                            var map = makeModuleMap(id, relMap, true),
+	                                mod = getOwn(registry, id);
+
+	                            mod.undefed = true;
+	                            removeScript(id);
+
+	                            delete _defined[id];
+	                            delete urlFetched[map.url];
+	                            delete undefEvents[id];
+
+	                            //Clean queued defines too. Go backwards
+	                            //in array so that the splices do not
+	                            //mess up the iteration.
+	                            eachReverse(defQueue, function (args, i) {
+	                                if (args[0] === id) {
+	                                    defQueue.splice(i, 1);
+	                                }
+	                            });
+	                            delete context.defQueueMap[id];
+
+	                            if (mod) {
+	                                //Hold on to listeners in case the
+	                                //module will be attempted to be reloaded
+	                                //using a different config.
+	                                if (mod.events.defined) {
+	                                    undefEvents[id] = mod.events;
+	                                }
+
+	                                cleanRegistry(id);
+	                            }
+	                        };
+	                    }
+
+	                    return localRequire;
+	                },
+
+	                /**
+	                 * Called to enable a module if it is still in the registry
+	                 * awaiting enablement. A second arg, parent, the parent module,
+	                 * is passed in for context, when this method is overridden by
+	                 * the optimizer. Not shown here to keep code compact.
+	                 */
+	                enable: function enable(depMap) {
+	                    var mod = getOwn(registry, depMap.id);
+	                    if (mod) {
+	                        getModule(depMap).enable();
+	                    }
+	                },
+
+	                /**
+	                 * Internal method used by environment adapters to complete a load event.
+	                 * A load event could be a script load or just a load pass from a synchronous
+	                 * load call.
+	                 * @param {String} moduleName the name of the module to potentially complete.
+	                 */
+	                completeLoad: function completeLoad(moduleName) {
+	                    var found,
+	                        args,
+	                        mod,
+	                        shim = getOwn(_config.shim, moduleName) || {},
+	                        shExports = shim.exports;
+
+	                    takeGlobalQueue();
+
+	                    while (defQueue.length) {
+	                        args = defQueue.shift();
+	                        if (args[0] === null) {
+	                            args[0] = moduleName;
+	                            //If already found an anonymous module and bound it
+	                            //to this name, then this is some other anon module
+	                            //waiting for its completeLoad to fire.
+	                            if (found) {
+	                                break;
+	                            }
+	                            found = true;
+	                        } else if (args[0] === moduleName) {
+	                            //Found matching define call for this script!
+	                            found = true;
+	                        }
+
+	                        callGetModule(args);
+	                    }
+	                    context.defQueueMap = {};
+
+	                    //Do this after the cycle of callGetModule in case the result
+	                    //of those calls/init calls changes the registry.
+	                    mod = getOwn(registry, moduleName);
+
+	                    if (!found && !hasProp(_defined, moduleName) && mod && !mod.inited) {
+	                        if (_config.enforceDefine && (!shExports || !getGlobal(shExports))) {
+	                            if (hasPathFallback(moduleName)) {
+	                                return;
+	                            } else {
+	                                return onError(makeError('nodefine', 'No define call for ' + moduleName, null, [moduleName]));
+	                            }
+	                        } else {
+	                            //A script that does not call define(), so just simulate
+	                            //the call for it.
+	                            callGetModule([moduleName, shim.deps || [], shim.exportsFn]);
+	                        }
+	                    }
+
+	                    checkLoaded();
+	                },
+
+	                /**
+	                 * Converts a module name to a file path. Supports cases where
+	                 * moduleName may actually be just an URL.
+	                 * Note that it **does not** call normalize on the moduleName,
+	                 * it is assumed to have already been normalized. This is an
+	                 * internal API, not a public one. Use toUrl for the public API.
+	                 */
+	                nameToUrl: function nameToUrl(moduleName, ext, skipExt) {
+	                    var paths,
+	                        syms,
+	                        i,
+	                        parentModule,
+	                        url,
+	                        parentPath,
+	                        bundleId,
+	                        pkgMain = getOwn(_config.pkgs, moduleName);
+
+	                    if (pkgMain) {
+	                        moduleName = pkgMain;
+	                    }
+
+	                    bundleId = getOwn(bundlesMap, moduleName);
+
+	                    if (bundleId) {
+	                        return context.nameToUrl(bundleId, ext, skipExt);
+	                    }
+
+	                    //If a colon is in the URL, it indicates a protocol is used and it is just
+	                    //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
+	                    //or ends with .js, then assume the user meant to use an url and not a module id.
+	                    //The slash is important for protocol-less URLs as well as full paths.
+	                    if (req.jsExtRegExp.test(moduleName)) {
+	                        //Just a plain path, not module name lookup, so just return it.
+	                        //Add extension if it is included. This is a bit wonky, only non-.js things pass
+	                        //an extension, this method probably needs to be reworked.
+	                        url = moduleName + (ext || '');
+	                    } else {
+	                        //A module that needs to be converted to a path.
+	                        paths = _config.paths;
+
+	                        syms = moduleName.split('/');
+	                        //For each module name segment, see if there is a path
+	                        //registered for it. Start with most specific name
+	                        //and work up from it.
+	                        for (i = syms.length; i > 0; i -= 1) {
+	                            parentModule = syms.slice(0, i).join('/');
+
+	                            parentPath = getOwn(paths, parentModule);
+	                            if (parentPath) {
+	                                //If an array, it means there are a few choices,
+	                                //Choose the one that is desired
+	                                if (isArray(parentPath)) {
+	                                    parentPath = parentPath[0];
+	                                }
+	                                syms.splice(0, i, parentPath);
+	                                break;
+	                            }
+	                        }
+
+	                        //Join the path parts together, then figure out if baseUrl is needed.
+	                        url = syms.join('/');
+	                        // update at 2018-07-11, 支持用户自己写.js文件后缀，如：require('path/to/app.js');
+	                        url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
+	                        url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
+	                        // update at 2018-07-14, url上额外传递参数 hashName 到每次请求中
+	                        // 以供 define 函数确认当前是哪个应用调用 require 的
+	                        // url += (url.indexOf('?') === -1 ? '?' : '&') + 'okey=' + hashName
+	                    }
+
+	                    return _config.urlArgs && !/^blob\:/.test(url) ? url + _config.urlArgs(moduleName, url) : url;
+	                },
+
+	                //Delegates to req.load. Broken out as a separate function to
+	                //allow overriding in the optimizer.
+	                load: function load(id, url) {
+	                    req.load(context, id, url);
+	                },
+
+	                /**
+	                 * Executes a module callback function. Broken out as a separate function
+	                 * solely to allow the build system to sequence the files in the built
+	                 * layer in the right sequence.
+	                 *
+	                 * @private
+	                 */
+	                execCb: function execCb(name, callback, args, exports) {
+	                    // update at 2018-07-10 by liuzechun
+	                    // 当符合以下条件时：
+	                    //     1、不为依赖注入写法（define(['foo'], function(foo){})），此处的体现是name格式为`_@r5`
+	                    //     2、不是仅包含require的回调函数
+	                    // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
+	                    var cbStr = callback.toString().slice(0, 50);
+	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
+	                        var uf = (0, _instance.getInstance)(insName);
+	                        args.unshift(uf);
+	                    }
+	                    return callback.apply(exports, args);
+	                },
+
+	                /**
+	                 * callback for script loads, used to check status of loading.
+	                 *
+	                 * @param {Event} evt the event from the browser for the script
+	                 * that was loaded.
+	                 */
+	                onScriptLoad: function onScriptLoad(evt) {
+	                    //Using currentTarget instead of target for Firefox 2.0's sake. Not
+	                    //all old browsers will be supported, but this one was easy enough
+	                    //to support and still makes sense.
+	                    if (evt.type === 'load' || readyRegExp.test((evt.currentTarget || evt.srcElement).readyState)) {
+	                        //Reset interactive script so a script node is not held onto for
+	                        //to long.
+	                        interactiveScript = null;
+
+	                        // update at 2018-07-15 by liuzechun
+	                        // TODO: 待观察效果，多个requirejs同时执行时，且这里是异步会不会出错
+	                        //   此处实现认为 globalDefine 中只暂存一种define内容，紧接着会在这里取走并清空
+	                        //      如果define执行之后立即（同步）触发事件，不会有问题；
+	                        //      如果存在 globalDefine 中出现两个不同requirejs实例存入的内容，则会出错
+	                        // 从 globalDefine 中取走全部加载完成后使用全局 define 函数初始化的模块
+	                        while (globalDefine.length) {
+	                            define.apply(undefined, globalDefine.shift());
+	                        }
+
+	                        //Pull out the name of the module and the context.
+	                        var data = getScriptData(evt);
+	                        context.completeLoad(data.id);
+	                    }
+	                },
+
+	                /**
+	                 * Callback for script errors.
+	                 */
+	                onScriptError: function onScriptError(evt) {
+	                    var data = getScriptData(evt);
+	                    if (!hasPathFallback(data.id)) {
+	                        var parents = [];
+	                        eachProp(registry, function (value, key) {
+	                            if (key.indexOf('_@r') !== 0) {
+	                                each(value.depMaps, function (depMap) {
+	                                    if (depMap.id === data.id) {
+	                                        parents.push(key);
+	                                        return true;
+	                                    }
+	                                });
+	                            }
+	                        });
+	                        return onError(makeError('scripterror', 'Script error for "' + data.id + (parents.length ? '", needed by: ' + parents.join(', ') : '"'), evt, [data.id]));
+	                    }
+	                }
+	            };
+
+	            context.require = context.makeRequire();
+	            return context;
+	        }
+
+	        /**
+	         * Main entry point.
+	         *
+	         * If the only argument to require is a string, then the module that
+	         * is represented by that string is fetched for the appropriate context.
+	         *
+	         * If the first argument is an array, then it will be treated as an array
+	         * of dependency string names to fetch. An optional function callback can
+	         * be specified to execute when all of those dependencies are available.
+	         *
+	         * Make a local req variable to help Caja compliance (it assumes things
+	         * on a require that are not standardized), and to give a short
+	         * name for minification/local scope use.
+	         */
+	        req = requirejs = function requirejs(deps, callback, errback, optional) {
+
+	            //Find the right context, use default
+	            var context,
+	                config,
+	                contextName = defContextName;
+
+	            // Determine if have config object in the call.
+	            if (!isArray(deps) && typeof deps !== 'string') {
+	                // deps is a config object
+	                config = deps;
+	                if (isArray(callback)) {
+	                    // Adjust args if there are dependencies
+	                    deps = callback;
+	                    callback = errback;
+	                    errback = optional;
+	                } else {
+	                    deps = [];
+	                }
+	            }
+
+	            if (config && config.context) {
+	                contextName = config.context;
+	            }
+
+	            context = getOwn(contexts, contextName);
+	            if (!context) {
+	                context = contexts[contextName] = req.s.newContext(contextName);
+	            }
+
+	            if (config) {
+	                context.configure(config);
+	            }
+
+	            return context.require(deps, callback, errback);
+	        };
+
+	        /**
+	         * Support require.config() to make it easier to cooperate with other
+	         * AMD loaders on globally agreed names.
+	         */
+	        req.config = function (config) {
+	            // if the config is false, then prevent load requirejs to window
+	            // update at 2018-03-19 18:47 by liuzechun
+	            if (!!config) {
+	                window['define'] = window['_define'];
+	            }
+	            return req(config);
+	        };
+
+	        /**
+	         * Execute something after the current tick
+	         * of the event loop. Override for other envs
+	         * that have a better solution than setTimeout.
+	         * @param  {Function} fn function to execute later.
+	         */
+	        req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
+	            setTimeout(fn, 4);
+	        } : function (fn) {
+	            fn();
+	        };
+
+	        /**
+	         * Export require as a global, but only if it does not already exist.
+	         */
+	        if (!require) {
+	            require = req;
+	        }
+
+	        req.version = version;
+
+	        //Used to filter out dependencies that are already paths.
+	        // update by liuzechun at 2018-07-17, 传入的.js也认为是模块id处理
+	        // req.jsExtRegExp = /^\/|:|\?|\.js$/;
+	        req.jsExtRegExp = /^\/|:|\?/;
+	        req.isBrowser = isBrowser;
+	        s = req.s = {
+	            contexts: contexts,
+	            newContext: newContext
+	        };
+
+	        //Create default context.
+	        req({});
+
+	        //Exports some context-sensitive methods on global require.
+	        each(['toUrl', 'undef', 'defined', 'specified'], function (prop) {
+	            //Reference from contexts instead of early binding to default context,
+	            //so that during builds, the latest instance of the default context
+	            //with its config gets used.
+	            req[prop] = function () {
+	                var ctx = contexts[defContextName];
+	                return ctx.require[prop].apply(ctx, arguments);
+	            };
+	        });
+
+	        if (isBrowser) {
+	            head = s.head = document.getElementsByTagName('head')[0];
+	            //If BASE tag is in play, using appendChild is a problem for IE6.
+	            //When that browser dies, this can be removed. Details in this jQuery bug:
+	            //http://dev.jquery.com/ticket/2709
+	            baseElement = document.getElementsByTagName('base')[0];
+	            if (baseElement) {
+	                head = s.head = baseElement.parentNode;
+	            }
+	        }
+
+	        /**
+	         * Any errors that require explicitly generates will be passed to this
+	         * function. Intercept/override it if you want custom error handling.
+	         * @param {Error} err the error object.
+	         */
+	        req.onError = defaultOnError;
+
+	        /**
+	         * Creates the node for the load command. Only used in browser envs.
+	         */
+	        req.createNode = function (config, moduleName, url) {
+	            var node = config.xhtml ? document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') : document.createElement('script');
+	            node.type = config.scriptType || 'text/javascript';
+	            node.charset = 'utf-8';
+	            node.async = true;
+	            return node;
+	        };
+
+	        /**
+	         * Does the request to load a module for the browser case.
+	         * Make this a separate function to allow other environments
+	         * to override it.
+	         *
+	         * @param {Object} context the require context to find state.
+	         * @param {String} moduleName the name of the module.
+	         * @param {Object} url the URL to the module.
+	         */
+	        req.load = function (context, moduleName, url) {
+	            var config = context && context.config || {},
+	                node;
+	            if (isBrowser) {
+	                //In the browser so use a script tag
+	                node = req.createNode(config, moduleName, url);
+
+	                node.setAttribute('data-requirecontext', context.contextName);
+	                node.setAttribute('data-requiremodule', moduleName);
+
+	                //Set up load listener. Test attachEvent first because IE9 has
+	                //a subtle issue in its addEventListener and script onload firings
+	                //that do not match the behavior of all other browsers with
+	                //addEventListener support, which fire the onload event for a
+	                //script right after the script execution. See:
+	                //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
+	                //UNFORTUNATELY Opera implements attachEvent but does not follow the script
+	                //script execution mode.
+	                if (node.attachEvent &&
+	                //Check if node.attachEvent is artificially added by custom script or
+	                //natively supported by browser
+	                //read https://github.com/requirejs/requirejs/issues/187
+	                //if we can NOT find [native code] then it must NOT natively supported.
+	                //in IE8, node.attachEvent does not have toString()
+	                //Note the test for "[native code" with no closing brace, see:
+	                //https://github.com/requirejs/requirejs/issues/273
+	                !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) && !isOpera) {
+	                    //Probably IE. IE (at least 6-8) do not fire
+	                    //script onload right after executing the script, so
+	                    //we cannot tie the anonymous define call to a name.
+	                    //However, IE reports the script as being in 'interactive'
+	                    //readyState at the time of the define call.
+	                    useInteractive = true;
+
+	                    node.attachEvent('onreadystatechange', context.onScriptLoad);
+	                    //It would be great to add an error handler here to catch
+	                    //404s in IE9+. However, onreadystatechange will fire before
+	                    //the error handler, so that does not help. If addEventListener
+	                    //is used, then IE will fire error before load, but we cannot
+	                    //use that pathway given the connect.microsoft.com issue
+	                    //mentioned above about not doing the 'script execute,
+	                    //then fire the script load event listener before execute
+	                    //next script' that other browsers do.
+	                    //Best hope: IE10 fixes the issues,
+	                    //and then destroys all installs of IE 6-9.
+	                    //node.attachEvent('onerror', context.onScriptError);
+	                } else {
+	                    node.addEventListener('load', context.onScriptLoad, false);
+	                    node.addEventListener('error', context.onScriptError, false);
+	                }
+	                node.src = url;
+
+	                //Calling onNodeCreated after all properties on the node have been
+	                //set, but before it is placed in the DOM.
+	                if (config.onNodeCreated) {
+	                    config.onNodeCreated(node, config, moduleName, url);
+	                }
+
+	                //For some cache cases in IE 6-8, the script executes before the end
+	                //of the appendChild execution, so to tie an anonymous define
+	                //call to the module name (which is stored on the node), hold on
+	                //to a reference to this node, but clear after the DOM insertion.
+	                currentlyAddingScript = node;
+	                if (baseElement) {
+	                    head.insertBefore(node, baseElement);
+	                } else {
+	                    head.appendChild(node);
+	                }
+	                currentlyAddingScript = null;
+
+	                return node;
+	            } else if (isWebWorker) {
+	                try {
+	                    //In a web worker, use importScripts. This is not a very
+	                    //efficient use of importScripts, importScripts will block until
+	                    //its script is downloaded and evaluated. However, if web workers
+	                    //are in play, the expectation is that a build has been done so
+	                    //that only one script needs to be loaded anyway. This may need
+	                    //to be reevaluated if other use cases become common.
+
+	                    // Post a task to the event loop to work around a bug in WebKit
+	                    // where the worker gets garbage-collected after calling
+	                    // importScripts(): https://webkit.org/b/153317
+	                    setTimeout(function () {}, 0);
+	                    importScripts(url);
+
+	                    //Account for anonymous modules
+	                    context.completeLoad(moduleName);
+	                } catch (e) {
+	                    context.onError(makeError('importscripts', 'importScripts failed for ' + moduleName + ' at ' + url, e, [moduleName]));
+	                }
+	            }
+	        };
+
+	        function getInteractiveScript() {
+	            if (interactiveScript && interactiveScript.readyState === 'interactive') {
+	                return interactiveScript;
+	            }
+
+	            eachReverse(scripts(), function (script) {
+	                if (script.readyState === 'interactive') {
+	                    return interactiveScript = script;
+	                }
+	            });
+	            return interactiveScript;
+	        }
+
+	        //Look for a data-main script attribute, which could also adjust the baseUrl.
+	        if (isBrowser && !cfg.skipDataMain) {
+	            //Figure out baseUrl. Get it from the script tag with require.js in it.
+	            eachReverse(scripts(), function (script) {
+	                //Set the 'head' where we can append children by
+	                //using the script's parent.
+	                if (!head) {
+	                    head = script.parentNode;
+	                }
+
+	                //Look for a data-main attribute to set main script for the page
+	                //to load. If it is there, the path to data main becomes the
+	                //baseUrl, if it is not already set.
+	                dataMain = script.getAttribute('data-main');
+	                if (dataMain) {
+	                    //Preserve dataMain in case it is a path (i.e. contains '?')
+	                    mainScript = dataMain;
+
+	                    //Set final baseUrl if there is not already an explicit one,
+	                    //but only do so if the data-main value is not a loader plugin
+	                    //module ID.
+	                    if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
+	                        //Pull off the directory of data-main for use as the
+	                        //baseUrl.
+	                        src = mainScript.split('/');
+	                        mainScript = src.pop();
+	                        subPath = src.length ? src.join('/') + '/' : './';
+
+	                        cfg.baseUrl = subPath;
+	                    }
+
+	                    //Strip off any trailing .js since mainScript is now
+	                    //like a module name.
+	                    mainScript = mainScript.replace(jsSuffixRegExp, '');
+
+	                    //If mainScript is still a path, fall back to dataMain
+	                    if (req.jsExtRegExp.test(mainScript)) {
+	                        mainScript = dataMain;
+	                    }
+
+	                    //Put the data-main script in the files to load.
+	                    cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
+
+	                    return true;
+	                }
+	            });
+	        }
+
+	        /**
+	         * The function that handles definitions of modules. Differs from
+	         * require() in that a string for the module should be the first argument,
+	         * and the function to execute after dependencies are loaded should
+	         * return a value to define the module corresponding to the first argument's
+	         * name.
+	         */
+	        define = function define(name, deps, callback) {
+	            var node, context;
+
+	            //Allow for anonymous modules
+	            if (typeof name !== 'string') {
+	                //Adjust args appropriately
+	                callback = deps;
+	                deps = name;
+	                name = null;
+	            }
+
+	            //This module may not have dependencies
+	            if (!isArray(deps)) {
+	                callback = deps;
+	                deps = null;
+	            }
+
+	            //If no name, and callback is a function, then figure out if it a
+	            //CommonJS thing with dependencies.
+	            if (!deps && isFunction(callback)) {
+	                deps = [];
+	                //Remove comments from the callback string,
+	                //look for require calls, and pull them into the dependencies,
+	                //but only if there are function args.
+	                if (callback.length) {
+	                    callback.toString().replace(commentRegExp, commentReplace).replace(cjsRequireRegExp, function (match, dep) {
+	                        deps.push(dep);
+	                    });
+
+	                    //May be a CommonJS thing even without require calls, but still
+	                    //could use exports, and module. Avoid doing exports and module
+	                    //work though if it just needs require.
+	                    //REQUIRES the function to expect the CommonJS variables in the
+	                    //order listed below.
+	                    deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
+	                }
+	            }
+
+	            //If in IE 6-8 and hit an anonymous define() call, do the interactive
+	            //work.
+	            if (useInteractive) {
+	                node = currentlyAddingScript || getInteractiveScript();
+	                if (node) {
+	                    if (!name) {
+	                        name = node.getAttribute('data-requiremodule');
+	                    }
+	                    context = contexts[node.getAttribute('data-requirecontext')];
+	                }
+	            }
+
+	            //Always save off evaluating the def call until the script onload handler.
+	            //This allows multiple modules to be in a file without prematurely
+	            //tracing dependencies, and allows for anonymous module support,
+	            //where the module name is not known until the script onload event
+	            //occurs. If no context, use the global queue, and get it processed
+	            //in the onscript load callback.
+	            if (context) {
+	                context.defQueue.push([name, deps, callback]);
+	                context.defQueueMap[name] = true;
+	            } else {
+	                globalDefQueue.push([name, deps, callback]);
+	            }
+	        };
+
+	        define.amd = {
+	            jQuery: true
+	        };
+
+	        /**
+	         * Executes the text. Normally just uses eval, but can be modified
+	         * to use a better, environment-specific call. Only used for transpiling
+	         * loader plugins, not for plain JS modules.
+	         * @param {String} text the text to execute/evaluate.
+	         */
+	        req.exec = function (text) {
+	            /*jslint evil: true */
+	            return eval(text);
+	        };
+
+	        //Set up with config info.
+	        req(cfg);
+	    })(this, typeof setTimeout === 'undefined' ? undefined : setTimeout);
+
+	    // 保证引用，防止销毁
+	    requirejs.require = require;
+	    requirejs.define = define;
+
+	    return requirejs;
+	});
+
+	// export default requirejs;
+
+	// 重写define函数
+	// 由于多个require实例的define也有多个（执行环境不同，globalDefQueue有多个）
+	// 所以重写一个define函数，把模块先置于一个公共缓存池里，后续各requirejs实例主动从池中去取各自的模块
+
+	var define = function define(name, deps, callback) {
+	    globalDefine.push([name, deps, callback]);
+	};
+
+	// update at 2018-03-19 18:41:28 by liuzechun
+	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
+	window['_define'] = define;
 
 /***/ })
 /******/ ]);

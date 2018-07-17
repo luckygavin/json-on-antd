@@ -207,6 +207,16 @@ code, kbd, pre, samp {
     display: inline-block;
     opacity: 1;
 }
+/* .markdown h3[id]:hover::after,
+.markdown h4[id]:hover::after,
+.markdown h5[id]:hover::after,
+.markdown h6[id]:hover::after {
+    content: '#';
+    margin-left: 6px;
+    cursor: pointer;
+    color: #49a9ee;
+} */
+
 .markdown > div > br,
 .markdown > div > p > br {
     clear: both;

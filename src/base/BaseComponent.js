@@ -66,7 +66,7 @@ export default class BaseComponent extends Component {
         this.unmounted = false;
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
-        this._insName = this._factory.insName;
+        this.insName = this._factory.insName;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -381,7 +381,7 @@ export default class BaseComponent extends Component {
 
     // 判断是否为权限点 && 是否有权限
     __authority(item) {
-        return Authority.check(item, this._insName);
+        return Authority.check(item, this.insName);
     }
 
     // 获取缓存中的组件

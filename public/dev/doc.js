@@ -83,10 +83,10 @@
 	__webpack_require__(114);
 
 	// 通用文档
-	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(116).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(257).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(258).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(259).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(260).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(261).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(262).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(263).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(264).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(265).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(266).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(267).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(268).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(269).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(270).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(271).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(272).default }];
+	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(116).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(258).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(259).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(260).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(261).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(262).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(263).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(264).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(265).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(266).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(267).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(268).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(269).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(270).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(271).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(272).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(273).default }];
 
 	// 组件文档列表
-	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(273).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(275).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(277).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(280).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(282).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(284).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(286).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(288).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(290).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(292).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(294).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(295).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(296).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(297).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(298).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(300).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(301).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(302).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(303).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(304).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(305).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(306).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(307).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(308).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(309).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(310).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(311).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(312).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(313).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(314).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(315).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(316).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(317).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(318).default },
+	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(274).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(276).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(278).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(280).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(282).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(284).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(286).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(288).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(290).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(292).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(294).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(295).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(296).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(297).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(298).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(300).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(301).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(302).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(303).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(304).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(305).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(306).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(307).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(308).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(309).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(310).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(311).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(312).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(313).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(314).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(315).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(316).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(317).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(318).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
 	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(319).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(320).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(321).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(322).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(323).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(324).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(325).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(326).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(327).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(328).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(329).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(330).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(331).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(332).default }] }, { path: 'Other', name: '其他组件', children: [
 	    // {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
@@ -499,7 +499,7 @@
 /* 108 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.2.5","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 109 */
@@ -2285,7 +2285,7 @@
 /* 122 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n为了各个项目引用方便，先把一些常用的组件/库汇总到了一起。\n\n### Preloading.css\n`0.0.1`  \n提供多种页面加载前的loading效果，且效果可以组合使用。具体可以查看css文件的注释\n```\nhttp://uf.baidu.com/third_party/preloading.css\n```\n\n\n### jQuery\n`3.2.1`\n```\nhttp://uf.baidu.com/third_party/jquery/jquery-3.2.1.js\nhttp://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js\n```\n\n\n### Echarts4\n`4.0.4`\n\n```\nhttp://uf.baidu.com/third_party/echarts4/echarts.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.min.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.simple.min.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.common.min.js\n```\n\n\n### Echarts\n`3.6.2`\n\n```\nhttp://uf.baidu.com/third_party/echarts/echarts.js\nhttp://uf.baidu.com/third_party/echarts/echarts.min.js\nhttp://uf.baidu.com/third_party/echarts/echarts.simple.min.js\nhttp://uf.baidu.com/third_party/echarts/echarts.common.min.js\n```\n\n> * echarts.js：包含所有图表组件，且是未压缩代码，建议不要在线上环境使用（2.44M）\n> * echarts.min.js：包含所有图表组件，压缩（644k）\n> * echarts.simple.min.js： 只包含基础图表 - 折 柱 饼（254K）\n> * echarts.common.min.js：包含常用的图表组件 - 折 柱 饼 散点 图例、工具栏 标注/线/域、数据区域缩放（387K）\n\n\n### Echarts2\n`2.2.7`\n\n```\nhttp://uf.baidu.com/third_party/echarts2/echarts.js\nhttp://uf.baidu.com/third_party/echarts2/echarts-all.js\n```\n\n\n### Amaze-UI \n\n`2.7.2`\n\n```\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.min.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.flat.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.flat.min.css\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.min.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.ie8polyfill.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.ie8polyfill.min.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.widgets.helper.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.widgets.helper.min.js\n```\n\n> * amazeui.css / amazeui.js：包含 Amaze UI 所有的 CSS、JS。\n> * amazeui.flat.css：圆角版 Amaze UI CSS\n> * amazeui.ie8polyfill.js：IE8 polyfill\n> * amazeui.widgets.helper.js： 供使用 Handlebars 的用户使用，其他用户请忽略，内含 Web 组件必须的 Handlebars helper 及 Web 组件模板 partials。\n\n以上每个文件都有对应的 minified 文件。\n\n### UEditor\n`1.4.3-utf8-php`\n\n```\nhttp://uf.baidu.com/third_party/ueditor/js.php\n```\n\n> 本来需要引入一堆js，通过 `js.php` 集成到了一起\n\n\n### UMEditor\n`1.2.3-utf8-php`\n\n类似 UEditor，但是比UEditor轻\n\n```\nhttp://uf.baidu.com/third_party/umeditor/style.min.css\nhttp://uf.baidu.com/third_party/umeditor/js.php\n```\n\n> 本来需要引入一堆js，通过 `js.php` 集成到了一起\n\n\n"
+	module.exports = "\n为了各个项目引用方便，先把一些常用的组件/库汇总到了一起。\n\n### Preloading.css\n`0.0.1`  \n提供多种页面加载前的loading效果，且效果可以组合使用。\n```\nhttp://uf.baidu.com/third_party/preloading.css\n```\n\n例如： \n```\n<div class=\"preloading goafter2\"></div>\n```\n\n可选项：`overturn`、`scaleout`、`rotate`、`goafter`、`goafter2`、`cubemove`、`cubemove2`、`dot`、\n\n\n### jQuery\n`3.2.1`\n```\nhttp://uf.baidu.com/third_party/jquery/jquery-3.2.1.js\nhttp://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js\n```\n\n\n### Echarts4\n`4.0.4`\n\n```\nhttp://uf.baidu.com/third_party/echarts4/echarts.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.min.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.simple.min.js\nhttp://uf.baidu.com/third_party/echarts4/echarts.common.min.js\n```\n\n\n### Echarts\n`3.6.2`\n\n```\nhttp://uf.baidu.com/third_party/echarts/echarts.js\nhttp://uf.baidu.com/third_party/echarts/echarts.min.js\nhttp://uf.baidu.com/third_party/echarts/echarts.simple.min.js\nhttp://uf.baidu.com/third_party/echarts/echarts.common.min.js\n```\n\n> * echarts.js：包含所有图表组件，且是未压缩代码，建议不要在线上环境使用（2.44M）\n> * echarts.min.js：包含所有图表组件，压缩（644k）\n> * echarts.simple.min.js： 只包含基础图表 - 折 柱 饼（254K）\n> * echarts.common.min.js：包含常用的图表组件 - 折 柱 饼 散点 图例、工具栏 标注/线/域、数据区域缩放（387K）\n\n\n### Echarts2\n`2.2.7`\n\n```\nhttp://uf.baidu.com/third_party/echarts2/echarts.js\nhttp://uf.baidu.com/third_party/echarts2/echarts-all.js\n```\n\n\n### Amaze-UI \n\n`2.7.2`\n\n```\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.min.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.flat.css\nhttp://uf.baidu.com/third_party/amazeui/css/amazeui.flat.min.css\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.min.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.ie8polyfill.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.ie8polyfill.min.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.widgets.helper.js\nhttp://uf.baidu.com/third_party/amazeui/js/amazeui.widgets.helper.min.js\n```\n\n> * amazeui.css / amazeui.js：包含 Amaze UI 所有的 CSS、JS。\n> * amazeui.flat.css：圆角版 Amaze UI CSS\n> * amazeui.ie8polyfill.js：IE8 polyfill\n> * amazeui.widgets.helper.js： 供使用 Handlebars 的用户使用，其他用户请忽略，内含 Web 组件必须的 Handlebars helper 及 Web 组件模板 partials。\n\n以上每个文件都有对应的 minified 文件。\n\n### UEditor\n`1.4.3-utf8-php`\n\n```\nhttp://uf.baidu.com/third_party/ueditor/js.php\n```\n\n> 本来需要引入一堆js，通过 `js.php` 集成到了一起\n\n\n### UMEditor\n`1.2.3-utf8-php`\n\n类似 UEditor，但是比UEditor轻\n\n```\nhttp://uf.baidu.com/third_party/umeditor/style.min.css\nhttp://uf.baidu.com/third_party/umeditor/js.php\n```\n\n> 本来需要引入一堆js，通过 `js.php` 集成到了一起\n\n\n"
 
 /***/ }),
 /* 123 */
@@ -2339,7 +2339,7 @@
 /* 131 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF.config({})`做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n\n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对数据整体进行处理。为一个函数，函数返回处理好的数据。函数第一个参数`params`为数据体，函数第二个参数`conf`为当前请求的全部配置参数，例如请求的类型等。 | function(params, conf){} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.data*\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
+	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nname | 实例名称，根据不同的名称产生不同的实例 | String | default | \nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n\n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.data*\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
 
 /***/ }),
 /* 132 */
@@ -2363,7 +2363,7 @@
 /* 135 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。可以类比为jQuery的`$`符号\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n## # UF.getRouter()\n\n随时随地获取当前页面的路由信息。\n\n函数返回值为一个对象，包含两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n具体用法可见，[示例](#/Others/-2-)\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`url`**: url字符串中，可以类似路由声明一样定义一些动态参数，例如：`/update/:id`，`:id`为动态内容，动态内容的值来自于同级的`params`参数中。同时，在`params`取值后，params中的相应字段会被删除。\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n## # component.reload()\n\n`component.reload()`可以控制组件重新获取数据（和`source`属性配合）。\n\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
+	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。UF 函数具有两种完全不同的用法.\n\n#### `1、产生 $uf 实例`：\n\n首先说最基础用法，即可以使用UF函数产生一个$uf实例，后面的全部操作都使用这个$uf实例完成。当一个页面上同时出现两块互不相干的模块时，可以通过使用不同的实例做到两个模块完全独立，包括`$uf.config()`对uf做到初始化获取组件等操作。\n\n```javascript\nvar $uf = window.UF({\n    name: \"myUf\",\n    global: {},\n    components: {}\n})\n```\n\n#### `2、本身也是一个实例`：\n\n为了方便使用，整个UF本身也是一个名为`_$default`的实例，所以可以在UF上使用实例具有的全部方法，平时使用也无需再对UF进行实例化。\n\n** *后面所说的UF的含义，实际上也全部为此默认实例上的方法。* **\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n## # UF.getRouter()\n\n随时随地获取当前页面的路由信息。\n\n函数返回值为一个对象，包含两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n具体用法可见，[示例](#/Others/-2-)\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`url`**: url字符串中，可以类似路由声明一样定义一些动态参数，例如：`/update/:id`，`:id`为动态内容，动态内容的值来自于同级的`params`参数中。同时，在`params`取值后，params中的相应字段会被删除。\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n## # component.reload()\n\n`component.reload()`可以控制组件重新获取数据（和`source`属性配合）。\n\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
 
 /***/ }),
 /* 136 */
@@ -2393,7 +2393,7 @@
 /* 140 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n#### # 新增功能\n\n`2018-07-12`\n\n* 🌟 `SiderTrigger`组件增加`reverse`属性\n\n\n\n### 0.2.5\n\n`2018-07-11`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n\n`2018-07-17`\n\n#### # 主要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n#### # 组件升级\n\n* 🌟 `SiderTrigger`组件增加`reverse`属性\n* 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n\n\n### 0.2.5\n\n`2018-07-11`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 141 */
@@ -2717,9 +2717,9 @@
 
 	var _antd = __webpack_require__(106);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _utils = __webpack_require__(187);
 
@@ -2794,7 +2794,7 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            _utils.Utils.clone(this.props.list).map(function (item, i) {
-	                _tools2.default.init(item.config, '#demo-' + i);
+	                _src2.default.init(item.config, '#demo-' + i);
 	            });
 	        }
 	    }, {
@@ -2897,7 +2897,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.requirejs = exports.Authority = exports.Adaptor = exports.Model = exports.WhiteList = exports.Loader = exports.Factory = undefined;
+	exports.WhiteList = exports.Loader = exports.Factory = undefined;
 
 	var _react = __webpack_require__(103);
 
@@ -2907,33 +2907,23 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _src = __webpack_require__(184);
+	var _lib = __webpack_require__(184);
 
-	var _src2 = _interopRequireDefault(_src);
-
-	var _underscore = __webpack_require__(190);
-
-	var _underscore2 = _interopRequireDefault(_underscore);
+	var _lib2 = _interopRequireDefault(_lib);
 
 	var _moment = __webpack_require__(191);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(248);
+	__webpack_require__(241);
 
 	var _utils = __webpack_require__(187);
 
-	var _cache = __webpack_require__(205);
+	var _cache = __webpack_require__(242);
 
-	var _adaptor = __webpack_require__(249);
+	var _cache2 = _interopRequireDefault(_cache);
 
-	var _adaptor2 = _interopRequireDefault(_adaptor);
-
-	var _authority = __webpack_require__(208);
-
-	var _authority2 = _interopRequireDefault(_authority);
-
-	var _factory = __webpack_require__(253);
+	var _factory = __webpack_require__(249);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
@@ -2941,27 +2931,25 @@
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(209);
+	var _whitelist = __webpack_require__(202);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _model = __webpack_require__(204);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _precondition = __webpack_require__(256);
+	var _precondition = __webpack_require__(255);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _requirejs = __webpack_require__(255);
+	var _init = __webpack_require__(256);
 
-	var _requirejs2 = _interopRequireDefault(_requirejs);
+	var _init2 = _interopRequireDefault(_init);
+
+	var _instance = __webpack_require__(195);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	// import Model from 'src/tools/model.js';
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	// 设置 moment 的 locale
 	_moment2.default.locale('zh-cn');
@@ -2970,165 +2958,220 @@
 	// 本地访问的时候，domain为''，不能给domain赋值''
 	!!document.domain && (document.domain = document.domain);
 
-	var func = {
-	    /*******************************************************/
-	    /******** 私有属性/方法 *********************************/
-	    /*****************************************************/
+	// 生成UF实例
+	var create = function create(_ref) {
+	    var name = _ref.name;
 
-	    // 是否阻塞
-	    waiting: false,
-	    waitingCache: {},
-	    // 异步逻辑执行完成后，重新执行init函数
-	    _reInit: function _reInit() {
-	        this.waiting = false;
-	        var config = this.waitingCache.config;
-	        var selector = this.waitingCache.selector;
-	        this.waitingCache = {};
-	        this.render(config, selector);
-	    },
-
-	    // 获取组件
-	    _get: function _get(name, key) {
-	        var cp = _cache.ComponentsCache.get(name);
-	        if (key && cp) {
-	            return cp.get(key);
-	        }
-	        return cp;
-	    },
-
-	    // 根据选择器获取目标元素
-	    _getTarget: function _getTarget(selector) {
-	        if (_utils.Utils.typeof(selector, 'string')) {
-	            var result = document.querySelector(selector);
-	            if (!result) {
-	                console.error('Error: The specified element `' + selector + '` is not found.');
-	            }
-	            return result;
-	            // 如果传入的是dom元素，直接返回
-	        } else if (selector instanceof Element) {
-	            return selector;
-	        } else {
-	            return null;
-	        }
-	    },
-
-	    // 向selector中插入新的组件
-	    _append: function _append(config, selector) {
-	        var destoryHandler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-
-	        var div = document.createElement('div');
-	        var target = document.body;
-	        if (selector) {
-	            target = this._getTarget(selector) || target;
-	        }
-	        target.appendChild(div);
-	        function destory() {
-	            var unmountResult = _reactDom2.default.unmountComponentAtNode(div);
-	            if (unmountResult && div.parentNode) {
-	                div.parentNode.removeChild(div);
-	            }
-	        }
-	        // 给config增加destory逻辑
-	        if (destoryHandler) {
-	            var origin = config[destoryHandler];
-	            config[destoryHandler] = !!origin ? function () {
-	                origin.apply(undefined, arguments);
-	                destory();
-	            } : destory;
-	        }
-	        this.render(config, div);
-	        return {
-	            element: div,
-	            destory: destory
-	        };
-	    },
+	    // 初始化缓存空间
+	    var _Cache$init = _cache2.default.init(name),
+	        Config = _Cache$init.Config,
+	        ModelCache = _Cache$init.ModelCache,
+	        ComponentsCache = _Cache$init.ComponentsCache;
+	    // 初始化其他工具实例，如ajax
 
 
-	    /*******************************************************/
-	    /******** 公共属性/方法 *********************************/
-	    /*****************************************************/
+	    var _Tools$init = _init2.default.init(name),
+	        Ajax = _Tools$init.Ajax,
+	        Requirejs = _Tools$init.Requirejs;
 
-	    // ajax请求。包含 ajax(), ajax.get(), ajax.post()
-	    ajax: _utils.Ajax,
-	    // 暴露全部工具类
-	    utils: _utils.Utils,
-	    // moment 暴露全部功能
-	    moment: _moment2.default,
-	    // underscore工具函数
-	    _: _underscore2.default,
-	    // model 数据绑定页面
-	    model: _model2.default,
-	    get: _model2.default.get,
-	    set: _model2.default.set,
-	    // 获取当前页面路由信息
-	    getRouter: _src2.default.Router.getRouter,
-	    // 根据组件配置 生成&渲染组件实例
-	    init: function init(config, selector) {
-	        if (!this.waiting) {
+	    // UF实例上的工具函数
+
+
+	    var func = {
+	        /*******************************************************/
+	        /******** 私有属性/方法 *********************************/
+	        /*****************************************************/
+	        insName: name,
+	        // 是否阻塞
+	        waiting: false,
+	        waitingCache: {},
+	        // 异步逻辑执行完成后，重新执行init函数
+	        _reInit: function _reInit() {
+	            this.waiting = false;
+	            var config = this.waitingCache.config;
+	            var selector = this.waitingCache.selector;
+	            this.waitingCache = {};
 	            this.render(config, selector);
-	        } else {
-	            this.waitingCache = { config: config, selector: selector };
-	        }
-	    },
+	        },
 
-	    // 根据组件配置 生成&渲染组件实例
-	    render: function render(config, selector) {
-	        var result = _react2.default.createElement(_factory2.default, { config: config });
-	        // 如果没有指定目标容器的id，则直接返回生成的组件实例
-	        if (!selector || !this._getTarget(selector)) {
-	            return result;
-	        }
-	        return _reactDom2.default.render(_react2.default.createElement(_factory2.default, { config: config }), this._getTarget(selector));
-	    },
-
-	    // 向selector中插入新的组件
-	    append: function append(config, selector) {
-	        return this._append(config, selector);
-	    },
-
-	    // 载入自定义组件
-	    load: function load(components) {
-	        _loader2.default.add(components);
-	    },
-
-	    // 整体配置
-	    config: function config(obj) {
-	        var config = _cache.Config.set(_utils.Utils.filter(obj, 'data'));
-	        // 用户自定义 UF 别名
-	        if (config.alias) {
-	            window[config.alias] = window.UF;
-	        }
-	        // 如果设置了app名称，则传递给模块以给每个module加域
-	        if (config.appName) {
-	            // 产生一份新的uf置于域中
-	            window._ufRegion = Object.assign({}, window._ufRegion, _defineProperty({}, config.appName, window.UF));
-	            // 传递给模块以给每个module加域
-	            if (config.modules) {
-	                config.modules.ufRegion = config.appName;
+	        // 获取组件
+	        _get: function _get(name, key) {
+	            var cp = ComponentsCache.get(name);
+	            if (key && cp) {
+	                return cp.get(key);
 	            }
-	        }
-	        // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-	        _requirejs2.default.config(config.modules);
-	        // 设置默认域，解决跨域问题
-	        !!document.domain && (document.domain = config.global['domain']);
-	        // 设置默认公用数据，存入 model 中
-	        if (obj.data) {
-	            _cache.ModelCache.setData(null, obj.data);
-	        }
-	        // 执行阻塞页面加载的函数
-	        if (obj.precondition) {
-	            if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
-	                this.waiting = true;
-	                _precondition2.default.handle(obj.precondition, this);
+	            return cp;
+	        },
+
+	        // 根据选择器获取目标元素
+	        _getTarget: function _getTarget(selector) {
+	            if (_utils.Utils.typeof(selector, 'string')) {
+	                var result = document.querySelector(selector);
+	                if (!result) {
+	                    console.error('Error: The specified element `' + selector + '` is not found.');
+	                }
+	                return result;
+	                // 如果传入的是dom元素，直接返回
+	            } else if (selector instanceof Element) {
+	                return selector;
+	            } else {
+	                return null;
 	            }
+	        },
+
+	        // 向selector中插入新的组件
+	        _append: function _append(config, selector) {
+	            var destoryHandler = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+	            var div = document.createElement('div');
+	            var target = document.body;
+	            if (selector) {
+	                target = this._getTarget(selector) || target;
+	            }
+	            target.appendChild(div);
+	            function destory() {
+	                var unmountResult = _reactDom2.default.unmountComponentAtNode(div);
+	                if (unmountResult && div.parentNode) {
+	                    div.parentNode.removeChild(div);
+	                }
+	            }
+	            // 给config增加destory逻辑
+	            if (destoryHandler) {
+	                var origin = config[destoryHandler];
+	                config[destoryHandler] = !!origin ? function () {
+	                    origin.apply(undefined, arguments);
+	                    destory();
+	                } : destory;
+	            }
+	            this.render(config, div);
+	            return {
+	                element: div,
+	                destory: destory
+	            };
+	        },
+
+
+	        /*******************************************************/
+	        /******** 公共属性/方法 *********************************/
+	        /*****************************************************/
+
+	        // ajax请求。包含 ajax(), ajax.get(), ajax.post()
+	        ajax: Ajax,
+	        // 暴露全部工具类
+	        utils: _utils.Utils,
+	        // moment 暴露全部功能
+	        moment: _moment2.default,
+	        // underscore工具函数
+	        _: _utils.Utils._,
+	        // model 数据绑定页面
+	        // model: Model,
+	        // 全局数据
+	        get: ModelCache.get.bind(ModelCache),
+	        set: ModelCache.set.bind(ModelCache),
+	        // 获取当前页面路由信息
+	        getRouter: _lib2.default.Router.getRouter,
+	        // 根据组件配置 生成&渲染组件实例
+	        init: function init(config, selector) {
+	            if (!this.waiting) {
+	                this.render(config, selector);
+	            } else {
+	                this.waitingCache = { config: config, selector: selector };
+	            }
+	        },
+
+	        // 根据组件配置 生成&渲染组件实例
+	        render: function render(config, selector) {
+	            var result = _react2.default.createElement(_factory2.default, { config: config, insName: this.insName });
+	            // 如果没有指定目标容器的id，则直接返回生成的组件实例
+	            if (!selector || !this._getTarget(selector)) {
+	                return result;
+	            }
+	            return _reactDom2.default.render(result, this._getTarget(selector));
+	        },
+
+	        // 向selector中插入新的组件
+	        append: function append(config, selector) {
+	            return this._append(config, selector);
+	        },
+
+	        // 载入自定义组件
+	        load: function load(components) {
+	            _loader2.default.add(components);
+	        },
+
+	        // 整体配置
+	        config: function config(obj) {
+	            var _this = this;
+
+	            var config = Config.set(_utils.Utils.filter(obj, 'data'));
+	            // 用户自定义 UF 别名
+	            if (config.alias) {
+	                window[config.alias] = window.UF;
+	            }
+	            // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
+	            Requirejs.config(config.modules);
+	            // 设置默认域，解决跨域问题
+	            !!document.domain && (document.domain = config.global['domain']);
+	            // 设置默认公用数据，存入 model 中
+	            if (obj.data) {
+	                ModelCache.set(obj.data);
+	            }
+	            // 执行阻塞页面加载的函数
+	            if (obj.precondition) {
+	                if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
+	                    this.waiting = true;
+	                    // 置为异步，保证实例能成功返回后再调用预处理函数
+	                    setTimeout(function () {
+	                        _precondition2.default.handle(obj.precondition, _this);
+	                    }, 0);
+	                }
+	            }
+	        },
+
+	        // 获取全部实例，可以和其他实例做交互
+	        getIns: function getIns(name) {
+	            var allIns = (0, _instance.getAll)();
+	            return allIns;
 	        }
-	        return window._ufRegion[config.appName];
-	    }
+	    };
+
+	    // 绑定获取组件的函数
+	    var UF = func._get;
+	    Object.assign(UF, _lib2.default, func);
+
+	    // 存储新产生的uf实例
+	    (0, _instance.setInstance)(name, UF);
+
+	    return UF;
 	};
 
-	var UF = func._get;
+	// 先产生一个默认实例，以兼容以前的用法
+	var defaultName = '_$default';
+	var defUF = create({ name: defaultName });
 
-	Object.assign(UF, _src2.default, func);
+	// 重写window上的UF函数，使其增加创建uf实例功能
+	var UF = function UF() {
+	    var conf = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	    // 如果传入的是字符串，则走原来的获取组件的逻辑
+	    if (typeof conf === 'string') {
+	        return defUF(conf);
+	    }
+	    // 默认使用default名称
+	    conf.name = conf.name || conf.appName || defaultName;
+	    delete conf.appName;
+	    // 获取当前name的uf实例
+	    var ufIns = (0, _instance.getInstance)(conf.name);
+	    // 如果不存在生成一个新的实例
+	    if (!ufIns) {
+	        ufIns = create(conf);
+	    }
+	    ufIns.config(conf);
+	    return ufIns;
+	};
+
+	// 并把默认实例抛出以供直接调用
+	Object.assign(UF, defUF);
 
 	exports.default = UF;
 	// 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行
@@ -3141,13 +3184,10 @@
 	        UF[funcName].apply(UF, _toConsumableArray(params));
 	    }
 	}
+
 	exports.Factory = _factory2.default;
 	exports.Loader = _loader2.default;
 	exports.WhiteList = _whitelist2.default;
-	exports.Model = _model2.default;
-	exports.Adaptor = _adaptor2.default;
-	exports.Authority = _authority2.default;
-	exports.requirejs = _requirejs2.default;
 
 /***/ }),
 /* 184 */
@@ -3162,21 +3202,21 @@
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(185),
 	// 路由组件
-	__webpack_require__(217),
+	__webpack_require__(210),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(223),
+	    Iframe: __webpack_require__(216),
 
-	    Export: __webpack_require__(225),
-	    Tree: __webpack_require__(227),
-	    Table: __webpack_require__(229),
-	    Form: __webpack_require__(235).Form,
-	    Forms: __webpack_require__(235).Forms,
-	    Modal: __webpack_require__(242),
-	    Ueditor: __webpack_require__(237),
-	    Echarts: __webpack_require__(244),
-	    Fieldset: __webpack_require__(246)
+	    Export: __webpack_require__(218),
+	    Tree: __webpack_require__(220),
+	    Table: __webpack_require__(222),
+	    Form: __webpack_require__(228).Form,
+	    Forms: __webpack_require__(228).Forms,
+	    Modal: __webpack_require__(235),
+	    Ueditor: __webpack_require__(230),
+	    Echarts: __webpack_require__(237),
+	    Fieldset: __webpack_require__(239)
 	    // ...require('./modal'),
 	    // Table2: require('./uf-old/table')
 	}); /**
@@ -3194,23 +3234,23 @@
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(211);
+	var _datadisplay = __webpack_require__(204);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(213);
+	var _genaral = __webpack_require__(206);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(215);
+	var _navigation = __webpack_require__(208);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(219);
+	var _feedback = __webpack_require__(212);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(221);
+	var _layout = __webpack_require__(214);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -3252,7 +3292,7 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _DataEntry15 = __webpack_require__(200);
+	var _DataEntry15 = __webpack_require__(197);
 
 	var _DataEntry16 = _interopRequireDefault(_DataEntry15);
 
@@ -4287,7 +4327,9 @@
 	            target = ghost;
 	        }
 	        if (level <= 0) {
-	            return this.copy(objs[0]);
+	            // 如果存储内容不为普通对象，例如类的实例，copy不能拷贝继承的函数
+	            // return this.copy(objs[0]);
+	            return objs[0];
 	        }
 	        var result = target;
 	        var _iteratorNormalCompletion = true;
@@ -4746,11 +4788,18 @@
 	        return target;
 	    },
 
+	    // 根据一个字符串，把数据塞入一个深层的对象中
+	    toObject: function toObject(origin, strc, value) {
+	        var tData = this.generateObject(strc, value);
+	        var level = strc.split('.').length;
+	        this.merge(level, origin, tData);
+	    },
+
 	    // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
 	    urlAnalysis: function urlAnalysis(url, params) {
 	        var delParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-	        if (url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+	        if (!url || url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
 	            return url;
 	        }
 	        for (var i in params) {
@@ -6404,22 +6453,131 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _config = __webpack_require__(193);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	var _ajaxData = __webpack_require__(197);
-
-	var _ajaxData2 = _interopRequireDefault(_ajaxData);
-
-	var _reqwest = __webpack_require__(198);
+	var _reqwest = __webpack_require__(193);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
-	var _ajaxPlugin = __webpack_require__(199);
+	var _ajaxPlugin = __webpack_require__(194);
+
+	var _instance = __webpack_require__(195);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// 依赖 Config, AjaxCache 两个实例，通过generete获取
+	exports.default = (0, _instance.generate)(['Config', 'AjaxCache'], function (Config, AjaxCache) {
+
+	    // 通用ajax函数，参数为一个对象
+	    function request(config) {
+	        // 兼容，合并两个参数
+	        if (config.data) {
+	            config.params = Object.assign({}, config.params, config.data);
+	            delete config.data;
+	        }
+	        var globalAjax = Config.get('global.ajax');
+	        // 检查是否有缓存，如果有，则直接中断后续逻辑
+	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
+	            return;
+	        }
+	        // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
+	        if ((0, _ajaxPlugin.checkQueue)(config)) {
+	            return;
+	        }
+	        // successHandler不为空
+	        var successHandler = config.success || function () {};
+	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
+	        var errorHandler = config.error;
+	        if ([null, false].indexOf(errorHandler) > -1) {
+	            errorHandler = function errorHandler() {};
+	        }
+	        errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+	        // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
+	        var onchange = config.onchange || function () {};
+	        // 配置合并
+	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
+	        // baseUrl 参数处理
+	        if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1 && config.url.indexOf('https://') === -1) {
+	            config.url = globalAjax.baseUrl + config.url;
+	        }
+	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
+	        if (globalAjax.beforeSend) {
+	            config = globalAjax.beforeSend(config);
+	        }
+
+	        onchange(true, 'sending');
+
+	        // onerror 处理逻辑
+	        var onerror = function onerror(err) {
+	            // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
+	            if (globalAjax.error) {
+	                globalAjax.error(err, errorHandler, config);
+	            } else {
+	                var result = errorHandler(err);
+	                // handler有返回值，则执行默认错误提示
+	                if (result !== false) {
+	                    if (result === true || result === undefined) {
+	                        (0, _ajaxPlugin.errorMessage)(err);
+	                    } else {
+	                        (0, _ajaxPlugin.errorMessage)(result);
+	                    }
+	                }
+	            }
+	        };
+	        return (0, _reqwest2.default)(Object.assign({}, config, {
+	            // url中可以使用来自params中的动态参数
+	            url: _utils2.default.urlAnalysis(config.url, config.params),
+	            // data 可能来自 globalAjax
+	            data: Object.assign({}, config.params, config.data),
+	            success: function success(res) {
+	                // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
+	                if (globalAjax.success) {
+	                    globalAjax.success(res, successHandler, errorHandler, config);
+	                } else {
+	                    // 默认成功处理逻辑
+	                    // 兼容 message/msg、status/code
+	                    res.status = res.status || res.code || 0;
+	                    res.message = res.message || res.msg;
+	                    res.msg = res.message;
+	                    if (+res.status === 0) {
+	                        successHandler(res.data, res);
+	                    } else {
+	                        onerror(res);
+	                    }
+	                }
+	                onchange(false, 'success');
+	            },
+	            error: function error(err) {
+	                onerror(err);
+	                onchange(false, 'error');
+	            }
+	        }));
+	    }
+
+	    request.init = function (url, method) {
+	        return function (params, success, error, onchange) {
+	            return request({ url: url, method: method, params: params, success: success, error: error, onchange: onchange });
+	        };
+	    };
+
+	    // 增加 RESTful 函数
+	    var _arr = ['get', 'post', 'put', 'delete'];
+
+	    var _loop = function _loop() {
+	        var v = _arr[_i];
+	        request[v] = function (url, params, success, error, onchange) {
+	            return request.init(url, v)(params, success, error, onchange);
+	        };
+	    };
+
+	    for (var _i = 0; _i < _arr.length; _i++) {
+	        _loop();
+	    }
+
+	    // 抛出错误处理函数
+	    request.errorMessage = _ajaxPlugin.errorMessage;
+
+	    return request;
+	});
+	// export default request;
 	/**
 	 * @file 通用的请求发送+错误处理工具
 	 *       全部请求都通过这里处理
@@ -6436,631 +6594,14 @@
 	 * @author liuzechun@baidu.com
 	 * **/
 
-	function request(config) {
-	    // 兼容，合并两个参数
-	    if (config.data) {
-	        config.params = Object.assign({}, config.params, config.data);
-	        delete config.data;
-	    }
-	    var globalAjax = _config2.default.get('global.ajax');
-	    // 检查是否有缓存，如果有，则直接中断后续逻辑
-	    if ((0, _ajaxPlugin.checkCache)(config)) {
-	        return;
-	    }
-	    // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
-	    if ((0, _ajaxPlugin.checkQueue)(config)) {
-	        return;
-	    }
-	    // successHandler不为空
-	    var successHandler = config.success || function () {};
-	    // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-	    var errorHandler = config.error;
-	    if ([null, false].indexOf(errorHandler) > -1) {
-	        errorHandler = function errorHandler() {};
-	    }
-	    errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
-	    // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
-	    var onchange = config.onchange || function () {};
-	    // 配置合并
-	    config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
-	    // 用户可配置通用数据处理方法，比如把传入的参数序列化
-	    if (globalAjax.beforeSend) {
-	        config.params = globalAjax.beforeSend(config.params, config);
-	    }
-	    if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1) {
-	        config.url = globalAjax.baseUrl + config.url;
-	    }
-
-	    onchange(true, 'sending');
-
-	    // onerror 处理逻辑
-	    var onerror = function onerror(err) {
-	        // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
-	        if (globalAjax.error) {
-	            globalAjax.error(err, errorHandler, config);
-	        } else {
-	            var result = errorHandler(err);
-	            // handler有返回值，则执行默认错误提示
-	            if (result !== false) {
-	                if (result === true || result === undefined) {
-	                    (0, _ajaxPlugin.errorMessage)(err);
-	                } else {
-	                    (0, _ajaxPlugin.errorMessage)(result);
-	                }
-	            }
-	        }
-	    };
-	    return (0, _reqwest2.default)(Object.assign({}, config, {
-	        // url中可以使用来自params中的动态参数
-	        url: _utils2.default.urlAnalysis(config.url, config.params),
-	        // data 可能来自 globalAjax
-	        data: Object.assign({}, config.params, config.data),
-	        success: function success(res) {
-	            // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
-	            if (globalAjax.success) {
-	                globalAjax.success(res, successHandler, errorHandler, config);
-	            } else {
-	                // 默认成功处理逻辑
-	                // 兼容 message/msg、status/code
-	                res.status = res.status || res.code || 0;
-	                res.message = res.message || res.msg;
-	                res.msg = res.message;
-	                if (+res.status === 0) {
-	                    successHandler(res.data, res);
-	                } else {
-	                    onerror(res);
-	                }
-	            }
-	            onchange(false, 'success');
-	        },
-	        error: function error(err) {
-	            onerror(err);
-	            onchange(false, 'error');
-	        }
-	    }));
-	}
-
-	request.init = function (url, method) {
-	    return function (params, success, error, onchange) {
-	        return request({ url: url, method: method, params: params, success: success, error: error, onchange: onchange });
-	    };
-	};
-
-	// 增加 RESTful 函数
-	var _arr = ['get', 'post', 'put', 'delete'];
-
-	var _loop = function _loop() {
-	    var v = _arr[_i];
-	    request[v] = function (url, params, success, error, onchange) {
-	        return request.init(url, v)(params, success, error, onchange);
-	    };
-	};
-
-	for (var _i = 0; _i < _arr.length; _i++) {
-	    _loop();
-	}
-
-	// 抛出错误处理函数
-	request.errorMessage = _ajaxPlugin.errorMessage;
-
-	// 通用ajax函数，参数为一个对象
-	exports.default = request;
-
 /***/ }),
 /* 193 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _BaseCache2 = __webpack_require__(194);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	var _default = __webpack_require__(195);
-
-	var _default2 = _interopRequireDefault(_default);
-
-	var _utils = __webpack_require__(188);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 默认配置
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      可以用于配置各个组件通用的默认参数
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-11 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-11 01:42:17
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var Config = function (_BaseCache) {
-	    _inherits(Config, _BaseCache);
-
-	    function Config() {
-	        _classCallCheck(this, Config);
-
-	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).apply(this, arguments));
-	    }
-
-	    _createClass(Config, [{
-	        key: 'get',
-	        value: function get(names) {
-	            var result = _get(Config.prototype.__proto__ || Object.getPrototypeOf(Config.prototype), 'get', this).call(this, names);
-	            // 组件全局配置components为引用类型，组件使用时对配置进行更改会影响全局，需要clone一份
-	            if (names && names.split('.')[0] === 'components') {
-	                result = _utils2.default.clone(result);
-	            }
-	            return result;
-	        }
-	    }]);
-
-	    return Config;
-	}(_BaseCache3.default);
-
-	exports.default = new Config(_default2.default);
-
-/***/ }),
-/* 194 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file 缓存基类
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      每 new 一次，会产生一个对象实例来做一类缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created Date: 2017-10-24 11:05:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-
-	var _utils = __webpack_require__(188);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	var BaseCache = function () {
-	    // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
-	    function BaseCache(_cache) {
-	        _classCallCheck(this, BaseCache);
-
-	        this._cache = _cache || {};
-	    }
-
-	    _createClass(BaseCache, [{
-	        key: 'get',
-	        value: function get(names) {
-	            // 如果传递了name，则只去config中查找name字段，否则返回全部
-	            var result = this._cache;
-	            if (names) {
-	                // 可以传递多个name依次向下查找，查找不到返回null
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = names.split('.')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var v = _step.value;
-
-	                        if (result && _utils2.default.typeof(result, 'object') && result[v]) {
-	                            result = result[v];
-	                        } else {
-	                            return null;
-	                        }
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	            return result;
-	        }
-	        // set函数有两种用法
-	        // 如果 target 为字符串，则直接替换缓存中 target 保存的值
-	        // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
-
-	    }, {
-	        key: 'set',
-	        value: function set(target, component) {
-	            if (_utils2.default.typeof(target, 'object')) {
-	                var origin = this.get();
-	                var config = _utils2.default.merge(10, origin, target);
-	                // 存完后返回存储的值
-	                return config;
-	            } else {
-	                this._cache[target] = component;
-	                return component;
-	            }
-	        }
-	    }, {
-	        key: 'del',
-	        value: function del(key) {
-	            delete this._cache[key];
-	        }
-	    }]);
-
-	    return BaseCache;
-	}();
-
-	exports.default = BaseCache;
-	;
-
-/***/ }),
-/* 195 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _components = __webpack_require__(196);
-
-	var _components2 = _interopRequireDefault(_components);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	    appName: '_$default',
-	    // 模块引入相关配置
-	    modules: {
-	        // 加载模块时是否展示loading
-	        showLoading: false
-	    },
-	    // 全局系统配置
-	    global: {
-	        // 设置文档域 document.domain，默认为原始值
-	        domain: document.domain,
-	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
-	        ajax: {}
-	    },
-	    // 组件默认配置
-	    components: _components2.default,
-	    // 权限点，用户有权限的权限点列表
-	    // key（权限点） => value（boolen/object）
-	    authority: {}
-	}; /**
-	    * @file 全局默认配置
-	    * @author liuzechun
-	    * Created Date: 2018-01-30 10:55:45
-	    */
-
-/***/ }),
-/* 196 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	/**
-	 * @file 组件默认参数定义
-	 * @author liuzechun
-	 * Created Date: 2017-10-12 03:23:12
-	 *
-	 * Last Modified: 2017-10-12 03:23:16
-	 * Modified By: liuzechun
-	 */
-
-	exports.default = {
-	    /****************************************************************************************/
-	    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
-	    /****************************************************************************************/
-	    'base-component': {
-	        control: {
-	            trigger: 'onClick'
-	        },
-	        source: {
-	            // 如果组件没有设置target，则
-	            // target: 'content'
-	        },
-	        api: {
-	            showLoading: true,
-	            trigger: 'onClick'
-	        }
-	    },
-	    'antd': {},
-	    'data-entry': {
-	        api: {
-	            trigger: 'onChange'
-	        },
-	        source: {
-	            // 获取数据时展示loading
-	            showLoading: false,
-	            target: 'value'
-	        },
-	        control: {
-	            trigger: 'onChange',
-	            handler: function handler() {
-	                for (var _len = arguments.length, p = Array(_len), _key = 0; _key < _len; _key++) {
-	                    p[_key] = arguments[_key];
-	                }
-
-	                return p[p.length - 1].getValue();
-	            }
-	        }
-	    },
-	    /****************************************************************************************/
-	    /******* 普通组件默认配置 ******************************************************************/
-	    /****************************************************************************************/
-	    'auto-complete': {
-	        style: { width: 160 },
-	        options: []
-	    },
-	    'breadcrumb': {
-	        style: { padding: '12px 24px', lineHeight: '18px' }
-	    },
-	    'cascader': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'checkbox': {
-	        source: {
-	            target: 'checked'
-	        }
-	    },
-	    'checkbox-group': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'input': {
-	        api: {
-	            trigger: 'onPressEnter'
-	        },
-	        control: {
-	            trigger: 'onPressEnter'
-	        }
-	    },
-	    'radio': {
-	        source: {
-	            target: 'options'
-	        }
-	    },
-	    'router': {
-	        history: 'hashHistory'
-	    },
-	    'loading': {
-	        delay: 150
-	    },
-	    'iframe': {
-	        mode: 'auto',
-	        delay: 0,
-	        showLoading: true
-	    },
-	    'select': {
-	        optionFilterProp: 'children',
-	        source: {
-	            target: 'options'
-	        },
-	        // 默认充满全部
-	        style: { width: '100%', minWidth: 50 },
-	        // 搜索时忽略大小写
-	        filterOption: function filterOption(v, opt) {
-	            return opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
-	        }
-	    },
-	    'switch': {
-	        source: {
-	            target: 'checked'
-	        }
-	    },
-	    'date-picker': {
-	        format: 'YYYY-MM-DD'
-	    },
-	    'range-picker': {
-	        format: 'YYYY-MM-DD'
-	    },
-	    'month-picker': {
-	        format: 'YYYY-MM'
-	    },
-	    'time-picker': {
-	        format: 'HH:mm:ss'
-	    },
-	    'menu': {
-	        // 默认高亮随路由一起变换
-	        followRoute: true
-	    },
-	    'upload': {
-	        source: {
-	            target: 'fileList'
-	        }
-	    },
-
-	    /****************************************************************************************/
-	    /***** 自定义组件默认配置 ******************************************************************/
-	    /****************************************************************************************/
-	    'form': {
-	        items: [],
-	        buttons: null,
-	        layout: {
-	            type: 'horizontal',
-	            labelCol: 6,
-	            wrapperCol: 14
-	        },
-	        source: {
-	            target: 'formData'
-	        },
-	        api: {
-	            trigger: 'onSubmit'
-	        },
-	        control: {
-	            trigger: 'onSubmit',
-	            handler: function handler(v) {
-	                return v;
-	            }
-	        }
-	    },
-	    forms: {
-	        addType: 'copy-add'
-	    },
-	    'table': {
-	        rowKey: 'id',
-	        pagination: {
-	            current: 1,
-	            pageSize: 10,
-	            pageType: 'client',
-	            total: 0
-	        },
-	        source: {
-	            // 自动加载数据
-	            autoLoad: true
-	        },
-	        data: []
-	    },
-	    // table 的编辑插件
-	    'table-edit': {
-	        api: {
-	            trigger: 'onSubmit'
-	        }
-	    },
-	    'modal': {
-	        visible: false,
-	        api: {
-	            trigger: 'onSubmit'
-	        },
-	        control: {
-	            trigger: 'onSubmit',
-	            handler: function handler(v) {
-	                return v;
-	            }
-	        }
-	    }
-	};
-
-/***/ }),
-/* 197 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _BaseCache2 = __webpack_require__(194);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	var _utils = __webpack_require__(188);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	var _config = __webpack_require__(193);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ajax 数据缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var AjaxCache = function (_BaseCache) {
-	    _inherits(AjaxCache, _BaseCache);
-
-	    function AjaxCache() {
-	        _classCallCheck(this, AjaxCache);
-
-	        return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
-	    }
-
-	    _createClass(AjaxCache, [{
-	        key: 'getCacheKey',
-
-
-	        // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
-	        value: function getCacheKey(config) {
-	            var cacheApis = _config2.default.get('global.cacheApis');
-	            // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
-	            if (config.cache || cacheApis && cacheApis.indexOf(config.url) > -1) {
-	                return _utils2.default.hash(config, 32);
-	            }
-	            return null;
-	        }
-
-	        // 向缓存池中设置缓存数据
-
-	    }, {
-	        key: 'setCacheData',
-	        value: function setCacheData(key, res) {
-	            // key 通过调用处传入，保证一致性
-	            // let key = this.getCacheKey(config);
-	            if (key) {
-	                this.set(key, _utils2.default.clone(res));
-	            }
-	        }
-
-	        // 从缓存池中获取缓存数据
-
-	    }, {
-	        key: 'getCacheData',
-	        value: function getCacheData(key) {
-	            // key 通过调用处传入，保证一致性
-	            // let key = this.getCacheKey(config);
-	            if (key) {
-	                return this.get(key);
-	            }
-	            return null;
-	        }
-	    }]);
-
-	    return AjaxCache;
-	}(_BaseCache3.default);
-
-	exports.default = new AjaxCache();
-
-/***/ }),
-/* 198 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.reqwest;
 
 /***/ }),
-/* 199 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7077,10 +6618,6 @@
 	var _utils = __webpack_require__(188);
 
 	var _utils2 = _interopRequireDefault(_utils);
-
-	var _ajaxData = __webpack_require__(197);
-
-	var _ajaxData2 = _interopRequireDefault(_ajaxData);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7134,12 +6671,12 @@
 	 * @param {Object} config ajax的配置
 	 * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
 	 */
-	function checkCache(config) {
+	function checkCache(config, AjaxCache) {
 	    // 如果需要做缓存，key不为空
-	    var key = _ajaxData2.default.getCacheKey(config);
+	    var key = AjaxCache.getCacheKey(config);
 	    if (key) {
 	        // 如果能获取到缓存数据，则直接以此数据作为success的返回值，中断真正的ajax调用
-	        var cacheData = _ajaxData2.default.getCacheData(key);
+	        var cacheData = AjaxCache.getCacheData(key);
 	        if (cacheData) {
 	            // 保证异步
 	            setTimeout(function () {
@@ -7153,7 +6690,7 @@
 	                params[_key] = arguments[_key];
 	            }
 
-	            _ajaxData2.default.setCacheData(key, params);
+	            AjaxCache.setCacheData(key, params);
 	        });
 	    }
 	    return false;
@@ -7235,7 +6772,207 @@
 	}
 
 /***/ }),
-/* 200 */
+/* 195 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _BaseCache = __webpack_require__(196);
+
+	var _BaseCache2 = _interopRequireDefault(_BaseCache);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var cache = new _BaseCache2.default();
+	// 结构为
+	// {
+	//     [insName]: {_$uf, _$cache: {Config, ComponentCache, ModelCache}}
+	// }
+
+	/**
+	 * UF 实例存储类
+	 */
+	var ins = {
+	    // 类似于依赖注入，depend声明依赖什么模块，func执行的时候把模块取出来传进去
+	    generate: function generate(depend, func) {
+	        // 如果只传一个参
+	        if (!func) {
+	            func = depend;
+	            depend = [];
+	        }
+	        return {
+	            init: function init(insName) {
+	                var args = [];
+	                var _iteratorNormalCompletion = true;
+	                var _didIteratorError = false;
+	                var _iteratorError = undefined;
+
+	                try {
+	                    for (var _iterator = depend[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                        var v = _step.value;
+
+	                        args.push(ins['get' + v] && ins['get' + v](insName));
+	                    }
+	                } catch (err) {
+	                    _didIteratorError = true;
+	                    _iteratorError = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion && _iterator.return) {
+	                            _iterator.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError) {
+	                            throw _iteratorError;
+	                        }
+	                    }
+	                }
+
+	                return func.apply(undefined, args.concat([insName]));
+	            }
+	        };
+	    },
+
+	    // 获取全部实例
+	    getAll: function getAll() {
+	        return cache.get();
+	    },
+
+
+	    // 获取uf实例
+	    getInstance: function getInstance(insName) {
+	        return cache.get(insName + '._$uf');
+	    },
+	    setInstance: function setInstance(insName, obj) {
+	        return cache.set(insName + '._$uf', obj);
+	    },
+
+
+	    // Cache相关获取/设置函数
+	    getCache: function getCache(insName) {
+	        return cache.get(insName + '._$cache');
+	    },
+	    setCache: function setCache(insName, obj) {
+	        return cache.set(insName + '._$cache', obj);
+	    },
+	    getConfig: function getConfig(insName) {
+	        return cache.get(insName + '._$cache.Config');
+	    },
+	    setConfig: function setConfig(insName, obj) {
+	        return cache.set(insName + '._$cache.Config', obj);
+	    },
+	    getComponentsCache: function getComponentsCache(insName) {
+	        return cache.get(insName + '._$cache.ComponentCache');
+	    },
+	    setComponentCache: function setComponentCache(insName, obj) {
+	        return cache.set(insName + '._$cache.ComponentCache', obj);
+	    },
+	    getModelCache: function getModelCache(insName) {
+	        return cache.get(insName + '._$cache.ModelCache');
+	    },
+	    setModelCache: function setModelCache(insName, obj) {
+	        return cache.set(insName + '._$cache.ModelCache', obj);
+	    },
+	    getAjaxCache: function getAjaxCache(insName) {
+	        return cache.get(insName + '._$cache.AjaxCache');
+	    },
+	    setAjaxCache: function setAjaxCache(insName, obj) {
+	        return cache.set(insName + '._$cache.AjaxCache', obj);
+	    },
+
+
+	    // Tools相关获取/设置函数
+	    getTools: function getTools(insName) {
+	        return cache.get(insName + '._$tools');
+	    },
+	    setTools: function setTools(insName, obj) {
+	        return cache.set(insName + '._$tools', obj);
+	    },
+	    getAjax: function getAjax(insName) {
+	        return cache.get(insName + '._$tools.Ajax');
+	    },
+	    setAjax: function setAjax(insName, obj) {
+	        return cache.set(insName + '._$tools.Ajax', obj);
+	    },
+	    getRequirejs: function getRequirejs(insName) {
+	        return cache.get(insName + '._$tools.Requirejs');
+	    },
+	    setRequirejs: function setRequirejs(insName, obj) {
+	        return cache.set(insName + '._$tools.Requirejs', obj);
+	    }
+	};
+
+	module.exports = ins;
+
+/***/ }),
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file 缓存基类
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *      每 new 一次，会产生一个对象实例来做一类缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Created Date: 2017-10-24 11:05:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+
+	var _utils = __webpack_require__(188);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var BaseCache = function () {
+	    // 构造函数又两个参数，第一个参数必填，为缓存前缀，第二个参数为缓存对象的默认值
+	    function BaseCache(_cache) {
+	        _classCallCheck(this, BaseCache);
+
+	        this._cache = _cache || {};
+	    }
+
+	    _createClass(BaseCache, [{
+	        key: 'get',
+	        value: function get(names) {
+	            // 可以传递多个name依次向下查找，例如：'a.b.c'
+	            return _utils2.default.fromObject(names, this._cache);
+	        }
+	        // set函数有两种用法
+
+	    }, {
+	        key: 'set',
+	        value: function set(target, component) {
+	            // 如果传入的第一个参数不是一个 target 字符串，而是一个对象，则把对象和现有缓存做merge，适用于 config.js 等
+	            if (_utils2.default.typeof(target, 'object')) {
+	                return _utils2.default.merge(10, this._cache, target);
+	                // 如果 target 为字符串，则直接替换缓存中 target 保存的值
+	            } else {
+	                _utils2.default.toObject(this._cache, target, component);
+	                return component;
+	            }
+	        }
+	    }, {
+	        key: 'del',
+	        value: function del(key) {
+	            delete this._cache[key];
+	        }
+	    }]);
+
+	    return BaseCache;
+	}();
+
+	exports.default = BaseCache;
+	;
+
+/***/ }),
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7256,7 +6993,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -7413,7 +7150,7 @@
 	exports.default = DataEntry;
 
 /***/ }),
-/* 201 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7434,7 +7171,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7571,19 +7308,19 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 202 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(203).default,
-	    BaseConf: __webpack_require__(203),
-	    ExtendComponent: __webpack_require__(210)
+	    BaseComponent: __webpack_require__(200).default,
+	    BaseConf: __webpack_require__(200),
+	    ExtendComponent: __webpack_require__(203)
 	};
 
 /***/ }),
-/* 203 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7607,19 +7344,13 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _model = __webpack_require__(204);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _authority = __webpack_require__(208);
+	var _authority = __webpack_require__(201);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(209);
+	var _whitelist = __webpack_require__(202);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
-
-	var _cache = __webpack_require__(205);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7639,6 +7370,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 基础类
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by xuziqian on 2017/8/4.
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	// import Model from 'src/tools/model.js';
 
 
 	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
@@ -7694,6 +7427,7 @@
 	        _this.unmounted = false;
 	        // _factory 是最初 Factory 的 this
 	        _this._factory = _this.props._factory;
+	        _this.insName = _this._factory.insName;
 	        // 供用户使用，例如获取路由信息/参数等
 	        _this._root = _this._factory;
 	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -7725,10 +7459,12 @@
 	    _createClass(BaseComponent, [{
 	        key: '_getDefautlProps',
 	        value: function _getDefautlProps() {
-	            var conf = _cache.Config.get('components.' + this.type) || {};
+	            var _this2 = this;
+
+	            var conf = this._factory.$config.get('components.' + this.type) || {};
 	            // 取中间各基类的默认配置，并合并全部配置
 	            var confArr = this.class.map(function (v) {
-	                return _cache.Config.get('components.' + v) || {};
+	                return _this2._factory.$config.get('components.' + v) || {};
 	            });
 	            conf = this.__mergeProps.apply(this, _toConsumableArray(confArr).concat([conf]));
 	            return conf;
@@ -7993,12 +7729,12 @@
 	    }, {
 	        key: 'refresh',
 	        value: function refresh() {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            // 取出全部二次解析的属性，并重新解析一次
 	            var newProps = {};
 	            _whitelist2.default.getall(this.type).forEach(function (v) {
-	                var oItem = _this2.__filtered['_' + v];
+	                var oItem = _this3.__filtered['_' + v];
 	                oItem && (newProps[v] = oItem);
 	            });
 	            this.set(newProps);
@@ -8024,7 +7760,7 @@
 	            this._initProps();
 
 	            // 处理数据绑定页面
-	            this._handleModel();
+	            // this._handleModel();
 	            // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
 	            this._loadUserFunction();
 	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
@@ -8122,21 +7858,21 @@
 	    }, {
 	        key: '__ajax',
 	        value: function __ajax(config) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            this._inject(config, 'success', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this3.unmounted) {
+	                if (_this4.unmounted) {
 	                    return false;
 	                }
 	            });
 	            this._inject(config, 'error', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this3.unmounted) {
+	                if (_this4.unmounted) {
 	                    return false;
 	                }
 	            });
-	            return (0, _utils.Ajax)(config);
+	            return this._factory.$ajax(config);
 	        }
 
 	        // 解析某个属性的配置。方便开发组件时定义一些可以为配置的属性
@@ -8152,7 +7888,7 @@
 	    }, {
 	        key: '__authority',
 	        value: function __authority(item) {
-	            return _authority2.default.check(item);
+	            return _authority2.default.check(item, this.insName);
 	        }
 
 	        // 获取缓存中的组件
@@ -8160,7 +7896,7 @@
 	    }, {
 	        key: '__getComponent',
 	        value: function __getComponent(name) {
-	            return _cache.ComponentsCache.get(name);
+	            return this._factory.$components.get(name);
 	        }
 
 	        // 兼容自定义额外操作返回结果有可能为 Promise 的情况。
@@ -8204,7 +7940,7 @@
 	    }, {
 	        key: '__getSourceData',
 	        value: function __getSourceData(config) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            var _filtered$source = this.__filtered.source,
 	                paramsHandler = _filtered$source.paramsHandler,
@@ -8234,11 +7970,11 @@
 	                    params: params,
 	                    success: function success(data, res) {
 	                        // 如果用户定义了数据处理函数，先对数据进行处理
-	                        handler && (data = handler(data, res, _this4));
+	                        handler && (data = handler(data, res, _this5));
 	                        // 实际的调用处传入的成功处理逻辑
 	                        _success && _success(data, res);
 	                        // 成功后的额外操作
-	                        onSuccess && onSuccess(data, res, _this4);
+	                        onSuccess && onSuccess(data, res, _this5);
 	                    },
 	                    error: function error(res) {
 	                        // 实际的调用处传入的失败处理逻辑
@@ -8247,7 +7983,7 @@
 	                        return onError && onError(res);
 	                    },
 	                    onchange: !showLoading ? onchange : function (status) {
-	                        _this4._handleSourceLoading(status, showLoading);
+	                        _this5._handleSourceLoading(status, showLoading);
 	                        onchange && onchange(status);
 	                    }
 	                }));
@@ -8347,12 +8083,6 @@
 	            if (!!this.props.route && this.props.route.__cache) {
 	                key = this.props.route.__cache;
 	            }
-	            // 如果没有key，则根据是否关联model数据判断
-	            if (!key) {
-	                if (_model2.default.if(this.props)) {
-	                    key = this.props.__key;
-	                }
-	            }
 	            return key;
 	        }
 
@@ -8362,7 +8092,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent(isCheck) {
 	            if (!!this.cacheName) {
-	                _cache.ComponentsCache.set(this.cacheName, this, isCheck);
+	                this._factory.$components.set(this.cacheName, this, isCheck);
 	            }
 	        }
 
@@ -8372,17 +8102,14 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.cacheName) {
-	                _cache.ComponentsCache.del(this.cacheName);
+	                this._factory.$components.del(this.cacheName);
 	            }
 	        }
 
 	        // 处理数据绑定页面。设置关联关系 && 替换模板
-
-	    }, {
-	        key: '_handleModel',
-	        value: function _handleModel() {
-	            this.__props = _model2.default.setCache(this.cacheName, this.__props);
-	        }
+	        // _handleModel() {
+	        //     this.__props = Model.setCache(this.cacheName, this.__props);
+	        // }
 
 	        // 开放给用户使用的 Api，需处理下
 
@@ -8491,11 +8218,11 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this5 = this;
+	            var _this6 = this;
 
 	            var _loop = function _loop(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this5.__filtered[f];
+	                var inject = _this6.__filtered[f];
 	                if (inject) {
 	                    var _iteratorNormalCompletion7 = true;
 	                    var _didIteratorError7 = false;
@@ -8505,12 +8232,12 @@
 	                        for (var _iterator7 = ForUserApi[f].split(',')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                            var v = _step7.value;
 
-	                            _this5._inject(_this5, v, function () {
-	                                var result = inject.call(_this5, _this5.__props, _this5);
+	                            _this6._inject(_this6, v, function () {
+	                                var result = inject.call(_this6, _this6.__props, _this6);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this5.__props = _this5._filterHandler(result);
+	                                    _this6.__props = _this6._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
@@ -8570,7 +8297,7 @@
 	    }, {
 	        key: '_injectControl',
 	        value: function _injectControl() {
-	            var _this6 = this;
+	            var _this7 = this;
 
 	            var _filtered$control = this.__filtered.control,
 	                trigger = _filtered$control.trigger,
@@ -8582,7 +8309,7 @@
 	                        para[_key5] = arguments[_key5];
 	                    }
 
-	                    var _filtered$control2 = _this6.__filtered.control,
+	                    var _filtered$control2 = _this7.__filtered.control,
 	                        type = _filtered$control2.type,
 	                        params = _filtered$control2.params,
 	                        handler = _filtered$control2.handler;
@@ -8612,7 +8339,7 @@
 	                                targetName = _targetStr$split2[0],
 	                                targetAttr = _targetStr$split2.slice(1);
 
-	                            var _target = _this6.__getComponent(targetName);
+	                            var _target = _this7.__getComponent(targetName);
 	                            if (_target) {
 	                                // 如果没设置type，则根据target的类型确定
 	                                if (!type) {
@@ -8625,7 +8352,7 @@
 	                                        {
 	                                            var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
 	                                            // 如果没有设置params，则尝试执行handler
-	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this6])));
+	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this7])));
 	                                            // 转成数组以便解构
 	                                            !_utils.Utils.typeof(params, 'array') && (params = [params]);
 	                                            func.apply(undefined, _toConsumableArray(params));
@@ -8634,7 +8361,7 @@
 	                                    // 3、动作类型为：赋值
 	                                    case 'assign':
 	                                        {
-	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this6]));
+	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this7]));
 	                                            var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
 	                                            // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
 	                                            if (params) {
@@ -8697,7 +8424,7 @@
 	    }, {
 	        key: '_handleAsyncData',
 	        value: function _handleAsyncData() {
-	            var _this7 = this;
+	            var _this8 = this;
 
 	            var target = this.__filtered.source.target;
 	            this.__getSourceData({
@@ -8707,7 +8434,7 @@
 	                    // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
 	                    var tData = _utils.Utils.generateObject(target, data);
 	                    // __setProps在table、form等自定义组件不适用
-	                    _this7.set(tData);
+	                    _this8.set(tData);
 	                }
 	            });
 	        }
@@ -8727,7 +8454,7 @@
 	    }, {
 	        key: '_handleApiProps',
 	        value: function _handleApiProps(oParams) {
-	            var _this8 = this;
+	            var _this9 = this;
 
 	            var _filtered$api = this.__filtered.api,
 	                url = _filtered$api.url,
@@ -8756,7 +8483,7 @@
 	                    hideLoading = _antd.message.loading('提交中，请等待~', 0);
 	                }
 	                return new Promise(function (resolve, reject) {
-	                    _this8.__ajax(_extends({
+	                    _this9.__ajax(_extends({
 	                        url: url,
 	                        method: method,
 	                        params: params
@@ -8844,7 +8571,7 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 204 */
+/* 201 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8855,404 +8582,7 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _cache = __webpack_require__(205);
-
-	// 使用model表达式格式 ${xxx}
-	/**
-	 * @file 数据/页面绑定 处理模块
-	 * @author liuzechun
-	 */
-	var Expre = /\${(\S+?)}/g;
-	// const Expre = /\${(\S+?)}/;
-
-	exports.default = {
-
-	    // 给用户使用
-	    set: function set(model, data) {
-	        // 更新data的数据
-	        _cache.ModelCache.setData(model, data);
-	        // 更新完数据后刷新相关联的组件
-	        var connections = _cache.ModelCache.getConnections(model);
-	        for (var i in connections) {
-	            // 获取缓存中的组件
-	            var comp = _cache.ComponentsCache.get(i);
-	            if (!!comp) {
-	                var item = connections[i];
-	                var options = {};
-	                for (var j in item) {
-	                    // 从ModelCache中取出当前对应值把模板内容替换掉
-	                    options[j] = this.replaceModel(item[j]);
-	                }
-	                // 调用组件的set函数刷新组件全部受影响的属性
-	                comp.set(options);
-	            }
-	        }
-	        // console.log(ModelCache);
-	    },
-	    get: function get(model) {
-	        return _cache.ModelCache.getData(model);
-	    },
-
-
-	    /* 程序内部调用 *************************************************************/
-
-	    // 替换模板中的内容
-	    replaceModel: function replaceModel(item) {
-	        return item.replace(Expre, function (p1, model) {
-	            return _cache.ModelCache.getData(model);
-	        });
-	    },
-
-
-	    // 设置组件及属性和数据的关联关系
-	    setCache: function setCache(cacheName, options) {
-	        var _this = this;
-
-	        // let currComp = ComponentsCache.get(cacheName);
-	        var models = _cache.ModelCache.getModel();
-
-	        var _loop = function _loop(i) {
-	            var item = options[i];
-	            if (_this.is(item)) {
-	                // match会返回全部匹配到的数组
-	                item.match(Expre).map(function (v) {
-	                    var model = v.slice(2, -1);
-	                    if (!models[model]) {
-	                        models[model] = {};
-	                    }
-	                    if (!models[model][cacheName]) {
-	                        models[model][cacheName] = {};
-	                    }
-	                    if (!models[model][cacheName][i]) {
-	                        models[model][cacheName][i] = item;
-	                    }
-	                });
-	                // 顺便把模板替换掉（初始化）
-	                options[i] = _this.replaceModel(item);
-	            }
-	        };
-
-	        for (var i in options) {
-	            _loop(i);
-	        }
-	        return options;
-	    },
-
-
-	    // 把数据插入到模板中，返回新的字符串
-	    insert: function insert(tml, data) {
-	        return tml.replace();
-	    },
-
-
-	    // 判断是否关联model数据
-	    if: function _if(item) {
-	        for (var i in item) {
-	            // 只要有一条数据是使用了model，则为true
-	            if (this.is(item[i])) {
-	                return true;
-	            }
-	        }
-	        return false;
-	    },
-
-
-	    // 判断一个值是否使用model
-	    is: function is(value) {
-	        return _utils.Utils.typeof(value, 'string') && value.search(Expre) >= 0;
-	    }
-	};
-
-/***/ }),
-/* 205 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = {
-	    Config: __webpack_require__(193).default,
-	    ComponentsCache: __webpack_require__(206).default,
-	    ModelCache: __webpack_require__(207).default
-	};
-
-/***/ }),
-/* 206 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _BaseCache2 = __webpack_require__(194);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// export default (new BaseCache());
-
-	var Component = function (_BaseCache) {
-	    _inherits(Component, _BaseCache);
-
-	    function Component() {
-	        _classCallCheck(this, Component);
-
-	        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
-	    }
-
-	    _createClass(Component, [{
-	        key: 'set',
-	        value: function set(target, component) {
-	            var isCheck = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
-
-	            // 检查name是否冲突
-	            // 升级完router再看能不能用
-	            // if (isCheck) {
-	            //     let theSame = this.get(target);
-	            //     if (theSame && theSame.key !== component.key) {
-	            //         console.error(`Warning: The prop "name" should be unique. `
-	            //             + `Check the component \`${component.type}\` named "${component.cacheName}" `
-	            //             + `which has the same name as the other component \`${theSame.type}\``
-	            //         );
-	            //     }
-	            // }
-	            _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'set', this).call(this, target, component);
-	        }
-	    }]);
-
-	    return Component;
-	}(_BaseCache3.default);
-
-	exports.default = new Component();
-
-/***/ }),
-/* 207 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _utils = __webpack_require__(187);
-
-	var _BaseCache2 = __webpack_require__(194);
-
-	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var _key = '_uf-models';
-	var _cache = {
-
-	    // 数据存储
-	    data: {
-	        // a: 1
-	    },
-
-	    // model关联的属性，以model为单位。(数据驱动页面)
-	    model: {}
-	    // 'a': {
-	    //     'input': {
-	    //         'value': '${a}',
-	    //     },
-	    //     'span': {
-	    //         'children': '${a}'
-	    //     }
-	    // }
-
-
-	    // 属性关联的model，以组件为单位。(页面驱动数据，使用 $model/$join 属性)
-	    // attr: {
-	    //     'my-table': {
-	    //         'title': 'a',
-	    //     }
-	    // }
-
-	};
-
-	var Models = function (_BaseCache) {
-	    _inherits(Models, _BaseCache);
-
-	    function Models() {
-	        _classCallCheck(this, Models);
-
-	        return _possibleConstructorReturn(this, (Models.__proto__ || Object.getPrototypeOf(Models)).apply(this, arguments));
-	    }
-
-	    _createClass(Models, [{
-	        key: 'getData',
-
-	        // 获取摸个model点关联的数据
-	        value: function getData(model) {
-	            var result = this._cache.data;
-	            if (!!model) {
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = model.split('.')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var v = _step.value;
-
-	                        if (_utils.Utils.typeof(result, 'object')) {
-	                            result = result[v];
-	                        } else {
-	                            // console.error(`Uncaught TypeError: model '${model}' is invalid.`);
-	                            // 获取不到的数据全部返回空字符串
-	                            result = '';
-	                            break;
-	                        }
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-	            }
-	            return result || '';
-	        }
-	        // 获取摸个model点关联的组件
-
-	    }, {
-	        key: 'getModel',
-	        value: function getModel(name) {
-	            return !!name ? this._cache.model[name] : this._cache.model;
-	        }
-	        // 获取某个model点影响的所有组件及属性
-
-	    }, {
-	        key: 'getConnections',
-	        value: function getConnections(model) {
-	            var models = this.getModel();
-	            var connectionsMode = model + '.';
-	            var result = _utils.Utils.copy(models[model]);
-	            for (var i in models) {
-	                if (i.indexOf(connectionsMode) !== -1) {
-	                    var item = models[i];
-	                    for (var j in item) {
-	                        if (result[j]) {
-	                            var itemComp = item[j];
-	                            var resultComp = result[j];
-	                            for (var k in itemComp) {
-	                                resultComp[k] = resultComp[k] || itemComp[k];
-	                            }
-	                        } else {
-	                            result[j] = item[j];
-	                        }
-	                    }
-	                }
-	            }
-	            return result;
-	        }
-
-	        // 给某个一model点设置数据
-
-	    }, {
-	        key: 'setData',
-	        value: function setData(model, data) {
-	            // 如果没有设置model点，则直接更改整个data。用于一开始用户使用 UF.config 配置通用数据
-	            if (!model) {
-	                this._cache.data = data;
-	                return;
-	            }
-	            var origin = this.getData();
-	            var arr = model.split('.');
-	            var target = origin;
-	            var parent = void 0,
-	                v = void 0;
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-
-	            try {
-	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    v = _step2.value;
-
-	                    if (!_utils.Utils.typeof(target[v], 'object')) {
-	                        target[v] = {};
-	                    }
-	                    parent = target;
-	                    target = parent[v];
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-
-	            parent[v] = data;
-	        }
-	    }, {
-	        key: 'setModel',
-	        value: function setModel(model, data) {}
-	    }]);
-
-	    return Models;
-	}(_BaseCache3.default);
-
-	exports.default = new Models(_cache);
-
-/***/ }),
-/* 208 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _utils = __webpack_require__(187);
-
-	var _cache = __webpack_require__(205);
+	var _instance = __webpack_require__(195);
 
 	/**
 	 * @file 权限控制模块
@@ -9261,7 +8591,9 @@
 
 	exports.default = {
 	    check: function check(item) {
-	        var authorityList = _cache.Config.get('authority');
+	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
+
+	        var authorityList = (0, _instance.getConfig)(insName).get('authority');
 	        var result = true;
 	        if (!_utils.Utils.typeof(item.authority, 'undefined')) {
 	            result = !!authorityList[item.authority];
@@ -9271,7 +8603,7 @@
 	};
 
 /***/ }),
-/* 209 */
+/* 202 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9359,7 +8691,7 @@
 	};
 
 /***/ }),
-/* 210 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9378,11 +8710,9 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseComponent2 = __webpack_require__(203);
+	var _BaseComponent2 = __webpack_require__(200);
 
 	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
-
-	var _cache = __webpack_require__(205);
 
 	var _utils = __webpack_require__(187);
 
@@ -9455,7 +8785,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.set(this.name, this.component);
+	                this._factory.$components.set(this.name, this.component);
 	            }
 	        }
 	        // 解除共享
@@ -9464,7 +8794,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.del(this.name);
+	                this._factory.$components.del(this.name);
 	            }
 	        }
 	    }]);
@@ -9475,7 +8805,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 211 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9501,7 +8831,7 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _DataDisplay16 = __webpack_require__(212);
+	var _DataDisplay16 = __webpack_require__(205);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
@@ -9939,7 +9269,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 212 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9956,7 +9286,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9990,7 +9320,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 213 */
+/* 206 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10014,7 +9344,7 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _Genaral14 = __webpack_require__(214);
+	var _Genaral14 = __webpack_require__(207);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
@@ -10374,7 +9704,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 214 */
+/* 207 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10391,7 +9721,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10425,7 +9755,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 215 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10451,7 +9781,7 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _Navigation9 = __webpack_require__(216);
+	var _Navigation9 = __webpack_require__(209);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
@@ -10459,7 +9789,7 @@
 
 	var Antd = _interopRequireWildcard(_antd);
 
-	var _router = __webpack_require__(217);
+	var _router = __webpack_require__(210);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -10966,7 +10296,7 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 216 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10983,7 +10313,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11017,12 +10347,12 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 217 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(218);
+	var _Router = __webpack_require__(211);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -11033,7 +10363,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 218 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11059,11 +10389,13 @@
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
+
+	var _instance = __webpack_require__(195);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -11142,7 +10474,11 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(_tools.Factory, _extends({}, this.props, { config: this.props.route.__component }));
+	            return _react2.default.createElement(_src.Factory, _extends({}, this.props, {
+	                // config={this.getConfig()}
+	                config: this.props.route.__component,
+	                insName: this.props.route.insName
+	            }));
 	        }
 	    }]);
 
@@ -11203,7 +10539,7 @@
 	                    var v = _step.value;
 
 	                    // 校验权限，没权限的元素返回 null
-	                    if (!_tools.Authority.check(v)) {
+	                    if (!this.__authority(v)) {
 	                        continue;
 	                    }
 	                    v = this.setRoute(v);
@@ -11267,6 +10603,7 @@
 	            if (item.component) {
 	                // 组件实例放在新属性content里
 	                item.__component = item.component;
+	                item.insName = this.insName;
 	                // component属性为一个抽象类
 	                item.component = RouteHolder;
 	            }
@@ -11344,7 +10681,7 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 219 */
+/* 212 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11366,15 +10703,15 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(220);
+	var _Feedback4 = __webpack_require__(213);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
 	var _utils = __webpack_require__(187);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _antd = __webpack_require__(106);
 
@@ -11480,7 +10817,7 @@
 	function messageHandler(type, config) {
 	    var _Antd$message;
 
-	    var list = _tools.WhiteList.get(config, 'message');
+	    var list = _src.WhiteList.get(config, 'message');
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -11489,7 +10826,7 @@
 	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var v = _step.value;
 
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    } catch (err) {
 	        _didIteratorError = true;
@@ -11525,7 +10862,7 @@
 	/************* notification 提示 ************************************************************************** */
 
 	function notificationHandler(type, config) {
-	    var list = _tools.WhiteList.get(config, 'notification');
+	    var list = _src.WhiteList.get(config, 'notification');
 	    var _iteratorNormalCompletion2 = true;
 	    var _didIteratorError2 = false;
 	    var _iteratorError2 = undefined;
@@ -11534,7 +10871,7 @@
 	        for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	            var v = _step2.value;
 
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    } catch (err) {
 	        _didIteratorError2 = true;
@@ -11564,7 +10901,7 @@
 	});
 
 /***/ }),
-/* 220 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11581,7 +10918,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11615,7 +10952,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 221 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11635,13 +10972,11 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(222);
+	var _Layout = __webpack_require__(215);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
 	var _utils = __webpack_require__(187);
-
-	var _cache = __webpack_require__(205);
 
 	var _antd = __webpack_require__(106);
 
@@ -11851,7 +11186,7 @@
 	                                (function () {
 	                                    var key = v.props.__cache || v.props.__key;
 	                                    var inject = function inject(collapsed) {
-	                                        var menu = _cache.ComponentsCache.get(key);
+	                                        var menu = _this5.__getComponent(key);
 	                                        if (menu) {
 	                                            var defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
 	                                            // 从缓存中获取 Menu 组件，并更改组件状态
@@ -11911,6 +11246,7 @@
 
 	        var _this6 = _possibleConstructorReturn(this, (SiderTrigger.__proto__ || Object.getPrototypeOf(SiderTrigger)).call(this, props));
 
+	        _this6._filter.push('reverse');
 	        _this6.__init();
 	        _this6.target = null;
 	        return _this6;
@@ -11920,7 +11256,7 @@
 	        key: '_componentDidMount',
 	        value: function _componentDidMount() {
 	            _get(SiderTrigger.prototype.__proto__ || Object.getPrototypeOf(SiderTrigger.prototype), '_componentDidMount', this) && _get(SiderTrigger.prototype.__proto__ || Object.getPrototypeOf(SiderTrigger.prototype), '_componentDidMount', this).call(this);
-	            this.target = _cache.ComponentsCache.get(this.__props.target);
+	            this.target = this._factory.$components.get(this.__props.target);
 	            this.forceUpdate();
 	        }
 	    }, {
@@ -11935,7 +11271,7 @@
 	        value: function render() {
 	            var style = Object.assign({ cursor: 'pointer' }, this.__props.style);
 	            return _react2.default.createElement(Antd.Icon, _extends({}, this.__props, {
-	                type: this.target && this.target.get('collapsed') ? !this.__props.reverse ? 'menu-unfold' : 'menu-fold' : this.__props.reverse ? 'menu-unfold' : 'menu-fold',
+	                type: this.target && this.target.get('collapsed') ? !this.__filtered.reverse ? 'menu-unfold' : 'menu-fold' : this.__filtered.reverse ? 'menu-unfold' : 'menu-fold',
 	                onClick: this.target && this.onClick.bind(this) }));
 	        }
 	    }]);
@@ -11969,7 +11305,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 222 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11986,7 +11322,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(201);
+	var _Antd2 = __webpack_require__(198);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -12020,15 +11356,15 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 223 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(224).default;
+	module.exports = __webpack_require__(217).default;
 
 /***/ }),
-/* 224 */
+/* 217 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12047,7 +11383,7 @@
 
 	var _antd = __webpack_require__(106);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -12184,7 +11520,7 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 225 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12192,10 +11528,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(226).default;
+	module.exports = __webpack_require__(219).default;
 
 /***/ }),
-/* 226 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12216,7 +11552,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _antd = __webpack_require__(106);
 
@@ -12916,7 +12252,7 @@
 	exports.default = Export;
 
 /***/ }),
-/* 227 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12924,10 +12260,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(228).default;
+	module.exports = __webpack_require__(221).default;
 
 /***/ }),
-/* 228 */
+/* 221 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12948,7 +12284,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -13546,7 +12882,7 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 229 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13554,10 +12890,10 @@
 	/**
 	 * @file table组件默认访问文件
 	 */
-	module.exports = __webpack_require__(230).default;
+	module.exports = __webpack_require__(223).default;
 
 /***/ }),
-/* 230 */
+/* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13580,29 +12916,29 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
 	var _antd = __webpack_require__(106);
 
-	var _export2 = __webpack_require__(225);
+	var _export2 = __webpack_require__(218);
 
 	var _export3 = _interopRequireDefault(_export2);
 
-	var _Crud = __webpack_require__(231);
+	var _Crud = __webpack_require__(224);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(232);
+	var _Title = __webpack_require__(225);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Edit = __webpack_require__(233);
+	var _Edit = __webpack_require__(226);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _Filter = __webpack_require__(234);
+	var _Filter = __webpack_require__(227);
 
 	var _Filter2 = _interopRequireDefault(_Filter);
 
@@ -13736,7 +13072,7 @@
 	            }
 	            var defaultCif = {
 	                size: 'default',
-	                rowKey: 'id',
+	                rowKey: this.rowKey,
 	                rowClassName: function rowClassName() {},
 	                expandedRowRender: null,
 	                defaultExpandedRowKeys: [],
@@ -14596,7 +13932,7 @@
 	                { className: className, style: this.__props.style },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { parent: _this11, ref: function ref(ele) {
+	                        return _react2.default.createElement(_Title2.default, { _factory: _this11._factory, parent: _this11, ref: function ref(ele) {
 	                                return _this11.titleRef = ele;
 	                            }, config: _this11.title });
 	                    },
@@ -14611,10 +13947,10 @@
 	                    rowSelection: this.renderRowSelection(),
 	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
-	                _react2.default.createElement(_export3.default, _extends({ ref: function ref(ele) {
+	                _react2.default.createElement(_export3.default, _extends({ _factory: this._factory, ref: function ref(ele) {
 	                        return _this11.exportRef = ele;
 	                    } }, this._getExportConfig())),
-	                this.__props.crud && _react2.default.createElement(_Crud2.default, { parent: this, ref: function ref(ele) {
+	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
 	                        return _this11.crud = ele;
 	                    },
 	                    config: this.__props.crud })
@@ -14628,7 +13964,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 231 */
+/* 224 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14649,7 +13985,7 @@
 
 	var _antd = __webpack_require__(106);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -15012,7 +14348,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 232 */
+/* 225 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15035,13 +14371,13 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
 	var _antd = __webpack_require__(106);
 
-	var _export = __webpack_require__(225);
+	var _export = __webpack_require__(218);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -15957,7 +15293,7 @@
 	exports.default = Title;
 
 /***/ }),
-/* 233 */
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15978,7 +15314,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -16190,7 +15526,7 @@
 	exports.default = TableEdit;
 
 /***/ }),
-/* 234 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16487,7 +15823,7 @@
 	exports.default = Filter;
 
 /***/ }),
-/* 235 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16499,8 +15835,8 @@
 	// module.exports = require('./Form.js').default;
 	// module.exports = require('./Forms.js').default;
 	module.exports = {
-	  Form: __webpack_require__(236).default,
-	  Forms: __webpack_require__(241).default
+	  Form: __webpack_require__(229).default,
+	  Forms: __webpack_require__(234).default
 	};
 	// const Form = require('./Form.js');
 	// const Forms = require('./Forms.js');
@@ -16508,7 +15844,7 @@
 	// module.exports = {Form, Forms};
 
 /***/ }),
-/* 236 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16531,7 +15867,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -16541,7 +15877,7 @@
 
 	var _antd = __webpack_require__(106);
 
-	var _ueditor = __webpack_require__(237);
+	var _ueditor = __webpack_require__(230);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
@@ -17561,24 +16897,24 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 237 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(238);
+	__webpack_require__(231);
 
-	module.exports = __webpack_require__(240).default;
+	module.exports = __webpack_require__(233).default;
 
 /***/ }),
-/* 238 */
+/* 231 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 239 */,
-/* 240 */
+/* 232 */,
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17597,8 +16933,6 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _cache = __webpack_require__(205);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -17610,8 +16944,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-	// import {BaseComponent} from 'src/base';
 
+	// import {BaseComponent} from 'src/base';
 
 	var Ueditor = function (_React$PureComponent) {
 	    _inherits(Ueditor, _React$PureComponent);
@@ -17700,7 +17034,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.set(this.name, this.ue);
+	                this._factory$components.set(this.name, this.ue);
 	            }
 	        }
 	        // 解除共享
@@ -17709,7 +17043,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                _cache.ComponentsCache.del(this.name);
+	                this._factory$components.del(this.name);
 	            }
 	        }
 	    }, {
@@ -17739,7 +17073,7 @@
 	exports.default = Ueditor;
 
 /***/ }),
-/* 241 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17760,7 +17094,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -18155,15 +17489,15 @@
 	exports.default = CopyOrDeleteForm;
 
 /***/ }),
-/* 242 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(243).default;
+	module.exports = __webpack_require__(236).default;
 
 /***/ }),
-/* 243 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18188,13 +17522,13 @@
 
 	var _antd = __webpack_require__(106);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18435,7 +17769,7 @@
 	    config.type = 'modal';
 	    config.visible = config.visible || true;
 	    // 增加关闭弹窗删除dom节点逻辑
-	    return _tools2.default._append(config, null, 'onCancel');
+	    return _src2.default._append(config, null, 'onCancel');
 	};
 
 	/**** Modal自带快捷调用函数 *************************************************************************/
@@ -18447,7 +17781,7 @@
 	    for (var _i = 0; _i < _arr.length; _i++) {
 	        var v = _arr[_i];
 	        if (config[v] && !_utils.Utils.typeof(config[v], 'string')) {
-	            config[v] = _tools2.default.render(config[v]);
+	            config[v] = _src2.default.render(config[v]);
 	        }
 	    }
 	    config.className = 'uf-modal ' + (config.className ? config.className : '');
@@ -18463,7 +17797,7 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 244 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18472,10 +17806,10 @@
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(245).default;
+	module.exports = __webpack_require__(238).default;
 
 /***/ }),
-/* 245 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18494,9 +17828,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
-
-	var _cache = __webpack_require__(205);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -18522,6 +17854,7 @@
 	        _this._filter.push('type');
 	        // 保证每次实例化都有一个唯一的id
 	        _this.chartId = (props.__key || 'create_echarts') + '_' + _utils.Utils.uniqueId();
+	        _this.echarts;
 	        _this.chart;
 	        _this.__init();
 	        return _this;
@@ -18550,16 +17883,35 @@
 	            // 执行的时候再获取
 	            var echarts = window.echarts;
 	            if (echarts) {
+	                this.echarts = echarts;
+	                this.initEcharts();
+	            } else {
+	                console.error('There is no echarts, please check.');
+	                // 打包的代码不支持requirejs方式
+	                // _$echarts 的路径见 src/default/index.js 中的配置
+	                // this._factory.$requirejs(['_$echarts'], echarts=>{
+	                //     this.echarts = echarts;
+	                //     this.initEcharts();
+	                // });
+	                // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
+	                // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
+	                //     this.echarts = window.echarts;
+	                //     this.initEcharts();
+	                // });
+	            }
+	        }
+	    }, {
+	        key: 'initEcharts',
+	        value: function initEcharts() {
+	            if (this.echarts) {
 	                // 初始化
-	                var chart = echarts.init(document.getElementById(this.chartId));
+	                var chart = this.echarts.init(document.getElementById(this.chartId));
 	                chart.setOption(this.__props);
 	                this.chart = chart;
 	                this._transmitComponent();
 	                // 把echarts的api全部转移到当前组件上
 	                this._agencyFunction(chart);
 	                this._agencyFunction(Object.getPrototypeOf(chart));
-	            } else {
-	                console.error('There is no echarts, please check.');
 	            }
 	        }
 	    }, {
@@ -18622,7 +17974,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 246 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18631,10 +17983,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(247).default;
+	module.exports = __webpack_require__(240).default;
 
 /***/ }),
-/* 247 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18653,7 +18005,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(202);
+	var _base = __webpack_require__(199);
 
 	var _utils = __webpack_require__(187);
 
@@ -18702,10 +18054,573 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 248 */
+/* 241 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _config = __webpack_require__(243);
+
+	var _config2 = _interopRequireDefault(_config);
+
+	var _components = __webpack_require__(246);
+
+	var _components2 = _interopRequireDefault(_components);
+
+	var _model = __webpack_require__(247);
+
+	var _model2 = _interopRequireDefault(_model);
+
+	var _ajax = __webpack_require__(248);
+
+	var _ajax2 = _interopRequireDefault(_ajax);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// module.exports = {Config, ComponentsCache, ModelCache};
+
+	module.exports = {
+	    init: function init(insName) {
+	        var obj = {};
+
+	        obj.Config = _config2.default.init(insName);
+	        (0, _instance.setConfig)(insName, obj.Config);
+
+	        obj.ComponentsCache = _components2.default.init(insName);
+	        (0, _instance.setComponentCache)(insName, obj.ComponentsCache);
+
+	        obj.ModelCache = _model2.default.init(insName);
+	        (0, _instance.setModelCache)(insName, obj.ModelCache);
+
+	        obj.AjaxCache = _ajax2.default.init(insName);
+	        (0, _instance.setAjaxCache)(insName, obj.AjaxCache);
+
+	        return obj;
+	    }
+	};
+
+/***/ }),
+/* 243 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _BaseCache2 = __webpack_require__(196);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _default = __webpack_require__(244);
+
+	var _default2 = _interopRequireDefault(_default);
+
+	var _utils = __webpack_require__(188);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 默认配置
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      可以用于配置各个组件通用的默认参数
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      用户可以使用 `UF.config()` 来更改或者自定义任何默认参数
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-11 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-11 01:42:17
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Config = function (_BaseCache) {
+	    _inherits(Config, _BaseCache);
+
+	    function Config() {
+	        _classCallCheck(this, Config);
+
+	        return _possibleConstructorReturn(this, (Config.__proto__ || Object.getPrototypeOf(Config)).apply(this, arguments));
+	    }
+
+	    _createClass(Config, [{
+	        key: 'get',
+	        value: function get(names) {
+	            var result = _get(Config.prototype.__proto__ || Object.getPrototypeOf(Config.prototype), 'get', this).call(this, names);
+	            // 组件全局配置components为引用类型，组件使用时对配置进行更改会影响全局，需要clone一份
+	            if (names && names.split('.')[0] === 'components') {
+	                result = _utils2.default.clone(result);
+	            }
+	            return result;
+	        }
+	    }]);
+
+	    return Config;
+	}(_BaseCache3.default);
+
+	// export default (new Config(Default));
+
+	exports.default = (0, _instance.generate)(function () {
+	    return new Config(_utils2.default.clone(_default2.default));
+	});
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _components = __webpack_require__(245);
+
+	var _components2 = _interopRequireDefault(_components);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    // 模块引入相关配置
+	    modules: {
+	        // 加载模块时是否展示loading
+	        showLoading: false,
+	        paths: {
+	            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+	        }
+	    },
+	    // 全局系统配置
+	    global: {
+	        // 设置文档域 document.domain，默认为原始值
+	        domain: document.domain,
+	        // ajax 的全局配置，可更改全部 ajax 规则（例如报错规则）
+	        ajax: {}
+	    },
+	    // 组件默认配置
+	    components: _components2.default,
+	    // 权限点，用户有权限的权限点列表
+	    // key（权限点） => value（boolen/object）
+	    authority: {}
+	}; /**
+	    * @file 全局默认配置
+	    * @author liuzechun
+	    * Created Date: 2018-01-30 10:55:45
+	    */
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	/**
+	 * @file 组件默认参数定义
+	 * @author liuzechun
+	 * Created Date: 2017-10-12 03:23:12
+	 *
+	 * Last Modified: 2017-10-12 03:23:16
+	 * Modified By: liuzechun
+	 */
+
+	exports.default = {
+	    /****************************************************************************************/
+	    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
+	    /****************************************************************************************/
+	    'base-component': {
+	        control: {
+	            trigger: 'onClick'
+	        },
+	        source: {
+	            // 如果组件没有设置target，则
+	            // target: 'content'
+	        },
+	        api: {
+	            showLoading: true,
+	            trigger: 'onClick'
+	        }
+	    },
+	    'antd': {},
+	    'data-entry': {
+	        api: {
+	            trigger: 'onChange'
+	        },
+	        source: {
+	            // 获取数据时展示loading
+	            showLoading: false,
+	            target: 'value'
+	        },
+	        control: {
+	            trigger: 'onChange',
+	            handler: function handler() {
+	                for (var _len = arguments.length, p = Array(_len), _key = 0; _key < _len; _key++) {
+	                    p[_key] = arguments[_key];
+	                }
+
+	                return p[p.length - 1].getValue();
+	            }
+	        }
+	    },
+	    /****************************************************************************************/
+	    /******* 普通组件默认配置 ******************************************************************/
+	    /****************************************************************************************/
+	    'auto-complete': {
+	        style: { width: 160 },
+	        options: []
+	    },
+	    'breadcrumb': {
+	        style: { padding: '12px 24px', lineHeight: '18px' }
+	    },
+	    'cascader': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'checkbox': {
+	        source: {
+	            target: 'checked'
+	        }
+	    },
+	    'checkbox-group': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'input': {
+	        api: {
+	            trigger: 'onPressEnter'
+	        },
+	        control: {
+	            trigger: 'onPressEnter'
+	        }
+	    },
+	    'radio': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'router': {
+	        history: 'hashHistory'
+	    },
+	    'loading': {
+	        delay: 150
+	    },
+	    'iframe': {
+	        mode: 'auto',
+	        delay: 0,
+	        showLoading: true
+	    },
+	    'select': {
+	        optionFilterProp: 'children',
+	        source: {
+	            target: 'options'
+	        },
+	        // 默认充满全部
+	        style: { width: '100%', minWidth: 50 },
+	        // 搜索时忽略大小写
+	        filterOption: function filterOption(v, opt) {
+	            return opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
+	        }
+	    },
+	    'switch': {
+	        source: {
+	            target: 'checked'
+	        }
+	    },
+	    'date-picker': {
+	        format: 'YYYY-MM-DD'
+	    },
+	    'range-picker': {
+	        format: 'YYYY-MM-DD'
+	    },
+	    'month-picker': {
+	        format: 'YYYY-MM'
+	    },
+	    'time-picker': {
+	        format: 'HH:mm:ss'
+	    },
+	    'menu': {
+	        // 默认高亮随路由一起变换
+	        followRoute: true
+	    },
+	    'upload': {
+	        source: {
+	            target: 'fileList'
+	        }
+	    },
+
+	    /****************************************************************************************/
+	    /***** 自定义组件默认配置 ******************************************************************/
+	    /****************************************************************************************/
+	    'form': {
+	        items: [],
+	        buttons: null,
+	        layout: {
+	            type: 'horizontal',
+	            labelCol: 6,
+	            wrapperCol: 14
+	        },
+	        source: {
+	            target: 'formData'
+	        },
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    },
+	    forms: {
+	        addType: 'copy-add'
+	    },
+	    'table': {
+	        rowKey: 'id',
+	        pagination: {
+	            current: 1,
+	            pageSize: 10,
+	            pageType: 'client',
+	            total: 0
+	        },
+	        source: {
+	            // 自动加载数据
+	            autoLoad: true
+	        },
+	        data: []
+	    },
+	    // table 的编辑插件
+	    'table-edit': {
+	        api: {
+	            trigger: 'onSubmit'
+	        }
+	    },
+	    'modal': {
+	        visible: false,
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    }
+	};
+
+/***/ }),
+/* 246 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _BaseCache2 = __webpack_require__(196);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 组件实例缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Component = function (_BaseCache) {
+	    _inherits(Component, _BaseCache);
+
+	    function Component() {
+	        _classCallCheck(this, Component);
+
+	        return _possibleConstructorReturn(this, (Component.__proto__ || Object.getPrototypeOf(Component)).apply(this, arguments));
+	    }
+
+	    _createClass(Component, [{
+	        key: 'set',
+	        value: function set(target, component) {
+	            var isCheck = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
+	            // 检查name是否冲突
+	            // 升级完router再看能不能用
+	            // if (isCheck) {
+	            //     let theSame = this.get(target);
+	            //     if (theSame && theSame.key !== component.key) {
+	            //         console.error(`Warning: The prop "name" should be unique. `
+	            //             + `Check the component \`${component.type}\` named "${component.cacheName}" `
+	            //             + `which has the same name as the other component \`${theSame.type}\``
+	            //         );
+	            //     }
+	            // }
+	            _get(Component.prototype.__proto__ || Object.getPrototypeOf(Component.prototype), 'set', this).call(this, target, component);
+	        }
+	    }]);
+
+	    return Component;
+	}(_BaseCache3.default);
+
+	// export default (new Component());
+
+	// export default generate(new Component());
+
+	exports.default = (0, _instance.generate)(function () {
+	    return new Component();
+	});
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _utils = __webpack_require__(187);
+
+	var _BaseCache = __webpack_require__(196);
+
+	var _BaseCache2 = _interopRequireDefault(_BaseCache);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// export default (new Models(_cache));
+
+	exports.default = (0, _instance.generate)(function () {
+	  return new _BaseCache2.default();
+	}); /**
+	     * @file 组件实例缓存
+	     * @author liuzechun
+	     * Created Date: 2017-10-24 01:40:57
+	     */
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _BaseCache2 = __webpack_require__(196);
+
+	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
+
+	var _utils = __webpack_require__(188);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ajax 数据缓存
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-24 01:40:57
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	exports.default = (0, _instance.generate)(['Config'], function (Config) {
+	    var AjaxCache = function (_BaseCache) {
+	        _inherits(AjaxCache, _BaseCache);
+
+	        function AjaxCache() {
+	            _classCallCheck(this, AjaxCache);
+
+	            return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
+	        }
+
+	        _createClass(AjaxCache, [{
+	            key: 'getCacheKey',
+
+
+	            // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
+	            value: function getCacheKey(config) {
+	                var cacheApis = Config.get('global.cacheApis');
+	                // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
+	                if (config.cache || cacheApis && cacheApis.indexOf(config.url) > -1) {
+	                    return _utils2.default.hash(config, 32);
+	                }
+	                return null;
+	            }
+
+	            // 向缓存池中设置缓存数据
+
+	        }, {
+	            key: 'setCacheData',
+	            value: function setCacheData(key, res) {
+	                // key 通过调用处传入，保证一致性
+	                // let key = this.getCacheKey(config);
+	                if (key) {
+	                    this.set(key, _utils2.default.clone(res));
+	                }
+	            }
+
+	            // 从缓存池中获取缓存数据
+
+	        }, {
+	            key: 'getCacheData',
+	            value: function getCacheData(key) {
+	                // key 通过调用处传入，保证一致性
+	                // let key = this.getCacheKey(config);
+	                if (key) {
+	                    return this.get(key);
+	                }
+	                return null;
+	            }
+	        }]);
+
+	        return AjaxCache;
+	    }(_BaseCache3.default);
+
+	    return new AjaxCache();
+	});
 
 /***/ }),
 /* 249 */
@@ -18717,407 +18632,6 @@
 	    value: true
 	});
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @file 适配器，把组件配置转换为统一规范格式
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
-
-
-	var _base = __webpack_require__(202);
-
-	var _utils = __webpack_require__(187);
-
-	var _Antd = __webpack_require__(201);
-
-	var _Antd2 = _interopRequireDefault(_Antd);
-
-	var _loader = __webpack_require__(250);
-
-	var _loader2 = _interopRequireDefault(_loader);
-
-	var _whitelist = __webpack_require__(209);
-
-	var _whitelist2 = _interopRequireDefault(_whitelist);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	// 不属于config的参数，适配用户配置的参数时使用
-	var KeyWord = ['name', 'type', 'content', 'childrenHolder'];
-
-	exports.default = {
-	    get: function get(item) {
-	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
-	        // TODO: 性能待观察，不能小于3
-	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
-
-	        var Item = _loader2.default.get(item);
-	        var props = _utils.Utils.filter(item, KeyWord);
-	        // 把 content 转化成 children。
-	        // update at 2017/10/25,如果没有content,则使用原来的children
-	        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
-	        if (item.content || props.children) {
-	            props.children = item.content || props.children;
-	        }
-	        // 格式化 class 和 style
-	        props = this.formatCS(props);
-	        // 如果是基于BaseComponent的组件内部要用到的属性处理
-	        if (_utils.Utils.isExtendsOf(Item, _base.BaseComponent)) {
-	            props['__type'] = item.type;
-	            props['__key'] = props['key'];
-	            // 如果有name的话，把组件放到缓存池里
-	            if (item.name) {
-	                props['__cache'] = item.name;
-	            }
-	            // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
-	            // 实例化组件时，还要把 type 还原
-	            if (_utils.Utils.isExtendsOf(Item, _Antd2.default)) {
-	                if (props.mode) {
-	                    props.type = props.mode;
-	                }
-	            }
-	            // 因为后面要对白名单里的属性进行二次解析并覆盖属性，这里把配置转存一份，并会在BaseComponent中filter掉
-	            var list = _whitelist2.default.get(props, item.type);
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var v = _step.value;
-
-	                    props['_' + v] = props[v];
-	                }
-	                // 非 BaseComponent 组件 _factory 等属性无效
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-	        } else {
-	            props.name = item.name;
-	            delete props._factory;
-	        }
-	        // props = this.formatOthers(props);
-
-	        return props;
-	    },
-
-	    // 供 BaseComponent 使用，在 set 之前
-	    beforeSet: function beforeSet(component, options) {
-	        this.formatCS(options);
-	        // 实例化组件时，还要把 type 还原
-	        if (component instanceof _Antd2.default) {
-	            if (options.mode) {
-	                options.type = options.mode;
-	            }
-	        }
-	        return options;
-	    },
-
-	    // 把 class、style 转换为 react 需要的 className、style对象
-	    formatCS: function formatCS(props) {
-	        if (props.class) {
-	            props.className += ' ' + props.class;
-	            delete props.class;
-	        }
-	        if (props.style && _utils.Utils.typeof(props.style, 'string')) {
-	            props.style = this.toCamalObj(props.style);
-	        }
-	        return props;
-	    },
-
-	    // 把 字符串style 转换为 react 需要的对象
-	    toCamalObj: function toCamalObj(style) {
-	        var arr = style.split(';');
-	        var obj = {};
-	        var _iteratorNormalCompletion2 = true;
-	        var _didIteratorError2 = false;
-	        var _iteratorError2 = undefined;
-
-	        try {
-	            for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                var v = _step2.value;
-
-	                var _v$split = v.split(':'),
-	                    _v$split2 = _slicedToArray(_v$split, 2),
-	                    key = _v$split2[0],
-	                    value = _v$split2[1];
-	                // 可以再优化下
-
-
-	                var newKey = key.split('-').map(function (i) {
-	                    return i.replace(/^\w/g, function (v) {
-	                        return v.toUpperCase();
-	                    });
-	                }).join('').replace(/^\w/g, function (v) {
-	                    return v.toLowerCase();
-	                });
-	                obj[newKey] = value;
-	            }
-	        } catch (err) {
-	            _didIteratorError2 = true;
-	            _iteratorError2 = err;
-	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                    _iterator2.return();
-	                }
-	            } finally {
-	                if (_didIteratorError2) {
-	                    throw _iteratorError2;
-	                }
-	            }
-	        }
-
-	        return obj;
-	    },
-
-
-	    /****** 针对组件的参数处理 ****************************************************************/
-
-	    formatOthers: function formatOthers(props) {
-	        switch (props.type) {}
-	        return props;
-	    }
-	};
-
-/***/ }),
-/* 250 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(103);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(202);
-
-	var _utils = __webpack_require__(187);
-
-	var _config = __webpack_require__(193);
-
-	var _config2 = _interopRequireDefault(_config);
-
-	var _model = __webpack_require__(204);
-
-	var _model2 = _interopRequireDefault(_model);
-
-	var _dom = __webpack_require__(251);
-
-	var _dom2 = _interopRequireDefault(_dom);
-
-	var _src = __webpack_require__(184);
-
-	var UF = _interopRequireWildcard(_src);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var FilterProps = _base.BaseConf.FilterProps; /**
-	                                               * @file 载入组件，供 Factory 获取
-	                                               *      根据配置的 type，转换成对应组件并返回
-	                                               * @author liuzechun@baidu.com
-	                                               */
-
-	exports.default = {
-	    component: Object.assign(UF),
-
-	    // 添加组件
-	    add: function add(components) {
-	        Object.assign(this.component, components);
-	    },
-
-
-	    // 根据 type 获取组件
-	    get: function get(item) {
-	        var type = item.type;
-	        var name = _utils.Utils.toPascal(type);
-	        var result = this.component[name];
-	        if (!result) {
-	            // 检查是否为React原生元素
-	            if (_react2.default.DOM.hasOwnProperty(type)) {
-	                // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
-	                if (this.isUfComponent(item)) {
-	                    result = _dom2.default;
-	                } else {
-	                    result = type;
-	                }
-	            } else {
-	                this.error(type);
-	            }
-	        }
-	        return result;
-	    },
-
-
-	    // 获取完整的组件配置
-	    // 1、普通组件本身配置了默认属性，此处进行属性合并
-	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-	    getConf: function getConf(item) {
-	        var oType = item.type;
-	        var conf = _config2.default.get('components.' + oType);
-	        if (conf) {
-	            if (_utils.Utils.typeof(conf, 'function')) {
-	                conf = conf();
-	            }
-	            item.type = conf.type || oType;
-	            item = _utils.Utils.merge({}, conf, item);
-	        }
-	        // 如果type进行了变换，则再次进行配置获取
-	        if (oType !== item.type) {
-	            item = this.getConf(item);
-	        }
-	        return item;
-	    },
-
-
-	    // 是否是UF组件
-	    // 1、如果有name，说明用户想要操作组件；
-	    // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
-	    // 3、如果配置了具有特殊功能的属性
-	    isUfComponent: function isUfComponent(item) {
-	        return item.name || _model2.default.if(item) || _utils.Utils.isIntersection(FilterProps, Object.keys(item));
-	    },
-
-
-	    // 打印错误信息
-	    error: function error(type) {
-	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
-	    }
-	};
-
-/***/ }),
-/* 251 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	module.exports = __webpack_require__(252).default;
-
-/***/ }),
-/* 252 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-	var _react = __webpack_require__(103);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(202);
-
-	var _utils = __webpack_require__(187);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 需要操作的原生dom继承 BaseComponent
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-17 04:11:07
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	var Dom = function (_BaseComponent) {
-	    _inherits(Dom, _BaseComponent);
-
-	    function Dom(props) {
-	        _classCallCheck(this, Dom);
-
-	        // 开放给用户使用的 Api
-	        var _this = _possibleConstructorReturn(this, (Dom.__proto__ || Object.getPrototypeOf(Dom)).call(this, props));
-
-	        _this._openApi.push('trigger');
-	        // 壳子调用antd组件，调用的组件的实例存储在_component中
-	        _this._component = null;
-	        _this._filter.push('preventUpdate');
-	        _this.__init();
-	        return _this;
-	    }
-
-	    _createClass(Dom, [{
-	        key: 'shouldComponentUpdate',
-	        value: function shouldComponentUpdate(nextProps, nextState) {
-	            if (this.__props.preventUpdate) {
-	                return false;
-	            }
-	            return true;
-	        }
-	        // 触发组件上的原生事件，例如 focus、change 等
-
-	    }, {
-	        key: 'trigger',
-	        value: function trigger(event) {
-	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-	                params[_key - 1] = arguments[_key];
-	            }
-
-	            if (this._component && this._component[event]) {
-	                this._component[event](params);
-	            } else {
-	                var _get2;
-
-	                (_get2 = _get(Dom.prototype.__proto__ || Object.getPrototypeOf(Dom.prototype), 'trigger', this)).call.apply(_get2, [this, event].concat(params));
-	            }
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this2 = this;
-
-	            // style传一个可变对象且对象进行变化时，会报warning
-	            // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
-	            return _react2.default.createElement(this.props.__type, _extends({}, this.__props, { ref: function ref(ele) {
-	                    return _this2._component = ele;
-	                },
-	                style: _extends({}, this.__props.style)
-	            }));
-	        }
-	    }]);
-
-	    return Dom;
-	}(_base.BaseComponent);
-
-	exports.default = Dom;
-
-/***/ }),
-/* 253 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(103);
@@ -19126,17 +18640,15 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _cache = __webpack_require__(205);
-
 	var _loader = __webpack_require__(250);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(249);
+	var _adaptor = __webpack_require__(253);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(208);
+	var _authority = __webpack_require__(201);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
@@ -19144,15 +18656,15 @@
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(209);
+	var _whitelist = __webpack_require__(202);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _requirejs = __webpack_require__(255);
-
-	var _requirejs2 = _interopRequireDefault(_requirejs);
+	var _instance = __webpack_require__(195);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -19165,13 +18677,24 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
+	// 所有使用Factory的地方，都需要传入一个insName属性
+	// Factory根据insName获取各个工具实例
 	var Factory = function (_PureComponent) {
 	    _inherits(Factory, _PureComponent);
 
 	    function Factory(props) {
 	        _classCallCheck(this, Factory);
 
+	        // 应用名称
 	        var _this = _possibleConstructorReturn(this, (Factory.__proto__ || Object.getPrototypeOf(Factory)).call(this, props));
+
+	        _this.insName = props.insName || '_$default';
+	        // ajax 实例
+	        _this.$ajax = (0, _instance.getAjax)(_this.insName);
+	        // cache实例
+	        _this.$config = (0, _instance.getConfig)(_this.insName);
+	        _this.$components = (0, _instance.getComponentsCache)(_this.insName);
+	        _this.$requirejs = (0, _instance.getRequirejs)(_this.insName);
 
 	        _this.state = {};
 	        // 解析结果缓存
@@ -19225,7 +18748,8 @@
 	            if (!_validator2.default.check(item, 'type', 'string')) {
 	                return item;
 	            }
-
+	            // 临时存储的变量，供各个tools使用
+	            item.insName = this.insName;
 	            // 整合组件的全部配置（包括通用配置，自定义组件配置等）
 	            item = this.getConf(item);
 
@@ -19266,7 +18790,7 @@
 	    }, {
 	        key: 'getConf',
 	        value: function getConf(item) {
-	            return _loader2.default.getConf(item);
+	            return _loader2.default.getConf(item, this.insName);
 	        }
 
 	        // 处理用户配置的参数，并生成组件需要使用的 props
@@ -19379,29 +18903,34 @@
 
 	        // 获取模块配置。
 	        // 如果模块为异步模块，则做异步处理
-	        // TODO：加载完异步模块后路由失效BUG
 
 	    }, {
 	        key: 'getConfig',
 	        value: function getConfig() {
 	            var _this2 = this;
 
-	            var config = this.state.config || this.props.config;
+	            var config = this.props.config;
 	            if (_utils.Utils.typeof(config, 'string')) {
-	                (0, _requirejs2.default)([config], function (foo) {
-	                    // 删除缓存，保证配置刷新
-	                    _this2._cacheContent = null;
-	                    _this2.setState({ config: foo });
-	                });
-	                var showLoading = _cache.Config.get('modules.showLoading');
-	                if (_utils.Utils.typeof(showLoading, 'array')) {
-	                    // config 此时为模块名称
-	                    showLoading = showLoading.indexOf(config) !== -1;
+	                var path = this.props.config;
+	                // 先检查缓存配置中是否已存在，如果不存在再重新获取
+	                config = this.state[path];
+	                if (!config) {
+	                    this.$requirejs([path], function (foo) {
+	                        // 删除缓存，保证配置刷新
+	                        _this2._cacheContent = null;
+	                        // 缓存获取回来的配置
+	                        _this2.setState(_defineProperty({}, path, foo));
+	                    });
+	                    var showLoading = this.$config.get('modules.showLoading');
+	                    if (_utils.Utils.typeof(showLoading, 'array')) {
+	                        // config 此时为模块名称
+	                        showLoading = showLoading.indexOf(config) !== -1;
+	                    }
+	                    config = {
+	                        type: 'loading',
+	                        loading: !!showLoading
+	                    };
 	                }
-	                config = {
-	                    type: 'loading',
-	                    loading: !!showLoading
-	                };
 	            }
 	            return config;
 	        }
@@ -19428,6 +18957,414 @@
 	}(_react.PureComponent);
 
 	exports.default = Factory;
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(103);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _base = __webpack_require__(199);
+
+	var _utils = __webpack_require__(187);
+
+	var _dom = __webpack_require__(251);
+
+	var _dom2 = _interopRequireDefault(_dom);
+
+	var _lib = __webpack_require__(184);
+
+	var UF = _interopRequireWildcard(_lib);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 载入组件，供 Factory 获取
+	 *      根据配置的 type，转换成对应组件并返回
+	 * @author liuzechun@baidu.com
+	 */
+	exports.default = {
+	    component: Object.assign(UF),
+
+	    // 添加组件
+	    add: function add(components) {
+	        Object.assign(this.component, components);
+	    },
+
+
+	    // 根据 type 获取组件
+	    get: function get(item) {
+	        var type = item.type;
+	        var name = _utils.Utils.toPascal(type);
+	        var result = this.component[name];
+	        if (!result) {
+	            // 检查是否为React原生元素
+	            if (_react2.default.DOM.hasOwnProperty(type)) {
+	                // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
+	                if (this.isUfComponent(item)) {
+	                    result = _dom2.default;
+	                } else {
+	                    result = type;
+	                }
+	            } else {
+	                this.error(type);
+	            }
+	        }
+	        return result;
+	    },
+
+
+	    // 获取完整的组件配置
+	    // 1、普通组件本身配置了默认属性，此处进行属性合并
+	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
+	    getConf: function getConf(item) {
+	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
+
+	        var oType = item.type;
+	        var conf = (0, _instance.getConfig)(insName).get('components.' + oType);
+	        if (conf) {
+	            if (_utils.Utils.typeof(conf, 'function')) {
+	                conf = conf();
+	            }
+	            item.type = conf.type || oType;
+	            item = _utils.Utils.merge({}, conf, item);
+	        }
+	        // 如果type进行了变换，则再次进行配置获取
+	        if (oType !== item.type) {
+	            item = this.getConf(item);
+	        }
+	        return item;
+	    },
+
+
+	    // 是否是UF组件
+	    // 1、如果有name，说明用户想要操作组件；
+	    // 2、如果使用了数据绑定：使用Dom组件进行封装，实现组件缓存和刷新
+	    // 3、如果配置了具有特殊功能的属性
+	    isUfComponent: function isUfComponent(item) {
+	        // return item.name || Model.if(item) || Utils.isIntersection(BaseConf.FilterProps, Object.keys(item));
+	        return item.name || _utils.Utils.isIntersection(_base.BaseConf.FilterProps, Object.keys(item));
+	    },
+
+
+	    // 打印错误信息
+	    error: function error(type) {
+	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
+	    }
+	};
+	// import Model from './model.js';
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(252).default;
+
+/***/ }),
+/* 252 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(103);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _base = __webpack_require__(199);
+
+	var _utils = __webpack_require__(187);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 需要操作的原生dom继承 BaseComponent
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created Date: 2017-10-17 04:11:07
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	var Dom = function (_BaseComponent) {
+	    _inherits(Dom, _BaseComponent);
+
+	    function Dom(props) {
+	        _classCallCheck(this, Dom);
+
+	        // 开放给用户使用的 Api
+	        var _this = _possibleConstructorReturn(this, (Dom.__proto__ || Object.getPrototypeOf(Dom)).call(this, props));
+
+	        _this._openApi.push('trigger');
+	        // 壳子调用antd组件，调用的组件的实例存储在_component中
+	        _this._component = null;
+	        _this._filter.push('preventUpdate');
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(Dom, [{
+	        key: 'shouldComponentUpdate',
+	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            if (this.__props.preventUpdate) {
+	                return false;
+	            }
+	            return true;
+	        }
+	        // 触发组件上的原生事件，例如 focus、change 等
+
+	    }, {
+	        key: 'trigger',
+	        value: function trigger(event) {
+	            for (var _len = arguments.length, params = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                params[_key - 1] = arguments[_key];
+	            }
+
+	            if (this._component && this._component[event]) {
+	                this._component[event](params);
+	            } else {
+	                var _get2;
+
+	                (_get2 = _get(Dom.prototype.__proto__ || Object.getPrototypeOf(Dom.prototype), 'trigger', this)).call.apply(_get2, [this, event].concat(params));
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            // style传一个可变对象且对象进行变化时，会报warning
+	            // 见：https://stackoverflow.com/questions/33295615/why-was-mutating-style-deprecated
+	            return _react2.default.createElement(this.props.__type, _extends({}, this.__props, { ref: function ref(ele) {
+	                    return _this2._component = ele;
+	                },
+	                style: _extends({}, this.__props.style)
+	            }));
+	        }
+	    }]);
+
+	    return Dom;
+	}(_base.BaseComponent);
+
+	exports.default = Dom;
+
+/***/ }),
+/* 253 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @file 适配器，把组件配置转换为统一规范格式
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          * @author liuzechun
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          */
+
+	// import Model from './model.js';
+
+
+	var _base = __webpack_require__(199);
+
+	var _utils = __webpack_require__(187);
+
+	var _Antd = __webpack_require__(198);
+
+	var _Antd2 = _interopRequireDefault(_Antd);
+
+	var _loader = __webpack_require__(250);
+
+	var _loader2 = _interopRequireDefault(_loader);
+
+	var _whitelist = __webpack_require__(202);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// 不属于config的参数，适配用户配置的参数时使用
+	var KeyWord = ['name', 'type', 'content', 'childrenHolder'];
+	var hashKeys = {};
+
+	exports.default = {
+	    get: function get(item) {
+	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
+	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	        // TODO: 性能待观察，不能小于3
+	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
+
+	        var Item = _loader2.default.get(item);
+	        var props = _utils.Utils.filter(item, KeyWord);
+	        // 把 content 转化成 children。
+	        // update at 2017/10/25,如果没有content,则使用原来的children
+	        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
+	        if (item.content || props.children) {
+	            props.children = item.content || props.children;
+	        }
+	        // 格式化 class 和 style
+	        props = this.formatCS(props);
+	        // 如果是基于BaseComponent的组件内部要用到的属性处理
+	        if (_utils.Utils.isExtendsOf(Item, _base.BaseComponent)) {
+	            props['__type'] = item.type;
+	            props['__key'] = props['key'];
+	            // 如果有name的话，把组件放到缓存池里
+	            if (item.name) {
+	                props['__cache'] = item.name;
+	            }
+	            // if (props['__key']) {
+	            //     if (Model.if(item)) {
+	            //         props['__cache'] = props['__key'];
+	            //     }
+	            // }
+	            // 由于 type 关键字把原antd等的 type 覆盖掉了，配置里用 mode 字段代替
+	            // 实例化组件时，还要把 type 还原
+	            if (_utils.Utils.isExtendsOf(Item, _Antd2.default)) {
+	                if (props.mode) {
+	                    props.type = props.mode;
+	                }
+	            }
+	            // 因为后面要对白名单里的属性进行二次解析并覆盖属性，这里把配置转存一份，并会在BaseComponent中filter掉
+	            var list = _whitelist2.default.get(props, item.type);
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    props['_' + v] = props[v];
+	                }
+	                // 非 BaseComponent 组件 _factory 等属性无效
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        } else {
+	            props.name = item.name;
+	            delete props._factory;
+	        }
+	        // 删除供各个tools使用的临时变量 insName
+	        delete props.insName;
+	        // props = this.formatOthers(props);
+
+	        return props;
+	    },
+
+	    // 供 BaseComponent 使用，在 set 之前
+	    beforeSet: function beforeSet(component, options) {
+	        this.formatCS(options);
+	        // 实例化组件时，还要把 type 还原
+	        if (component instanceof _Antd2.default) {
+	            if (options.mode) {
+	                options.type = options.mode;
+	            }
+	        }
+	        return options;
+	    },
+
+	    // 把 class、style 转换为 react 需要的 className、style对象
+	    formatCS: function formatCS(props) {
+	        if (props.class) {
+	            props.className += ' ' + props.class;
+	            delete props.class;
+	        }
+	        if (props.style && _utils.Utils.typeof(props.style, 'string')) {
+	            props.style = this.toCamalObj(props.style);
+	        }
+	        return props;
+	    },
+
+	    // 把 字符串style 转换为 react 需要的对象
+	    toCamalObj: function toCamalObj(style) {
+	        var arr = style.split(';');
+	        var obj = {};
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
+
+	        try {
+	            for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var v = _step2.value;
+
+	                var _v$split = v.split(':'),
+	                    _v$split2 = _slicedToArray(_v$split, 2),
+	                    key = _v$split2[0],
+	                    value = _v$split2[1];
+	                // 可以再优化下
+
+
+	                var newKey = key.split('-').map(function (i) {
+	                    return i.replace(/^\w/g, function (v) {
+	                        return v.toUpperCase();
+	                    });
+	                }).join('').replace(/^\w/g, function (v) {
+	                    return v.toLowerCase();
+	                });
+	                obj[newKey] = value;
+	            }
+	        } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                    _iterator2.return();
+	                }
+	            } finally {
+	                if (_didIteratorError2) {
+	                    throw _iteratorError2;
+	                }
+	            }
+	        }
+
+	        return obj;
+	    },
+
+
+	    /****** 针对组件的参数处理 ****************************************************************/
+
+	    formatOthers: function formatOthers(props) {
+	        switch (props.type) {}
+	        return props;
+	    }
+	};
 
 /***/ }),
 /* 254 */
@@ -19496,2184 +19433,6 @@
 
 /***/ }),
 /* 255 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-	/**
-	 * @file reuqirejs 2.3.5
-	 *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
-	 * vim: et:ts=4:sw=4:sts=4
-	 * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
-	 * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
-	 */
-	//Not using strict: uneven strict support in browsers, #392, and causes
-	//problems with requirejs.exec()/transpiler plugins that may not be strict.
-	/*jslint regexp: true, nomen: true, sloppy: true */
-	/*global window, navigator, document, importScripts, setTimeout, opera */
-
-	var requirejs, _require, define;
-	(function (global, setTimeout) {
-	    var req,
-	        s,
-	        head,
-	        baseElement,
-	        dataMain,
-	        src,
-	        interactiveScript,
-	        currentlyAddingScript,
-	        mainScript,
-	        subPath,
-	        version = '2.3.5',
-	        commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
-	        cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
-	        jsSuffixRegExp = /\.js$/,
-	        currDirRegExp = /^\.\//,
-	        op = Object.prototype,
-	        ostring = op.toString,
-	        hasOwn = op.hasOwnProperty,
-	        isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
-	        isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
-
-	    //PS3 indicates loaded and complete, but need to wait for complete
-	    //specifically. Sequence is 'loading', 'loaded', execution,
-	    // then 'complete'. The UA check is unfortunate, but not sure how
-	    //to feature test w/o causing perf issues.
-	    readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ? /^complete$/ : /^(complete|loaded)$/,
-	        defContextName = '_',
-
-	    //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
-	    isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
-	        contexts = {},
-	        cfg = {},
-	        globalDefQueue = [],
-	        useInteractive = false;
-
-	    //Could match something like ')//comment', do not lose the prefix to comment.
-	    function commentReplace(match, singlePrefix) {
-	        return singlePrefix || '';
-	    }
-
-	    function isFunction(it) {
-	        return ostring.call(it) === '[object Function]';
-	    }
-
-	    function isArray(it) {
-	        return ostring.call(it) === '[object Array]';
-	    }
-
-	    /**
-	     * Helper function for iterating over an array. If the func returns
-	     * a true value, it will break out of the loop.
-	     */
-	    function each(ary, func) {
-	        if (ary) {
-	            var i;
-	            for (i = 0; i < ary.length; i += 1) {
-	                if (ary[i] && func(ary[i], i, ary)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * Helper function for iterating over an array backwards. If the func
-	     * returns a true value, it will break out of the loop.
-	     */
-	    function eachReverse(ary, func) {
-	        if (ary) {
-	            var i;
-	            for (i = ary.length - 1; i > -1; i -= 1) {
-	                if (ary[i] && func(ary[i], i, ary)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    function hasProp(obj, prop) {
-	        return hasOwn.call(obj, prop);
-	    }
-
-	    function getOwn(obj, prop) {
-	        return hasProp(obj, prop) && obj[prop];
-	    }
-
-	    /**
-	     * Cycles over properties in an object and calls a function for each
-	     * property value. If the function returns a truthy value, then the
-	     * iteration is stopped.
-	     */
-	    function eachProp(obj, func) {
-	        var prop;
-	        for (prop in obj) {
-	            if (hasProp(obj, prop)) {
-	                if (func(obj[prop], prop)) {
-	                    break;
-	                }
-	            }
-	        }
-	    }
-
-	    /**
-	     * Simple function to mix in properties from source into target,
-	     * but only if target does not already have a property of the same name.
-	     */
-	    function mixin(target, source, force, deepStringMixin) {
-	        if (source) {
-	            eachProp(source, function (value, prop) {
-	                if (force || !hasProp(target, prop)) {
-	                    if (deepStringMixin && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value && !isArray(value) && !isFunction(value) && !(value instanceof RegExp)) {
-
-	                        if (!target[prop]) {
-	                            target[prop] = {};
-	                        }
-	                        mixin(target[prop], value, force, deepStringMixin);
-	                    } else {
-	                        target[prop] = value;
-	                    }
-	                }
-	            });
-	        }
-	        return target;
-	    }
-
-	    //Similar to Function.prototype.bind, but the 'this' object is specified
-	    //first, since it is easier to read/figure out what 'this' will be.
-	    function bind(obj, fn) {
-	        return function () {
-	            return fn.apply(obj, arguments);
-	        };
-	    }
-
-	    function scripts() {
-	        return document.getElementsByTagName('script');
-	    }
-
-	    function defaultOnError(err) {
-	        throw err;
-	    }
-
-	    //Allow getting a global that is expressed in
-	    //dot notation, like 'a.b.c'.
-	    function getGlobal(value) {
-	        if (!value) {
-	            return value;
-	        }
-	        var g = global;
-	        each(value.split('.'), function (part) {
-	            g = g[part];
-	        });
-	        return g;
-	    }
-
-	    /**
-	     * Constructs an error with a pointer to an URL with more information.
-	     * @param {String} id the error ID that maps to an ID on a web page.
-	     * @param {String} message human readable error.
-	     * @param {Error} [err] the original error, if there is one.
-	     *
-	     * @returns {Error}
-	     */
-	    function makeError(id, msg, err, requireModules) {
-	        var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
-	        e.requireType = id;
-	        e.requireModules = requireModules;
-	        if (err) {
-	            e.originalError = err;
-	        }
-	        return e;
-	    }
-
-	    if (typeof define !== 'undefined') {
-	        //If a define is already in play via another AMD loader,
-	        //do not overwrite.
-	        return;
-	    }
-
-	    if (typeof requirejs !== 'undefined') {
-	        if (isFunction(requirejs)) {
-	            //Do not overwrite an existing requirejs instance.
-	            return;
-	        }
-	        cfg = requirejs;
-	        requirejs = undefined;
-	    }
-
-	    //Allow for a require config object
-	    if (typeof _require !== 'undefined' && !isFunction(_require)) {
-	        //assume it is a config object.
-	        cfg = _require;
-	        _require = undefined;
-	    }
-
-	    function newContext(contextName) {
-	        var inCheckLoaded,
-	            Module,
-	            context,
-	            handlers,
-	            checkLoadedTimeoutId,
-	            _config = {
-	            //Defaults. Do not set a default for map
-	            //config to speed up normalize(), which
-	            //will run faster if there is no default.
-	            waitSeconds: 7,
-	            baseUrl: './',
-	            paths: {},
-	            bundles: {},
-	            pkgs: {},
-	            shim: {},
-	            config: {}
-	        },
-	            registry = {},
-
-	        //registry of just enabled modules, to speed
-	        //cycle breaking code when lots of modules
-	        //are registered, but not activated.
-	        enabledRegistry = {},
-	            undefEvents = {},
-	            defQueue = [],
-	            _defined = {},
-	            urlFetched = {},
-	            bundlesMap = {},
-	            requireCounter = 1,
-	            unnormalizedCounter = 1;
-
-	        /**
-	         * Trims the . and .. from an array of path segments.
-	         * It will keep a leading path segment if a .. will become
-	         * the first path segment, to help with module name lookups,
-	         * which act like paths, but can be remapped. But the end result,
-	         * all paths that use this function should look normalized.
-	         * NOTE: this method MODIFIES the input array.
-	         * @param {Array} ary the array of path segments.
-	         */
-	        function trimDots(ary) {
-	            var i, part;
-	            for (i = 0; i < ary.length; i++) {
-	                part = ary[i];
-	                if (part === '.') {
-	                    ary.splice(i, 1);
-	                    i -= 1;
-	                } else if (part === '..') {
-	                    // If at the start, or previous value is still ..,
-	                    // keep them so that when converted to a path it may
-	                    // still work when converted to a path, even though
-	                    // as an ID it is less than ideal. In larger point
-	                    // releases, may be better to just kick out an error.
-	                    if (i === 0 || i === 1 && ary[2] === '..' || ary[i - 1] === '..') {
-	                        continue;
-	                    } else if (i > 0) {
-	                        ary.splice(i - 1, 2);
-	                        i -= 2;
-	                    }
-	                }
-	            }
-	        }
-
-	        /**
-	         * Given a relative module name, like ./something, normalize it to
-	         * a real name that can be mapped to a path.
-	         * @param {String} name the relative name
-	         * @param {String} baseName a real name that the name arg is relative
-	         * to.
-	         * @param {Boolean} applyMap apply the map config to the value. Should
-	         * only be done if this normalization is for a dependency ID.
-	         * @returns {String} normalized name
-	         */
-	        function normalize(name, baseName, applyMap) {
-	            var pkgMain,
-	                mapValue,
-	                nameParts,
-	                i,
-	                j,
-	                nameSegment,
-	                lastIndex,
-	                foundMap,
-	                foundI,
-	                foundStarMap,
-	                starI,
-	                normalizedBaseParts,
-	                baseParts = baseName && baseName.split('/'),
-	                map = _config.map,
-	                starMap = map && map['*'];
-
-	            //Adjust any relative paths.
-	            if (name) {
-	                name = name.split('/');
-	                lastIndex = name.length - 1;
-
-	                // If wanting node ID compatibility, strip .js from end
-	                // of IDs. Have to do this here, and not in nameToUrl
-	                // because node allows either .js or non .js to map
-	                // to same file.
-	                if (_config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
-	                    name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
-	                }
-
-	                // Starts with a '.' so need the baseName
-	                if (name[0].charAt(0) === '.' && baseParts) {
-	                    //Convert baseName to array, and lop off the last part,
-	                    //so that . matches that 'directory' and not name of the baseName's
-	                    //module. For instance, baseName of 'one/two/three', maps to
-	                    //'one/two/three.js', but we want the directory, 'one/two' for
-	                    //this normalization.
-	                    normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
-	                    name = normalizedBaseParts.concat(name);
-	                }
-
-	                trimDots(name);
-	                name = name.join('/');
-	            }
-
-	            //Apply map config if available.
-	            if (applyMap && map && (baseParts || starMap)) {
-	                nameParts = name.split('/');
-
-	                outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
-	                    nameSegment = nameParts.slice(0, i).join('/');
-
-	                    if (baseParts) {
-	                        //Find the longest baseName segment match in the config.
-	                        //So, do joins on the biggest to smallest lengths of baseParts.
-	                        for (j = baseParts.length; j > 0; j -= 1) {
-	                            mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
-
-	                            //baseName segment has config, find if it has one for
-	                            //this name.
-	                            if (mapValue) {
-	                                mapValue = getOwn(mapValue, nameSegment);
-	                                if (mapValue) {
-	                                    //Match, update name to the new value.
-	                                    foundMap = mapValue;
-	                                    foundI = i;
-	                                    break outerLoop;
-	                                }
-	                            }
-	                        }
-	                    }
-
-	                    //Check for a star map match, but just hold on to it,
-	                    //if there is a shorter segment match later in a matching
-	                    //config, then favor over this star map.
-	                    if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
-	                        foundStarMap = getOwn(starMap, nameSegment);
-	                        starI = i;
-	                    }
-	                }
-
-	                if (!foundMap && foundStarMap) {
-	                    foundMap = foundStarMap;
-	                    foundI = starI;
-	                }
-
-	                if (foundMap) {
-	                    nameParts.splice(0, foundI, foundMap);
-	                    name = nameParts.join('/');
-	                }
-	            }
-
-	            // If the name points to a package's name, use
-	            // the package main instead.
-	            pkgMain = getOwn(_config.pkgs, name);
-
-	            return pkgMain ? pkgMain : name;
-	        }
-
-	        function removeScript(name) {
-	            if (isBrowser) {
-	                each(scripts(), function (scriptNode) {
-	                    if (scriptNode.getAttribute('data-requiremodule') === name && scriptNode.getAttribute('data-requirecontext') === context.contextName) {
-	                        scriptNode.parentNode.removeChild(scriptNode);
-	                        return true;
-	                    }
-	                });
-	            }
-	        }
-
-	        function hasPathFallback(id) {
-	            var pathConfig = getOwn(_config.paths, id);
-	            if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
-	                //Pop off the first array value, since it failed, and
-	                //retry
-	                pathConfig.shift();
-	                context.require.undef(id);
-
-	                //Custom require that does not do map translation, since
-	                //ID is "absolute", already mapped/resolved.
-	                context.makeRequire(null, {
-	                    skipMap: true
-	                })([id]);
-
-	                return true;
-	            }
-	        }
-
-	        //Turns a plugin!resource to [plugin, resource]
-	        //with the plugin being undefined if the name
-	        //did not have a plugin prefix.
-	        function splitPrefix(name) {
-	            var prefix,
-	                index = name ? name.indexOf('!') : -1;
-	            if (index > -1) {
-	                prefix = name.substring(0, index);
-	                name = name.substring(index + 1, name.length);
-	            }
-	            return [prefix, name];
-	        }
-
-	        /**
-	         * Creates a module mapping that includes plugin prefix, module
-	         * name, and path. If parentModuleMap is provided it will
-	         * also normalize the name via require.normalize()
-	         *
-	         * @param {String} name the module name
-	         * @param {String} [parentModuleMap] parent module map
-	         * for the module name, used to resolve relative names.
-	         * @param {Boolean} isNormalized: is the ID already normalized.
-	         * This is true if this call is done for a define() module ID.
-	         * @param {Boolean} applyMap: apply the map config to the ID.
-	         * Should only be true if this map is for a dependency.
-	         *
-	         * @returns {Object}
-	         */
-	        function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
-	            var url,
-	                pluginModule,
-	                suffix,
-	                nameParts,
-	                prefix = null,
-	                parentName = parentModuleMap ? parentModuleMap.name : null,
-	                originalName = name,
-	                isDefine = true,
-	                normalizedName = '';
-
-	            //If no name, then it means it is a require call, generate an
-	            //internal name.
-	            if (!name) {
-	                isDefine = false;
-	                name = '_@r' + (requireCounter += 1);
-	            }
-
-	            nameParts = splitPrefix(name);
-	            prefix = nameParts[0];
-	            name = nameParts[1];
-
-	            if (prefix) {
-	                prefix = normalize(prefix, parentName, applyMap);
-	                pluginModule = getOwn(_defined, prefix);
-	            }
-
-	            //Account for relative paths if there is a base name.
-	            if (name) {
-	                if (prefix) {
-	                    if (isNormalized) {
-	                        normalizedName = name;
-	                    } else if (pluginModule && pluginModule.normalize) {
-	                        //Plugin is loaded, use its normalize method.
-	                        normalizedName = pluginModule.normalize(name, function (name) {
-	                            return normalize(name, parentName, applyMap);
-	                        });
-	                    } else {
-	                        // If nested plugin references, then do not try to
-	                        // normalize, as it will not normalize correctly. This
-	                        // places a restriction on resourceIds, and the longer
-	                        // term solution is not to normalize until plugins are
-	                        // loaded and all normalizations to allow for async
-	                        // loading of a loader plugin. But for now, fixes the
-	                        // common uses. Details in #1131
-	                        normalizedName = name.indexOf('!') === -1 ? normalize(name, parentName, applyMap) : name;
-	                    }
-	                } else {
-	                    //A regular module.
-	                    normalizedName = normalize(name, parentName, applyMap);
-
-	                    //Normalized name may be a plugin ID due to map config
-	                    //application in normalize. The map config values must
-	                    //already be normalized, so do not need to redo that part.
-	                    nameParts = splitPrefix(normalizedName);
-	                    prefix = nameParts[0];
-	                    normalizedName = nameParts[1];
-	                    isNormalized = true;
-
-	                    url = context.nameToUrl(normalizedName);
-	                }
-	            }
-
-	            //If the id is a plugin id that cannot be determined if it needs
-	            //normalization, stamp it with a unique ID so two matching relative
-	            //ids that may conflict can be separate.
-	            suffix = prefix && !pluginModule && !isNormalized ? '_unnormalized' + (unnormalizedCounter += 1) : '';
-
-	            return {
-	                prefix: prefix,
-	                name: normalizedName,
-	                parentMap: parentModuleMap,
-	                unnormalized: !!suffix,
-	                url: url,
-	                originalName: originalName,
-	                isDefine: isDefine,
-	                id: (prefix ? prefix + '!' + normalizedName : normalizedName) + suffix
-	            };
-	        }
-
-	        function getModule(depMap) {
-	            var id = depMap.id,
-	                mod = getOwn(registry, id);
-
-	            if (!mod) {
-	                mod = registry[id] = new context.Module(depMap);
-	            }
-
-	            return mod;
-	        }
-
-	        function on(depMap, name, fn) {
-	            var id = depMap.id,
-	                mod = getOwn(registry, id);
-
-	            if (hasProp(_defined, id) && (!mod || mod.defineEmitComplete)) {
-	                if (name === 'defined') {
-	                    fn(_defined[id]);
-	                }
-	            } else {
-	                mod = getModule(depMap);
-	                if (mod.error && name === 'error') {
-	                    fn(mod.error);
-	                } else {
-	                    mod.on(name, fn);
-	                }
-	            }
-	        }
-
-	        function onError(err, errback) {
-	            var ids = err.requireModules,
-	                notified = false;
-
-	            if (errback) {
-	                errback(err);
-	            } else {
-	                each(ids, function (id) {
-	                    var mod = getOwn(registry, id);
-	                    if (mod) {
-	                        //Set error on module, so it skips timeout checks.
-	                        mod.error = err;
-	                        if (mod.events.error) {
-	                            notified = true;
-	                            mod.emit('error', err);
-	                        }
-	                    }
-	                });
-
-	                if (!notified) {
-	                    req.onError(err);
-	                }
-	            }
-	        }
-
-	        /**
-	         * Internal method to transfer globalQueue items to this context's
-	         * defQueue.
-	         */
-	        function takeGlobalQueue() {
-	            //Push all the globalDefQueue items into the context's defQueue
-	            if (globalDefQueue.length) {
-	                each(globalDefQueue, function (queueItem) {
-	                    var id = queueItem[0];
-	                    if (typeof id === 'string') {
-	                        context.defQueueMap[id] = true;
-	                    }
-	                    defQueue.push(queueItem);
-	                });
-	                globalDefQueue = [];
-	            }
-	        }
-
-	        handlers = {
-	            'require': function require(mod) {
-	                if (mod.require) {
-	                    return mod.require;
-	                } else {
-	                    return mod.require = context.makeRequire(mod.map);
-	                }
-	            },
-	            'exports': function exports(mod) {
-	                mod.usingExports = true;
-	                if (mod.map.isDefine) {
-	                    if (mod.exports) {
-	                        return _defined[mod.map.id] = mod.exports;
-	                    } else {
-	                        return mod.exports = _defined[mod.map.id] = {};
-	                    }
-	                }
-	            },
-	            'module': function module(mod) {
-	                if (mod.module) {
-	                    return mod.module;
-	                } else {
-	                    return mod.module = {
-	                        id: mod.map.id,
-	                        uri: mod.map.url,
-	                        config: function config() {
-	                            return getOwn(_config.config, mod.map.id) || {};
-	                        },
-	                        exports: mod.exports || (mod.exports = {})
-	                    };
-	                }
-	            }
-	        };
-
-	        function cleanRegistry(id) {
-	            //Clean up machinery used for waiting modules.
-	            delete registry[id];
-	            delete enabledRegistry[id];
-	        }
-
-	        function breakCycle(mod, traced, processed) {
-	            var id = mod.map.id;
-
-	            if (mod.error) {
-	                mod.emit('error', mod.error);
-	            } else {
-	                traced[id] = true;
-	                each(mod.depMaps, function (depMap, i) {
-	                    var depId = depMap.id,
-	                        dep = getOwn(registry, depId);
-
-	                    //Only force things that have not completed
-	                    //being defined, so still in the registry,
-	                    //and only if it has not been matched up
-	                    //in the module already.
-	                    if (dep && !mod.depMatched[i] && !processed[depId]) {
-	                        if (getOwn(traced, depId)) {
-	                            mod.defineDep(i, _defined[depId]);
-	                            mod.check(); //pass false?
-	                        } else {
-	                            breakCycle(dep, traced, processed);
-	                        }
-	                    }
-	                });
-	                processed[id] = true;
-	            }
-	        }
-
-	        function checkLoaded() {
-	            var err,
-	                usingPathFallback,
-	                waitInterval = _config.waitSeconds * 1000,
-
-	            //It is possible to disable the wait interval by using waitSeconds of 0.
-	            expired = waitInterval && context.startTime + waitInterval < new Date().getTime(),
-	                noLoads = [],
-	                reqCalls = [],
-	                stillLoading = false,
-	                needCycleCheck = true;
-
-	            //Do not bother if this call was a result of a cycle break.
-	            if (inCheckLoaded) {
-	                return;
-	            }
-
-	            inCheckLoaded = true;
-
-	            //Figure out the state of all the modules.
-	            eachProp(enabledRegistry, function (mod) {
-	                var map = mod.map,
-	                    modId = map.id;
-
-	                //Skip things that are not enabled or in error state.
-	                if (!mod.enabled) {
-	                    return;
-	                }
-
-	                if (!map.isDefine) {
-	                    reqCalls.push(mod);
-	                }
-
-	                if (!mod.error) {
-	                    //If the module should be executed, and it has not
-	                    //been inited and time is up, remember it.
-	                    if (!mod.inited && expired) {
-	                        if (hasPathFallback(modId)) {
-	                            usingPathFallback = true;
-	                            stillLoading = true;
-	                        } else {
-	                            noLoads.push(modId);
-	                            removeScript(modId);
-	                        }
-	                    } else if (!mod.inited && mod.fetched && map.isDefine) {
-	                        stillLoading = true;
-	                        if (!map.prefix) {
-	                            //No reason to keep looking for unfinished
-	                            //loading. If the only stillLoading is a
-	                            //plugin resource though, keep going,
-	                            //because it may be that a plugin resource
-	                            //is waiting on a non-plugin cycle.
-	                            return needCycleCheck = false;
-	                        }
-	                    }
-	                }
-	            });
-
-	            if (expired && noLoads.length) {
-	                //If wait time expired, throw error of unloaded modules.
-	                err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
-	                err.contextName = context.contextName;
-	                return onError(err);
-	            }
-
-	            //Not expired, check for a cycle.
-	            if (needCycleCheck) {
-	                each(reqCalls, function (mod) {
-	                    breakCycle(mod, {}, {});
-	                });
-	            }
-
-	            //If still waiting on loads, and the waiting load is something
-	            //other than a plugin resource, or there are still outstanding
-	            //scripts, then just try back later.
-	            if ((!expired || usingPathFallback) && stillLoading) {
-	                //Something is still waiting to load. Wait for it, but only
-	                //if a timeout is not already in effect.
-	                if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
-	                    checkLoadedTimeoutId = setTimeout(function () {
-	                        checkLoadedTimeoutId = 0;
-	                        checkLoaded();
-	                    }, 50);
-	                }
-	            }
-
-	            inCheckLoaded = false;
-	        }
-
-	        Module = function Module(map) {
-	            this.events = getOwn(undefEvents, map.id) || {};
-	            this.map = map;
-	            this.shim = getOwn(_config.shim, map.id);
-	            this.depExports = [];
-	            this.depMaps = [];
-	            this.depMatched = [];
-	            this.pluginMaps = {};
-	            this.depCount = 0;
-
-	            /* this.exports this.factory
-	               this.depMaps = [],
-	               this.enabled, this.fetched
-	            */
-	        };
-
-	        Module.prototype = {
-	            init: function init(depMaps, factory, errback, options) {
-	                options = options || {};
-
-	                //Do not do more inits if already done. Can happen if there
-	                //are multiple define calls for the same module. That is not
-	                //a normal, common case, but it is also not unexpected.
-	                if (this.inited) {
-	                    return;
-	                }
-
-	                this.factory = factory;
-
-	                if (errback) {
-	                    //Register for errors on this module.
-	                    this.on('error', errback);
-	                } else if (this.events.error) {
-	                    //If no errback already, but there are error listeners
-	                    //on this module, set up an errback to pass to the deps.
-	                    errback = bind(this, function (err) {
-	                        this.emit('error', err);
-	                    });
-	                }
-
-	                //Do a copy of the dependency array, so that
-	                //source inputs are not modified. For example
-	                //"shim" deps are passed in here directly, and
-	                //doing a direct modification of the depMaps array
-	                //would affect that config.
-	                this.depMaps = depMaps && depMaps.slice(0);
-
-	                this.errback = errback;
-
-	                //Indicate this module has be initialized
-	                this.inited = true;
-
-	                this.ignore = options.ignore;
-
-	                //Could have option to init this module in enabled mode,
-	                //or could have been previously marked as enabled. However,
-	                //the dependencies are not known until init is called. So
-	                //if enabled previously, now trigger dependencies as enabled.
-	                if (options.enabled || this.enabled) {
-	                    //Enable this module and dependencies.
-	                    //Will call this.check()
-	                    this.enable();
-	                } else {
-	                    this.check();
-	                }
-	            },
-
-	            defineDep: function defineDep(i, depExports) {
-	                //Because of cycles, defined callback for a given
-	                //export can be called more than once.
-	                if (!this.depMatched[i]) {
-	                    this.depMatched[i] = true;
-	                    this.depCount -= 1;
-	                    this.depExports[i] = depExports;
-	                }
-	            },
-
-	            fetch: function fetch() {
-	                if (this.fetched) {
-	                    return;
-	                }
-	                this.fetched = true;
-
-	                context.startTime = new Date().getTime();
-
-	                var map = this.map;
-
-	                //If the manager is for a plugin managed resource,
-	                //ask the plugin to load it now.
-	                if (this.shim) {
-	                    context.makeRequire(this.map, {
-	                        enableBuildCallback: true
-	                    })(this.shim.deps || [], bind(this, function () {
-	                        return map.prefix ? this.callPlugin() : this.load();
-	                    }));
-	                } else {
-	                    //Regular dependency.
-	                    return map.prefix ? this.callPlugin() : this.load();
-	                }
-	            },
-
-	            load: function load() {
-	                var url = this.map.url;
-
-	                //Regular dependency.
-	                if (!urlFetched[url]) {
-	                    urlFetched[url] = true;
-	                    context.load(this.map.id, url);
-	                }
-	            },
-
-	            /**
-	             * Checks if the module is ready to define itself, and if so,
-	             * define it.
-	             */
-	            check: function check() {
-	                if (!this.enabled || this.enabling) {
-	                    return;
-	                }
-
-	                var err,
-	                    cjsModule,
-	                    id = this.map.id,
-	                    depExports = this.depExports,
-	                    exports = this.exports,
-	                    factory = this.factory;
-
-	                if (!this.inited) {
-	                    // Only fetch if not already in the defQueue.
-	                    if (!hasProp(context.defQueueMap, id)) {
-	                        this.fetch();
-	                    }
-	                } else if (this.error) {
-	                    this.emit('error', this.error);
-	                } else if (!this.defining) {
-	                    //The factory could trigger another require call
-	                    //that would result in checking this module to
-	                    //define itself again. If already in the process
-	                    //of doing that, skip this work.
-	                    this.defining = true;
-
-	                    if (this.depCount < 1 && !this.defined) {
-	                        if (isFunction(factory)) {
-	                            //If there is an error listener, favor passing
-	                            //to that instead of throwing an error. However,
-	                            //only do it for define()'d  modules. require
-	                            //errbacks should not be called for failures in
-	                            //their callbacks (#699). However if a global
-	                            //onError is set, use that.
-	                            if (this.events.error && this.map.isDefine || req.onError !== defaultOnError) {
-	                                try {
-	                                    exports = context.execCb(id, factory, depExports, exports);
-	                                } catch (e) {
-	                                    err = e;
-	                                }
-	                            } else {
-	                                exports = context.execCb(id, factory, depExports, exports);
-	                            }
-
-	                            // Favor return value over exports. If node/cjs in play,
-	                            // then will not have a return value anyway. Favor
-	                            // module.exports assignment over exports object.
-	                            if (this.map.isDefine && exports === undefined) {
-	                                cjsModule = this.module;
-	                                if (cjsModule) {
-	                                    exports = cjsModule.exports;
-	                                } else if (this.usingExports) {
-	                                    //exports already set the defined value.
-	                                    exports = this.exports;
-	                                }
-	                            }
-
-	                            if (err) {
-	                                err.requireMap = this.map;
-	                                err.requireModules = this.map.isDefine ? [this.map.id] : null;
-	                                err.requireType = this.map.isDefine ? 'define' : 'require';
-	                                return onError(this.error = err);
-	                            }
-	                        } else {
-	                            //Just a literal value
-	                            exports = factory;
-	                        }
-
-	                        this.exports = exports;
-
-	                        if (this.map.isDefine && !this.ignore) {
-	                            _defined[id] = exports;
-
-	                            if (req.onResourceLoad) {
-	                                var resLoadMaps = [];
-	                                each(this.depMaps, function (depMap) {
-	                                    resLoadMaps.push(depMap.normalizedMap || depMap);
-	                                });
-	                                req.onResourceLoad(context, this.map, resLoadMaps);
-	                            }
-	                        }
-
-	                        //Clean up
-	                        cleanRegistry(id);
-
-	                        this.defined = true;
-	                    }
-
-	                    //Finished the define stage. Allow calling check again
-	                    //to allow define notifications below in the case of a
-	                    //cycle.
-	                    this.defining = false;
-
-	                    if (this.defined && !this.defineEmitted) {
-	                        this.defineEmitted = true;
-	                        this.emit('defined', this.exports);
-	                        this.defineEmitComplete = true;
-	                    }
-	                }
-	            },
-
-	            callPlugin: function callPlugin() {
-	                var map = this.map,
-	                    id = map.id,
-
-	                //Map already normalized the prefix.
-	                pluginMap = makeModuleMap(map.prefix);
-
-	                //Mark this as a dependency for this plugin, so it
-	                //can be traced for cycles.
-	                this.depMaps.push(pluginMap);
-
-	                on(pluginMap, 'defined', bind(this, function (plugin) {
-	                    var load,
-	                        normalizedMap,
-	                        normalizedMod,
-	                        bundleId = getOwn(bundlesMap, this.map.id),
-	                        name = this.map.name,
-	                        parentName = this.map.parentMap ? this.map.parentMap.name : null,
-	                        localRequire = context.makeRequire(map.parentMap, {
-	                        enableBuildCallback: true
-	                    });
-
-	                    //If current map is not normalized, wait for that
-	                    //normalized name to load instead of continuing.
-	                    if (this.map.unnormalized) {
-	                        //Normalize the ID if the plugin allows it.
-	                        if (plugin.normalize) {
-	                            name = plugin.normalize(name, function (name) {
-	                                return normalize(name, parentName, true);
-	                            }) || '';
-	                        }
-
-	                        //prefix and name should already be normalized, no need
-	                        //for applying map config again either.
-	                        normalizedMap = makeModuleMap(map.prefix + '!' + name, this.map.parentMap, true);
-	                        on(normalizedMap, 'defined', bind(this, function (value) {
-	                            this.map.normalizedMap = normalizedMap;
-	                            this.init([], function () {
-	                                return value;
-	                            }, null, {
-	                                enabled: true,
-	                                ignore: true
-	                            });
-	                        }));
-
-	                        normalizedMod = getOwn(registry, normalizedMap.id);
-	                        if (normalizedMod) {
-	                            //Mark this as a dependency for this plugin, so it
-	                            //can be traced for cycles.
-	                            this.depMaps.push(normalizedMap);
-
-	                            if (this.events.error) {
-	                                normalizedMod.on('error', bind(this, function (err) {
-	                                    this.emit('error', err);
-	                                }));
-	                            }
-	                            normalizedMod.enable();
-	                        }
-
-	                        return;
-	                    }
-
-	                    //If a paths config, then just load that file instead to
-	                    //resolve the plugin, as it is built into that paths layer.
-	                    if (bundleId) {
-	                        this.map.url = context.nameToUrl(bundleId);
-	                        this.load();
-	                        return;
-	                    }
-
-	                    load = bind(this, function (value) {
-	                        this.init([], function () {
-	                            return value;
-	                        }, null, {
-	                            enabled: true
-	                        });
-	                    });
-
-	                    load.error = bind(this, function (err) {
-	                        this.inited = true;
-	                        this.error = err;
-	                        err.requireModules = [id];
-
-	                        //Remove temp unnormalized modules for this module,
-	                        //since they will never be resolved otherwise now.
-	                        eachProp(registry, function (mod) {
-	                            if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
-	                                cleanRegistry(mod.map.id);
-	                            }
-	                        });
-
-	                        onError(err);
-	                    });
-
-	                    //Allow plugins to load other code without having to know the
-	                    //context or how to 'complete' the load.
-	                    load.fromText = bind(this, function (text, textAlt) {
-	                        /*jslint evil: true */
-	                        var moduleName = map.name,
-	                            moduleMap = makeModuleMap(moduleName),
-	                            hasInteractive = useInteractive;
-
-	                        //As of 2.1.0, support just passing the text, to reinforce
-	                        //fromText only being called once per resource. Still
-	                        //support old style of passing moduleName but discard
-	                        //that moduleName in favor of the internal ref.
-	                        if (textAlt) {
-	                            text = textAlt;
-	                        }
-
-	                        //Turn off interactive script matching for IE for any define
-	                        //calls in the text, then turn it back on at the end.
-	                        if (hasInteractive) {
-	                            useInteractive = false;
-	                        }
-
-	                        //Prime the system by creating a module instance for
-	                        //it.
-	                        getModule(moduleMap);
-
-	                        //Transfer any config to this other module.
-	                        if (hasProp(_config.config, id)) {
-	                            _config.config[moduleName] = _config.config[id];
-	                        }
-
-	                        try {
-	                            req.exec(text);
-	                        } catch (e) {
-	                            return onError(makeError('fromtexteval', 'fromText eval for ' + id + ' failed: ' + e, e, [id]));
-	                        }
-
-	                        if (hasInteractive) {
-	                            useInteractive = true;
-	                        }
-
-	                        //Mark this as a dependency for the plugin
-	                        //resource
-	                        this.depMaps.push(moduleMap);
-
-	                        //Support anonymous modules.
-	                        context.completeLoad(moduleName);
-
-	                        //Bind the value of that module to the value for this
-	                        //resource ID.
-	                        localRequire([moduleName], load);
-	                    });
-
-	                    //Use parentName here since the plugin's name is not reliable,
-	                    //could be some weird string with no path that actually wants to
-	                    //reference the parentName's path.
-	                    plugin.load(map.name, localRequire, load, _config);
-	                }));
-
-	                context.enable(pluginMap, this);
-	                this.pluginMaps[pluginMap.id] = pluginMap;
-	            },
-
-	            enable: function enable() {
-	                enabledRegistry[this.map.id] = this;
-	                this.enabled = true;
-
-	                //Set flag mentioning that the module is enabling,
-	                //so that immediate calls to the defined callbacks
-	                //for dependencies do not trigger inadvertent load
-	                //with the depCount still being zero.
-	                this.enabling = true;
-
-	                //Enable each dependency
-	                each(this.depMaps, bind(this, function (depMap, i) {
-	                    var id, mod, handler;
-
-	                    if (typeof depMap === 'string') {
-	                        //Dependency needs to be converted to a depMap
-	                        //and wired up to this module.
-	                        depMap = makeModuleMap(depMap, this.map.isDefine ? this.map : this.map.parentMap, false, !this.skipMap);
-	                        this.depMaps[i] = depMap;
-
-	                        handler = getOwn(handlers, depMap.id);
-
-	                        if (handler) {
-	                            this.depExports[i] = handler(this);
-	                            return;
-	                        }
-
-	                        this.depCount += 1;
-
-	                        on(depMap, 'defined', bind(this, function (depExports) {
-	                            if (this.undefed) {
-	                                return;
-	                            }
-	                            this.defineDep(i, depExports);
-	                            this.check();
-	                        }));
-
-	                        if (this.errback) {
-	                            on(depMap, 'error', bind(this, this.errback));
-	                        } else if (this.events.error) {
-	                            // No direct errback on this module, but something
-	                            // else is listening for errors, so be sure to
-	                            // propagate the error correctly.
-	                            on(depMap, 'error', bind(this, function (err) {
-	                                this.emit('error', err);
-	                            }));
-	                        }
-	                    }
-
-	                    id = depMap.id;
-	                    mod = registry[id];
-
-	                    //Skip special modules like 'require', 'exports', 'module'
-	                    //Also, don't call enable if it is already enabled,
-	                    //important in circular dependency cases.
-	                    if (!hasProp(handlers, id) && mod && !mod.enabled) {
-	                        context.enable(depMap, this);
-	                    }
-	                }));
-
-	                //Enable each plugin that is used in
-	                //a dependency
-	                eachProp(this.pluginMaps, bind(this, function (pluginMap) {
-	                    var mod = getOwn(registry, pluginMap.id);
-	                    if (mod && !mod.enabled) {
-	                        context.enable(pluginMap, this);
-	                    }
-	                }));
-
-	                this.enabling = false;
-
-	                this.check();
-	            },
-
-	            on: function on(name, cb) {
-	                var cbs = this.events[name];
-	                if (!cbs) {
-	                    cbs = this.events[name] = [];
-	                }
-	                cbs.push(cb);
-	            },
-
-	            emit: function emit(name, evt) {
-	                each(this.events[name], function (cb) {
-	                    cb(evt);
-	                });
-	                if (name === 'error') {
-	                    //Now that the error handler was triggered, remove
-	                    //the listeners, since this broken Module instance
-	                    //can stay around for a while in the registry.
-	                    delete this.events[name];
-	                }
-	            }
-	        };
-
-	        function callGetModule(args) {
-	            //Skip modules already defined.
-	            if (!hasProp(_defined, args[0])) {
-	                getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
-	            }
-	        }
-
-	        function removeListener(node, func, name, ieName) {
-	            //Favor detachEvent because of IE9
-	            //issue, see attachEvent/addEventListener comment elsewhere
-	            //in this file.
-	            if (node.detachEvent && !isOpera) {
-	                //Probably IE. If not it will throw an error, which will be
-	                //useful to know.
-	                if (ieName) {
-	                    node.detachEvent(ieName, func);
-	                }
-	            } else {
-	                node.removeEventListener(name, func, false);
-	            }
-	        }
-
-	        /**
-	         * Given an event from a script node, get the requirejs info from it,
-	         * and then removes the event listeners on the node.
-	         * @param {Event} evt
-	         * @returns {Object}
-	         */
-	        function getScriptData(evt) {
-	            //Using currentTarget instead of target for Firefox 2.0's sake. Not
-	            //all old browsers will be supported, but this one was easy enough
-	            //to support and still makes sense.
-	            var node = evt.currentTarget || evt.srcElement;
-
-	            //Remove the listeners once here.
-	            removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
-	            removeListener(node, context.onScriptError, 'error');
-
-	            return {
-	                node: node,
-	                id: node && node.getAttribute('data-requiremodule')
-	            };
-	        }
-
-	        function intakeDefines() {
-	            var args;
-
-	            //Any defined modules in the global queue, intake them now.
-	            takeGlobalQueue();
-
-	            //Make sure any remaining defQueue items get properly processed.
-	            while (defQueue.length) {
-	                args = defQueue.shift();
-	                if (args[0] === null) {
-	                    return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
-	                } else {
-	                    //args are id, deps, factory. Should be normalized by the
-	                    //define() function.
-	                    callGetModule(args);
-	                }
-	            }
-	            context.defQueueMap = {};
-	        }
-
-	        context = {
-	            config: _config,
-	            contextName: contextName,
-	            registry: registry,
-	            defined: _defined,
-	            urlFetched: urlFetched,
-	            defQueue: defQueue,
-	            defQueueMap: {},
-	            Module: Module,
-	            makeModuleMap: makeModuleMap,
-	            nextTick: req.nextTick,
-	            onError: onError,
-
-	            /**
-	             * Set a configuration for the context.
-	             * @param {Object} cfg config object to integrate.
-	             */
-	            configure: function configure(cfg) {
-	                //Make sure the baseUrl ends in a slash.
-	                if (cfg.baseUrl) {
-	                    if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
-	                        cfg.baseUrl += '/';
-	                    }
-	                }
-
-	                // Convert old style urlArgs string to a function.
-	                if (typeof cfg.urlArgs === 'string') {
-	                    var urlArgs = cfg.urlArgs;
-	                    cfg.urlArgs = function (id, url) {
-	                        return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
-	                    };
-	                }
-
-	                //Save off the paths since they require special processing,
-	                //they are additive.
-	                var shim = _config.shim,
-	                    objs = {
-	                    paths: true,
-	                    bundles: true,
-	                    config: true,
-	                    map: true
-	                };
-
-	                eachProp(cfg, function (value, prop) {
-	                    if (objs[prop]) {
-	                        if (!_config[prop]) {
-	                            _config[prop] = {};
-	                        }
-	                        mixin(_config[prop], value, true, true);
-	                    } else {
-	                        _config[prop] = value;
-	                    }
-	                });
-
-	                //Reverse map the bundles
-	                if (cfg.bundles) {
-	                    eachProp(cfg.bundles, function (value, prop) {
-	                        each(value, function (v) {
-	                            if (v !== prop) {
-	                                bundlesMap[v] = prop;
-	                            }
-	                        });
-	                    });
-	                }
-
-	                //Merge shim
-	                if (cfg.shim) {
-	                    eachProp(cfg.shim, function (value, id) {
-	                        //Normalize the structure
-	                        if (isArray(value)) {
-	                            value = {
-	                                deps: value
-	                            };
-	                        }
-	                        if ((value.exports || value.init) && !value.exportsFn) {
-	                            value.exportsFn = context.makeShimExports(value);
-	                        }
-	                        shim[id] = value;
-	                    });
-	                    _config.shim = shim;
-	                }
-
-	                //Adjust packages if necessary.
-	                if (cfg.packages) {
-	                    each(cfg.packages, function (pkgObj) {
-	                        var location, name;
-
-	                        pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
-
-	                        name = pkgObj.name;
-	                        location = pkgObj.location;
-	                        if (location) {
-	                            _config.paths[name] = pkgObj.location;
-	                        }
-
-	                        //Save pointer to main module ID for pkg name.
-	                        //Remove leading dot in main, so main paths are normalized,
-	                        //and remove any trailing .js, since different package
-	                        //envs have different conventions: some use a module name,
-	                        //some use a file name.
-	                        _config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main').replace(currDirRegExp, '').replace(jsSuffixRegExp, '');
-	                    });
-	                }
-
-	                //If there are any "waiting to execute" modules in the registry,
-	                //update the maps for them, since their info, like URLs to load,
-	                //may have changed.
-	                eachProp(registry, function (mod, id) {
-	                    //If module already has init called, since it is too
-	                    //late to modify them, and ignore unnormalized ones
-	                    //since they are transient.
-	                    if (!mod.inited && !mod.map.unnormalized) {
-	                        mod.map = makeModuleMap(id, null, true);
-	                    }
-	                });
-
-	                //If a deps array or a config callback is specified, then call
-	                //require with those args. This is useful when require is defined as a
-	                //config object before require.js is loaded.
-	                if (cfg.deps || cfg.callback) {
-	                    context.require(cfg.deps || [], cfg.callback);
-	                }
-	            },
-
-	            makeShimExports: function makeShimExports(value) {
-	                function fn() {
-	                    var ret;
-	                    if (value.init) {
-	                        ret = value.init.apply(global, arguments);
-	                    }
-	                    return ret || value.exports && getGlobal(value.exports);
-	                }
-	                return fn;
-	            },
-
-	            makeRequire: function makeRequire(relMap, options) {
-	                options = options || {};
-
-	                function localRequire(deps, callback, errback) {
-	                    var id, map, requireMod;
-
-	                    if (options.enableBuildCallback && callback && isFunction(callback)) {
-	                        callback.__requireJsBuild = true;
-	                    }
-
-	                    if (typeof deps === 'string') {
-	                        if (isFunction(callback)) {
-	                            //Invalid call
-	                            return onError(makeError('requireargs', 'Invalid require call'), errback);
-	                        }
-
-	                        //If require|exports|module are requested, get the
-	                        //value for them from the special handlers. Caveat:
-	                        //this only works while module is being defined.
-	                        if (relMap && hasProp(handlers, deps)) {
-	                            return handlers[deps](registry[relMap.id]);
-	                        }
-
-	                        //Synchronous access to one module. If require.get is
-	                        //available (as in the Node adapter), prefer that.
-	                        if (req.get) {
-	                            return req.get(context, deps, relMap, localRequire);
-	                        }
-
-	                        //Normalize module name, if it contains . or ..
-	                        map = makeModuleMap(deps, relMap, false, true);
-	                        id = map.id;
-
-	                        if (!hasProp(_defined, id)) {
-	                            return onError(makeError('notloaded', 'Module name "' + id + '" has not been loaded yet for context: ' + contextName + (relMap ? '' : '. Use require([])')));
-	                        }
-	                        return _defined[id];
-	                    }
-
-	                    //Grab defines waiting in the global queue.
-	                    intakeDefines();
-
-	                    //Mark all the dependencies as needing to be loaded.
-	                    context.nextTick(function () {
-	                        //Some defines could have been added since the
-	                        //require call, collect them.
-	                        intakeDefines();
-
-	                        requireMod = getModule(makeModuleMap(null, relMap));
-
-	                        //Store if map config should be applied to this require
-	                        //call for dependencies.
-	                        requireMod.skipMap = options.skipMap;
-
-	                        requireMod.init(deps, callback, errback, {
-	                            enabled: true
-	                        });
-
-	                        checkLoaded();
-	                    });
-
-	                    return localRequire;
-	                }
-
-	                mixin(localRequire, {
-	                    isBrowser: isBrowser,
-
-	                    /**
-	                     * Converts a module name + .extension into an URL path.
-	                     * *Requires* the use of a module name. It does not support using
-	                     * plain URLs like nameToUrl.
-	                     */
-	                    toUrl: function toUrl(moduleNamePlusExt) {
-	                        var ext,
-	                            index = moduleNamePlusExt.lastIndexOf('.'),
-	                            segment = moduleNamePlusExt.split('/')[0],
-	                            isRelative = segment === '.' || segment === '..';
-
-	                        //Have a file extension alias, and it is not the
-	                        //dots from a relative path.
-	                        if (index !== -1 && (!isRelative || index > 1)) {
-	                            ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
-	                            moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
-	                        }
-
-	                        return context.nameToUrl(normalize(moduleNamePlusExt, relMap && relMap.id, true), ext, true);
-	                    },
-
-	                    defined: function defined(id) {
-	                        return hasProp(_defined, makeModuleMap(id, relMap, false, true).id);
-	                    },
-
-	                    specified: function specified(id) {
-	                        id = makeModuleMap(id, relMap, false, true).id;
-	                        return hasProp(_defined, id) || hasProp(registry, id);
-	                    }
-	                });
-
-	                //Only allow undef on top level require calls
-	                if (!relMap) {
-	                    localRequire.undef = function (id) {
-	                        //Bind any waiting define() calls to this context,
-	                        //fix for #408
-	                        takeGlobalQueue();
-
-	                        var map = makeModuleMap(id, relMap, true),
-	                            mod = getOwn(registry, id);
-
-	                        mod.undefed = true;
-	                        removeScript(id);
-
-	                        delete _defined[id];
-	                        delete urlFetched[map.url];
-	                        delete undefEvents[id];
-
-	                        //Clean queued defines too. Go backwards
-	                        //in array so that the splices do not
-	                        //mess up the iteration.
-	                        eachReverse(defQueue, function (args, i) {
-	                            if (args[0] === id) {
-	                                defQueue.splice(i, 1);
-	                            }
-	                        });
-	                        delete context.defQueueMap[id];
-
-	                        if (mod) {
-	                            //Hold on to listeners in case the
-	                            //module will be attempted to be reloaded
-	                            //using a different config.
-	                            if (mod.events.defined) {
-	                                undefEvents[id] = mod.events;
-	                            }
-
-	                            cleanRegistry(id);
-	                        }
-	                    };
-	                }
-
-	                return localRequire;
-	            },
-
-	            /**
-	             * Called to enable a module if it is still in the registry
-	             * awaiting enablement. A second arg, parent, the parent module,
-	             * is passed in for context, when this method is overridden by
-	             * the optimizer. Not shown here to keep code compact.
-	             */
-	            enable: function enable(depMap) {
-	                var mod = getOwn(registry, depMap.id);
-	                if (mod) {
-	                    getModule(depMap).enable();
-	                }
-	            },
-
-	            /**
-	             * Internal method used by environment adapters to complete a load event.
-	             * A load event could be a script load or just a load pass from a synchronous
-	             * load call.
-	             * @param {String} moduleName the name of the module to potentially complete.
-	             */
-	            completeLoad: function completeLoad(moduleName) {
-	                var found,
-	                    args,
-	                    mod,
-	                    shim = getOwn(_config.shim, moduleName) || {},
-	                    shExports = shim.exports;
-
-	                takeGlobalQueue();
-
-	                while (defQueue.length) {
-	                    args = defQueue.shift();
-	                    if (args[0] === null) {
-	                        args[0] = moduleName;
-	                        //If already found an anonymous module and bound it
-	                        //to this name, then this is some other anon module
-	                        //waiting for its completeLoad to fire.
-	                        if (found) {
-	                            break;
-	                        }
-	                        found = true;
-	                    } else if (args[0] === moduleName) {
-	                        //Found matching define call for this script!
-	                        found = true;
-	                    }
-
-	                    callGetModule(args);
-	                }
-	                context.defQueueMap = {};
-
-	                //Do this after the cycle of callGetModule in case the result
-	                //of those calls/init calls changes the registry.
-	                mod = getOwn(registry, moduleName);
-
-	                if (!found && !hasProp(_defined, moduleName) && mod && !mod.inited) {
-	                    if (_config.enforceDefine && (!shExports || !getGlobal(shExports))) {
-	                        if (hasPathFallback(moduleName)) {
-	                            return;
-	                        } else {
-	                            return onError(makeError('nodefine', 'No define call for ' + moduleName, null, [moduleName]));
-	                        }
-	                    } else {
-	                        //A script that does not call define(), so just simulate
-	                        //the call for it.
-	                        callGetModule([moduleName, shim.deps || [], shim.exportsFn]);
-	                    }
-	                }
-
-	                checkLoaded();
-	            },
-
-	            /**
-	             * Converts a module name to a file path. Supports cases where
-	             * moduleName may actually be just an URL.
-	             * Note that it **does not** call normalize on the moduleName,
-	             * it is assumed to have already been normalized. This is an
-	             * internal API, not a public one. Use toUrl for the public API.
-	             */
-	            nameToUrl: function nameToUrl(moduleName, ext, skipExt) {
-	                var paths,
-	                    syms,
-	                    i,
-	                    parentModule,
-	                    url,
-	                    parentPath,
-	                    bundleId,
-	                    pkgMain = getOwn(_config.pkgs, moduleName);
-
-	                if (pkgMain) {
-	                    moduleName = pkgMain;
-	                }
-
-	                bundleId = getOwn(bundlesMap, moduleName);
-
-	                if (bundleId) {
-	                    return context.nameToUrl(bundleId, ext, skipExt);
-	                }
-
-	                //If a colon is in the URL, it indicates a protocol is used and it is just
-	                //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
-	                //or ends with .js, then assume the user meant to use an url and not a module id.
-	                //The slash is important for protocol-less URLs as well as full paths.
-	                if (req.jsExtRegExp.test(moduleName)) {
-	                    //Just a plain path, not module name lookup, so just return it.
-	                    //Add extension if it is included. This is a bit wonky, only non-.js things pass
-	                    //an extension, this method probably needs to be reworked.
-	                    url = moduleName + (ext || '');
-	                } else {
-	                    //A module that needs to be converted to a path.
-	                    paths = _config.paths;
-
-	                    syms = moduleName.split('/');
-	                    //For each module name segment, see if there is a path
-	                    //registered for it. Start with most specific name
-	                    //and work up from it.
-	                    for (i = syms.length; i > 0; i -= 1) {
-	                        parentModule = syms.slice(0, i).join('/');
-
-	                        parentPath = getOwn(paths, parentModule);
-	                        if (parentPath) {
-	                            //If an array, it means there are a few choices,
-	                            //Choose the one that is desired
-	                            if (isArray(parentPath)) {
-	                                parentPath = parentPath[0];
-	                            }
-	                            syms.splice(0, i, parentPath);
-	                            break;
-	                        }
-	                    }
-
-	                    //Join the path parts together, then figure out if baseUrl is needed.
-	                    url = syms.join('/');
-	                    //支持用户自己写.js文件后缀，如：require('path/to/app.js');
-	                    url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
-	                    url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
-	                }
-
-	                return _config.urlArgs && !/^blob\:/.test(url) ? url + _config.urlArgs(moduleName, url) : url;
-	            },
-
-	            //Delegates to req.load. Broken out as a separate function to
-	            //allow overriding in the optimizer.
-	            load: function load(id, url) {
-	                req.load(context, id, url);
-	            },
-
-	            /**
-	             * Executes a module callback function. Broken out as a separate function
-	             * solely to allow the build system to sequence the files in the built
-	             * layer in the right sequence.
-	             *
-	             * @private
-	             */
-	            execCb: function execCb(name, callback, args, exports) {
-	                // update at 2018-07-10 by liuzechun
-	                // 当符合以下条件时：
-	                //     1、不为依赖注入写法（define(['foo'], function(foo){})），此处的体现是name格式为`_@r5`
-	                //     2、不是仅包含require的回调函数
-	                // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
-	                var cbStr = callback.toString().slice(0, 50);
-	                if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
-	                    var uf = window._ufRegion && window._ufRegion[this.config.ufRegion || 'UF'] || window.UF;
-	                    args.unshift(uf);
-	                }
-	                return callback.apply(exports, args);
-	            },
-
-	            /**
-	             * callback for script loads, used to check status of loading.
-	             *
-	             * @param {Event} evt the event from the browser for the script
-	             * that was loaded.
-	             */
-	            onScriptLoad: function onScriptLoad(evt) {
-	                //Using currentTarget instead of target for Firefox 2.0's sake. Not
-	                //all old browsers will be supported, but this one was easy enough
-	                //to support and still makes sense.
-	                if (evt.type === 'load' || readyRegExp.test((evt.currentTarget || evt.srcElement).readyState)) {
-	                    //Reset interactive script so a script node is not held onto for
-	                    //to long.
-	                    interactiveScript = null;
-
-	                    //Pull out the name of the module and the context.
-	                    var data = getScriptData(evt);
-	                    context.completeLoad(data.id);
-	                }
-	            },
-
-	            /**
-	             * Callback for script errors.
-	             */
-	            onScriptError: function onScriptError(evt) {
-	                var data = getScriptData(evt);
-	                if (!hasPathFallback(data.id)) {
-	                    var parents = [];
-	                    eachProp(registry, function (value, key) {
-	                        if (key.indexOf('_@r') !== 0) {
-	                            each(value.depMaps, function (depMap) {
-	                                if (depMap.id === data.id) {
-	                                    parents.push(key);
-	                                    return true;
-	                                }
-	                            });
-	                        }
-	                    });
-	                    return onError(makeError('scripterror', 'Script error for "' + data.id + (parents.length ? '", needed by: ' + parents.join(', ') : '"'), evt, [data.id]));
-	                }
-	            }
-	        };
-
-	        context.require = context.makeRequire();
-	        return context;
-	    }
-
-	    /**
-	     * Main entry point.
-	     *
-	     * If the only argument to require is a string, then the module that
-	     * is represented by that string is fetched for the appropriate context.
-	     *
-	     * If the first argument is an array, then it will be treated as an array
-	     * of dependency string names to fetch. An optional function callback can
-	     * be specified to execute when all of those dependencies are available.
-	     *
-	     * Make a local req variable to help Caja compliance (it assumes things
-	     * on a require that are not standardized), and to give a short
-	     * name for minification/local scope use.
-	     */
-	    req = requirejs = function requirejs(deps, callback, errback, optional) {
-
-	        //Find the right context, use default
-	        var context,
-	            config,
-	            contextName = defContextName;
-
-	        // Determine if have config object in the call.
-	        if (!isArray(deps) && typeof deps !== 'string') {
-	            // deps is a config object
-	            config = deps;
-	            if (isArray(callback)) {
-	                // Adjust args if there are dependencies
-	                deps = callback;
-	                callback = errback;
-	                errback = optional;
-	            } else {
-	                deps = [];
-	            }
-	        }
-
-	        if (config && config.context) {
-	            contextName = config.context;
-	        }
-
-	        context = getOwn(contexts, contextName);
-	        if (!context) {
-	            context = contexts[contextName] = req.s.newContext(contextName);
-	        }
-
-	        if (config) {
-	            context.configure(config);
-	        }
-
-	        return context.require(deps, callback, errback);
-	    };
-
-	    /**
-	     * Support require.config() to make it easier to cooperate with other
-	     * AMD loaders on globally agreed names.
-	     */
-	    req.config = function (config) {
-	        // if the config is false, then prevent load requirejs to window
-	        // update at 2018-03-19 18:47 by liuzechun
-	        if (!!config) {
-	            window['define'] = window['_define'];
-	        }
-	        return req(config);
-	    };
-
-	    /**
-	     * Execute something after the current tick
-	     * of the event loop. Override for other envs
-	     * that have a better solution than setTimeout.
-	     * @param  {Function} fn function to execute later.
-	     */
-	    req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
-	        setTimeout(fn, 4);
-	    } : function (fn) {
-	        fn();
-	    };
-
-	    /**
-	     * Export require as a global, but only if it does not already exist.
-	     */
-	    if (!_require) {
-	        _require = req;
-	    }
-
-	    req.version = version;
-
-	    //Used to filter out dependencies that are already paths.
-	    req.jsExtRegExp = /^\/|:|\?|\.js$/;
-	    req.isBrowser = isBrowser;
-	    s = req.s = {
-	        contexts: contexts,
-	        newContext: newContext
-	    };
-
-	    //Create default context.
-	    req({});
-
-	    //Exports some context-sensitive methods on global require.
-	    each(['toUrl', 'undef', 'defined', 'specified'], function (prop) {
-	        //Reference from contexts instead of early binding to default context,
-	        //so that during builds, the latest instance of the default context
-	        //with its config gets used.
-	        req[prop] = function () {
-	            var ctx = contexts[defContextName];
-	            return ctx.require[prop].apply(ctx, arguments);
-	        };
-	    });
-
-	    if (isBrowser) {
-	        head = s.head = document.getElementsByTagName('head')[0];
-	        //If BASE tag is in play, using appendChild is a problem for IE6.
-	        //When that browser dies, this can be removed. Details in this jQuery bug:
-	        //http://dev.jquery.com/ticket/2709
-	        baseElement = document.getElementsByTagName('base')[0];
-	        if (baseElement) {
-	            head = s.head = baseElement.parentNode;
-	        }
-	    }
-
-	    /**
-	     * Any errors that require explicitly generates will be passed to this
-	     * function. Intercept/override it if you want custom error handling.
-	     * @param {Error} err the error object.
-	     */
-	    req.onError = defaultOnError;
-
-	    /**
-	     * Creates the node for the load command. Only used in browser envs.
-	     */
-	    req.createNode = function (config, moduleName, url) {
-	        var node = config.xhtml ? document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') : document.createElement('script');
-	        node.type = config.scriptType || 'text/javascript';
-	        node.charset = 'utf-8';
-	        node.async = true;
-	        return node;
-	    };
-
-	    /**
-	     * Does the request to load a module for the browser case.
-	     * Make this a separate function to allow other environments
-	     * to override it.
-	     *
-	     * @param {Object} context the require context to find state.
-	     * @param {String} moduleName the name of the module.
-	     * @param {Object} url the URL to the module.
-	     */
-	    req.load = function (context, moduleName, url) {
-	        var config = context && context.config || {},
-	            node;
-	        if (isBrowser) {
-	            //In the browser so use a script tag
-	            node = req.createNode(config, moduleName, url);
-
-	            node.setAttribute('data-requirecontext', context.contextName);
-	            node.setAttribute('data-requiremodule', moduleName);
-
-	            //Set up load listener. Test attachEvent first because IE9 has
-	            //a subtle issue in its addEventListener and script onload firings
-	            //that do not match the behavior of all other browsers with
-	            //addEventListener support, which fire the onload event for a
-	            //script right after the script execution. See:
-	            //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
-	            //UNFORTUNATELY Opera implements attachEvent but does not follow the script
-	            //script execution mode.
-	            if (node.attachEvent &&
-	            //Check if node.attachEvent is artificially added by custom script or
-	            //natively supported by browser
-	            //read https://github.com/requirejs/requirejs/issues/187
-	            //if we can NOT find [native code] then it must NOT natively supported.
-	            //in IE8, node.attachEvent does not have toString()
-	            //Note the test for "[native code" with no closing brace, see:
-	            //https://github.com/requirejs/requirejs/issues/273
-	            !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) && !isOpera) {
-	                //Probably IE. IE (at least 6-8) do not fire
-	                //script onload right after executing the script, so
-	                //we cannot tie the anonymous define call to a name.
-	                //However, IE reports the script as being in 'interactive'
-	                //readyState at the time of the define call.
-	                useInteractive = true;
-
-	                node.attachEvent('onreadystatechange', context.onScriptLoad);
-	                //It would be great to add an error handler here to catch
-	                //404s in IE9+. However, onreadystatechange will fire before
-	                //the error handler, so that does not help. If addEventListener
-	                //is used, then IE will fire error before load, but we cannot
-	                //use that pathway given the connect.microsoft.com issue
-	                //mentioned above about not doing the 'script execute,
-	                //then fire the script load event listener before execute
-	                //next script' that other browsers do.
-	                //Best hope: IE10 fixes the issues,
-	                //and then destroys all installs of IE 6-9.
-	                //node.attachEvent('onerror', context.onScriptError);
-	            } else {
-	                node.addEventListener('load', context.onScriptLoad, false);
-	                node.addEventListener('error', context.onScriptError, false);
-	            }
-	            node.src = url;
-
-	            //Calling onNodeCreated after all properties on the node have been
-	            //set, but before it is placed in the DOM.
-	            if (config.onNodeCreated) {
-	                config.onNodeCreated(node, config, moduleName, url);
-	            }
-
-	            //For some cache cases in IE 6-8, the script executes before the end
-	            //of the appendChild execution, so to tie an anonymous define
-	            //call to the module name (which is stored on the node), hold on
-	            //to a reference to this node, but clear after the DOM insertion.
-	            currentlyAddingScript = node;
-	            if (baseElement) {
-	                head.insertBefore(node, baseElement);
-	            } else {
-	                head.appendChild(node);
-	            }
-	            currentlyAddingScript = null;
-
-	            return node;
-	        } else if (isWebWorker) {
-	            try {
-	                //In a web worker, use importScripts. This is not a very
-	                //efficient use of importScripts, importScripts will block until
-	                //its script is downloaded and evaluated. However, if web workers
-	                //are in play, the expectation is that a build has been done so
-	                //that only one script needs to be loaded anyway. This may need
-	                //to be reevaluated if other use cases become common.
-
-	                // Post a task to the event loop to work around a bug in WebKit
-	                // where the worker gets garbage-collected after calling
-	                // importScripts(): https://webkit.org/b/153317
-	                setTimeout(function () {}, 0);
-	                importScripts(url);
-
-	                //Account for anonymous modules
-	                context.completeLoad(moduleName);
-	            } catch (e) {
-	                context.onError(makeError('importscripts', 'importScripts failed for ' + moduleName + ' at ' + url, e, [moduleName]));
-	            }
-	        }
-	    };
-
-	    function getInteractiveScript() {
-	        if (interactiveScript && interactiveScript.readyState === 'interactive') {
-	            return interactiveScript;
-	        }
-
-	        eachReverse(scripts(), function (script) {
-	            if (script.readyState === 'interactive') {
-	                return interactiveScript = script;
-	            }
-	        });
-	        return interactiveScript;
-	    }
-
-	    //Look for a data-main script attribute, which could also adjust the baseUrl.
-	    if (isBrowser && !cfg.skipDataMain) {
-	        //Figure out baseUrl. Get it from the script tag with require.js in it.
-	        eachReverse(scripts(), function (script) {
-	            //Set the 'head' where we can append children by
-	            //using the script's parent.
-	            if (!head) {
-	                head = script.parentNode;
-	            }
-
-	            //Look for a data-main attribute to set main script for the page
-	            //to load. If it is there, the path to data main becomes the
-	            //baseUrl, if it is not already set.
-	            dataMain = script.getAttribute('data-main');
-	            if (dataMain) {
-	                //Preserve dataMain in case it is a path (i.e. contains '?')
-	                mainScript = dataMain;
-
-	                //Set final baseUrl if there is not already an explicit one,
-	                //but only do so if the data-main value is not a loader plugin
-	                //module ID.
-	                if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
-	                    //Pull off the directory of data-main for use as the
-	                    //baseUrl.
-	                    src = mainScript.split('/');
-	                    mainScript = src.pop();
-	                    subPath = src.length ? src.join('/') + '/' : './';
-
-	                    cfg.baseUrl = subPath;
-	                }
-
-	                //Strip off any trailing .js since mainScript is now
-	                //like a module name.
-	                mainScript = mainScript.replace(jsSuffixRegExp, '');
-
-	                //If mainScript is still a path, fall back to dataMain
-	                if (req.jsExtRegExp.test(mainScript)) {
-	                    mainScript = dataMain;
-	                }
-
-	                //Put the data-main script in the files to load.
-	                cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
-
-	                return true;
-	            }
-	        });
-	    }
-
-	    /**
-	     * The function that handles definitions of modules. Differs from
-	     * require() in that a string for the module should be the first argument,
-	     * and the function to execute after dependencies are loaded should
-	     * return a value to define the module corresponding to the first argument's
-	     * name.
-	     */
-	    define = function define(name, deps, callback) {
-	        var node, context;
-
-	        //Allow for anonymous modules
-	        if (typeof name !== 'string') {
-	            //Adjust args appropriately
-	            callback = deps;
-	            deps = name;
-	            name = null;
-	        }
-
-	        //This module may not have dependencies
-	        if (!isArray(deps)) {
-	            callback = deps;
-	            deps = null;
-	        }
-
-	        //If no name, and callback is a function, then figure out if it a
-	        //CommonJS thing with dependencies.
-	        if (!deps && isFunction(callback)) {
-	            deps = [];
-	            //Remove comments from the callback string,
-	            //look for require calls, and pull them into the dependencies,
-	            //but only if there are function args.
-	            if (callback.length) {
-	                callback.toString().replace(commentRegExp, commentReplace).replace(cjsRequireRegExp, function (match, dep) {
-	                    deps.push(dep);
-	                });
-
-	                //May be a CommonJS thing even without require calls, but still
-	                //could use exports, and module. Avoid doing exports and module
-	                //work though if it just needs require.
-	                //REQUIRES the function to expect the CommonJS variables in the
-	                //order listed below.
-	                deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
-	            }
-	        }
-
-	        //If in IE 6-8 and hit an anonymous define() call, do the interactive
-	        //work.
-	        if (useInteractive) {
-	            node = currentlyAddingScript || getInteractiveScript();
-	            if (node) {
-	                if (!name) {
-	                    name = node.getAttribute('data-requiremodule');
-	                }
-	                context = contexts[node.getAttribute('data-requirecontext')];
-	            }
-	        }
-
-	        //Always save off evaluating the def call until the script onload handler.
-	        //This allows multiple modules to be in a file without prematurely
-	        //tracing dependencies, and allows for anonymous module support,
-	        //where the module name is not known until the script onload event
-	        //occurs. If no context, use the global queue, and get it processed
-	        //in the onscript load callback.
-	        if (context) {
-	            context.defQueue.push([name, deps, callback]);
-	            context.defQueueMap[name] = true;
-	        } else {
-	            globalDefQueue.push([name, deps, callback]);
-	        }
-	    };
-
-	    define.amd = {
-	        jQuery: true
-	    };
-
-	    /**
-	     * Executes the text. Normally just uses eval, but can be modified
-	     * to use a better, environment-specific call. Only used for transpiling
-	     * loader plugins, not for plain JS modules.
-	     * @param {String} text the text to execute/evaluate.
-	     */
-	    req.exec = function (text) {
-	        /*jslint evil: true */
-	        return eval(text);
-	    };
-
-	    //Set up with config info.
-	    req(cfg);
-	})(undefined, typeof setTimeout === 'undefined' ? undefined : setTimeout);
-
-	// 把 define 也一起暴露出去
-	requirejs.define = define;
-
-	// update at 2018-03-19 18:41:28 by liuzechun
-	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
-	window['_define'] = window['_define'] || define;
-
-	exports.default = requirejs;
-
-/***/ }),
-/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21748,7 +19507,2261 @@
 	    */
 
 /***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _ajax = __webpack_require__(192);
+
+	var _ajax2 = _interopRequireDefault(_ajax);
+
+	var _requirejs = __webpack_require__(257);
+
+	var _requirejs2 = _interopRequireDefault(_requirejs);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	module.exports = {
+	    init: function init(insName) {
+	        var obj = {};
+
+	        // ajax 实例
+	        obj.Ajax = _ajax2.default.init(insName);
+	        (0, _instance.setAjax)(insName, obj.Ajax);
+
+	        // requirejs 实例
+	        obj.Requirejs = _requirejs2.default.init(insName);
+	        (0, _instance.setRequirejs)(insName, obj.Requirejs);
+
+	        return obj;
+	    }
+	};
+
+/***/ }),
 /* 257 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var require;var require;'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * @file reuqirejs 2.3.5
+	                                                                                                                                                                                                                                                                               *      为了方便统一管理，拷贝了一份requirejs的代码，并在最后把requirejs export出去
+	                                                                                                                                                                                                                                                                               * vim: et:ts=4:sw=4:sts=4
+	                                                                                                                                                                                                                                                                               * @license RequireJS 2.3.5 Copyright jQuery Foundation and other contributors.
+	                                                                                                                                                                                                                                                                               * Released under MIT license, https://github.com/requirejs/requirejs/blob/master/LICENSE
+	                                                                                                                                                                                                                                                                               */
+	//Not using strict: uneven strict support in browsers, #392, and causes
+	//problems with requirejs.exec()/transpiler plugins that may not be strict.
+	/*jslint regexp: true, nomen: true, sloppy: true */
+	/*global window, navigator, document, importScripts, setTimeout, opera */
+
+	var _utils = __webpack_require__(188);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _instance = __webpack_require__(195);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// var appList = {};
+	var globalDefine = [];
+
+	exports.default = (0, _instance.generate)(function (insName) {
+
+	    // 把 insName 转化成 hashName 并缓存起来
+	    // var hashName = Utils.hash(insName, 4);
+	    // appList[hashName] = insName;
+
+	    var requirejs, require, define;
+	    (function (global, setTimeout) {
+	        var req,
+	            s,
+	            head,
+	            baseElement,
+	            dataMain,
+	            src,
+	            interactiveScript,
+	            currentlyAddingScript,
+	            mainScript,
+	            subPath,
+	            version = '2.3.5',
+	            commentRegExp = /\/\*[\s\S]*?\*\/|([^:"'=]|^)\/\/.*$/mg,
+	            cjsRequireRegExp = /[^.]\s*require\s*\(\s*["']([^'"\s]+)["']\s*\)/g,
+	            jsSuffixRegExp = /\.js$/,
+	            currDirRegExp = /^\.\//,
+	            op = Object.prototype,
+	            ostring = op.toString,
+	            hasOwn = op.hasOwnProperty,
+	            isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
+	            isWebWorker = !isBrowser && typeof importScripts !== 'undefined',
+
+	        //PS3 indicates loaded and complete, but need to wait for complete
+	        //specifically. Sequence is 'loading', 'loaded', execution,
+	        // then 'complete'. The UA check is unfortunate, but not sure how
+	        //to feature test w/o causing perf issues.
+	        readyRegExp = isBrowser && navigator.platform === 'PLAYSTATION 3' ? /^complete$/ : /^(complete|loaded)$/,
+	            defContextName = '_',
+
+	        //Oh the tragedy, detecting opera. See the usage of isOpera for reason.
+	        isOpera = typeof opera !== 'undefined' && opera.toString() === '[object Opera]',
+	            contexts = {},
+	            cfg = {},
+	            globalDefQueue = [],
+	            useInteractive = false;
+
+	        //Could match something like ')//comment', do not lose the prefix to comment.
+	        function commentReplace(match, singlePrefix) {
+	            return singlePrefix || '';
+	        }
+
+	        function isFunction(it) {
+	            return ostring.call(it) === '[object Function]';
+	        }
+
+	        function isArray(it) {
+	            return ostring.call(it) === '[object Array]';
+	        }
+
+	        /**
+	         * Helper function for iterating over an array. If the func returns
+	         * a true value, it will break out of the loop.
+	         */
+	        function each(ary, func) {
+	            if (ary) {
+	                var i;
+	                for (i = 0; i < ary.length; i += 1) {
+	                    if (ary[i] && func(ary[i], i, ary)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        /**
+	         * Helper function for iterating over an array backwards. If the func
+	         * returns a true value, it will break out of the loop.
+	         */
+	        function eachReverse(ary, func) {
+	            if (ary) {
+	                var i;
+	                for (i = ary.length - 1; i > -1; i -= 1) {
+	                    if (ary[i] && func(ary[i], i, ary)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        function hasProp(obj, prop) {
+	            return hasOwn.call(obj, prop);
+	        }
+
+	        function getOwn(obj, prop) {
+	            return hasProp(obj, prop) && obj[prop];
+	        }
+
+	        /**
+	         * Cycles over properties in an object and calls a function for each
+	         * property value. If the function returns a truthy value, then the
+	         * iteration is stopped.
+	         */
+	        function eachProp(obj, func) {
+	            var prop;
+	            for (prop in obj) {
+	                if (hasProp(obj, prop)) {
+	                    if (func(obj[prop], prop)) {
+	                        break;
+	                    }
+	                }
+	            }
+	        }
+
+	        /**
+	         * Simple function to mix in properties from source into target,
+	         * but only if target does not already have a property of the same name.
+	         */
+	        function mixin(target, source, force, deepStringMixin) {
+	            if (source) {
+	                eachProp(source, function (value, prop) {
+	                    if (force || !hasProp(target, prop)) {
+	                        if (deepStringMixin && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value && !isArray(value) && !isFunction(value) && !(value instanceof RegExp)) {
+
+	                            if (!target[prop]) {
+	                                target[prop] = {};
+	                            }
+	                            mixin(target[prop], value, force, deepStringMixin);
+	                        } else {
+	                            target[prop] = value;
+	                        }
+	                    }
+	                });
+	            }
+	            return target;
+	        }
+
+	        //Similar to Function.prototype.bind, but the 'this' object is specified
+	        //first, since it is easier to read/figure out what 'this' will be.
+	        function bind(obj, fn) {
+	            return function () {
+	                return fn.apply(obj, arguments);
+	            };
+	        }
+
+	        function scripts() {
+	            return document.getElementsByTagName('script');
+	        }
+
+	        function defaultOnError(err) {
+	            throw err;
+	        }
+
+	        //Allow getting a global that is expressed in
+	        //dot notation, like 'a.b.c'.
+	        function getGlobal(value) {
+	            if (!value) {
+	                return value;
+	            }
+	            var g = global;
+	            each(value.split('.'), function (part) {
+	                g = g[part];
+	            });
+	            return g;
+	        }
+
+	        /**
+	         * Constructs an error with a pointer to an URL with more information.
+	         * @param {String} id the error ID that maps to an ID on a web page.
+	         * @param {String} message human readable error.
+	         * @param {Error} [err] the original error, if there is one.
+	         *
+	         * @returns {Error}
+	         */
+	        function makeError(id, msg, err, requireModules) {
+	            var e = new Error(msg + '\nhttp://requirejs.org/docs/errors.html#' + id);
+	            e.requireType = id;
+	            e.requireModules = requireModules;
+	            if (err) {
+	                e.originalError = err;
+	            }
+	            return e;
+	        }
+
+	        if (typeof define !== 'undefined') {
+	            //If a define is already in play via another AMD loader,
+	            //do not overwrite.
+	            return;
+	        }
+
+	        if (typeof requirejs !== 'undefined') {
+	            if (isFunction(requirejs)) {
+	                //Do not overwrite an existing requirejs instance.
+	                return;
+	            }
+	            cfg = requirejs;
+	            requirejs = undefined;
+	        }
+
+	        //Allow for a require config object
+	        if (typeof require !== 'undefined' && !isFunction(require)) {
+	            //assume it is a config object.
+	            cfg = require;
+	            require = undefined;
+	        }
+
+	        function newContext(contextName) {
+	            var inCheckLoaded,
+	                Module,
+	                context,
+	                handlers,
+	                checkLoadedTimeoutId,
+	                _config = {
+	                //Defaults. Do not set a default for map
+	                //config to speed up normalize(), which
+	                //will run faster if there is no default.
+	                waitSeconds: 7,
+	                baseUrl: './',
+	                paths: {},
+	                bundles: {},
+	                pkgs: {},
+	                shim: {},
+	                config: {}
+	            },
+	                registry = {},
+
+	            //registry of just enabled modules, to speed
+	            //cycle breaking code when lots of modules
+	            //are registered, but not activated.
+	            enabledRegistry = {},
+	                undefEvents = {},
+	                defQueue = [],
+	                _defined = {},
+	                urlFetched = {},
+	                bundlesMap = {},
+	                requireCounter = 1,
+	                unnormalizedCounter = 1;
+
+	            /**
+	             * Trims the . and .. from an array of path segments.
+	             * It will keep a leading path segment if a .. will become
+	             * the first path segment, to help with module name lookups,
+	             * which act like paths, but can be remapped. But the end result,
+	             * all paths that use this function should look normalized.
+	             * NOTE: this method MODIFIES the input array.
+	             * @param {Array} ary the array of path segments.
+	             */
+	            function trimDots(ary) {
+	                var i, part;
+	                for (i = 0; i < ary.length; i++) {
+	                    part = ary[i];
+	                    if (part === '.') {
+	                        ary.splice(i, 1);
+	                        i -= 1;
+	                    } else if (part === '..') {
+	                        // If at the start, or previous value is still ..,
+	                        // keep them so that when converted to a path it may
+	                        // still work when converted to a path, even though
+	                        // as an ID it is less than ideal. In larger point
+	                        // releases, may be better to just kick out an error.
+	                        if (i === 0 || i === 1 && ary[2] === '..' || ary[i - 1] === '..') {
+	                            continue;
+	                        } else if (i > 0) {
+	                            ary.splice(i - 1, 2);
+	                            i -= 2;
+	                        }
+	                    }
+	                }
+	            }
+
+	            /**
+	             * Given a relative module name, like ./something, normalize it to
+	             * a real name that can be mapped to a path.
+	             * @param {String} name the relative name
+	             * @param {String} baseName a real name that the name arg is relative
+	             * to.
+	             * @param {Boolean} applyMap apply the map config to the value. Should
+	             * only be done if this normalization is for a dependency ID.
+	             * @returns {String} normalized name
+	             */
+	            function normalize(name, baseName, applyMap) {
+	                var pkgMain,
+	                    mapValue,
+	                    nameParts,
+	                    i,
+	                    j,
+	                    nameSegment,
+	                    lastIndex,
+	                    foundMap,
+	                    foundI,
+	                    foundStarMap,
+	                    starI,
+	                    normalizedBaseParts,
+	                    baseParts = baseName && baseName.split('/'),
+	                    map = _config.map,
+	                    starMap = map && map['*'];
+
+	                //Adjust any relative paths.
+	                if (name) {
+	                    name = name.split('/');
+	                    lastIndex = name.length - 1;
+
+	                    // If wanting node ID compatibility, strip .js from end
+	                    // of IDs. Have to do this here, and not in nameToUrl
+	                    // because node allows either .js or non .js to map
+	                    // to same file.
+	                    if (_config.nodeIdCompat && jsSuffixRegExp.test(name[lastIndex])) {
+	                        name[lastIndex] = name[lastIndex].replace(jsSuffixRegExp, '');
+	                    }
+
+	                    // Starts with a '.' so need the baseName
+	                    if (name[0].charAt(0) === '.' && baseParts) {
+	                        //Convert baseName to array, and lop off the last part,
+	                        //so that . matches that 'directory' and not name of the baseName's
+	                        //module. For instance, baseName of 'one/two/three', maps to
+	                        //'one/two/three.js', but we want the directory, 'one/two' for
+	                        //this normalization.
+	                        normalizedBaseParts = baseParts.slice(0, baseParts.length - 1);
+	                        name = normalizedBaseParts.concat(name);
+	                    }
+
+	                    trimDots(name);
+	                    name = name.join('/');
+	                }
+
+	                //Apply map config if available.
+	                if (applyMap && map && (baseParts || starMap)) {
+	                    nameParts = name.split('/');
+
+	                    outerLoop: for (i = nameParts.length; i > 0; i -= 1) {
+	                        nameSegment = nameParts.slice(0, i).join('/');
+
+	                        if (baseParts) {
+	                            //Find the longest baseName segment match in the config.
+	                            //So, do joins on the biggest to smallest lengths of baseParts.
+	                            for (j = baseParts.length; j > 0; j -= 1) {
+	                                mapValue = getOwn(map, baseParts.slice(0, j).join('/'));
+
+	                                //baseName segment has config, find if it has one for
+	                                //this name.
+	                                if (mapValue) {
+	                                    mapValue = getOwn(mapValue, nameSegment);
+	                                    if (mapValue) {
+	                                        //Match, update name to the new value.
+	                                        foundMap = mapValue;
+	                                        foundI = i;
+	                                        break outerLoop;
+	                                    }
+	                                }
+	                            }
+	                        }
+
+	                        //Check for a star map match, but just hold on to it,
+	                        //if there is a shorter segment match later in a matching
+	                        //config, then favor over this star map.
+	                        if (!foundStarMap && starMap && getOwn(starMap, nameSegment)) {
+	                            foundStarMap = getOwn(starMap, nameSegment);
+	                            starI = i;
+	                        }
+	                    }
+
+	                    if (!foundMap && foundStarMap) {
+	                        foundMap = foundStarMap;
+	                        foundI = starI;
+	                    }
+
+	                    if (foundMap) {
+	                        nameParts.splice(0, foundI, foundMap);
+	                        name = nameParts.join('/');
+	                    }
+	                }
+
+	                // If the name points to a package's name, use
+	                // the package main instead.
+	                pkgMain = getOwn(_config.pkgs, name);
+
+	                return pkgMain ? pkgMain : name;
+	            }
+
+	            function removeScript(name) {
+	                if (isBrowser) {
+	                    each(scripts(), function (scriptNode) {
+	                        if (scriptNode.getAttribute('data-requiremodule') === name && scriptNode.getAttribute('data-requirecontext') === context.contextName) {
+	                            scriptNode.parentNode.removeChild(scriptNode);
+	                            return true;
+	                        }
+	                    });
+	                }
+	            }
+
+	            function hasPathFallback(id) {
+	                var pathConfig = getOwn(_config.paths, id);
+	                if (pathConfig && isArray(pathConfig) && pathConfig.length > 1) {
+	                    //Pop off the first array value, since it failed, and
+	                    //retry
+	                    pathConfig.shift();
+	                    context.require.undef(id);
+
+	                    //Custom require that does not do map translation, since
+	                    //ID is "absolute", already mapped/resolved.
+	                    context.makeRequire(null, {
+	                        skipMap: true
+	                    })([id]);
+
+	                    return true;
+	                }
+	            }
+
+	            //Turns a plugin!resource to [plugin, resource]
+	            //with the plugin being undefined if the name
+	            //did not have a plugin prefix.
+	            function splitPrefix(name) {
+	                var prefix,
+	                    index = name ? name.indexOf('!') : -1;
+	                if (index > -1) {
+	                    prefix = name.substring(0, index);
+	                    name = name.substring(index + 1, name.length);
+	                }
+	                return [prefix, name];
+	            }
+
+	            /**
+	             * Creates a module mapping that includes plugin prefix, module
+	             * name, and path. If parentModuleMap is provided it will
+	             * also normalize the name via require.normalize()
+	             *
+	             * @param {String} name the module name
+	             * @param {String} [parentModuleMap] parent module map
+	             * for the module name, used to resolve relative names.
+	             * @param {Boolean} isNormalized: is the ID already normalized.
+	             * This is true if this call is done for a define() module ID.
+	             * @param {Boolean} applyMap: apply the map config to the ID.
+	             * Should only be true if this map is for a dependency.
+	             *
+	             * @returns {Object}
+	             */
+	            function makeModuleMap(name, parentModuleMap, isNormalized, applyMap) {
+	                var url,
+	                    pluginModule,
+	                    suffix,
+	                    nameParts,
+	                    prefix = null,
+	                    parentName = parentModuleMap ? parentModuleMap.name : null,
+	                    originalName = name,
+	                    isDefine = true,
+	                    normalizedName = '';
+
+	                //If no name, then it means it is a require call, generate an
+	                //internal name.
+	                if (!name) {
+	                    isDefine = false;
+	                    name = '_@r' + (requireCounter += 1);
+	                }
+
+	                nameParts = splitPrefix(name);
+	                prefix = nameParts[0];
+	                name = nameParts[1];
+
+	                if (prefix) {
+	                    prefix = normalize(prefix, parentName, applyMap);
+	                    pluginModule = getOwn(_defined, prefix);
+	                }
+
+	                //Account for relative paths if there is a base name.
+	                if (name) {
+	                    if (prefix) {
+	                        if (isNormalized) {
+	                            normalizedName = name;
+	                        } else if (pluginModule && pluginModule.normalize) {
+	                            //Plugin is loaded, use its normalize method.
+	                            normalizedName = pluginModule.normalize(name, function (name) {
+	                                return normalize(name, parentName, applyMap);
+	                            });
+	                        } else {
+	                            // If nested plugin references, then do not try to
+	                            // normalize, as it will not normalize correctly. This
+	                            // places a restriction on resourceIds, and the longer
+	                            // term solution is not to normalize until plugins are
+	                            // loaded and all normalizations to allow for async
+	                            // loading of a loader plugin. But for now, fixes the
+	                            // common uses. Details in #1131
+	                            normalizedName = name.indexOf('!') === -1 ? normalize(name, parentName, applyMap) : name;
+	                        }
+	                    } else {
+	                        //A regular module.
+	                        normalizedName = normalize(name, parentName, applyMap);
+
+	                        //Normalized name may be a plugin ID due to map config
+	                        //application in normalize. The map config values must
+	                        //already be normalized, so do not need to redo that part.
+	                        nameParts = splitPrefix(normalizedName);
+	                        prefix = nameParts[0];
+	                        normalizedName = nameParts[1];
+	                        isNormalized = true;
+
+	                        url = context.nameToUrl(normalizedName);
+	                    }
+	                }
+
+	                //If the id is a plugin id that cannot be determined if it needs
+	                //normalization, stamp it with a unique ID so two matching relative
+	                //ids that may conflict can be separate.
+	                suffix = prefix && !pluginModule && !isNormalized ? '_unnormalized' + (unnormalizedCounter += 1) : '';
+
+	                return {
+	                    prefix: prefix,
+	                    name: normalizedName,
+	                    parentMap: parentModuleMap,
+	                    unnormalized: !!suffix,
+	                    url: url,
+	                    originalName: originalName,
+	                    isDefine: isDefine,
+	                    id: (prefix ? prefix + '!' + normalizedName : normalizedName) + suffix
+	                };
+	            }
+
+	            function getModule(depMap) {
+	                var id = depMap.id,
+	                    mod = getOwn(registry, id);
+
+	                if (!mod) {
+	                    mod = registry[id] = new context.Module(depMap);
+	                }
+
+	                return mod;
+	            }
+
+	            function on(depMap, name, fn) {
+	                var id = depMap.id,
+	                    mod = getOwn(registry, id);
+
+	                if (hasProp(_defined, id) && (!mod || mod.defineEmitComplete)) {
+	                    if (name === 'defined') {
+	                        fn(_defined[id]);
+	                    }
+	                } else {
+	                    mod = getModule(depMap);
+	                    if (mod.error && name === 'error') {
+	                        fn(mod.error);
+	                    } else {
+	                        mod.on(name, fn);
+	                    }
+	                }
+	            }
+
+	            function onError(err, errback) {
+	                var ids = err.requireModules,
+	                    notified = false;
+
+	                if (errback) {
+	                    errback(err);
+	                } else {
+	                    each(ids, function (id) {
+	                        var mod = getOwn(registry, id);
+	                        if (mod) {
+	                            //Set error on module, so it skips timeout checks.
+	                            mod.error = err;
+	                            if (mod.events.error) {
+	                                notified = true;
+	                                mod.emit('error', err);
+	                            }
+	                        }
+	                    });
+
+	                    if (!notified) {
+	                        req.onError(err);
+	                    }
+	                }
+	            }
+
+	            /**
+	             * Internal method to transfer globalQueue items to this context's
+	             * defQueue.
+	             */
+	            function takeGlobalQueue() {
+	                //Push all the globalDefQueue items into the context's defQueue
+	                if (globalDefQueue.length) {
+	                    each(globalDefQueue, function (queueItem) {
+	                        var id = queueItem[0];
+	                        if (typeof id === 'string') {
+	                            context.defQueueMap[id] = true;
+	                        }
+	                        defQueue.push(queueItem);
+	                    });
+	                    globalDefQueue = [];
+	                }
+	            }
+
+	            handlers = {
+	                'require': function require(mod) {
+	                    if (mod.require) {
+	                        return mod.require;
+	                    } else {
+	                        return mod.require = context.makeRequire(mod.map);
+	                    }
+	                },
+	                'exports': function exports(mod) {
+	                    mod.usingExports = true;
+	                    if (mod.map.isDefine) {
+	                        if (mod.exports) {
+	                            return _defined[mod.map.id] = mod.exports;
+	                        } else {
+	                            return mod.exports = _defined[mod.map.id] = {};
+	                        }
+	                    }
+	                },
+	                'module': function module(mod) {
+	                    if (mod.module) {
+	                        return mod.module;
+	                    } else {
+	                        return mod.module = {
+	                            id: mod.map.id,
+	                            uri: mod.map.url,
+	                            config: function config() {
+	                                return getOwn(_config.config, mod.map.id) || {};
+	                            },
+	                            exports: mod.exports || (mod.exports = {})
+	                        };
+	                    }
+	                }
+	            };
+
+	            function cleanRegistry(id) {
+	                //Clean up machinery used for waiting modules.
+	                delete registry[id];
+	                delete enabledRegistry[id];
+	            }
+
+	            function breakCycle(mod, traced, processed) {
+	                var id = mod.map.id;
+
+	                if (mod.error) {
+	                    mod.emit('error', mod.error);
+	                } else {
+	                    traced[id] = true;
+	                    each(mod.depMaps, function (depMap, i) {
+	                        var depId = depMap.id,
+	                            dep = getOwn(registry, depId);
+
+	                        //Only force things that have not completed
+	                        //being defined, so still in the registry,
+	                        //and only if it has not been matched up
+	                        //in the module already.
+	                        if (dep && !mod.depMatched[i] && !processed[depId]) {
+	                            if (getOwn(traced, depId)) {
+	                                mod.defineDep(i, _defined[depId]);
+	                                mod.check(); //pass false?
+	                            } else {
+	                                breakCycle(dep, traced, processed);
+	                            }
+	                        }
+	                    });
+	                    processed[id] = true;
+	                }
+	            }
+
+	            function checkLoaded() {
+	                var err,
+	                    usingPathFallback,
+	                    waitInterval = _config.waitSeconds * 1000,
+
+	                //It is possible to disable the wait interval by using waitSeconds of 0.
+	                expired = waitInterval && context.startTime + waitInterval < new Date().getTime(),
+	                    noLoads = [],
+	                    reqCalls = [],
+	                    stillLoading = false,
+	                    needCycleCheck = true;
+
+	                //Do not bother if this call was a result of a cycle break.
+	                if (inCheckLoaded) {
+	                    return;
+	                }
+
+	                inCheckLoaded = true;
+
+	                //Figure out the state of all the modules.
+	                eachProp(enabledRegistry, function (mod) {
+	                    var map = mod.map,
+	                        modId = map.id;
+
+	                    //Skip things that are not enabled or in error state.
+	                    if (!mod.enabled) {
+	                        return;
+	                    }
+
+	                    if (!map.isDefine) {
+	                        reqCalls.push(mod);
+	                    }
+
+	                    if (!mod.error) {
+	                        //If the module should be executed, and it has not
+	                        //been inited and time is up, remember it.
+	                        if (!mod.inited && expired) {
+	                            if (hasPathFallback(modId)) {
+	                                usingPathFallback = true;
+	                                stillLoading = true;
+	                            } else {
+	                                noLoads.push(modId);
+	                                removeScript(modId);
+	                            }
+	                        } else if (!mod.inited && mod.fetched && map.isDefine) {
+	                            stillLoading = true;
+	                            if (!map.prefix) {
+	                                //No reason to keep looking for unfinished
+	                                //loading. If the only stillLoading is a
+	                                //plugin resource though, keep going,
+	                                //because it may be that a plugin resource
+	                                //is waiting on a non-plugin cycle.
+	                                return needCycleCheck = false;
+	                            }
+	                        }
+	                    }
+	                });
+
+	                if (expired && noLoads.length) {
+	                    //If wait time expired, throw error of unloaded modules.
+	                    err = makeError('timeout', 'Load timeout for modules: ' + noLoads, null, noLoads);
+	                    err.contextName = context.contextName;
+	                    return onError(err);
+	                }
+
+	                //Not expired, check for a cycle.
+	                if (needCycleCheck) {
+	                    each(reqCalls, function (mod) {
+	                        breakCycle(mod, {}, {});
+	                    });
+	                }
+
+	                //If still waiting on loads, and the waiting load is something
+	                //other than a plugin resource, or there are still outstanding
+	                //scripts, then just try back later.
+	                if ((!expired || usingPathFallback) && stillLoading) {
+	                    //Something is still waiting to load. Wait for it, but only
+	                    //if a timeout is not already in effect.
+	                    if ((isBrowser || isWebWorker) && !checkLoadedTimeoutId) {
+	                        checkLoadedTimeoutId = setTimeout(function () {
+	                            checkLoadedTimeoutId = 0;
+	                            checkLoaded();
+	                        }, 50);
+	                    }
+	                }
+
+	                inCheckLoaded = false;
+	            }
+
+	            Module = function Module(map) {
+	                this.events = getOwn(undefEvents, map.id) || {};
+	                this.map = map;
+	                this.shim = getOwn(_config.shim, map.id);
+	                this.depExports = [];
+	                this.depMaps = [];
+	                this.depMatched = [];
+	                this.pluginMaps = {};
+	                this.depCount = 0;
+
+	                /* this.exports this.factory
+	                this.depMaps = [],
+	                this.enabled, this.fetched
+	                */
+	            };
+
+	            Module.prototype = {
+	                init: function init(depMaps, factory, errback, options) {
+	                    options = options || {};
+
+	                    //Do not do more inits if already done. Can happen if there
+	                    //are multiple define calls for the same module. That is not
+	                    //a normal, common case, but it is also not unexpected.
+	                    if (this.inited) {
+	                        return;
+	                    }
+
+	                    this.factory = factory;
+
+	                    if (errback) {
+	                        //Register for errors on this module.
+	                        this.on('error', errback);
+	                    } else if (this.events.error) {
+	                        //If no errback already, but there are error listeners
+	                        //on this module, set up an errback to pass to the deps.
+	                        errback = bind(this, function (err) {
+	                            this.emit('error', err);
+	                        });
+	                    }
+
+	                    //Do a copy of the dependency array, so that
+	                    //source inputs are not modified. For example
+	                    //"shim" deps are passed in here directly, and
+	                    //doing a direct modification of the depMaps array
+	                    //would affect that config.
+	                    this.depMaps = depMaps && depMaps.slice(0);
+
+	                    this.errback = errback;
+
+	                    //Indicate this module has be initialized
+	                    this.inited = true;
+
+	                    this.ignore = options.ignore;
+
+	                    //Could have option to init this module in enabled mode,
+	                    //or could have been previously marked as enabled. However,
+	                    //the dependencies are not known until init is called. So
+	                    //if enabled previously, now trigger dependencies as enabled.
+	                    if (options.enabled || this.enabled) {
+	                        //Enable this module and dependencies.
+	                        //Will call this.check()
+	                        this.enable();
+	                    } else {
+	                        this.check();
+	                    }
+	                },
+
+	                defineDep: function defineDep(i, depExports) {
+	                    //Because of cycles, defined callback for a given
+	                    //export can be called more than once.
+	                    if (!this.depMatched[i]) {
+	                        this.depMatched[i] = true;
+	                        this.depCount -= 1;
+	                        this.depExports[i] = depExports;
+	                    }
+	                },
+
+	                fetch: function fetch() {
+	                    if (this.fetched) {
+	                        return;
+	                    }
+	                    this.fetched = true;
+
+	                    context.startTime = new Date().getTime();
+
+	                    var map = this.map;
+
+	                    //If the manager is for a plugin managed resource,
+	                    //ask the plugin to load it now.
+	                    if (this.shim) {
+	                        context.makeRequire(this.map, {
+	                            enableBuildCallback: true
+	                        })(this.shim.deps || [], bind(this, function () {
+	                            return map.prefix ? this.callPlugin() : this.load();
+	                        }));
+	                    } else {
+	                        //Regular dependency.
+	                        return map.prefix ? this.callPlugin() : this.load();
+	                    }
+	                },
+
+	                load: function load() {
+	                    var url = this.map.url;
+
+	                    //Regular dependency.
+	                    if (!urlFetched[url]) {
+	                        urlFetched[url] = true;
+	                        context.load(this.map.id, url);
+	                    }
+	                },
+
+	                /**
+	                 * Checks if the module is ready to define itself, and if so,
+	                 * define it.
+	                 */
+	                check: function check() {
+	                    if (!this.enabled || this.enabling) {
+	                        return;
+	                    }
+
+	                    var err,
+	                        cjsModule,
+	                        id = this.map.id,
+	                        depExports = this.depExports,
+	                        exports = this.exports,
+	                        factory = this.factory;
+
+	                    if (!this.inited) {
+	                        // Only fetch if not already in the defQueue.
+	                        if (!hasProp(context.defQueueMap, id)) {
+	                            this.fetch();
+	                        }
+	                    } else if (this.error) {
+	                        this.emit('error', this.error);
+	                    } else if (!this.defining) {
+	                        //The factory could trigger another require call
+	                        //that would result in checking this module to
+	                        //define itself again. If already in the process
+	                        //of doing that, skip this work.
+	                        this.defining = true;
+
+	                        if (this.depCount < 1 && !this.defined) {
+	                            if (isFunction(factory)) {
+	                                //If there is an error listener, favor passing
+	                                //to that instead of throwing an error. However,
+	                                //only do it for define()'d  modules. require
+	                                //errbacks should not be called for failures in
+	                                //their callbacks (#699). However if a global
+	                                //onError is set, use that.
+	                                if (this.events.error && this.map.isDefine || req.onError !== defaultOnError) {
+	                                    try {
+	                                        exports = context.execCb(id, factory, depExports, exports);
+	                                    } catch (e) {
+	                                        err = e;
+	                                    }
+	                                } else {
+	                                    exports = context.execCb(id, factory, depExports, exports);
+	                                }
+
+	                                // Favor return value over exports. If node/cjs in play,
+	                                // then will not have a return value anyway. Favor
+	                                // module.exports assignment over exports object.
+	                                if (this.map.isDefine && exports === undefined) {
+	                                    cjsModule = this.module;
+	                                    if (cjsModule) {
+	                                        exports = cjsModule.exports;
+	                                    } else if (this.usingExports) {
+	                                        //exports already set the defined value.
+	                                        exports = this.exports;
+	                                    }
+	                                }
+
+	                                if (err) {
+	                                    err.requireMap = this.map;
+	                                    err.requireModules = this.map.isDefine ? [this.map.id] : null;
+	                                    err.requireType = this.map.isDefine ? 'define' : 'require';
+	                                    return onError(this.error = err);
+	                                }
+	                            } else {
+	                                //Just a literal value
+	                                exports = factory;
+	                            }
+
+	                            this.exports = exports;
+
+	                            if (this.map.isDefine && !this.ignore) {
+	                                _defined[id] = exports;
+
+	                                if (req.onResourceLoad) {
+	                                    var resLoadMaps = [];
+	                                    each(this.depMaps, function (depMap) {
+	                                        resLoadMaps.push(depMap.normalizedMap || depMap);
+	                                    });
+	                                    req.onResourceLoad(context, this.map, resLoadMaps);
+	                                }
+	                            }
+
+	                            //Clean up
+	                            cleanRegistry(id);
+
+	                            this.defined = true;
+	                        }
+
+	                        //Finished the define stage. Allow calling check again
+	                        //to allow define notifications below in the case of a
+	                        //cycle.
+	                        this.defining = false;
+
+	                        if (this.defined && !this.defineEmitted) {
+	                            this.defineEmitted = true;
+	                            this.emit('defined', this.exports);
+	                            this.defineEmitComplete = true;
+	                        }
+	                    }
+	                },
+
+	                callPlugin: function callPlugin() {
+	                    var map = this.map,
+	                        id = map.id,
+
+	                    //Map already normalized the prefix.
+	                    pluginMap = makeModuleMap(map.prefix);
+
+	                    //Mark this as a dependency for this plugin, so it
+	                    //can be traced for cycles.
+	                    this.depMaps.push(pluginMap);
+
+	                    on(pluginMap, 'defined', bind(this, function (plugin) {
+	                        var load,
+	                            normalizedMap,
+	                            normalizedMod,
+	                            bundleId = getOwn(bundlesMap, this.map.id),
+	                            name = this.map.name,
+	                            parentName = this.map.parentMap ? this.map.parentMap.name : null,
+	                            localRequire = context.makeRequire(map.parentMap, {
+	                            enableBuildCallback: true
+	                        });
+
+	                        //If current map is not normalized, wait for that
+	                        //normalized name to load instead of continuing.
+	                        if (this.map.unnormalized) {
+	                            //Normalize the ID if the plugin allows it.
+	                            if (plugin.normalize) {
+	                                name = plugin.normalize(name, function (name) {
+	                                    return normalize(name, parentName, true);
+	                                }) || '';
+	                            }
+
+	                            //prefix and name should already be normalized, no need
+	                            //for applying map config again either.
+	                            normalizedMap = makeModuleMap(map.prefix + '!' + name, this.map.parentMap, true);
+	                            on(normalizedMap, 'defined', bind(this, function (value) {
+	                                this.map.normalizedMap = normalizedMap;
+	                                this.init([], function () {
+	                                    return value;
+	                                }, null, {
+	                                    enabled: true,
+	                                    ignore: true
+	                                });
+	                            }));
+
+	                            normalizedMod = getOwn(registry, normalizedMap.id);
+	                            if (normalizedMod) {
+	                                //Mark this as a dependency for this plugin, so it
+	                                //can be traced for cycles.
+	                                this.depMaps.push(normalizedMap);
+
+	                                if (this.events.error) {
+	                                    normalizedMod.on('error', bind(this, function (err) {
+	                                        this.emit('error', err);
+	                                    }));
+	                                }
+	                                normalizedMod.enable();
+	                            }
+
+	                            return;
+	                        }
+
+	                        //If a paths config, then just load that file instead to
+	                        //resolve the plugin, as it is built into that paths layer.
+	                        if (bundleId) {
+	                            this.map.url = context.nameToUrl(bundleId);
+	                            this.load();
+	                            return;
+	                        }
+
+	                        load = bind(this, function (value) {
+	                            this.init([], function () {
+	                                return value;
+	                            }, null, {
+	                                enabled: true
+	                            });
+	                        });
+
+	                        load.error = bind(this, function (err) {
+	                            this.inited = true;
+	                            this.error = err;
+	                            err.requireModules = [id];
+
+	                            //Remove temp unnormalized modules for this module,
+	                            //since they will never be resolved otherwise now.
+	                            eachProp(registry, function (mod) {
+	                                if (mod.map.id.indexOf(id + '_unnormalized') === 0) {
+	                                    cleanRegistry(mod.map.id);
+	                                }
+	                            });
+
+	                            onError(err);
+	                        });
+
+	                        //Allow plugins to load other code without having to know the
+	                        //context or how to 'complete' the load.
+	                        load.fromText = bind(this, function (text, textAlt) {
+	                            /*jslint evil: true */
+	                            var moduleName = map.name,
+	                                moduleMap = makeModuleMap(moduleName),
+	                                hasInteractive = useInteractive;
+
+	                            //As of 2.1.0, support just passing the text, to reinforce
+	                            //fromText only being called once per resource. Still
+	                            //support old style of passing moduleName but discard
+	                            //that moduleName in favor of the internal ref.
+	                            if (textAlt) {
+	                                text = textAlt;
+	                            }
+
+	                            //Turn off interactive script matching for IE for any define
+	                            //calls in the text, then turn it back on at the end.
+	                            if (hasInteractive) {
+	                                useInteractive = false;
+	                            }
+
+	                            //Prime the system by creating a module instance for
+	                            //it.
+	                            getModule(moduleMap);
+
+	                            //Transfer any config to this other module.
+	                            if (hasProp(_config.config, id)) {
+	                                _config.config[moduleName] = _config.config[id];
+	                            }
+
+	                            try {
+	                                req.exec(text);
+	                            } catch (e) {
+	                                return onError(makeError('fromtexteval', 'fromText eval for ' + id + ' failed: ' + e, e, [id]));
+	                            }
+
+	                            if (hasInteractive) {
+	                                useInteractive = true;
+	                            }
+
+	                            //Mark this as a dependency for the plugin
+	                            //resource
+	                            this.depMaps.push(moduleMap);
+
+	                            //Support anonymous modules.
+	                            context.completeLoad(moduleName);
+
+	                            //Bind the value of that module to the value for this
+	                            //resource ID.
+	                            localRequire([moduleName], load);
+	                        });
+
+	                        //Use parentName here since the plugin's name is not reliable,
+	                        //could be some weird string with no path that actually wants to
+	                        //reference the parentName's path.
+	                        plugin.load(map.name, localRequire, load, _config);
+	                    }));
+
+	                    context.enable(pluginMap, this);
+	                    this.pluginMaps[pluginMap.id] = pluginMap;
+	                },
+
+	                enable: function enable() {
+	                    enabledRegistry[this.map.id] = this;
+	                    this.enabled = true;
+
+	                    //Set flag mentioning that the module is enabling,
+	                    //so that immediate calls to the defined callbacks
+	                    //for dependencies do not trigger inadvertent load
+	                    //with the depCount still being zero.
+	                    this.enabling = true;
+
+	                    //Enable each dependency
+	                    each(this.depMaps, bind(this, function (depMap, i) {
+	                        var id, mod, handler;
+
+	                        if (typeof depMap === 'string') {
+	                            //Dependency needs to be converted to a depMap
+	                            //and wired up to this module.
+	                            depMap = makeModuleMap(depMap, this.map.isDefine ? this.map : this.map.parentMap, false, !this.skipMap);
+	                            this.depMaps[i] = depMap;
+
+	                            handler = getOwn(handlers, depMap.id);
+
+	                            if (handler) {
+	                                this.depExports[i] = handler(this);
+	                                return;
+	                            }
+
+	                            this.depCount += 1;
+
+	                            on(depMap, 'defined', bind(this, function (depExports) {
+	                                if (this.undefed) {
+	                                    return;
+	                                }
+	                                this.defineDep(i, depExports);
+	                                this.check();
+	                            }));
+
+	                            if (this.errback) {
+	                                on(depMap, 'error', bind(this, this.errback));
+	                            } else if (this.events.error) {
+	                                // No direct errback on this module, but something
+	                                // else is listening for errors, so be sure to
+	                                // propagate the error correctly.
+	                                on(depMap, 'error', bind(this, function (err) {
+	                                    this.emit('error', err);
+	                                }));
+	                            }
+	                        }
+
+	                        id = depMap.id;
+	                        mod = registry[id];
+
+	                        //Skip special modules like 'require', 'exports', 'module'
+	                        //Also, don't call enable if it is already enabled,
+	                        //important in circular dependency cases.
+	                        if (!hasProp(handlers, id) && mod && !mod.enabled) {
+	                            context.enable(depMap, this);
+	                        }
+	                    }));
+
+	                    //Enable each plugin that is used in
+	                    //a dependency
+	                    eachProp(this.pluginMaps, bind(this, function (pluginMap) {
+	                        var mod = getOwn(registry, pluginMap.id);
+	                        if (mod && !mod.enabled) {
+	                            context.enable(pluginMap, this);
+	                        }
+	                    }));
+
+	                    this.enabling = false;
+
+	                    this.check();
+	                },
+
+	                on: function on(name, cb) {
+	                    var cbs = this.events[name];
+	                    if (!cbs) {
+	                        cbs = this.events[name] = [];
+	                    }
+	                    cbs.push(cb);
+	                },
+
+	                emit: function emit(name, evt) {
+	                    each(this.events[name], function (cb) {
+	                        cb(evt);
+	                    });
+	                    if (name === 'error') {
+	                        //Now that the error handler was triggered, remove
+	                        //the listeners, since this broken Module instance
+	                        //can stay around for a while in the registry.
+	                        delete this.events[name];
+	                    }
+	                }
+	            };
+
+	            function callGetModule(args) {
+	                //Skip modules already defined.
+	                if (!hasProp(_defined, args[0])) {
+	                    getModule(makeModuleMap(args[0], null, true)).init(args[1], args[2]);
+	                }
+	            }
+
+	            function removeListener(node, func, name, ieName) {
+	                //Favor detachEvent because of IE9
+	                //issue, see attachEvent/addEventListener comment elsewhere
+	                //in this file.
+	                if (node.detachEvent && !isOpera) {
+	                    //Probably IE. If not it will throw an error, which will be
+	                    //useful to know.
+	                    if (ieName) {
+	                        node.detachEvent(ieName, func);
+	                    }
+	                } else {
+	                    node.removeEventListener(name, func, false);
+	                }
+	            }
+
+	            /**
+	             * Given an event from a script node, get the requirejs info from it,
+	             * and then removes the event listeners on the node.
+	             * @param {Event} evt
+	             * @returns {Object}
+	             */
+	            function getScriptData(evt) {
+	                //Using currentTarget instead of target for Firefox 2.0's sake. Not
+	                //all old browsers will be supported, but this one was easy enough
+	                //to support and still makes sense.
+	                var node = evt.currentTarget || evt.srcElement;
+
+	                //Remove the listeners once here.
+	                removeListener(node, context.onScriptLoad, 'load', 'onreadystatechange');
+	                removeListener(node, context.onScriptError, 'error');
+
+	                return {
+	                    node: node,
+	                    id: node && node.getAttribute('data-requiremodule')
+	                };
+	            }
+
+	            function intakeDefines() {
+	                var args;
+
+	                //Any defined modules in the global queue, intake them now.
+	                takeGlobalQueue();
+
+	                //Make sure any remaining defQueue items get properly processed.
+	                while (defQueue.length) {
+	                    args = defQueue.shift();
+	                    if (args[0] === null) {
+	                        return onError(makeError('mismatch', 'Mismatched anonymous define() module: ' + args[args.length - 1]));
+	                    } else {
+	                        //args are id, deps, factory. Should be normalized by the
+	                        //define() function.
+	                        callGetModule(args);
+	                    }
+	                }
+	                context.defQueueMap = {};
+	            }
+
+	            context = {
+	                config: _config,
+	                contextName: contextName,
+	                registry: registry,
+	                defined: _defined,
+	                urlFetched: urlFetched,
+	                defQueue: defQueue,
+	                defQueueMap: {},
+	                Module: Module,
+	                makeModuleMap: makeModuleMap,
+	                nextTick: req.nextTick,
+	                onError: onError,
+
+	                /**
+	                 * Set a configuration for the context.
+	                 * @param {Object} cfg config object to integrate.
+	                 */
+	                configure: function configure(cfg) {
+	                    //Make sure the baseUrl ends in a slash.
+	                    if (cfg.baseUrl) {
+	                        if (cfg.baseUrl.charAt(cfg.baseUrl.length - 1) !== '/') {
+	                            cfg.baseUrl += '/';
+	                        }
+	                    }
+
+	                    // Convert old style urlArgs string to a function.
+	                    if (typeof cfg.urlArgs === 'string') {
+	                        var urlArgs = cfg.urlArgs;
+	                        cfg.urlArgs = function (id, url) {
+	                            return (url.indexOf('?') === -1 ? '?' : '&') + urlArgs;
+	                        };
+	                    }
+
+	                    //Save off the paths since they require special processing,
+	                    //they are additive.
+	                    var shim = _config.shim,
+	                        objs = {
+	                        paths: true,
+	                        bundles: true,
+	                        config: true,
+	                        map: true
+	                    };
+
+	                    eachProp(cfg, function (value, prop) {
+	                        if (objs[prop]) {
+	                            if (!_config[prop]) {
+	                                _config[prop] = {};
+	                            }
+	                            mixin(_config[prop], value, true, true);
+	                        } else {
+	                            _config[prop] = value;
+	                        }
+	                    });
+
+	                    //Reverse map the bundles
+	                    if (cfg.bundles) {
+	                        eachProp(cfg.bundles, function (value, prop) {
+	                            each(value, function (v) {
+	                                if (v !== prop) {
+	                                    bundlesMap[v] = prop;
+	                                }
+	                            });
+	                        });
+	                    }
+
+	                    //Merge shim
+	                    if (cfg.shim) {
+	                        eachProp(cfg.shim, function (value, id) {
+	                            //Normalize the structure
+	                            if (isArray(value)) {
+	                                value = {
+	                                    deps: value
+	                                };
+	                            }
+	                            if ((value.exports || value.init) && !value.exportsFn) {
+	                                value.exportsFn = context.makeShimExports(value);
+	                            }
+	                            shim[id] = value;
+	                        });
+	                        _config.shim = shim;
+	                    }
+
+	                    //Adjust packages if necessary.
+	                    if (cfg.packages) {
+	                        each(cfg.packages, function (pkgObj) {
+	                            var location, name;
+
+	                            pkgObj = typeof pkgObj === 'string' ? { name: pkgObj } : pkgObj;
+
+	                            name = pkgObj.name;
+	                            location = pkgObj.location;
+	                            if (location) {
+	                                _config.paths[name] = pkgObj.location;
+	                            }
+
+	                            //Save pointer to main module ID for pkg name.
+	                            //Remove leading dot in main, so main paths are normalized,
+	                            //and remove any trailing .js, since different package
+	                            //envs have different conventions: some use a module name,
+	                            //some use a file name.
+	                            _config.pkgs[name] = pkgObj.name + '/' + (pkgObj.main || 'main').replace(currDirRegExp, '').replace(jsSuffixRegExp, '');
+	                        });
+	                    }
+
+	                    //If there are any "waiting to execute" modules in the registry,
+	                    //update the maps for them, since their info, like URLs to load,
+	                    //may have changed.
+	                    eachProp(registry, function (mod, id) {
+	                        //If module already has init called, since it is too
+	                        //late to modify them, and ignore unnormalized ones
+	                        //since they are transient.
+	                        if (!mod.inited && !mod.map.unnormalized) {
+	                            mod.map = makeModuleMap(id, null, true);
+	                        }
+	                    });
+
+	                    //If a deps array or a config callback is specified, then call
+	                    //require with those args. This is useful when require is defined as a
+	                    //config object before require.js is loaded.
+	                    if (cfg.deps || cfg.callback) {
+	                        context.require(cfg.deps || [], cfg.callback);
+	                    }
+	                },
+
+	                makeShimExports: function makeShimExports(value) {
+	                    function fn() {
+	                        var ret;
+	                        if (value.init) {
+	                            ret = value.init.apply(global, arguments);
+	                        }
+	                        return ret || value.exports && getGlobal(value.exports);
+	                    }
+	                    return fn;
+	                },
+
+	                makeRequire: function makeRequire(relMap, options) {
+	                    options = options || {};
+
+	                    function localRequire(deps, callback, errback) {
+	                        var id, map, requireMod;
+
+	                        if (options.enableBuildCallback && callback && isFunction(callback)) {
+	                            callback.__requireJsBuild = true;
+	                        }
+
+	                        if (typeof deps === 'string') {
+	                            if (isFunction(callback)) {
+	                                //Invalid call
+	                                return onError(makeError('requireargs', 'Invalid require call'), errback);
+	                            }
+
+	                            //If require|exports|module are requested, get the
+	                            //value for them from the special handlers. Caveat:
+	                            //this only works while module is being defined.
+	                            if (relMap && hasProp(handlers, deps)) {
+	                                return handlers[deps](registry[relMap.id]);
+	                            }
+
+	                            //Synchronous access to one module. If require.get is
+	                            //available (as in the Node adapter), prefer that.
+	                            if (req.get) {
+	                                return req.get(context, deps, relMap, localRequire);
+	                            }
+
+	                            //Normalize module name, if it contains . or ..
+	                            map = makeModuleMap(deps, relMap, false, true);
+	                            id = map.id;
+
+	                            if (!hasProp(_defined, id)) {
+	                                return onError(makeError('notloaded', 'Module name "' + id + '" has not been loaded yet for context: ' + contextName + (relMap ? '' : '. Use require([])')));
+	                            }
+	                            return _defined[id];
+	                        }
+
+	                        //Grab defines waiting in the global queue.
+	                        intakeDefines();
+
+	                        //Mark all the dependencies as needing to be loaded.
+	                        context.nextTick(function () {
+	                            //Some defines could have been added since the
+	                            //require call, collect them.
+	                            intakeDefines();
+
+	                            requireMod = getModule(makeModuleMap(null, relMap));
+
+	                            //Store if map config should be applied to this require
+	                            //call for dependencies.
+	                            requireMod.skipMap = options.skipMap;
+
+	                            requireMod.init(deps, callback, errback, {
+	                                enabled: true
+	                            });
+
+	                            checkLoaded();
+	                        });
+
+	                        return localRequire;
+	                    }
+
+	                    mixin(localRequire, {
+	                        isBrowser: isBrowser,
+
+	                        /**
+	                         * Converts a module name + .extension into an URL path.
+	                         * *Requires* the use of a module name. It does not support using
+	                         * plain URLs like nameToUrl.
+	                         */
+	                        toUrl: function toUrl(moduleNamePlusExt) {
+	                            var ext,
+	                                index = moduleNamePlusExt.lastIndexOf('.'),
+	                                segment = moduleNamePlusExt.split('/')[0],
+	                                isRelative = segment === '.' || segment === '..';
+
+	                            //Have a file extension alias, and it is not the
+	                            //dots from a relative path.
+	                            if (index !== -1 && (!isRelative || index > 1)) {
+	                                ext = moduleNamePlusExt.substring(index, moduleNamePlusExt.length);
+	                                moduleNamePlusExt = moduleNamePlusExt.substring(0, index);
+	                            }
+
+	                            return context.nameToUrl(normalize(moduleNamePlusExt, relMap && relMap.id, true), ext, true);
+	                        },
+
+	                        defined: function defined(id) {
+	                            return hasProp(_defined, makeModuleMap(id, relMap, false, true).id);
+	                        },
+
+	                        specified: function specified(id) {
+	                            id = makeModuleMap(id, relMap, false, true).id;
+	                            return hasProp(_defined, id) || hasProp(registry, id);
+	                        }
+	                    });
+
+	                    //Only allow undef on top level require calls
+	                    if (!relMap) {
+	                        localRequire.undef = function (id) {
+	                            //Bind any waiting define() calls to this context,
+	                            //fix for #408
+	                            takeGlobalQueue();
+
+	                            var map = makeModuleMap(id, relMap, true),
+	                                mod = getOwn(registry, id);
+
+	                            mod.undefed = true;
+	                            removeScript(id);
+
+	                            delete _defined[id];
+	                            delete urlFetched[map.url];
+	                            delete undefEvents[id];
+
+	                            //Clean queued defines too. Go backwards
+	                            //in array so that the splices do not
+	                            //mess up the iteration.
+	                            eachReverse(defQueue, function (args, i) {
+	                                if (args[0] === id) {
+	                                    defQueue.splice(i, 1);
+	                                }
+	                            });
+	                            delete context.defQueueMap[id];
+
+	                            if (mod) {
+	                                //Hold on to listeners in case the
+	                                //module will be attempted to be reloaded
+	                                //using a different config.
+	                                if (mod.events.defined) {
+	                                    undefEvents[id] = mod.events;
+	                                }
+
+	                                cleanRegistry(id);
+	                            }
+	                        };
+	                    }
+
+	                    return localRequire;
+	                },
+
+	                /**
+	                 * Called to enable a module if it is still in the registry
+	                 * awaiting enablement. A second arg, parent, the parent module,
+	                 * is passed in for context, when this method is overridden by
+	                 * the optimizer. Not shown here to keep code compact.
+	                 */
+	                enable: function enable(depMap) {
+	                    var mod = getOwn(registry, depMap.id);
+	                    if (mod) {
+	                        getModule(depMap).enable();
+	                    }
+	                },
+
+	                /**
+	                 * Internal method used by environment adapters to complete a load event.
+	                 * A load event could be a script load or just a load pass from a synchronous
+	                 * load call.
+	                 * @param {String} moduleName the name of the module to potentially complete.
+	                 */
+	                completeLoad: function completeLoad(moduleName) {
+	                    var found,
+	                        args,
+	                        mod,
+	                        shim = getOwn(_config.shim, moduleName) || {},
+	                        shExports = shim.exports;
+
+	                    takeGlobalQueue();
+
+	                    while (defQueue.length) {
+	                        args = defQueue.shift();
+	                        if (args[0] === null) {
+	                            args[0] = moduleName;
+	                            //If already found an anonymous module and bound it
+	                            //to this name, then this is some other anon module
+	                            //waiting for its completeLoad to fire.
+	                            if (found) {
+	                                break;
+	                            }
+	                            found = true;
+	                        } else if (args[0] === moduleName) {
+	                            //Found matching define call for this script!
+	                            found = true;
+	                        }
+
+	                        callGetModule(args);
+	                    }
+	                    context.defQueueMap = {};
+
+	                    //Do this after the cycle of callGetModule in case the result
+	                    //of those calls/init calls changes the registry.
+	                    mod = getOwn(registry, moduleName);
+
+	                    if (!found && !hasProp(_defined, moduleName) && mod && !mod.inited) {
+	                        if (_config.enforceDefine && (!shExports || !getGlobal(shExports))) {
+	                            if (hasPathFallback(moduleName)) {
+	                                return;
+	                            } else {
+	                                return onError(makeError('nodefine', 'No define call for ' + moduleName, null, [moduleName]));
+	                            }
+	                        } else {
+	                            //A script that does not call define(), so just simulate
+	                            //the call for it.
+	                            callGetModule([moduleName, shim.deps || [], shim.exportsFn]);
+	                        }
+	                    }
+
+	                    checkLoaded();
+	                },
+
+	                /**
+	                 * Converts a module name to a file path. Supports cases where
+	                 * moduleName may actually be just an URL.
+	                 * Note that it **does not** call normalize on the moduleName,
+	                 * it is assumed to have already been normalized. This is an
+	                 * internal API, not a public one. Use toUrl for the public API.
+	                 */
+	                nameToUrl: function nameToUrl(moduleName, ext, skipExt) {
+	                    var paths,
+	                        syms,
+	                        i,
+	                        parentModule,
+	                        url,
+	                        parentPath,
+	                        bundleId,
+	                        pkgMain = getOwn(_config.pkgs, moduleName);
+
+	                    if (pkgMain) {
+	                        moduleName = pkgMain;
+	                    }
+
+	                    bundleId = getOwn(bundlesMap, moduleName);
+
+	                    if (bundleId) {
+	                        return context.nameToUrl(bundleId, ext, skipExt);
+	                    }
+
+	                    //If a colon is in the URL, it indicates a protocol is used and it is just
+	                    //an URL to a file, or if it starts with a slash, contains a query arg (i.e. ?)
+	                    //or ends with .js, then assume the user meant to use an url and not a module id.
+	                    //The slash is important for protocol-less URLs as well as full paths.
+	                    if (req.jsExtRegExp.test(moduleName)) {
+	                        //Just a plain path, not module name lookup, so just return it.
+	                        //Add extension if it is included. This is a bit wonky, only non-.js things pass
+	                        //an extension, this method probably needs to be reworked.
+	                        url = moduleName + (ext || '');
+	                    } else {
+	                        //A module that needs to be converted to a path.
+	                        paths = _config.paths;
+
+	                        syms = moduleName.split('/');
+	                        //For each module name segment, see if there is a path
+	                        //registered for it. Start with most specific name
+	                        //and work up from it.
+	                        for (i = syms.length; i > 0; i -= 1) {
+	                            parentModule = syms.slice(0, i).join('/');
+
+	                            parentPath = getOwn(paths, parentModule);
+	                            if (parentPath) {
+	                                //If an array, it means there are a few choices,
+	                                //Choose the one that is desired
+	                                if (isArray(parentPath)) {
+	                                    parentPath = parentPath[0];
+	                                }
+	                                syms.splice(0, i, parentPath);
+	                                break;
+	                            }
+	                        }
+
+	                        //Join the path parts together, then figure out if baseUrl is needed.
+	                        url = syms.join('/');
+	                        // update at 2018-07-11, 支持用户自己写.js文件后缀，如：require('path/to/app.js');
+	                        url += ext || (/^data\:|^blob\:|\?/.test(url) || skipExt || jsSuffixRegExp.test(url) ? '' : '.js');
+	                        url = (url.charAt(0) === '/' || url.match(/^[\w\+\.\-]+:/) ? '' : _config.baseUrl) + url;
+	                        // update at 2018-07-14, url上额外传递参数 hashName 到每次请求中
+	                        // 以供 define 函数确认当前是哪个应用调用 require 的
+	                        // url += (url.indexOf('?') === -1 ? '?' : '&') + 'okey=' + hashName
+	                    }
+
+	                    return _config.urlArgs && !/^blob\:/.test(url) ? url + _config.urlArgs(moduleName, url) : url;
+	                },
+
+	                //Delegates to req.load. Broken out as a separate function to
+	                //allow overriding in the optimizer.
+	                load: function load(id, url) {
+	                    req.load(context, id, url);
+	                },
+
+	                /**
+	                 * Executes a module callback function. Broken out as a separate function
+	                 * solely to allow the build system to sequence the files in the built
+	                 * layer in the right sequence.
+	                 *
+	                 * @private
+	                 */
+	                execCb: function execCb(name, callback, args, exports) {
+	                    // update at 2018-07-10 by liuzechun
+	                    // 当符合以下条件时：
+	                    //     1、不为依赖注入写法（define(['foo'], function(foo){})），此处的体现是name格式为`_@r5`
+	                    //     2、不是仅包含require的回调函数
+	                    // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
+	                    var cbStr = callback.toString().slice(0, 50);
+	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
+	                        var uf = (0, _instance.getInstance)(insName);
+	                        args.unshift(uf);
+	                    }
+	                    return callback.apply(exports, args);
+	                },
+
+	                /**
+	                 * callback for script loads, used to check status of loading.
+	                 *
+	                 * @param {Event} evt the event from the browser for the script
+	                 * that was loaded.
+	                 */
+	                onScriptLoad: function onScriptLoad(evt) {
+	                    //Using currentTarget instead of target for Firefox 2.0's sake. Not
+	                    //all old browsers will be supported, but this one was easy enough
+	                    //to support and still makes sense.
+	                    if (evt.type === 'load' || readyRegExp.test((evt.currentTarget || evt.srcElement).readyState)) {
+	                        //Reset interactive script so a script node is not held onto for
+	                        //to long.
+	                        interactiveScript = null;
+
+	                        // update at 2018-07-15 by liuzechun
+	                        // TODO: 待观察效果，多个requirejs同时执行时，且这里是异步会不会出错
+	                        //   此处实现认为 globalDefine 中只暂存一种define内容，紧接着会在这里取走并清空
+	                        //      如果define执行之后立即（同步）触发事件，不会有问题；
+	                        //      如果存在 globalDefine 中出现两个不同requirejs实例存入的内容，则会出错
+	                        // 从 globalDefine 中取走全部加载完成后使用全局 define 函数初始化的模块
+	                        while (globalDefine.length) {
+	                            define.apply(undefined, globalDefine.shift());
+	                        }
+
+	                        //Pull out the name of the module and the context.
+	                        var data = getScriptData(evt);
+	                        context.completeLoad(data.id);
+	                    }
+	                },
+
+	                /**
+	                 * Callback for script errors.
+	                 */
+	                onScriptError: function onScriptError(evt) {
+	                    var data = getScriptData(evt);
+	                    if (!hasPathFallback(data.id)) {
+	                        var parents = [];
+	                        eachProp(registry, function (value, key) {
+	                            if (key.indexOf('_@r') !== 0) {
+	                                each(value.depMaps, function (depMap) {
+	                                    if (depMap.id === data.id) {
+	                                        parents.push(key);
+	                                        return true;
+	                                    }
+	                                });
+	                            }
+	                        });
+	                        return onError(makeError('scripterror', 'Script error for "' + data.id + (parents.length ? '", needed by: ' + parents.join(', ') : '"'), evt, [data.id]));
+	                    }
+	                }
+	            };
+
+	            context.require = context.makeRequire();
+	            return context;
+	        }
+
+	        /**
+	         * Main entry point.
+	         *
+	         * If the only argument to require is a string, then the module that
+	         * is represented by that string is fetched for the appropriate context.
+	         *
+	         * If the first argument is an array, then it will be treated as an array
+	         * of dependency string names to fetch. An optional function callback can
+	         * be specified to execute when all of those dependencies are available.
+	         *
+	         * Make a local req variable to help Caja compliance (it assumes things
+	         * on a require that are not standardized), and to give a short
+	         * name for minification/local scope use.
+	         */
+	        req = requirejs = function requirejs(deps, callback, errback, optional) {
+
+	            //Find the right context, use default
+	            var context,
+	                config,
+	                contextName = defContextName;
+
+	            // Determine if have config object in the call.
+	            if (!isArray(deps) && typeof deps !== 'string') {
+	                // deps is a config object
+	                config = deps;
+	                if (isArray(callback)) {
+	                    // Adjust args if there are dependencies
+	                    deps = callback;
+	                    callback = errback;
+	                    errback = optional;
+	                } else {
+	                    deps = [];
+	                }
+	            }
+
+	            if (config && config.context) {
+	                contextName = config.context;
+	            }
+
+	            context = getOwn(contexts, contextName);
+	            if (!context) {
+	                context = contexts[contextName] = req.s.newContext(contextName);
+	            }
+
+	            if (config) {
+	                context.configure(config);
+	            }
+
+	            return context.require(deps, callback, errback);
+	        };
+
+	        /**
+	         * Support require.config() to make it easier to cooperate with other
+	         * AMD loaders on globally agreed names.
+	         */
+	        req.config = function (config) {
+	            // if the config is false, then prevent load requirejs to window
+	            // update at 2018-03-19 18:47 by liuzechun
+	            if (!!config) {
+	                window['define'] = window['_define'];
+	            }
+	            return req(config);
+	        };
+
+	        /**
+	         * Execute something after the current tick
+	         * of the event loop. Override for other envs
+	         * that have a better solution than setTimeout.
+	         * @param  {Function} fn function to execute later.
+	         */
+	        req.nextTick = typeof setTimeout !== 'undefined' ? function (fn) {
+	            setTimeout(fn, 4);
+	        } : function (fn) {
+	            fn();
+	        };
+
+	        /**
+	         * Export require as a global, but only if it does not already exist.
+	         */
+	        if (!require) {
+	            require = req;
+	        }
+
+	        req.version = version;
+
+	        //Used to filter out dependencies that are already paths.
+	        // update by liuzechun at 2018-07-17, 传入的.js也认为是模块id处理
+	        // req.jsExtRegExp = /^\/|:|\?|\.js$/;
+	        req.jsExtRegExp = /^\/|:|\?/;
+	        req.isBrowser = isBrowser;
+	        s = req.s = {
+	            contexts: contexts,
+	            newContext: newContext
+	        };
+
+	        //Create default context.
+	        req({});
+
+	        //Exports some context-sensitive methods on global require.
+	        each(['toUrl', 'undef', 'defined', 'specified'], function (prop) {
+	            //Reference from contexts instead of early binding to default context,
+	            //so that during builds, the latest instance of the default context
+	            //with its config gets used.
+	            req[prop] = function () {
+	                var ctx = contexts[defContextName];
+	                return ctx.require[prop].apply(ctx, arguments);
+	            };
+	        });
+
+	        if (isBrowser) {
+	            head = s.head = document.getElementsByTagName('head')[0];
+	            //If BASE tag is in play, using appendChild is a problem for IE6.
+	            //When that browser dies, this can be removed. Details in this jQuery bug:
+	            //http://dev.jquery.com/ticket/2709
+	            baseElement = document.getElementsByTagName('base')[0];
+	            if (baseElement) {
+	                head = s.head = baseElement.parentNode;
+	            }
+	        }
+
+	        /**
+	         * Any errors that require explicitly generates will be passed to this
+	         * function. Intercept/override it if you want custom error handling.
+	         * @param {Error} err the error object.
+	         */
+	        req.onError = defaultOnError;
+
+	        /**
+	         * Creates the node for the load command. Only used in browser envs.
+	         */
+	        req.createNode = function (config, moduleName, url) {
+	            var node = config.xhtml ? document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') : document.createElement('script');
+	            node.type = config.scriptType || 'text/javascript';
+	            node.charset = 'utf-8';
+	            node.async = true;
+	            return node;
+	        };
+
+	        /**
+	         * Does the request to load a module for the browser case.
+	         * Make this a separate function to allow other environments
+	         * to override it.
+	         *
+	         * @param {Object} context the require context to find state.
+	         * @param {String} moduleName the name of the module.
+	         * @param {Object} url the URL to the module.
+	         */
+	        req.load = function (context, moduleName, url) {
+	            var config = context && context.config || {},
+	                node;
+	            if (isBrowser) {
+	                //In the browser so use a script tag
+	                node = req.createNode(config, moduleName, url);
+
+	                node.setAttribute('data-requirecontext', context.contextName);
+	                node.setAttribute('data-requiremodule', moduleName);
+
+	                //Set up load listener. Test attachEvent first because IE9 has
+	                //a subtle issue in its addEventListener and script onload firings
+	                //that do not match the behavior of all other browsers with
+	                //addEventListener support, which fire the onload event for a
+	                //script right after the script execution. See:
+	                //https://connect.microsoft.com/IE/feedback/details/648057/script-onload-event-is-not-fired-immediately-after-script-execution
+	                //UNFORTUNATELY Opera implements attachEvent but does not follow the script
+	                //script execution mode.
+	                if (node.attachEvent &&
+	                //Check if node.attachEvent is artificially added by custom script or
+	                //natively supported by browser
+	                //read https://github.com/requirejs/requirejs/issues/187
+	                //if we can NOT find [native code] then it must NOT natively supported.
+	                //in IE8, node.attachEvent does not have toString()
+	                //Note the test for "[native code" with no closing brace, see:
+	                //https://github.com/requirejs/requirejs/issues/273
+	                !(node.attachEvent.toString && node.attachEvent.toString().indexOf('[native code') < 0) && !isOpera) {
+	                    //Probably IE. IE (at least 6-8) do not fire
+	                    //script onload right after executing the script, so
+	                    //we cannot tie the anonymous define call to a name.
+	                    //However, IE reports the script as being in 'interactive'
+	                    //readyState at the time of the define call.
+	                    useInteractive = true;
+
+	                    node.attachEvent('onreadystatechange', context.onScriptLoad);
+	                    //It would be great to add an error handler here to catch
+	                    //404s in IE9+. However, onreadystatechange will fire before
+	                    //the error handler, so that does not help. If addEventListener
+	                    //is used, then IE will fire error before load, but we cannot
+	                    //use that pathway given the connect.microsoft.com issue
+	                    //mentioned above about not doing the 'script execute,
+	                    //then fire the script load event listener before execute
+	                    //next script' that other browsers do.
+	                    //Best hope: IE10 fixes the issues,
+	                    //and then destroys all installs of IE 6-9.
+	                    //node.attachEvent('onerror', context.onScriptError);
+	                } else {
+	                    node.addEventListener('load', context.onScriptLoad, false);
+	                    node.addEventListener('error', context.onScriptError, false);
+	                }
+	                node.src = url;
+
+	                //Calling onNodeCreated after all properties on the node have been
+	                //set, but before it is placed in the DOM.
+	                if (config.onNodeCreated) {
+	                    config.onNodeCreated(node, config, moduleName, url);
+	                }
+
+	                //For some cache cases in IE 6-8, the script executes before the end
+	                //of the appendChild execution, so to tie an anonymous define
+	                //call to the module name (which is stored on the node), hold on
+	                //to a reference to this node, but clear after the DOM insertion.
+	                currentlyAddingScript = node;
+	                if (baseElement) {
+	                    head.insertBefore(node, baseElement);
+	                } else {
+	                    head.appendChild(node);
+	                }
+	                currentlyAddingScript = null;
+
+	                return node;
+	            } else if (isWebWorker) {
+	                try {
+	                    //In a web worker, use importScripts. This is not a very
+	                    //efficient use of importScripts, importScripts will block until
+	                    //its script is downloaded and evaluated. However, if web workers
+	                    //are in play, the expectation is that a build has been done so
+	                    //that only one script needs to be loaded anyway. This may need
+	                    //to be reevaluated if other use cases become common.
+
+	                    // Post a task to the event loop to work around a bug in WebKit
+	                    // where the worker gets garbage-collected after calling
+	                    // importScripts(): https://webkit.org/b/153317
+	                    setTimeout(function () {}, 0);
+	                    importScripts(url);
+
+	                    //Account for anonymous modules
+	                    context.completeLoad(moduleName);
+	                } catch (e) {
+	                    context.onError(makeError('importscripts', 'importScripts failed for ' + moduleName + ' at ' + url, e, [moduleName]));
+	                }
+	            }
+	        };
+
+	        function getInteractiveScript() {
+	            if (interactiveScript && interactiveScript.readyState === 'interactive') {
+	                return interactiveScript;
+	            }
+
+	            eachReverse(scripts(), function (script) {
+	                if (script.readyState === 'interactive') {
+	                    return interactiveScript = script;
+	                }
+	            });
+	            return interactiveScript;
+	        }
+
+	        //Look for a data-main script attribute, which could also adjust the baseUrl.
+	        if (isBrowser && !cfg.skipDataMain) {
+	            //Figure out baseUrl. Get it from the script tag with require.js in it.
+	            eachReverse(scripts(), function (script) {
+	                //Set the 'head' where we can append children by
+	                //using the script's parent.
+	                if (!head) {
+	                    head = script.parentNode;
+	                }
+
+	                //Look for a data-main attribute to set main script for the page
+	                //to load. If it is there, the path to data main becomes the
+	                //baseUrl, if it is not already set.
+	                dataMain = script.getAttribute('data-main');
+	                if (dataMain) {
+	                    //Preserve dataMain in case it is a path (i.e. contains '?')
+	                    mainScript = dataMain;
+
+	                    //Set final baseUrl if there is not already an explicit one,
+	                    //but only do so if the data-main value is not a loader plugin
+	                    //module ID.
+	                    if (!cfg.baseUrl && mainScript.indexOf('!') === -1) {
+	                        //Pull off the directory of data-main for use as the
+	                        //baseUrl.
+	                        src = mainScript.split('/');
+	                        mainScript = src.pop();
+	                        subPath = src.length ? src.join('/') + '/' : './';
+
+	                        cfg.baseUrl = subPath;
+	                    }
+
+	                    //Strip off any trailing .js since mainScript is now
+	                    //like a module name.
+	                    mainScript = mainScript.replace(jsSuffixRegExp, '');
+
+	                    //If mainScript is still a path, fall back to dataMain
+	                    if (req.jsExtRegExp.test(mainScript)) {
+	                        mainScript = dataMain;
+	                    }
+
+	                    //Put the data-main script in the files to load.
+	                    cfg.deps = cfg.deps ? cfg.deps.concat(mainScript) : [mainScript];
+
+	                    return true;
+	                }
+	            });
+	        }
+
+	        /**
+	         * The function that handles definitions of modules. Differs from
+	         * require() in that a string for the module should be the first argument,
+	         * and the function to execute after dependencies are loaded should
+	         * return a value to define the module corresponding to the first argument's
+	         * name.
+	         */
+	        define = function define(name, deps, callback) {
+	            var node, context;
+
+	            //Allow for anonymous modules
+	            if (typeof name !== 'string') {
+	                //Adjust args appropriately
+	                callback = deps;
+	                deps = name;
+	                name = null;
+	            }
+
+	            //This module may not have dependencies
+	            if (!isArray(deps)) {
+	                callback = deps;
+	                deps = null;
+	            }
+
+	            //If no name, and callback is a function, then figure out if it a
+	            //CommonJS thing with dependencies.
+	            if (!deps && isFunction(callback)) {
+	                deps = [];
+	                //Remove comments from the callback string,
+	                //look for require calls, and pull them into the dependencies,
+	                //but only if there are function args.
+	                if (callback.length) {
+	                    callback.toString().replace(commentRegExp, commentReplace).replace(cjsRequireRegExp, function (match, dep) {
+	                        deps.push(dep);
+	                    });
+
+	                    //May be a CommonJS thing even without require calls, but still
+	                    //could use exports, and module. Avoid doing exports and module
+	                    //work though if it just needs require.
+	                    //REQUIRES the function to expect the CommonJS variables in the
+	                    //order listed below.
+	                    deps = (callback.length === 1 ? ['require'] : ['require', 'exports', 'module']).concat(deps);
+	                }
+	            }
+
+	            //If in IE 6-8 and hit an anonymous define() call, do the interactive
+	            //work.
+	            if (useInteractive) {
+	                node = currentlyAddingScript || getInteractiveScript();
+	                if (node) {
+	                    if (!name) {
+	                        name = node.getAttribute('data-requiremodule');
+	                    }
+	                    context = contexts[node.getAttribute('data-requirecontext')];
+	                }
+	            }
+
+	            //Always save off evaluating the def call until the script onload handler.
+	            //This allows multiple modules to be in a file without prematurely
+	            //tracing dependencies, and allows for anonymous module support,
+	            //where the module name is not known until the script onload event
+	            //occurs. If no context, use the global queue, and get it processed
+	            //in the onscript load callback.
+	            if (context) {
+	                context.defQueue.push([name, deps, callback]);
+	                context.defQueueMap[name] = true;
+	            } else {
+	                globalDefQueue.push([name, deps, callback]);
+	            }
+	        };
+
+	        define.amd = {
+	            jQuery: true
+	        };
+
+	        /**
+	         * Executes the text. Normally just uses eval, but can be modified
+	         * to use a better, environment-specific call. Only used for transpiling
+	         * loader plugins, not for plain JS modules.
+	         * @param {String} text the text to execute/evaluate.
+	         */
+	        req.exec = function (text) {
+	            /*jslint evil: true */
+	            return eval(text);
+	        };
+
+	        //Set up with config info.
+	        req(cfg);
+	    })(this, typeof setTimeout === 'undefined' ? undefined : setTimeout);
+
+	    // 保证引用，防止销毁
+	    requirejs.require = require;
+	    requirejs.define = define;
+
+	    return requirejs;
+	});
+
+	// export default requirejs;
+
+	// 重写define函数
+	// 由于多个require实例的define也有多个（执行环境不同，globalDefQueue有多个）
+	// 所以重写一个define函数，把模块先置于一个公共缓存池里，后续各requirejs实例主动从池中去取各自的模块
+
+	var define = function define(name, deps, callback) {
+	    globalDefine.push([name, deps, callback]);
+	};
+
+	// update at 2018-03-19 18:41:28 by liuzechun
+	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
+	window['_define'] = define;
+
+/***/ }),
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21799,7 +21812,7 @@
 	exports.default = IntroductionApp;
 
 /***/ }),
-/* 258 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21851,7 +21864,7 @@
 	exports.default = UpdateLogApp;
 
 /***/ }),
-/* 259 */
+/* 260 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21902,7 +21915,7 @@
 	exports.default = InstallApp;
 
 /***/ }),
-/* 260 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21953,7 +21966,7 @@
 	exports.default = Join;
 
 /***/ }),
-/* 261 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22004,7 +22017,7 @@
 	exports.default = Call;
 
 /***/ }),
-/* 262 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22055,7 +22068,7 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 263 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22078,9 +22091,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22155,8 +22168,8 @@
 	                        mode: 'menu-fold',
 	                        style: { fontSize: '18px', lineHeight: '48px', marginLeft: '10px' },
 	                        onClick: function onClick(v) {
-	                            return (0, _tools2.default)('my-sider').set({
-	                                collapsed: !(0, _tools2.default)('my-sider').get('collapsed')
+	                            return (0, _src2.default)('my-sider').set({
+	                                collapsed: !(0, _src2.default)('my-sider').get('collapsed')
 	                            });
 	                        }
 	                    }, {
@@ -22192,7 +22205,7 @@
 	                            options: [{ label: '待处理工单', value: 'pendding' }, { label: '已完成工单', value: 'finished' }],
 	                            onChange: function onChange(e) {
 	                                var status = e.target.value;
-	                                (0, _tools2.default)('my-table').set({
+	                                (0, _src2.default)('my-table').set({
 	                                    title: {
 	                                        text: status === 'pendding' ? '待处理工单' : '已完成工单'
 	                                    },
@@ -22262,7 +22275,7 @@
 	exports.default = Page;
 
 /***/ }),
-/* 264 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22285,9 +22298,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22335,7 +22348,7 @@
 	exports.default = Install;
 
 /***/ }),
-/* 265 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22356,9 +22369,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22390,7 +22403,7 @@
 	exports.default = Config;
 
 /***/ }),
-/* 266 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22411,9 +22424,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22445,7 +22458,7 @@
 	exports.default = Modules;
 
 /***/ }),
-/* 267 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22496,7 +22509,7 @@
 	exports.default = Build;
 
 /***/ }),
-/* 268 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22547,7 +22560,7 @@
 	exports.default = Api;
 
 /***/ }),
-/* 269 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22598,7 +22611,7 @@
 	exports.default = Params;
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22649,7 +22662,7 @@
 	exports.default = Life;
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22700,7 +22713,7 @@
 	exports.default = Load;
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22751,7 +22764,7 @@
 	exports.default = Others;
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22774,7 +22787,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(274);
+	var _markdown = __webpack_require__(275);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -22888,13 +22901,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 通过一定格式的配置以及数据格式，可以将数据导出为.xls以及.csv文件\n* 配置`headers`用于文件中表头的展示以及数据的一一对应\n* 配置`source`，`params`，`total`可通过后端异步导出数据\n* 配置`fileName`，`fileFormat`分别实现导出的文件名称及文件格式类型\n\n## 组件&参数\n\n### # export\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\ndata | 要导出的全部数据列表，需要按照一定的格式书写 | Array |  | 若传入此属性，则直接把data中的数据导出到文件中\nheaders | 导出文件中要显示的字段，以及字段对应的表头，值为数组，数组的每个元素为一个对象，见下方详细说明 | Array |  | 必须\nsource | 获取导出数据接口（一般可直接使用分页接口，接口格式见下面）。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`params`等，可见 [通用参数](#/Params) 中的 # source系列  | string&#124;object | | 如果设置`source`或者`source.url`，则认为是异步导出\ntotal | 当前表格所有数据的总条数 (因为在导出前就会使用，所以最好传入，否则在开始前将不会计算所需请求次数，异步请求接口数据必须传递total或count值) | Number |  |\nmessage | 如上面示例的'提示导出'组件，可自定义下面的提示信息：包含两个属性 `page1`、`page2`，属性值都是数组，详见`提示导出CSV文件`demo | Object |  |\nfileName | 自定义导出的文件名 | String | 格式：20180524-导出文件 |\nfileFormat | 选择导出的文件扩展名，目前支持`.xls`格式和`.csv`格式 | String | `.xls` | \n\n#### *headers*\n> 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名\n\n\n### 函数调用\n\n> 组件自身带有的函数，调用方法如：`UF('export').export()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nexport | 开始导出 | export()\n\n\n```javascript\nheaders: [\n    {\n        key: 'name',\n        title: '姓名'\n    },\n    {\n        key: 'age',\n        title: '年龄'\n    },\n    {...}\n]\n```\n\n#### 异步导出接口数据格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…],\n    total/count: 720\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22917,11 +22930,11 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(276);
+	var _markdown = __webpack_require__(277);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -23038,13 +23051,7 @@
 	                    return !!+v;
 	                } }
 	        },
-	        options: [{
-	            value: '0',
-	            label: 'VPN'
-	        }, {
-	            value: '1',
-	            label: '专线'
-	        }]
+	        options: [{ value: '0', label: 'VPN' }, { value: '1', label: '专线' }]
 	    }], [{
 	        type: 'input',
 	        label: '产品',
@@ -23434,13 +23441,13 @@
 	exports.default = FormApp;
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表\n单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示 | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\n\n\n## 更多用法\n可以把各种组件的更高级用法的例子截图贴在这里\n[!图片](/path/to/img.jpg \"Title\")\n"
+	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表\n单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示 | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\njoin | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部示例 | object | | \nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\n\n\n## 更多用法\n\n[!图片](/path/to/img.jpg \"Title\")\n\n### 组件联动 - join 属性的用法\n\n```javascript\nitems: [\n    // 【示例1：】\n    {\n        type: 'select',\n        label: '接入方式',\n        name: 'access_type',\n        default: '0',\n        join: {\n            // 当 select 变化时，会联动name为bandwith的表单项\n            bandwith: {\n                // 更新表单项的display属性（控制是否展示）\n                // 属性的值可以直接为固定值，但更多情况下，值是根据当前选择的值动态变化的\n                // 所以也可以是一个函数，函数的参数为当前组件的值，函数的返回值为目标组件待更新的新值\n                display: function (v) {\n                    return !!Number(v) ? true : false;\n                }\n            },\n            // 可以同时联动多个\n            // line_type: {display: v=>!!+v},\n            // port_type: {display: v=>!!+v},\n            // is_converge: {display: v=>!!+v}\n        },\n        options: [\n            {value: '0', label: 'VPN'},\n            {value: '1', label: '专线'}\n        ]\n    },\n    {\n        type: 'input',\n        label: '专线带宽',\n        name: 'bandwith',\n        rules: [{required: true, message: '专线带宽不能为空'}],\n        display: false,\n        placeholder: 10,\n        addonAfter: 'M'\n    },\n\n    // 【示例2：】\n    // 另一个级联选择的例子，选择区域后，根据选择的区域动态的查询该区域的机房列表\n    {\n        type: 'select',\n        label: '区域',\n        name: 'area',\n        options: [\n            {value: 1, label: '华北'},\n            {value: 2, label: '华南'}\n        ],\n        join: {\n            idc_id: {\n                // 选择区域后，更新idc_id组件的source参数，组件会自动重新拉取数据\n                source: function (v) {\n                    return {\n                        params: {\n                            area_id: v\n                        }\n                    };\n                }\n            }\n        }\n    },\n    {\n        type: 'select',\n        label: '机房',\n        name: 'idc_id',\n        source: {\n            autoLoad: false,\n            url: 'docs/php/data.php',\n            handler: data=>data.map(v=>{\n                return {value: v.name, label: v.name};\n            })\n        }\n    }\n]\n```"
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23463,13 +23470,13 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _formsMarkdown = __webpack_require__(278);
+	var _formsMarkdown = __webpack_require__(279);
 
 	var _formsMarkdown2 = _interopRequireDefault(_formsMarkdown);
 
-	var _uf = __webpack_require__(279);
+	var _src = __webpack_require__(183);
 
-	var _uf2 = _interopRequireDefault(_uf);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23685,31 +23692,10 @@
 	exports.default = FormsApp;
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports) {
 
 	module.exports = "## 功能介绍\n * 主要提供表单的扩展功能，复制新增表单\n * 可配置新增方式\n * 可为组件传入数组形式的formData，从而产生多个Form表单\n * 可配置底部按钮\n\n\n## 组件&配置\n\n### # forms\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nclassName | 增加 forms 整体的 class 名称 | string |  | \nkey | 此组件唯一的标识字符串信息 | string | |\naddType | 新增的方式，有两种值：`copy-add` 为复制新增，即会将已填写的值先复制再新增表单；`add`为简单新增。 | string | |\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | 传递给表单的数据，当为对象时则根据配置的`form`渲染出一个表单，当为数组时渲染出多个表单 | object或Array | |\nform | 需渲染的表单内容，详细配置可参考`Form`组件的配置，注意，`buttons`只需在`Forms`组件配置一次就行，不需要在`form`中再次配置 | object或Array | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\n\n> **声明：** 本组件提交时的返回结果为一个数组，数组的每个元素都为一个对象，每个对象对应一个表单的值，如[{'name': 'ZhangSan', 'city': 'Beijing', 'birthDay': '1992-11-02'},{'name': 'LiSi', 'city': 'Shanghai', 'birthDay': '1988-09-02'}]\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues() |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues() |\n\n\n"
-
-/***/ }),
-/* 279 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	/**
-	 * @file index.js 项目入口
-	 * @author liuzechun
-	 * Created Date: 2018-01-30 01:58:03
-	 */
-
-	'use strict';
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _require = __webpack_require__(108),
-	    version = _require.version;
-
-	module.exports = _extends({
-	  VERSION: version
-	}, __webpack_require__(183));
 
 /***/ }),
 /* 280 */
@@ -23735,9 +23721,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _markdown = __webpack_require__(281);
 
@@ -23762,7 +23748,7 @@
 	        mode: 'primary',
 	        content: '点击弹出',
 	        onClick: function onClick() {
-	            return (0, _tools2.default)('my-modal').show();
+	            return (0, _src2.default)('my-modal').show();
 	        }
 	    }, {
 	        type: 'modal',
@@ -23787,7 +23773,7 @@
 	        mode: 'primary',
 	        content: '编辑弹框',
 	        onClick: function onClick() {
-	            return (0, _tools2.default)('my-modal2').show({ line_sn: 'sn20134567', idc_id: 'TC', other: 'other data' });
+	            return (0, _src2.default)('my-modal2').show({ line_sn: 'sn20134567', idc_id: 'TC', other: 'other data' });
 	        }
 	    }, {
 	        type: 'modal',
@@ -23829,7 +23815,7 @@
 	        mode: 'primary',
 	        content: '删除提示',
 	        onClick: function onClick() {
-	            return (0, _tools2.default)('my-modal3').show({ id: 123, other: 'other data' });
+	            return (0, _src2.default)('my-modal3').show({ id: 123, other: 'other data' });
 	        }
 	    }, {
 	        type: 'modal',
@@ -23852,7 +23838,7 @@
 	        type: 'button',
 	        content: 'Confirm',
 	        onClick: function onClick() {
-	            _tools2.default.Modal.confirm({
+	            _src2.default.Modal.confirm({
 	                title: '你确定要删除此项内容吗？',
 	                content: 'ID: 123...',
 	                onOk: function onOk() {
@@ -23872,7 +23858,7 @@
 	        type: 'button',
 	        content: 'Info',
 	        onClick: function onClick() {
-	            _tools2.default.Modal.info({
+	            _src2.default.Modal.info({
 	                title: '这是一个信息提示。',
 	                content: {
 	                    type: 'html',
@@ -23887,7 +23873,7 @@
 	        type: 'button',
 	        content: 'Success',
 	        onClick: function onClick() {
-	            _tools2.default.Modal.success({
+	            _src2.default.Modal.success({
 	                title: '这是一个成功提示。',
 	                content: 'some messages...some messages...'
 	            });
@@ -23896,7 +23882,7 @@
 	        type: 'button',
 	        content: 'Error',
 	        onClick: function onClick() {
-	            _tools2.default.Modal.error({
+	            _src2.default.Modal.error({
 	                title: '这是一个错误提示。',
 	                content: 'some messages...some messages...'
 	            });
@@ -23905,7 +23891,7 @@
 	        type: 'button',
 	        content: 'Warning',
 	        onClick: function onClick() {
-	            var ref = _tools2.default.Modal.warning({
+	            var ref = _src2.default.Modal.warning({
 	                title: '这是一个警告提示。',
 	                content: '2s后自动关闭...'
 	            });
@@ -23971,9 +23957,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _markdown = __webpack_require__(283);
 
@@ -24052,7 +24038,7 @@
 	        type: 'button',
 	        content: '为table组件set数据',
 	        onClick: function onClick() {
-	            (0, _tools2.default)('newtable1').set({
+	            (0, _src2.default)('newtable1').set({
 	                rowSelection: {
 	                    selectedRowKeys: ['4']
 	                },
@@ -24352,9 +24338,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _crud = __webpack_require__(285);
 
@@ -24519,7 +24505,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tree = __webpack_require__(227);
+	var _tree = __webpack_require__(220);
 
 	var _tree2 = _interopRequireDefault(_tree);
 
@@ -24835,9 +24821,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _markdown = __webpack_require__(291);
 
@@ -24866,20 +24852,20 @@
 	        type: 'button',
 	        content: '获取内容',
 	        onClick: function onClick() {
-	            var result = (0, _tools2.default)('my-editor').getContent();
-	            _tools2.default.message.info(result, 3);
+	            var result = (0, _src2.default)('my-editor').getContent();
+	            _src2.default.message.info(result, 3);
 	        }
 	    }, {
 	        type: 'button',
 	        content: '不可编辑',
 	        onClick: function onClick() {
-	            (0, _tools2.default)('my-editor').setDisabled();
+	            (0, _src2.default)('my-editor').setDisabled();
 	        }
 	    }, {
 	        type: 'button',
 	        content: '追加内容',
 	        onClick: function onClick() {
-	            (0, _tools2.default)('my-editor').setContent('追加内容', true);
+	            (0, _src2.default)('my-editor').setContent('追加内容', true);
 	        }
 	    }]
 	};
@@ -24940,9 +24926,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _markdown = __webpack_require__(293);
 
@@ -24992,7 +24978,7 @@
 	        type: 'button',
 	        content: '条形图',
 	        onClick: function onClick() {
-	            (0, _tools2.default)('my-echarts').set({
+	            (0, _src2.default)('my-echarts').set({
 	                // source: {
 	                //     params: {
 	                //         s: Date.now()
@@ -25005,7 +24991,7 @@
 	        type: 'button',
 	        content: '折线图',
 	        onClick: function onClick() {
-	            (0, _tools2.default)('my-echarts').set({
+	            (0, _src2.default)('my-echarts').set({
 	                className: 'aaa',
 	                source: {
 	                    params: {
@@ -25074,9 +25060,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25234,7 +25220,7 @@
 	        mode: 'primary',
 	        content: 'Click me!',
 	        onClick: function onClick(v) {
-	            return (0, _tools2.default)('my-button1').set({
+	            return (0, _src2.default)('my-button1').set({
 	                loading: true
 	            });
 	        }
@@ -25245,7 +25231,7 @@
 	        icon: 'poweroff',
 	        content: 'Click me!',
 	        onClick: function onClick(v) {
-	            return (0, _tools2.default)('my-button2').set({
+	            return (0, _src2.default)('my-button2').set({
 	                loading: true
 	            });
 	        }
@@ -25969,9 +25955,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	var _markdown = __webpack_require__(299);
 
@@ -26376,9 +26362,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26483,7 +26469,7 @@
 	        checkedChildren: 'Dark',
 	        unCheckedChildren: 'Light',
 	        onChange: function onChange(v) {
-	            return (0, _tools2.default)('my-menu').set({
+	            return (0, _src2.default)('my-menu').set({
 	                theme: v ? 'dark' : 'light'
 	            });
 	        }
@@ -26574,9 +26560,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26723,9 +26709,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26915,9 +26901,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27010,9 +26996,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27412,9 +27398,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27497,7 +27483,7 @@
 	            marginBottom: '15px'
 	        },
 	        renderExtraFooter: function renderExtraFooter() {
-	            return _tools2.default.init({
+	            return _src2.default.init({
 	                type: 'button',
 	                content: '额外的页脚'
 	            });
@@ -27508,7 +27494,7 @@
 	            display: 'block'
 	        },
 	        renderExtraFooter: function renderExtraFooter() {
-	            return _tools2.default.init({
+	            return _src2.default.init({
 	                type: 'button',
 	                content: '额外的页脚'
 	            });
@@ -28525,9 +28511,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28741,12 +28727,12 @@
 	                mode: 'minus'
 	            },
 	            onClick: function onClick() {
-	                var count = (0, _tools2.default)('myBadge').getOption('count');
+	                var count = (0, _src2.default)('myBadge').getOption('count');
 	                count--;
 	                if (count < 0) {
 	                    count = 0;
 	                }
-	                (0, _tools2.default)('myBadge').set({ count: count });
+	                (0, _src2.default)('myBadge').set({ count: count });
 	            }
 	        }, {
 	            type: 'button',
@@ -28755,9 +28741,9 @@
 	                mode: 'plus'
 	            },
 	            onClick: function onClick() {
-	                var count = (0, _tools2.default)('myBadge').getOption('count');
+	                var count = (0, _src2.default)('myBadge').getOption('count');
 	                count++;
-	                (0, _tools2.default)('myBadge').set({ count: count });
+	                (0, _src2.default)('myBadge').set({ count: count });
 	            }
 	        }]
 	    }]
@@ -29454,9 +29440,9 @@
 
 	var _utils = __webpack_require__(187);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29531,7 +29517,7 @@
 	            value: 'top',
 	            options: ['top', 'bottom', 'left', 'right'],
 	            onChange: function onChange(v) {
-	                return (0, _tools2.default)('my-tabs').set({ tabPosition: v });
+	                return (0, _src2.default)('my-tabs').set({ tabPosition: v });
 	            }
 	        }]
 	    }, {
@@ -29605,9 +29591,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29745,7 +29731,7 @@
 	        name: 'myTag',
 	        onChange: function onChange(checked) {
 	            console.log(checked);
-	            (0, _tools2.default)('myTag').set({
+	            (0, _src2.default)('myTag').set({
 	                checked: checked
 	            });
 	        }
@@ -29801,9 +29787,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30053,9 +30039,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30075,25 +30061,25 @@
 	        type: 'button',
 	        content: 'Success',
 	        onClick: function onClick(v) {
-	            return _tools2.default.message.success('Success message.');
+	            return _src2.default.message.success('Success message.');
 	        }
 	    }, {
 	        type: 'button',
 	        content: 'Info',
 	        onClick: function onClick(v) {
-	            return _tools2.default.message.info('Info message.');
+	            return _src2.default.message.info('Info message.');
 	        }
 	    }, {
 	        type: 'button',
 	        content: 'Warning',
 	        onClick: function onClick(v) {
-	            return _tools2.default.message.warning('Warning message.');
+	            return _src2.default.message.warning('Warning message.');
 	        }
 	    }, {
 	        type: 'button',
 	        content: 'Error',
 	        onClick: function onClick(v) {
-	            return _tools2.default.message.error('Error message.');
+	            return _src2.default.message.error('Error message.');
 	        }
 	    }]
 	};
@@ -30105,7 +30091,7 @@
 	        type: 'button',
 	        content: 'Display a loading indicator',
 	        onClick: function onClick(v) {
-	            var hide = _tools2.default.message.loading('Success message.', 0);
+	            var hide = _src2.default.message.loading('Success message.', 0);
 	            setTimeout(hide, 3000);
 	        }
 	    }]
@@ -30160,9 +30146,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30183,7 +30169,7 @@
 	        mode: 'primary',
 	        content: 'Open the notification box',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.open({
+	            _src2.default.notification.open({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
 	            });
@@ -30199,7 +30185,7 @@
 	        mode: 'primary',
 	        content: 'Open the notification box',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.open({
+	            _src2.default.notification.open({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
 	                duration: 0
@@ -30215,7 +30201,7 @@
 	        type: 'button',
 	        content: 'Success',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.success({
+	            _src2.default.notification.success({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
 	            });
@@ -30224,7 +30210,7 @@
 	        type: 'button',
 	        content: 'Info',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.info({
+	            _src2.default.notification.info({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
 	            });
@@ -30233,7 +30219,7 @@
 	        type: 'button',
 	        content: 'Warning',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.warning({
+	            _src2.default.notification.warning({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
 	            });
@@ -30242,7 +30228,7 @@
 	        type: 'button',
 	        content: 'Error',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.error({
+	            _src2.default.notification.error({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.'
 	            });
@@ -30258,7 +30244,7 @@
 	        mode: 'primary',
 	        content: 'Open the notification box',
 	        onClick: function onClick(v) {
-	            _tools2.default.notification.open({
+	            _src2.default.notification.open({
 	                message: 'Notification Title',
 	                description: 'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
 	                duration: 0,
@@ -30269,7 +30255,7 @@
 	                    size: 'small',
 	                    content: 'Confirm',
 	                    onClick: function onClick(v) {
-	                        return _tools2.default.notification.close('my-infomation');
+	                        return _src2.default.notification.close('my-infomation');
 	                    }
 	                }
 	            });
@@ -30326,9 +30312,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30445,7 +30431,7 @@
 	            type: 'button',
 	            icon: 'minus',
 	            onClick: function onClick(v) {
-	                var progress = (0, _tools2.default)('my-progress');
+	                var progress = (0, _src2.default)('my-progress');
 	                var current = progress.get('percent');
 	                progress.set({
 	                    percent: current - 10
@@ -30469,7 +30455,7 @@
 	            type: 'button',
 	            icon: 'minus',
 	            onClick: function onClick(v) {
-	                var progress = (0, _tools2.default)('my-progress2');
+	                var progress = (0, _src2.default)('my-progress2');
 	                var current = progress.get('percent');
 	                progress.set({
 	                    percent: current - 10
@@ -30479,7 +30465,7 @@
 	            type: 'button',
 	            icon: 'plus',
 	            onClick: function onClick(v) {
-	                var progress = (0, _tools2.default)('my-progress2');
+	                var progress = (0, _src2.default)('my-progress2');
 	                var current = progress.get('percent');
 	                progress.set({
 	                    percent: current + 10
@@ -30687,9 +30673,9 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tools = __webpack_require__(183);
+	var _src = __webpack_require__(183);
 
-	var _tools2 = _interopRequireDefault(_tools);
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30740,7 +30726,7 @@
 	            type: 'switch',
 	            checked: true,
 	            onChange: function onChange(v) {
-	                return (0, _tools2.default)('my-loading').loading(v);
+	                return (0, _src2.default)('my-loading').loading(v);
 	            }
 	        }]
 	    }]
@@ -30780,7 +30766,7 @@
 	        content: ['Loading state: ', {
 	            type: 'switch',
 	            onChange: function onChange(v) {
-	                return (0, _tools2.default)('my-loading2').set({ loading: v });
+	                return (0, _src2.default)('my-loading2').set({ loading: v });
 	            }
 	        }]
 	    }]

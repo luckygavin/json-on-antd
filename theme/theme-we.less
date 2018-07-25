@@ -3,7 +3,7 @@
 * @author susisi@baidu.com 2018-05-24
 */
 
-@import './theme-we-size.less';
+@import './base/theme-we-size.less';
 // @primary-color: #4CAF50;
 // @link-color: #3d8b40;
 // @link-color: #4CAF50;
@@ -165,4 +165,13 @@
 // breadcrumb
 .ant-breadcrumb {
     background: @uf-header-bg;
+}
+
+// button
+@btn-default-bg: #f3f3f3;
+.ant-btn-default:hover,
+.ant-btn-default:focus,
+.ant-btn-default:active,
+.ant-btn-default.active {
+    background: @btn-default-bg;
 }

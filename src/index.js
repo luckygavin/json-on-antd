@@ -173,8 +173,10 @@ const create = ({name})=>{
             if (config.plugins) {
                 config.precondition = (config.precondition || []).concat(
                     config.plugins.map(mod => {
-                        let path, modName = mod;
+                        let path;
+                        let modName;
                         if (Utils.typeof(mod, 'string')) {
+                            modName = mod;
                             path = `${env.pluginPath + modName}.js`;
                         } else {
                             path = mod.path;

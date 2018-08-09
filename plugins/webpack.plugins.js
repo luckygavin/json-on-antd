@@ -27,7 +27,7 @@ module.exports = {
     },
     output: {
         path: __root + '/dist/plugins/',
-        filename: (!production ? `[name].js` : `[name].min.js`),
+        filename: (!production ? '[name].js' : '[name].min.js'),
         // 模块名称，使用匿名模块
         // library: '[name]',
         // 生成amd形式的文件，即requirejs引入。另外还可以使用umd

@@ -284,7 +284,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
                 </Col>
             </Row>
         );
-    } 
+    }
     render() {
         return <div className={'uf-forms-container ' + (this.__props.className || '')} style={this.__props.style}>
             {this.renderForms()}

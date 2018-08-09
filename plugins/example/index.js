@@ -11,6 +11,6 @@ export default class Example extends Component {
         super(props);
     }
     render() {
-        return <div>这是一个用于测试的扩展组件</div>
+        return <div>这是一个用于测试的扩展组件</div>;
     }
 }

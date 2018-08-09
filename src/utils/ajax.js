@@ -161,7 +161,7 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
         if (final.useAxios) {
             return axios(final);
         }
-        
+
         return reqwest(final);
     }
 

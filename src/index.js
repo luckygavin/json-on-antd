@@ -187,7 +187,7 @@ const create = ({name})=>{
                                 Loader.add({[modName]: foo && foo.default ? foo.default : foo});
                                 resovle();
                             });
-                        }
+                        };
                     }
                 ));
             }

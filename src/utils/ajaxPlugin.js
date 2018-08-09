@@ -116,6 +116,7 @@ export function checkQueue(config) {
  * 检查是否有mock数据接口
  *
  * @param {*} config ajax的配置
+ * @param {*} mockMap
  * @return {boolean} 如果有则返回true，否则返回false
  */
 export function checkMock(config, mockMap = {}) {

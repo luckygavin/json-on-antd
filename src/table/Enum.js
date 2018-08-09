@@ -105,12 +105,12 @@ export default class Enum {
         return (items || []).map(item => {
             if (item) {
                 // if (Utils.typeof(item, 'object')) {
-                    // 支持使用自定义组件，会取最终的根类型进行判断
-                    let {type, name} = this.tools.getConf(item);
-                    if (['select', 'radio', 'checkbox-group'].indexOf(type) > -1 && Utils.empty(item.options)
-                        && this.data[name]) {
-                        item.options = Utils.toOptions(this.data[name]);
-                    }
+                // 支持使用自定义组件，会取最终的根类型进行判断
+                let {type, name} = this.tools.getConf(item);
+                if (['select', 'radio', 'checkbox-group'].indexOf(type) > -1 && Utils.empty(item.options)
+                    && this.data[name]) {
+                    item.options = Utils.toOptions(this.data[name]);
+                }
                 // } else {
                 //     item = this.handleForm(item)
                 // }

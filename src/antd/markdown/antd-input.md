@@ -35,6 +35,8 @@
 | onPressEnter | 按下回车的回调 | function(e) | |
 | autosize | 自适应内容高度，可设置为 `true/false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean&#124;object | false |
 | rows | 输入框初始行数 | number | |
+| style.resize | 可以设置仅某个方向可拖动或者禁止拖动，可选值有：`none`、`both`、`horizontal`、`vertical` | string | - |
+
 
 `TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 

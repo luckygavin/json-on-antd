@@ -76,7 +76,7 @@ const utils = {
                 value = '' + value;
                 break;
             case 'boolean':
-                value = value === 'false' ? false : !!value;
+                value = value === 'false' || value === 'FALSE' ? false : !!value;
                 break;
             case 'array':
                 if (this.typeof(value, 'undefined')) {
@@ -97,28 +97,16 @@ const utils = {
     distinct(arr) {
         return [...(new Set(arr))];
     },
-    // 对象转数组
-    objToArr(obj) {
-        let arr = [];
-        for (let i in obj) {
-            arr.push(obj[i]);
-        }
-        return arr;
-    },
-    // 数组转对象
-    arrToObj(arr) {
-        let obj = {};
-        for (let i in arr) {
-            obj[i] = arr[i];
-        }
-        return obj;
-    },
     // 判断数组或对象是否为空
     empty(obj) {
-        for (let t in obj) {
-            return false;
+        if (this.typeof(obj, ['array', 'object'])) {
+            for (let t in obj) {
+                return false;
+            }
+            return true;
+        } else {
+            return !obj;
         }
-        return true;
     },
     // 浅拷贝，指针指向，只拷贝一层
     copy(obj) {
@@ -393,17 +381,33 @@ const utils = {
             // ['value', 'value2']
             if (this.typeof(data[0], ['string', 'number', 'boolean'])) {
                 result = this.distinct(data).map(v=>({label: v, value: v}));
-            // {label:1, value:'a'}，已格式化好的数据
+            // 已格式化好的数据
+            // {label: 'a', value: 1}
+            // {key: 1, value: 'a'}
+            // {id: 1, name: 'a'}
             } else {
-                result = data;
+                result = data.map(v=>(
+                    (v.key !== undefined && v.value !== undefined)
+                    ? {label: v.value, value: v.key}
+                    : (v.id !== undefined && v.name !== undefined)
+                        ? {label: v.name, value: v.id}
+                        : v
+                    )
+                );
             }
         } else if (this.typeof(data, 'object')) {
             // {key: value}
             for (let i in data) {
-                result.push({
+                let item = {
                     label: data[i],
                     value: i
-                });
+                };
+                // true 选项移到首位
+                if (i.toString().toLowerCase() === 'true') {
+                    result.unshift(item);
+                } else {
+                    result.push(item);
+                }
             }
         }
         return result;
@@ -484,14 +488,52 @@ const utils = {
                 // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
                 let newResult = newFunc.call(thisObj, ...params);
                 !oldAhead && newResult !== false ? (result = origin.call(thisObj, ...params)) : null;
+                // let oResult;
+                // oldAhead ? (oResult = origin.call(thisObj, ...params)) : null;
+                // // 如果返回false，可阻止注入函数的继续执行
+                // let newResult = oResult !== false ? newFunc.call(thisObj, ...params) : oResult;
+                // // 如果注入的逻辑返回false，可阻止原函数的继续执行
+                // let result = !oldAhead && newResult !== false ? origin.call(thisObj, ...params) : oResult;
                 return result;
             }
             : newFunc.bind(thisObj);
+        // 被替换函数标记
+        parent[target].replaced = true;
         return parent;
     },
     // 延迟执行
     // timer(func, delay) {
     // }
+    getCache(key) {
+        let result = localStorage.getItem(key);
+        if (result) {
+            return JSON.parse(result);
+        } else {
+            return result;
+        }
+    },
+    setCache(key, value) {
+        value = JSON.stringify(value);
+        return localStorage.setItem(key, value);
+    },
+    getSession(key) {
+        let result = sessionStorage.getItem(key);
+        if (result) {
+            return JSON.parse(result);
+        } else {
+            return result;
+        }
+    },
+    setSession(key, value) {
+        value = JSON.stringify(value);
+        return sessionStorage.setItem(key, value);
+    },
+    async(func, ...args) {
+        setTimeout(args.length === 0 ? func : ()=>{
+            func(...args);
+        }, 0);
+    },
+
 
     /************************************************************************/
     // 私有方法

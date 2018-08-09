@@ -12,6 +12,9 @@
                 line-height: 28px;
             }
         }
+        .ant-form-item-control {
+            line-height: 28px;
+        }
     }
     &.uf-form-small {
         .ant-form-item {
@@ -47,12 +50,19 @@
 }
 
 /**Forms组件样式**/
+.uf-forms-container {
+    // 消除最后一行产生的下边距
+    margin-bottom: -12px;
+}
 .uf-forms {
     width: 100%;
     padding-right: 60px;
     position: relative;
     .uf-form {
         width: 100%;
+        &.uf-form-inline {
+            margin: 0;
+        }
     }
     .forms-icons {
         position: absolute;
@@ -61,7 +71,7 @@
         right: 0px;
         top: 0px;
         .addFormIcon, .deleteFormIcon {
-            display: inline-block;
+            // display: inline-block;
             // height: 50%;
             // width: 100%;
             float: left;

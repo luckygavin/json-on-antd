@@ -13,8 +13,8 @@
 import Utils from 'src/utils/utils.js';
 import {generate, getInstance} from './instance.js';
 
-// var appList = {};
-var globalDefine = [];
+// 保证只有一份
+var globalDefine = (window.globalDefine = window.globalDefine || []);
 
 export default generate(function (insName) {
 
@@ -1721,6 +1721,7 @@ export default generate(function (insName) {
                     var cbStr = callback.toString().slice(0, 50);
                     if (name.indexOf('_@r') === -1
                         && cbStr.indexOf('(require)') === -1
+                        && cbStr.indexOf('(exports)') === -1
                         && cbStr.indexOf('require=>') === -1
                         && cbStr.indexOf('require =>') === -1) {
                         var uf = getInstance(insName);
@@ -1751,9 +1752,15 @@ export default generate(function (insName) {
                         //      如果define执行之后立即（同步）触发事件，不会有问题；
                         //      如果存在 globalDefine 中出现两个不同requirejs实例存入的内容，则会出错
                         // 从 globalDefine 中取走全部加载完成后使用全局 define 函数初始化的模块
-                        while(globalDefine.length) {
-                            define.apply(undefined, globalDefine.shift());
-                        }
+                        // while(globalDefine.length) {
+                        //     define.apply(undefined, globalDefine.shift());
+                        // }
+                        // update at 2018-07-31, 当有其余模块
+                        // TODO: 继续待观察
+                        //   因为使用script引入带umd检查的文件时，文件内容会通过define注册到globalDefine中
+                        //      出现多余的模块会导致整个requirejs内部模块混乱
+                        //   所以改为每次触发onScriptLoad时从堆栈中获取一个，剩余的作为僵尸模块（永远存在堆栈的底部）
+                        define.apply(undefined, globalDefine.pop());
 
                         //Pull out the name of the module and the context.
                         var data = getScriptData(evt);
@@ -2209,6 +2216,10 @@ export default generate(function (insName) {
 // 所以重写一个define函数，把模块先置于一个公共缓存池里，后续各requirejs实例主动从池中去取各自的模块
 var define = function (name, deps, callback) {
     globalDefine.push([name, deps, callback]);
+};
+// 供umd识别
+define.amd = {
+    jQuery: true
 };
 
 // update at 2018-03-19 18:41:28 by liuzechun

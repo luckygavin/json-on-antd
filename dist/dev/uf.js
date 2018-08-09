@@ -52,114 +52,80 @@
 	 * @author liuzechun@baidu.com
 	 */
 
+	// 动态加载全部主题
+	// 应该是和webpack打包时的解析机制有关，当require里面包含变量时候，webpack会把整个目录下能查找到的全部内容打进去
+	// 这里webpack会打包解析能找到的全部内容，所以需要在webpack.build.js里额外配置忽略theme文件夹的逻辑
+	// 注意：需使用变量才能引入全部
+	var dir = 'default';
+	__webpack_require__(1)("./" + dir + '/index.less');
+
 	// UF 组件库构建入口
-	window['UF'] = __webpack_require__(103).default;
-	// window['$uf'] = require('uf').default;
+	window['UF'] = __webpack_require__(8).default;
 
 /***/ }),
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */,
-/* 18 */,
-/* 19 */,
-/* 20 */,
-/* 21 */,
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */,
-/* 27 */,
-/* 28 */,
-/* 29 */,
-/* 30 */,
-/* 31 */,
-/* 32 */,
-/* 33 */,
-/* 34 */,
-/* 35 */,
-/* 36 */,
-/* 37 */,
-/* 38 */,
-/* 39 */,
-/* 40 */,
-/* 41 */,
-/* 42 */,
-/* 43 */,
-/* 44 */,
-/* 45 */,
-/* 46 */,
-/* 47 */,
-/* 48 */,
-/* 49 */,
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */,
-/* 54 */,
-/* 55 */,
-/* 56 */,
-/* 57 */,
-/* 58 */,
-/* 59 */,
-/* 60 */,
-/* 61 */,
-/* 62 */,
-/* 63 */,
-/* 64 */,
-/* 65 */,
-/* 66 */,
-/* 67 */,
-/* 68 */,
-/* 69 */,
-/* 70 */,
-/* 71 */,
-/* 72 */,
-/* 73 */,
-/* 74 */,
-/* 75 */,
-/* 76 */,
-/* 77 */,
-/* 78 */,
-/* 79 */,
-/* 80 */,
-/* 81 */,
-/* 82 */,
-/* 83 */,
-/* 84 */,
-/* 85 */,
-/* 86 */,
-/* 87 */,
-/* 88 */,
-/* 89 */,
-/* 90 */,
-/* 91 */,
-/* 92 */,
-/* 93 */,
-/* 94 */,
-/* 95 */,
-/* 96 */,
-/* 97 */,
-/* 98 */,
-/* 99 */,
-/* 100 */,
-/* 101 */,
-/* 102 */,
-/* 103 */
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var map = {
+		"./baidu-theme/index.less": 2,
+		"./dark/index.less": 3,
+		"./default/index.less": 4,
+		"./green/index.less": 5,
+		"./large/index.less": 6,
+		"./we-theme/index.less": 7
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 1;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./baidu-theme/index.less"]; }());
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./dark/index.less"]; }());
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./default/index.less"]; }());
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./green/index.less"]; }());
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./large/index.less"]; }());
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./we-theme/index.less"]; }());
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -172,21 +138,21 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _require = __webpack_require__(104),
+	var _require = __webpack_require__(9),
 	    version = _require.version;
 
 	module.exports = _extends({
 	  VERSION: version
-	}, __webpack_require__(105));
+	}, __webpack_require__(10));
 
 /***/ }),
-/* 104 */
+/* 9 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.6","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
-/* 105 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -196,57 +162,59 @@
 	});
 	exports.WhiteList = exports.Loader = exports.Factory = undefined;
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _lib = __webpack_require__(108);
+	var _env = __webpack_require__(13);
+
+	var _env2 = _interopRequireDefault(_env);
+
+	var _lib = __webpack_require__(14);
 
 	var _lib2 = _interopRequireDefault(_lib);
 
-	var _moment = __webpack_require__(119);
+	var _moment = __webpack_require__(21);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(171);
+	__webpack_require__(101);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _cache = __webpack_require__(172);
+	var _cache = __webpack_require__(102);
 
 	var _cache2 = _interopRequireDefault(_cache);
 
-	var _factory = __webpack_require__(179);
+	var _factory = __webpack_require__(109);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(180);
+	var _loader = __webpack_require__(110);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(131);
+	var _whitelist = __webpack_require__(62);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _precondition = __webpack_require__(185);
-
-	var _precondition2 = _interopRequireDefault(_precondition);
-
-	var _init = __webpack_require__(186);
+	var _init = __webpack_require__(115);
 
 	var _init2 = _interopRequireDefault(_init);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	// import Model from 'src/tools/model.js';
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	// import Model from 'src/tools/model.js';
+	// import Precondition from 'src/tools/precondition.js';
 
 	// 设置 moment 的 locale
 	_moment2.default.locale('zh-cn');
@@ -269,7 +237,8 @@
 
 	    var _Tools$init = _init2.default.init(name),
 	        Ajax = _Tools$init.Ajax,
-	        Requirejs = _Tools$init.Requirejs;
+	        Requirejs = _Tools$init.Requirejs,
+	        Precondition = _Tools$init.Precondition;
 
 	    // UF实例上的工具函数
 
@@ -281,13 +250,17 @@
 	        insName: name,
 	        // 是否阻塞
 	        waiting: false,
-	        waitingCache: {},
+	        // waitingCache: {},
 	        // 异步逻辑执行完成后，重新执行init函数
 	        _reInit: function _reInit() {
 	            this.waiting = false;
-	            var config = this.waitingCache.config;
-	            var selector = this.waitingCache.selector;
-	            this.waitingCache = {};
+	            // let {config, selector} = this.waitingCache;
+	            // this.waitingCache = {};
+
+	            var _ModelCache$get = ModelCache.get('_$waitingCache'),
+	                config = _ModelCache$get.config,
+	                selector = _ModelCache$get.selector;
+
 	            this.render(config, selector);
 	        },
 
@@ -352,6 +325,7 @@
 	        /******** 公共属性/方法 *********************************/
 	        /*****************************************************/
 
+	        require: Requirejs,
 	        // ajax请求。包含 ajax(), ajax.get(), ajax.post()
 	        ajax: Ajax,
 	        // 暴露全部工具类
@@ -372,7 +346,8 @@
 	            if (!this.waiting) {
 	                this.render(config, selector);
 	            } else {
-	                this.waitingCache = { config: config, selector: selector };
+	                // this.waitingCache = {config, selector};
+	                ModelCache.set('_$waitingCache', { config: config, selector: selector });
 	            }
 	        },
 
@@ -398,8 +373,14 @@
 
 	        // 整体配置
 	        config: function config(obj) {
-	            var _this = this;
-
+	            // 处理global.mock，数组转对象
+	            if (obj && obj.global && obj.global.mock) {
+	                var map = {};
+	                obj.global.mock.forEach(function (v) {
+	                    return map[v.url] = v.handler;
+	                });
+	                obj.global.mock = map;
+	            }
 	            var config = Config.set(_utils.Utils.filter(obj, 'data'));
 	            // 用户自定义 UF 别名
 	            if (config.alias) {
@@ -413,14 +394,30 @@
 	            if (obj.data) {
 	                ModelCache.set(obj.data);
 	            }
+	            // 加载扩展组件。格式为[ {name, path} || name ]
+	            if (config.plugins) {
+	                config.precondition = (config.precondition || []).concat(config.plugins.map(function (mod) {
+	                    var path = void 0,
+	                        modName = mod;
+	                    if (_utils.Utils.typeof(mod, 'string')) {
+	                        path = _env2.default.pluginPath + modName + '.js';
+	                    } else {
+	                        path = mod.path;
+	                        modName = mod.name;
+	                    }
+	                    return function (resovle) {
+	                        Requirejs([path], function (foo) {
+	                            _loader2.default.add(_defineProperty({}, modName, foo && foo.default ? foo.default : foo));
+	                            resovle();
+	                        });
+	                    };
+	                }));
+	            }
 	            // 执行阻塞页面加载的函数
-	            if (obj.precondition) {
-	                if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
+	            if (config.precondition) {
+	                if (_utils.Utils.typeof(config.precondition, 'array') && config.precondition.length > 0) {
 	                    this.waiting = true;
-	                    // 置为异步，保证实例能成功返回后再调用预处理函数
-	                    setTimeout(function () {
-	                        _precondition2.default.handle(obj.precondition, _this);
-	                    }, 0);
+	                    Precondition.handle(config.precondition);
 	                }
 	            }
 	        },
@@ -444,7 +441,8 @@
 
 	// 先产生一个默认实例，以兼容以前的用法
 	var defaultName = '_$default';
-	var defUF = create({ name: defaultName });
+	var defaultUF = create({ name: defaultName });
+	defaultUF.config({});
 
 	// 重写window上的UF函数，使其增加创建uf实例功能
 	var UF = function UF() {
@@ -452,7 +450,7 @@
 
 	    // 如果传入的是字符串，则走原来的获取组件的逻辑
 	    if (typeof conf === 'string') {
-	        return defUF(conf);
+	        return defaultUF(conf);
 	    }
 	    // 默认使用default名称
 	    conf.name = conf.name || conf.appName || defaultName;
@@ -468,7 +466,7 @@
 	};
 
 	// 并把默认实例抛出以供直接调用
-	Object.assign(UF, defUF);
+	Object.assign(UF, defaultUF);
 
 	exports.default = UF;
 	// 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行
@@ -487,88 +485,100 @@
 	exports.WhiteList = _whitelist2.default;
 
 /***/ }),
-/* 106 */
+/* 11 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.React;
 
 /***/ }),
-/* 107 */
+/* 12 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactDOM;
 
 /***/ }),
-/* 108 */
+/* 13 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * @file 程序中引用的环境相关变量
+	 * @author liuzechun
+	 * Created Date: 2018-07-30 12:46:16
+	 */
+
+	var hostname = window.location.hostname;
+	var isProd = !['epc.baidu.com', 'yf-sys-ump-ur-fe.yf01.baidu.com'].some(function (v) {
+	    return hostname.indexOf(v) > -1;
+	});
+
+	module.exports = {
+	    production: isProd,
+	    basePath: isProd ? 'http://uf.baidu.com' : 'http://antd.uf.baidu.com:8099',
+	    pluginPath: isProd ? 'http://uf.baidu.com/v/plugins/' : 'http://antd.uf.baidu.com:8099/v/plugins/'
+	};
+
+/***/ }),
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(109);
+	/**
+	 * @file index.js 汇总所有 src 里对用户暴露的组件
+	 * @author liuzechun@baidu.com
+	 */
 
 	module.exports = Object.assign(
 	// require('./dom'),
 	// antd 组件统一迁移，见 src/antd/index.js
-	__webpack_require__(113),
+	__webpack_require__(15),
 	// 路由组件
-	__webpack_require__(140),
+	__webpack_require__(71),
 	// 其他自己实现/封装的组件
 	{
 	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(146),
+	    Iframe: __webpack_require__(77),
 
-	    Export: __webpack_require__(148),
-	    Tree: __webpack_require__(150),
-	    Table: __webpack_require__(152),
-	    Form: __webpack_require__(158).Form,
-	    Forms: __webpack_require__(158).Forms,
-	    Modal: __webpack_require__(165),
-	    Ueditor: __webpack_require__(160),
-	    Echarts: __webpack_require__(167),
-	    Fieldset: __webpack_require__(169)
-	    // ...require('./modal'),
-	    // Table2: require('./uf-old/table')
-	}); /**
-	     * @file index.js 汇总所有 src 里对用户暴露的组件
-	     * @author liuzechun@baidu.com
-	     */
+	    Export: __webpack_require__(79),
+	    Tree: __webpack_require__(81),
+	    Table: __webpack_require__(83),
+	    Form: __webpack_require__(90).Form,
+	    Forms: __webpack_require__(90).Forms,
+	    Modal: __webpack_require__(95),
+	    Ueditor: __webpack_require__(92),
+	    Echarts: __webpack_require__(97),
+	    Fieldset: __webpack_require__(99)
+	});
 
 /***/ }),
-/* 109 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 110 */,
-/* 111 */,
-/* 112 */,
-/* 113 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _dataentry = __webpack_require__(114);
+	var _dataentry = __webpack_require__(16);
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(133);
+	var _datadisplay = __webpack_require__(64);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(135);
+	var _genaral = __webpack_require__(66);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(137);
+	var _navigation = __webpack_require__(68);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(142);
+	var _feedback = __webpack_require__(73);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(144);
+	var _layout = __webpack_require__(75);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -584,7 +594,7 @@
 	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
 
 /***/ }),
-/* 114 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -592,7 +602,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.CheckboxGroup = exports.Checkbox = exports.Cascader = exports.AutoComplete = undefined;
+	exports.Dragger = exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.BaseMultiple = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = exports.AutoComplete = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -600,25 +610,25 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _DataEntry15 = __webpack_require__(126);
+	var _DataEntry13 = __webpack_require__(57);
 
-	var _DataEntry16 = _interopRequireDefault(_DataEntry15);
+	var _DataEntry14 = _interopRequireDefault(_DataEntry13);
 
-	var _moment = __webpack_require__(119);
+	var _moment = __webpack_require__(21);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -738,7 +748,7 @@
 	    }]);
 
 	    return AutoComplete;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Cascader 级联选择 ************************************************************************** */
 
@@ -763,90 +773,21 @@
 	    }]);
 
 	    return Cascader;
-	}(_DataEntry16.default);
-
-	/************* Checkbox 复选框 ************************************************************************** */
-
-	var Checkbox = exports.Checkbox = function (_DataEntry3) {
-	    _inherits(Checkbox, _DataEntry3);
-
-	    function Checkbox(props) {
-	        _classCallCheck(this, Checkbox);
-
-	        var _this3 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
-
-	        _this3.__controlled.key = 'checked';
-	        _this3.__controlled.defaultVal = false;
-	        _this3.__init();
-	        return _this3;
-	    }
-
-	    _createClass(Checkbox, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Checkbox, this.__props);
-	        }
-	    }]);
-
-	    return Checkbox;
-	}(_DataEntry16.default);
-	// 多复选框组合
-
-
-	var CheckboxGroup = exports.CheckboxGroup = function (_DataEntry4) {
-	    _inherits(CheckboxGroup, _DataEntry4);
-
-	    function CheckboxGroup(props) {
-	        _classCallCheck(this, CheckboxGroup);
-
-	        var _this4 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
-
-	        _this4._openApi.push('checkAll');
-	        _this4.__controlled.defaultVal = [];
-	        _this4.__init();
-	        return _this4;
-	    }
-
-	    _createClass(CheckboxGroup, [{
-	        key: '_afterSetProps',
-	        value: function _afterSetProps() {
-	            _get(CheckboxGroup.prototype.__proto__ || Object.getPrototypeOf(CheckboxGroup.prototype), '_afterSetProps', this).call(this);
-	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
-	        }
-	    }, {
-	        key: 'checkAll',
-	        value: function checkAll() {
-	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-	            var value = status ? this.__props.options.map(function (v) {
-	                return v.value;
-	            }) : [];
-	            this.__setProps({ value: value });
-	            this.__props.onChange && this.__props.onChange(value);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Checkbox.Group, this.__props);
-	        }
-	    }]);
-
-	    return CheckboxGroup;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* DatePicker 日期选择框 ************************************************************************** */
 
-	var BasePicker = function (_DataEntry5) {
-	    _inherits(BasePicker, _DataEntry5);
+	var BasePicker = function (_DataEntry3) {
+	    _inherits(BasePicker, _DataEntry3);
 
 	    function BasePicker(props) {
 	        _classCallCheck(this, BasePicker);
 
-	        var _this5 = _possibleConstructorReturn(this, (BasePicker.__proto__ || Object.getPrototypeOf(BasePicker)).call(this, props));
+	        var _this3 = _possibleConstructorReturn(this, (BasePicker.__proto__ || Object.getPrototypeOf(BasePicker)).call(this, props));
 
-	        _this5._filter.push('current');
+	        _this3._filter.push('current');
 	        // this.__init();
-	        return _this5;
+	        return _this3;
 	    }
 	    // 继承父组件的函数，_initProps 后增加额外处理逻辑
 
@@ -865,7 +806,7 @@
 	    }]);
 
 	    return BasePicker;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 日期[时间]选择
 
 
@@ -875,11 +816,11 @@
 	    function DatePicker(props) {
 	        _classCallCheck(this, DatePicker);
 
-	        var _this6 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+	        var _this4 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
-	        _this6.__controlled.paramsIndex = 1;
-	        _this6.__init();
-	        return _this6;
+	        _this4.__controlled.paramsIndex = 1;
+	        _this4.__init();
+	        return _this4;
 	    }
 	    // 继承父组件的函数，_initProps 后增加额外处理逻辑
 
@@ -920,12 +861,12 @@
 	    function RangePicker(props) {
 	        _classCallCheck(this, RangePicker);
 
-	        var _this7 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
 
-	        _this7.__controlled.paramsIndex = 1;
-	        _this7.__controlled.defaultVal = [];
-	        _this7.__init();
-	        return _this7;
+	        _this5.__controlled.paramsIndex = 1;
+	        _this5.__controlled.defaultVal = [];
+	        _this5.__init();
+	        return _this5;
 	    }
 
 	    _createClass(RangePicker, [{
@@ -964,11 +905,11 @@
 	    function MonthPicker(props) {
 	        _classCallCheck(this, MonthPicker);
 
-	        var _this8 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
 
-	        _this8.__controlled.paramsIndex = 1;
-	        _this8.__init();
-	        return _this8;
+	        _this6.__controlled.paramsIndex = 1;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(MonthPicker, [{
@@ -993,11 +934,11 @@
 	    function TimePicker(props) {
 	        _classCallCheck(this, TimePicker);
 
-	        var _this9 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
 
-	        _this9.__controlled.paramsIndex = 1;
-	        _this9.__init();
-	        return _this9;
+	        _this7.__controlled.paramsIndex = 1;
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(TimePicker, [{
@@ -1014,16 +955,16 @@
 
 	/************* Input 输入框 ************************************************************************** */
 
-	var Input = exports.Input = function (_DataEntry6) {
-	    _inherits(Input, _DataEntry6);
+	var Input = exports.Input = function (_DataEntry4) {
+	    _inherits(Input, _DataEntry4);
 
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this10 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(Input, [{
@@ -1034,20 +975,20 @@
 	    }]);
 
 	    return Input;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// textarea
 
 
-	var Textarea = exports.Textarea = function (_DataEntry7) {
-	    _inherits(Textarea, _DataEntry7);
+	var Textarea = exports.Textarea = function (_DataEntry5) {
+	    _inherits(Textarea, _DataEntry5);
 
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
 
-	        var _this11 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Textarea, [{
@@ -1058,7 +999,7 @@
 	    }]);
 
 	    return Textarea;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
 
 
@@ -1068,11 +1009,11 @@
 	    function InputSearch(props) {
 	        _classCallCheck(this, InputSearch);
 
-	        var _this12 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
 
-	        _this12.class.push('input');
-	        _this12.__init();
-	        return _this12;
+	        _this10.class.push('input');
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(InputSearch, [{
@@ -1087,16 +1028,16 @@
 	// 输入框连接在一起形成一组
 
 
-	var InputGroup = exports.InputGroup = function (_DataEntry8) {
-	    _inherits(InputGroup, _DataEntry8);
+	var InputGroup = exports.InputGroup = function (_DataEntry6) {
+	    _inherits(InputGroup, _DataEntry6);
 
 	    function InputGroup(props) {
 	        _classCallCheck(this, InputGroup);
 
-	        var _this13 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(InputGroup, [{
@@ -1109,20 +1050,20 @@
 	    }]);
 
 	    return InputGroup;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 数字输入框
 
 
-	var InputNumber = exports.InputNumber = function (_DataEntry9) {
-	    _inherits(InputNumber, _DataEntry9);
+	var InputNumber = exports.InputNumber = function (_DataEntry7) {
+	    _inherits(InputNumber, _DataEntry7);
 
 	    function InputNumber(props) {
 	        _classCallCheck(this, InputNumber);
 
-	        var _this14 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(InputNumber, [{
@@ -1133,20 +1074,20 @@
 	    }]);
 
 	    return InputNumber;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Rate 评分 ************************************************************************** */
 
-	var Rate = exports.Rate = function (_DataEntry10) {
-	    _inherits(Rate, _DataEntry10);
+	var Rate = exports.Rate = function (_DataEntry8) {
+	    _inherits(Rate, _DataEntry8);
 
 	    function Rate(props) {
 	        _classCallCheck(this, Rate);
 
-	        var _this15 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(Rate, [{
@@ -1157,26 +1098,186 @@
 	    }]);
 
 	    return Rate;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
+
+	/************* 多选的基类 ************************************************************************** */
+
+	var BaseMultiple = exports.BaseMultiple = function (_DataEntry9) {
+	    _inherits(BaseMultiple, _DataEntry9);
+
+	    function BaseMultiple() {
+	        _classCallCheck(this, BaseMultiple);
+
+	        return _possibleConstructorReturn(this, (BaseMultiple.__proto__ || Object.getPrototypeOf(BaseMultiple)).apply(this, arguments));
+	    }
+
+	    _createClass(BaseMultiple, [{
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
+	            _get(BaseMultiple.prototype.__proto__ || Object.getPrototypeOf(BaseMultiple.prototype), '_afterSetProps', this).call(this);
+	            // 给 source.onSuccess 绑定默认处理逻辑
+	            this.__filtered.source = Object.assign({
+	                onSuccess: this._onSourceSuccess.bind(this)
+	            }, this.__filtered.source);
+	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	        }
+	    }, {
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess() {}
+	        // 处理多选情况
+
+	    }, {
+	        key: '_handleMultipleSelect',
+	        value: function _handleMultipleSelect(data) {
+	            var current = this.__props.value || [];
+	            // 当设置默认全选时，更新当前内容为全选
+	            if (this.__props.defaultSelectAll) {
+	                var all = _utils.Utils.toOptions(data).map(function (v) {
+	                    return v.value;
+	                });
+	                this.__props.onChange && this.__props.onChange(all);
+	                return;
+	            }
+	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
+	            var matchVal = _utils.Utils.toOptions(data).filter(function (v) {
+	                return current.indexOf(v.value) > -1;
+	            }).map(function (v) {
+	                return v.value;
+	            });
+	            if (matchVal.length === current.length) {
+	                return;
+	            }
+	            this.__props.onChange && this.__props.onChange(matchVal);
+	        }
+	        // 处理默认选中
+
+	    }, {
+	        key: '_handleDefaultSelect',
+	        value: function _handleDefaultSelect(data) {
+	            var current = this.__props.value;
+	            // 如果当前值再列表中，则不做任何处理
+	            var alldata = _utils.Utils.toOptions(data);
+	            // 追加上extOptions中的内容，仅select组件有
+	            if (this.getAllOptions) {
+	                alldata = this.getAllOptions(alldata);
+	            }
+	            if (alldata.some(function (v) {
+	                return v.value + '' === current + '';
+	            })) {
+	                return;
+	            }
+	            // 否则把值设置为第一个或者清空
+	            if (this.__props.defaultFirst) {
+	                var first = _utils.Utils.getFirstOption(data);
+	                this.__props.onChange && this.__props.onChange(first);
+	            } else if (this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
+	                // 为实现刷新组件时，清空原数据
+	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
+	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+	            }
+	        }
+	    }]);
+
+	    return BaseMultiple;
+	}(_DataEntry14.default);
+
+	/************* Checkbox 复选框 ************************************************************************** */
+
+	var Checkbox = exports.Checkbox = function (_DataEntry10) {
+	    _inherits(Checkbox, _DataEntry10);
+
+	    function Checkbox(props) {
+	        _classCallCheck(this, Checkbox);
+
+	        var _this15 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+	        _this15.__controlled.key = 'checked';
+	        _this15.__controlled.defaultVal = false;
+	        _this15.__init();
+	        return _this15;
+	    }
+
+	    _createClass(Checkbox, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Checkbox, this.__props);
+	        }
+	    }]);
+
+	    return Checkbox;
+	}(_DataEntry14.default);
+	// 多复选框组合
+
+
+	var CheckboxGroup = exports.CheckboxGroup = function (_BaseMultiple) {
+	    _inherits(CheckboxGroup, _BaseMultiple);
+
+	    function CheckboxGroup(props) {
+	        _classCallCheck(this, CheckboxGroup);
+
+	        var _this16 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
+
+	        _this16._openApi.push('checkAll');
+	        _this16.__controlled.defaultVal = [];
+	        _this16.__init();
+	        return _this16;
+	    }
+
+	    _createClass(CheckboxGroup, [{
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
+	            _get(CheckboxGroup.prototype.__proto__ || Object.getPrototypeOf(CheckboxGroup.prototype), '_afterSetProps', this).call(this);
+	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	        }
+	    }, {
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess(data) {
+	            this._handleDefaultSelect(data);
+	        }
+	    }, {
+	        key: 'checkAll',
+	        value: function checkAll() {
+	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	            var value = status ? this.__props.options.map(function (v) {
+	                return v.value;
+	            }) : [];
+	            this.__setProps({ value: value });
+	            this.__props.onChange && this.__props.onChange(value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Checkbox.Group, this.__props);
+	        }
+	    }]);
+
+	    return CheckboxGroup;
+	}(BaseMultiple);
 
 	/************* Radio 单选 ************************************************************************** */
 
 	// 这里直接使用Radio组，单个radio没想到什么应用场景
 
 
-	var Radio = exports.Radio = function (_DataEntry11) {
-	    _inherits(Radio, _DataEntry11);
+	var Radio = exports.Radio = function (_BaseMultiple2) {
+	    _inherits(Radio, _BaseMultiple2);
 
 	    function Radio(props) {
 	        _classCallCheck(this, Radio);
 
-	        var _this16 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Radio, [{
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess(data) {
+	            this._handleDefaultSelect(data);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            // 增加了一个配置项，来控制是否以button的形式展示
@@ -1187,7 +1288,7 @@
 	            return _react2.default.createElement(
 	                Antd.Radio.Group,
 	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: this.__props.value !== undefined ? '' + this.__props.value : undefined }),
-	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
+	                this.__props.options.map(function (item) {
 	                    return _react2.default.createElement(
 	                        Item,
 	                        { key: '' + item.value, disabled: item.disabled, style: item.style,
@@ -1200,63 +1301,56 @@
 	    }]);
 
 	    return Radio;
-	}(_DataEntry16.default);
+	}(BaseMultiple);
 
 	/************* Select 下拉菜单 ************************************************************************** */
 
-	var Select = exports.Select = function (_DataEntry12) {
-	    _inherits(Select, _DataEntry12);
+	var Select = exports.Select = function (_BaseMultiple3) {
+	    _inherits(Select, _BaseMultiple3);
 
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
-	        var _this17 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-	        if (props.type === 'multiple' || props.type === 'tags') {
-	            _this17.__controlled.defaultVal = [];
+	        _this18.isMultiple = props.type === 'multiple' || props.type === 'tags';
+	        if (_this18.isMultiple) {
+	            _this18.__controlled.defaultVal = [];
 	        }
-	        _this17.__init();
-	        // 给 source.onSuccess 绑定默认处理逻辑
-	        _this17.__filtered.source = Object.assign({
-	            onSuccess: _this17._onSourceSuccess.bind(_this17)
-	        }, _this17.__filtered.source);
-	        return _this17;
+	        _this18.__init();
+	        _this18._openApi.push('selectAll');
+	        return _this18;
 	    }
 
 	    _createClass(Select, [{
+	        key: 'selectAll',
+	        value: function selectAll() {
+	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	            if (this.isMultiple) {
+	                var value = status ? this.__props.options.map(function (v) {
+	                    return v.value;
+	                }) : [];
+	                this.__setProps({ value: value });
+	                this.__props.onChange && this.__props.onChange(value);
+	            }
+	        }
+	    }, {
 	        key: '_onSourceSuccess',
 	        value: function _onSourceSuccess(data) {
-	            var current = this.__props.value;
-	            // 如果当前值再列表中，则不做任何处理
-	            if (_utils.Utils.typeof(current, 'array')) {
-	                // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
-	                var matchVal = _utils.Utils.toOptions(data).filter(function (v) {
-	                    return current.indexOf(v.value) > -1;
-	                }).map(function (v) {
-	                    return v.value;
-	                });
-	                if (matchVal.length === current.length) {
-	                    return;
-	                }
-	                this.props.onChange && this.props.onChange(matchVal);
-	                return;
+	            // 根据是否多选做区别处理
+	            if (this.isMultiple) {
+	                this._handleMultipleSelect(data);
 	            } else {
-	                if (_utils.Utils.toOptions(data).some(function (v) {
-	                    return v.value === current;
-	                })) {
-	                    return;
-	                }
+	                this._handleDefaultSelect(data);
 	            }
+	        }
+	    }, {
+	        key: 'getAllOptions',
+	        value: function getAllOptions() {
+	            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.__props.options;
 
-	            // 否则把值设置为第一个或者清空
-	            if (this.__props.defaultFirst) {
-	                var first = _utils.Utils.getFirstOption(data);
-	                this.props.onChange && this.props.onChange(first);
-	            } else if (this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
-	                // 为实现刷新组件时，清空原数据
-	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-	                this.props.onChange && this.props.onChange(this.__controlled.defaultVal);
-	            }
+	            return [].concat(this.__props.extOptions || [], data);
 	        }
 	    }, {
 	        key: 'render',
@@ -1265,11 +1359,13 @@
 	            var value = this.__props.value;
 	            if (formatType === 'array') {
 	                value = _utils.Utils.format(this.__props.value, formatType);
+	            } else if (_utils.Utils.typeof(value, ['number', 'boolean'])) {
+	                value += '';
 	            }
 	            return _react2.default.createElement(
 	                Antd.Select,
 	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: value }),
-	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
+	                this.getAllOptions().map(function (item) {
 	                    return _react2.default.createElement(
 	                        Antd.Select.Option,
 	                        { key: '' + item.value, disabled: item.disabled, style: item.style,
@@ -1282,7 +1378,7 @@
 	    }]);
 
 	    return Select;
-	}(_DataEntry16.default);
+	}(BaseMultiple);
 
 	/************* Transfer 穿梭框 ************************************************************************** */
 
@@ -1312,18 +1408,18 @@
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry13) {
-	    _inherits(Switch, _DataEntry13);
+	var Switch = exports.Switch = function (_DataEntry11) {
+	    _inherits(Switch, _DataEntry11);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this18 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this19 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this18.__controlled.key = 'checked';
-	        _this18.__controlled.defaultVal = false;
-	        _this18.__init();
-	        return _this18;
+	        _this19.__controlled.key = 'checked';
+	        _this19.__controlled.defaultVal = false;
+	        _this19.__init();
+	        return _this19;
 	    }
 
 	    _createClass(Switch, [{
@@ -1335,24 +1431,34 @@
 	    }]);
 
 	    return Switch;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Upload 开关 ************************************************************************** */
 
-	var Upload = exports.Upload = function (_DataEntry14) {
-	    _inherits(Upload, _DataEntry14);
+	var Upload = exports.Upload = function (_DataEntry12) {
+	    _inherits(Upload, _DataEntry12);
 
 	    function Upload(props) {
 	        _classCallCheck(this, Upload);
 
-	        var _this19 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+	        var _this20 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
 
-	        _this19.__controlled.key = 'fileList';
-	        _this19.__init();
-	        return _this19;
+	        _this20.__controlled.key = 'fileList';
+	        _this20.__controlled.defaultVal = [];
+	        _this20._filter.push('fieldName');
+	        _this20.__init();
+	        _this20.__props.name = _this20.props.fieldName || 'file';
+	        return _this20;
 	    }
+	    // 参数额外处理
+
 
 	    _createClass(Upload, [{
+	        key: '_updateEventHandler',
+	        value: function _updateEventHandler(param) {
+	            return param ? param.fileList : [];
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.Upload, this.__props);
@@ -1360,21 +1466,40 @@
 	    }]);
 
 	    return Upload;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
+
+	var Dragger = exports.Dragger = function (_Upload) {
+	    _inherits(Dragger, _Upload);
+
+	    function Dragger() {
+	        _classCallCheck(this, Dragger);
+
+	        return _possibleConstructorReturn(this, (Dragger.__proto__ || Object.getPrototypeOf(Dragger)).apply(this, arguments));
+	    }
+
+	    _createClass(Dragger, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Upload.Dragger, this.__props);
+	        }
+	    }]);
+
+	    return Dragger;
+	}(Upload);
 
 /***/ }),
-/* 115 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Utils: __webpack_require__(116).default,
-	    Ajax: __webpack_require__(120).default
+	    Utils: __webpack_require__(18).default,
+	    Ajax: __webpack_require__(22).default
 	};
 
 /***/ }),
-/* 116 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1383,15 +1508,15 @@
 	    value: true
 	});
 
-	var _utils2 = __webpack_require__(117);
+	var _utils2 = __webpack_require__(19);
 
 	var _utils3 = _interopRequireDefault(_utils2);
 
-	var _underscore = __webpack_require__(118);
+	var _underscore = __webpack_require__(20);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _moment2 = __webpack_require__(119);
+	var _moment2 = __webpack_require__(21);
 
 	var _moment3 = _interopRequireDefault(_moment2);
 
@@ -1437,7 +1562,7 @@
 	exports.default = utils;
 
 /***/ }),
-/* 117 */
+/* 19 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -1540,7 +1665,7 @@
 	                value = '' + value;
 	                break;
 	            case 'boolean':
-	                value = value === 'false' ? false : !!value;
+	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
 	                if (this.typeof(value, 'undefined')) {
@@ -1564,30 +1689,16 @@
 	        return [].concat(_toConsumableArray(new Set(arr)));
 	    },
 
-	    // 对象转数组
-	    objToArr: function objToArr(obj) {
-	        var arr = [];
-	        for (var i in obj) {
-	            arr.push(obj[i]);
-	        }
-	        return arr;
-	    },
-
-	    // 数组转对象
-	    arrToObj: function arrToObj(arr) {
-	        var obj = {};
-	        for (var i in arr) {
-	            obj[i] = arr[i];
-	        }
-	        return obj;
-	    },
-
 	    // 判断数组或对象是否为空
 	    empty: function empty(obj) {
-	        for (var t in obj) {
-	            return false;
+	        if (this.typeof(obj, ['array', 'object'])) {
+	            for (var t in obj) {
+	                return false;
+	            }
+	            return true;
+	        } else {
+	            return !obj;
 	        }
-	        return true;
 	    },
 
 	    // 浅拷贝，指针指向，只拷贝一层
@@ -1999,17 +2110,28 @@
 	                result = this.distinct(data).map(function (v) {
 	                    return { label: v, value: v };
 	                });
-	                // {label:1, value:'a'}，已格式化好的数据
+	                // 已格式化好的数据
+	                // {label: 'a', value: 1}
+	                // {key: 1, value: 'a'}
+	                // {id: 1, name: 'a'}
 	            } else {
-	                result = data;
+	                result = data.map(function (v) {
+	                    return v.key !== undefined && v.value !== undefined ? { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? { label: v.name, value: v.id } : v;
+	                });
 	            }
 	        } else if (this.typeof(data, 'object')) {
 	            // {key: value}
 	            for (var i in data) {
-	                result.push({
+	                var item = {
 	                    label: data[i],
 	                    value: i
-	                });
+	                };
+	                // true 选项移到首位
+	                if (i.toString().toLowerCase() === 'true') {
+	                    result.unshift(item);
+	                } else {
+	                    result.push(item);
+	                }
 	            }
 	        }
 	        return result;
@@ -2147,14 +2269,56 @@
 	            // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
 	            var newResult = newFunc.call.apply(newFunc, [thisObj].concat(params));
 	            !oldAhead && newResult !== false ? result = origin.call.apply(origin, [thisObj].concat(params)) : null;
+	            // let oResult;
+	            // oldAhead ? (oResult = origin.call(thisObj, ...params)) : null;
+	            // // 如果返回false，可阻止注入函数的继续执行
+	            // let newResult = oResult !== false ? newFunc.call(thisObj, ...params) : oResult;
+	            // // 如果注入的逻辑返回false，可阻止原函数的继续执行
+	            // let result = !oldAhead && newResult !== false ? origin.call(thisObj, ...params) : oResult;
 	            return result;
 	        } : newFunc.bind(thisObj);
+	        // 被替换函数标记
+	        parent[target].replaced = true;
 	        return parent;
 	    },
 
 	    // 延迟执行
 	    // timer(func, delay) {
 	    // }
+	    getCache: function getCache(key) {
+	        var result = localStorage.getItem(key);
+	        if (result) {
+	            return JSON.parse(result);
+	        } else {
+	            return result;
+	        }
+	    },
+	    setCache: function setCache(key, value) {
+	        value = JSON.stringify(value);
+	        return localStorage.setItem(key, value);
+	    },
+	    getSession: function getSession(key) {
+	        var result = sessionStorage.getItem(key);
+	        if (result) {
+	            return JSON.parse(result);
+	        } else {
+	            return result;
+	        }
+	    },
+	    setSession: function setSession(key, value) {
+	        value = JSON.stringify(value);
+	        return sessionStorage.setItem(key, value);
+	    },
+	    async: function async(func) {
+	        for (var _len3 = arguments.length, args = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+	            args[_key3 - 1] = arguments[_key3];
+	        }
+
+	        setTimeout(args.length === 0 ? func : function () {
+	            func.apply(undefined, args);
+	        }, 0);
+	    },
+
 
 	    /************************************************************************/
 	    // 私有方法
@@ -2196,7 +2360,7 @@
 	exports.default = utils;
 
 /***/ }),
-/* 118 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -3750,13 +3914,13 @@
 
 
 /***/ }),
-/* 119 */
+/* 21 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment;
 
 /***/ }),
-/* 120 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3765,23 +3929,43 @@
 	    value: true
 	});
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _utils = __webpack_require__(116);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	var _reqwest = __webpack_require__(122);
+	var _reqwest = __webpack_require__(24);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
-	var _ajaxPlugin = __webpack_require__(123);
+	var _utils = __webpack_require__(18);
 
-	var _instance = __webpack_require__(124);
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _axios = __webpack_require__(26);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _ajaxPlugin = __webpack_require__(54);
+
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// 依赖 Config, AjaxCache 两个实例，通过generete获取
+	/**
+	 * @file 通用的请求发送+错误处理工具
+	 *       全部请求都通过这里处理
+	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
+	 *          但是有几个参数需要注意：
+	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
+	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
+	 *              onchange: 请求开始/结束时执行。
+	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
+	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
+	 *              complete:
+	 *
+	 * @author liuzechun@baidu.com
+	 * **/
+
 	exports.default = (0, _instance.generate)(['Config', 'AjaxCache'], function (Config, AjaxCache) {
 
 	    // 通用ajax函数，参数为一个对象
@@ -3792,6 +3976,9 @@
 	            delete config.data;
 	        }
 	        var globalAjax = Config.get('global.ajax');
+	        var mockMap = Config.get('global.mock');
+
+	        // TODO: 两种情况下都不会触发onchange
 	        // 检查是否有缓存，如果有，则直接中断后续逻辑
 	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
 	            return;
@@ -3800,29 +3987,26 @@
 	        if ((0, _ajaxPlugin.checkQueue)(config)) {
 	            return;
 	        }
-	        // successHandler不为空
-	        var successHandler = config.success || function () {};
-	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-	        var errorHandler = config.error;
-	        if ([null, false].indexOf(errorHandler) > -1) {
-	            errorHandler = function errorHandler() {};
-	        }
-	        errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+
 	        // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
 	        var onchange = config.onchange || function () {};
-	        // 配置合并
-	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
-	        // baseUrl 参数处理
-	        if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1 && config.url.indexOf('https://') === -1) {
-	            config.url = globalAjax.baseUrl + config.url;
+	        // successHandler
+	        var tmpHandler = config.success || function () {};
+	        var successHandler = function successHandler() {
+	            tmpHandler.apply(undefined, arguments);
+	            onchange(false, 'success');
+	        };
+	        // errorHandler
+	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
+	        var tmpError = config.error;
+	        if ([null, false].indexOf(tmpError) > -1) {
+	            tmpError = function tmpError() {};
 	        }
-	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
-	        if (globalAjax.beforeSend) {
-	            config = globalAjax.beforeSend(config);
-	        }
-
-	        onchange(true, 'sending');
-
+	        tmpError = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+	        var errorHandler = function errorHandler() {
+	            tmpError.apply(undefined, arguments);
+	            onchange(false, 'error');
+	        };
 	        // onerror 处理逻辑
 	        var onerror = function onerror(err) {
 	            // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
@@ -3840,34 +4024,84 @@
 	                }
 	            }
 	        };
-	        return (0, _reqwest2.default)(Object.assign({}, config, {
+
+	        // 配置合并
+	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
+	        // 复制一份，防止url解析时更改原数据
+	        var params = Object.assign({}, config.params, config.data);
+	        var final = Object.assign({}, config, {
 	            // url中可以使用来自params中的动态参数
-	            url: _utils2.default.urlAnalysis(config.url, config.params),
+	            url: _utils2.default.urlAnalysis(config.url, params),
 	            // data 可能来自 globalAjax
-	            data: Object.assign({}, config.params, config.data),
+	            data: params,
 	            success: function success(res) {
 	                // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
 	                if (globalAjax.success) {
 	                    globalAjax.success(res, successHandler, errorHandler, config);
 	                } else {
 	                    // 默认成功处理逻辑
-	                    // 兼容 message/msg、status/code
-	                    res.status = res.status || res.code || 0;
-	                    res.message = res.message || res.msg;
-	                    res.msg = res.message;
-	                    if (+res.status === 0) {
-	                        successHandler(res.data, res);
+	                    // 如果接口无返回值，则res为http实例
+	                    if (res instanceof XMLHttpRequest) {
+	                        onerror({ msg: '接口未返回任何数据' });
+	                        // 如果data为null
+	                    } else if (res.data === null) {
+	                        onerror({ msg: '接口返回值为空' });
 	                    } else {
-	                        onerror(res);
+	                        // 兼容 message/msg、status/code
+	                        res.status = res.status || res.code || 0;
+	                        res.message = res.message || res.msg;
+	                        res.msg = res.message;
+	                        if (+res.status === 0) {
+	                            successHandler(res.data, res);
+	                        } else {
+	                            onerror(res);
+	                        }
 	                    }
 	                }
-	                onchange(false, 'success');
 	            },
 	            error: function error(err) {
+	                // 如果有response,则对response进行解码处理,并一起传给error函数
+	                if (err.response) {
+	                    var res = void 0;
+	                    try {
+	                        res = JSON.parse(err.response);
+	                    } catch (e) {}
+	                    err = Object.assign({}, err, res, { msg: res && res.message });
+	                }
 	                onerror(err);
-	                onchange(false, 'error');
 	            }
-	        }));
+	        });
+
+	        // 检查是否有缓存，如果有，则直接中断后续逻辑
+	        // if (checkCache(final, AjaxCache)) {
+	        //     return;
+	        // }
+	        // // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
+	        // if (checkQueue(final)) {
+	        //     return;
+	        // }
+
+	        onchange(true, 'sending');
+
+	        // 检查是否有mock数据接口
+	        if ((0, _ajaxPlugin.checkMock)(final, mockMap)) {
+	            return;
+	        }
+
+	        // baseUrl 参数处理
+	        if (globalAjax.baseUrl && final.url && final.url.indexOf('http://') === -1 && final.url.indexOf('https://') === -1) {
+	            final.url = globalAjax.baseUrl + final.url;
+	        }
+	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
+	        if (globalAjax.beforeSend) {
+	            globalAjax.beforeSend(final);
+	        }
+
+	        if (final.useAxios) {
+	            return (0, _axios2.default)(final);
+	        }
+
+	        return (0, _reqwest2.default)(final);
 	    }
 
 	    request.init = function (url, method) {
@@ -3896,36 +4130,2424 @@
 	    return request;
 	});
 	// export default request;
-	/**
-	 * @file 通用的请求发送+错误处理工具
-	 *       全部请求都通过这里处理
-	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
-	 *          但是有几个参数需要注意：
-	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
-	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
-	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
-	 *              onchange: 请求开始/结束时执行。
-	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
-	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
-	 *              complete:
-	 *
-	 * @author liuzechun@baidu.com
-	 * **/
 
 /***/ }),
-/* 121 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.Antd;
 
 /***/ }),
-/* 122 */
-/***/ (function(module, exports) {
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = window.DLL.reqwest;
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  * Reqwest! A general purpose XHR connection manager
+	  * license MIT (c) Dustin Diaz 2015
+	  * https://github.com/ded/reqwest
+	  */
+
+	!function (name, context, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else context[name] = definition()
+	}('reqwest', this, function () {
+
+	  var context = this
+
+	  if ('window' in context) {
+	    var doc = document
+	      , byTag = 'getElementsByTagName'
+	      , head = doc[byTag]('head')[0]
+	  } else {
+	    var XHR2
+	    try {
+	      XHR2 = __webpack_require__(25)
+	    } catch (ex) {
+	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
+	    }
+	  }
+
+
+	  var httpsRe = /^http/
+	    , protocolRe = /(^\w+):\/\//
+	    , twoHundo = /^(20\d|1223)$/ //http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+	    , readyState = 'readyState'
+	    , contentType = 'Content-Type'
+	    , requestedWith = 'X-Requested-With'
+	    , uniqid = 0
+	    , callbackPrefix = 'reqwest_' + (+new Date())
+	    , lastValue // data stored by the most recent JSONP callback
+	    , xmlHttpRequest = 'XMLHttpRequest'
+	    , xDomainRequest = 'XDomainRequest'
+	    , noop = function () {}
+
+	    , isArray = typeof Array.isArray == 'function'
+	        ? Array.isArray
+	        : function (a) {
+	            return a instanceof Array
+	          }
+
+	    , defaultHeaders = {
+	          'contentType': 'application/x-www-form-urlencoded'
+	        , 'requestedWith': xmlHttpRequest
+	        , 'accept': {
+	              '*':  'text/javascript, text/html, application/xml, text/xml, */*'
+	            , 'xml':  'application/xml, text/xml'
+	            , 'html': 'text/html'
+	            , 'text': 'text/plain'
+	            , 'json': 'application/json, text/javascript'
+	            , 'js':   'application/javascript, text/javascript'
+	          }
+	      }
+
+	    , xhr = function(o) {
+	        // is it x-domain
+	        if (o['crossOrigin'] === true) {
+	          var xhr = context[xmlHttpRequest] ? new XMLHttpRequest() : null
+	          if (xhr && 'withCredentials' in xhr) {
+	            return xhr
+	          } else if (context[xDomainRequest]) {
+	            return new XDomainRequest()
+	          } else {
+	            throw new Error('Browser does not support cross-origin requests')
+	          }
+	        } else if (context[xmlHttpRequest]) {
+	          return new XMLHttpRequest()
+	        } else if (XHR2) {
+	          return new XHR2()
+	        } else {
+	          return new ActiveXObject('Microsoft.XMLHTTP')
+	        }
+	      }
+	    , globalSetupOptions = {
+	        dataFilter: function (data) {
+	          return data
+	        }
+	      }
+
+	  function succeed(r) {
+	    var protocol = protocolRe.exec(r.url)
+	    protocol = (protocol && protocol[1]) || context.location.protocol
+	    return httpsRe.test(protocol) ? twoHundo.test(r.request.status) : !!r.request.response
+	  }
+
+	  function handleReadyState(r, success, error) {
+	    return function () {
+	      // use _aborted to mitigate against IE err c00c023f
+	      // (can't read props on aborted request objects)
+	      if (r._aborted) return error(r.request)
+	      if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
+	      if (r.request && r.request[readyState] == 4) {
+	        r.request.onreadystatechange = noop
+	        if (succeed(r)) success(r.request)
+	        else
+	          error(r.request)
+	      }
+	    }
+	  }
+
+	  function setHeaders(http, o) {
+	    var headers = o['headers'] || {}
+	      , h
+
+	    headers['Accept'] = headers['Accept']
+	      || defaultHeaders['accept'][o['type']]
+	      || defaultHeaders['accept']['*']
+
+	    var isAFormData = typeof FormData !== 'undefined' && (o['data'] instanceof FormData);
+	    // breaks cross-origin requests with legacy browsers
+	    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
+	    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
+	    for (h in headers)
+	      headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
+	  }
+
+	  function setCredentials(http, o) {
+	    if (typeof o['withCredentials'] !== 'undefined' && typeof http.withCredentials !== 'undefined') {
+	      http.withCredentials = !!o['withCredentials']
+	    }
+	  }
+
+	  function generalCallback(data) {
+	    lastValue = data
+	  }
+
+	  function urlappend (url, s) {
+	    return url + (/\?/.test(url) ? '&' : '?') + s
+	  }
+
+	  function handleJsonp(o, fn, err, url) {
+	    var reqId = uniqid++
+	      , cbkey = o['jsonpCallback'] || 'callback' // the 'callback' key
+	      , cbval = o['jsonpCallbackName'] || reqwest.getcallbackPrefix(reqId)
+	      , cbreg = new RegExp('((^|\\?|&)' + cbkey + ')=([^&]+)')
+	      , match = url.match(cbreg)
+	      , script = doc.createElement('script')
+	      , loaded = 0
+	      , isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
+
+	    if (match) {
+	      if (match[3] === '?') {
+	        url = url.replace(cbreg, '$1=' + cbval) // wildcard callback func name
+	      } else {
+	        cbval = match[3] // provided callback func name
+	      }
+	    } else {
+	      url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
+	    }
+
+	    context[cbval] = generalCallback
+
+	    script.type = 'text/javascript'
+	    script.src = url
+	    script.async = true
+	    if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
+	      // need this for IE due to out-of-order onreadystatechange(), binding script
+	      // execution to an event listener gives us control over when the script
+	      // is executed. See http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
+	      script.htmlFor = script.id = '_reqwest_' + reqId
+	    }
+
+	    script.onload = script.onreadystatechange = function () {
+	      if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
+	        return false
+	      }
+	      script.onload = script.onreadystatechange = null
+	      script.onclick && script.onclick()
+	      // Call the user callback with the last value stored and clean up values and scripts.
+	      fn(lastValue)
+	      lastValue = undefined
+	      head.removeChild(script)
+	      loaded = 1
+	    }
+
+	    // Add the script to the DOM head
+	    head.appendChild(script)
+
+	    // Enable JSONP timeout
+	    return {
+	      abort: function () {
+	        script.onload = script.onreadystatechange = null
+	        err({}, 'Request is aborted: timeout', {})
+	        lastValue = undefined
+	        head.removeChild(script)
+	        loaded = 1
+	      }
+	    }
+	  }
+
+	  function getRequest(fn, err) {
+	    var o = this.o
+	      , method = (o['method'] || 'GET').toUpperCase()
+	      , url = typeof o === 'string' ? o : o['url']
+	      // convert non-string objects to query-string form unless o['processData'] is false
+	      , data = (o['processData'] !== false && o['data'] && typeof o['data'] !== 'string')
+	        ? reqwest.toQueryString(o['data'])
+	        : (o['data'] || null)
+	      , http
+	      , sendWait = false
+
+	    // if we're working on a GET request and we have data then we should append
+	    // query string to end of URL and not post data
+	    if ((o['type'] == 'jsonp' || method == 'GET') && data) {
+	      url = urlappend(url, data)
+	      data = null
+	    }
+
+	    if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+
+	    // get the xhr from the factory if passed
+	    // if the factory returns null, fall-back to ours
+	    http = (o.xhr && o.xhr(o)) || xhr(o)
+
+	    http.open(method, url, o['async'] === false ? false : true)
+	    setHeaders(http, o)
+	    setCredentials(http, o)
+	    if (context[xDomainRequest] && http instanceof context[xDomainRequest]) {
+	        http.onload = fn
+	        http.onerror = err
+	        // NOTE: see
+	        // http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
+	        http.onprogress = function() {}
+	        sendWait = true
+	    } else {
+	      http.onreadystatechange = handleReadyState(this, fn, err)
+	    }
+	    o['before'] && o['before'](http)
+	    if (sendWait) {
+	      setTimeout(function () {
+	        http.send(data)
+	      }, 200)
+	    } else {
+	      http.send(data)
+	    }
+	    return http
+	  }
+
+	  function Reqwest(o, fn) {
+	    this.o = o
+	    this.fn = fn
+
+	    init.apply(this, arguments)
+	  }
+
+	  function setType(header) {
+	    // json, javascript, text/plain, text/html, xml
+	    if (header === null) return undefined; //In case of no content-type.
+	    if (header.match('json')) return 'json'
+	    if (header.match('javascript')) return 'js'
+	    if (header.match('text')) return 'html'
+	    if (header.match('xml')) return 'xml'
+	  }
+
+	  function init(o, fn) {
+
+	    this.url = typeof o == 'string' ? o : o['url']
+	    this.timeout = null
+
+	    // whether request has been fulfilled for purpose
+	    // of tracking the Promises
+	    this._fulfilled = false
+	    // success handlers
+	    this._successHandler = function(){}
+	    this._fulfillmentHandlers = []
+	    // error handlers
+	    this._errorHandlers = []
+	    // complete (both success and fail) handlers
+	    this._completeHandlers = []
+	    this._erred = false
+	    this._responseArgs = {}
+
+	    var self = this
+
+	    fn = fn || function () {}
+
+	    if (o['timeout']) {
+	      this.timeout = setTimeout(function () {
+	        timedOut()
+	      }, o['timeout'])
+	    }
+
+	    if (o['success']) {
+	      this._successHandler = function () {
+	        o['success'].apply(o, arguments)
+	      }
+	    }
+
+	    if (o['error']) {
+	      this._errorHandlers.push(function () {
+	        o['error'].apply(o, arguments)
+	      })
+	    }
+
+	    if (o['complete']) {
+	      this._completeHandlers.push(function () {
+	        o['complete'].apply(o, arguments)
+	      })
+	    }
+
+	    function complete (resp) {
+	      o['timeout'] && clearTimeout(self.timeout)
+	      self.timeout = null
+	      while (self._completeHandlers.length > 0) {
+	        self._completeHandlers.shift()(resp)
+	      }
+	    }
+
+	    function success (resp) {
+	      var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
+	      resp = (type !== 'jsonp') ? self.request : resp
+	      // use global data filter on response text
+	      var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
+	        , r = filteredResponse
+	      try {
+	        resp.responseText = r
+	      } catch (e) {
+	        // can't assign this in IE<=8, just ignore
+	      }
+	      if (r) {
+	        switch (type) {
+	        case 'json':
+	          try {
+	            resp = context.JSON ? context.JSON.parse(r) : eval('(' + r + ')')
+	          } catch (err) {
+	            return error(resp, 'Could not parse JSON in response', err)
+	          }
+	          break
+	        case 'js':
+	          resp = eval(r)
+	          break
+	        case 'html':
+	          resp = r
+	          break
+	        case 'xml':
+	          resp = resp.responseXML
+	              && resp.responseXML.parseError // IE trololo
+	              && resp.responseXML.parseError.errorCode
+	              && resp.responseXML.parseError.reason
+	            ? null
+	            : resp.responseXML
+	          break
+	        }
+	      }
+
+	      self._responseArgs.resp = resp
+	      self._fulfilled = true
+	      fn(resp)
+	      self._successHandler(resp)
+	      while (self._fulfillmentHandlers.length > 0) {
+	        resp = self._fulfillmentHandlers.shift()(resp)
+	      }
+
+	      complete(resp)
+	    }
+
+	    function timedOut() {
+	      self._timedOut = true
+	      self.request.abort()
+	    }
+
+	    function error(resp, msg, t) {
+	      resp = self.request
+	      self._responseArgs.resp = resp
+	      self._responseArgs.msg = msg
+	      self._responseArgs.t = t
+	      self._erred = true
+	      while (self._errorHandlers.length > 0) {
+	        self._errorHandlers.shift()(resp, msg, t)
+	      }
+	      complete(resp)
+	    }
+
+	    this.request = getRequest.call(this, success, error)
+	  }
+
+	  Reqwest.prototype = {
+	    abort: function () {
+	      this._aborted = true
+	      this.request.abort()
+	    }
+
+	  , retry: function () {
+	      init.call(this, this.o, this.fn)
+	    }
+
+	    /**
+	     * Small deviation from the Promises A CommonJs specification
+	     * http://wiki.commonjs.org/wiki/Promises/A
+	     */
+
+	    /**
+	     * `then` will execute upon successful requests
+	     */
+	  , then: function (success, fail) {
+	      success = success || function () {}
+	      fail = fail || function () {}
+	      if (this._fulfilled) {
+	        this._responseArgs.resp = success(this._responseArgs.resp)
+	      } else if (this._erred) {
+	        fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._fulfillmentHandlers.push(success)
+	        this._errorHandlers.push(fail)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `always` will execute whether the request succeeds or fails
+	     */
+	  , always: function (fn) {
+	      if (this._fulfilled || this._erred) {
+	        fn(this._responseArgs.resp)
+	      } else {
+	        this._completeHandlers.push(fn)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `fail` will execute when the request fails
+	     */
+	  , fail: function (fn) {
+	      if (this._erred) {
+	        fn(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._errorHandlers.push(fn)
+	      }
+	      return this
+	    }
+	  , 'catch': function (fn) {
+	      return this.fail(fn)
+	    }
+	  }
+
+	  function reqwest(o, fn) {
+	    return new Reqwest(o, fn)
+	  }
+
+	  // normalize newline variants according to spec -> CRLF
+	  function normalize(s) {
+	    return s ? s.replace(/\r?\n/g, '\r\n') : ''
+	  }
+
+	  function serial(el, cb) {
+	    var n = el.name
+	      , t = el.tagName.toLowerCase()
+	      , optCb = function (o) {
+	          // IE gives value="" even where there is no value attribute
+	          // 'specified' ref: http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-862529273
+	          if (o && !o['disabled'])
+	            cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
+	        }
+	      , ch, ra, val, i
+
+	    // don't serialize elements that are disabled or without a name
+	    if (el.disabled || !n) return
+
+	    switch (t) {
+	    case 'input':
+	      if (!/reset|button|image|file/i.test(el.type)) {
+	        ch = /checkbox/i.test(el.type)
+	        ra = /radio/i.test(el.type)
+	        val = el.value
+	        // WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
+	        ;(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
+	      }
+	      break
+	    case 'textarea':
+	      cb(n, normalize(el.value))
+	      break
+	    case 'select':
+	      if (el.type.toLowerCase() === 'select-one') {
+	        optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
+	      } else {
+	        for (i = 0; el.length && i < el.length; i++) {
+	          el.options[i].selected && optCb(el.options[i])
+	        }
+	      }
+	      break
+	    }
+	  }
+
+	  // collect up all form elements found from the passed argument elements all
+	  // the way down to child elements; pass a '<form>' or form fields.
+	  // called with 'this'=callback to use for serial() on each element
+	  function eachFormElement() {
+	    var cb = this
+	      , e, i
+	      , serializeSubtags = function (e, tags) {
+	          var i, j, fa
+	          for (i = 0; i < tags.length; i++) {
+	            fa = e[byTag](tags[i])
+	            for (j = 0; j < fa.length; j++) serial(fa[j], cb)
+	          }
+	        }
+
+	    for (i = 0; i < arguments.length; i++) {
+	      e = arguments[i]
+	      if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
+	      serializeSubtags(e, [ 'input', 'select', 'textarea' ])
+	    }
+	  }
+
+	  // standard query string style serialization
+	  function serializeQueryString() {
+	    return reqwest.toQueryString(reqwest.serializeArray.apply(null, arguments))
+	  }
+
+	  // { 'name': 'value', ... } style serialization
+	  function serializeHash() {
+	    var hash = {}
+	    eachFormElement.apply(function (name, value) {
+	      if (name in hash) {
+	        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
+	        hash[name].push(value)
+	      } else hash[name] = value
+	    }, arguments)
+	    return hash
+	  }
+
+	  // [ { name: 'name', value: 'value' }, ... ] style serialization
+	  reqwest.serializeArray = function () {
+	    var arr = []
+	    eachFormElement.apply(function (name, value) {
+	      arr.push({name: name, value: value})
+	    }, arguments)
+	    return arr
+	  }
+
+	  reqwest.serialize = function () {
+	    if (arguments.length === 0) return ''
+	    var opt, fn
+	      , args = Array.prototype.slice.call(arguments, 0)
+
+	    opt = args.pop()
+	    opt && opt.nodeType && args.push(opt) && (opt = null)
+	    opt && (opt = opt.type)
+
+	    if (opt == 'map') fn = serializeHash
+	    else if (opt == 'array') fn = reqwest.serializeArray
+	    else fn = serializeQueryString
+
+	    return fn.apply(null, args)
+	  }
+
+	  reqwest.toQueryString = function (o, trad) {
+	    var prefix, i
+	      , traditional = trad || false
+	      , s = []
+	      , enc = encodeURIComponent
+	      , add = function (key, value) {
+	          // If value is a function, invoke it and return its value
+	          value = ('function' === typeof value) ? value() : (value == null ? '' : value)
+	          s[s.length] = enc(key) + '=' + enc(value)
+	        }
+	    // If an array was passed in, assume that it is an array of form elements.
+	    if (isArray(o)) {
+	      for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
+	    } else {
+	      // If traditional, encode the "old" way (the way 1.3.2 or older
+	      // did it), otherwise encode params recursively.
+	      for (prefix in o) {
+	        if (o.hasOwnProperty(prefix)) buildParams(prefix, o[prefix], traditional, add)
+	      }
+	    }
+
+	    // spaces should be + according to spec
+	    return s.join('&').replace(/%20/g, '+')
+	  }
+
+	  function buildParams(prefix, obj, traditional, add) {
+	    var name, i, v
+	      , rbracket = /\[\]$/
+
+	    if (isArray(obj)) {
+	      // Serialize array item.
+	      for (i = 0; obj && i < obj.length; i++) {
+	        v = obj[i]
+	        if (traditional || rbracket.test(prefix)) {
+	          // Treat each array item as a scalar.
+	          add(prefix, v)
+	        } else {
+	          buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add)
+	        }
+	      }
+	    } else if (obj && obj.toString() === '[object Object]') {
+	      // Serialize object item.
+	      for (name in obj) {
+	        buildParams(prefix + '[' + name + ']', obj[name], traditional, add)
+	      }
+
+	    } else {
+	      // Serialize scalar item.
+	      add(prefix, obj)
+	    }
+	  }
+
+	  reqwest.getcallbackPrefix = function () {
+	    return callbackPrefix
+	  }
+
+	  // jQuery and Zepto compatibility, differences can be remapped here so you can call
+	  // .ajax.compat(options, callback)
+	  reqwest.compat = function (o, fn) {
+	    if (o) {
+	      o['type'] && (o['method'] = o['type']) && delete o['type']
+	      o['dataType'] && (o['type'] = o['dataType'])
+	      o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
+	      o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
+	    }
+	    return new Reqwest(o, fn)
+	  }
+
+	  reqwest.ajaxSetup = function (options) {
+	    options = options || {}
+	    for (var k in options) {
+	      globalSetupOptions[k] = options[k]
+	    }
+	  }
+
+	  return reqwest
+	});
+
 
 /***/ }),
-/* 123 */
+/* 25 */
+/***/ (function(module, exports) {
+
+	/* (ignored) */
+
+/***/ }),
+/* 26 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function (config) {
+	    var conf = _utils2.default.filter(config, ['baseUrl', 'success', 'error']);
+	    conf.data = conf.params;
+	    return (0, _axios2.default)(conf).then(function (response) {
+	        config.success(response.data);
+	    }, function (err) {
+	        config.error(err.response.data || { message: '请求出错！' });
+	    });
+	};
+
+	var _axios = __webpack_require__(27);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _utils = __webpack_require__(18);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 27 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(28);
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+	var bind = __webpack_require__(30);
+	var Axios = __webpack_require__(32);
+	var defaults = __webpack_require__(33);
+
+	/**
+	 * Create an instance of Axios
+	 *
+	 * @param {Object} defaultConfig The default config for the instance
+	 * @return {Axios} A new instance of Axios
+	 */
+	function createInstance(defaultConfig) {
+	  var context = new Axios(defaultConfig);
+	  var instance = bind(Axios.prototype.request, context);
+
+	  // Copy axios.prototype to instance
+	  utils.extend(instance, Axios.prototype, context);
+
+	  // Copy context to instance
+	  utils.extend(instance, context);
+
+	  return instance;
+	}
+
+	// Create the default instance to be exported
+	var axios = createInstance(defaults);
+
+	// Expose Axios class to allow class inheritance
+	axios.Axios = Axios;
+
+	// Factory for creating new instances
+	axios.create = function create(instanceConfig) {
+	  return createInstance(utils.merge(defaults, instanceConfig));
+	};
+
+	// Expose Cancel & CancelToken
+	axios.Cancel = __webpack_require__(51);
+	axios.CancelToken = __webpack_require__(52);
+	axios.isCancel = __webpack_require__(48);
+
+	// Expose all/spread
+	axios.all = function all(promises) {
+	  return Promise.all(promises);
+	};
+	axios.spread = __webpack_require__(53);
+
+	module.exports = axios;
+
+	// Allow use of default import syntax in TypeScript
+	module.exports.default = axios;
+
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var bind = __webpack_require__(30);
+	var isBuffer = __webpack_require__(31);
+
+	/*global toString:true*/
+
+	// utils is a library of generic helper functions non-specific to axios
+
+	var toString = Object.prototype.toString;
+
+	/**
+	 * Determine if a value is an Array
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Array, otherwise false
+	 */
+	function isArray(val) {
+	  return toString.call(val) === '[object Array]';
+	}
+
+	/**
+	 * Determine if a value is an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+	 */
+	function isArrayBuffer(val) {
+	  return toString.call(val) === '[object ArrayBuffer]';
+	}
+
+	/**
+	 * Determine if a value is a FormData
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an FormData, otherwise false
+	 */
+	function isFormData(val) {
+	  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+	}
+
+	/**
+	 * Determine if a value is a view on an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+	 */
+	function isArrayBufferView(val) {
+	  var result;
+	  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+	    result = ArrayBuffer.isView(val);
+	  } else {
+	    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Determine if a value is a String
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a String, otherwise false
+	 */
+	function isString(val) {
+	  return typeof val === 'string';
+	}
+
+	/**
+	 * Determine if a value is a Number
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Number, otherwise false
+	 */
+	function isNumber(val) {
+	  return typeof val === 'number';
+	}
+
+	/**
+	 * Determine if a value is undefined
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if the value is undefined, otherwise false
+	 */
+	function isUndefined(val) {
+	  return typeof val === 'undefined';
+	}
+
+	/**
+	 * Determine if a value is an Object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Object, otherwise false
+	 */
+	function isObject(val) {
+	  return val !== null && typeof val === 'object';
+	}
+
+	/**
+	 * Determine if a value is a Date
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Date, otherwise false
+	 */
+	function isDate(val) {
+	  return toString.call(val) === '[object Date]';
+	}
+
+	/**
+	 * Determine if a value is a File
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a File, otherwise false
+	 */
+	function isFile(val) {
+	  return toString.call(val) === '[object File]';
+	}
+
+	/**
+	 * Determine if a value is a Blob
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Blob, otherwise false
+	 */
+	function isBlob(val) {
+	  return toString.call(val) === '[object Blob]';
+	}
+
+	/**
+	 * Determine if a value is a Function
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Function, otherwise false
+	 */
+	function isFunction(val) {
+	  return toString.call(val) === '[object Function]';
+	}
+
+	/**
+	 * Determine if a value is a Stream
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Stream, otherwise false
+	 */
+	function isStream(val) {
+	  return isObject(val) && isFunction(val.pipe);
+	}
+
+	/**
+	 * Determine if a value is a URLSearchParams object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+	 */
+	function isURLSearchParams(val) {
+	  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+	}
+
+	/**
+	 * Trim excess whitespace off the beginning and end of a string
+	 *
+	 * @param {String} str The String to trim
+	 * @returns {String} The String freed of excess whitespace
+	 */
+	function trim(str) {
+	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+	}
+
+	/**
+	 * Determine if we're running in a standard browser environment
+	 *
+	 * This allows axios to run in a web worker, and react-native.
+	 * Both environments support XMLHttpRequest, but not fully standard globals.
+	 *
+	 * web workers:
+	 *  typeof window -> undefined
+	 *  typeof document -> undefined
+	 *
+	 * react-native:
+	 *  navigator.product -> 'ReactNative'
+	 */
+	function isStandardBrowserEnv() {
+	  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+	    return false;
+	  }
+	  return (
+	    typeof window !== 'undefined' &&
+	    typeof document !== 'undefined'
+	  );
+	}
+
+	/**
+	 * Iterate over an Array or an Object invoking a function for each item.
+	 *
+	 * If `obj` is an Array callback will be called passing
+	 * the value, index, and complete array for each item.
+	 *
+	 * If 'obj' is an Object callback will be called passing
+	 * the value, key, and complete object for each property.
+	 *
+	 * @param {Object|Array} obj The object to iterate
+	 * @param {Function} fn The callback to invoke for each item
+	 */
+	function forEach(obj, fn) {
+	  // Don't bother if no value provided
+	  if (obj === null || typeof obj === 'undefined') {
+	    return;
+	  }
+
+	  // Force an array if not already something iterable
+	  if (typeof obj !== 'object') {
+	    /*eslint no-param-reassign:0*/
+	    obj = [obj];
+	  }
+
+	  if (isArray(obj)) {
+	    // Iterate over array values
+	    for (var i = 0, l = obj.length; i < l; i++) {
+	      fn.call(null, obj[i], i, obj);
+	    }
+	  } else {
+	    // Iterate over object keys
+	    for (var key in obj) {
+	      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+	        fn.call(null, obj[key], key, obj);
+	      }
+	    }
+	  }
+	}
+
+	/**
+	 * Accepts varargs expecting each argument to be an object, then
+	 * immutably merges the properties of each object and returns result.
+	 *
+	 * When multiple objects contain the same key the later object in
+	 * the arguments list will take precedence.
+	 *
+	 * Example:
+	 *
+	 * ```js
+	 * var result = merge({foo: 123}, {foo: 456});
+	 * console.log(result.foo); // outputs 456
+	 * ```
+	 *
+	 * @param {Object} obj1 Object to merge
+	 * @returns {Object} Result of all merge properties
+	 */
+	function merge(/* obj1, obj2, obj3, ... */) {
+	  var result = {};
+	  function assignValue(val, key) {
+	    if (typeof result[key] === 'object' && typeof val === 'object') {
+	      result[key] = merge(result[key], val);
+	    } else {
+	      result[key] = val;
+	    }
+	  }
+
+	  for (var i = 0, l = arguments.length; i < l; i++) {
+	    forEach(arguments[i], assignValue);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Extends object a by mutably adding to it the properties of object b.
+	 *
+	 * @param {Object} a The object to be extended
+	 * @param {Object} b The object to copy properties from
+	 * @param {Object} thisArg The object to bind function to
+	 * @return {Object} The resulting value of object a
+	 */
+	function extend(a, b, thisArg) {
+	  forEach(b, function assignValue(val, key) {
+	    if (thisArg && typeof val === 'function') {
+	      a[key] = bind(val, thisArg);
+	    } else {
+	      a[key] = val;
+	    }
+	  });
+	  return a;
+	}
+
+	module.exports = {
+	  isArray: isArray,
+	  isArrayBuffer: isArrayBuffer,
+	  isBuffer: isBuffer,
+	  isFormData: isFormData,
+	  isArrayBufferView: isArrayBufferView,
+	  isString: isString,
+	  isNumber: isNumber,
+	  isObject: isObject,
+	  isUndefined: isUndefined,
+	  isDate: isDate,
+	  isFile: isFile,
+	  isBlob: isBlob,
+	  isFunction: isFunction,
+	  isStream: isStream,
+	  isURLSearchParams: isURLSearchParams,
+	  isStandardBrowserEnv: isStandardBrowserEnv,
+	  forEach: forEach,
+	  merge: merge,
+	  extend: extend,
+	  trim: trim
+	};
+
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function bind(fn, thisArg) {
+	  return function wrap() {
+	    var args = new Array(arguments.length);
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i];
+	    }
+	    return fn.apply(thisArg, args);
+	  };
+	};
+
+
+/***/ }),
+/* 31 */
+/***/ (function(module, exports) {
+
+	/*!
+	 * Determine if an object is a Buffer
+	 *
+	 * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+	 * @license  MIT
+	 */
+
+	// The _isBuffer check is for Safari 5-7 support, because it's missing
+	// Object.prototype.constructor. Remove this eventually
+	module.exports = function (obj) {
+	  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+	}
+
+	function isBuffer (obj) {
+	  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+	}
+
+	// For Node v0.10 support. Remove this eventually.
+	function isSlowBuffer (obj) {
+	  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+	}
+
+
+/***/ }),
+/* 32 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var defaults = __webpack_require__(33);
+	var utils = __webpack_require__(29);
+	var InterceptorManager = __webpack_require__(45);
+	var dispatchRequest = __webpack_require__(46);
+
+	/**
+	 * Create a new instance of Axios
+	 *
+	 * @param {Object} instanceConfig The default config for the instance
+	 */
+	function Axios(instanceConfig) {
+	  this.defaults = instanceConfig;
+	  this.interceptors = {
+	    request: new InterceptorManager(),
+	    response: new InterceptorManager()
+	  };
+	}
+
+	/**
+	 * Dispatch a request
+	 *
+	 * @param {Object} config The config specific for this request (merged with this.defaults)
+	 */
+	Axios.prototype.request = function request(config) {
+	  /*eslint no-param-reassign:0*/
+	  // Allow for axios('example/url'[, config]) a la fetch API
+	  if (typeof config === 'string') {
+	    config = utils.merge({
+	      url: arguments[0]
+	    }, arguments[1]);
+	  }
+
+	  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+	  config.method = config.method.toLowerCase();
+
+	  // Hook up interceptors middleware
+	  var chain = [dispatchRequest, undefined];
+	  var promise = Promise.resolve(config);
+
+	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+	    chain.push(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  while (chain.length) {
+	    promise = promise.then(chain.shift(), chain.shift());
+	  }
+
+	  return promise;
+	};
+
+	// Provide aliases for supported request methods
+	utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url
+	    }));
+	  };
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, data, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url,
+	      data: data
+	    }));
+	  };
+	});
+
+	module.exports = Axios;
+
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(29);
+	var normalizeHeaderName = __webpack_require__(35);
+
+	var DEFAULT_CONTENT_TYPE = {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+	};
+
+	function setContentTypeIfUnset(headers, value) {
+	  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+	    headers['Content-Type'] = value;
+	  }
+	}
+
+	function getDefaultAdapter() {
+	  var adapter;
+	  if (typeof XMLHttpRequest !== 'undefined') {
+	    // For browsers use XHR adapter
+	    adapter = __webpack_require__(36);
+	  } else if (typeof process !== 'undefined') {
+	    // For node use HTTP adapter
+	    adapter = __webpack_require__(36);
+	  }
+	  return adapter;
+	}
+
+	var defaults = {
+	  adapter: getDefaultAdapter(),
+
+	  transformRequest: [function transformRequest(data, headers) {
+	    normalizeHeaderName(headers, 'Content-Type');
+	    if (utils.isFormData(data) ||
+	      utils.isArrayBuffer(data) ||
+	      utils.isBuffer(data) ||
+	      utils.isStream(data) ||
+	      utils.isFile(data) ||
+	      utils.isBlob(data)
+	    ) {
+	      return data;
+	    }
+	    if (utils.isArrayBufferView(data)) {
+	      return data.buffer;
+	    }
+	    if (utils.isURLSearchParams(data)) {
+	      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+	      return data.toString();
+	    }
+	    if (utils.isObject(data)) {
+	      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+	      return JSON.stringify(data);
+	    }
+	    return data;
+	  }],
+
+	  transformResponse: [function transformResponse(data) {
+	    /*eslint no-param-reassign:0*/
+	    if (typeof data === 'string') {
+	      try {
+	        data = JSON.parse(data);
+	      } catch (e) { /* Ignore */ }
+	    }
+	    return data;
+	  }],
+
+	  /**
+	   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+	   * timeout is not created.
+	   */
+	  timeout: 0,
+
+	  xsrfCookieName: 'XSRF-TOKEN',
+	  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+	  maxContentLength: -1,
+
+	  validateStatus: function validateStatus(status) {
+	    return status >= 200 && status < 300;
+	  }
+	};
+
+	defaults.headers = {
+	  common: {
+	    'Accept': 'application/json, text/plain, */*'
+	  }
+	};
+
+	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+	  defaults.headers[method] = {};
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+	});
+
+	module.exports = defaults;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	module.exports = function normalizeHeaderName(headers, normalizedName) {
+	  utils.forEach(headers, function processHeader(value, name) {
+	    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+	      headers[normalizedName] = value;
+	      delete headers[name];
+	    }
+	  });
+	};
+
+
+/***/ }),
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(29);
+	var settle = __webpack_require__(37);
+	var buildURL = __webpack_require__(40);
+	var parseHeaders = __webpack_require__(41);
+	var isURLSameOrigin = __webpack_require__(42);
+	var createError = __webpack_require__(38);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(43);
+
+	module.exports = function xhrAdapter(config) {
+	  return new Promise(function dispatchXhrRequest(resolve, reject) {
+	    var requestData = config.data;
+	    var requestHeaders = config.headers;
+
+	    if (utils.isFormData(requestData)) {
+	      delete requestHeaders['Content-Type']; // Let the browser set it
+	    }
+
+	    var request = new XMLHttpRequest();
+	    var loadEvent = 'onreadystatechange';
+	    var xDomain = false;
+
+	    // For IE 8/9 CORS support
+	    // Only supports POST and GET calls and doesn't returns the response headers.
+	    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+	    if (process.env.NODE_ENV !== 'test' &&
+	        typeof window !== 'undefined' &&
+	        window.XDomainRequest && !('withCredentials' in request) &&
+	        !isURLSameOrigin(config.url)) {
+	      request = new window.XDomainRequest();
+	      loadEvent = 'onload';
+	      xDomain = true;
+	      request.onprogress = function handleProgress() {};
+	      request.ontimeout = function handleTimeout() {};
+	    }
+
+	    // HTTP basic authentication
+	    if (config.auth) {
+	      var username = config.auth.username || '';
+	      var password = config.auth.password || '';
+	      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+	    }
+
+	    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+	    // Set the request timeout in MS
+	    request.timeout = config.timeout;
+
+	    // Listen for ready state
+	    request[loadEvent] = function handleLoad() {
+	      if (!request || (request.readyState !== 4 && !xDomain)) {
+	        return;
+	      }
+
+	      // The request errored out and we didn't get a response, this will be
+	      // handled by onerror instead
+	      // With one exception: request that using file: protocol, most browsers
+	      // will return status as 0 even though it's a successful request
+	      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+	        return;
+	      }
+
+	      // Prepare the response
+	      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+	      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+	      var response = {
+	        data: responseData,
+	        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+	        status: request.status === 1223 ? 204 : request.status,
+	        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+	        headers: responseHeaders,
+	        config: config,
+	        request: request
+	      };
+
+	      settle(resolve, reject, response);
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle low level network errors
+	    request.onerror = function handleError() {
+	      // Real errors are hidden from us by the browser
+	      // onerror should only fire if it's a network error
+	      reject(createError('Network Error', config, null, request));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle timeout
+	    request.ontimeout = function handleTimeout() {
+	      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+	        request));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Add xsrf header
+	    // This is only done if running in a standard browser environment.
+	    // Specifically not if we're in a web worker, or react-native.
+	    if (utils.isStandardBrowserEnv()) {
+	      var cookies = __webpack_require__(44);
+
+	      // Add xsrf header
+	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+	          cookies.read(config.xsrfCookieName) :
+	          undefined;
+
+	      if (xsrfValue) {
+	        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+	      }
+	    }
+
+	    // Add headers to the request
+	    if ('setRequestHeader' in request) {
+	      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+	        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+	          // Remove Content-Type if data is undefined
+	          delete requestHeaders[key];
+	        } else {
+	          // Otherwise add header to the request
+	          request.setRequestHeader(key, val);
+	        }
+	      });
+	    }
+
+	    // Add withCredentials to request if needed
+	    if (config.withCredentials) {
+	      request.withCredentials = true;
+	    }
+
+	    // Add responseType to request if needed
+	    if (config.responseType) {
+	      try {
+	        request.responseType = config.responseType;
+	      } catch (e) {
+	        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+	        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+	        if (config.responseType !== 'json') {
+	          throw e;
+	        }
+	      }
+	    }
+
+	    // Handle progress if needed
+	    if (typeof config.onDownloadProgress === 'function') {
+	      request.addEventListener('progress', config.onDownloadProgress);
+	    }
+
+	    // Not all browsers support upload events
+	    if (typeof config.onUploadProgress === 'function' && request.upload) {
+	      request.upload.addEventListener('progress', config.onUploadProgress);
+	    }
+
+	    if (config.cancelToken) {
+	      // Handle cancellation
+	      config.cancelToken.promise.then(function onCanceled(cancel) {
+	        if (!request) {
+	          return;
+	        }
+
+	        request.abort();
+	        reject(cancel);
+	        // Clean up request
+	        request = null;
+	      });
+	    }
+
+	    if (requestData === undefined) {
+	      requestData = null;
+	    }
+
+	    // Send the request
+	    request.send(requestData);
+	  });
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)))
+
+/***/ }),
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var createError = __webpack_require__(38);
+
+	/**
+	 * Resolve or reject a Promise based on response status.
+	 *
+	 * @param {Function} resolve A function that resolves the promise.
+	 * @param {Function} reject A function that rejects the promise.
+	 * @param {object} response The response.
+	 */
+	module.exports = function settle(resolve, reject, response) {
+	  var validateStatus = response.config.validateStatus;
+	  // Note: status is not exposed by XDomainRequest
+	  if (!response.status || !validateStatus || validateStatus(response.status)) {
+	    resolve(response);
+	  } else {
+	    reject(createError(
+	      'Request failed with status code ' + response.status,
+	      response.config,
+	      null,
+	      response.request,
+	      response
+	    ));
+	  }
+	};
+
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var enhanceError = __webpack_require__(39);
+
+	/**
+	 * Create an Error with the specified message, config, error code, request and response.
+	 *
+	 * @param {string} message The error message.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 * @param {Object} [request] The request.
+	 * @param {Object} [response] The response.
+	 * @returns {Error} The created error.
+	 */
+	module.exports = function createError(message, config, code, request, response) {
+	  var error = new Error(message);
+	  return enhanceError(error, config, code, request, response);
+	};
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Update an Error with the specified config, error code, and response.
+	 *
+	 * @param {Error} error The error to update.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 * @param {Object} [request] The request.
+	 * @param {Object} [response] The response.
+	 * @returns {Error} The error.
+	 */
+	module.exports = function enhanceError(error, config, code, request, response) {
+	  error.config = config;
+	  if (code) {
+	    error.code = code;
+	  }
+	  error.request = request;
+	  error.response = response;
+	  return error;
+	};
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	function encode(val) {
+	  return encodeURIComponent(val).
+	    replace(/%40/gi, '@').
+	    replace(/%3A/gi, ':').
+	    replace(/%24/g, '$').
+	    replace(/%2C/gi, ',').
+	    replace(/%20/g, '+').
+	    replace(/%5B/gi, '[').
+	    replace(/%5D/gi, ']');
+	}
+
+	/**
+	 * Build a URL by appending params to the end
+	 *
+	 * @param {string} url The base of the url (e.g., http://www.google.com)
+	 * @param {object} [params] The params to be appended
+	 * @returns {string} The formatted url
+	 */
+	module.exports = function buildURL(url, params, paramsSerializer) {
+	  /*eslint no-param-reassign:0*/
+	  if (!params) {
+	    return url;
+	  }
+
+	  var serializedParams;
+	  if (paramsSerializer) {
+	    serializedParams = paramsSerializer(params);
+	  } else if (utils.isURLSearchParams(params)) {
+	    serializedParams = params.toString();
+	  } else {
+	    var parts = [];
+
+	    utils.forEach(params, function serialize(val, key) {
+	      if (val === null || typeof val === 'undefined') {
+	        return;
+	      }
+
+	      if (utils.isArray(val)) {
+	        key = key + '[]';
+	      } else {
+	        val = [val];
+	      }
+
+	      utils.forEach(val, function parseValue(v) {
+	        if (utils.isDate(v)) {
+	          v = v.toISOString();
+	        } else if (utils.isObject(v)) {
+	          v = JSON.stringify(v);
+	        }
+	        parts.push(encode(key) + '=' + encode(v));
+	      });
+	    });
+
+	    serializedParams = parts.join('&');
+	  }
+
+	  if (serializedParams) {
+	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+	  }
+
+	  return url;
+	};
+
+
+/***/ }),
+/* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	// Headers whose duplicates are ignored by node
+	// c.f. https://nodejs.org/api/http.html#http_message_headers
+	var ignoreDuplicateOf = [
+	  'age', 'authorization', 'content-length', 'content-type', 'etag',
+	  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+	  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+	  'referer', 'retry-after', 'user-agent'
+	];
+
+	/**
+	 * Parse headers into an object
+	 *
+	 * ```
+	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
+	 * Content-Type: application/json
+	 * Connection: keep-alive
+	 * Transfer-Encoding: chunked
+	 * ```
+	 *
+	 * @param {String} headers Headers needing to be parsed
+	 * @returns {Object} Headers parsed into an object
+	 */
+	module.exports = function parseHeaders(headers) {
+	  var parsed = {};
+	  var key;
+	  var val;
+	  var i;
+
+	  if (!headers) { return parsed; }
+
+	  utils.forEach(headers.split('\n'), function parser(line) {
+	    i = line.indexOf(':');
+	    key = utils.trim(line.substr(0, i)).toLowerCase();
+	    val = utils.trim(line.substr(i + 1));
+
+	    if (key) {
+	      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+	        return;
+	      }
+	      if (key === 'set-cookie') {
+	        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+	      } else {
+	        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+	      }
+	    }
+	  });
+
+	  return parsed;
+	};
+
+
+/***/ }),
+/* 42 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs have full support of the APIs needed to test
+	  // whether the request URL is of the same origin as current location.
+	  (function standardBrowserEnv() {
+	    var msie = /(msie|trident)/i.test(navigator.userAgent);
+	    var urlParsingNode = document.createElement('a');
+	    var originURL;
+
+	    /**
+	    * Parse a URL to discover it's components
+	    *
+	    * @param {String} url The URL to be parsed
+	    * @returns {Object}
+	    */
+	    function resolveURL(url) {
+	      var href = url;
+
+	      if (msie) {
+	        // IE needs attribute set twice to normalize properties
+	        urlParsingNode.setAttribute('href', href);
+	        href = urlParsingNode.href;
+	      }
+
+	      urlParsingNode.setAttribute('href', href);
+
+	      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+	      return {
+	        href: urlParsingNode.href,
+	        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+	        host: urlParsingNode.host,
+	        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+	        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+	        hostname: urlParsingNode.hostname,
+	        port: urlParsingNode.port,
+	        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+	                  urlParsingNode.pathname :
+	                  '/' + urlParsingNode.pathname
+	      };
+	    }
+
+	    originURL = resolveURL(window.location.href);
+
+	    /**
+	    * Determine if a URL shares the same origin as the current location
+	    *
+	    * @param {String} requestURL The URL to test
+	    * @returns {boolean} True if URL shares the same origin, otherwise false
+	    */
+	    return function isURLSameOrigin(requestURL) {
+	      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+	      return (parsed.protocol === originURL.protocol &&
+	            parsed.host === originURL.host);
+	    };
+	  })() :
+
+	  // Non standard browser envs (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return function isURLSameOrigin() {
+	      return true;
+	    };
+	  })()
+	);
+
+
+/***/ }),
+/* 43 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+	var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+	function E() {
+	  this.message = 'String contains an invalid character';
+	}
+	E.prototype = new Error;
+	E.prototype.code = 5;
+	E.prototype.name = 'InvalidCharacterError';
+
+	function btoa(input) {
+	  var str = String(input);
+	  var output = '';
+	  for (
+	    // initialize result and counter
+	    var block, charCode, idx = 0, map = chars;
+	    // if the next str index does not exist:
+	    //   change the mapping table to "="
+	    //   check if d has no fractional digits
+	    str.charAt(idx | 0) || (map = '=', idx % 1);
+	    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+	    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+	  ) {
+	    charCode = str.charCodeAt(idx += 3 / 4);
+	    if (charCode > 0xFF) {
+	      throw new E();
+	    }
+	    block = block << 8 | charCode;
+	  }
+	  return output;
+	}
+
+	module.exports = btoa;
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs support document.cookie
+	  (function standardBrowserEnv() {
+	    return {
+	      write: function write(name, value, expires, path, domain, secure) {
+	        var cookie = [];
+	        cookie.push(name + '=' + encodeURIComponent(value));
+
+	        if (utils.isNumber(expires)) {
+	          cookie.push('expires=' + new Date(expires).toGMTString());
+	        }
+
+	        if (utils.isString(path)) {
+	          cookie.push('path=' + path);
+	        }
+
+	        if (utils.isString(domain)) {
+	          cookie.push('domain=' + domain);
+	        }
+
+	        if (secure === true) {
+	          cookie.push('secure');
+	        }
+
+	        document.cookie = cookie.join('; ');
+	      },
+
+	      read: function read(name) {
+	        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+	        return (match ? decodeURIComponent(match[3]) : null);
+	      },
+
+	      remove: function remove(name) {
+	        this.write(name, '', Date.now() - 86400000);
+	      }
+	    };
+	  })() :
+
+	  // Non standard browser env (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return {
+	      write: function write() {},
+	      read: function read() { return null; },
+	      remove: function remove() {}
+	    };
+	  })()
+	);
+
+
+/***/ }),
+/* 45 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	function InterceptorManager() {
+	  this.handlers = [];
+	}
+
+	/**
+	 * Add a new interceptor to the stack
+	 *
+	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
+	 * @param {Function} rejected The function to handle `reject` for a `Promise`
+	 *
+	 * @return {Number} An ID used to remove interceptor later
+	 */
+	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+	  this.handlers.push({
+	    fulfilled: fulfilled,
+	    rejected: rejected
+	  });
+	  return this.handlers.length - 1;
+	};
+
+	/**
+	 * Remove an interceptor from the stack
+	 *
+	 * @param {Number} id The ID that was returned by `use`
+	 */
+	InterceptorManager.prototype.eject = function eject(id) {
+	  if (this.handlers[id]) {
+	    this.handlers[id] = null;
+	  }
+	};
+
+	/**
+	 * Iterate over all the registered interceptors
+	 *
+	 * This method is particularly useful for skipping over any
+	 * interceptors that may have become `null` calling `eject`.
+	 *
+	 * @param {Function} fn The function to call for each interceptor
+	 */
+	InterceptorManager.prototype.forEach = function forEach(fn) {
+	  utils.forEach(this.handlers, function forEachHandler(h) {
+	    if (h !== null) {
+	      fn(h);
+	    }
+	  });
+	};
+
+	module.exports = InterceptorManager;
+
+
+/***/ }),
+/* 46 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+	var transformData = __webpack_require__(47);
+	var isCancel = __webpack_require__(48);
+	var defaults = __webpack_require__(33);
+	var isAbsoluteURL = __webpack_require__(49);
+	var combineURLs = __webpack_require__(50);
+
+	/**
+	 * Throws a `Cancel` if cancellation has been requested.
+	 */
+	function throwIfCancellationRequested(config) {
+	  if (config.cancelToken) {
+	    config.cancelToken.throwIfRequested();
+	  }
+	}
+
+	/**
+	 * Dispatch a request to the server using the configured adapter.
+	 *
+	 * @param {object} config The config that is to be used for the request
+	 * @returns {Promise} The Promise to be fulfilled
+	 */
+	module.exports = function dispatchRequest(config) {
+	  throwIfCancellationRequested(config);
+
+	  // Support baseURL config
+	  if (config.baseURL && !isAbsoluteURL(config.url)) {
+	    config.url = combineURLs(config.baseURL, config.url);
+	  }
+
+	  // Ensure headers exist
+	  config.headers = config.headers || {};
+
+	  // Transform request data
+	  config.data = transformData(
+	    config.data,
+	    config.headers,
+	    config.transformRequest
+	  );
+
+	  // Flatten headers
+	  config.headers = utils.merge(
+	    config.headers.common || {},
+	    config.headers[config.method] || {},
+	    config.headers || {}
+	  );
+
+	  utils.forEach(
+	    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+	    function cleanHeaderConfig(method) {
+	      delete config.headers[method];
+	    }
+	  );
+
+	  var adapter = config.adapter || defaults.adapter;
+
+	  return adapter(config).then(function onAdapterResolution(response) {
+	    throwIfCancellationRequested(config);
+
+	    // Transform response data
+	    response.data = transformData(
+	      response.data,
+	      response.headers,
+	      config.transformResponse
+	    );
+
+	    return response;
+	  }, function onAdapterRejection(reason) {
+	    if (!isCancel(reason)) {
+	      throwIfCancellationRequested(config);
+
+	      // Transform response data
+	      if (reason && reason.response) {
+	        reason.response.data = transformData(
+	          reason.response.data,
+	          reason.response.headers,
+	          config.transformResponse
+	        );
+	      }
+	    }
+
+	    return Promise.reject(reason);
+	  });
+	};
+
+
+/***/ }),
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(29);
+
+	/**
+	 * Transform the data for a request or a response
+	 *
+	 * @param {Object|String} data The data to be transformed
+	 * @param {Array} headers The headers for the request or response
+	 * @param {Array|Function} fns A single function or Array of functions
+	 * @returns {*} The resulting transformed data
+	 */
+	module.exports = function transformData(data, headers, fns) {
+	  /*eslint no-param-reassign:0*/
+	  utils.forEach(fns, function transform(fn) {
+	    data = fn(data, headers);
+	  });
+
+	  return data;
+	};
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function isCancel(value) {
+	  return !!(value && value.__CANCEL__);
+	};
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Determines whether the specified URL is absolute
+	 *
+	 * @param {string} url The URL to test
+	 * @returns {boolean} True if the specified URL is absolute, otherwise false
+	 */
+	module.exports = function isAbsoluteURL(url) {
+	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+	  // by any combination of letters, digits, plus, period, or hyphen.
+	  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+	};
+
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Creates a new URL by combining the specified URLs
+	 *
+	 * @param {string} baseURL The base URL
+	 * @param {string} relativeURL The relative URL
+	 * @returns {string} The combined URL
+	 */
+	module.exports = function combineURLs(baseURL, relativeURL) {
+	  return relativeURL
+	    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+	    : baseURL;
+	};
+
+
+/***/ }),
+/* 51 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * A `Cancel` is an object that is thrown when an operation is canceled.
+	 *
+	 * @class
+	 * @param {string=} message The message.
+	 */
+	function Cancel(message) {
+	  this.message = message;
+	}
+
+	Cancel.prototype.toString = function toString() {
+	  return 'Cancel' + (this.message ? ': ' + this.message : '');
+	};
+
+	Cancel.prototype.__CANCEL__ = true;
+
+	module.exports = Cancel;
+
+
+/***/ }),
+/* 52 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Cancel = __webpack_require__(51);
+
+	/**
+	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
+	 *
+	 * @class
+	 * @param {Function} executor The executor function.
+	 */
+	function CancelToken(executor) {
+	  if (typeof executor !== 'function') {
+	    throw new TypeError('executor must be a function.');
+	  }
+
+	  var resolvePromise;
+	  this.promise = new Promise(function promiseExecutor(resolve) {
+	    resolvePromise = resolve;
+	  });
+
+	  var token = this;
+	  executor(function cancel(message) {
+	    if (token.reason) {
+	      // Cancellation has already been requested
+	      return;
+	    }
+
+	    token.reason = new Cancel(message);
+	    resolvePromise(token.reason);
+	  });
+	}
+
+	/**
+	 * Throws a `Cancel` if cancellation has been requested.
+	 */
+	CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+	  if (this.reason) {
+	    throw this.reason;
+	  }
+	};
+
+	/**
+	 * Returns an object that contains a new `CancelToken` and a function that, when called,
+	 * cancels the `CancelToken`.
+	 */
+	CancelToken.source = function source() {
+	  var cancel;
+	  var token = new CancelToken(function executor(c) {
+	    cancel = c;
+	  });
+	  return {
+	    token: token,
+	    cancel: cancel
+	  };
+	};
+
+	module.exports = CancelToken;
+
+
+/***/ }),
+/* 53 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Syntactic sugar for invoking a function and expanding an array for arguments.
+	 *
+	 * Common use case would be to use `Function.prototype.apply`.
+	 *
+	 *  ```js
+	 *  function f(x, y, z) {}
+	 *  var args = [1, 2, 3];
+	 *  f.apply(null, args);
+	 *  ```
+	 *
+	 * With `spread` this example can be re-written.
+	 *
+	 *  ```js
+	 *  spread(function(x, y, z) {})([1, 2, 3]);
+	 *  ```
+	 *
+	 * @param {Function} callback
+	 * @returns {Function}
+	 */
+	module.exports = function spread(callback) {
+	  return function wrap(arr) {
+	    return callback.apply(null, arr);
+	  };
+	};
+
+
+/***/ }),
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3936,10 +6558,11 @@
 	exports.errorMessage = errorMessage;
 	exports.checkCache = checkCache;
 	exports.checkQueue = checkQueue;
+	exports.checkMock = checkMock;
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _utils = __webpack_require__(116);
+	var _utils = __webpack_require__(18);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -3975,7 +6598,7 @@
 	            message = JSON.stringify(error);
 	        }
 	    } catch (e) {
-	        console.error('Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
+	        _utils2.default.async(console.error, 'Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
 	    }
 	    return message;
 	}
@@ -4003,9 +6626,7 @@
 	        var cacheData = AjaxCache.getCacheData(key);
 	        if (cacheData) {
 	            // 保证异步
-	            setTimeout(function () {
-	                return config.success.apply(config, _toConsumableArray(cacheData));
-	            }, 0);
+	            _utils2.default.async.apply(_utils2.default, [config.success].concat(_toConsumableArray(cacheData)));
 	            return true;
 	        }
 	        // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
@@ -4041,7 +6662,7 @@
 	            for (var _iterator = ajaxQueue[key][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                var v = _step.value;
 
-	                v[result] && v[result].apply(v, params);
+	                v[result] && _utils2.default.async.apply(_utils2.default, [v[result]].concat(params));
 	            }
 	        } catch (err) {
 	            _didIteratorError = true;
@@ -4095,13 +6716,31 @@
 	    return false;
 	}
 
+	/**
+	 * 检查是否有mock数据接口
+	 *
+	 * @param {*} config ajax的配置
+	 * @return {boolean} 如果有则返回true，否则返回false
+	 */
+	function checkMock(config) {
+	    var mockMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    if (config.url && mockMap[config.url]) {
+	        _utils2.default.async(function () {
+	            mockMap[config.url].call(null, config, config.success, config.error);
+	        });
+	        return true;
+	    }
+	    return false;
+	}
+
 /***/ }),
-/* 124 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _BaseCache = __webpack_require__(125);
+	var _BaseCache = __webpack_require__(56);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
@@ -4223,13 +6862,19 @@
 	    },
 	    setRequirejs: function setRequirejs(insName, obj) {
 	        return cache.set(insName + '._$tools.Requirejs', obj);
+	    },
+	    getPrecondition: function getPrecondition(insName) {
+	        return cache.get(insName + '._$tools.Precondition');
+	    },
+	    setPrecondition: function setPrecondition(insName, obj) {
+	        return cache.set(insName + '._$tools.Precondition', obj);
 	    }
 	};
 
 	module.exports = ins;
 
 /***/ }),
-/* 125 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4246,7 +6891,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
 
-	var _utils = __webpack_require__(116);
+	var _utils = __webpack_require__(18);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -4296,7 +6941,7 @@
 	;
 
 /***/ }),
-/* 126 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4309,19 +6954,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4400,6 +7045,11 @@
 	        // 更新 onChange/onBlur 逻辑，额外返回一个参数，为当前组件的值
 
 	    }, {
+	        key: '_updateEventHandler',
+	        value: function _updateEventHandler(param) {
+	            return param;
+	        }
+	    }, {
 	        key: '_updateEvent',
 	        value: function _updateEvent() {
 	            var _this2 = this;
@@ -4421,6 +7071,8 @@
 	                    } else {
 	                        value = params[paramsIndex];
 	                    }
+	                    // 以上规则依然不能满足时，再重写函数进行额外处理
+	                    value = _this2._updateEventHandler(value);
 	                    oriOnChange.apply(undefined, params.concat([value]));
 	                };
 	            }
@@ -4474,7 +7126,7 @@
 	exports.default = DataEntry;
 
 /***/ }),
-/* 127 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4487,15 +7139,15 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4632,19 +7284,19 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 128 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(129).default,
-	    BaseConf: __webpack_require__(129),
-	    ExtendComponent: __webpack_require__(132)
+	    BaseComponent: __webpack_require__(60).default,
+	    BaseConf: __webpack_require__(60),
+	    ExtendComponent: __webpack_require__(63)
 	};
 
 /***/ }),
-/* 129 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4652,7 +7304,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.FilterProps = exports.Uncomplex = exports.ForUserApi = exports.PreventCoverageMap = undefined;
+	exports.FilterProps = exports.Uncomplex = exports.PreventCoverageMap = exports.ForUserApi = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -4660,19 +7312,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _authority = __webpack_require__(130);
+	var _authority = __webpack_require__(61);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(131);
+	var _whitelist = __webpack_require__(62);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -4698,10 +7350,6 @@
 	// import Model from 'src/tools/model.js';
 
 
-	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
-	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
-	var PreventCoverageMap = exports.PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
-
 	// // 提供给用户的和生命周期相关的函数，命名更加语义化
 	var ForUserApi = exports.ForUserApi = {
 	    beforeCreate: 'componentWillMount',
@@ -4710,6 +7358,10 @@
 	    afterRender: 'componentDidMount,componentDidUpdate',
 	    beforeDestroy: 'componentWillUnmount'
 	};
+
+	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
+	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
+	var PreventCoverageMap = exports.PreventCoverageMap = _utils.Utils.distinct(Object.values(ForUserApi).join(',').split(',').concat(['componentWillReceiveProps', 'shouldComponentUpdate']));
 
 	// 不复杂的属性，即无需merge处理直接覆盖的属性
 	var Uncomplex = exports.Uncomplex = ['params', 'data', 'options'];
@@ -4763,6 +7415,9 @@
 	        _whitelist2.default.getall(_this.type).map(function (v) {
 	            return '_' + v;
 	        }));
+	        _this._innerFilter = _this._filter.filter(function (v) {
+	            return v.indexOf('_') === 0;
+	        });
 	        // 不复杂的属性，即无需merge处理直接覆盖的属性
 	        _this._uncomplex = _utils.Utils.copy(Uncomplex);
 	        // 开放给用户使用的 Api，需处理下
@@ -4829,25 +7484,35 @@
 	        // 有两种情况会调用cwr：
 	        //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
 	        //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
+	        // 所以nextProps也有对应另种情况：
+	        //  一种是父组件刷新，传入的是正常的外部传入的配置；
+	        //  还有一种是set函数调用，会额外传入一个_selfCalling属性，此属性中包含了set的原数据。直接使用此属性的内容进行__setProps即可
 
 	    }, {
 	        key: '_componentWillReceiveProps',
 	        value: function _componentWillReceiveProps(nextProps, currentProps) {
+	            var _this3 = this;
+
 	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
 	            currentProps = !_utils.Utils.empty(currentProps) ? currentProps : this.props;
 	            // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
+	            //   也就是说 autoReload 仅仅针对父组件刷新是否刷新子组件的场景，自己set自己autoReload无效
 	            var autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
 	            // autoReload，可以使组件无论如何都进行刷新
 	            if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
 	                // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-	                var reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source);
+	                var reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source) || _utils.Utils.isChange(nextProps.params, this.__props.params);
 	                // 重新设置 __props
-	                this.__setProps(nextProps);
+	                // 如果为自身调用，则只传入待更新的值。否则传入整个nextProps（外部刷新）
+	                this.__setProps(nextProps._selfCalling || nextProps);
 	                // 自动重新加载的两种情况：
 	                // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
 	                // 2、如果设置了autoReload为true，则重新加载数据
 	                if (reGetData || autoReload) {
-	                    this._handleAsyncData();
+	                    // 改为异步执行，保证获取数据前，组件自定义的cwr函数的逻辑也执行完毕
+	                    setTimeout(function () {
+	                        _this3._handleAsyncData();
+	                    }, 0);
 	                }
 	            }
 	        }
@@ -4932,8 +7597,8 @@
 	            // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
-	            // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
-	            var props = this.__mergeProps({ _selfCalling: true }, this.__props, options);
+	            // 增加一个_selfCalling属性，标识当前进入cwr的为内部调用还是外部调用；_selfCalling上存储了用户传入的配置对象原值
+	            var props = this.__mergeProps({ _selfCalling: options }, this.__props, options);
 	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
@@ -5053,12 +7718,12 @@
 	    }, {
 	        key: 'refresh',
 	        value: function refresh() {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            // 取出全部二次解析的属性，并重新解析一次
 	            var newProps = {};
 	            _whitelist2.default.getall(this.type).forEach(function (v) {
-	                var oItem = _this3.__filtered['_' + v];
+	                var oItem = _this4.__filtered['_' + v];
 	                oItem && (newProps[v] = oItem);
 	            });
 	            this.set(newProps);
@@ -5089,6 +7754,7 @@
 	            this._loadUserFunction();
 	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
 	            this._injectEventFunction();
+
 	            // 绑定 control 系列参数处理逻辑
 	            this._injectControl();
 	            // 绑定 api 系列参数处理逻辑
@@ -5112,7 +7778,8 @@
 	        }
 
 	        // 用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props
-	        //   注意：通过 __setProps 只能设置属性，不能更换函数
+	        //   TODO：通过 __setProps 只能设置属性，不能更换函数。
+	        //      原因，函数需要额外注入处理，各个函数各不相同，未统一，无法直接更新到__props。所以在_filterHandler中把传入的函数过滤掉了
 	        // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
 	        // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
 
@@ -5169,12 +7836,16 @@
 	        //   如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；
 	        //   如果是set导致的，则两次的props肯定会有不同，需刷新
 	        // 还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响
-	        // TODO: 貌似现在没什么作用，都返回true。。。
+	        // update at 2018/08/06, 如果是set的source等过滤属性，要保证这里也能通过，所以仅仅过滤`_`开头的属性
 
 	    }, {
 	        key: '__shouldUpdate',
 	        value: function __shouldUpdate(props, nextProps) {
-	            return !_utils.Utils.equals(_utils.Utils.filter(props, this._filter), _utils.Utils.filter(nextProps, this._filter));
+	            // return !Utils.equals(
+	            //     Utils.filter(props, this._filter),
+	            //     Utils.filter(nextProps, this._filter)
+	            // );
+	            return !_utils.Utils.equals(_utils.Utils.filter(props, this._innerFilter), _utils.Utils.filter(nextProps, this._innerFilter));
 	        }
 
 	        // ajax通用方法
@@ -5182,17 +7853,17 @@
 	    }, {
 	        key: '__ajax',
 	        value: function __ajax(config) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            this._inject(config, 'success', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this4.unmounted) {
+	                if (_this5.unmounted) {
 	                    return false;
 	                }
 	            });
 	            this._inject(config, 'error', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this4.unmounted) {
+	                if (_this5.unmounted) {
 	                    return false;
 	                }
 	            });
@@ -5264,53 +7935,74 @@
 	    }, {
 	        key: '__getSourceData',
 	        value: function __getSourceData(config) {
-	            var _this5 = this;
+	            var _this6 = this;
 
-	            var _filtered$source = this.__filtered.source,
-	                paramsHandler = _filtered$source.paramsHandler,
-	                handler = _filtered$source.handler,
-	                target = _filtered$source.target,
-	                onError = _filtered$source.onError,
-	                onSuccess = _filtered$source.onSuccess,
-	                showLoading = _filtered$source.showLoading,
-	                others = _objectWithoutProperties(_filtered$source, ['paramsHandler', 'handler', 'target', 'onError', 'onSuccess', 'showLoading']);
 	            // success 和 error 等来自子组件调用，其余参数如果子组件传入，则进行覆盖
-
-
 	            var _Object$assign = Object.assign({}, this.__filtered.source, config),
-	                url = _Object$assign.url,
-	                method = _Object$assign.method,
-	                params = _Object$assign.params,
-	                _success = _Object$assign.success,
-	                _error = _Object$assign.error,
-	                onchange = _Object$assign.onchange;
+	                target = _Object$assign.target,
+	                showLoading = _Object$assign.showLoading,
+	                onchange = _Object$assign.onchange,
+	                others = _objectWithoutProperties(_Object$assign, ['target', 'showLoading', 'onchange']);
 
-	            var pResult = paramsHandler && paramsHandler(params);
-	            params = pResult || params;
+	            this.__execAjax(_extends({}, others, {
+	                onchange: !showLoading ? onchange : function (status) {
+	                    _this6._handleSourceLoading(status, showLoading);
+	                    onchange && onchange(status);
+	                }
+	            }));
+	        }
+	        // 处理source系列接口参数的通用逻辑（例如handler处理）
+
+	    }, {
+	        key: '__execAjax',
+	        value: function __execAjax(conf) {
+	            var _this7 = this;
+
+	            var usePromise = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+	            var url = conf.url,
+	                params = conf.params,
+	                paramsHandler = conf.paramsHandler,
+	                handler = conf.handler,
+	                _success = conf.success,
+	                onSuccess = conf.onSuccess,
+	                _error = conf.error,
+	                onError = conf.onError,
+	                others = _objectWithoutProperties(conf, ['url', 'params', 'paramsHandler', 'handler', 'success', 'onSuccess', 'error', 'onError']);
+
+	            if (paramsHandler) {
+	                // 如果paramsHandler返回结果为false，则阻止ajax请求
+	                //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求
+	                var result = paramsHandler(params);
+	                // 使用时需注意，如果调用之外有额外的状态控制，例如loading没写到onchange里，则需要自己额外写判断逻辑恢复状态
+	                if (result === false) {
+	                    return false;
+	                }
+	                params = result || params;
+	            }
 	            if (url) {
-	                this.__ajax(_extends({}, others, {
-	                    url: url,
-	                    method: method || 'get',
-	                    params: params,
-	                    success: function success(data, res) {
-	                        // 如果用户定义了数据处理函数，先对数据进行处理
-	                        handler && (data = handler(data, res, _this5));
-	                        // 实际的调用处传入的成功处理逻辑
-	                        _success && _success(data, res);
-	                        // 成功后的额外操作
-	                        onSuccess && onSuccess(data, res, _this5);
-	                    },
-	                    error: function error(res) {
-	                        // 实际的调用处传入的失败处理逻辑
-	                        _error && _error();
-	                        // 失败后额外操作
-	                        return onError && onError(res);
-	                    },
-	                    onchange: !showLoading ? onchange : function (status) {
-	                        _this5._handleSourceLoading(status, showLoading);
-	                        onchange && onchange(status);
-	                    }
-	                }));
+	                return new Promise(function (resolve, reject) {
+	                    _this7.__ajax(_extends({}, others, {
+	                        url: url,
+	                        params: params,
+	                        success: function success(data, res) {
+	                            // 如果用户定义了数据处理函数，先对数据进行处理
+	                            handler && (data = handler(data, res, _this7));
+	                            // 实际的调用处传入的成功处理逻辑
+	                            _success && _success(data, res);
+	                            // 成功后的额外操作
+	                            onSuccess && onSuccess(data, res, _this7);
+	                            usePromise && resolve();
+	                        },
+	                        error: function error(res) {
+	                            // 实际的调用处传入的失败处理逻辑
+	                            var result = _error && _error(res);
+	                            usePromise && reject();
+	                            // 失败后额外操作
+	                            return onError && onError(res) || result;
+	                        }
+	                    }));
+	                });
 	            }
 	        }
 	        // source获取数据时，通用的展示source的逻辑
@@ -5542,11 +8234,11 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this6 = this;
+	            var _this8 = this;
 
 	            var _loop = function _loop(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this6.__filtered[f];
+	                var inject = _this8.__filtered[f];
 	                if (inject) {
 	                    var _iteratorNormalCompletion7 = true;
 	                    var _didIteratorError7 = false;
@@ -5556,12 +8248,12 @@
 	                        for (var _iterator7 = ForUserApi[f].split(',')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                            var v = _step7.value;
 
-	                            _this6._inject(_this6, v, function () {
-	                                var result = inject.call(_this6, _this6.__props, _this6);
+	                            _this8._inject(_this8, v, function () {
+	                                var result = inject.call(_this8, _this8.__props, _this8);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this6.__props = _this6._filterHandler(result);
+	                                    _this8.__props = _this8._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
@@ -5621,7 +8313,7 @@
 	    }, {
 	        key: '_injectControl',
 	        value: function _injectControl() {
-	            var _this7 = this;
+	            var _this9 = this;
 
 	            var _filtered$control = this.__filtered.control,
 	                trigger = _filtered$control.trigger,
@@ -5633,12 +8325,26 @@
 	                        para[_key5] = arguments[_key5];
 	                    }
 
-	                    var _filtered$control2 = _this7.__filtered.control,
+	                    var _filtered$control2 = _this9.__filtered.control,
 	                        type = _filtered$control2.type,
 	                        params = _filtered$control2.params,
-	                        handler = _filtered$control2.handler;
-	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
+	                        handler = _filtered$control2.handler,
+	                        _filtered$control2$pr = _filtered$control2.preventDefault,
+	                        preventDefault = _filtered$control2$pr === undefined ? true : _filtered$control2$pr,
+	                        _filtered$control2$st = _filtered$control2.stopPropagation,
+	                        stopPropagation = _filtered$control2$st === undefined ? true : _filtered$control2$st;
+	                    // 阻止默认事件及冒泡
 
+	                    if (_utils.Utils.typeof(para[0], 'object') && para[0].preventDefault) {
+	                        preventDefault && para[0].preventDefault();
+	                        stopPropagation && para[0].stopPropagation();
+	                    }
+	                    // 1、动作类型为：绑定(开发使用)
+	                    if (type === 'bind') {
+	                        target.apply(undefined, _toConsumableArray(params));
+	                        return;
+	                    }
+	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
 	                    var targetArr = target;
 	                    if (_utils.Utils.typeof(target, 'function')) {
 	                        targetArr = target.apply(undefined, para);
@@ -5663,7 +8369,7 @@
 	                                targetName = _targetStr$split2[0],
 	                                targetAttr = _targetStr$split2.slice(1);
 
-	                            var _target = _this7.__getComponent(targetName);
+	                            var _target = _this9.__getComponent(targetName);
 	                            if (_target) {
 	                                // 如果没设置type，则根据target的类型确定
 	                                if (!type) {
@@ -5676,22 +8382,22 @@
 	                                        {
 	                                            var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
 	                                            // 如果没有设置params，则尝试执行handler
-	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this7])));
+	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this9])));
 	                                            // 转成数组以便解构
 	                                            !_utils.Utils.typeof(params, 'array') && (params = [params]);
-	                                            func.apply(undefined, _toConsumableArray(params));
+	                                            func.call.apply(func, [_target].concat(_toConsumableArray(params)));
 	                                            break;
 	                                        }
 	                                    // 3、动作类型为：赋值
 	                                    case 'assign':
 	                                        {
-	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this7]));
+	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this9]));
 	                                            var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
 	                                            // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
 	                                            if (params) {
 	                                                tData = Object.assign({}, params, tData);
 	                                            }
-	                                            // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
+	                                            // 要调set函数，才能走cwr逻辑，适用于自定义组件
 	                                            _target.set(tData);
 	                                            break;
 	                                        }
@@ -5748,19 +8454,24 @@
 	    }, {
 	        key: '_handleAsyncData',
 	        value: function _handleAsyncData() {
-	            var _this8 = this;
+	            var _this10 = this;
 
-	            var target = this.__filtered.source.target;
-	            this.__getSourceData({
-	                success: function success(data) {
-	                    // 如果用户自己配置了 target 属性，则按照用户定义的赋值
-	                    target = target === 'content' ? 'children' : target;
-	                    // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
-	                    var tData = _utils.Utils.generateObject(target, data);
-	                    // __setProps在table、form等自定义组件不适用
-	                    _this8.set(tData);
-	                }
-	            });
+	            var _filtered$source = this.__filtered.source,
+	                url = _filtered$source.url,
+	                target = _filtered$source.target;
+
+	            if (url) {
+	                this.__getSourceData({
+	                    success: function success(data) {
+	                        // 如果用户自己配置了 target 属性，则按照用户定义的赋值
+	                        target = target === 'content' ? 'children' : target;
+	                        // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
+	                        var tData = _utils.Utils.generateObject(target, data);
+	                        // __setProps在table、form等自定义组件不适用
+	                        _this10.set(tData);
+	                    }
+	                });
+	            }
 	        }
 
 	        // 绑定 api 系列参数处理逻辑
@@ -5778,61 +8489,48 @@
 	    }, {
 	        key: '_handleApiProps',
 	        value: function _handleApiProps(oParams) {
-	            var _this9 = this;
-
 	            var _filtered$api = this.__filtered.api,
-	                url = _filtered$api.url,
-	                _filtered$api$method = _filtered$api.method,
-	                method = _filtered$api$method === undefined ? 'post' : _filtered$api$method,
 	                _filtered$api$params = _filtered$api.params,
 	                params = _filtered$api$params === undefined ? oParams : _filtered$api$params,
-	                handler = _filtered$api.handler,
-	                paramsHandler = _filtered$api.paramsHandler,
 	                onSuccess = _filtered$api.onSuccess,
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
-	                others = _objectWithoutProperties(_filtered$api, ['url', 'method', 'params', 'handler', 'paramsHandler', 'onSuccess', 'onError', 'showLoading']);
+	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
 	            // 如果传入或者设置的params不是简单对象，则重置params
 
 
 	            if (!_utils.Utils.directInstanceof(params, [Object, Array])) {
 	                params = {};
 	            }
-	            // COMPAT: 后面移除 handler
-	            handler = handler || paramsHandler;
-	            if (url) {
-	                handler && (params = handler(params));
-	                var hideLoading = void 0;
-	                if (showLoading) {
-	                    hideLoading = _antd.message.loading('提交中，请等待~', 0);
-	                }
-	                return new Promise(function (resolve, reject) {
-	                    _this9.__ajax(_extends({
-	                        url: url,
-	                        method: method,
-	                        params: params
-	                    }, others, {
-	                        success: function success(data, res) {
-	                            hideLoading && hideLoading();
-	                            var result = onSuccess && onSuccess(data, res);
-	                            // onSuccess有返回值，则执行默认提示
-	                            if (result === undefined || result === true) {
-	                                _antd.message.success('执行成功，结果返回: ' + res.msg, 2.5);
-	                            }
-	                            resolve();
-	                        },
-	                        error: function error(res) {
-	                            hideLoading && hideLoading();
-	                            var result = onError && onError(res);
-	                            // onError有返回值，则执行默认提示
-	                            if (result === undefined || result === true) {
-	                                _antd.message.error('执行失败，结果返回: ' + res.msg, 4);
-	                            }
-	                            reject();
+	            var hideLoading = void 0;
+	            return this.__execAjax(_extends({}, others, {
+	                params: params,
+	                success: function success(data, res) {
+	                    // 改变了onSuccess在__execAjax中的执行顺序，所以取出后不再传入给__execAjax
+	                    var result = onSuccess && onSuccess(data, res);
+	                    // onSuccess有返回值，则执行默认提示
+	                    if (result === undefined || result === true) {
+	                        _antd.message.success('执行成功' + (res.msg ? '，结果返回: ' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
+	                    }
+	                },
+	                error: function error(res) {
+	                    var result = onError && onError(res);
+	                    // onError有返回值，则执行默认提示
+	                    if (result === undefined || result === true) {
+	                        _antd.message.error('执行失败' + (res.msg ? '，结果返回: ' + res.msg : '!'), 3);
+	                    }
+	                    return result || false;
+	                },
+	                onchange: function onchange(status) {
+	                    if (status) {
+	                        if (showLoading) {
+	                            hideLoading = _antd.message.loading('提交中，请等待~', 0);
 	                        }
-	                    }));
-	                });
-	            }
+	                    } else {
+	                        hideLoading && hideLoading();
+	                    }
+	                }
+	            }), true);
 	        }
 
 	        // 替换 render 函数，给render加额外处理逻辑
@@ -5895,7 +8593,7 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 130 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5904,9 +8602,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	/**
 	 * @file 权限控制模块
@@ -5927,7 +8625,7 @@
 	};
 
 /***/ }),
-/* 131 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5936,7 +8634,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	var List = {
 	    Breadcrumb: ['options'],
@@ -6015,7 +8713,7 @@
 	};
 
 /***/ }),
-/* 132 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6026,19 +8724,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseComponent2 = __webpack_require__(129);
+	var _BaseComponent2 = __webpack_require__(60);
 
 	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6129,7 +8827,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 133 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6145,21 +8843,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _DataDisplay16 = __webpack_require__(134);
+	var _DataDisplay16 = __webpack_require__(65);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -6593,7 +9291,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 134 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6602,15 +9300,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -6644,7 +9342,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 135 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6658,21 +9356,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _Genaral14 = __webpack_require__(136);
+	var _Genaral14 = __webpack_require__(67);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -7028,7 +9726,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 136 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7037,15 +9735,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -7079,7 +9777,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 137 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7093,27 +9791,27 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(138);
+	var _reactRouter = __webpack_require__(69);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _Navigation9 = __webpack_require__(139);
+	var _Navigation9 = __webpack_require__(70);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
-	var _router = __webpack_require__(140);
+	var _router = __webpack_require__(71);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -7620,13 +10318,13 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 138 */
+/* 69 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
 
 /***/ }),
-/* 139 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7635,15 +10333,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -7677,12 +10375,12 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 140 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(141);
+	var _Router = __webpack_require__(72);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -7693,7 +10391,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 141 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7707,25 +10405,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(138);
+	var _reactRouter = __webpack_require__(69);
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _src = __webpack_require__(105);
+	var _src = __webpack_require__(10);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -7742,7 +10440,10 @@
 
 
 	// 保存当前页面的路由信息
-	var lastRouter = void 0;
+	var lastRouter = {
+	    params: {},
+	    detials: {}
+	};
 	// 用于获取当前页面的路由信息
 	function getRouter() {
 	    return _utils.Utils.copy(lastRouter);
@@ -8011,7 +10712,7 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 142 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8025,25 +10726,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(143);
+	var _Feedback4 = __webpack_require__(74);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _src = __webpack_require__(105);
+	var _src = __webpack_require__(10);
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -8231,7 +10932,7 @@
 	});
 
 /***/ }),
-/* 143 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8240,15 +10941,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8282,7 +10983,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 144 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8298,17 +10999,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(145);
+	var _Layout = __webpack_require__(76);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -8635,7 +11336,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 145 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8644,15 +11345,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(127);
+	var _Antd2 = __webpack_require__(58);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -8686,15 +11387,15 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 146 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(147).default;
+	module.exports = __webpack_require__(78).default;
 
 /***/ }),
-/* 147 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8707,15 +11408,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8731,8 +11432,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-12 03:17:08
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// import './style.scss';
 
 	var Iframe = function (_BaseComponent) {
 	    _inherits(Iframe, _BaseComponent);
@@ -8850,7 +11549,7 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 148 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8858,10 +11557,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(149).default;
+	module.exports = __webpack_require__(80).default;
 
 /***/ }),
-/* 149 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8874,19 +11573,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8900,8 +11599,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date 2017-08-25
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
-	// import './style.scss';
 
 	var Export = function (_BaseComponent) {
 	    _inherits(Export, _BaseComponent);
@@ -9336,7 +12033,7 @@
 	            var name = this.getFileName();
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-export' },
+	                { className: 'uf-export ' + (this.config.className || ''), style: this.config.style },
 	                _react2.default.createElement(
 	                    'a',
 	                    { ref: function ref(ele) {
@@ -9353,7 +12050,7 @@
 	        value: function asynExportRender() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-export' },
+	                { className: 'uf-export ' + (this.config.className || ''), style: this.config.style },
 	                _react2.default.createElement(
 	                    'span',
 	                    { onClick: this.showModal.bind(this) },
@@ -9582,7 +12279,7 @@
 	exports.default = Export;
 
 /***/ }),
-/* 150 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9590,10 +12287,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(151).default;
+	module.exports = __webpack_require__(82).default;
 
 /***/ }),
-/* 151 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9606,19 +12303,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9632,13 +12329,13 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	// import './style.scss';
-
 	var TreeNode = _antd.Tree.TreeNode;
 	var Search = _antd.Input.Search;
 
 	var expandedKeys = [];
-	var getParentNode = function getParentNode(value, tree) {
+	var getParentNode = function getParentNode(value) {
+	    var tree = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
 	    var node = [];
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
@@ -9765,10 +12462,14 @@
 	            // 针对数据进行处理
 	            // 生成指针树，便于快速定位树节点
 	            this.completePointerTree = {};
-	            this.createPointerTree(propsData, this.completePointerTree);
+	            if (propsData) {
+	                this.createPointerTree(propsData, this.completePointerTree);
+	            }
 	            // 生成层级树，包含每层可展开的父节点的key
 	            this.levalPointerTree = {};
-	            this.createLevalTree(propsData, this.levalPointerTree);
+	            if (propsData) {
+	                this.createLevalTree(propsData, this.levalPointerTree);
+	            }
 
 	            // 针对配置进行处理
 	            // 对用户未配置的项使用默认配置
@@ -9795,7 +12496,7 @@
 	                // showIcon: this.showIcon
 	            };
 	            var state = {
-	                treeData: propsData,
+	                treeData: propsData || [],
 	                completeTree: propsData,
 	                expandedKeys: this.expand.expandedKeys,
 	                autoExpandParent: this.expand.autoExpandParent,
@@ -9805,7 +12506,7 @@
 	            };
 	            if (!!nextProps) {
 	                this.setState(state);
-	                this.componentDidMount();
+	                this.initShowLeval();
 	            } else {
 	                this.state = state;
 	            }
@@ -9813,10 +12514,7 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
-	            if (this.expand.expandLeavals && !this.expand.expandedKeys) {
-	                this.showToLeval(this.expand.expandLeavals);
-	            }
+	            this.initShowLeval();
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
@@ -9824,6 +12522,14 @@
 	            // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
 	            if (this.__shouldUpdate(this.props, nextProps)) {
 	                this.initTree(nextProps);
+	            }
+	        }
+	    }, {
+	        key: 'initShowLeval',
+	        value: function initShowLeval() {
+	            // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
+	            if (this.expand.expandLeavals && !this.expand.expandedKeys) {
+	                this.showToLeval(this.expand.expandLeavals);
 	            }
 	        }
 	        // 创建指针树，创建之后，pointerTree的每个元素都能指向树的一个节点
@@ -9909,7 +12615,8 @@
 	                expandedKeys: expandedKeys,
 	                autoExpandParent: false
 	            });
-	            this.expand.onExpand(expandedKeys, e);
+	            var item = e && e.node && e.node.props._item;
+	            this.expand.onExpand(expandedKeys, e, item);
 	        }
 	    }, {
 	        key: 'onCheck',
@@ -9925,7 +12632,8 @@
 	            this.setState({
 	                selectedKeys: selectedKeys
 	            });
-	            this.select.onSelect(selectedKeys, e);
+	            var item = e && e.node && e.node.props._item;
+	            this.select.onSelect(selectedKeys, e, item);
 	        }
 	        // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
 
@@ -9996,15 +12704,12 @@
 	                });
 	            }
 	            this.setState({
-	                treeData: newTree,
+	                treeData: newTree || [],
 	                searchValue: value
 	            });
 	        }
 	        // 覆盖原生获取异步数据的函数
-
-	    }, {
-	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
+	        // _handleAsyncData() {}
 	        // 异步对数据进行加载，满足一定要求再加载
 
 	    }, {
@@ -10021,7 +12726,8 @@
 	                    params = Object.assign({}, params, {
 	                        key: nodeData.key,
 	                        name: nodeData.name,
-	                        type: nodeData.type
+	                        type: nodeData.type,
+	                        level: nodeData.level
 	                    });
 	                    // 调用通用source获取数据逻辑
 	                    _this3.__getSourceData({
@@ -10043,19 +12749,27 @@
 
 	    }, {
 	        key: 'insertData',
-	        value: function insertData(curKey, type, nodeData) {
+	        value: function insertData(curKey, type) {
+	            var nodeData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+
 	            var completeTree = this.state.completeTree;
-	            // 通过完整树指针向完整数据中插入一份数据
-	            this.completePointerTree[curKey].children = nodeData;
-	            // 需要更新指针树的指针情况
-	            this.createPointerTree(nodeData, this.completePointerTree);
-	            // 需要更新层级树的情况
-	            // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
-	            if (!this.levalPointerTree[type]) {
-	                this.levalPointerTree[type] = [];
+	            // 如果返回的数据为依然为空数组或非数组，则更新当前节点为叶子节点，无法再次点击获取
+	            if (_utils.Utils.typeof(nodeData, 'array') && nodeData.length) {
+	                // 通过完整树指针向完整数据中插入一份数据
+	                this.completePointerTree[curKey].children = nodeData;
+	                // 需要更新指针树的指针情况
+	                this.createPointerTree(nodeData, this.completePointerTree);
+	                // 需要更新层级树的情况
+	                // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
+	                if (!this.levalPointerTree[type]) {
+	                    this.levalPointerTree[type] = [];
+	                }
+	                this.levalPointerTree[type].push(curKey);
+	                this.createLevalTree(nodeData, this.levalPointerTree);
+	            } else {
+	                delete this.completePointerTree[curKey].children;
+	                this.completePointerTree[curKey].isLeaf = true;
 	            }
-	            this.levalPointerTree[type].push(curKey);
-	            this.createLevalTree(nodeData, this.levalPointerTree);
 	            this.setState({
 	                completeTree: completeTree
 	            });
@@ -10151,7 +12865,7 @@
 	                if (item.isLeaf === false || !!item.children) {
 	                    return _react2.default.createElement(
 	                        TreeNode,
-	                        { key: item.key, title: title, data: item, isLeaf: false,
+	                        { key: item.key, title: title, data: item, isLeaf: false, _item: item,
 	                            disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled },
 	                        !!item.children && _this5.renderTreeNode(item.children)
 	                    );
@@ -10212,7 +12926,7 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 152 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10220,10 +12934,10 @@
 	/**
 	 * @file table组件默认访问文件
 	 */
-	module.exports = __webpack_require__(153).default;
+	module.exports = __webpack_require__(84).default;
 
 /***/ }),
-/* 153 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10238,39 +12952,45 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _export2 = __webpack_require__(148);
+	var _export2 = __webpack_require__(79);
 
 	var _export3 = _interopRequireDefault(_export2);
 
-	var _Crud = __webpack_require__(154);
+	var _Crud = __webpack_require__(85);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(155);
+	var _Title = __webpack_require__(86);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Edit = __webpack_require__(156);
+	var _Edit = __webpack_require__(87);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _Filter = __webpack_require__(157);
+	var _Filter = __webpack_require__(88);
 
 	var _Filter2 = _interopRequireDefault(_Filter);
+
+	var _Enum = __webpack_require__(89);
+
+	var _Enum2 = _interopRequireDefault(_Enum);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10312,6 +13032,7 @@
 	        // 纯粹为了 bind this
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction');
 	        _this.__init();
+	        _this._showLoading = _this.__filtered.source.showLoading === undefined || _this.__filtered.source.showLoading;
 	        // 存储source中的初始化params参数
 	        _this.oriSourceParams = {};
 	        _this.state = {
@@ -10334,8 +13055,16 @@
 	        // 用于存储多列的筛选条件
 	        _this.filterConditions = {};
 	        // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
-	        _this.requerstIndex = 0;
+	        _this.requestIndex = 0;
+	        // 当前正在执行的请求数
+	        _this.requestCount = 0;
 	        _this.filter = new _Filter2.default(_this);
+	        _this.enum = new _Enum2.default({
+	            execAjax: _this.__execAjax.bind(_this),
+	            continue: _this.componentDidMount.bind(_this),
+	            formatApi: _this.__formatApi.bind(_this),
+	            getConf: _this.__getConf.bind(_this)
+	        });
 	        _this.initTable(true);
 	        return _this;
 	    }
@@ -10346,18 +13075,14 @@
 	            // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
 	            if (this.__shouldUpdate(this.props, nextProps)) {
 	                this.initTable();
-	                // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
-	                if (this.__filtered.source.autoLoad) {
-	                    // 置为第一页
-	                    this.getData(1);
-	                }
 	            }
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            // 组件删除时，请求返回的数据无效
-	            this.requerstIndex = null;
+	            this.requestIndex = null;
+	            this.requestCount = 0;
 	            // 防止循环引用导致内存泄漏
 	            delete this.crud;
 	            delete this.titleRef;
@@ -10383,6 +13108,8 @@
 	            this.serverPaging = this.__filtered.source.url && this.pagination.pageType === 'server';
 	            // 列配置
 	            this.columns = objProps.columns;
+	            // 根据列初始化枚举类
+	            isFirst && this.enum.init(this.columns);
 	            var propsData = objProps.data;
 	            // 行配置
 	            this.rowSelection = null;
@@ -10438,7 +13165,7 @@
 	            // 关于异步操作
 	            if (propsData) {
 	                state.completeData = propsData;
-	                this.pagination.total = propsData.length;
+	                this.pagination.total = this.pagination.total || propsData.length;
 	            }
 	            // 关于行样式与不可选相关联，不可选时至为灰色
 	            if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -10466,20 +13193,37 @@
 	            }
 	        }
 	    }, {
+	        key: '_afterInitProps',
+	        value: function _afterInitProps() {
+	            var _this3 = this;
+
+	            _get(NewTable.prototype.__proto__ || Object.getPrototypeOf(NewTable.prototype), '_afterInitProps', this).call(this);
+	            // 双击行进行编辑
+	            if (this.__props.doubleClickEdit) {
+	                this._inject(this.__props, 'onRowDoubleClick', function (record) {
+	                    _this3.showCrud('edit', record);
+	                });
+	            }
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            // for enum, 无论如何都刷新一次组件
+	            this.setState({ loading: this.enum.loading && this._showLoading });
 	            // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
-	            if (this.__filtered.source.autoLoad) {
-	                this.getData();
-	            }
+	            // & 如果枚举类正在加载数据，则暂时不获取数据
+	            // 走公共的BaseComponent的刷新逻辑，待观察
+	            // if (this.__filtered.source.autoLoad && !this.enum.loading) {
+	            //     this.getData();
+	            // }
 	        }
 
 	        /* 供用户调用接口 ***********************************************************************/
 	        // 手动拉取数据
 
 	    }, {
-	        key: 'loadData',
-	        value: function loadData() {
+	        key: 'reload',
+	        value: function reload() {
 	            this.getData();
 	        }
 	        // 刷新表格
@@ -10558,7 +13302,7 @@
 	            // 如果为后端分页，则传递 source 配置
 	            if (this.serverPaging) {
 	                return {
-	                    type: 'asyn',
+	                    mode: 'asyn',
 	                    headers: headers,
 	                    source: this.__filtered.source,
 	                    total: this.pagination.total || 0
@@ -10567,7 +13311,7 @@
 	            // 否则传递 data
 	            var data = this.__props.data || [];
 	            return {
-	                type: 'sync',
+	                mode: 'sync',
 	                headers: headers,
 	                data: data,
 	                total: data.length
@@ -10588,11 +13332,11 @@
 	    }, {
 	        key: '_cellSubmit',
 	        value: function _cellSubmit(key, dataIndex, value) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            var dataSource = [].concat(_toConsumableArray(this.__props.data));
 	            var dataResult = dataSource.map(function (item) {
-	                if (item[_this3.rowKey] === key) {
+	                if (item[_this4.rowKey] === key) {
 	                    item[dataIndex] = value;
 	                }
 	                return item;
@@ -10604,13 +13348,21 @@
 
 	    }, {
 	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
+	        value: function _handleAsyncData() {
+	            var _this5 = this;
+
+	            setTimeout(function () {
+	                if (!_this5.enum.loading) {
+	                    _this5.getData();
+	                }
+	            }, 0);
+	        }
 	        // 异步获取数据
 
 	    }, {
 	        key: 'getData',
 	        value: function getData(pageNum) {
-	            var _this4 = this;
+	            var _this6 = this;
 
 	            var _filtered$source = this.__filtered.source,
 	                url = _filtered$source.url,
@@ -10634,28 +13386,28 @@
 	            // 当前请求的标号
 	            // 快速多次相同的请求会被合并到第一个（ajax中实现）
 	            var index = _utils.Utils.hash(params);
-	            this.requerstIndex = index;
+	            this.requestIndex = index;
 	            // 调用通用source获取数据逻辑
 	            this.__getSourceData({
 	                params: params,
 	                success: function success(data, res) {
-	                    if (index !== _this4.requerstIndex) {
+	                    if (index !== _this6.requestIndex) {
 	                        return;
 	                    }
 	                    var displayData = data || [];
-	                    if (_this4.pagination.pageType === 'server') {
-	                        displayData = displayData.slice(0, _this4.pagination.pageSize);
+	                    if (_this6.pagination.pageType === 'server') {
+	                        displayData = displayData.slice(0, _this6.pagination.pageSize);
 	                    }
-	                    _this4.pagination.total = +(res.total || res.count || data.length);
-	                    _this4.__setProps({ data: displayData }, false);
-	                    _this4.setState({ completeData: displayData });
-	                    _this4.onRefreshData(data);
+	                    _this6.pagination.total = +(res.total || res.count || data.length);
+	                    _this6.__setProps({ data: displayData }, false);
+	                    _this6.setState({ completeData: displayData });
+	                    _this6.onRefreshData(data);
 	                },
 	                onchange: function onchange(loading) {
-	                    if (index !== _this4.requerstIndex) {
+	                    if (index !== _this6.requestIndex) {
 	                        return;
 	                    }
-	                    _this4.setState({ loading: loading });
+	                    _this6.setState({ loading: loading && _this6._showLoading });
 	                }
 	            });
 	        }
@@ -10751,7 +13503,7 @@
 	    }, {
 	        key: 'filterInputSearch',
 	        value: function filterInputSearch(filteredData) {
-	            var _this5 = this;
+	            var _this7 = this;
 
 	            var data = [];
 	            var needFilterData = !!filteredData ? filteredData : this.state.completeData;
@@ -10759,8 +13511,8 @@
 	            // 如果没有传入如果传入filteredData，则在全量数据上进行筛选
 	            data = needFilterData.filter(function (record) {
 	                var flag = true;
-	                for (var cdit in _this5.filterConditions) {
-	                    if (record[cdit].toString().indexOf(_this5.filterConditions[cdit]) === -1) {
+	                for (var cdit in _this7.filterConditions) {
+	                    if (record[cdit].toString().indexOf(_this7.filterConditions[cdit]) === -1) {
 	                        flag = false;
 	                        break;
 	                    }
@@ -10792,7 +13544,7 @@
 	    }, {
 	        key: '_selectAllData',
 	        value: function _selectAllData() {
-	            var _this6 = this;
+	            var _this8 = this;
 
 	            var displayData = this.__props.data;
 	            var selectedRowKeys = [];
@@ -10800,7 +13552,7 @@
 	            var rowKey = this.__props.rowKey;
 	            // 只有选择形式为复选框时才能进行全选
 	            selectedRows = displayData.filter(function (record) {
-	                if (_this6.rowSelection.disabledRow && _this6.rowSelection.disabledRow(record)) {
+	                if (_this8.rowSelection.disabledRow && _this8.rowSelection.disabledRow(record)) {
 	                    // 当满足不可选条件时，不可以进行选择
 	                    return false;
 	                } else {
@@ -10886,7 +13638,7 @@
 	    }, {
 	        key: '_syntaxHighlight',
 	        value: function _syntaxHighlight(json) {
-	            var _this7 = this;
+	            var _this9 = this;
 
 	            if (typeof json !== 'string') {
 	                json = JSON.stringify(json, undefined, 2);
@@ -10902,7 +13654,7 @@
 	                        try {
 	                            var type = JSON.parse(match);
 	                            if (_typeof(JSON.parse(type)) === 'object') {
-	                                return _this7._syntaxHighlight(JSON.parse(type));
+	                                return _this9._syntaxHighlight(JSON.parse(type));
 	                            } else {
 	                                cls = 'string';
 	                            }
@@ -10923,8 +13675,6 @@
 	    }, {
 	        key: 'handleAction',
 	        value: function handleAction(config, record) {
-	            var _this8 = this;
-
 	            var arr = config;
 	            if (!_utils.Utils.typeof(arr, 'array')) {
 	                arr = [config];
@@ -10934,21 +13684,19 @@
 	            var _iteratorError2 = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var v = _step2.value;
 
 	                    // action的值与crud中的配置的key一一对应
-	                    if (v.action) {
-	                        v.onClick = function (e) {
-	                            e && e.preventDefault();
-	                            e && e.stopPropagation();
-	                            _this8.showCrud(v.action, record);
+	                    if (v.action && !v.control) {
+	                        // BaseComponet不接受更新函数，使用control作为临时解决方案
+	                        v.control = {
+	                            type: 'bind',
+	                            trigger: 'onClick',
+	                            target: this.showCrud,
+	                            params: [v.action, record]
 	                        };
 	                    }
-	                };
-
-	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError2 = true;
@@ -10970,14 +13718,14 @@
 	    }, {
 	        key: 'renderColumns',
 	        value: function renderColumns() {
-	            var _this9 = this;
+	            var _this10 = this;
 
 	            // 列功能相关
 	            var antdColumnConfig = [];
 
-	            var _loop2 = function _loop2(i) {
-	                var item = _this9.columns[i];
-	                if (!_this9.state.showAllTags && item.display === false) {
+	            var _loop = function _loop(i) {
+	                var item = _this10.columns[i];
+	                if (!_this10.state.showAllTags && item.display === false) {
 	                    // 在展示部分字段下过滤掉不展示的列数据
 	                    return 'continue';
 	                }
@@ -11000,17 +13748,21 @@
 	                if (defaultColumn.dataIndex === '_operation') {
 	                    defaultColumn.className += ' uf-operation';
 	                }
-	                // 用户配置的render是一个uf组建配置，在此转为dom
+	                // 如果列为枚举类型，则进行枚举转换
+	                if (item.enum && !item.render) {
+	                    item = _this10.enum.handleColumn(item);
+	                }
+	                // 用户配置的render是一个uf组件配置，在此转为dom
 	                if (!!item.render) {
 	                    defaultColumn.render = function (text, record, index) {
 	                        // 配置中的render返回的是配置，配置再解析后才是真正的元素
 	                        var config = item.render(text, record, index);
 	                        // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
 	                        if (defaultColumn.dataIndex === '_operation') {
-	                            config = _this9.handleAction(config, record);
+	                            config = _this10.handleAction(config, record);
 	                        }
 	                        // 根据是否可编辑状态来判断是否包裹编辑组件
-	                        return _this9.__analysis(config);
+	                        return _this10.__analysis(config);
 	                    };
 	                }
 	                // 将用户配置的单列筛选选项转换成antd的配置
@@ -11037,7 +13789,7 @@
 	                            });
 	                        } else {
 	                            // 用户没有配置options，则将该字段的所有可能值展示出来
-	                            filterObj.filters = _this9.getAllFilterValue(dataIndex);
+	                            filterObj.filters = _this10.getAllFilterValue(dataIndex);
 	                        }
 	                        filterObj.filterMultiple = filter.type === 'checkbox' ? true : false;
 	                        filterObj.onFilter = function (value, record) {
@@ -11052,15 +13804,15 @@
 	                        var _filterObj = {
 	                            filterDropdown: null,
 	                            filterIcon: _react2.default.createElement(_antd.Icon, { type: 'filter',
-	                                style: { color: !!_this9.filterConditions[dataIndex] ? '#108ee9' : '#aaa' } })
+	                                style: { color: !!_this10.filterConditions[dataIndex] ? '#108ee9' : '#aaa' } })
 	                        };
 	                        _filterObj.filterDropdown = _react2.default.createElement(
 	                            'div',
 	                            { className: 'custom-filter-dropdown' },
 	                            _react2.default.createElement(_antd.Input, { placeholder: 'Search',
-	                                value: !!_this9.filterConditions[dataIndex] ? _this9.filterConditions[dataIndex] : '',
-	                                onChange: _this9.filterChange.bind(_this9, dataIndex),
-	                                onPressEnter: _this9.onFilterData.bind(_this9)
+	                                value: !!_this10.filterConditions[dataIndex] ? _this10.filterConditions[dataIndex] : '',
+	                                onChange: _this10.filterChange.bind(_this10, dataIndex),
+	                                onPressEnter: _this10.onFilterData.bind(_this10)
 	                            })
 	                        );
 	                        defaultColumn = Object.assign({}, defaultColumn, _filterObj);
@@ -11069,7 +13821,7 @@
 	                // 文字过长，鼠标移入时进行气泡展示
 	                if (!!item.ellipsis) {
 	                    defaultColumn.render = function (text, record, index) {
-	                        var newText = item.render ? _this9.__analysis(item.render(text, record, index)) : text;
+	                        var newText = item.render ? _this10.__analysis(item.render(text, record, index)) : text;
 	                        var returnText = _react2.default.createElement(
 	                            _antd.Popover,
 	                            { content: newText },
@@ -11105,7 +13857,7 @@
 	                                    dayTime === 0 && hourTime === 0 && minuteTime === 0 && secTime > 0 && timeArr.push(secTime + '秒');
 	                                    var tdData = timeArr.join('');
 	                                    // 若用户配置了render，则将转换之后的数据给用户的render
-	                                    newText = item.render ? _this9.__analysis(item.render(tdData, record, index)) : tdData;
+	                                    newText = item.render ? _this10.__analysis(item.render(tdData, record, index)) : tdData;
 	                                    break;
 	                                }
 	                            case 'json':
@@ -11113,7 +13865,7 @@
 	                                    // 会出现重复json字符串编码现象,加入类型判断
 	                                    var json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
 	                                    if (text && json !== '""') {
-	                                        var html = _this9._syntaxHighlight(json);
+	                                        var html = _this10._syntaxHighlight(json);
 	                                        newText = _react2.default.createElement(
 	                                            _antd.Popover,
 	                                            { content: _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } }) },
@@ -11127,8 +13879,8 @@
 	                                break;
 	                            // 默认将格式进行一下转换然后输出
 	                            default:
-	                                text = _this9._getKeyDataOfObject(text);
-	                                newText = item.render ? _this9.__analysis(item.render(text, record, index)) : text;
+	                                text = _this10._getKeyDataOfObject(text);
+	                                newText = item.render ? _this10.__analysis(item.render(text, record, index)) : text;
 	                                break;
 	                        }
 	                        return newText;
@@ -11149,12 +13901,12 @@
 	                        if (!editableConf) {
 	                            return displayStr;
 	                        }
-	                        return _react2.default.createElement(_Edit2.default, { parent: _this9,
+	                        return _react2.default.createElement(_Edit2.default, { parent: _this10, _factory: _this10._factory,
 	                            value: text,
 	                            columnChild: displayStr,
 	                            editConf: editableConf,
 	                            api: editableConf.api,
-	                            cellSubmit: _this9._cellSubmit.bind(_this9, record[_this9.rowKey], defaultColumn.dataIndex)
+	                            cellSubmit: _this10._cellSubmit.bind(_this10, record[_this10.rowKey], defaultColumn.dataIndex)
 	                        });
 	                    };
 	                }
@@ -11162,14 +13914,14 @@
 	            };
 
 	            for (var i in this.columns) {
-	                var _ret2 = _loop2(i);
+	                var _ret = _loop(i);
 
-	                switch (_ret2) {
+	                switch (_ret) {
 	                    case 'continue':
 	                        continue;
 
 	                    default:
-	                        if ((typeof _ret2 === 'undefined' ? 'undefined' : _typeof(_ret2)) === "object") return _ret2.v;
+	                        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	                }
 	            }
 	            return antdColumnConfig;
@@ -11177,7 +13929,7 @@
 	    }, {
 	        key: 'renderRowSelection',
 	        value: function renderRowSelection() {
-	            var _this10 = this;
+	            var _this11 = this;
 
 	            if (!this.rowSelection) {
 	                return null;
@@ -11191,7 +13943,7 @@
 	            rowSelection.selectedRowKeys = this.state.selectedRowKeys;
 	            if (this.rowSelection.disabledRow) {
 	                rowSelection.getCheckboxProps = function (record) {
-	                    return { disabled: _this10.rowSelection.disabledRow(record) };
+	                    return { disabled: _this11.rowSelection.disabledRow(record) };
 	                };
 	            }
 	            // 任何一行的选择与否都会触发改方法
@@ -11244,7 +13996,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            var className = 'uf-table ';
 	            className += this.state.fullScreen ? 'uf-fullscreen ' : '';
@@ -11262,15 +14014,15 @@
 	                { className: className, style: this.__props.style },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { _factory: _this11._factory, parent: _this11, ref: function ref(ele) {
-	                                return _this11.titleRef = ele;
-	                            }, config: _this11.title });
+	                        return _react2.default.createElement(_Title2.default, { _factory: _this12._factory, parent: _this12, ref: function ref(ele) {
+	                                return _this12.titleRef = ele;
+	                            }, config: _this12.title });
 	                    },
 	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender ? { expandedRowRender: function expandedRowRender(record) {
-	                        return _this11.__analysis(_expandedRowRender(record));
+	                        return _this12.__analysis(_expandedRowRender(record));
 	                    } } : null, !!this.state.expandedRowKeys ? { expandedRowKeys: this.state.expandedRowKeys } : null, _footer ? { footer: function footer(currentPageData) {
-	                        return _this11.__analysis(_footer(currentPageData));
+	                        return _this12.__analysis(_footer(currentPageData));
 	                    } } : null, {
 	                    dataSource: this.__props.data,
 	                    columns: this.renderColumns(),
@@ -11278,12 +14030,13 @@
 	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
 	                _react2.default.createElement(_export3.default, _extends({ _factory: this._factory, ref: function ref(ele) {
-	                        return _this11.exportRef = ele;
-	                    } }, this._getExportConfig())),
-	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
-	                        return _this11.crud = ele;
+	                        return _this12.exportRef = ele;
 	                    },
-	                    config: this.__props.crud })
+	                    style: { display: 'none' } }, this._getExportConfig())),
+	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
+	                        return _this12.crud = ele;
+	                    },
+	                    'enum': this.enum, config: this.__props.crud })
 	            );
 	        }
 	    }]);
@@ -11294,7 +14047,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 154 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11305,19 +14058,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11344,6 +14097,34 @@
 	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, 'table-crud'));
 
 	        _this.parent = props.parent;
+	        _this.enum = props.enum;
+	        // 存储table的全部字段名称对应关系，以在form中复用
+	        _this.columnName = {};
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+
+	        try {
+	            for (var _iterator = _this.parent.columns[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var v = _step.value;
+
+	                _this.columnName[v.dataIndex] = v.title;
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
+	        }
+
 	        _this.config = null;
 	        _this.oConfig = null;
 	        _this.init();
@@ -11355,13 +14136,29 @@
 	    _createClass(Crud, [{
 	        key: 'shouldComponentUpdate',
 	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            if (this.refresh) {
+	                this.refresh = false;
+	                return true;
+	            }
 	            return false;
 	        }
 	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            var newEnum = JSON.stringify(nextProps.enum.data);
+	            if (newEnum !== this.currentEnum) {
+	                this.currentEnum = newEnum;
+	                this.refresh = true;
+	                this.init(nextProps);
+	            }
+	        }
+	    }, {
 	        key: 'init',
-	        value: function init() {
+	        value: function init(nextProps) {
 	            var _this2 = this;
 
+	            var props = nextProps || this.props;
+	            this.enum = props.enum;
 	            // 批量导入/编辑的表单配置
 	            var batchAddFormConf = {
 	                layout: {
@@ -11372,27 +14169,32 @@
 	                    rows: 6, style: { width: '100%' }
 	                }]
 	            };
-	            var config = this.props.config;
+	            var config = props.config;
 	            var result = {};
 	            // 额外存储的临时配置，用于配置复用
 	            var tempConf = {};
 
 	            var _loop = function _loop(i) {
-	                var item = _utils.Utils.copy(config[i]);
+	                // let item = Utils.copy(config[i]);
+	                var item = _this2.__getConf(_utils.Utils.copy(config[i]));
 	                var action = _this2._getAction(i);
 	                item.api = _this2.__formatApi(item.api);
 	                switch (action) {
 	                    // 新增弹框的配置
 	                    case 'add':
 	                        // add 可以复用 edit 的配置，可以减少配置书写
+	                        item.title = item.title || '新增：';
 	                        tempConf['edit'] && (item = Object.assign(_utils.Utils.clone(tempConf['edit']), item));
 	                        item.okText = item.okText || '提交';
+	                        item.api.method = item.api.method || 'post';
 	                        break;
 	                    // 编辑弹框的配置
 	                    case 'edit':
 	                        // 处理复用相关参数
+	                        item.title = item.title || '编辑：';
 	                        item = _this2.handleReuse(item, tempConf['add']);
 	                        item.okText = item.okText || '提交';
+	                        item.api.method = item.api.method || 'put';
 	                        break;
 	                    // 搜索弹框的配置
 	                    case 'search':
@@ -11406,6 +14208,7 @@
 	                            });
 	                        }
 	                        // 处理复用相关参数
+	                        item.title = item.title || '搜索：';
 	                        item = _this2.handleReuse(item, tempConf['add']);
 	                        item.okText = item.okText || '搜索';
 	                        // 点击搜索时，对Table进行赋值操作
@@ -11416,6 +14219,8 @@
 	                    // 删除确认框的配置
 	                    case 'delete':
 	                        // 默认把参数处理为：只返回 id（rowKey对应的字段）
+	                        item.title = item.title || '删除：';
+	                        item.api.method = item.api.method || 'delete';
 	                        item.api.paramsHandler = item.api.paramsHandler || function (params) {
 	                            return _defineProperty({}, _this2.parent.rowKey, params[_this2.parent.rowKey]);
 	                        };
@@ -11427,7 +14232,7 @@
 	                    // 批量展示table中选中的数据
 	                    case 'batchShow':
 	                        item.okText = item.okText || '关闭';
-	                        item.footer = item.footer || [{
+	                        item.footer = item.footer !== undefined ? item.footer : [{
 	                            type: 'button', mode: 'primary', action: 'cancel', content: item.okText
 	                        }];
 	                        break;
@@ -11438,6 +14243,11 @@
 	                        item.okText = item.okText || '提交';
 	                        // form 需用指定的，此弹框用户传入的form配置无效
 	                        item.form = _utils.Utils.clone(batchAddFormConf);
+	                        item.api.method = item.api.method || 'post';
+	                        // 只有第一次调用执行
+	                        if (!nextProps) {
+	                            _this2._bindParamsHandler(i, item);
+	                        }
 	                        break;
 	                    // 批量新增弹框的配置
 	                    case 'batchEdit':
@@ -11446,10 +14256,16 @@
 	                        item.okText = item.okText || '提交';
 	                        // form 需用指定的，此弹框用户传入的form配置无效
 	                        item.form = _utils.Utils.clone(batchAddFormConf);
+	                        item.api.method = item.api.method || 'put';
+	                        // 只有第一次调用执行
+	                        if (!nextProps) {
+	                            _this2._bindParamsHandler(i, item);
+	                        }
 	                        break;
 	                    // 批量删除确认框的配置
 	                    case 'batchDelete':
 	                        // 默认把参数处理为：只返回英文逗号分隔的 id[s]（rowKey对应的字段）如：{ids: 123,456}
+	                        item.api.method = item.api.method || 'delete';
 	                        item.api.paramsHandler = item.api.paramsHandler || function (params) {
 	                            return _defineProperty({}, _this2.parent.rowKey + 's', params.map(function (v) {
 	                                return v[_this2.parent.rowKey];
@@ -11463,13 +14279,14 @@
 	                    case 'show':
 	                    default:
 	                        item.okText = item.okText || '关闭';
-	                        item.footer = item.footer || [{
+	                        item.footer = item.footer !== undefined ? item.footer : [{
 	                            type: 'button', mode: 'primary', action: 'cancel', content: item.okText
 	                        }];
 	                        break;
 	                }
 	                item.type = item.type || 'modal';
 	                item.name = _this2._getModalName(i);
+	                item.key = item.name;
 	                // 默认点击提交时自动刷新表格。
 	                if (item.autoReload !== false) {
 	                    // 不用this.parent._inject，edit复用add的配置时，这里回把两个同样的函数合并到一起，导致table刷新两次
@@ -11482,7 +14299,10 @@
 	                        });
 	                    });
 	                }
-
+	                // 如果存在form，则对items进行处理
+	                if (item.form && item.form.items) {
+	                    item.form.items = _this2.handleFormItems(item.form.items);
+	                }
 	                result[i] = item;
 	                // 存储的复用配置用action做区分
 	                tempConf[action] = item;
@@ -11493,6 +14313,48 @@
 	            }
 	            this.oConfig = result;
 	            this.config = Object.values(result);
+	        }
+	        // 如果存在form，则对items进行处理
+
+	    }, {
+	        key: 'handleFormItems',
+	        value: function handleFormItems(items) {
+	            // 如果没写label，则复用table的title
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+
+	            try {
+	                for (var _iterator2 = items[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var v = _step2.value;
+
+	                    var _getConf = this.__getConf(v),
+	                        label = _getConf.label,
+	                        name = _getConf.name;
+
+	                    if (!label && this.columnName[name]) {
+	                        v.label = this.columnName[name];
+	                        v.label += v.label.indexOf(':') > -1 ? '' : ': ';
+	                    }
+	                }
+	                // 处理新增/编辑的 form.items 配置，枚举类型转自动添加options
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+
+	            items = this.enum.handleForm(items);
+	            return items;
 	        }
 	        // 处理配置复用相关参数
 
@@ -11540,7 +14402,7 @@
 	                            params[_key - 1] = arguments[_key];
 	                        }
 
-	                        modal.show.apply(modal, params);
+	                        modal.show.apply(modal, params.concat([this.parent]));
 	                }
 	            }
 	        }
@@ -11561,9 +14423,122 @@
 	            // 如果用户自己配了name，使用用户的name
 	            var config = this.props.config;
 	            if (config[key] && config[key].name) {
-	                return name;
+	                return config[key].name;
 	            }
 	            return '__' + this.parent.key + '-' + key;
+	        }
+	        // 生成批量编辑的字符串
+
+	    }, {
+	        key: '_getStrByList',
+	        value: function _getStrByList(key, list) {
+	            var keys = this.oConfig[key].keys.split(',');
+	            var str = '';
+	            var _iteratorNormalCompletion3 = true;
+	            var _didIteratorError3 = false;
+	            var _iteratorError3 = undefined;
+
+	            try {
+	                for (var _iterator3 = list[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                    var row = _step3.value;
+
+	                    var tmp = '';
+	                    var _iteratorNormalCompletion4 = true;
+	                    var _didIteratorError4 = false;
+	                    var _iteratorError4 = undefined;
+
+	                    try {
+	                        for (var _iterator4 = keys[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                            var v = _step4.value;
+
+	                            tmp += (row[v] !== undefined || row[v] !== null ? row[v] : '') + ',';
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError4 = true;
+	                        _iteratorError4 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                                _iterator4.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError4) {
+	                                throw _iteratorError4;
+	                            }
+	                        }
+	                    }
+
+	                    str += tmp.slice(0, -1) + '\n';
+	                }
+	            } catch (err) {
+	                _didIteratorError3 = true;
+	                _iteratorError3 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                        _iterator3.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError3) {
+	                        throw _iteratorError3;
+	                    }
+	                }
+	            }
+
+	            return str;
+	        }
+	        // 根据字符串转换成要提交的数据对象
+
+	    }, {
+	        key: '_getListByStr',
+	        value: function _getListByStr(key, str) {
+	            var keys = this.oConfig[key].keys.split(',');
+	            var strArr = str.split('\n');
+	            var result = [];
+	            var error = [];
+	            strArr.forEach(function (row, index) {
+	                if (row.trim()) {
+	                    var values = row.trim().split(',');
+	                    if (values.length !== keys.length) {
+	                        error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u5B57\u6BB5\u4F4D\u6570\u4E0D\u6B63\u786E\uFF0C\u8BF7\u68C0\u67E5\uFF01');
+	                    }
+	                    var _item = {};
+	                    var _iteratorNormalCompletion5 = true;
+	                    var _didIteratorError5 = false;
+	                    var _iteratorError5 = undefined;
+
+	                    try {
+	                        for (var _iterator5 = keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                            var v = _step5.value;
+
+	                            _item[v] = values.shift();
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError5 = true;
+	                        _iteratorError5 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                                _iterator5.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError5) {
+	                                throw _iteratorError5;
+	                            }
+	                        }
+	                    }
+
+	                    result.push(_item);
+	                }
+	            });
+	            if (error.length > 0) {
+	                _antd.Modal.error({
+	                    title: '注意：',
+	                    content: error.join('\n')
+	                });
+	                return false;
+	            }
+	            return result;
 	        }
 	        // 展示批量编辑框
 
@@ -11576,64 +14551,32 @@
 	                return;
 	            }
 	            if (this.oConfig[key] && this.oConfig[key].keys) {
-	                var str = '';
-	                var keys = this.oConfig[key].keys.split(',');
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = datas[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var row = _step.value;
-
-	                        var tmp = '';
-	                        var _iteratorNormalCompletion2 = true;
-	                        var _didIteratorError2 = false;
-	                        var _iteratorError2 = undefined;
-
-	                        try {
-	                            for (var _iterator2 = keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                                var v = _step2.value;
-
-	                                tmp += (row[v] || '') + ',';
-	                            }
-	                        } catch (err) {
-	                            _didIteratorError2 = true;
-	                            _iteratorError2 = err;
-	                        } finally {
-	                            try {
-	                                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                                    _iterator2.return();
-	                                }
-	                            } finally {
-	                                if (_didIteratorError2) {
-	                                    throw _iteratorError2;
-	                                }
-	                            }
-	                        }
-
-	                        str += tmp.slice(0, -1) + '\n';
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-
+	                datas = this.enum.encodeEnum(datas);
+	                var str = this._getStrByList(key, datas);
 	                var modal = this.__getComponent(this._getModalName(key));
 	                modal && modal.show({ data: str });
 	            } else {
 	                console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
 	            }
+	        }
+	        // 绑定校验逻辑
+
+	    }, {
+	        key: '_bindParamsHandler',
+	        value: function _bindParamsHandler(key, item) {
+	            var _this3 = this;
+
+	            var ohandler = item.api.paramsHandler;
+	            item.api.paramsHandler = function (params) {
+	                var datas = _this3._getListByStr(key, params.data);
+	                if (!datas) {
+	                    return false;
+	                }
+	                // 数据格式为 {data: 'json'}
+	                var result = { data: JSON.stringify(_this3.enum.decodeEnum(datas)) };
+	                ohandler && (result = ohandler(result));
+	                return result;
+	            };
 	        }
 	        // 展示批量删除框
 
@@ -11678,7 +14621,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 155 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11693,21 +14636,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _export = __webpack_require__(148);
+	var _export = __webpack_require__(79);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -11745,6 +14688,9 @@
 	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, 'table-title'));
 
 	        _this.parent = props.parent;
+	        // 缓存展示字段名称组件的cacheName
+	        _this.cacheName = _this.parent.insName + _this.parent.key;
+	        _this.useCache = true;
 	        // 搜索/过滤功能
 	        _this.filter = _this.parent.filter;
 	        _this.title = props.config;
@@ -11764,6 +14710,18 @@
 	    }
 
 	    _createClass(Title, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.useCache) {
+	                // 当有缓存时，使用缓存的选中列
+	                var cache = _utils.Utils.getCache(this.cacheName);
+	                if (cache) {
+	                    this.columnsCheckedValues = cache;
+	                    this.setTableColumns();
+	                }
+	            }
+	        }
+	    }, {
 	        key: 'clearState',
 	        value: function clearState() {
 	            this.setState({ filterValue: '' });
@@ -11913,6 +14871,9 @@
 	                            ));
 	                            break;
 	                        case 'switchTags':
+	                            if (v.cache === false) {
+	                                this.useCache = false;
+	                            }
 	                            result.push(_react2.default.createElement(
 	                                'div',
 	                                { className: 'uf-header-widget', key: 'switchTags',
@@ -12497,6 +15458,8 @@
 	            for (var i in allColumns) {
 	                _loop2(i);
 	            }
+	            // 缓存配置
+	            _utils.Utils.setCache(this.cacheName, showColumns);
 	            this.setState({ showSetTagsModal: false });
 	            this.parent.forceUpdate();
 	        }
@@ -12607,7 +15570,7 @@
 	                this.titleGenerate(),
 	                _react2.default.createElement(
 	                    _antd.Modal,
-	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal',
+	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal', key: 'uf-table-modal',
 	                        visible: this.state.showSetTagsModal,
 	                        onOk: this.setTableColumns.bind(this),
 	                        onCancel: this.cancleSetTableColumns.bind(this) },
@@ -12623,7 +15586,7 @@
 	exports.default = Title;
 
 /***/ }),
-/* 156 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12636,19 +15599,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12856,7 +15819,7 @@
 	exports.default = TableEdit;
 
 /***/ }),
-/* 157 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12874,7 +15837,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -13153,7 +16116,287 @@
 	exports.default = Filter;
 
 /***/ }),
-/* 158 */
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Table扩展 - 枚举类型字段翻译相关逻辑实现
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
+
+	var _utils = __webpack_require__(17);
+
+	var _antd = __webpack_require__(23);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Enum = function () {
+	    function Enum(tools) {
+	        _classCallCheck(this, Enum);
+
+	        this.tools = tools;
+	        // 是否正在加载数据
+	        this.loading = false;
+	        this.requestCount = 0;
+	        // 存储全部枚举数据，{[key || id]: [value]}
+	        this.data = {};
+	        // 如果value是字符串或数字，再存储一份反向关系，{[value]: [key]}
+	        this.dataReverse = {};
+	    }
+	    // 传入 columns 配置，判断是否有枚举类型字段并做相应处理
+
+
+	    _createClass(Enum, [{
+	        key: 'init',
+	        value: function init(columns) {
+	            var _this = this;
+
+	            var enumList = {};
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                var _loop = function _loop() {
+	                    var item = _step.value;
+
+	                    if (item.enum) {
+	                        // 已经穷举，无需获取。格式为 enum: [{key: value}]
+	                        if (_utils.Utils.typeof(item.enum, 'array')) {
+	                            _this.save(item.dataIndex, item.enum);
+	                        } else {
+	                            _this.save(item.dataIndex, []);
+	                            // 需要异步获取数据的情况
+	                            _this.start();
+	                            _this.tools.execAjax(_extends({
+	                                // 默认开启缓存
+	                                cache: true
+	                            }, _this.tools.formatApi(item.enum), {
+	                                success: function success(data) {
+	                                    _this.save(item.dataIndex, data);
+	                                    _this.complete();
+	                                },
+	                                error: function error(err) {
+	                                    _this.complete();
+	                                }
+	                            }));
+	                        }
+	                    }
+	                };
+
+	                for (var _iterator = columns[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    _loop();
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'start',
+	        value: function start() {
+	            this.loading = true;
+	            this.requestCount++;
+	        }
+	    }, {
+	        key: 'complete',
+	        value: function complete() {
+	            this.requestCount--;
+	            this.finish();
+	        }
+	        // 请求完成
+
+	    }, {
+	        key: 'finish',
+	        value: function finish() {
+	            if (this.requestCount <= 0) {
+	                this.loading = false;
+	                this.tools.continue();
+	            }
+	        }
+	        // 把数组格式化成键值对并存储
+
+	    }, {
+	        key: 'save',
+	        value: function save(dataIndex, list) {
+	            var result = {};
+	            var reverseResult = {};
+	            // 如果数据格式为 [{id:'',name:'',key:'',value:''}]
+	            if (_utils.Utils.typeof(list, 'array')) {
+	                var _iteratorNormalCompletion2 = true;
+	                var _didIteratorError2 = false;
+	                var _iteratorError2 = undefined;
+
+	                try {
+	                    for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                        var v = _step2.value;
+
+	                        var key = v.id || v.key;
+	                        var value = v.name || v.value;
+	                        result[key] = value;
+	                        if (_utils.Utils.typeof(value, ['string', 'number'])) {
+	                            reverseResult[value] = key;
+	                        }
+	                    }
+	                    // 数据格式为 {key:value, key:value}
+	                } catch (err) {
+	                    _didIteratorError2 = true;
+	                    _iteratorError2 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                            _iterator2.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError2) {
+	                            throw _iteratorError2;
+	                        }
+	                    }
+	                }
+	            } else if (_utils.Utils.typeof(list, 'object')) {
+	                for (var i in list) {
+	                    result[i] = list[i];
+	                    if (_utils.Utils.typeof(list[i], ['string', 'number'])) {
+	                        reverseResult[list[i]] = i;
+	                    }
+	                }
+	            }
+
+	            this.data[dataIndex] = result;
+	            this.dataReverse[dataIndex] = reverseResult;
+	        }
+
+	        /*** Table.js 中的功能 ******************************************************************* */
+	        // 处理列配置，进行枚举替换
+
+	    }, {
+	        key: 'handleColumn',
+	        value: function handleColumn(item) {
+	            var _this2 = this;
+
+	            if (this.data[item.dataIndex]) {
+	                item.render = function (v) {
+	                    return _this2.data[item.dataIndex][v] || v;
+	                };
+	            }
+	            return item;
+	        }
+
+	        /*** Crud.js 中功能 ******************************************************************* */
+	        // 处理新增/编辑的 form.items 配置，自动增加options
+
+	    }, {
+	        key: 'handleForm',
+	        value: function handleForm(items) {
+	            var _this3 = this;
+
+	            return (items || []).map(function (item) {
+	                if (item) {
+	                    // if (Utils.typeof(item, 'object')) {
+	                    // 支持使用自定义组件，会取最终的根类型进行判断
+	                    var _tools$getConf = _this3.tools.getConf(item),
+	                        type = _tools$getConf.type,
+	                        name = _tools$getConf.name;
+
+	                    if (['select', 'radio', 'checkbox-group'].indexOf(type) > -1 && _utils.Utils.empty(item.options) && _this3.data[name]) {
+	                        item.options = _utils.Utils.toOptions(_this3.data[name]);
+	                    }
+	                    // } else {
+	                    //     item = this.handleForm(item)
+	                    // }
+	                }
+	                return item;
+	            });
+	        }
+	        // 把一个数据列表中的枚举字段的id转换为枚举的值，key => value
+
+	    }, {
+	        key: 'encodeEnum',
+	        value: function encodeEnum(list) {
+	            var _this4 = this;
+
+	            var error = [];
+	            var result = (list || []).map(function (item, index) {
+	                return _utils.Utils.each(item, function (v, i) {
+	                    if (_this4.data[i]) {
+	                        if (_this4.data[i][v] !== undefined) {
+	                            return _this4.data[i][v];
+	                        } else {
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u89E3\u6790\u65F6\u51FA\u73B0\u9519\u8BEF\uFF0C\u8BF7\u6CE8\u610F\uFF01');
+	                            return '';
+	                        }
+	                    }
+	                    return v;
+	                });
+	            });
+	            if (error.length > 0) {
+	                // 使报错弹框晚于原来弹框的创建
+	                setTimeout(function () {
+	                    _antd.Modal.warning({
+	                        title: '注意：',
+	                        content: error.join('\n')
+	                    });
+	                }, 10);
+	            }
+	            return result;
+	        }
+	        // 把一个数据列表中的枚举字段的值转换为id，value => key
+
+	    }, {
+	        key: 'decodeEnum',
+	        value: function decodeEnum(list) {
+	            var _this5 = this;
+
+	            var error = [];
+	            var result = (list || []).map(function (item, index) {
+	                return _utils.Utils.each(item, function (v, i) {
+	                    if (_this5.dataReverse[i]) {
+	                        if (_this5.dataReverse[i][v] !== undefined) {
+	                            return _this5.dataReverse[i][v];
+	                        } else {
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u7684\u503C\u3010' + v + '\u3011\u65E0\u6548\uFF0C\u8BF7\u68C0\u67E5\uFF01');
+	                            return '';
+	                        }
+	                    }
+	                    return v;
+	                });
+	            });
+	            if (error.length > 0) {
+	                _antd.Modal.error({
+	                    title: '注意：',
+	                    content: error.join('\n')
+	                });
+	                return false;
+	            }
+	            return result;
+	        }
+	    }]);
+
+	    return Enum;
+	}();
+
+	exports.default = Enum;
+
+/***/ }),
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13165,8 +16408,8 @@
 	// module.exports = require('./Form.js').default;
 	// module.exports = require('./Forms.js').default;
 	module.exports = {
-	  Form: __webpack_require__(159).default,
-	  Forms: __webpack_require__(164).default
+	  Form: __webpack_require__(91).default,
+	  Forms: __webpack_require__(94).default
 	};
 	// const Form = require('./Form.js');
 	// const Forms = require('./Forms.js');
@@ -13174,7 +16417,7 @@
 	// module.exports = {Form, Forms};
 
 /***/ }),
-/* 159 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13189,25 +16432,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _moment = __webpack_require__(119);
+	var _moment = __webpack_require__(21);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _ueditor = __webpack_require__(160);
+	var _ueditor = __webpack_require__(92);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
@@ -13299,7 +16542,8 @@
 	    }, {
 	        key: 'setDefaultValues',
 	        value: function setDefaultValues(data) {
-	            this.defaultValues = data || {};
+	            // 防止改变原值
+	            this.defaultValues = _utils.Utils.clone(data || {});
 	        }
 	        // 把数据格式化成需要的格式
 	        // 调用 setFieldsValue 时，如果多传了字段，会报 warning，所以这里只返回可用的表单项的值
@@ -13337,6 +16581,9 @@
 	                    if (this.itemsCache[i] && this.itemsCache[i].format) {
 	                        values[i] = values[i].format(this.itemsCache[i].format);
 	                    }
+	                    // 用 format 把数据格式化成 rules.type 要求的格式
+	                } else if (item.rules && item.rules.type) {
+	                    values[i] = _utils.Utils.format(values[i], item.rules.type);
 	                }
 	                if (item && item.type !== 'button') {
 	                    result[i] = values[i];
@@ -13480,12 +16727,12 @@
 	    }, {
 	        key: 'onChange',
 	        value: function onChange(item, val, string) {
-	            if (string) {
+	            if (string !== undefined) {
 	                val = string;
 	            } else if (_utils.Utils.typeof(val, 'object') && val.target) {
-	                if (val.target.value) {
+	                if (val.target.value !== undefined) {
 	                    val = val.target.value;
-	                } else if (val.target.checked) {
+	                } else if (val.target.checked !== undefined) {
 	                    val = val.target.checked;
 	                }
 	            }
@@ -13526,6 +16773,15 @@
 	                                    break;
 	                                }
 	                            case 'display':
+	                                // 如果是从不展示到进行展示转变，则把默认值一并填上
+	                                if (attrVal) {
+	                                    newConf['default'] = this.defaultValues[i];
+	                                    // 当组件已存在时（存在display为false但组件未来得及销毁的情况），设置default无效，需使用form api设置
+	                                    if (this.itemRef[i] || this.formRef[i]) {
+	                                        this.form.setFieldsValue(_defineProperty({}, i, newConf['default']));
+	                                    }
+	                                }
+	                            // break;
 	                            default:
 	                                {
 	                                    newConf[j] = attrVal;
@@ -13542,7 +16798,7 @@
 	                        this.__mergeProps(this.itemsCache[i], newConf);
 	                    }
 	                }
-	                this.forceUpdate();
+	                // this.forceUpdate();
 	            }
 	        }
 	        // 根据布局参数生成布局配置
@@ -13566,7 +16822,7 @@
 
 	            var okey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-	            if (!oitem || oitem.type === 'empty') {
+	            if (!oitem || !oitem.type || oitem.type === 'empty') {
 	                return;
 	            }
 	            if (!oitem.name) {
@@ -13594,6 +16850,8 @@
 	                this.itemsCache[key] = oitem;
 	            }
 	            if (oitem.display === false) {
+	                delete this.itemRef[key];
+	                delete this.formRef[key];
 	                return;
 	            }
 	            var getFieldDecorator = this.form.getFieldDecorator;
@@ -13605,6 +16863,9 @@
 	                itemLayout = this.config.layout.type === 'horizontal' ? this.formItemLayout : null;
 	            }
 	            var item = Object.assign({ rules: {} }, oitem);
+	            if (_utils.Utils.typeof(item.rules, 'array')) {
+	                item.rules = item.rules[0] || {};
+	            }
 	            delete item.layout;
 	            // 如果rules外单独设置了required属性，则以此值为准
 	            if (item.required !== undefined) {
@@ -13612,6 +16873,9 @@
 	            }
 	            // form中不允许表单域使用value，所以如果有value值，把值转换到default上
 	            item.default = item.value || item.default;
+	            if (item.default !== undefined) {
+	                this.oriDefaultValues[item.name] = item.default;
+	            }
 	            // 过滤掉一些字段后，剩余的就是组件本身需要的参数
 	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig']);
 	            // 额外配置的禁止更改的字段，设置disabled
@@ -13628,7 +16892,6 @@
 	            itemProps.ref = function (inst) {
 	                _this2.itemRef[key] = inst;
 	            };
-	            var itemContent = void 0;
 	            var otherOptions = {};
 	            switch (item.type) {
 	                case 'group':
@@ -13652,7 +16915,7 @@
 	                        valuePropName: 'formData'
 	                    };
 	                    item.default = item.default || item.formData || {};
-	                    delete item.formData;
+	                    delete itemProps.formData;
 	                    item.rules['type'] = item.rules['type'] || 'object';
 	                    break;
 	                case 'input':
@@ -13662,12 +16925,15 @@
 	                    }
 	                    // 收集值的时机改为onBlur
 	                    otherOptions.trigger = 'onBlur';
+	                    otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'input-number':
 	                    // 数字输入框
 	                    item.rules['type'] = item.rules['type'] || 'number';
 	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
 	                    otherOptions.trigger = 'onBlur';
+	                    // 可减少一些输入过程中的报错信息
+	                    otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'select':
 	                case 'radio':
@@ -13675,7 +16941,10 @@
 	                        if (item.mode && item.mode !== 'combobox') {
 	                            item.rules['type'] = item.rules['type'] || 'array';
 	                        }
-	                        item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        // 当有required时，再加message，否则会产生默认type为string
+	                        if (item.rules['required']) {
+	                            item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        }
 	                        // 默认选中第一个
 	                        if (!item.default && item.defaultFirst) {
 	                            item.default = _utils.Utils.getFirstOption(item.options);
@@ -13685,6 +16954,12 @@
 	                            itemProps.allowClear = false;
 	                        }
 	                    }
+	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
+	                    otherOptions = {
+	                        getValueFromEvent: function getValueFromEvent(e, value) {
+	                            return item.rules.type && value !== '' && value !== undefined ? _utils.Utils.format(value) : value;
+	                        }
+	                    };
 	                    // 两种组件的通用逻辑
 	                    // 如果没有设置类型，则根据default定义类型
 	                    if (!item.rules['type'] && item.default !== null) {
@@ -13692,8 +16967,6 @@
 	                        if (['number', 'string', 'boolean', 'array'].indexOf(_type) > -1) {
 	                            item.rules['type'] = _type;
 	                        }
-	                    } else {
-	                        item.rules['type'] = item.rules['type'] || 'string';
 	                    }
 	                    break;
 	                case 'checkbox':
@@ -13735,19 +17008,8 @@
 	                        var limit = itemProps.limit;
 	                        if (limit) {
 	                            var list = this.form.getFieldValue(key) || [];
-	                            isDisabled = { disabled: list.length >= limit };
+	                            itemProps.disabled = list.length >= limit;
 	                        }
-	                        itemContent = _react2.default.createElement(
-	                            Upload,
-	                            _extends({}, itemProps, isDisabled),
-	                            _react2.default.createElement(
-	                                _antd.Button,
-	                                null,
-	                                _react2.default.createElement(_antd.Icon, { type: 'upload' }),
-	                                ' ',
-	                                itemProps.placeholder || '上传文件'
-	                            )
-	                        );
 	                        otherOptions = {
 	                            valuePropName: 'fileList',
 	                            getValueFromEvent: this.normFile.bind(this)
@@ -13762,10 +17024,6 @@
 	                case 'time-picker':
 	                    // 更改获onchange时form获取组件值的逻辑，传出的为字符串
 	                    otherOptions = {
-	                        // 对传入给组件的数据进行处理
-	                        // normalize(value) {
-	                        //     return Utils.moment(value);
-	                        // },
 	                        // 对从组件内传出的数据进行处理，直接取时间字符串
 	                        getValueFromEvent: function getValueFromEvent(date, string) {
 	                            return string;
@@ -13804,7 +17062,7 @@
 	            // 保存默认值，以form渲染完成后执行initValues
 	            if (item.default !== undefined) {
 	                item.default = _utils.Utils.format(item.default, type);
-	                this.oriDefaultValues[item.name] = item.default;
+	                // this.oriDefaultValues[item.name] = item.default;
 	                this.defaultValues[item.name] = item.default;
 	            }
 	            var fieldProps = {
@@ -13827,12 +17085,10 @@
 	                _extends({}, fieldProps, itemLayout),
 	                getFieldDecorator(key, Object.assign({
 	                    initialValue: item.default,
-	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined,
+	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined
 	                    // 更改收集数据/验证触发事件为失去焦点时
 	                    // onBlur在radio，datepicker中不好用
 	                    // trigger: 'onBlur',
-	                    // 可减少一些输入过程中的报错信息
-	                    validateTrigger: 'onBlur'
 	                }, otherOptions, item.regionConfig))(
 	                // 作为子组件解析
 	                this.__analysis(itemProps))
@@ -13948,6 +17204,9 @@
 	                for (var _iterator = gitem[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var item = _step.value;
 
+	                    if (!item) {
+	                        continue;
+	                    }
 	                    var formItem = void 0;
 	                    if (item instanceof Array) {
 	                        formItem = _react2.default.createElement(
@@ -14227,24 +17486,15 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 160 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(161);
-
-	module.exports = __webpack_require__(163).default;
+	module.exports = __webpack_require__(93).default;
 
 /***/ }),
-/* 161 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 162 */,
-/* 163 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14255,13 +17505,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _base = __webpack_require__(59);
+
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14275,10 +17529,9 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	// import {BaseComponent} from 'src/base';
-
-	var Ueditor = function (_React$PureComponent) {
-	    _inherits(Ueditor, _React$PureComponent);
+	// export default class Ueditor extends React.PureComponent {
+	var Ueditor = function (_BaseComponent) {
+	    _inherits(Ueditor, _BaseComponent);
 
 	    function Ueditor(props) {
 	        _classCallCheck(this, Ueditor);
@@ -14286,6 +17539,7 @@
 	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
 
 	        _this.name = props.name;
+	        _this.ueditor = null;
 	        // 保证每次实例化都有一个唯一的id
 	        _this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
 	        _this.data = props.data;
@@ -14326,6 +17580,17 @@
 	        value: function componentDidMount() {
 	            var _this3 = this;
 
+	            this._factory.$requirejs(['ueditor'], function (UE) {
+	                // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
+	                _this3.ueditor = window.UE;
+	                _this3.initUeditor();
+	            });
+	        }
+	    }, {
+	        key: 'initUeditor',
+	        value: function initUeditor() {
+	            var _this4 = this;
+
 	            // 初始化
 	            var config = {
 	                autoHeightEnabled: true,
@@ -14339,14 +17604,14 @@
 	            if (this.props.simple) {
 	                config['toolbars'] = [['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'fontsize', 'forecolor', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'fullscreen', 'cusUpload']];
 	            }
-	            Object.assign(config, this.props);
-	            this.ue = UE.getEditor(this.ueditorId, config);
+	            Object.assign(config, _utils.Utils.filter(this.props, this._filter));
+	            this.ue = this.ueditor.getEditor(this.ueditorId, config);
 	            // 同步数据
 	            this.ue.addListener('contentChange', function () {
-	                clearTimeout(_this3.timer);
-	                _this3.timer = setTimeout(function () {
-	                    var newValue = _this3.ue.getContent();
-	                    _this3.triggerChange(newValue);
+	                clearTimeout(_this4.timer);
+	                _this4.timer = setTimeout(function () {
+	                    var newValue = _this4.ue.getContent();
+	                    _this4.triggerChange(newValue);
 	                }, 150);
 	            });
 	            this._transmitComponent();
@@ -14364,7 +17629,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                this._factory$components.set(this.name, this.ue);
+	                this._factory.$components.set(this.name, this.ue);
 	            }
 	        }
 	        // 解除共享
@@ -14373,7 +17638,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                this._factory$components.del(this.name);
+	                this._factory.$components.del(this.name);
 	            }
 	        }
 	    }, {
@@ -14398,12 +17663,12 @@
 	    }]);
 
 	    return Ueditor;
-	}(_react2.default.PureComponent);
+	}(_base.BaseComponent);
 
 	exports.default = Ueditor;
 
 /***/ }),
-/* 164 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14416,19 +17681,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14474,6 +17739,7 @@
 	                // 使之成为受控组件，实现与Form嵌套
 	                if (!_utils.Utils.equals(this.__prevProps.formData, nextProps.formData)) {
 	                    this.setDefaultValues(nextProps.formData);
+	                    this.forceUpdate();
 	                }
 	            }
 	        }
@@ -14806,7 +18072,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-add-delete-forms' },
+	                { className: 'uf-forms-container ' + (this.__props.className || ''), style: this.__props.style },
 	                this.renderForms(),
 	                this.generateButton()
 	            );
@@ -14819,15 +18085,15 @@
 	exports.default = CopyOrDeleteForm;
 
 /***/ }),
-/* 165 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(166).default;
+	module.exports = __webpack_require__(96).default;
 
 /***/ }),
-/* 166 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14842,21 +18108,21 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(121);
+	var _antd = __webpack_require__(23);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _src = __webpack_require__(105);
+	var _src = __webpack_require__(10);
 
 	var _src2 = _interopRequireDefault(_src);
 
@@ -14871,8 +18137,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
-
-	// import './style.scss';
 
 	var NewModal = function (_BaseComponent) {
 	    _inherits(NewModal, _BaseComponent);
@@ -14898,11 +18162,11 @@
 	            }, this.__props);
 	        }
 	    }, {
-	        key: '_afterInit',
-	        value: function _afterInit() {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
 	            var _this2 = this;
 
-	            _get(NewModal.prototype.__proto__ || Object.getPrototypeOf(NewModal.prototype), '_afterInit', this).call(this);
+	            _get(NewModal.prototype.__proto__ || Object.getPrototypeOf(NewModal.prototype), '_afterSetProps', this).call(this);
 	            // footer的按钮点击时增加一些默认处理逻辑
 	            if (this.__props.footer) {
 	                var buttons = this.__props.footer;
@@ -14913,24 +18177,28 @@
 	                    return _this2._handleButton(item);
 	                });
 	                this.__props.footerContent = this.__analysis(buttons);
+	                delete this.__props.footer;
 	            }
 	            // 如果有form属性，说明是form弹框，做额外处理
 	            if (this.__props.form) {
+	                var formConf = this.__props.form;
+	                if (_utils.Utils.typeof(formConf, 'function')) {
+	                    formConf = formConf();
+	                } else {
+	                    // 如果是
+	                    delete this.__props.form;
+	                }
 	                // form配置
-	                var formConf = Object.assign({
+	                formConf = Object.assign({
 	                    type: 'form',
 	                    wrappedComponentRef: function wrappedComponentRef(inst) {
 	                        _this2.formRef = inst;
 	                    }
-	                }, this.__props.form);
+	                }, formConf);
 	                // 兼容 formData 置于不同位置
 	                formConf.formData = formConf.formData || this.__props.params;
 	                // 可以写其他内容在content中，置于form之上
 	                this.__props.formContent = this.__analysis(formConf);
-	            }
-	            // COMPAT: 兼容原来的 message 参数，后续版本中移除
-	            if (this.__props.message) {
-	                this.__props.render = this.__props.message;
 	            }
 	        }
 
@@ -15127,7 +18395,7 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 167 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15136,10 +18404,10 @@
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(168).default;
+	module.exports = __webpack_require__(98).default;
 
 /***/ }),
-/* 168 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15150,17 +18418,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15196,7 +18464,7 @@
 	            // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
 	            //     this.chart.setOption(this.__filterProps(nextProps));
 	            // }
-	            this.chart.setOption(this.__filterProps(nextProps));
+	            this.chart && this.chart.setOption(this.__filterProps(nextProps));
 	        }
 	    }, {
 	        key: 'shouldComponentUpdate',
@@ -15210,24 +18478,20 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            var _this2 = this;
+
 	            // 执行的时候再获取
 	            var echarts = window.echarts;
 	            if (echarts) {
 	                this.echarts = echarts;
 	                this.initEcharts();
 	            } else {
-	                console.error('There is no echarts, please check.');
-	                // 打包的代码不支持requirejs方式
-	                // _$echarts 的路径见 src/default/index.js 中的配置
-	                // this._factory.$requirejs(['_$echarts'], echarts=>{
-	                //     this.echarts = echarts;
-	                //     this.initEcharts();
-	                // });
-	                // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
-	                // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
-	                //     this.echarts = window.echarts;
-	                //     this.initEcharts();
-	                // });
+	                // 惰性加载
+	                // echarts 的路径见 src/default/index.js 中的配置
+	                this._factory.$requirejs(['echarts'], function (echarts) {
+	                    _this2.echarts = echarts;
+	                    _this2.initEcharts();
+	                });
 	            }
 	        }
 	    }, {
@@ -15242,12 +18506,14 @@
 	                // 把echarts的api全部转移到当前组件上
 	                this._agencyFunction(chart);
 	                this._agencyFunction(Object.getPrototypeOf(chart));
+	            } else {
+	                _utils.Utils.async(console.error, 'There is no echarts, please check.');
 	            }
 	        }
 	    }, {
 	        key: '_agencyFunction',
 	        value: function _agencyFunction(origin) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
@@ -15258,10 +18524,10 @@
 	                    var i = _step.value;
 
 	                    if (_utils.Utils.typeof(origin[i], 'function')) {
-	                        _this2._inject(_this2, i, function () {
+	                        _this3._inject(_this3, i, function () {
 	                            var _chart;
 
-	                            (_chart = _this2.chart)[i].apply(_chart, arguments);
+	                            (_chart = _this3.chart)[i].apply(_chart, arguments);
 	                        });
 	                    }
 	                };
@@ -15304,7 +18570,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 169 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15313,10 +18579,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(170).default;
+	module.exports = __webpack_require__(100).default;
 
 /***/ }),
-/* 170 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15327,17 +18593,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(107);
+	var _reactDom = __webpack_require__(12);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15367,7 +18633,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'fieldset',
-	                { className: 'uf-fieldset' },
+	                { className: 'uf-fieldset ' + (this.__props.className || ''), style: this.__props.style },
 	                _react2.default.createElement(
 	                    'legend',
 	                    null,
@@ -15384,34 +18650,34 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 171 */
+/* 101 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 172 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(173);
+	var _config = __webpack_require__(103);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _components = __webpack_require__(176);
+	var _components = __webpack_require__(106);
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _model = __webpack_require__(177);
+	var _model = __webpack_require__(107);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _ajax = __webpack_require__(178);
+	var _ajax = __webpack_require__(108);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15438,7 +18704,7 @@
 	};
 
 /***/ }),
-/* 173 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15451,19 +18717,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(125);
+	var _BaseCache2 = __webpack_require__(56);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(174);
+	var _default = __webpack_require__(104);
 
 	var _default2 = _interopRequireDefault(_default);
 
-	var _utils = __webpack_require__(116);
+	var _utils = __webpack_require__(18);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15513,7 +18779,7 @@
 	});
 
 /***/ }),
-/* 174 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15522,11 +18788,24 @@
 	    value: true
 	});
 
-	var _components = __webpack_require__(175);
+	var _components = __webpack_require__(105);
 
 	var _components2 = _interopRequireDefault(_components);
 
+	var _env = __webpack_require__(13);
+
+	var _env2 = _interopRequireDefault(_env);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// 指定ueditor资源路径，否则css等加载路径不对
+	/**
+	 * @file 全局默认配置
+	 * @author liuzechun
+	 * Created Date: 2018-01-30 10:55:45
+	 */
+
+	window.UEDITOR_HOME_URL = _env2.default.basePath + '/third_party/ueditor/';
 
 	exports.default = {
 	    // 模块引入相关配置
@@ -15534,7 +18813,24 @@
 	        // 加载模块时是否展示loading
 	        showLoading: false,
 	        paths: {
-	            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+	            'echarts': _env2.default.basePath + '/third_party/echarts/echarts' + (_env2.default.production ? '.min' : ''),
+	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all',
+	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config',
+	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard'
+	        },
+	        shim: {
+	            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+	            // 'ueditor': {
+	            //     deps: ['zeroclipboard', 'ueditorconfig'],
+	            //     exports: 'UE',
+	            //     init: function (zeroclipboard) {
+	            //         window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
+	            //         return window.UE;
+	            //     }
+	            // },
+	            'echarts': {
+	                exports: 'echarts'
+	            }
 	        }
 	    },
 	    // 全局系统配置
@@ -15549,14 +18845,10 @@
 	    // 权限点，用户有权限的权限点列表
 	    // key（权限点） => value（boolen/object）
 	    authority: {}
-	}; /**
-	    * @file 全局默认配置
-	    * @author liuzechun
-	    * Created Date: 2018-01-30 10:55:45
-	    */
+	};
 
 /***/ }),
-/* 175 */
+/* 105 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -15587,7 +18879,8 @@
 	        },
 	        api: {
 	            showLoading: true,
-	            trigger: 'onClick'
+	            trigger: 'onClick',
+	            method: 'post'
 	        }
 	    },
 	    'antd': {},
@@ -15643,6 +18936,9 @@
 	        control: {
 	            trigger: 'onPressEnter'
 	        }
+	    },
+	    'textarea': {
+	        style: { minHeight: '2em' }
 	    },
 	    'radio': {
 	        source: {
@@ -15736,7 +19032,8 @@
 	        },
 	        source: {
 	            // 自动加载数据
-	            autoLoad: true
+	            autoLoad: true,
+	            autoReload: true
 	        },
 	        data: []
 	    },
@@ -15757,11 +19054,18 @@
 	                return v;
 	            }
 	        }
+	    },
+	    'tree': {
+	        source: {
+	            autoLoad: true,
+	            autoReload: false,
+	            target: 'data'
+	        }
 	    }
 	};
 
 /***/ }),
-/* 176 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15774,11 +19078,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(125);
+	var _BaseCache2 = __webpack_require__(56);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15833,7 +19137,7 @@
 	});
 
 /***/ }),
-/* 177 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15842,13 +19146,13 @@
 	  value: true
 	});
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _BaseCache = __webpack_require__(125);
+	var _BaseCache = __webpack_require__(56);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15863,7 +19167,7 @@
 	     */
 
 /***/ }),
-/* 178 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15874,15 +19178,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _BaseCache2 = __webpack_require__(125);
+	var _BaseCache2 = __webpack_require__(56);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _utils = __webpack_require__(116);
+	var _utils = __webpack_require__(18);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15953,7 +19257,7 @@
 	});
 
 /***/ }),
-/* 179 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15964,33 +19268,33 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _loader = __webpack_require__(180);
+	var _loader = __webpack_require__(110);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(183);
+	var _adaptor = __webpack_require__(113);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(130);
+	var _authority = __webpack_require__(61);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(184);
+	var _validator = __webpack_require__(114);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(131);
+	var _whitelist = __webpack_require__(62);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16073,10 +19377,9 @@
 	            //     return <Item {...props} />;
 	            // }
 
-	            // 校验是否有 type 属性且
-	            // TODO:
+	            // 校验对象是否有 type 属性，如果没有直接跳过解析
 	            if (!_validator2.default.check(item, 'type', 'string')) {
-	                return item;
+	                return null;
 	            }
 	            // 临时存储的变量，供各个tools使用
 	            item.insName = this.insName;
@@ -16166,6 +19469,8 @@
 	            }
 	            var result = void 0;
 	            if (_utils.Utils.typeof(config, 'array')) {
+	                // 如果是数组，则检查数组项中每一项是否有key，如果没有则尝试添加
+	                _adaptor2.default.checkArrayItems(config);
 	                result = [];
 	                var _iteratorNormalCompletion = true;
 	                var _didIteratorError = false;
@@ -16197,6 +19502,7 @@
 	            return result;
 	        }
 
+	        // 
 	        // 有些属性可以是ReactNode，也就是也可以配置成一个组件，所以需要再次把这些属性解析为组件
 
 	    }, {
@@ -16289,7 +19595,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 180 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16298,23 +19604,23 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _dom = __webpack_require__(181);
+	var _dom = __webpack_require__(111);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
-	var _lib = __webpack_require__(108);
+	var _lib = __webpack_require__(14);
 
 	var UF = _interopRequireWildcard(_lib);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -16338,7 +19644,8 @@
 	    get: function get(item) {
 	        var type = item.type;
 	        var name = _utils.Utils.toPascal(type);
-	        var result = this.component[name];
+	        // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
+	        var result = this.component[name] || this.component[type];
 	        if (!result) {
 	            // 检查是否为React原生元素
 	            if (_react2.default.DOM.hasOwnProperty(type)) {
@@ -16359,21 +19666,21 @@
 	    // 获取完整的组件配置
 	    // 1、普通组件本身配置了默认属性，此处进行属性合并
 	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-	    getConf: function getConf(item) {
+	    getConf: function getConf() {
+	        var item = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
 
 	        var oType = item.type;
 	        var conf = (0, _instance.getConfig)(insName).get('components.' + oType);
 	        if (conf) {
 	            if (_utils.Utils.typeof(conf, 'function')) {
-	                conf = conf();
+	                conf = conf(item.params);
 	            }
-	            item.type = conf.type || oType;
-	            item = _utils.Utils.merge({}, conf, item);
+	            item = _utils.Utils.merge({}, conf, item, { type: conf.type || oType });
 	        }
 	        // 如果type进行了变换，则再次进行配置获取
 	        if (oType !== item.type) {
-	            item = this.getConf(item);
+	            item = this.getConf(item, insName);
 	        }
 	        return item;
 	    },
@@ -16394,18 +19701,17 @@
 	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
 	    }
 	};
-	// import Model from './model.js';
 
 /***/ }),
-/* 181 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(182).default;
+	module.exports = __webpack_require__(112).default;
 
 /***/ }),
-/* 182 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16420,13 +19726,13 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(106);
+	var _react = __webpack_require__(11);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16503,7 +19809,7 @@
 	exports.default = Dom;
 
 /***/ }),
-/* 183 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16520,19 +19826,19 @@
 	// import Model from './model.js';
 
 
-	var _base = __webpack_require__(128);
+	var _base = __webpack_require__(59);
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
-	var _Antd = __webpack_require__(127);
+	var _Antd = __webpack_require__(58);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(180);
+	var _loader = __webpack_require__(110);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(131);
+	var _whitelist = __webpack_require__(62);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -16544,10 +19850,8 @@
 
 	exports.default = {
 	    get: function get(item) {
-	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
-	        // TODO: 性能待观察，不能小于3
-	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
+	        // 移到 factory.analysisAgain 时处理
+	        // item.key = item.key || item.name || Utils.hash(item, null, 4);
 
 	        var Item = _loader2.default.get(item);
 	        var props = _utils.Utils.filter(item, KeyWord);
@@ -16687,6 +19991,47 @@
 	        return obj;
 	    },
 
+	    // 检查数组项中每一项是否有值，如果没有则尝试添加
+	    checkArrayItems: function checkArrayItems(items) {
+	        var existKeys = {};
+	        var _iteratorNormalCompletion3 = true;
+	        var _didIteratorError3 = false;
+	        var _iteratorError3 = undefined;
+
+	        try {
+	            for (var _iterator3 = items[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                var item = _step3.value;
+
+	                if (_utils.Utils.typeof(item, 'object') && item.key === undefined) {
+	                    item.key = item.key || item.name;
+	                    if (item.key === undefined) {
+	                        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
+	                        // 但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	                        // 为保证生成的key在数组中不重复，循环时临时保存生成的key，并对比当新生成的key已存在则不再进行赋值
+	                        var genkey = _utils.Utils.hash(item, null, 4);
+	                        if (!existKeys[genkey]) {
+	                            item.key = genkey;
+	                            existKeys[genkey] = true;
+	                        }
+	                    }
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError3 = true;
+	            _iteratorError3 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                    _iterator3.return();
+	                }
+	            } finally {
+	                if (_didIteratorError3) {
+	                    throw _iteratorError3;
+	                }
+	            }
+	        }
+	    },
+
 
 	    /****** 针对组件的参数处理 ****************************************************************/
 
@@ -16697,7 +20042,7 @@
 	};
 
 /***/ }),
-/* 184 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16706,7 +20051,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(115);
+	var _utils = __webpack_require__(17);
 
 	exports.default = {
 	    // 检查对象上的某个(些)属性是否符合指定类型
@@ -16754,7 +20099,9 @@
 
 	    // 打印错误信息
 	    error: function error(item, name, type) {
-	        console.error('Uncaught TypeError: ' + name + ' is ' + ('' + (type ? 'not ' + type : 'undefined')) + (' in item\'s config "' + JSON.stringify(item) + '"'));
+	        _utils.Utils.async(function () {
+	            console.error('Uncaught TypeError: ' + name + ' is ' + ('' + (type ? 'not ' + type : 'undefined')) + (' in item\'s config "' + JSON.stringify(item) + '"'));
+	        });
 	    }
 	}; /**
 	    * @file 数据校验器
@@ -16762,95 +20109,24 @@
 	    */
 
 /***/ }),
-/* 185 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(106);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(107);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _antd = __webpack_require__(121);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	    uf: {},
-	    count: 0,
-	    success: function success() {
-	        --this.count;
-	        if (this.count === 0) {
-	            // 全部执行完成后执行再执行init初始化页面
-	            this.uf._reInit();
-	        }
-	    },
-	    error: function error(err) {
-	        _antd.notification.error({
-	            top: 24,
-	            message: '执行出错，已阻止页面加载',
-	            duration: 0,
-	            description: JSON.stringify(err)
-	        });
-	    },
-	    handle: function handle(arr, uf) {
-	        this.waiting = true;
-	        this.uf = uf;
-	        this.count = arr.length;
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-
-	        try {
-	            for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                var func = _step.value;
-
-	                func(this.success.bind(this), this.error.bind(this));
-	            }
-	        } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
-	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion && _iterator.return) {
-	                    _iterator.return();
-	                }
-	            } finally {
-	                if (_didIteratorError) {
-	                    throw _iteratorError;
-	                }
-	            }
-	        }
-	    }
-	}; /**
-	    * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
-	    * @author liuzechun
-	    * Created Date: 2017-12-18 07:48:32
-	    */
-
-/***/ }),
-/* 186 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _ajax = __webpack_require__(120);
+	var _ajax = __webpack_require__(22);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _requirejs = __webpack_require__(187);
+	var _requirejs = __webpack_require__(116);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
-	var _instance = __webpack_require__(124);
+	var _precondition = __webpack_require__(117);
+
+	var _precondition2 = _interopRequireDefault(_precondition);
+
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16866,12 +20142,16 @@
 	        obj.Requirejs = _requirejs2.default.init(insName);
 	        (0, _instance.setRequirejs)(insName, obj.Requirejs);
 
+	        // precondition 实例
+	        obj.Precondition = _precondition2.default.init(insName);
+	        (0, _instance.setPrecondition)(insName, obj.Precondition);
+
 	        return obj;
 	    }
 	};
 
 /***/ }),
-/* 187 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;'use strict';
@@ -16892,16 +20172,16 @@
 	/*jslint regexp: true, nomen: true, sloppy: true */
 	/*global window, navigator, document, importScripts, setTimeout, opera */
 
-	var _utils = __webpack_require__(116);
+	var _utils = __webpack_require__(18);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(124);
+	var _instance = __webpack_require__(55);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// var appList = {};
-	var globalDefine = [];
+	// 保证只有一份
+	var globalDefine = window.globalDefine = window.globalDefine || [];
 
 	exports.default = (0, _instance.generate)(function (insName) {
 
@@ -18613,7 +21893,7 @@
 	                    //     2、不是仅包含require的回调函数
 	                    // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
 	                    var cbStr = callback.toString().slice(0, 50);
-	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
+	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('(exports)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
 	                        var uf = (0, _instance.getInstance)(insName);
 	                        args.unshift(uf);
 	                    }
@@ -18641,9 +21921,15 @@
 	                        //      如果define执行之后立即（同步）触发事件，不会有问题；
 	                        //      如果存在 globalDefine 中出现两个不同requirejs实例存入的内容，则会出错
 	                        // 从 globalDefine 中取走全部加载完成后使用全局 define 函数初始化的模块
-	                        while (globalDefine.length) {
-	                            define.apply(undefined, globalDefine.shift());
-	                        }
+	                        // while(globalDefine.length) {
+	                        //     define.apply(undefined, globalDefine.shift());
+	                        // }
+	                        // update at 2018-07-31, 当有其余模块
+	                        // TODO: 继续待观察
+	                        //   因为使用script引入带umd检查的文件时，文件内容会通过define注册到globalDefine中
+	                        //      出现多余的模块会导致整个requirejs内部模块混乱
+	                        //   所以改为每次触发onScriptLoad时从堆栈中获取一个，剩余的作为僵尸模块（永远存在堆栈的底部）
+	                        define.apply(undefined, globalDefine.pop());
 
 	                        //Pull out the name of the module and the context.
 	                        var data = getScriptData(evt);
@@ -19085,10 +22371,107 @@
 	var define = function define(name, deps, callback) {
 	    globalDefine.push([name, deps, callback]);
 	};
+	// 供umd识别
+	define.amd = {
+	    jQuery: true
+	};
 
 	// update at 2018-03-19 18:41:28 by liuzechun
 	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
 	window['_define'] = define;
+
+/***/ }),
+/* 117 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(11);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(12);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _antd = __webpack_require__(23);
+
+	var _instance = __webpack_require__(55);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
+	 * @author liuzechun
+	 * Created Date: 2017-12-18 07:48:32
+	 */
+
+	exports.default = (0, _instance.generate)(function (insName) {
+	    return {
+	        count: 0,
+	        // 设置预处理超时时间 30s
+	        delay: 30000,
+	        timer: null,
+	        success: function success() {
+	            --this.count;
+	            if (this.count <= 0) {
+	                this.count = 0;
+	                clearTimeout(this.timer);
+	                // 全部执行完成后执行再执行init初始化页面
+	                (0, _instance.getInstance)(insName)._reInit();
+	            }
+	        },
+	        error: function error(err) {
+	            _antd.notification.error({
+	                top: 24,
+	                message: '执行出错，已中断页面载入',
+	                duration: 0,
+	                description: JSON.stringify(err)
+	            });
+	        },
+	        handle: function handle(arr) {
+	            var _this = this;
+
+	            this.waiting = true;
+	            this.count += arr.length;
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var func = _step.value;
+
+	                    func(this.success.bind(this), this.error.bind(this));
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            clearTimeout(this.timer);
+	            this.timer = setTimeout(function () {
+	                _this.count = 0;
+	                _this.error('预加载数据超时！');
+	                _this.success();
+	            }, this.delay);
+	        }
+	    };
+	});
 
 /***/ })
 /******/ ]);

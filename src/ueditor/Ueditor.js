@@ -4,12 +4,15 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import {BaseComponent} from 'src/base';
+import {BaseComponent} from 'src/base';
+import {Utils} from 'src/utils';
 
-export default class Ueditor extends React.PureComponent {
+// export default class Ueditor extends React.PureComponent {
+export default class Ueditor extends BaseComponent {
     constructor(props) {
         super(props);
         this.name = props.name;
+        this.ueditor = null;
         // 保证每次实例化都有一个唯一的id
         this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
         this.data = props.data;
@@ -38,6 +41,13 @@ export default class Ueditor extends React.PureComponent {
         setData();
     }
     componentDidMount() {
+        this._factory.$requirejs(['ueditor'], UE=>{
+            // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
+            this.ueditor = window.UE;
+            this.initUeditor();
+        });
+    }
+    initUeditor() {
         // 初始化
         let config = {
             autoHeightEnabled: true,
@@ -62,8 +72,8 @@ export default class Ueditor extends React.PureComponent {
                 '|', 'link', 'fullscreen', 'cusUpload'
             ]]
         }
-        Object.assign(config, this.props);
-        this.ue = UE.getEditor(this.ueditorId, config);
+        Object.assign(config, Utils.filter(this.props, this._filter));
+        this.ue = this.ueditor.getEditor(this.ueditorId, config);
         // 同步数据
         this.ue.addListener('contentChange', ()=>{
             clearTimeout(this.timer);
@@ -82,13 +92,13 @@ export default class Ueditor extends React.PureComponent {
     // 共享组件
     _transmitComponent() {
         if (!!this.name) {
-            this._factory$components.set(this.name, this.ue);
+            this._factory.$components.set(this.name, this.ue);
         }
     }
     // 解除共享
     _unsetTransmitComponent() {
         if (!!this.name) {
-            this._factory$components.del(this.name);
+            this._factory.$components.del(this.name);
         }
     }
     triggerChange(changedValue) {

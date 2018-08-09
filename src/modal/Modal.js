@@ -9,8 +9,6 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import UF from 'src';
 
-// import './style.scss';
-
 class NewModal extends BaseComponent {
     constructor(props) {
         super(props);
@@ -25,8 +23,8 @@ class NewModal extends BaseComponent {
             onCancel: this._defaultCancelHandler.bind(this),
         }, this.__props);
     }
-    _afterInit() {
-        super._afterInit();
+    _afterSetProps() {
+        super._afterSetProps();
         // footer的按钮点击时增加一些默认处理逻辑
         if (this.__props.footer) {
             let buttons = this.__props.footer;
@@ -37,24 +35,28 @@ class NewModal extends BaseComponent {
                 return this._handleButton(item);
             });
             this.__props.footerContent = this.__analysis(buttons);
+            delete this.__props.footer;
         }
         // 如果有form属性，说明是form弹框，做额外处理
         if (this.__props.form) {
+            let formConf = this.__props.form;
+            if (Utils.typeof(formConf, 'function')) {
+                formConf = formConf();
+            } else {
+                // 如果是
+                delete this.__props.form;
+            }
             // form配置
-            let formConf = Object.assign({
+            formConf = Object.assign({
                 type: 'form',
                 wrappedComponentRef: inst=>{
                     this.formRef = inst;
                 }
-            }, this.__props.form);
+            }, formConf);
             // 兼容 formData 置于不同位置
             formConf.formData = formConf.formData || this.__props.params;
             // 可以写其他内容在content中，置于form之上
             this.__props.formContent = this.__analysis(formConf);
-        }
-        // COMPAT: 兼容原来的 message 参数，后续版本中移除
-        if (this.__props.message) {
-            this.__props.render = this.__props.message;
         }
     }
 

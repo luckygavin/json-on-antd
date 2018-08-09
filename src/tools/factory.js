@@ -64,10 +64,9 @@ export default class Factory extends PureComponent {
         //     return <Item {...props} />;
         // }
 
-        // 校验是否有 type 属性且
-        // TODO:
+        // 校验对象是否有 type 属性，如果没有直接跳过解析
         if (!Validator.check(item, 'type', 'string')) {
-            return item;
+            return null;
         }
         // 临时存储的变量，供各个tools使用
         item.insName = this.insName;
@@ -145,6 +144,8 @@ export default class Factory extends PureComponent {
         }
         let result;
         if (Utils.typeof(config, 'array')) {
+            // 如果是数组，则检查数组项中每一项是否有key，如果没有则尝试添加
+            Adaptor.checkArrayItems(config);
             result = [];
             for (let item of config) {
                 result.push(this.generateElement(item));
@@ -155,6 +156,7 @@ export default class Factory extends PureComponent {
         return result;
     }
 
+    // 
     // 有些属性可以是ReactNode，也就是也可以配置成一个组件，所以需要再次把这些属性解析为组件
     analysisAgain(props, type) {
         let list = WhiteList.get(props, type);

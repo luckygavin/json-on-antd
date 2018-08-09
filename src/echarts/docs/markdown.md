@@ -34,3 +34,16 @@ hideLoading | 隐藏加载动画效果 |
 ### 注意
 
 与其他组件不同的是，使用`UF('name')`获取到的是echarts的实例，所以可以使用echarts官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等
+
+
+默认引用的是 echarts3，如果需要切换其他版本，可在`UF.config`中进行如下配置：
+
+```javascript
+UF.config({
+    modules: {
+        paths: {
+            'echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+        }
+    }
+});
+```

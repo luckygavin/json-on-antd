@@ -20,7 +20,7 @@ if (production) {
 
 module.exports = {
     entry: {
-        'dll': __root + '/dist/entry/dll.entry.js'
+        'dll': __dirname + '/entry/dll.entry.js'
     },
     output: {
         path: outputPath,

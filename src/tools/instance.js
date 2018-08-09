@@ -90,6 +90,12 @@ const ins = {
     },
     setRequirejs(insName, obj) {
         return cache.set(`${insName}._$tools.Requirejs`, obj);
+    },
+    getPrecondition(insName) {
+        return cache.get(`${insName}._$tools.Precondition`);
+    },
+    setPrecondition(insName, obj) {
+        return cache.set(`${insName}._$tools.Precondition`, obj);
     }
 
 };

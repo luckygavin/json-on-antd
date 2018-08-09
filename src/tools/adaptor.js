@@ -16,10 +16,8 @@ const hashKeys = {};
 export default {
 
     get(item) {
-        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
-        // TODO: 性能待观察，不能小于3
-        item.key = item.key || item.name || Utils.hash(item, null, 4);
+        // 移到 factory.analysisAgain 时处理
+        // item.key = item.key || item.name || Utils.hash(item, null, 4);
 
         let Item = Loader.get(item);
         let props = Utils.filter(item, KeyWord);
@@ -100,6 +98,25 @@ export default {
             obj[newKey] = value;
         }
         return obj;
+    },
+    // 检查数组项中每一项是否有值，如果没有则尝试添加
+    checkArrayItems(items) {
+        let existKeys = {};
+        for (let item of items) {
+            if (Utils.typeof(item, 'object') && item.key === undefined) {
+                item.key = item.key || item.name;
+                if (item.key === undefined) {
+                    // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
+                    // 但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+                    // 为保证生成的key在数组中不重复，循环时临时保存生成的key，并对比当新生成的key已存在则不再进行赋值
+                    let genkey = Utils.hash(item, null, 4);
+                    if (!existKeys[genkey]) {
+                        item.key = genkey;
+                        existKeys[genkey] = true;
+                    }
+                }
+            }
+        }
     },
 
     /****** 针对组件的参数处理 ****************************************************************/

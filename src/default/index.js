@@ -5,6 +5,10 @@
  */
 
 import components from './components.js';
+import env from 'src/env.js';
+
+// 指定ueditor资源路径，否则css等加载路径不对
+window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
 
 export default {
     // 模块引入相关配置
@@ -12,7 +16,24 @@ export default {
         // 加载模块时是否展示loading
         showLoading: false,
         paths: {
-            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+            'echarts': `${env.basePath}/third_party/echarts/echarts${env.production ? '.min' : ''}`,
+            'ueditor': `${env.basePath}/third_party/ueditor/ueditor.all`,
+            'ueditorconfig': `${env.basePath}/third_party/ueditor/ueditor.config`,
+            'zeroclipboard': `${env.basePath}/third_party/ueditor/ZeroClipboard`
+        },
+        shim: {
+            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+            // 'ueditor': {
+            //     deps: ['zeroclipboard', 'ueditorconfig'],
+            //     exports: 'UE',
+            //     init: function (zeroclipboard) {
+            //         window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
+            //         return window.UE;
+            //     }
+            // },
+            'echarts': {
+                exports: 'echarts'
+            }
         }
     },
     // 全局系统配置

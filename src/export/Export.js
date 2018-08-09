@@ -9,8 +9,6 @@ import {BaseComponent} from 'src/base';
 import {Icon, Button, InputNumber, Progress, Alert, Modal} from 'antd';
 import {Utils} from 'src/utils';
 
-// import './style.scss';
-
 export default class Export extends BaseComponent {
     constructor(props) {
         super(props, 'export');
@@ -352,7 +350,7 @@ export default class Export extends BaseComponent {
         }
         let name = this.getFileName();
         return (
-            <div className="uf-export">
+            <div className={'uf-export ' + (this.config.className || '')} style={this.config.style}>
                 <a ref={ele=>(this.aRef = ele)} href={link} download={name}>
                     {this.props.children}
                 </a>
@@ -362,7 +360,7 @@ export default class Export extends BaseComponent {
     // 异步导出方式页面 - 即通过url异步加载数据
     asynExportRender() {
         return (
-            <div className="uf-export">
+            <div className={'uf-export ' + (this.config.className || '')} style={this.config.style}>
                 <span onClick={this.showModal.bind(this)}>
                     {this.props.children}
                 </span>

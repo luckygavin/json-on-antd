@@ -46,9 +46,6 @@ module.exports = {
                 test: /\.(css)$/,
                 loader: cssBuilder.extract('style', 'css') // 分离css和js文件
             }, {
-                test: /\.(scss)$/,
-                loader: cssBuilder.extract('style', 'css!sass') // 分离css和js文件
-            }, {
                 test: /\.(less)$/,
                 loader: cssBuilder.extract('style', 'css!less') // 分离css和js文件
             }, {
@@ -79,10 +76,11 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.json'],
+        extensions: ['', '.js', '.jsx', '.json', '.less'],
         alias: {
             'docs': __dirname + '/docs',
             'src': __dirname + '/src',
+            'theme': __dirname + '/theme',
             'root': __dirname,
             'uf': __dirname
         }
@@ -93,7 +91,6 @@ module.exports = {
         'react-router': 'window.DLL.ReactRouter',
         'immutable': 'window.DLL.Immutable',
         'core-js': 'window.DLL.CoreJs',
-        'reqwest': 'window.DLL.reqwest',
         'moment': 'window.DLL.moment',
         'moment/locale/zh-cn': 'window.DLL.moment_zh_cn',
         'antd': 'window.DLL.Antd'

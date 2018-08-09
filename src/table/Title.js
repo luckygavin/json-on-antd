@@ -30,6 +30,9 @@ export default class Title extends BaseComponent {
         // 其本身无需初始化组件
         // this.__init();
         this.parent = props.parent;
+        // 缓存展示字段名称组件的cacheName
+        this.cacheName = this.parent.insName + this.parent.key;
+        this.useCache = true;
         // 搜索/过滤功能
         this.filter = this.parent.filter;
         this.title = props.config;
@@ -46,6 +49,17 @@ export default class Title extends BaseComponent {
         // 过滤字段黑名单/白名单
         this.globalFilterList = null;
     }
+    componentDidMount() {
+        if (this.useCache) {
+            // 当有缓存时，使用缓存的选中列
+            let cache = Utils.getCache(this.cacheName);
+            if (cache) {
+                this.columnsCheckedValues = cache;
+                this.setTableColumns();
+            }
+        }
+    }
+
     clearState() {
         this.setState({filterValue: ''});
         this.hideMenuDropdown();
@@ -145,6 +159,9 @@ export default class Title extends BaseComponent {
                         </div>);
                     break;
                 case 'switchTags':
+                    if (v.cache === false) {
+                        this.useCache = false;
+                    }
                     result.push(<div className="uf-header-widget" key="switchTags"
                                 title={v.text || '展示字段'}
                                 onClick={this.showSwitchTags.bind(this)}>
@@ -465,6 +482,8 @@ export default class Title extends BaseComponent {
                 allColumns[i].display = false;
             }
         }
+        // 缓存配置
+        Utils.setCache(this.cacheName, showColumns);
         this.setState({showSetTagsModal: false});
         this.parent.forceUpdate();
     }
@@ -545,7 +564,7 @@ export default class Title extends BaseComponent {
     render() {
         return <div>
             {this.titleGenerate()}
-            <Modal title="展示字段" className="uf-table-modal"
+            <Modal title="展示字段" className="uf-table-modal" key="uf-table-modal"
                 visible={this.state.showSetTagsModal}
                 onOk={this.setTableColumns.bind(this)}
                 onCancel={this.cancleSetTableColumns.bind(this)}>

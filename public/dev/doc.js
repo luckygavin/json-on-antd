@@ -48,23 +48,23 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(105);
+	var _reactRouter = __webpack_require__(107);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _Header = __webpack_require__(107);
+	var _Header = __webpack_require__(109);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Nav = __webpack_require__(109);
+	var _Nav = __webpack_require__(111);
 
 	var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -79,21 +79,21 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
 
-	__webpack_require__(110);
-	__webpack_require__(114);
+	__webpack_require__(186);
+	__webpack_require__(112);
 
 	// 通用文档
-	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(116).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(258).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(259).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(260).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(261).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(262).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(263).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(264).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(265).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(266).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(267).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(268).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(269).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(270).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(271).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(272).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(273).default }];
+	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(116).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(289).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(290).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(291).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(292).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(293).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(294).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(295).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(296).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(297).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(298).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(299).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(300).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(301).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(302).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(303).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(304).default }];
 
 	// 组件文档列表
-	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(274).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(276).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(278).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(280).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(282).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(284).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(286).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(288).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(290).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(292).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(294).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(295).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(296).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(297).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(298).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(300).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(301).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(302).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(303).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(304).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(305).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(306).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(307).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(308).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(309).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(310).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(311).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(312).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(313).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(314).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(315).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(316).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(317).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(318).default },
+	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(305).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(307).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(309).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(311).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(313).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(315).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(317).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(319).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(321).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(323).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(325).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(326).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(327).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(328).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(329).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(331).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(332).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(333).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(334).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(335).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(336).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(337).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(338).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(339).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(340).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(341).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(342).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(343).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(344).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(345).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(346).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(347).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(348).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(349).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
-	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(319).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(320).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(321).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(322).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(323).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(324).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(325).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(326).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(327).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(328).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(329).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(330).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(331).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(332).default }] }, { path: 'Other', name: '其他组件', children: [
+	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(350).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(351).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(352).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(353).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(354).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(355).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(356).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(357).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(358).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(359).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(360).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(361).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(362).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(363).default }] }, { path: 'Other', name: '其他组件', children: [
 	    // {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
-	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(333).default }] }];
+	    { path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(364).default }] }];
 
 	// 全部路由列表
-	var RouteList = [{ path: 'Index', name: '首页', component: __webpack_require__(334).default }, { path: 'Standard', name: '规范', component: __webpack_require__(335).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(336).default }].concat(DocsList, ComponentList);
+	var RouteList = [{ path: 'Index', name: '首页', component: __webpack_require__(365).default }, { path: 'Standard', name: '规范', component: __webpack_require__(366).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(367).default }].concat(DocsList, ComponentList);
 
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -304,31 +304,33 @@
 /* 100 */,
 /* 101 */,
 /* 102 */,
-/* 103 */
+/* 103 */,
+/* 104 */,
+/* 105 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.React;
 
 /***/ }),
-/* 104 */
+/* 106 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactDOM;
 
 /***/ }),
-/* 105 */
+/* 107 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
 
 /***/ }),
-/* 106 */
+/* 108 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.Antd;
 
 /***/ }),
-/* 107 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -339,11 +341,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -358,7 +360,7 @@
 
 	var SubMenu = _antd.Menu.SubMenu;
 	var MenuItemGroup = _antd.Menu.ItemGroup;
-	var json = __webpack_require__(108);
+	var json = __webpack_require__(110);
 	var version = json.version;
 	var versionList = json.versionList;
 
@@ -496,13 +498,13 @@
 	exports.default = Header;
 
 /***/ }),
-/* 108 */
+/* 110 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0","reqwest":"^2.0.5"},"devDependencies":{"autoprefixer":"^6.5.4","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.6","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
-/* 109 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -513,11 +515,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -623,21 +625,14 @@
 	exports.default = Nav;
 
 /***/ }),
-/* 110 */
+/* 112 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 111 */,
-/* 112 */,
 /* 113 */,
-/* 114 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 114 */,
 /* 115 */,
 /* 116 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -648,11 +643,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -701,11 +696,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -837,7 +832,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
@@ -862,7 +857,7 @@
 
 	// import requirejs from 'src/tools/requirejs.js';
 	// import {switchCode} from './Demo.js';
-	var config = __webpack_require__(108);
+	var config = __webpack_require__(110);
 
 	var Markdown = function (_React$Component) {
 	    _inherits(Markdown, _React$Component);
@@ -2279,7 +2274,7 @@
 /* 121 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 加入我们\n\n* Hi 群： 1615792   \n* 邮件组： umpfe@baidu.com  \n* 接口人： 刘泽春（liuzechun@baidu.com）  \n\n## 开发标准\n> 技术标准: ES6编码标准，React+npm+Webpack技术  \n\n在实际项目开发中，你会需要对ES2015|ES2016|JSX代码进行构建，调试，代理，打包部署等一系列工程化的需求,这里提供npm+webpack的工具链来辅助开发\n\n> 样式标准: antd.css + sass\n\n本框架是基于Antd开发的，大量引用了antd的样式，详见：http://antd.uf.baidu.com\n\n## 项目结构\n```\nuf\n|-- dist                // 构建好的组件代码，供线上使用\n|-- docs                // 文档代码\n|   |-- app             // 组件 Demo。全部继承`BaseDoc.js`\n|   |-- markdown        // 组件 markdown 文档。其中`index.js`把全部md文件整合到一起\n|   |-- php             // 某些组件依赖后端接口，这里用来模拟后端接口返回模拟数据\n|   `-- entry.js        // 文档入口\n|-- lib                 // 编译后的代码，根据src代码生成，暂时用不到\n|-- public              // 打包生成的文档代码\n|-- src                 // 组件源代码\n|   |-- component       // 公共组件，例如：BaseComponent\n|   |-- utils           // 公共工具，例如：Ajax、Cache、Utils 等\n|   `-- 其他组件         // 其他组件\n|-- index.php           // 页面入口\n|-- package.json\n`-- webpack.config.js   // 构建公共库文件\n\n```\n\n## 文件组织：\nsrc 中，每个组件一个文件夹，里面包含：\n> js代码  \n> scss代码 - style.scss  \n> 引入文件 - index.js  \n\n\n## 组件开发\n\n### UF组件引入：\n`import Export from 'src/export';`\n> uf对应的是src文件夹，export即export组件的文件夹，因为存在index.js，所以无需指定组件名  \n\n### 组件继承：\n`import {BaseComponent} from 'src/component';`  \n`export default class Table extends BaseComponent {}`\n> 为了方便后面对组件通用功能进行拓展，自己开发的组件全部继承`BaseComponent`\n\n### 组件初始化：\n`this.__init();`\n> 组件的`constructor`构造函数里，执行完`super(props);`之后，紧接着需调用`this.__init();`函数对组件进行初始化，此函数再BaseComponent里实现，用于做通用处理\n\n### 组件命名：\n* 组件名和文件名一致，均采用帕斯卡命名法（即全部首字母大写）\n* 组件名要尽量简短易懂，尽量用一个单词\n\n### 通用字段命名\n```\ndata        数据\nparams      参数对象\nsource      异步请求获取数据接口\napi         异步提交数据接口\n```\n\n### 特殊字段\n以下关键字解析时会有额外操作   \ncontent     子内容\n\n\n### 组件开发规范\n1. 除antd外，尽量不要引入其他第三方组件\n2. 接口及配置项命名需语义化，统一采用驼峰命名\n3. 语义化不是把中文转换成英文，命名时，在能表达清楚意思的前提下，名称要尽量短\n4. 组件顶层的配置项尽量少，分为三类：\n> config: 不变的配置，比如组件如何展示，需要调用那些控件等  \n> data:   组件所需的数据列表  \n> params: 组件调用接口时传递的参数（经常变化的参数，如果是静态的，也可以放到config中）  \n> 组件暴露出的事件（回调函数）直接放到组件的props上\n5. 代码注释\n> 开发时，养成随手写注释的习惯  \n> 至少每个函数需要注释说明是函数的作用，注释多多益善  \n> console.log 使用完要删除，不要到处留下 console.log\n\n---\n## BaseComponent 开发及使用\n这里的规范不仅限于BaseComponent，其他基础抽象类也使用以下规范\n\n### 开发规范\n开发时难免会遇到需要覆盖父类函数的情况，比如要在父类定义过的`__init`函数上追加处理逻辑，则需要即执行父类的原函数（super），又要执行新写入的逻辑，用法如下：  \n```javascript\n__init() {\n    super.__init.call(this);\n    this._setProps();\n}\n```\n\n如需要在React的生命周期的5个函数中增加处理逻辑，可以使用`_componentWillReceiveProps`这种名称之前加下划线的形式，组件调用__init函数时会自动把这几个函数的内容插入到对应的函数最前面执行：  \n```javascript\n_componentWillReceiveProps = (nextProps, ...params) => {\n    super._componentWillReceiveProps && super._componentWillReceiveProps();\n    this._initPorps();\n}\n```\n> 需要注意的是：为了防止覆盖父类的函数，需在函数里面加入 `super._xxx`来优先调用一下父类的函数  \n> 其次需要注意的有两点： \n> * 主要保证把全部参数传递给原函数  \n> * 调用顺序为 父类函数 > 当前函数 > 子类函数\n\n### 命名规范  \n直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  \n**`property`、`function`**  \n> 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()\n\n为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  \n**`_property`、`_function`**  \n> 私有属性和方法，均使用单下划线开头  \n\n**`__property`、`__function`**  \n> 供子组件调用的函数，使用双下划线开头，且命名要尽量简短易懂。例如：`this.__init()`\n\n### 功能列表\n\n##### **`__props`**  \n定义默认的props参数。  \n在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  \n也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】\n> 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法\n\n##### **`__init()`**  \n初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  \n> 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前\n\n##### **`__setProps(props[, follow])`**  \n用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  \n也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）  \n默认会刷新组件；也可以把第二个参数设为 false 阻止刷新\n\n##### **`__mergeProps(...objs)`**  \n合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  \n以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  \n> tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   \n\n##### **`__filterProps(obj, string/array)`**  \n从 obj 中过滤掉某些属性，可以是多个字符串参数，也可以是一个数组\n\n##### **`__shouldUpdate(this.props, nextProps)`**  \n用于 componentWillReceiveProps 中，判断是否需要刷新。这里使用的是正真的 props 和 nextProps   \n具体有如下两种特殊场景：  \n如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；  \n如果是set导致的，则两次的props肯定会有不同，需刷新  \n还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响  \n\n\n##### **`__filterProps(props, arr)`**  \n过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  \n> arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串\n\n##### **`__ajax(obj)`**\n通用的 `ajax` 函数。参数为一个对象。\n> 常用参数有：url、method、data、type、onchange、success、error\n\n##### **`__analysis(config)`**\n解析某个属性的配置。方便开发组件时解析一些可以为配置的属性\n\n##### **`__authority(item)`**\n判断是否为权限点 && 是否有权限\n\n##### **`__getComponent(item)`**\n获取缓存中的组件\n\n##### **`__getSourceData(config)`**\n从`source`接口获取数据  \n使用`source`系列参数获取数据时，可调用此函数，函数内部已经把source的各种处理做好（比如paramsHandler、handler等调用），只需传入对应的成功和失败处理函数即可。函数内部会在数据返回后经过`handler`处理的结果传递给`success`函数  \n传入的`config`包含`success`和`error`，source一系列处理完成后最终数据才会传给 `success`\n\n\n\n---\n## 文档编写规范\n1. 每个文档至少包含 4/5 部分\n> 组件示例：尽量把所有的功能在示例里展现出来  \n> 配置参数：解释每个参数的意义，注明是否必填和默认值。可写多个配置参数模块  \n> 回调函数：绑定到组件上的事件的回调函数，如：绑在`Input`组件上的`onChange`  \n> 调用接口：可供用户调用的接口，如暴露给用户的更改某些状态的函数  \n> 示例代码：实现`组件示例`所需代码，用户只需拷贝示例代码就可以在本地实现示例中的效果。(把配置抽离出来)\n2. 其他扩展部分：\n> 组件功能及特点介绍  \n> 组件高级用法、截图等\n\n"
+	module.exports = "## 加入我们\n\n* Hi 群： 1615792   \n* 邮件组： umpfe@baidu.com  \n* 接口人： 刘泽春（liuzechun@baidu.com）  \n\n## 开发标准\n> 技术标准: ES6编码标准，React+npm+Webpack技术  \n\n在实际项目开发中，你会需要对ES2015|ES2016|JSX代码进行构建，调试，代理，打包部署等一系列工程化的需求,这里提供npm+webpack的工具链来辅助开发\n\n> 样式标准: antd.css + sass\n\n本框架是基于Antd开发的，大量引用了antd的样式，详见：http://antd.uf.baidu.com\n\n## 项目结构\n```\nuf\n|-- dist                // 构建好的组件代码，供线上使用\n|-- docs                // 文档代码\n|   |-- app             // 组件 Demo。全部继承`BaseDoc.js`\n|   |-- markdown        // 组件 markdown 文档。其中`index.js`把全部md文件整合到一起\n|   |-- php             // 某些组件依赖后端接口，这里用来模拟后端接口返回模拟数据\n|   `-- entry.js        // 文档入口\n|-- lib                 // 编译后的代码，根据src代码生成，暂时用不到\n|-- public              // 打包生成的文档代码\n|-- src                 // 组件源代码\n|   |-- component       // 公共组件，例如：BaseComponent\n|   |-- utils           // 公共工具，例如：Ajax、Cache、Utils 等\n|   `-- 其他组件         // 其他组件\n|-- index.php           // 页面入口\n|-- package.json\n`-- webpack.config.js   // 构建公共库文件\n\n```\n\n## 文件组织：\nsrc 中，每个组件一个文件夹，里面包含：\n> js代码  \n> less代码 - style.less  \n> 引入文件 - index.js  \n\n\n## 组件开发\n\n### UF组件引入：\n`import Export from 'src/export';`\n> uf对应的是src文件夹，export即export组件的文件夹，因为存在index.js，所以无需指定组件名  \n\n### 组件继承：\n`import {BaseComponent} from 'src/component';`  \n`export default class Table extends BaseComponent {}`\n> 为了方便后面对组件通用功能进行拓展，自己开发的组件全部继承`BaseComponent`\n\n### 组件初始化：\n`this.__init();`\n> 组件的`constructor`构造函数里，执行完`super(props);`之后，紧接着需调用`this.__init();`函数对组件进行初始化，此函数再BaseComponent里实现，用于做通用处理\n\n### 组件命名：\n* 组件名和文件名一致，均采用帕斯卡命名法（即全部首字母大写）\n* 组件名要尽量简短易懂，尽量用一个单词\n\n### 通用字段命名\n```\ndata        数据\nparams      参数对象\nsource      异步请求获取数据接口\napi         异步提交数据接口\n```\n\n### 特殊字段\n以下关键字解析时会有额外操作   \ncontent     子内容\n\n\n### 组件开发规范\n1. 除antd外，尽量不要引入其他第三方组件\n2. 接口及配置项命名需语义化，统一采用驼峰命名\n3. 语义化不是把中文转换成英文，命名时，在能表达清楚意思的前提下，名称要尽量短\n4. 组件顶层的配置项尽量少，分为三类：\n> config: 不变的配置，比如组件如何展示，需要调用那些控件等  \n> data:   组件所需的数据列表  \n> params: 组件调用接口时传递的参数（经常变化的参数，如果是静态的，也可以放到config中）  \n> 组件暴露出的事件（回调函数）直接放到组件的props上\n5. 代码注释\n> 开发时，养成随手写注释的习惯  \n> 至少每个函数需要注释说明是函数的作用，注释多多益善  \n> console.log 使用完要删除，不要到处留下 console.log\n\n---\n## BaseComponent 开发及使用\n这里的规范不仅限于BaseComponent，其他基础抽象类也使用以下规范\n\n### 开发规范\n开发时难免会遇到需要覆盖父类函数的情况，比如要在父类定义过的`__init`函数上追加处理逻辑，则需要即执行父类的原函数（super），又要执行新写入的逻辑，用法如下：  \n```javascript\n__init() {\n    super.__init.call(this);\n    this._setProps();\n}\n```\n\n如需要在React的生命周期的5个函数中增加处理逻辑，可以使用`_componentWillReceiveProps`这种名称之前加下划线的形式，组件调用__init函数时会自动把这几个函数的内容插入到对应的函数最前面执行：  \n```javascript\n_componentWillReceiveProps = (nextProps, ...params) => {\n    super._componentWillReceiveProps && super._componentWillReceiveProps();\n    this._initPorps();\n}\n```\n> 需要注意的是：为了防止覆盖父类的函数，需在函数里面加入 `super._xxx`来优先调用一下父类的函数  \n> 其次需要注意的有两点： \n> * 主要保证把全部参数传递给原函数  \n> * 调用顺序为 父类函数 > 当前函数 > 子类函数\n\n### 命名规范  \n直接给用户调用的通用属性或函数，使用正常的驼峰命名，符合用户习惯  \n**`property`、`function`**  \n> 各个组件通用的函数，可在基础类中实现，例如各种表单组件的获取数据函数：getValue()\n\n为了防止基础类里面的函数及变量被子组件覆盖，不对用户可见的变量和函数全部用特殊的命名方式，如下：  \n**`_property`、`_function`**  \n> 私有属性和方法，均使用单下划线开头  \n\n**`__property`、`__function`**  \n> 供子组件调用的函数，使用双下划线开头，且命名要尽量简短易懂。例如：`this.__init()`\n\n### 功能列表\n\n##### **`__props`**  \n定义默认的props参数。  \n在开发组件时，一些不需要做额处理的默认参数，可以直接在`constructor()`里`this.__init()`之前在`this.__props`上增加值（BaseComponent的构造函数中已经初始化并赋值，这里不能直接覆盖）。【推荐直接在config.js中配置】  \n也可以在`config.js`中定义默认参数，见`config.js`文件【推荐】\n> 具体示例可见 `Iframe` 组件的 mode 参数默认值声明用法\n\n##### **`__init()`**  \n初始化BaseComponent里的功能，例如共享组件、注册自动解除共享等功能。每个继承 BaseComponent 的组件都必须在构造函数中调用此函数  \n> 注意本函数的调用时机，应该是在设置父类属性之后（如：`this.__controlled`属性），执行组件本身逻辑之前\n\n##### **`__setProps(props[, follow])`**  \n用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props  \n也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）  \n默认会刷新组件；也可以把第二个参数设为 false 阻止刷新\n\n##### **`__mergeProps(...objs)`**  \n合并默认配置和用户传入的配置，使后续代码中无需再判断属性值是否存在。支持传多个参数  \n以第一个对象为目标，依次把后面的对象merge到上去，支持深层的merge，类似于一个深层的 Object.assign()  \n> tips: 如果把 defaultProps 放在第一位，merge完成后defaultProps的值会变成merge后的数据，如果defaultProps需多次使用，会出问题，针对此问题，可以第一个参数放一个空对象，类似于Object.assign的用法   \n\n##### **`__filterProps(obj, string/array)`**  \n从 obj 中过滤掉某些属性，可以是多个字符串参数，也可以是一个数组\n\n##### **`__shouldUpdate(this.props, nextProps)`**  \n用于 componentWillReceiveProps 中，判断是否需要刷新。这里使用的是正真的 props 和 nextProps   \n具体有如下两种特殊场景：  \n如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；  \n如果是set导致的，则两次的props肯定会有不同，需刷新  \n还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响  \n\n\n##### **`__filterProps(props, arr)`**  \n过滤props中的某些属性，返回一个新的props对象。用于过滤例如原始标签上不支持的属性，防止会报很多warning。  \n> arr即可以为一个数组，也可以直接为一个字符串，如果只需要过滤掉一个属性，则可直接传入一个字符串\n\n##### **`__ajax(obj)`**\n通用的 `ajax` 函数。参数为一个对象。\n> 常用参数有：url、method、data、type、onchange、success、error\n\n##### **`__analysis(config)`**\n解析某个属性的配置。方便开发组件时解析一些可以为配置的属性\n\n##### **`__authority(item)`**\n判断是否为权限点 && 是否有权限\n\n##### **`__getComponent(item)`**\n获取缓存中的组件\n\n##### **`__getSourceData(config)`**\n从`source`接口获取数据  \n使用`source`系列参数获取数据时，可调用此函数，函数内部已经把source的各种处理做好（比如paramsHandler、handler等调用），只需传入对应的成功和失败处理函数即可。函数内部会在数据返回后经过`handler`处理的结果传递给`success`函数  \n传入的`config`包含`success`和`error`，source一系列处理完成后最终数据才会传给 `success`\n\n\n\n---\n## 文档编写规范\n1. 每个文档至少包含 4/5 部分\n> 组件示例：尽量把所有的功能在示例里展现出来  \n> 配置参数：解释每个参数的意义，注明是否必填和默认值。可写多个配置参数模块  \n> 回调函数：绑定到组件上的事件的回调函数，如：绑在`Input`组件上的`onChange`  \n> 调用接口：可供用户调用的接口，如暴露给用户的更改某些状态的函数  \n> 示例代码：实现`组件示例`所需代码，用户只需拷贝示例代码就可以在本地实现示例中的效果。(把配置抽离出来)\n2. 其他扩展部分：\n> 组件功能及特点介绍  \n> 组件高级用法、截图等\n\n"
 
 /***/ }),
 /* 122 */
@@ -2339,7 +2334,7 @@
 /* 131 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nname | 实例名称，根据不同的名称产生不同的实例 | String | default | \nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n\n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.data*\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
+	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nname | 实例名称，根据不同的名称产生不同的实例 | String | default | \nmodules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \ncomponents | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \nplugins | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | \nglobal | 其他一些全局配置。见：`global`表 | Object |  | \ndata | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | \nauthority | 权限控制。见：`authority`表 | Object |  | \nprecondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'date-picker', \n    configTpl: 'my-datepicker',\n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。\n\n> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置\n\n\n### # plugins\n`插件系统`\n\n一些使用频率较低的组件，为了防止UF过于膨胀，从UF库中剥离了出来，想要使用的时候需要在config中指定加载。同时用户也可以在此处载入自己开发的React模块，只要模块为用AMD的方式打包的匿名模块即可。\n\n`plugins`参数为一个数组，其每一项的参数有两种形式，对应以上两种用法：\n\n* 第一种为一个字符串，直接引用UF官方提供的插件名称即可；  \n* 第二种为一个对象，引入用户自己开发的插件，对象包含如下属性：\n\n参数 | 说明 | 类型 | 是否必填\n---- | ---- | ----- | ----\nname | 载入之后的模块名称，和使用组件时的`type`一致 | string | 必填\npath | 模块完整路径 | string | 必填\n\n```javascript\nUF.config({\n    plugins: [\n        'example',\n        {\n            name: 'mycomponent',\n            path: 'http://..to/path/mycomponent.js'\n        }\n    ]\n});\n```\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \najax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | \ncacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \nmock | Mock数据功能配置 | Object[] |  | \n\n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n#### # *global.mock*\n\nMock数据功能。\n\n参数为一个数组，数组的每一项代表一个接口，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | 接口地址 | string |  | 必填\nhandler | 接口对应的处理逻辑。handler中调用success并传入数据，则接口处理成功并返回了数据；调用error，则接口返回处理失败 | function (conf, success, error) {} |  | 必填\n\n```javascript\nUF.config({\n    global: {\n        mock: [\n            // 示例1：可延迟调用success，模拟数据加载中效果\n            {\n                url: '/mock/test',\n                handler: function (config, success, error) {\n                    setTimeout(()=>{\n                        success({\n                            status: 0,\n                            data: 'Mock数据测试'\n                        });\n                    }, 1000);\n                }\n            },\n            // 示例2：高端用法，可以使用mock功能简化交互。\n            // 比如多级级联，后端接口一次性返回全部数据，前端缓存起来。按以往思路，级联需不断获取数据并set给下一级，逻辑不够顺畅。此时即可以使用mock+source，定义几个mock接口，每个级联框绑定一个，各个mock接口分别取数据并返回\n            {\n                url: '/mock/test2',\n                handler: function (config, success, error) {\n                    success({\n                        status: 0,\n                        data: UF.get('cacheData');\n                    });\n                }\n            }\n        ]\n    }\n});\n```\n\n\n#### # data\n\n用于存放一些公用数据或静态数据（供select等组件直接调用）。\n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
 
 /***/ }),
 /* 132 */
@@ -2363,13 +2358,13 @@
 /* 135 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。UF 函数具有两种完全不同的用法.\n\n#### `1、产生 $uf 实例`：\n\n首先说最基础用法，即可以使用UF函数产生一个$uf实例，后面的全部操作都使用这个$uf实例完成。当一个页面上同时出现两块互不相干的模块时，可以通过使用不同的实例做到两个模块完全独立，包括`$uf.config()`对uf做到初始化获取组件等操作。\n\n```javascript\nvar $uf = window.UF({\n    name: \"myUf\",\n    global: {},\n    components: {}\n})\n```\n\n#### `2、本身也是一个实例`：\n\n为了方便使用，整个UF本身也是一个名为`_$default`的实例，所以可以在UF上使用实例具有的全部方法，平时使用也无需再对UF进行实例化。\n\n** *后面所说的UF的含义，实际上也全部为此默认实例上的方法。* **\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n## # UF.getRouter()\n\n随时随地获取当前页面的路由信息。\n\n函数返回值为一个对象，包含两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n具体用法可见，[示例](#/Others/-2-)\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`url`**: url字符串中，可以类似路由声明一样定义一些动态参数，例如：`/update/:id`，`:id`为动态内容，动态内容的值来自于同级的`params`参数中。同时，在`params`取值后，params中的相应字段会被删除。\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n## # component.reload()\n\n`component.reload()`可以控制组件重新获取数据（和`source`属性配合）。\n\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
+	module.exports = "\n如[开始使用](#/Usage/Install)中以及后面demo一直使用的`UF.init()`为一些在UF中事先定义好的函数，这里我们做详细的罗列解释\n\n## # UF\n\nUF 为整个框架的入口，全部组件使用都依赖于这个`UF`。UF 函数具有两种完全不同的用法.\n\n#### `1、产生 $uf 实例`：\n\n首先说最基础用法，即可以使用UF函数产生一个$uf实例，后面的全部操作都使用这个$uf实例完成。当一个页面上同时出现两块互不相干的模块时，可以通过使用不同的实例做到两个模块完全独立，包括`$uf.config()`对uf做到初始化获取组件等操作。\n\n```javascript\nvar $uf = window.UF({\n    name: \"myUf\",\n    global: {},\n    components: {}\n})\n```\n\n#### `2、本身也是一个实例`：\n\n为了方便使用，整个UF本身也是一个名为`_$default`的实例，所以可以在UF上使用实例具有的全部方法，平时使用也无需再对UF进行实例化。\n\n** *后面所说的UF的含义，实际上也全部为此默认实例上的方法。* **\n\nUF本身为一个函数，可以通过UF函数查到到指定name的组件。例如 [Button 按钮](#/General/Button) 的demo里面，点击展示按钮loading的例子中：\n\n```javascript\n{\n    type: \"button\",\n    name: \"my-button1\",\n    mode: \"primary\",\n    content: \"Click me!\",\n    onClick: function onClick(v) {\n        return UF('my-button1').set({\n            loading: true\n        });\n    }\n}\n```\n其中 `UF('my-button1')` 即为查找 name 为 my-button1 的组件，即为本身。\n\n\n** *同时 UF 上还提供了一些函数，用法如下：* **\n\n\n## # UF.init()\n\n`UF.init(config/string, target/targetSelector)`\n\n包含两个参数：\n- 第一个参数为组件配置，如果为一个配置对象，则直接解析；如果为字符串，则认为是一个未加载的模块，[加载模块](#/Develop/Modules)并进行渲染\n- 第二个参数为页面上目标元素或目标元素选择器\n\n函数用来把配置初始化为组件，并渲染到页面上。用法如下：\n```javascript\nvar config = {\n    type: \"button\",\n    mode: \"primary\",\n    content: \"Primary\"\n};\nUF.init(config, '#demo');\n```\n还有一种用法是不传递第二个参数，则组件生成后不会渲染到页面上，而是返回生成的组件。例如 [DataPicker 日期选择框](#/DataEntry/DatePicker) 的第三个demo的用法，renderExtraFooter 参数要求为一个函数，函数返回一个组件：\n```javascript\nvar config = {\n    type: \"date-picker\",\n    renderExtraFooter: function() {\n        return UF.init({\n            type: 'button',\n            content: '额外的页脚'\n        });\n    }\n};\nUF.init(config, '#demo');\n```\n\n注意：\n> 如果`UF.config`中配置了如`precondition`会阻塞页面加载的属性，`UF.init`函数会在其执行完成后再执行。\n> 会先清空目标元素，然后把新组件渲染上去\n\n\n## # UF.render()\n\n`UF.render(config, target/targetSelector)`\n\n作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。\n\n\n## # UF.append()\n\n`UF.append(config, target/targetSelector)`\n\n也是用来渲染组件，与上面两个函数的不同点在于，是在目标元素上追加一个组件，不会清空原目标元素。\n\n函数会返回一个对象，包含两个属性，`element`、`destroy`，element 为为了承载新增的组件而创建的标签，destroy 为一个函数，用来销毁新增的标签。详细用法可见 [Modal示例](#/Custom/Modal)\n\n\n## # UF.set()\n\n`UF.set(string, data)`\n\n存储数据。可以使用UF上的set函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n## # UF.get()\n\n`UF.get(string)`\n\n获取数据。可以使用UF上的`set`函数来存储任何数据，并可以在任何地方通过`UF.get`获取。\n\n例如：\n\n```javascript\nlet list = [0, 1, 2, 3];\nUF.set('test.list', list);\nconsole.log(UF.get('test.list'));\n```\n\n## # UF.getRouter()\n\n随时随地获取当前页面的路由信息。\n\n函数返回值为一个对象，包含两个参数：`params`、`detials`。\n\n> `params`为路由上传入的参数，如上如果多个参数，则params内包含多项；  \n> `detials`为包括params在内的更多路由信息，比如当前路由路径的\n\n具体用法可见，[示例](#/Others/-2-)\n\n## # UF.ajax(params)\n\nAjax 获取数据。`params` 为一个对象，属性列表如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填\nmethod | 默认数据请求方式 | string | `GET` | \ncache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |\nrequestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |\nparams | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \nuseAxios | 改为使用`axios`库进行ajax请求 | boolean | false | \nsuccess | 成功时的处理逻辑 | function(data, res){} |  | \nerror | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \nonchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | \n\n更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数\n\n**注意：**\n\n* **`url`**: url字符串中，可以类似路由声明一样定义一些动态参数，例如：`/update/:id`，`:id`为动态内容，动态内容的值来自于同级的`params`参数中。同时，在`params`取值后，params中的相应字段会被删除。\n\n* **`success`**: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n* **`error`**: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理。  \n> 如果error执行完返回true，则会继续执行默认的error处理函数。更多说明可见：[更多用法\n](#/Others/-ajax-error-)\n\n* **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  \n> * 开始执行请求时执行 onchange 参数为 (true, 'sending')\n> * 请求完成时执行 onchange 参数为 (false, 'success'/'error')\n\n**接口返回值格式为：**\n```json\nsuccess: {status: 0, data: [{}]}\nerror:   {status: 1, msg: 'error'}\n```\n\n##### requestMerge使用效果展示：\n```javascript\nlet count = 0;\nlet getData = ()=>{\n    let cur = ++count;\n    UF.ajax({\n\t    url: 'http://uf.baidu.com/docs/php/data.php',\n\t    params: {page: 1, size: 1},\n\t    success(data) {\n\t        console.log(`第${cur}次调接口取得数据：`, data);\n\t    }\n\t});\n}\ngetData();\ngetData();\ngetData();\nsetTimeout(()=>{\n    getData();\n}, 1000);\n```\n以上demo中，先后调用了四次ajax获取数据函数。先是连续调用了3次，第2次、第3次调用时，由于前一个相同的ajax还没完成，所以后两次调用合并到了第一次的请求逻辑中（network中只有一条GET记）。当ajax执行完成后，三次调用各自的成功逻辑依次被执行了。  \n延迟1s后执行第4次调用，此时前面的请求已经执行完成，所以这次会重新发起请求。network上展示了第二条GET记录\n\n#### 快捷用法：\n\n#### **UF.ajax.get(url, params, success, error, onchange)**\n\n以 GET 的方式发送数据。参数不再是一个对象，而是一个列表，除了url，其他参数可不填。\n\n#### **UF.ajax.post(url, params, success, error, onchange)**\n\n以 POST 方式发送数据。\n\n\n## # UF.config()\n\n全局配置。具体用法见 [全局配置](#/Develop/Config)\n\n\n## # UF.load()\n\n载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。\n\n```javascript\nUF.load({mycomponent: window.myComponet})\nUF.init({\n    type: 'mycomponent'\n}, '#test');\n```\n\n> 另一种加载自定义组件的方法见：[`plugins`](#/Develop/Config/-plugins)\n\n\n## # UF.message()\n\n用于全局展示操作反馈信息。详见 [Message 全局提示](#/Feedback/Message)\n\n## # UF.notification()\n\n用于全局展示通知提醒信息。详见 [Notification 通知提醒框](#/Feedback/Notification)\n\n\n## # UF.moment()\n\n时间处理工具，可以用于做时间格式的各种转化、时间的加减法操作、验证等。具体可见：[Moment](http://momentjs.cn/docs/#/parsing/)、 [操作](http://momentjs.cn/docs/#/manipulating/)\n\n例如：`UF.moment(1508294887034).format('YYYY-MM-DD hh:mm:ss')`、`UF.moment(1508294887034).add(7, 'days')`\n\n\n## # UF.utils\n\n工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。\n\n\n---\n** *component 为通过`UF()`获取的组件实例。以下为实例的一些API：* **\n\n---\n\n## # component._root\n\n每个组件都有`_root`属性，可以通过此属性来获取当前模块的参数信息，访问到从模块之外传递给模块的参数，例如：路由信息，路由参数等等。\n\n多使用其中的`_root.props`参数，例如获取当前页面的路由信息：\n\n```javascript\ncomponent._root.props.routes\ncomponent._root.props.location\ncomponent._root.props.params\n...\n```\n\n## # component.get()\n\n`component.get(key)`获取组件的参数。\n\n如果有key，则返回key的值；如果没有key，则返回全部参数。\n\n> key 可以有层级，例如：`component.get('source.params')`可以获取组件的 source.params 配置\n\n例如 [Progress 进度条](#/Feedback/Progress) 第5个demo：\n\n```javascript\nvar config = [\n    {\n        type: \"progress\",\n        mode: \"circle\",\n        name: \"my-progress\",\n        percent: 10\n    },\n    {\n        type: \"button-group\",\n        content: [\n            {\n                type: \"button\",\n                icon: \"minus\",\n                onClick: function(v) {\n\t                var progress = UF('my-progress');\n\t                var current = progress.get('percent');\n\t                progress.set({\n\t                    percent: current - 10\n\t                });\n\t            }\n            }\n        ]\n    }\n];\nUF.init(config, '#demo');\n```\n点击减号时，`progress.get('percent')`即为获取 my-progress 的percent值，并重新给组件设置新的值。\n\n\n## # component.set()\n\n`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。\n\n> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。\n\n\n## # component.hide()\n\n`component.hide()`可以隐藏组件。\n\n\n## # component.show()\n\n`component.hide()`可以重新展示组件。\n\n## # component.reload()\n\n`component.reload()`可以控制组件重新获取数据（和`source`属性配合）。\n\n## # component.loading()\n\n`component.loading([boolean|config])`可以控制组件是否展示loading效果。\n\n参数有如下几种情况：\n\n* 不传参时，认为传入的是`true`，即展示loading；  \n* 传入`false`时，则取消loading状态；\n* 传入一个对象时，认为是展示loading状态，并把对象作为loading的配置传给`Loading`组件\n\n\n\n**此外，组件本身具有的api可到组件文档页查询**\n"
 
 /***/ }),
 /* 136 */
 /***/ (function(module, exports) {
 
-	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 的说明\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # configTpl \n\n配置模板。用于指定复用在`UF.config`函数中定义的`components`属性中定义的通用模板配置。\n\n> 优先级：默认值 < configTpl < 组件本身配置\n\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className/class \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true\nautoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false\nshowLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
+	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 的说明\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className/class \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true\nautoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false\nautoReload | 父级刷新时自动刷新当前组件。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false\nshowLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
 
 /***/ }),
 /* 137 */
@@ -2381,7 +2376,7 @@
 /* 138 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n## html 组件\n\n`type`为`html`的组件，`content`属性为一段html代码。为了方便大块自定义内容。\n\nhtml代码会被一个`<section>`标签包裹，为了方便定义样式，html 组件还支持`style``className`属性，自定义外层样式。\n\n\n\n## 引入自定义组件\n\n`UF.load()`\n\n如果已有组件及配置实在无法支持当前的业务逻辑，也可以某一部分使用React进行开发，然后作为一个新自定义组件引入到项目中使用。具体用法请联系 [liuzechun](baidu://message/?id=861260447)\n\n"
+	module.exports = "\n## html 组件\n\n`type`为`html`的组件，`content`属性为一段html代码。为了方便大块自定义内容。\n\nhtml代码会被一个`<section>`标签包裹，为了方便定义样式，html 组件还支持`style``className`属性，自定义外层样式。\n\n\n\n## 引入自定义组件\n\n方法1：`UF.load()`\n\n如果已有组件及配置实在无法支持当前的业务逻辑，也可以某一部分使用React进行开发，然后作为一个新自定义组件引入到项目中使用。具体用法请联系 [liuzechun](baidu://message/?id=861260447)\n\n方法2：`UF.config({plugins: []});`\n\n使用插件的加载方式。\n"
 
 /***/ }),
 /* 139 */
@@ -2393,7 +2388,7 @@
 /* 140 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n\n`2018-07-17`\n\n#### # 主要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n#### # 组件升级\n\n* 🌟 `SiderTrigger`组件增加`reverse`属性\n* 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n\n\n### 0.2.5\n\n`2018-07-11`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 💄 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n\n\n\n`2018-08-06`\n\n* 🐞 修复`Export`组件同步导出不可用问题\n* 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n* 💄 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n\n\n`2018-08-01`\n\n* 🌟 新增`Upload`组件，并支持在Form组件中使用\n* 🌟 Ajax 支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n* 💄 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n\n\n`2018-07-30`\n\n* 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n* 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n\n\n`2018-07-27`\n\n* ⚙ 改造内部代码，更改`Table`组件的获取source的时机，复用BaseComponent的逻辑\n* `Form`\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n\n`2018-07-26`\n\n* 🌟 `Table`组件的crud里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n* 🌟 `Form`组件的表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n\n`2018-07-24`\n\n* 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n* 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n\n\n`2018-07-19`\n\n* 📖 在 **`资产监控平台`** 项目中投入使用\n\n* 🌟 `Select`组件增加API:`selectAll`，多选模式下，可调用函数进行全选\n* 🐞 `Form`组件中使用级联框是，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n\n\n`2018-07-18`\n\n* `Table`\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n\n`2018-07-17`\n\n* 🌟 `SiderTrigger`组件增加`reverse`属性\n* 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n\n`2018-07-17`\n\n#### # 主要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n### 0.2.5\n\n`2018-07-10`\n\n* ⚙ 改造内部代码\n    * 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n    * 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n\n`2018-07-05`\n\n* `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 💄 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题\n* 🌟 新增 `refresh` api，可以强制刷新组件\n* 🌟 新增 `reload` api，可以使组件重新拉取数据\n\n`2018-06-29`\n\n* 🌟 新增 `Form` 组件`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n* 🌟 新增 Ajax 的参数`url`可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-28`\n\n* 🌟 新增 `Breadcrumb` 支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n* 🌟 新增 `UF.getRouter` api，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n* 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n* 🌟 增加属性 `source.autoReload` 参数，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n* ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n* 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n\n\n`2018-06-26`\n\n* 🌟 增加属性`source.showLoading`参数，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n\n\n\n### 0.2.4\n\n`2018-06-29` `bugfix`\n\n* 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n\n`2018-06-26`\n\n* 💄 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n* 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n`2018-06-22`\n\n* 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-14`\n\n* 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n* 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n* 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n\n`2018-06-13`\n\n* 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n* 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n* 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n* 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n`2018-06-07`\n\n* 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n* 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n* 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n* `Form`\n    * 🐞 修复重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n* `Table`\n    * 🐞 修复`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n* `Forms`\n    * ⚙ 改造内部逻辑，以支持嵌套到Form组件中使用\n\n\n`2018-05-30`\n\n* 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n* `Table`\n    * 🐞 修复`pagination`置为`false`时，报错的问题\n* `Modal`\n    * 💄 属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n* `CheckboxGroup`复选框组\n    * 🌟 增加函数API：`checkAll()`，全选或取消全选\n\n\n`2018-05-27`\n\n* 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n* ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n* 💄 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n* 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n* 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n* 🌟 增加`source.requestMerge\t`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n* `DatePicker`系列组件\n    * 🌟 `value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n\n\n`2018-05-26`\n\n* `Table`\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 💄 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n* `Export`\n    * 🌟 增加函数API：`export()`，支持手动调用导出功能\n\n`2018-05-25`\n\n* 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n* ⚙ 改造内部代码，默认参数全部走配置形式\n\n`2018-05-24`\n\n* 💄 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n* `Table`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* `Export`  \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* `Tree` \n    * 💄 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* 💄 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行。\n\n\n`2018-05-22`\n\n* 💄 样式文件sass改为less，并增加主题配置，定制多份主题\n* 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n* 🌟 增`Forms`组件，自身具备复制新增功能\n* 💄 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n`2018-06-06` `bugfix`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n\n`2018-05-15`\n\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n\n\n`2018-02-06`\n\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 141 */
@@ -2507,7 +2502,7 @@
 /* 151 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n通过鼠标或键盘输入内容，是最基础的表单域的包装。\n\n## 何时使用\n\n- 需要用户输入表单域内容时。\n- 提供组合型输入框，带搜索的输入框，还可以进行大小选择。\n\n## 组件&配置\n\n### # input\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|------------|-------|--------|\n| mode | 声明 input 类型，同原生 input 标签的 type 属性 | string  | `text` |\n| id | 输入框的 id | string | |\n| value | 输入框内容 | string | |\n| defaultValue | 输入框默认内容 | string | |\n| size | 控件大小。注：标准表单内的输入框大小限制为 `large`。可选 `large` `default` `small` | string | `default` |\n| disabled | 是否禁用状态，默认为 false | boolean | false |\n| addonBefore | 带标签的 input，设置前置标签 | string&#124;`config` | |\n| addonAfter | 带标签的 input，设置后置标签 | string&#124;`config` | |\n| prefix | 带有前缀图标的 input | string&#124;`config` | |\n| suffix | 带有后缀图标的 input | string&#124;`config` | |\n| onPressEnter | 按下回车的回调 | function(e) | - |\n\n`Input` 的其他属性和 React 自带的 [input](https://facebook.github.io/react/docs/events.html#supported-events) 一致。\n\n### # textarea\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|------------|-------|--------|\n| defaultValue | 输入框默认内容 | string | |\n| value | 输入框内容 | string | |\n| onPressEnter | 按下回车的回调 | function(e) | |\n| autosize | 自适应内容高度，可设置为 `true/false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean&#124;object | false |\n| rows | 输入框初始行数 | number | |\n\n`TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。\n\n### # input-search\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|-----------|-------|\n| onSearch | 点击搜索或按下回车键时的回调                 | function(value) | -  |\n\n其余属性和 Input 一致。\n\n### # input-group\n\n| 参数      | 说明                                     | 类型         | 默认值 |\n|-----------|-----------------------------------------|-------------|-------|\n|  size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |\n\n"
+	module.exports = "\n通过鼠标或键盘输入内容，是最基础的表单域的包装。\n\n## 何时使用\n\n- 需要用户输入表单域内容时。\n- 提供组合型输入框，带搜索的输入框，还可以进行大小选择。\n\n## 组件&配置\n\n### # input\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|------------|-------|--------|\n| mode | 声明 input 类型，同原生 input 标签的 type 属性 | string  | `text` |\n| id | 输入框的 id | string | |\n| value | 输入框内容 | string | |\n| defaultValue | 输入框默认内容 | string | |\n| size | 控件大小。注：标准表单内的输入框大小限制为 `large`。可选 `large` `default` `small` | string | `default` |\n| disabled | 是否禁用状态，默认为 false | boolean | false |\n| addonBefore | 带标签的 input，设置前置标签 | string&#124;`config` | |\n| addonAfter | 带标签的 input，设置后置标签 | string&#124;`config` | |\n| prefix | 带有前缀图标的 input | string&#124;`config` | |\n| suffix | 带有后缀图标的 input | string&#124;`config` | |\n| onPressEnter | 按下回车的回调 | function(e) | - |\n\n`Input` 的其他属性和 React 自带的 [input](https://facebook.github.io/react/docs/events.html#supported-events) 一致。\n\n### # textarea\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|------------|-------|--------|\n| defaultValue | 输入框默认内容 | string | |\n| value | 输入框内容 | string | |\n| onPressEnter | 按下回车的回调 | function(e) | |\n| autosize | 自适应内容高度，可设置为 `true/false` 或对象：`{ minRows: 2, maxRows: 6 }` | boolean&#124;object | false |\n| rows | 输入框初始行数 | number | |\n| style.resize | 可以设置仅某个方向可拖动或者禁止拖动，可选值有：`none`、`both`、`horizontal`、`vertical` | string | - |\n\n\n`TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。\n\n### # input-search\n\n| 参数      | 说明                                     | 类型       | 默认值 |\n|-----------|-----------------------------------------|-----------|-------|\n| onSearch | 点击搜索或按下回车键时的回调                 | function(value) | -  |\n\n其余属性和 Input 一致。\n\n### # input-group\n\n| 参数      | 说明                                     | 类型         | 默认值 |\n|-----------|-----------------------------------------|-------------|-------|\n|  size | `Input.Group` 中所有的 `Input` 的大小，可选 `large` `default` `small` | string | `default` |\n\n"
 
 /***/ }),
 /* 152 */
@@ -2525,7 +2520,7 @@
 /* 154 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n下拉选择器。\n\n## 何时使用\n\n- 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。\n- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。\n\n## 组件&配置\n\n### # select\n\n| 参数     | 说明           | 类型     | 默认值       |\n|----------|----------------|----------|--------------|\n| value    | 指定当前选中的条目 | string&#124;string[] |  -  |\n| defaultValue | 指定默认选中的条目 | string&#124;string[] |  -  |\n| mode | 设置 Select 的模式 | 'multiple' &#124; 'tags' &#124; 'combobox' | - |\n| allowClear   | 支持清除 | boolean | false |\n| filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |\n| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | -   |\n| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 |  function(value) | -   |\n| onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value) | - |\n| onSearch | 文本框值变化时回调 | function(value: string) |  |\n| onBlur | 失去焦点的时回调 | function | - |\n| onFocus | 获得焦点时回调 | function | - |\n| placeholder | 选择框默认文字 | string | - |\n| notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |\n| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |\n| options | 选项数据列表，可以是一个字符串数据，或者对象数组 [*默认异步属性*] | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}> |  |\n| optionFilterProp | 搜索时过滤对应的 option 属性，默认为搜索下拉列表展示的内容，如设置为 value 表示对真实值进行搜索 | string | children |\n| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |\n| size    | 选择框大小，可选 `large` `small`  | string      |      default      |\n| showSearch | 使单选模式可搜索 | boolean | false |\n| disabled | 是否禁用 | boolean | false |\n| defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true\n| dropdownStyle | 下拉菜单的 style 属性 | object | - |\n| dropdownClassName | 下拉菜单的 className 属性 | string | - |\n| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |\n| tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |\n\n> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。\n"
+	module.exports = "\n下拉选择器。\n\n## 何时使用\n\n- 弹出一个下拉菜单给用户选择操作，用于代替原生的选择器，或者需要一个更优雅的多选器时。\n- 当选项少时（少于 5 项），建议直接将选项平铺，使用 [Radio](/components/radio/) 是更好的选择。\n\n## 组件&配置\n\n### # select\n\n| 参数     | 说明           | 类型     | 默认值       |\n|----------|----------------|----------|--------------|\n| value    | 指定当前选中的条目 | string&#124;string[] |  -  |\n| defaultValue | 指定默认选中的条目 | string&#124;string[] |  -  |\n| mode | 设置 Select 的模式 | 'multiple' &#124; 'tags' &#124; 'combobox' | - |\n| allowClear   | 支持清除 | boolean | false |\n| filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |\n| onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | -   |\n| onDeselect | 取消选中时调用，参数为选中项的 value (或 key) 值，仅在 multiple 或 tags 模式下生效 |  function(value) | -   |\n| onChange | 选中 option，或 input 的 value 变化（combobox 模式下）时，调用此函数 | function(value) | - |\n| onSearch | 文本框值变化时回调 | function(value: string) |  |\n| onBlur | 失去焦点的时回调 | function | - |\n| onFocus | 获得焦点时回调 | function | - |\n| placeholder | 选择框默认文字 | string | - |\n| notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |\n| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |\n| options | 选项数据列表，可以是一个字符串数据，或者对象数组 [*默认异步属性*] | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}> |  |\n| extOptions | 额外的选项，options之外额外增加的选项（置于选择列表最前面）。例如下拉列表增加值为all的选项，无需后端接口额外增加all | Array<{ label: [string], value: [string], disabled?: [boolean], style?: {}}> |  |\n| optionFilterProp | 搜索时过滤对应的 option 属性，默认为搜索下拉列表展示的内容，如设置为 value 表示对真实值进行搜索 | string | children |\n| optionLabelProp | 回填到选择框的 Option 的属性值，默认是 Option 的子元素。比如在子元素需要高亮效果时，此值可以设为 `value`。 | string | `children` （combobox 模式下为 `value`） |\n| size    | 选择框大小，可选 `large` `small`  | string      |      default      |\n| showSearch | 使单选模式可搜索 | boolean | false |\n| disabled | 是否禁用 | boolean | false |\n| defaultActiveFirstOption | 是否默认高亮第一个选项。 | boolean | true\n| dropdownStyle | 下拉菜单的 style 属性 | object | - |\n| dropdownClassName | 下拉菜单的 className 属性 | string | - |\n| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |\n| tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('select').selectAll(true)`。\n\n参数       | 说明           | 参数    \n-----------|----------------|-----------\nselectAll  | 适用于多选模式下的下拉框，进行全选或取消全选 |  selectAll(boolean)  \n\n\n> 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。\n"
 
 /***/ }),
 /* 155 */
@@ -2537,7 +2532,7 @@
 /* 156 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n文件选择上传和拖拽上传控件。\n\n## 何时使用\n\n上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。\n\n- 当需要上传一个或一些文件时。\n- 当需要展现上传的进度时。\n- 当需要使用拖拽交互时。\n\n## 组件&配置\n\n> 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki)。\n\n### # upload\n\n| 参数       | 说明                                                         | 类型        | 默认值|\n|------------|--------------------------------------------------------------| ----------- |-------|\n| name       | 发到后台的文件参数名                                         | string      | 'file'  |\n| defaultFileList | 默认已经上传的文件列表                           | object[] | 无  |\n| fileList   | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object[] | 无 |\n| action     | 必选参数, 上传的地址                                         | string      | 无    |\n| data       | 上传所需参数或返回上传参数的方法                   | object&#124;function(file) | 无    |\n| headers    | 设置上传的请求头部，IE10 以上有效                    | object      | 无    |\n| showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |\n| multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | boolean     | false |\n| accept     | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | string      | 无    |\n| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise`    | 无    |\n| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |\n| onChange   | 上传文件改变时的状态，详见 [onChange](#onChange)                | Function    | 无    |\n| listType   | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card`     | string      | 'text'|\n| onPreview  | 点击文件链接或预览图标时的回调                              | Function(file) | 无    |\n| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。                | Function(file): `boolean | Promise` | 无   |\n| supportServerRender | 服务端渲染时需要打开这个                           | boolean | false    |\n| disabled | 是否禁用                           | boolean | false    |\n| withCredentials | 上传请求时是否携带 cookie | boolean | false |\n\n### onChange\n\n> 上传中、完成、失败都会调用这个函数。\n\n文件状态改变的回调，返回为：\n\n```js\n{\n  file: { /* ... */ },\n  fileList: [ /* ... */ ],\n  event: { /* ... */ },\n}\n```\n\n1. `file` 当前操作的文件对象。\n\n   ```js\n   {\n      uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突\n      name: 'xx.png'   // 文件名\n      status: 'done',  // 状态有：uploading done error removed\n      response: '{\"status\": \"success\"}',  // 服务端响应内容\n   }\n   ```\n   > `antd@1.9.0` 之前，multiple 模式下，此参数为一个对象数组 `[file, ...]`，`antd@1.9.0` 开始无论是否多选，均为一个对象。\n\n2. `fileList` 当前的文件列表。\n3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。\n\n"
+	module.exports = "\n文件选择上传和拖拽上传控件。\n\n## 何时使用\n\n上传是将信息（网页、文字、图片、视频等）通过网页或者上传工具发布到远程服务器上的过程。\n\n- 当需要上传一个或一些文件时。\n- 当需要展现上传的进度时。\n- 当需要使用拖拽交互时。\n\n## 组件&配置\n\n> 服务端上传接口实现可以参考 [jQuery-File-Upload](https://github.com/blueimp/jQuery-File-Upload/wiki)。\n\n### # upload\n\n| 参数       | 说明                                                         | 类型        | 默认值|\n|------------|--------------------------------------------------------------| ----------- |-------|\n| fieldName  | 发到后台的文件参数名                                         | string      | 'file'  |\n| defaultFileList | 默认已经上传的文件列表                           | object[] | 无  |\n| fileList   | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423) | object[] | 无 |\n| action     | 必选参数, 上传的地址                                         | string      | 无    |\n| data       | 上传所需参数或返回上传参数的方法                   | object&#124;function(file) | 无    |\n| headers    | 设置上传的请求头部，IE10 以上有效                    | object      | 无    |\n| showUploadList | 是否展示 uploadList, 可设为一个对象，用于单独设定 showPreviewIcon 和 showRemoveIcon | Boolean or { showPreviewIcon?: boolean, showRemoveIcon?: boolean } | true |\n| multiple   | 是否支持多选文件，`ie10+` 支持。开启后按住 ctrl 可选择多个文件。  | boolean     | false |\n| accept     | 接受上传的文件类型, 详见 [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept)    | string      | 无    |\n| beforeUpload | 上传文件之前的钩子，参数为上传的文件，若返回 `false` 则停止上传。支持返回一个 Promise 对象，Promise 对象 reject 时则停止上传，resolve 时开始上传。**注意：IE9 不支持该方法**。 | (file, fileList) => `boolean | Promise`    | 无    |\n| customRequest | 通过覆盖默认的上传行为，可以自定义自己的上传实现 | Function | 无 |\n| onChange   | 上传文件改变时的状态，详见 [onChange](#onChange)                | Function    | 无    |\n| listType   | 上传列表的内建样式，支持三种基本样式 `text`, `picture` 和 `picture-card`     | string      | 'text'|\n| onPreview  | 点击文件链接或预览图标时的回调                              | Function(file) | 无    |\n| onRemove   | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除。                | Function(file): `boolean | Promise` | 无   |\n| supportServerRender | 服务端渲染时需要打开这个                           | boolean | false    |\n| disabled | 是否禁用                           | boolean | false    |\n| withCredentials | 上传请求时是否携带 cookie | boolean | false |\n\n### onChange\n\n> 上传中、完成、失败都会调用这个函数。\n\n文件状态改变的回调，返回为：\n\n```js\n{\n  file: { /* ... */ },\n  fileList: [ /* ... */ ],\n  event: { /* ... */ },\n}\n```\n\n1. `file` 当前操作的文件对象。\n\n   ```js\n   {\n      uid: 'uid',      // 文件唯一标识，建议设置为负数，防止和内部产生的 id 冲突\n      name: 'xx.png'   // 文件名\n      status: 'done',  // 状态有：uploading done error removed\n      response: '{\"status\": \"success\"}',  // 服务端响应内容\n   }\n   ```\n   > `antd@1.9.0` 之前，multiple 模式下，此参数为一个对象数组 `[file, ...]`，`antd@1.9.0` 开始无论是否多选，均为一个对象。\n\n2. `fileList` 当前的文件列表。\n3. `event` 上传中的服务端响应内容，包含了上传进度等信息，高级浏览器支持。\n\n"
 
 /***/ }),
 /* 157 */
@@ -2703,11 +2698,11 @@
 
 	exports.switchCode = switchCode;
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2715,13 +2710,13 @@
 
 	var _marked2 = _interopRequireDefault(_marked);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var _src = __webpack_require__(183);
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2899,57 +2894,59 @@
 	});
 	exports.WhiteList = exports.Loader = exports.Factory = undefined;
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _lib = __webpack_require__(184);
+	var _env = __webpack_require__(184);
+
+	var _env2 = _interopRequireDefault(_env);
+
+	var _lib = __webpack_require__(185);
 
 	var _lib2 = _interopRequireDefault(_lib);
 
-	var _moment = __webpack_require__(191);
+	var _moment = __webpack_require__(194);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(241);
+	__webpack_require__(272);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _cache = __webpack_require__(242);
+	var _cache = __webpack_require__(273);
 
 	var _cache2 = _interopRequireDefault(_cache);
 
-	var _factory = __webpack_require__(249);
+	var _factory = __webpack_require__(280);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(250);
+	var _loader = __webpack_require__(281);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(202);
+	var _whitelist = __webpack_require__(234);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _precondition = __webpack_require__(255);
-
-	var _precondition2 = _interopRequireDefault(_precondition);
-
-	var _init = __webpack_require__(256);
+	var _init = __webpack_require__(286);
 
 	var _init2 = _interopRequireDefault(_init);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	// import Model from 'src/tools/model.js';
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	// import Model from 'src/tools/model.js';
+	// import Precondition from 'src/tools/precondition.js';
 
 	// 设置 moment 的 locale
 	_moment2.default.locale('zh-cn');
@@ -2972,7 +2969,8 @@
 
 	    var _Tools$init = _init2.default.init(name),
 	        Ajax = _Tools$init.Ajax,
-	        Requirejs = _Tools$init.Requirejs;
+	        Requirejs = _Tools$init.Requirejs,
+	        Precondition = _Tools$init.Precondition;
 
 	    // UF实例上的工具函数
 
@@ -2984,13 +2982,17 @@
 	        insName: name,
 	        // 是否阻塞
 	        waiting: false,
-	        waitingCache: {},
+	        // waitingCache: {},
 	        // 异步逻辑执行完成后，重新执行init函数
 	        _reInit: function _reInit() {
 	            this.waiting = false;
-	            var config = this.waitingCache.config;
-	            var selector = this.waitingCache.selector;
-	            this.waitingCache = {};
+	            // let {config, selector} = this.waitingCache;
+	            // this.waitingCache = {};
+
+	            var _ModelCache$get = ModelCache.get('_$waitingCache'),
+	                config = _ModelCache$get.config,
+	                selector = _ModelCache$get.selector;
+
 	            this.render(config, selector);
 	        },
 
@@ -3055,6 +3057,7 @@
 	        /******** 公共属性/方法 *********************************/
 	        /*****************************************************/
 
+	        require: Requirejs,
 	        // ajax请求。包含 ajax(), ajax.get(), ajax.post()
 	        ajax: Ajax,
 	        // 暴露全部工具类
@@ -3075,7 +3078,8 @@
 	            if (!this.waiting) {
 	                this.render(config, selector);
 	            } else {
-	                this.waitingCache = { config: config, selector: selector };
+	                // this.waitingCache = {config, selector};
+	                ModelCache.set('_$waitingCache', { config: config, selector: selector });
 	            }
 	        },
 
@@ -3101,8 +3105,14 @@
 
 	        // 整体配置
 	        config: function config(obj) {
-	            var _this = this;
-
+	            // 处理global.mock，数组转对象
+	            if (obj && obj.global && obj.global.mock) {
+	                var map = {};
+	                obj.global.mock.forEach(function (v) {
+	                    return map[v.url] = v.handler;
+	                });
+	                obj.global.mock = map;
+	            }
 	            var config = Config.set(_utils.Utils.filter(obj, 'data'));
 	            // 用户自定义 UF 别名
 	            if (config.alias) {
@@ -3116,14 +3126,30 @@
 	            if (obj.data) {
 	                ModelCache.set(obj.data);
 	            }
+	            // 加载扩展组件。格式为[ {name, path} || name ]
+	            if (config.plugins) {
+	                config.precondition = (config.precondition || []).concat(config.plugins.map(function (mod) {
+	                    var path = void 0,
+	                        modName = mod;
+	                    if (_utils.Utils.typeof(mod, 'string')) {
+	                        path = _env2.default.pluginPath + modName + '.js';
+	                    } else {
+	                        path = mod.path;
+	                        modName = mod.name;
+	                    }
+	                    return function (resovle) {
+	                        Requirejs([path], function (foo) {
+	                            _loader2.default.add(_defineProperty({}, modName, foo && foo.default ? foo.default : foo));
+	                            resovle();
+	                        });
+	                    };
+	                }));
+	            }
 	            // 执行阻塞页面加载的函数
-	            if (obj.precondition) {
-	                if (_utils.Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
+	            if (config.precondition) {
+	                if (_utils.Utils.typeof(config.precondition, 'array') && config.precondition.length > 0) {
 	                    this.waiting = true;
-	                    // 置为异步，保证实例能成功返回后再调用预处理函数
-	                    setTimeout(function () {
-	                        _precondition2.default.handle(obj.precondition, _this);
-	                    }, 0);
+	                    Precondition.handle(config.precondition);
 	                }
 	            }
 	        },
@@ -3147,7 +3173,8 @@
 
 	// 先产生一个默认实例，以兼容以前的用法
 	var defaultName = '_$default';
-	var defUF = create({ name: defaultName });
+	var defaultUF = create({ name: defaultName });
+	defaultUF.config({});
 
 	// 重写window上的UF函数，使其增加创建uf实例功能
 	var UF = function UF() {
@@ -3155,7 +3182,7 @@
 
 	    // 如果传入的是字符串，则走原来的获取组件的逻辑
 	    if (typeof conf === 'string') {
-	        return defUF(conf);
+	        return defaultUF(conf);
 	    }
 	    // 默认使用default名称
 	    conf.name = conf.name || conf.appName || defaultName;
@@ -3171,7 +3198,7 @@
 	};
 
 	// 并把默认实例抛出以供直接调用
-	Object.assign(UF, defUF);
+	Object.assign(UF, defaultUF);
 
 	exports.default = UF;
 	// 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行
@@ -3191,38 +3218,26 @@
 
 /***/ }),
 /* 184 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 	'use strict';
 
-	__webpack_require__(110);
+	/**
+	 * @file 程序中引用的环境相关变量
+	 * @author liuzechun
+	 * Created Date: 2018-07-30 12:46:16
+	 */
 
-	module.exports = Object.assign(
-	// require('./dom'),
-	// antd 组件统一迁移，见 src/antd/index.js
-	__webpack_require__(185),
-	// 路由组件
-	__webpack_require__(210),
-	// 其他自己实现/封装的组件
-	{
-	    // Dom: require('./dom'),
-	    Iframe: __webpack_require__(216),
+	var hostname = window.location.hostname;
+	var isProd = !['epc.baidu.com', 'yf-sys-ump-ur-fe.yf01.baidu.com'].some(function (v) {
+	    return hostname.indexOf(v) > -1;
+	});
 
-	    Export: __webpack_require__(218),
-	    Tree: __webpack_require__(220),
-	    Table: __webpack_require__(222),
-	    Form: __webpack_require__(228).Form,
-	    Forms: __webpack_require__(228).Forms,
-	    Modal: __webpack_require__(235),
-	    Ueditor: __webpack_require__(230),
-	    Echarts: __webpack_require__(237),
-	    Fieldset: __webpack_require__(239)
-	    // ...require('./modal'),
-	    // Table2: require('./uf-old/table')
-	}); /**
-	     * @file index.js 汇总所有 src 里对用户暴露的组件
-	     * @author liuzechun@baidu.com
-	     */
+	module.exports = {
+	    production: isProd,
+	    basePath: isProd ? 'http://uf.baidu.com' : 'http://antd.uf.baidu.com:8099',
+	    pluginPath: isProd ? 'http://uf.baidu.com/v/plugins/' : 'http://antd.uf.baidu.com:8099/v/plugins/'
+	};
 
 /***/ }),
 /* 185 */
@@ -3230,27 +3245,67 @@
 
 	'use strict';
 
-	var _dataentry = __webpack_require__(186);
+	__webpack_require__(186);
+
+	module.exports = Object.assign(
+	// require('./dom'),
+	// antd 组件统一迁移，见 src/antd/index.js
+	__webpack_require__(188),
+	// 路由组件
+	__webpack_require__(242),
+	// 其他自己实现/封装的组件
+	{
+	    // Dom: require('./dom'),
+	    Iframe: __webpack_require__(248),
+
+	    Export: __webpack_require__(250),
+	    Tree: __webpack_require__(252),
+	    Table: __webpack_require__(254),
+	    Form: __webpack_require__(261).Form,
+	    Forms: __webpack_require__(261).Forms,
+	    Modal: __webpack_require__(266),
+	    Ueditor: __webpack_require__(263),
+	    Echarts: __webpack_require__(268),
+	    Fieldset: __webpack_require__(270)
+	}); /**
+	     * @file index.js 汇总所有 src 里对用户暴露的组件
+	     * @author liuzechun@baidu.com
+	     */
+
+/***/ }),
+/* 186 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 187 */,
+/* 188 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _dataentry = __webpack_require__(189);
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(204);
+	var _datadisplay = __webpack_require__(236);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(206);
+	var _genaral = __webpack_require__(238);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(208);
+	var _navigation = __webpack_require__(240);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(212);
+	var _feedback = __webpack_require__(244);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(214);
+	var _layout = __webpack_require__(246);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -3266,7 +3321,7 @@
 	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
 
 /***/ }),
-/* 186 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3274,7 +3329,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.CheckboxGroup = exports.Checkbox = exports.Cascader = exports.AutoComplete = undefined;
+	exports.Dragger = exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.BaseMultiple = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = exports.AutoComplete = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -3282,25 +3337,25 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _DataEntry15 = __webpack_require__(197);
+	var _DataEntry13 = __webpack_require__(229);
 
-	var _DataEntry16 = _interopRequireDefault(_DataEntry15);
+	var _DataEntry14 = _interopRequireDefault(_DataEntry13);
 
-	var _moment = __webpack_require__(191);
+	var _moment = __webpack_require__(194);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -3420,7 +3475,7 @@
 	    }]);
 
 	    return AutoComplete;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Cascader 级联选择 ************************************************************************** */
 
@@ -3445,90 +3500,21 @@
 	    }]);
 
 	    return Cascader;
-	}(_DataEntry16.default);
-
-	/************* Checkbox 复选框 ************************************************************************** */
-
-	var Checkbox = exports.Checkbox = function (_DataEntry3) {
-	    _inherits(Checkbox, _DataEntry3);
-
-	    function Checkbox(props) {
-	        _classCallCheck(this, Checkbox);
-
-	        var _this3 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
-
-	        _this3.__controlled.key = 'checked';
-	        _this3.__controlled.defaultVal = false;
-	        _this3.__init();
-	        return _this3;
-	    }
-
-	    _createClass(Checkbox, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Checkbox, this.__props);
-	        }
-	    }]);
-
-	    return Checkbox;
-	}(_DataEntry16.default);
-	// 多复选框组合
-
-
-	var CheckboxGroup = exports.CheckboxGroup = function (_DataEntry4) {
-	    _inherits(CheckboxGroup, _DataEntry4);
-
-	    function CheckboxGroup(props) {
-	        _classCallCheck(this, CheckboxGroup);
-
-	        var _this4 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
-
-	        _this4._openApi.push('checkAll');
-	        _this4.__controlled.defaultVal = [];
-	        _this4.__init();
-	        return _this4;
-	    }
-
-	    _createClass(CheckboxGroup, [{
-	        key: '_afterSetProps',
-	        value: function _afterSetProps() {
-	            _get(CheckboxGroup.prototype.__proto__ || Object.getPrototypeOf(CheckboxGroup.prototype), '_afterSetProps', this).call(this);
-	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
-	        }
-	    }, {
-	        key: 'checkAll',
-	        value: function checkAll() {
-	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-	            var value = status ? this.__props.options.map(function (v) {
-	                return v.value;
-	            }) : [];
-	            this.__setProps({ value: value });
-	            this.__props.onChange && this.__props.onChange(value);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(Antd.Checkbox.Group, this.__props);
-	        }
-	    }]);
-
-	    return CheckboxGroup;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* DatePicker 日期选择框 ************************************************************************** */
 
-	var BasePicker = function (_DataEntry5) {
-	    _inherits(BasePicker, _DataEntry5);
+	var BasePicker = function (_DataEntry3) {
+	    _inherits(BasePicker, _DataEntry3);
 
 	    function BasePicker(props) {
 	        _classCallCheck(this, BasePicker);
 
-	        var _this5 = _possibleConstructorReturn(this, (BasePicker.__proto__ || Object.getPrototypeOf(BasePicker)).call(this, props));
+	        var _this3 = _possibleConstructorReturn(this, (BasePicker.__proto__ || Object.getPrototypeOf(BasePicker)).call(this, props));
 
-	        _this5._filter.push('current');
+	        _this3._filter.push('current');
 	        // this.__init();
-	        return _this5;
+	        return _this3;
 	    }
 	    // 继承父组件的函数，_initProps 后增加额外处理逻辑
 
@@ -3547,7 +3533,7 @@
 	    }]);
 
 	    return BasePicker;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 日期[时间]选择
 
 
@@ -3557,11 +3543,11 @@
 	    function DatePicker(props) {
 	        _classCallCheck(this, DatePicker);
 
-	        var _this6 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+	        var _this4 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
-	        _this6.__controlled.paramsIndex = 1;
-	        _this6.__init();
-	        return _this6;
+	        _this4.__controlled.paramsIndex = 1;
+	        _this4.__init();
+	        return _this4;
 	    }
 	    // 继承父组件的函数，_initProps 后增加额外处理逻辑
 
@@ -3602,12 +3588,12 @@
 	    function RangePicker(props) {
 	        _classCallCheck(this, RangePicker);
 
-	        var _this7 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (RangePicker.__proto__ || Object.getPrototypeOf(RangePicker)).call(this, props));
 
-	        _this7.__controlled.paramsIndex = 1;
-	        _this7.__controlled.defaultVal = [];
-	        _this7.__init();
-	        return _this7;
+	        _this5.__controlled.paramsIndex = 1;
+	        _this5.__controlled.defaultVal = [];
+	        _this5.__init();
+	        return _this5;
 	    }
 
 	    _createClass(RangePicker, [{
@@ -3646,11 +3632,11 @@
 	    function MonthPicker(props) {
 	        _classCallCheck(this, MonthPicker);
 
-	        var _this8 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (MonthPicker.__proto__ || Object.getPrototypeOf(MonthPicker)).call(this, props));
 
-	        _this8.__controlled.paramsIndex = 1;
-	        _this8.__init();
-	        return _this8;
+	        _this6.__controlled.paramsIndex = 1;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(MonthPicker, [{
@@ -3675,11 +3661,11 @@
 	    function TimePicker(props) {
 	        _classCallCheck(this, TimePicker);
 
-	        var _this9 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this, props));
 
-	        _this9.__controlled.paramsIndex = 1;
-	        _this9.__init();
-	        return _this9;
+	        _this7.__controlled.paramsIndex = 1;
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(TimePicker, [{
@@ -3696,16 +3682,16 @@
 
 	/************* Input 输入框 ************************************************************************** */
 
-	var Input = exports.Input = function (_DataEntry6) {
-	    _inherits(Input, _DataEntry6);
+	var Input = exports.Input = function (_DataEntry4) {
+	    _inherits(Input, _DataEntry4);
 
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this10 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(Input, [{
@@ -3716,20 +3702,20 @@
 	    }]);
 
 	    return Input;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// textarea
 
 
-	var Textarea = exports.Textarea = function (_DataEntry7) {
-	    _inherits(Textarea, _DataEntry7);
+	var Textarea = exports.Textarea = function (_DataEntry5) {
+	    _inherits(Textarea, _DataEntry5);
 
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
 
-	        var _this11 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Textarea, [{
@@ -3740,7 +3726,7 @@
 	    }]);
 
 	    return Textarea;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
 
 
@@ -3750,11 +3736,11 @@
 	    function InputSearch(props) {
 	        _classCallCheck(this, InputSearch);
 
-	        var _this12 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (InputSearch.__proto__ || Object.getPrototypeOf(InputSearch)).call(this, props));
 
-	        _this12.class.push('input');
-	        _this12.__init();
-	        return _this12;
+	        _this10.class.push('input');
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(InputSearch, [{
@@ -3769,16 +3755,16 @@
 	// 输入框连接在一起形成一组
 
 
-	var InputGroup = exports.InputGroup = function (_DataEntry8) {
-	    _inherits(InputGroup, _DataEntry8);
+	var InputGroup = exports.InputGroup = function (_DataEntry6) {
+	    _inherits(InputGroup, _DataEntry6);
 
 	    function InputGroup(props) {
 	        _classCallCheck(this, InputGroup);
 
-	        var _this13 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (InputGroup.__proto__ || Object.getPrototypeOf(InputGroup)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(InputGroup, [{
@@ -3791,20 +3777,20 @@
 	    }]);
 
 	    return InputGroup;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 	// 数字输入框
 
 
-	var InputNumber = exports.InputNumber = function (_DataEntry9) {
-	    _inherits(InputNumber, _DataEntry9);
+	var InputNumber = exports.InputNumber = function (_DataEntry7) {
+	    _inherits(InputNumber, _DataEntry7);
 
 	    function InputNumber(props) {
 	        _classCallCheck(this, InputNumber);
 
-	        var _this14 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (InputNumber.__proto__ || Object.getPrototypeOf(InputNumber)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(InputNumber, [{
@@ -3815,20 +3801,20 @@
 	    }]);
 
 	    return InputNumber;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Rate 评分 ************************************************************************** */
 
-	var Rate = exports.Rate = function (_DataEntry10) {
-	    _inherits(Rate, _DataEntry10);
+	var Rate = exports.Rate = function (_DataEntry8) {
+	    _inherits(Rate, _DataEntry8);
 
 	    function Rate(props) {
 	        _classCallCheck(this, Rate);
 
-	        var _this15 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (Rate.__proto__ || Object.getPrototypeOf(Rate)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(Rate, [{
@@ -3839,26 +3825,186 @@
 	    }]);
 
 	    return Rate;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
+
+	/************* 多选的基类 ************************************************************************** */
+
+	var BaseMultiple = exports.BaseMultiple = function (_DataEntry9) {
+	    _inherits(BaseMultiple, _DataEntry9);
+
+	    function BaseMultiple() {
+	        _classCallCheck(this, BaseMultiple);
+
+	        return _possibleConstructorReturn(this, (BaseMultiple.__proto__ || Object.getPrototypeOf(BaseMultiple)).apply(this, arguments));
+	    }
+
+	    _createClass(BaseMultiple, [{
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
+	            _get(BaseMultiple.prototype.__proto__ || Object.getPrototypeOf(BaseMultiple.prototype), '_afterSetProps', this).call(this);
+	            // 给 source.onSuccess 绑定默认处理逻辑
+	            this.__filtered.source = Object.assign({
+	                onSuccess: this._onSourceSuccess.bind(this)
+	            }, this.__filtered.source);
+	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	        }
+	    }, {
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess() {}
+	        // 处理多选情况
+
+	    }, {
+	        key: '_handleMultipleSelect',
+	        value: function _handleMultipleSelect(data) {
+	            var current = this.__props.value || [];
+	            // 当设置默认全选时，更新当前内容为全选
+	            if (this.__props.defaultSelectAll) {
+	                var all = _utils.Utils.toOptions(data).map(function (v) {
+	                    return v.value;
+	                });
+	                this.__props.onChange && this.__props.onChange(all);
+	                return;
+	            }
+	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
+	            var matchVal = _utils.Utils.toOptions(data).filter(function (v) {
+	                return current.indexOf(v.value) > -1;
+	            }).map(function (v) {
+	                return v.value;
+	            });
+	            if (matchVal.length === current.length) {
+	                return;
+	            }
+	            this.__props.onChange && this.__props.onChange(matchVal);
+	        }
+	        // 处理默认选中
+
+	    }, {
+	        key: '_handleDefaultSelect',
+	        value: function _handleDefaultSelect(data) {
+	            var current = this.__props.value;
+	            // 如果当前值再列表中，则不做任何处理
+	            var alldata = _utils.Utils.toOptions(data);
+	            // 追加上extOptions中的内容，仅select组件有
+	            if (this.getAllOptions) {
+	                alldata = this.getAllOptions(alldata);
+	            }
+	            if (alldata.some(function (v) {
+	                return v.value + '' === current + '';
+	            })) {
+	                return;
+	            }
+	            // 否则把值设置为第一个或者清空
+	            if (this.__props.defaultFirst) {
+	                var first = _utils.Utils.getFirstOption(data);
+	                this.__props.onChange && this.__props.onChange(first);
+	            } else if (this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
+	                // 为实现刷新组件时，清空原数据
+	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
+	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+	            }
+	        }
+	    }]);
+
+	    return BaseMultiple;
+	}(_DataEntry14.default);
+
+	/************* Checkbox 复选框 ************************************************************************** */
+
+	var Checkbox = exports.Checkbox = function (_DataEntry10) {
+	    _inherits(Checkbox, _DataEntry10);
+
+	    function Checkbox(props) {
+	        _classCallCheck(this, Checkbox);
+
+	        var _this15 = _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).call(this, props));
+
+	        _this15.__controlled.key = 'checked';
+	        _this15.__controlled.defaultVal = false;
+	        _this15.__init();
+	        return _this15;
+	    }
+
+	    _createClass(Checkbox, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Checkbox, this.__props);
+	        }
+	    }]);
+
+	    return Checkbox;
+	}(_DataEntry14.default);
+	// 多复选框组合
+
+
+	var CheckboxGroup = exports.CheckboxGroup = function (_BaseMultiple) {
+	    _inherits(CheckboxGroup, _BaseMultiple);
+
+	    function CheckboxGroup(props) {
+	        _classCallCheck(this, CheckboxGroup);
+
+	        var _this16 = _possibleConstructorReturn(this, (CheckboxGroup.__proto__ || Object.getPrototypeOf(CheckboxGroup)).call(this, props));
+
+	        _this16._openApi.push('checkAll');
+	        _this16.__controlled.defaultVal = [];
+	        _this16.__init();
+	        return _this16;
+	    }
+
+	    _createClass(CheckboxGroup, [{
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
+	            _get(CheckboxGroup.prototype.__proto__ || Object.getPrototypeOf(CheckboxGroup.prototype), '_afterSetProps', this).call(this);
+	            this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	        }
+	    }, {
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess(data) {
+	            this._handleDefaultSelect(data);
+	        }
+	    }, {
+	        key: 'checkAll',
+	        value: function checkAll() {
+	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	            var value = status ? this.__props.options.map(function (v) {
+	                return v.value;
+	            }) : [];
+	            this.__setProps({ value: value });
+	            this.__props.onChange && this.__props.onChange(value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Checkbox.Group, this.__props);
+	        }
+	    }]);
+
+	    return CheckboxGroup;
+	}(BaseMultiple);
 
 	/************* Radio 单选 ************************************************************************** */
 
 	// 这里直接使用Radio组，单个radio没想到什么应用场景
 
 
-	var Radio = exports.Radio = function (_DataEntry11) {
-	    _inherits(Radio, _DataEntry11);
+	var Radio = exports.Radio = function (_BaseMultiple2) {
+	    _inherits(Radio, _BaseMultiple2);
 
 	    function Radio(props) {
 	        _classCallCheck(this, Radio);
 
-	        var _this16 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Radio, [{
+	        key: '_onSourceSuccess',
+	        value: function _onSourceSuccess(data) {
+	            this._handleDefaultSelect(data);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            // 增加了一个配置项，来控制是否以button的形式展示
@@ -3869,7 +4015,7 @@
 	            return _react2.default.createElement(
 	                Antd.Radio.Group,
 	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: this.__props.value !== undefined ? '' + this.__props.value : undefined }),
-	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
+	                this.__props.options.map(function (item) {
 	                    return _react2.default.createElement(
 	                        Item,
 	                        { key: '' + item.value, disabled: item.disabled, style: item.style,
@@ -3882,63 +4028,56 @@
 	    }]);
 
 	    return Radio;
-	}(_DataEntry16.default);
+	}(BaseMultiple);
 
 	/************* Select 下拉菜单 ************************************************************************** */
 
-	var Select = exports.Select = function (_DataEntry12) {
-	    _inherits(Select, _DataEntry12);
+	var Select = exports.Select = function (_BaseMultiple3) {
+	    _inherits(Select, _BaseMultiple3);
 
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
-	        var _this17 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
-	        if (props.type === 'multiple' || props.type === 'tags') {
-	            _this17.__controlled.defaultVal = [];
+	        _this18.isMultiple = props.type === 'multiple' || props.type === 'tags';
+	        if (_this18.isMultiple) {
+	            _this18.__controlled.defaultVal = [];
 	        }
-	        _this17.__init();
-	        // 给 source.onSuccess 绑定默认处理逻辑
-	        _this17.__filtered.source = Object.assign({
-	            onSuccess: _this17._onSourceSuccess.bind(_this17)
-	        }, _this17.__filtered.source);
-	        return _this17;
+	        _this18.__init();
+	        _this18._openApi.push('selectAll');
+	        return _this18;
 	    }
 
 	    _createClass(Select, [{
+	        key: 'selectAll',
+	        value: function selectAll() {
+	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	            if (this.isMultiple) {
+	                var value = status ? this.__props.options.map(function (v) {
+	                    return v.value;
+	                }) : [];
+	                this.__setProps({ value: value });
+	                this.__props.onChange && this.__props.onChange(value);
+	            }
+	        }
+	    }, {
 	        key: '_onSourceSuccess',
 	        value: function _onSourceSuccess(data) {
-	            var current = this.__props.value;
-	            // 如果当前值再列表中，则不做任何处理
-	            if (_utils.Utils.typeof(current, 'array')) {
-	                // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
-	                var matchVal = _utils.Utils.toOptions(data).filter(function (v) {
-	                    return current.indexOf(v.value) > -1;
-	                }).map(function (v) {
-	                    return v.value;
-	                });
-	                if (matchVal.length === current.length) {
-	                    return;
-	                }
-	                this.props.onChange && this.props.onChange(matchVal);
-	                return;
+	            // 根据是否多选做区别处理
+	            if (this.isMultiple) {
+	                this._handleMultipleSelect(data);
 	            } else {
-	                if (_utils.Utils.toOptions(data).some(function (v) {
-	                    return v.value === current;
-	                })) {
-	                    return;
-	                }
+	                this._handleDefaultSelect(data);
 	            }
+	        }
+	    }, {
+	        key: 'getAllOptions',
+	        value: function getAllOptions() {
+	            var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.__props.options;
 
-	            // 否则把值设置为第一个或者清空
-	            if (this.__props.defaultFirst) {
-	                var first = _utils.Utils.getFirstOption(data);
-	                this.props.onChange && this.props.onChange(first);
-	            } else if (this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
-	                // 为实现刷新组件时，清空原数据
-	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-	                this.props.onChange && this.props.onChange(this.__controlled.defaultVal);
-	            }
+	            return [].concat(this.__props.extOptions || [], data);
 	        }
 	    }, {
 	        key: 'render',
@@ -3947,11 +4086,13 @@
 	            var value = this.__props.value;
 	            if (formatType === 'array') {
 	                value = _utils.Utils.format(this.__props.value, formatType);
+	            } else if (_utils.Utils.typeof(value, ['number', 'boolean'])) {
+	                value += '';
 	            }
 	            return _react2.default.createElement(
 	                Antd.Select,
 	                _extends({}, _utils.Utils.filter(this.__props, 'options'), { value: value }),
-	                _utils.Utils.toOptions(this.__props.options).map(function (item) {
+	                this.getAllOptions().map(function (item) {
 	                    return _react2.default.createElement(
 	                        Antd.Select.Option,
 	                        { key: '' + item.value, disabled: item.disabled, style: item.style,
@@ -3964,7 +4105,7 @@
 	    }]);
 
 	    return Select;
-	}(_DataEntry16.default);
+	}(BaseMultiple);
 
 	/************* Transfer 穿梭框 ************************************************************************** */
 
@@ -3994,18 +4135,18 @@
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry13) {
-	    _inherits(Switch, _DataEntry13);
+	var Switch = exports.Switch = function (_DataEntry11) {
+	    _inherits(Switch, _DataEntry11);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this18 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this19 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this18.__controlled.key = 'checked';
-	        _this18.__controlled.defaultVal = false;
-	        _this18.__init();
-	        return _this18;
+	        _this19.__controlled.key = 'checked';
+	        _this19.__controlled.defaultVal = false;
+	        _this19.__init();
+	        return _this19;
 	    }
 
 	    _createClass(Switch, [{
@@ -4017,24 +4158,34 @@
 	    }]);
 
 	    return Switch;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
 
 	/************* Upload 开关 ************************************************************************** */
 
-	var Upload = exports.Upload = function (_DataEntry14) {
-	    _inherits(Upload, _DataEntry14);
+	var Upload = exports.Upload = function (_DataEntry12) {
+	    _inherits(Upload, _DataEntry12);
 
 	    function Upload(props) {
 	        _classCallCheck(this, Upload);
 
-	        var _this19 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+	        var _this20 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
 
-	        _this19.__controlled.key = 'fileList';
-	        _this19.__init();
-	        return _this19;
+	        _this20.__controlled.key = 'fileList';
+	        _this20.__controlled.defaultVal = [];
+	        _this20._filter.push('fieldName');
+	        _this20.__init();
+	        _this20.__props.name = _this20.props.fieldName || 'file';
+	        return _this20;
 	    }
+	    // 参数额外处理
+
 
 	    _createClass(Upload, [{
+	        key: '_updateEventHandler',
+	        value: function _updateEventHandler(param) {
+	            return param ? param.fileList : [];
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.Upload, this.__props);
@@ -4042,21 +4193,40 @@
 	    }]);
 
 	    return Upload;
-	}(_DataEntry16.default);
+	}(_DataEntry14.default);
+
+	var Dragger = exports.Dragger = function (_Upload) {
+	    _inherits(Dragger, _Upload);
+
+	    function Dragger() {
+	        _classCallCheck(this, Dragger);
+
+	        return _possibleConstructorReturn(this, (Dragger.__proto__ || Object.getPrototypeOf(Dragger)).apply(this, arguments));
+	    }
+
+	    _createClass(Dragger, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Upload.Dragger, this.__props);
+	        }
+	    }]);
+
+	    return Dragger;
+	}(Upload);
 
 /***/ }),
-/* 187 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Utils: __webpack_require__(188).default,
-	    Ajax: __webpack_require__(192).default
+	    Utils: __webpack_require__(191).default,
+	    Ajax: __webpack_require__(195).default
 	};
 
 /***/ }),
-/* 188 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4065,15 +4235,15 @@
 	    value: true
 	});
 
-	var _utils2 = __webpack_require__(189);
+	var _utils2 = __webpack_require__(192);
 
 	var _utils3 = _interopRequireDefault(_utils2);
 
-	var _underscore = __webpack_require__(190);
+	var _underscore = __webpack_require__(193);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _moment2 = __webpack_require__(191);
+	var _moment2 = __webpack_require__(194);
 
 	var _moment3 = _interopRequireDefault(_moment2);
 
@@ -4119,7 +4289,7 @@
 	exports.default = utils;
 
 /***/ }),
-/* 189 */
+/* 192 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -4222,7 +4392,7 @@
 	                value = '' + value;
 	                break;
 	            case 'boolean':
-	                value = value === 'false' ? false : !!value;
+	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
 	                if (this.typeof(value, 'undefined')) {
@@ -4246,30 +4416,16 @@
 	        return [].concat(_toConsumableArray(new Set(arr)));
 	    },
 
-	    // 对象转数组
-	    objToArr: function objToArr(obj) {
-	        var arr = [];
-	        for (var i in obj) {
-	            arr.push(obj[i]);
-	        }
-	        return arr;
-	    },
-
-	    // 数组转对象
-	    arrToObj: function arrToObj(arr) {
-	        var obj = {};
-	        for (var i in arr) {
-	            obj[i] = arr[i];
-	        }
-	        return obj;
-	    },
-
 	    // 判断数组或对象是否为空
 	    empty: function empty(obj) {
-	        for (var t in obj) {
-	            return false;
+	        if (this.typeof(obj, ['array', 'object'])) {
+	            for (var t in obj) {
+	                return false;
+	            }
+	            return true;
+	        } else {
+	            return !obj;
 	        }
-	        return true;
 	    },
 
 	    // 浅拷贝，指针指向，只拷贝一层
@@ -4681,17 +4837,28 @@
 	                result = this.distinct(data).map(function (v) {
 	                    return { label: v, value: v };
 	                });
-	                // {label:1, value:'a'}，已格式化好的数据
+	                // 已格式化好的数据
+	                // {label: 'a', value: 1}
+	                // {key: 1, value: 'a'}
+	                // {id: 1, name: 'a'}
 	            } else {
-	                result = data;
+	                result = data.map(function (v) {
+	                    return v.key !== undefined && v.value !== undefined ? { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? { label: v.name, value: v.id } : v;
+	                });
 	            }
 	        } else if (this.typeof(data, 'object')) {
 	            // {key: value}
 	            for (var i in data) {
-	                result.push({
+	                var item = {
 	                    label: data[i],
 	                    value: i
-	                });
+	                };
+	                // true 选项移到首位
+	                if (i.toString().toLowerCase() === 'true') {
+	                    result.unshift(item);
+	                } else {
+	                    result.push(item);
+	                }
 	            }
 	        }
 	        return result;
@@ -4829,14 +4996,56 @@
 	            // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
 	            var newResult = newFunc.call.apply(newFunc, [thisObj].concat(params));
 	            !oldAhead && newResult !== false ? result = origin.call.apply(origin, [thisObj].concat(params)) : null;
+	            // let oResult;
+	            // oldAhead ? (oResult = origin.call(thisObj, ...params)) : null;
+	            // // 如果返回false，可阻止注入函数的继续执行
+	            // let newResult = oResult !== false ? newFunc.call(thisObj, ...params) : oResult;
+	            // // 如果注入的逻辑返回false，可阻止原函数的继续执行
+	            // let result = !oldAhead && newResult !== false ? origin.call(thisObj, ...params) : oResult;
 	            return result;
 	        } : newFunc.bind(thisObj);
+	        // 被替换函数标记
+	        parent[target].replaced = true;
 	        return parent;
 	    },
 
 	    // 延迟执行
 	    // timer(func, delay) {
 	    // }
+	    getCache: function getCache(key) {
+	        var result = localStorage.getItem(key);
+	        if (result) {
+	            return JSON.parse(result);
+	        } else {
+	            return result;
+	        }
+	    },
+	    setCache: function setCache(key, value) {
+	        value = JSON.stringify(value);
+	        return localStorage.setItem(key, value);
+	    },
+	    getSession: function getSession(key) {
+	        var result = sessionStorage.getItem(key);
+	        if (result) {
+	            return JSON.parse(result);
+	        } else {
+	            return result;
+	        }
+	    },
+	    setSession: function setSession(key, value) {
+	        value = JSON.stringify(value);
+	        return sessionStorage.setItem(key, value);
+	    },
+	    async: function async(func) {
+	        for (var _len3 = arguments.length, args = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+	            args[_key3 - 1] = arguments[_key3];
+	        }
+
+	        setTimeout(args.length === 0 ? func : function () {
+	            func.apply(undefined, args);
+	        }, 0);
+	    },
+
 
 	    /************************************************************************/
 	    // 私有方法
@@ -4878,7 +5087,7 @@
 	exports.default = utils;
 
 /***/ }),
-/* 190 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -6432,13 +6641,13 @@
 
 
 /***/ }),
-/* 191 */
+/* 194 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment;
 
 /***/ }),
-/* 192 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6447,23 +6656,43 @@
 	    value: true
 	});
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _utils = __webpack_require__(188);
-
-	var _utils2 = _interopRequireDefault(_utils);
-
-	var _reqwest = __webpack_require__(193);
+	var _reqwest = __webpack_require__(196);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
-	var _ajaxPlugin = __webpack_require__(194);
+	var _utils = __webpack_require__(191);
 
-	var _instance = __webpack_require__(195);
+	var _utils2 = _interopRequireDefault(_utils);
+
+	var _axios = __webpack_require__(198);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _ajaxPlugin = __webpack_require__(226);
+
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// 依赖 Config, AjaxCache 两个实例，通过generete获取
+	/**
+	 * @file 通用的请求发送+错误处理工具
+	 *       全部请求都通过这里处理
+	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
+	 *          但是有几个参数需要注意：
+	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
+	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
+	 *              onchange: 请求开始/结束时执行。
+	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
+	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
+	 *              complete:
+	 *
+	 * @author liuzechun@baidu.com
+	 * **/
+
 	exports.default = (0, _instance.generate)(['Config', 'AjaxCache'], function (Config, AjaxCache) {
 
 	    // 通用ajax函数，参数为一个对象
@@ -6474,6 +6703,9 @@
 	            delete config.data;
 	        }
 	        var globalAjax = Config.get('global.ajax');
+	        var mockMap = Config.get('global.mock');
+
+	        // TODO: 两种情况下都不会触发onchange
 	        // 检查是否有缓存，如果有，则直接中断后续逻辑
 	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
 	            return;
@@ -6482,29 +6714,26 @@
 	        if ((0, _ajaxPlugin.checkQueue)(config)) {
 	            return;
 	        }
-	        // successHandler不为空
-	        var successHandler = config.success || function () {};
-	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
-	        var errorHandler = config.error;
-	        if ([null, false].indexOf(errorHandler) > -1) {
-	            errorHandler = function errorHandler() {};
-	        }
-	        errorHandler = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+
 	        // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
 	        var onchange = config.onchange || function () {};
-	        // 配置合并
-	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
-	        // baseUrl 参数处理
-	        if (globalAjax.baseUrl && config.url && config.url.indexOf('http://') === -1 && config.url.indexOf('https://') === -1) {
-	            config.url = globalAjax.baseUrl + config.url;
+	        // successHandler
+	        var tmpHandler = config.success || function () {};
+	        var successHandler = function successHandler() {
+	            tmpHandler.apply(undefined, arguments);
+	            onchange(false, 'success');
+	        };
+	        // errorHandler
+	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
+	        var tmpError = config.error;
+	        if ([null, false].indexOf(tmpError) > -1) {
+	            tmpError = function tmpError() {};
 	        }
-	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
-	        if (globalAjax.beforeSend) {
-	            config = globalAjax.beforeSend(config);
-	        }
-
-	        onchange(true, 'sending');
-
+	        tmpError = config.error === true ? _ajaxPlugin.errorMessage : config.error;
+	        var errorHandler = function errorHandler() {
+	            tmpError.apply(undefined, arguments);
+	            onchange(false, 'error');
+	        };
 	        // onerror 处理逻辑
 	        var onerror = function onerror(err) {
 	            // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
@@ -6522,34 +6751,84 @@
 	                }
 	            }
 	        };
-	        return (0, _reqwest2.default)(Object.assign({}, config, {
+
+	        // 配置合并
+	        config = Object.assign({ method: 'get', type: 'json' }, globalAjax, config);
+	        // 复制一份，防止url解析时更改原数据
+	        var params = Object.assign({}, config.params, config.data);
+	        var final = Object.assign({}, config, {
 	            // url中可以使用来自params中的动态参数
-	            url: _utils2.default.urlAnalysis(config.url, config.params),
+	            url: _utils2.default.urlAnalysis(config.url, params),
 	            // data 可能来自 globalAjax
-	            data: Object.assign({}, config.params, config.data),
+	            data: params,
 	            success: function success(res) {
 	                // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
 	                if (globalAjax.success) {
 	                    globalAjax.success(res, successHandler, errorHandler, config);
 	                } else {
 	                    // 默认成功处理逻辑
-	                    // 兼容 message/msg、status/code
-	                    res.status = res.status || res.code || 0;
-	                    res.message = res.message || res.msg;
-	                    res.msg = res.message;
-	                    if (+res.status === 0) {
-	                        successHandler(res.data, res);
+	                    // 如果接口无返回值，则res为http实例
+	                    if (res instanceof XMLHttpRequest) {
+	                        onerror({ msg: '接口未返回任何数据' });
+	                        // 如果data为null
+	                    } else if (res.data === null) {
+	                        onerror({ msg: '接口返回值为空' });
 	                    } else {
-	                        onerror(res);
+	                        // 兼容 message/msg、status/code
+	                        res.status = res.status || res.code || 0;
+	                        res.message = res.message || res.msg;
+	                        res.msg = res.message;
+	                        if (+res.status === 0) {
+	                            successHandler(res.data, res);
+	                        } else {
+	                            onerror(res);
+	                        }
 	                    }
 	                }
-	                onchange(false, 'success');
 	            },
 	            error: function error(err) {
+	                // 如果有response,则对response进行解码处理,并一起传给error函数
+	                if (err.response) {
+	                    var res = void 0;
+	                    try {
+	                        res = JSON.parse(err.response);
+	                    } catch (e) {}
+	                    err = Object.assign({}, err, res, { msg: res && res.message });
+	                }
 	                onerror(err);
-	                onchange(false, 'error');
 	            }
-	        }));
+	        });
+
+	        // 检查是否有缓存，如果有，则直接中断后续逻辑
+	        // if (checkCache(final, AjaxCache)) {
+	        //     return;
+	        // }
+	        // // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
+	        // if (checkQueue(final)) {
+	        //     return;
+	        // }
+
+	        onchange(true, 'sending');
+
+	        // 检查是否有mock数据接口
+	        if ((0, _ajaxPlugin.checkMock)(final, mockMap)) {
+	            return;
+	        }
+
+	        // baseUrl 参数处理
+	        if (globalAjax.baseUrl && final.url && final.url.indexOf('http://') === -1 && final.url.indexOf('https://') === -1) {
+	            final.url = globalAjax.baseUrl + final.url;
+	        }
+	        // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
+	        if (globalAjax.beforeSend) {
+	            globalAjax.beforeSend(final);
+	        }
+
+	        if (final.useAxios) {
+	            return (0, _axios2.default)(final);
+	        }
+
+	        return (0, _reqwest2.default)(final);
 	    }
 
 	    request.init = function (url, method) {
@@ -6578,30 +6857,2418 @@
 	    return request;
 	});
 	// export default request;
-	/**
-	 * @file 通用的请求发送+错误处理工具
-	 *       全部请求都通过这里处理
-	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
-	 *          但是有几个参数需要注意：
-	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
-	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
-	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
-	 *              onchange: 请求开始/结束时执行。
-	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
-	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
-	 *              complete:
-	 *
-	 * @author liuzechun@baidu.com
-	 * **/
 
 /***/ }),
-/* 193 */
+/* 196 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  * Reqwest! A general purpose XHR connection manager
+	  * license MIT (c) Dustin Diaz 2015
+	  * https://github.com/ded/reqwest
+	  */
+
+	!function (name, context, definition) {
+	  if (typeof module != 'undefined' && module.exports) module.exports = definition()
+	  else if (true) !(__WEBPACK_AMD_DEFINE_FACTORY__ = (definition), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__))
+	  else context[name] = definition()
+	}('reqwest', this, function () {
+
+	  var context = this
+
+	  if ('window' in context) {
+	    var doc = document
+	      , byTag = 'getElementsByTagName'
+	      , head = doc[byTag]('head')[0]
+	  } else {
+	    var XHR2
+	    try {
+	      XHR2 = __webpack_require__(197)
+	    } catch (ex) {
+	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
+	    }
+	  }
+
+
+	  var httpsRe = /^http/
+	    , protocolRe = /(^\w+):\/\//
+	    , twoHundo = /^(20\d|1223)$/ //http://stackoverflow.com/questions/10046972/msie-returns-status-code-of-1223-for-ajax-request
+	    , readyState = 'readyState'
+	    , contentType = 'Content-Type'
+	    , requestedWith = 'X-Requested-With'
+	    , uniqid = 0
+	    , callbackPrefix = 'reqwest_' + (+new Date())
+	    , lastValue // data stored by the most recent JSONP callback
+	    , xmlHttpRequest = 'XMLHttpRequest'
+	    , xDomainRequest = 'XDomainRequest'
+	    , noop = function () {}
+
+	    , isArray = typeof Array.isArray == 'function'
+	        ? Array.isArray
+	        : function (a) {
+	            return a instanceof Array
+	          }
+
+	    , defaultHeaders = {
+	          'contentType': 'application/x-www-form-urlencoded'
+	        , 'requestedWith': xmlHttpRequest
+	        , 'accept': {
+	              '*':  'text/javascript, text/html, application/xml, text/xml, */*'
+	            , 'xml':  'application/xml, text/xml'
+	            , 'html': 'text/html'
+	            , 'text': 'text/plain'
+	            , 'json': 'application/json, text/javascript'
+	            , 'js':   'application/javascript, text/javascript'
+	          }
+	      }
+
+	    , xhr = function(o) {
+	        // is it x-domain
+	        if (o['crossOrigin'] === true) {
+	          var xhr = context[xmlHttpRequest] ? new XMLHttpRequest() : null
+	          if (xhr && 'withCredentials' in xhr) {
+	            return xhr
+	          } else if (context[xDomainRequest]) {
+	            return new XDomainRequest()
+	          } else {
+	            throw new Error('Browser does not support cross-origin requests')
+	          }
+	        } else if (context[xmlHttpRequest]) {
+	          return new XMLHttpRequest()
+	        } else if (XHR2) {
+	          return new XHR2()
+	        } else {
+	          return new ActiveXObject('Microsoft.XMLHTTP')
+	        }
+	      }
+	    , globalSetupOptions = {
+	        dataFilter: function (data) {
+	          return data
+	        }
+	      }
+
+	  function succeed(r) {
+	    var protocol = protocolRe.exec(r.url)
+	    protocol = (protocol && protocol[1]) || context.location.protocol
+	    return httpsRe.test(protocol) ? twoHundo.test(r.request.status) : !!r.request.response
+	  }
+
+	  function handleReadyState(r, success, error) {
+	    return function () {
+	      // use _aborted to mitigate against IE err c00c023f
+	      // (can't read props on aborted request objects)
+	      if (r._aborted) return error(r.request)
+	      if (r._timedOut) return error(r.request, 'Request is aborted: timeout')
+	      if (r.request && r.request[readyState] == 4) {
+	        r.request.onreadystatechange = noop
+	        if (succeed(r)) success(r.request)
+	        else
+	          error(r.request)
+	      }
+	    }
+	  }
+
+	  function setHeaders(http, o) {
+	    var headers = o['headers'] || {}
+	      , h
+
+	    headers['Accept'] = headers['Accept']
+	      || defaultHeaders['accept'][o['type']]
+	      || defaultHeaders['accept']['*']
+
+	    var isAFormData = typeof FormData !== 'undefined' && (o['data'] instanceof FormData);
+	    // breaks cross-origin requests with legacy browsers
+	    if (!o['crossOrigin'] && !headers[requestedWith]) headers[requestedWith] = defaultHeaders['requestedWith']
+	    if (!headers[contentType] && !isAFormData) headers[contentType] = o['contentType'] || defaultHeaders['contentType']
+	    for (h in headers)
+	      headers.hasOwnProperty(h) && 'setRequestHeader' in http && http.setRequestHeader(h, headers[h])
+	  }
+
+	  function setCredentials(http, o) {
+	    if (typeof o['withCredentials'] !== 'undefined' && typeof http.withCredentials !== 'undefined') {
+	      http.withCredentials = !!o['withCredentials']
+	    }
+	  }
+
+	  function generalCallback(data) {
+	    lastValue = data
+	  }
+
+	  function urlappend (url, s) {
+	    return url + (/\?/.test(url) ? '&' : '?') + s
+	  }
+
+	  function handleJsonp(o, fn, err, url) {
+	    var reqId = uniqid++
+	      , cbkey = o['jsonpCallback'] || 'callback' // the 'callback' key
+	      , cbval = o['jsonpCallbackName'] || reqwest.getcallbackPrefix(reqId)
+	      , cbreg = new RegExp('((^|\\?|&)' + cbkey + ')=([^&]+)')
+	      , match = url.match(cbreg)
+	      , script = doc.createElement('script')
+	      , loaded = 0
+	      , isIE10 = navigator.userAgent.indexOf('MSIE 10.0') !== -1
+
+	    if (match) {
+	      if (match[3] === '?') {
+	        url = url.replace(cbreg, '$1=' + cbval) // wildcard callback func name
+	      } else {
+	        cbval = match[3] // provided callback func name
+	      }
+	    } else {
+	      url = urlappend(url, cbkey + '=' + cbval) // no callback details, add 'em
+	    }
+
+	    context[cbval] = generalCallback
+
+	    script.type = 'text/javascript'
+	    script.src = url
+	    script.async = true
+	    if (typeof script.onreadystatechange !== 'undefined' && !isIE10) {
+	      // need this for IE due to out-of-order onreadystatechange(), binding script
+	      // execution to an event listener gives us control over when the script
+	      // is executed. See http://jaubourg.net/2010/07/loading-script-as-onclick-handler-of.html
+	      script.htmlFor = script.id = '_reqwest_' + reqId
+	    }
+
+	    script.onload = script.onreadystatechange = function () {
+	      if ((script[readyState] && script[readyState] !== 'complete' && script[readyState] !== 'loaded') || loaded) {
+	        return false
+	      }
+	      script.onload = script.onreadystatechange = null
+	      script.onclick && script.onclick()
+	      // Call the user callback with the last value stored and clean up values and scripts.
+	      fn(lastValue)
+	      lastValue = undefined
+	      head.removeChild(script)
+	      loaded = 1
+	    }
+
+	    // Add the script to the DOM head
+	    head.appendChild(script)
+
+	    // Enable JSONP timeout
+	    return {
+	      abort: function () {
+	        script.onload = script.onreadystatechange = null
+	        err({}, 'Request is aborted: timeout', {})
+	        lastValue = undefined
+	        head.removeChild(script)
+	        loaded = 1
+	      }
+	    }
+	  }
+
+	  function getRequest(fn, err) {
+	    var o = this.o
+	      , method = (o['method'] || 'GET').toUpperCase()
+	      , url = typeof o === 'string' ? o : o['url']
+	      // convert non-string objects to query-string form unless o['processData'] is false
+	      , data = (o['processData'] !== false && o['data'] && typeof o['data'] !== 'string')
+	        ? reqwest.toQueryString(o['data'])
+	        : (o['data'] || null)
+	      , http
+	      , sendWait = false
+
+	    // if we're working on a GET request and we have data then we should append
+	    // query string to end of URL and not post data
+	    if ((o['type'] == 'jsonp' || method == 'GET') && data) {
+	      url = urlappend(url, data)
+	      data = null
+	    }
+
+	    if (o['type'] == 'jsonp') return handleJsonp(o, fn, err, url)
+
+	    // get the xhr from the factory if passed
+	    // if the factory returns null, fall-back to ours
+	    http = (o.xhr && o.xhr(o)) || xhr(o)
+
+	    http.open(method, url, o['async'] === false ? false : true)
+	    setHeaders(http, o)
+	    setCredentials(http, o)
+	    if (context[xDomainRequest] && http instanceof context[xDomainRequest]) {
+	        http.onload = fn
+	        http.onerror = err
+	        // NOTE: see
+	        // http://social.msdn.microsoft.com/Forums/en-US/iewebdevelopment/thread/30ef3add-767c-4436-b8a9-f1ca19b4812e
+	        http.onprogress = function() {}
+	        sendWait = true
+	    } else {
+	      http.onreadystatechange = handleReadyState(this, fn, err)
+	    }
+	    o['before'] && o['before'](http)
+	    if (sendWait) {
+	      setTimeout(function () {
+	        http.send(data)
+	      }, 200)
+	    } else {
+	      http.send(data)
+	    }
+	    return http
+	  }
+
+	  function Reqwest(o, fn) {
+	    this.o = o
+	    this.fn = fn
+
+	    init.apply(this, arguments)
+	  }
+
+	  function setType(header) {
+	    // json, javascript, text/plain, text/html, xml
+	    if (header === null) return undefined; //In case of no content-type.
+	    if (header.match('json')) return 'json'
+	    if (header.match('javascript')) return 'js'
+	    if (header.match('text')) return 'html'
+	    if (header.match('xml')) return 'xml'
+	  }
+
+	  function init(o, fn) {
+
+	    this.url = typeof o == 'string' ? o : o['url']
+	    this.timeout = null
+
+	    // whether request has been fulfilled for purpose
+	    // of tracking the Promises
+	    this._fulfilled = false
+	    // success handlers
+	    this._successHandler = function(){}
+	    this._fulfillmentHandlers = []
+	    // error handlers
+	    this._errorHandlers = []
+	    // complete (both success and fail) handlers
+	    this._completeHandlers = []
+	    this._erred = false
+	    this._responseArgs = {}
+
+	    var self = this
+
+	    fn = fn || function () {}
+
+	    if (o['timeout']) {
+	      this.timeout = setTimeout(function () {
+	        timedOut()
+	      }, o['timeout'])
+	    }
+
+	    if (o['success']) {
+	      this._successHandler = function () {
+	        o['success'].apply(o, arguments)
+	      }
+	    }
+
+	    if (o['error']) {
+	      this._errorHandlers.push(function () {
+	        o['error'].apply(o, arguments)
+	      })
+	    }
+
+	    if (o['complete']) {
+	      this._completeHandlers.push(function () {
+	        o['complete'].apply(o, arguments)
+	      })
+	    }
+
+	    function complete (resp) {
+	      o['timeout'] && clearTimeout(self.timeout)
+	      self.timeout = null
+	      while (self._completeHandlers.length > 0) {
+	        self._completeHandlers.shift()(resp)
+	      }
+	    }
+
+	    function success (resp) {
+	      var type = o['type'] || resp && setType(resp.getResponseHeader('Content-Type')) // resp can be undefined in IE
+	      resp = (type !== 'jsonp') ? self.request : resp
+	      // use global data filter on response text
+	      var filteredResponse = globalSetupOptions.dataFilter(resp.responseText, type)
+	        , r = filteredResponse
+	      try {
+	        resp.responseText = r
+	      } catch (e) {
+	        // can't assign this in IE<=8, just ignore
+	      }
+	      if (r) {
+	        switch (type) {
+	        case 'json':
+	          try {
+	            resp = context.JSON ? context.JSON.parse(r) : eval('(' + r + ')')
+	          } catch (err) {
+	            return error(resp, 'Could not parse JSON in response', err)
+	          }
+	          break
+	        case 'js':
+	          resp = eval(r)
+	          break
+	        case 'html':
+	          resp = r
+	          break
+	        case 'xml':
+	          resp = resp.responseXML
+	              && resp.responseXML.parseError // IE trololo
+	              && resp.responseXML.parseError.errorCode
+	              && resp.responseXML.parseError.reason
+	            ? null
+	            : resp.responseXML
+	          break
+	        }
+	      }
+
+	      self._responseArgs.resp = resp
+	      self._fulfilled = true
+	      fn(resp)
+	      self._successHandler(resp)
+	      while (self._fulfillmentHandlers.length > 0) {
+	        resp = self._fulfillmentHandlers.shift()(resp)
+	      }
+
+	      complete(resp)
+	    }
+
+	    function timedOut() {
+	      self._timedOut = true
+	      self.request.abort()
+	    }
+
+	    function error(resp, msg, t) {
+	      resp = self.request
+	      self._responseArgs.resp = resp
+	      self._responseArgs.msg = msg
+	      self._responseArgs.t = t
+	      self._erred = true
+	      while (self._errorHandlers.length > 0) {
+	        self._errorHandlers.shift()(resp, msg, t)
+	      }
+	      complete(resp)
+	    }
+
+	    this.request = getRequest.call(this, success, error)
+	  }
+
+	  Reqwest.prototype = {
+	    abort: function () {
+	      this._aborted = true
+	      this.request.abort()
+	    }
+
+	  , retry: function () {
+	      init.call(this, this.o, this.fn)
+	    }
+
+	    /**
+	     * Small deviation from the Promises A CommonJs specification
+	     * http://wiki.commonjs.org/wiki/Promises/A
+	     */
+
+	    /**
+	     * `then` will execute upon successful requests
+	     */
+	  , then: function (success, fail) {
+	      success = success || function () {}
+	      fail = fail || function () {}
+	      if (this._fulfilled) {
+	        this._responseArgs.resp = success(this._responseArgs.resp)
+	      } else if (this._erred) {
+	        fail(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._fulfillmentHandlers.push(success)
+	        this._errorHandlers.push(fail)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `always` will execute whether the request succeeds or fails
+	     */
+	  , always: function (fn) {
+	      if (this._fulfilled || this._erred) {
+	        fn(this._responseArgs.resp)
+	      } else {
+	        this._completeHandlers.push(fn)
+	      }
+	      return this
+	    }
+
+	    /**
+	     * `fail` will execute when the request fails
+	     */
+	  , fail: function (fn) {
+	      if (this._erred) {
+	        fn(this._responseArgs.resp, this._responseArgs.msg, this._responseArgs.t)
+	      } else {
+	        this._errorHandlers.push(fn)
+	      }
+	      return this
+	    }
+	  , 'catch': function (fn) {
+	      return this.fail(fn)
+	    }
+	  }
+
+	  function reqwest(o, fn) {
+	    return new Reqwest(o, fn)
+	  }
+
+	  // normalize newline variants according to spec -> CRLF
+	  function normalize(s) {
+	    return s ? s.replace(/\r?\n/g, '\r\n') : ''
+	  }
+
+	  function serial(el, cb) {
+	    var n = el.name
+	      , t = el.tagName.toLowerCase()
+	      , optCb = function (o) {
+	          // IE gives value="" even where there is no value attribute
+	          // 'specified' ref: http://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-862529273
+	          if (o && !o['disabled'])
+	            cb(n, normalize(o['attributes']['value'] && o['attributes']['value']['specified'] ? o['value'] : o['text']))
+	        }
+	      , ch, ra, val, i
+
+	    // don't serialize elements that are disabled or without a name
+	    if (el.disabled || !n) return
+
+	    switch (t) {
+	    case 'input':
+	      if (!/reset|button|image|file/i.test(el.type)) {
+	        ch = /checkbox/i.test(el.type)
+	        ra = /radio/i.test(el.type)
+	        val = el.value
+	        // WebKit gives us "" instead of "on" if a checkbox has no value, so correct it here
+	        ;(!(ch || ra) || el.checked) && cb(n, normalize(ch && val === '' ? 'on' : val))
+	      }
+	      break
+	    case 'textarea':
+	      cb(n, normalize(el.value))
+	      break
+	    case 'select':
+	      if (el.type.toLowerCase() === 'select-one') {
+	        optCb(el.selectedIndex >= 0 ? el.options[el.selectedIndex] : null)
+	      } else {
+	        for (i = 0; el.length && i < el.length; i++) {
+	          el.options[i].selected && optCb(el.options[i])
+	        }
+	      }
+	      break
+	    }
+	  }
+
+	  // collect up all form elements found from the passed argument elements all
+	  // the way down to child elements; pass a '<form>' or form fields.
+	  // called with 'this'=callback to use for serial() on each element
+	  function eachFormElement() {
+	    var cb = this
+	      , e, i
+	      , serializeSubtags = function (e, tags) {
+	          var i, j, fa
+	          for (i = 0; i < tags.length; i++) {
+	            fa = e[byTag](tags[i])
+	            for (j = 0; j < fa.length; j++) serial(fa[j], cb)
+	          }
+	        }
+
+	    for (i = 0; i < arguments.length; i++) {
+	      e = arguments[i]
+	      if (/input|select|textarea/i.test(e.tagName)) serial(e, cb)
+	      serializeSubtags(e, [ 'input', 'select', 'textarea' ])
+	    }
+	  }
+
+	  // standard query string style serialization
+	  function serializeQueryString() {
+	    return reqwest.toQueryString(reqwest.serializeArray.apply(null, arguments))
+	  }
+
+	  // { 'name': 'value', ... } style serialization
+	  function serializeHash() {
+	    var hash = {}
+	    eachFormElement.apply(function (name, value) {
+	      if (name in hash) {
+	        hash[name] && !isArray(hash[name]) && (hash[name] = [hash[name]])
+	        hash[name].push(value)
+	      } else hash[name] = value
+	    }, arguments)
+	    return hash
+	  }
+
+	  // [ { name: 'name', value: 'value' }, ... ] style serialization
+	  reqwest.serializeArray = function () {
+	    var arr = []
+	    eachFormElement.apply(function (name, value) {
+	      arr.push({name: name, value: value})
+	    }, arguments)
+	    return arr
+	  }
+
+	  reqwest.serialize = function () {
+	    if (arguments.length === 0) return ''
+	    var opt, fn
+	      , args = Array.prototype.slice.call(arguments, 0)
+
+	    opt = args.pop()
+	    opt && opt.nodeType && args.push(opt) && (opt = null)
+	    opt && (opt = opt.type)
+
+	    if (opt == 'map') fn = serializeHash
+	    else if (opt == 'array') fn = reqwest.serializeArray
+	    else fn = serializeQueryString
+
+	    return fn.apply(null, args)
+	  }
+
+	  reqwest.toQueryString = function (o, trad) {
+	    var prefix, i
+	      , traditional = trad || false
+	      , s = []
+	      , enc = encodeURIComponent
+	      , add = function (key, value) {
+	          // If value is a function, invoke it and return its value
+	          value = ('function' === typeof value) ? value() : (value == null ? '' : value)
+	          s[s.length] = enc(key) + '=' + enc(value)
+	        }
+	    // If an array was passed in, assume that it is an array of form elements.
+	    if (isArray(o)) {
+	      for (i = 0; o && i < o.length; i++) add(o[i]['name'], o[i]['value'])
+	    } else {
+	      // If traditional, encode the "old" way (the way 1.3.2 or older
+	      // did it), otherwise encode params recursively.
+	      for (prefix in o) {
+	        if (o.hasOwnProperty(prefix)) buildParams(prefix, o[prefix], traditional, add)
+	      }
+	    }
+
+	    // spaces should be + according to spec
+	    return s.join('&').replace(/%20/g, '+')
+	  }
+
+	  function buildParams(prefix, obj, traditional, add) {
+	    var name, i, v
+	      , rbracket = /\[\]$/
+
+	    if (isArray(obj)) {
+	      // Serialize array item.
+	      for (i = 0; obj && i < obj.length; i++) {
+	        v = obj[i]
+	        if (traditional || rbracket.test(prefix)) {
+	          // Treat each array item as a scalar.
+	          add(prefix, v)
+	        } else {
+	          buildParams(prefix + '[' + (typeof v === 'object' ? i : '') + ']', v, traditional, add)
+	        }
+	      }
+	    } else if (obj && obj.toString() === '[object Object]') {
+	      // Serialize object item.
+	      for (name in obj) {
+	        buildParams(prefix + '[' + name + ']', obj[name], traditional, add)
+	      }
+
+	    } else {
+	      // Serialize scalar item.
+	      add(prefix, obj)
+	    }
+	  }
+
+	  reqwest.getcallbackPrefix = function () {
+	    return callbackPrefix
+	  }
+
+	  // jQuery and Zepto compatibility, differences can be remapped here so you can call
+	  // .ajax.compat(options, callback)
+	  reqwest.compat = function (o, fn) {
+	    if (o) {
+	      o['type'] && (o['method'] = o['type']) && delete o['type']
+	      o['dataType'] && (o['type'] = o['dataType'])
+	      o['jsonpCallback'] && (o['jsonpCallbackName'] = o['jsonpCallback']) && delete o['jsonpCallback']
+	      o['jsonp'] && (o['jsonpCallback'] = o['jsonp'])
+	    }
+	    return new Reqwest(o, fn)
+	  }
+
+	  reqwest.ajaxSetup = function (options) {
+	    options = options || {}
+	    for (var k in options) {
+	      globalSetupOptions[k] = options[k]
+	    }
+	  }
+
+	  return reqwest
+	});
+
+
+/***/ }),
+/* 197 */
 /***/ (function(module, exports) {
 
-	module.exports = window.DLL.reqwest;
+	/* (ignored) */
 
 /***/ }),
-/* 194 */
+/* 198 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	exports.default = function (config) {
+	    var conf = _utils2.default.filter(config, ['baseUrl', 'success', 'error']);
+	    conf.data = conf.params;
+	    return (0, _axios2.default)(conf).then(function (response) {
+	        config.success(response.data);
+	    }, function (err) {
+	        config.error(err.response.data || { message: '请求出错！' });
+	    });
+	};
+
+	var _axios = __webpack_require__(199);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _utils = __webpack_require__(191);
+
+	var _utils2 = _interopRequireDefault(_utils);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/***/ }),
+/* 199 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(200);
+
+/***/ }),
+/* 200 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+	var bind = __webpack_require__(202);
+	var Axios = __webpack_require__(204);
+	var defaults = __webpack_require__(205);
+
+	/**
+	 * Create an instance of Axios
+	 *
+	 * @param {Object} defaultConfig The default config for the instance
+	 * @return {Axios} A new instance of Axios
+	 */
+	function createInstance(defaultConfig) {
+	  var context = new Axios(defaultConfig);
+	  var instance = bind(Axios.prototype.request, context);
+
+	  // Copy axios.prototype to instance
+	  utils.extend(instance, Axios.prototype, context);
+
+	  // Copy context to instance
+	  utils.extend(instance, context);
+
+	  return instance;
+	}
+
+	// Create the default instance to be exported
+	var axios = createInstance(defaults);
+
+	// Expose Axios class to allow class inheritance
+	axios.Axios = Axios;
+
+	// Factory for creating new instances
+	axios.create = function create(instanceConfig) {
+	  return createInstance(utils.merge(defaults, instanceConfig));
+	};
+
+	// Expose Cancel & CancelToken
+	axios.Cancel = __webpack_require__(223);
+	axios.CancelToken = __webpack_require__(224);
+	axios.isCancel = __webpack_require__(220);
+
+	// Expose all/spread
+	axios.all = function all(promises) {
+	  return Promise.all(promises);
+	};
+	axios.spread = __webpack_require__(225);
+
+	module.exports = axios;
+
+	// Allow use of default import syntax in TypeScript
+	module.exports.default = axios;
+
+
+/***/ }),
+/* 201 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var bind = __webpack_require__(202);
+	var isBuffer = __webpack_require__(203);
+
+	/*global toString:true*/
+
+	// utils is a library of generic helper functions non-specific to axios
+
+	var toString = Object.prototype.toString;
+
+	/**
+	 * Determine if a value is an Array
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Array, otherwise false
+	 */
+	function isArray(val) {
+	  return toString.call(val) === '[object Array]';
+	}
+
+	/**
+	 * Determine if a value is an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an ArrayBuffer, otherwise false
+	 */
+	function isArrayBuffer(val) {
+	  return toString.call(val) === '[object ArrayBuffer]';
+	}
+
+	/**
+	 * Determine if a value is a FormData
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an FormData, otherwise false
+	 */
+	function isFormData(val) {
+	  return (typeof FormData !== 'undefined') && (val instanceof FormData);
+	}
+
+	/**
+	 * Determine if a value is a view on an ArrayBuffer
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a view on an ArrayBuffer, otherwise false
+	 */
+	function isArrayBufferView(val) {
+	  var result;
+	  if ((typeof ArrayBuffer !== 'undefined') && (ArrayBuffer.isView)) {
+	    result = ArrayBuffer.isView(val);
+	  } else {
+	    result = (val) && (val.buffer) && (val.buffer instanceof ArrayBuffer);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Determine if a value is a String
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a String, otherwise false
+	 */
+	function isString(val) {
+	  return typeof val === 'string';
+	}
+
+	/**
+	 * Determine if a value is a Number
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Number, otherwise false
+	 */
+	function isNumber(val) {
+	  return typeof val === 'number';
+	}
+
+	/**
+	 * Determine if a value is undefined
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if the value is undefined, otherwise false
+	 */
+	function isUndefined(val) {
+	  return typeof val === 'undefined';
+	}
+
+	/**
+	 * Determine if a value is an Object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is an Object, otherwise false
+	 */
+	function isObject(val) {
+	  return val !== null && typeof val === 'object';
+	}
+
+	/**
+	 * Determine if a value is a Date
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Date, otherwise false
+	 */
+	function isDate(val) {
+	  return toString.call(val) === '[object Date]';
+	}
+
+	/**
+	 * Determine if a value is a File
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a File, otherwise false
+	 */
+	function isFile(val) {
+	  return toString.call(val) === '[object File]';
+	}
+
+	/**
+	 * Determine if a value is a Blob
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Blob, otherwise false
+	 */
+	function isBlob(val) {
+	  return toString.call(val) === '[object Blob]';
+	}
+
+	/**
+	 * Determine if a value is a Function
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Function, otherwise false
+	 */
+	function isFunction(val) {
+	  return toString.call(val) === '[object Function]';
+	}
+
+	/**
+	 * Determine if a value is a Stream
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a Stream, otherwise false
+	 */
+	function isStream(val) {
+	  return isObject(val) && isFunction(val.pipe);
+	}
+
+	/**
+	 * Determine if a value is a URLSearchParams object
+	 *
+	 * @param {Object} val The value to test
+	 * @returns {boolean} True if value is a URLSearchParams object, otherwise false
+	 */
+	function isURLSearchParams(val) {
+	  return typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams;
+	}
+
+	/**
+	 * Trim excess whitespace off the beginning and end of a string
+	 *
+	 * @param {String} str The String to trim
+	 * @returns {String} The String freed of excess whitespace
+	 */
+	function trim(str) {
+	  return str.replace(/^\s*/, '').replace(/\s*$/, '');
+	}
+
+	/**
+	 * Determine if we're running in a standard browser environment
+	 *
+	 * This allows axios to run in a web worker, and react-native.
+	 * Both environments support XMLHttpRequest, but not fully standard globals.
+	 *
+	 * web workers:
+	 *  typeof window -> undefined
+	 *  typeof document -> undefined
+	 *
+	 * react-native:
+	 *  navigator.product -> 'ReactNative'
+	 */
+	function isStandardBrowserEnv() {
+	  if (typeof navigator !== 'undefined' && navigator.product === 'ReactNative') {
+	    return false;
+	  }
+	  return (
+	    typeof window !== 'undefined' &&
+	    typeof document !== 'undefined'
+	  );
+	}
+
+	/**
+	 * Iterate over an Array or an Object invoking a function for each item.
+	 *
+	 * If `obj` is an Array callback will be called passing
+	 * the value, index, and complete array for each item.
+	 *
+	 * If 'obj' is an Object callback will be called passing
+	 * the value, key, and complete object for each property.
+	 *
+	 * @param {Object|Array} obj The object to iterate
+	 * @param {Function} fn The callback to invoke for each item
+	 */
+	function forEach(obj, fn) {
+	  // Don't bother if no value provided
+	  if (obj === null || typeof obj === 'undefined') {
+	    return;
+	  }
+
+	  // Force an array if not already something iterable
+	  if (typeof obj !== 'object') {
+	    /*eslint no-param-reassign:0*/
+	    obj = [obj];
+	  }
+
+	  if (isArray(obj)) {
+	    // Iterate over array values
+	    for (var i = 0, l = obj.length; i < l; i++) {
+	      fn.call(null, obj[i], i, obj);
+	    }
+	  } else {
+	    // Iterate over object keys
+	    for (var key in obj) {
+	      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+	        fn.call(null, obj[key], key, obj);
+	      }
+	    }
+	  }
+	}
+
+	/**
+	 * Accepts varargs expecting each argument to be an object, then
+	 * immutably merges the properties of each object and returns result.
+	 *
+	 * When multiple objects contain the same key the later object in
+	 * the arguments list will take precedence.
+	 *
+	 * Example:
+	 *
+	 * ```js
+	 * var result = merge({foo: 123}, {foo: 456});
+	 * console.log(result.foo); // outputs 456
+	 * ```
+	 *
+	 * @param {Object} obj1 Object to merge
+	 * @returns {Object} Result of all merge properties
+	 */
+	function merge(/* obj1, obj2, obj3, ... */) {
+	  var result = {};
+	  function assignValue(val, key) {
+	    if (typeof result[key] === 'object' && typeof val === 'object') {
+	      result[key] = merge(result[key], val);
+	    } else {
+	      result[key] = val;
+	    }
+	  }
+
+	  for (var i = 0, l = arguments.length; i < l; i++) {
+	    forEach(arguments[i], assignValue);
+	  }
+	  return result;
+	}
+
+	/**
+	 * Extends object a by mutably adding to it the properties of object b.
+	 *
+	 * @param {Object} a The object to be extended
+	 * @param {Object} b The object to copy properties from
+	 * @param {Object} thisArg The object to bind function to
+	 * @return {Object} The resulting value of object a
+	 */
+	function extend(a, b, thisArg) {
+	  forEach(b, function assignValue(val, key) {
+	    if (thisArg && typeof val === 'function') {
+	      a[key] = bind(val, thisArg);
+	    } else {
+	      a[key] = val;
+	    }
+	  });
+	  return a;
+	}
+
+	module.exports = {
+	  isArray: isArray,
+	  isArrayBuffer: isArrayBuffer,
+	  isBuffer: isBuffer,
+	  isFormData: isFormData,
+	  isArrayBufferView: isArrayBufferView,
+	  isString: isString,
+	  isNumber: isNumber,
+	  isObject: isObject,
+	  isUndefined: isUndefined,
+	  isDate: isDate,
+	  isFile: isFile,
+	  isBlob: isBlob,
+	  isFunction: isFunction,
+	  isStream: isStream,
+	  isURLSearchParams: isURLSearchParams,
+	  isStandardBrowserEnv: isStandardBrowserEnv,
+	  forEach: forEach,
+	  merge: merge,
+	  extend: extend,
+	  trim: trim
+	};
+
+
+/***/ }),
+/* 202 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function bind(fn, thisArg) {
+	  return function wrap() {
+	    var args = new Array(arguments.length);
+	    for (var i = 0; i < args.length; i++) {
+	      args[i] = arguments[i];
+	    }
+	    return fn.apply(thisArg, args);
+	  };
+	};
+
+
+/***/ }),
+/* 203 */
+/***/ (function(module, exports) {
+
+	/*!
+	 * Determine if an object is a Buffer
+	 *
+	 * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+	 * @license  MIT
+	 */
+
+	// The _isBuffer check is for Safari 5-7 support, because it's missing
+	// Object.prototype.constructor. Remove this eventually
+	module.exports = function (obj) {
+	  return obj != null && (isBuffer(obj) || isSlowBuffer(obj) || !!obj._isBuffer)
+	}
+
+	function isBuffer (obj) {
+	  return !!obj.constructor && typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+	}
+
+	// For Node v0.10 support. Remove this eventually.
+	function isSlowBuffer (obj) {
+	  return typeof obj.readFloatLE === 'function' && typeof obj.slice === 'function' && isBuffer(obj.slice(0, 0))
+	}
+
+
+/***/ }),
+/* 204 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var defaults = __webpack_require__(205);
+	var utils = __webpack_require__(201);
+	var InterceptorManager = __webpack_require__(217);
+	var dispatchRequest = __webpack_require__(218);
+
+	/**
+	 * Create a new instance of Axios
+	 *
+	 * @param {Object} instanceConfig The default config for the instance
+	 */
+	function Axios(instanceConfig) {
+	  this.defaults = instanceConfig;
+	  this.interceptors = {
+	    request: new InterceptorManager(),
+	    response: new InterceptorManager()
+	  };
+	}
+
+	/**
+	 * Dispatch a request
+	 *
+	 * @param {Object} config The config specific for this request (merged with this.defaults)
+	 */
+	Axios.prototype.request = function request(config) {
+	  /*eslint no-param-reassign:0*/
+	  // Allow for axios('example/url'[, config]) a la fetch API
+	  if (typeof config === 'string') {
+	    config = utils.merge({
+	      url: arguments[0]
+	    }, arguments[1]);
+	  }
+
+	  config = utils.merge(defaults, {method: 'get'}, this.defaults, config);
+	  config.method = config.method.toLowerCase();
+
+	  // Hook up interceptors middleware
+	  var chain = [dispatchRequest, undefined];
+	  var promise = Promise.resolve(config);
+
+	  this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
+	    chain.unshift(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
+	    chain.push(interceptor.fulfilled, interceptor.rejected);
+	  });
+
+	  while (chain.length) {
+	    promise = promise.then(chain.shift(), chain.shift());
+	  }
+
+	  return promise;
+	};
+
+	// Provide aliases for supported request methods
+	utils.forEach(['delete', 'get', 'head', 'options'], function forEachMethodNoData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url
+	    }));
+	  };
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  /*eslint func-names:0*/
+	  Axios.prototype[method] = function(url, data, config) {
+	    return this.request(utils.merge(config || {}, {
+	      method: method,
+	      url: url,
+	      data: data
+	    }));
+	  };
+	});
+
+	module.exports = Axios;
+
+
+/***/ }),
+/* 205 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(201);
+	var normalizeHeaderName = __webpack_require__(207);
+
+	var DEFAULT_CONTENT_TYPE = {
+	  'Content-Type': 'application/x-www-form-urlencoded'
+	};
+
+	function setContentTypeIfUnset(headers, value) {
+	  if (!utils.isUndefined(headers) && utils.isUndefined(headers['Content-Type'])) {
+	    headers['Content-Type'] = value;
+	  }
+	}
+
+	function getDefaultAdapter() {
+	  var adapter;
+	  if (typeof XMLHttpRequest !== 'undefined') {
+	    // For browsers use XHR adapter
+	    adapter = __webpack_require__(208);
+	  } else if (typeof process !== 'undefined') {
+	    // For node use HTTP adapter
+	    adapter = __webpack_require__(208);
+	  }
+	  return adapter;
+	}
+
+	var defaults = {
+	  adapter: getDefaultAdapter(),
+
+	  transformRequest: [function transformRequest(data, headers) {
+	    normalizeHeaderName(headers, 'Content-Type');
+	    if (utils.isFormData(data) ||
+	      utils.isArrayBuffer(data) ||
+	      utils.isBuffer(data) ||
+	      utils.isStream(data) ||
+	      utils.isFile(data) ||
+	      utils.isBlob(data)
+	    ) {
+	      return data;
+	    }
+	    if (utils.isArrayBufferView(data)) {
+	      return data.buffer;
+	    }
+	    if (utils.isURLSearchParams(data)) {
+	      setContentTypeIfUnset(headers, 'application/x-www-form-urlencoded;charset=utf-8');
+	      return data.toString();
+	    }
+	    if (utils.isObject(data)) {
+	      setContentTypeIfUnset(headers, 'application/json;charset=utf-8');
+	      return JSON.stringify(data);
+	    }
+	    return data;
+	  }],
+
+	  transformResponse: [function transformResponse(data) {
+	    /*eslint no-param-reassign:0*/
+	    if (typeof data === 'string') {
+	      try {
+	        data = JSON.parse(data);
+	      } catch (e) { /* Ignore */ }
+	    }
+	    return data;
+	  }],
+
+	  /**
+	   * A timeout in milliseconds to abort a request. If set to 0 (default) a
+	   * timeout is not created.
+	   */
+	  timeout: 0,
+
+	  xsrfCookieName: 'XSRF-TOKEN',
+	  xsrfHeaderName: 'X-XSRF-TOKEN',
+
+	  maxContentLength: -1,
+
+	  validateStatus: function validateStatus(status) {
+	    return status >= 200 && status < 300;
+	  }
+	};
+
+	defaults.headers = {
+	  common: {
+	    'Accept': 'application/json, text/plain, */*'
+	  }
+	};
+
+	utils.forEach(['delete', 'get', 'head'], function forEachMethodNoData(method) {
+	  defaults.headers[method] = {};
+	});
+
+	utils.forEach(['post', 'put', 'patch'], function forEachMethodWithData(method) {
+	  defaults.headers[method] = utils.merge(DEFAULT_CONTENT_TYPE);
+	});
+
+	module.exports = defaults;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(206)))
+
+/***/ }),
+/* 206 */
+/***/ (function(module, exports) {
+
+	// shim for using process in browser
+	var process = module.exports = {};
+
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
+
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+
+	function defaultSetTimout() {
+	    throw new Error('setTimeout has not been defined');
+	}
+	function defaultClearTimeout () {
+	    throw new Error('clearTimeout has not been defined');
+	}
+	(function () {
+	    try {
+	        if (typeof setTimeout === 'function') {
+	            cachedSetTimeout = setTimeout;
+	        } else {
+	            cachedSetTimeout = defaultSetTimout;
+	        }
+	    } catch (e) {
+	        cachedSetTimeout = defaultSetTimout;
+	    }
+	    try {
+	        if (typeof clearTimeout === 'function') {
+	            cachedClearTimeout = clearTimeout;
+	        } else {
+	            cachedClearTimeout = defaultClearTimeout;
+	        }
+	    } catch (e) {
+	        cachedClearTimeout = defaultClearTimeout;
+	    }
+	} ())
+	function runTimeout(fun) {
+	    if (cachedSetTimeout === setTimeout) {
+	        //normal enviroments in sane situations
+	        return setTimeout(fun, 0);
+	    }
+	    // if setTimeout wasn't available but was latter defined
+	    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+	        cachedSetTimeout = setTimeout;
+	        return setTimeout(fun, 0);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedSetTimeout(fun, 0);
+	    } catch(e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+	            return cachedSetTimeout.call(null, fun, 0);
+	        } catch(e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+	            return cachedSetTimeout.call(this, fun, 0);
+	        }
+	    }
+
+
+	}
+	function runClearTimeout(marker) {
+	    if (cachedClearTimeout === clearTimeout) {
+	        //normal enviroments in sane situations
+	        return clearTimeout(marker);
+	    }
+	    // if clearTimeout wasn't available but was latter defined
+	    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+	        cachedClearTimeout = clearTimeout;
+	        return clearTimeout(marker);
+	    }
+	    try {
+	        // when when somebody has screwed with setTimeout but no I.E. maddness
+	        return cachedClearTimeout(marker);
+	    } catch (e){
+	        try {
+	            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+	            return cachedClearTimeout.call(null, marker);
+	        } catch (e){
+	            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+	            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+	            return cachedClearTimeout.call(this, marker);
+	        }
+	    }
+
+
+
+	}
+	var queue = [];
+	var draining = false;
+	var currentQueue;
+	var queueIndex = -1;
+
+	function cleanUpNextTick() {
+	    if (!draining || !currentQueue) {
+	        return;
+	    }
+	    draining = false;
+	    if (currentQueue.length) {
+	        queue = currentQueue.concat(queue);
+	    } else {
+	        queueIndex = -1;
+	    }
+	    if (queue.length) {
+	        drainQueue();
+	    }
+	}
+
+	function drainQueue() {
+	    if (draining) {
+	        return;
+	    }
+	    var timeout = runTimeout(cleanUpNextTick);
+	    draining = true;
+
+	    var len = queue.length;
+	    while(len) {
+	        currentQueue = queue;
+	        queue = [];
+	        while (++queueIndex < len) {
+	            if (currentQueue) {
+	                currentQueue[queueIndex].run();
+	            }
+	        }
+	        queueIndex = -1;
+	        len = queue.length;
+	    }
+	    currentQueue = null;
+	    draining = false;
+	    runClearTimeout(timeout);
+	}
+
+	process.nextTick = function (fun) {
+	    var args = new Array(arguments.length - 1);
+	    if (arguments.length > 1) {
+	        for (var i = 1; i < arguments.length; i++) {
+	            args[i - 1] = arguments[i];
+	        }
+	    }
+	    queue.push(new Item(fun, args));
+	    if (queue.length === 1 && !draining) {
+	        runTimeout(drainQueue);
+	    }
+	};
+
+	// v8 likes predictible objects
+	function Item(fun, array) {
+	    this.fun = fun;
+	    this.array = array;
+	}
+	Item.prototype.run = function () {
+	    this.fun.apply(null, this.array);
+	};
+	process.title = 'browser';
+	process.browser = true;
+	process.env = {};
+	process.argv = [];
+	process.version = ''; // empty string to avoid regexp issues
+	process.versions = {};
+
+	function noop() {}
+
+	process.on = noop;
+	process.addListener = noop;
+	process.once = noop;
+	process.off = noop;
+	process.removeListener = noop;
+	process.removeAllListeners = noop;
+	process.emit = noop;
+	process.prependListener = noop;
+	process.prependOnceListener = noop;
+
+	process.listeners = function (name) { return [] }
+
+	process.binding = function (name) {
+	    throw new Error('process.binding is not supported');
+	};
+
+	process.cwd = function () { return '/' };
+	process.chdir = function (dir) {
+	    throw new Error('process.chdir is not supported');
+	};
+	process.umask = function() { return 0; };
+
+
+/***/ }),
+/* 207 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	module.exports = function normalizeHeaderName(headers, normalizedName) {
+	  utils.forEach(headers, function processHeader(value, name) {
+	    if (name !== normalizedName && name.toUpperCase() === normalizedName.toUpperCase()) {
+	      headers[normalizedName] = value;
+	      delete headers[name];
+	    }
+	  });
+	};
+
+
+/***/ }),
+/* 208 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+	var utils = __webpack_require__(201);
+	var settle = __webpack_require__(209);
+	var buildURL = __webpack_require__(212);
+	var parseHeaders = __webpack_require__(213);
+	var isURLSameOrigin = __webpack_require__(214);
+	var createError = __webpack_require__(210);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(215);
+
+	module.exports = function xhrAdapter(config) {
+	  return new Promise(function dispatchXhrRequest(resolve, reject) {
+	    var requestData = config.data;
+	    var requestHeaders = config.headers;
+
+	    if (utils.isFormData(requestData)) {
+	      delete requestHeaders['Content-Type']; // Let the browser set it
+	    }
+
+	    var request = new XMLHttpRequest();
+	    var loadEvent = 'onreadystatechange';
+	    var xDomain = false;
+
+	    // For IE 8/9 CORS support
+	    // Only supports POST and GET calls and doesn't returns the response headers.
+	    // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
+	    if (process.env.NODE_ENV !== 'test' &&
+	        typeof window !== 'undefined' &&
+	        window.XDomainRequest && !('withCredentials' in request) &&
+	        !isURLSameOrigin(config.url)) {
+	      request = new window.XDomainRequest();
+	      loadEvent = 'onload';
+	      xDomain = true;
+	      request.onprogress = function handleProgress() {};
+	      request.ontimeout = function handleTimeout() {};
+	    }
+
+	    // HTTP basic authentication
+	    if (config.auth) {
+	      var username = config.auth.username || '';
+	      var password = config.auth.password || '';
+	      requestHeaders.Authorization = 'Basic ' + btoa(username + ':' + password);
+	    }
+
+	    request.open(config.method.toUpperCase(), buildURL(config.url, config.params, config.paramsSerializer), true);
+
+	    // Set the request timeout in MS
+	    request.timeout = config.timeout;
+
+	    // Listen for ready state
+	    request[loadEvent] = function handleLoad() {
+	      if (!request || (request.readyState !== 4 && !xDomain)) {
+	        return;
+	      }
+
+	      // The request errored out and we didn't get a response, this will be
+	      // handled by onerror instead
+	      // With one exception: request that using file: protocol, most browsers
+	      // will return status as 0 even though it's a successful request
+	      if (request.status === 0 && !(request.responseURL && request.responseURL.indexOf('file:') === 0)) {
+	        return;
+	      }
+
+	      // Prepare the response
+	      var responseHeaders = 'getAllResponseHeaders' in request ? parseHeaders(request.getAllResponseHeaders()) : null;
+	      var responseData = !config.responseType || config.responseType === 'text' ? request.responseText : request.response;
+	      var response = {
+	        data: responseData,
+	        // IE sends 1223 instead of 204 (https://github.com/axios/axios/issues/201)
+	        status: request.status === 1223 ? 204 : request.status,
+	        statusText: request.status === 1223 ? 'No Content' : request.statusText,
+	        headers: responseHeaders,
+	        config: config,
+	        request: request
+	      };
+
+	      settle(resolve, reject, response);
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle low level network errors
+	    request.onerror = function handleError() {
+	      // Real errors are hidden from us by the browser
+	      // onerror should only fire if it's a network error
+	      reject(createError('Network Error', config, null, request));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Handle timeout
+	    request.ontimeout = function handleTimeout() {
+	      reject(createError('timeout of ' + config.timeout + 'ms exceeded', config, 'ECONNABORTED',
+	        request));
+
+	      // Clean up request
+	      request = null;
+	    };
+
+	    // Add xsrf header
+	    // This is only done if running in a standard browser environment.
+	    // Specifically not if we're in a web worker, or react-native.
+	    if (utils.isStandardBrowserEnv()) {
+	      var cookies = __webpack_require__(216);
+
+	      // Add xsrf header
+	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
+	          cookies.read(config.xsrfCookieName) :
+	          undefined;
+
+	      if (xsrfValue) {
+	        requestHeaders[config.xsrfHeaderName] = xsrfValue;
+	      }
+	    }
+
+	    // Add headers to the request
+	    if ('setRequestHeader' in request) {
+	      utils.forEach(requestHeaders, function setRequestHeader(val, key) {
+	        if (typeof requestData === 'undefined' && key.toLowerCase() === 'content-type') {
+	          // Remove Content-Type if data is undefined
+	          delete requestHeaders[key];
+	        } else {
+	          // Otherwise add header to the request
+	          request.setRequestHeader(key, val);
+	        }
+	      });
+	    }
+
+	    // Add withCredentials to request if needed
+	    if (config.withCredentials) {
+	      request.withCredentials = true;
+	    }
+
+	    // Add responseType to request if needed
+	    if (config.responseType) {
+	      try {
+	        request.responseType = config.responseType;
+	      } catch (e) {
+	        // Expected DOMException thrown by browsers not compatible XMLHttpRequest Level 2.
+	        // But, this can be suppressed for 'json' type as it can be parsed by default 'transformResponse' function.
+	        if (config.responseType !== 'json') {
+	          throw e;
+	        }
+	      }
+	    }
+
+	    // Handle progress if needed
+	    if (typeof config.onDownloadProgress === 'function') {
+	      request.addEventListener('progress', config.onDownloadProgress);
+	    }
+
+	    // Not all browsers support upload events
+	    if (typeof config.onUploadProgress === 'function' && request.upload) {
+	      request.upload.addEventListener('progress', config.onUploadProgress);
+	    }
+
+	    if (config.cancelToken) {
+	      // Handle cancellation
+	      config.cancelToken.promise.then(function onCanceled(cancel) {
+	        if (!request) {
+	          return;
+	        }
+
+	        request.abort();
+	        reject(cancel);
+	        // Clean up request
+	        request = null;
+	      });
+	    }
+
+	    if (requestData === undefined) {
+	      requestData = null;
+	    }
+
+	    // Send the request
+	    request.send(requestData);
+	  });
+	};
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(206)))
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var createError = __webpack_require__(210);
+
+	/**
+	 * Resolve or reject a Promise based on response status.
+	 *
+	 * @param {Function} resolve A function that resolves the promise.
+	 * @param {Function} reject A function that rejects the promise.
+	 * @param {object} response The response.
+	 */
+	module.exports = function settle(resolve, reject, response) {
+	  var validateStatus = response.config.validateStatus;
+	  // Note: status is not exposed by XDomainRequest
+	  if (!response.status || !validateStatus || validateStatus(response.status)) {
+	    resolve(response);
+	  } else {
+	    reject(createError(
+	      'Request failed with status code ' + response.status,
+	      response.config,
+	      null,
+	      response.request,
+	      response
+	    ));
+	  }
+	};
+
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var enhanceError = __webpack_require__(211);
+
+	/**
+	 * Create an Error with the specified message, config, error code, request and response.
+	 *
+	 * @param {string} message The error message.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 * @param {Object} [request] The request.
+	 * @param {Object} [response] The response.
+	 * @returns {Error} The created error.
+	 */
+	module.exports = function createError(message, config, code, request, response) {
+	  var error = new Error(message);
+	  return enhanceError(error, config, code, request, response);
+	};
+
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Update an Error with the specified config, error code, and response.
+	 *
+	 * @param {Error} error The error to update.
+	 * @param {Object} config The config.
+	 * @param {string} [code] The error code (for example, 'ECONNABORTED').
+	 * @param {Object} [request] The request.
+	 * @param {Object} [response] The response.
+	 * @returns {Error} The error.
+	 */
+	module.exports = function enhanceError(error, config, code, request, response) {
+	  error.config = config;
+	  if (code) {
+	    error.code = code;
+	  }
+	  error.request = request;
+	  error.response = response;
+	  return error;
+	};
+
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	function encode(val) {
+	  return encodeURIComponent(val).
+	    replace(/%40/gi, '@').
+	    replace(/%3A/gi, ':').
+	    replace(/%24/g, '$').
+	    replace(/%2C/gi, ',').
+	    replace(/%20/g, '+').
+	    replace(/%5B/gi, '[').
+	    replace(/%5D/gi, ']');
+	}
+
+	/**
+	 * Build a URL by appending params to the end
+	 *
+	 * @param {string} url The base of the url (e.g., http://www.google.com)
+	 * @param {object} [params] The params to be appended
+	 * @returns {string} The formatted url
+	 */
+	module.exports = function buildURL(url, params, paramsSerializer) {
+	  /*eslint no-param-reassign:0*/
+	  if (!params) {
+	    return url;
+	  }
+
+	  var serializedParams;
+	  if (paramsSerializer) {
+	    serializedParams = paramsSerializer(params);
+	  } else if (utils.isURLSearchParams(params)) {
+	    serializedParams = params.toString();
+	  } else {
+	    var parts = [];
+
+	    utils.forEach(params, function serialize(val, key) {
+	      if (val === null || typeof val === 'undefined') {
+	        return;
+	      }
+
+	      if (utils.isArray(val)) {
+	        key = key + '[]';
+	      } else {
+	        val = [val];
+	      }
+
+	      utils.forEach(val, function parseValue(v) {
+	        if (utils.isDate(v)) {
+	          v = v.toISOString();
+	        } else if (utils.isObject(v)) {
+	          v = JSON.stringify(v);
+	        }
+	        parts.push(encode(key) + '=' + encode(v));
+	      });
+	    });
+
+	    serializedParams = parts.join('&');
+	  }
+
+	  if (serializedParams) {
+	    url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
+	  }
+
+	  return url;
+	};
+
+
+/***/ }),
+/* 213 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	// Headers whose duplicates are ignored by node
+	// c.f. https://nodejs.org/api/http.html#http_message_headers
+	var ignoreDuplicateOf = [
+	  'age', 'authorization', 'content-length', 'content-type', 'etag',
+	  'expires', 'from', 'host', 'if-modified-since', 'if-unmodified-since',
+	  'last-modified', 'location', 'max-forwards', 'proxy-authorization',
+	  'referer', 'retry-after', 'user-agent'
+	];
+
+	/**
+	 * Parse headers into an object
+	 *
+	 * ```
+	 * Date: Wed, 27 Aug 2014 08:58:49 GMT
+	 * Content-Type: application/json
+	 * Connection: keep-alive
+	 * Transfer-Encoding: chunked
+	 * ```
+	 *
+	 * @param {String} headers Headers needing to be parsed
+	 * @returns {Object} Headers parsed into an object
+	 */
+	module.exports = function parseHeaders(headers) {
+	  var parsed = {};
+	  var key;
+	  var val;
+	  var i;
+
+	  if (!headers) { return parsed; }
+
+	  utils.forEach(headers.split('\n'), function parser(line) {
+	    i = line.indexOf(':');
+	    key = utils.trim(line.substr(0, i)).toLowerCase();
+	    val = utils.trim(line.substr(i + 1));
+
+	    if (key) {
+	      if (parsed[key] && ignoreDuplicateOf.indexOf(key) >= 0) {
+	        return;
+	      }
+	      if (key === 'set-cookie') {
+	        parsed[key] = (parsed[key] ? parsed[key] : []).concat([val]);
+	      } else {
+	        parsed[key] = parsed[key] ? parsed[key] + ', ' + val : val;
+	      }
+	    }
+	  });
+
+	  return parsed;
+	};
+
+
+/***/ }),
+/* 214 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs have full support of the APIs needed to test
+	  // whether the request URL is of the same origin as current location.
+	  (function standardBrowserEnv() {
+	    var msie = /(msie|trident)/i.test(navigator.userAgent);
+	    var urlParsingNode = document.createElement('a');
+	    var originURL;
+
+	    /**
+	    * Parse a URL to discover it's components
+	    *
+	    * @param {String} url The URL to be parsed
+	    * @returns {Object}
+	    */
+	    function resolveURL(url) {
+	      var href = url;
+
+	      if (msie) {
+	        // IE needs attribute set twice to normalize properties
+	        urlParsingNode.setAttribute('href', href);
+	        href = urlParsingNode.href;
+	      }
+
+	      urlParsingNode.setAttribute('href', href);
+
+	      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
+	      return {
+	        href: urlParsingNode.href,
+	        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
+	        host: urlParsingNode.host,
+	        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
+	        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
+	        hostname: urlParsingNode.hostname,
+	        port: urlParsingNode.port,
+	        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
+	                  urlParsingNode.pathname :
+	                  '/' + urlParsingNode.pathname
+	      };
+	    }
+
+	    originURL = resolveURL(window.location.href);
+
+	    /**
+	    * Determine if a URL shares the same origin as the current location
+	    *
+	    * @param {String} requestURL The URL to test
+	    * @returns {boolean} True if URL shares the same origin, otherwise false
+	    */
+	    return function isURLSameOrigin(requestURL) {
+	      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
+	      return (parsed.protocol === originURL.protocol &&
+	            parsed.host === originURL.host);
+	    };
+	  })() :
+
+	  // Non standard browser envs (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return function isURLSameOrigin() {
+	      return true;
+	    };
+	  })()
+	);
+
+
+/***/ }),
+/* 215 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
+
+	var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+
+	function E() {
+	  this.message = 'String contains an invalid character';
+	}
+	E.prototype = new Error;
+	E.prototype.code = 5;
+	E.prototype.name = 'InvalidCharacterError';
+
+	function btoa(input) {
+	  var str = String(input);
+	  var output = '';
+	  for (
+	    // initialize result and counter
+	    var block, charCode, idx = 0, map = chars;
+	    // if the next str index does not exist:
+	    //   change the mapping table to "="
+	    //   check if d has no fractional digits
+	    str.charAt(idx | 0) || (map = '=', idx % 1);
+	    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
+	    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
+	  ) {
+	    charCode = str.charCodeAt(idx += 3 / 4);
+	    if (charCode > 0xFF) {
+	      throw new E();
+	    }
+	    block = block << 8 | charCode;
+	  }
+	  return output;
+	}
+
+	module.exports = btoa;
+
+
+/***/ }),
+/* 216 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	module.exports = (
+	  utils.isStandardBrowserEnv() ?
+
+	  // Standard browser envs support document.cookie
+	  (function standardBrowserEnv() {
+	    return {
+	      write: function write(name, value, expires, path, domain, secure) {
+	        var cookie = [];
+	        cookie.push(name + '=' + encodeURIComponent(value));
+
+	        if (utils.isNumber(expires)) {
+	          cookie.push('expires=' + new Date(expires).toGMTString());
+	        }
+
+	        if (utils.isString(path)) {
+	          cookie.push('path=' + path);
+	        }
+
+	        if (utils.isString(domain)) {
+	          cookie.push('domain=' + domain);
+	        }
+
+	        if (secure === true) {
+	          cookie.push('secure');
+	        }
+
+	        document.cookie = cookie.join('; ');
+	      },
+
+	      read: function read(name) {
+	        var match = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
+	        return (match ? decodeURIComponent(match[3]) : null);
+	      },
+
+	      remove: function remove(name) {
+	        this.write(name, '', Date.now() - 86400000);
+	      }
+	    };
+	  })() :
+
+	  // Non standard browser env (web workers, react-native) lack needed support.
+	  (function nonStandardBrowserEnv() {
+	    return {
+	      write: function write() {},
+	      read: function read() { return null; },
+	      remove: function remove() {}
+	    };
+	  })()
+	);
+
+
+/***/ }),
+/* 217 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	function InterceptorManager() {
+	  this.handlers = [];
+	}
+
+	/**
+	 * Add a new interceptor to the stack
+	 *
+	 * @param {Function} fulfilled The function to handle `then` for a `Promise`
+	 * @param {Function} rejected The function to handle `reject` for a `Promise`
+	 *
+	 * @return {Number} An ID used to remove interceptor later
+	 */
+	InterceptorManager.prototype.use = function use(fulfilled, rejected) {
+	  this.handlers.push({
+	    fulfilled: fulfilled,
+	    rejected: rejected
+	  });
+	  return this.handlers.length - 1;
+	};
+
+	/**
+	 * Remove an interceptor from the stack
+	 *
+	 * @param {Number} id The ID that was returned by `use`
+	 */
+	InterceptorManager.prototype.eject = function eject(id) {
+	  if (this.handlers[id]) {
+	    this.handlers[id] = null;
+	  }
+	};
+
+	/**
+	 * Iterate over all the registered interceptors
+	 *
+	 * This method is particularly useful for skipping over any
+	 * interceptors that may have become `null` calling `eject`.
+	 *
+	 * @param {Function} fn The function to call for each interceptor
+	 */
+	InterceptorManager.prototype.forEach = function forEach(fn) {
+	  utils.forEach(this.handlers, function forEachHandler(h) {
+	    if (h !== null) {
+	      fn(h);
+	    }
+	  });
+	};
+
+	module.exports = InterceptorManager;
+
+
+/***/ }),
+/* 218 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+	var transformData = __webpack_require__(219);
+	var isCancel = __webpack_require__(220);
+	var defaults = __webpack_require__(205);
+	var isAbsoluteURL = __webpack_require__(221);
+	var combineURLs = __webpack_require__(222);
+
+	/**
+	 * Throws a `Cancel` if cancellation has been requested.
+	 */
+	function throwIfCancellationRequested(config) {
+	  if (config.cancelToken) {
+	    config.cancelToken.throwIfRequested();
+	  }
+	}
+
+	/**
+	 * Dispatch a request to the server using the configured adapter.
+	 *
+	 * @param {object} config The config that is to be used for the request
+	 * @returns {Promise} The Promise to be fulfilled
+	 */
+	module.exports = function dispatchRequest(config) {
+	  throwIfCancellationRequested(config);
+
+	  // Support baseURL config
+	  if (config.baseURL && !isAbsoluteURL(config.url)) {
+	    config.url = combineURLs(config.baseURL, config.url);
+	  }
+
+	  // Ensure headers exist
+	  config.headers = config.headers || {};
+
+	  // Transform request data
+	  config.data = transformData(
+	    config.data,
+	    config.headers,
+	    config.transformRequest
+	  );
+
+	  // Flatten headers
+	  config.headers = utils.merge(
+	    config.headers.common || {},
+	    config.headers[config.method] || {},
+	    config.headers || {}
+	  );
+
+	  utils.forEach(
+	    ['delete', 'get', 'head', 'post', 'put', 'patch', 'common'],
+	    function cleanHeaderConfig(method) {
+	      delete config.headers[method];
+	    }
+	  );
+
+	  var adapter = config.adapter || defaults.adapter;
+
+	  return adapter(config).then(function onAdapterResolution(response) {
+	    throwIfCancellationRequested(config);
+
+	    // Transform response data
+	    response.data = transformData(
+	      response.data,
+	      response.headers,
+	      config.transformResponse
+	    );
+
+	    return response;
+	  }, function onAdapterRejection(reason) {
+	    if (!isCancel(reason)) {
+	      throwIfCancellationRequested(config);
+
+	      // Transform response data
+	      if (reason && reason.response) {
+	        reason.response.data = transformData(
+	          reason.response.data,
+	          reason.response.headers,
+	          config.transformResponse
+	        );
+	      }
+	    }
+
+	    return Promise.reject(reason);
+	  });
+	};
+
+
+/***/ }),
+/* 219 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var utils = __webpack_require__(201);
+
+	/**
+	 * Transform the data for a request or a response
+	 *
+	 * @param {Object|String} data The data to be transformed
+	 * @param {Array} headers The headers for the request or response
+	 * @param {Array|Function} fns A single function or Array of functions
+	 * @returns {*} The resulting transformed data
+	 */
+	module.exports = function transformData(data, headers, fns) {
+	  /*eslint no-param-reassign:0*/
+	  utils.forEach(fns, function transform(fn) {
+	    data = fn(data, headers);
+	  });
+
+	  return data;
+	};
+
+
+/***/ }),
+/* 220 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	module.exports = function isCancel(value) {
+	  return !!(value && value.__CANCEL__);
+	};
+
+
+/***/ }),
+/* 221 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Determines whether the specified URL is absolute
+	 *
+	 * @param {string} url The URL to test
+	 * @returns {boolean} True if the specified URL is absolute, otherwise false
+	 */
+	module.exports = function isAbsoluteURL(url) {
+	  // A URL is considered absolute if it begins with "<scheme>://" or "//" (protocol-relative URL).
+	  // RFC 3986 defines scheme name as a sequence of characters beginning with a letter and followed
+	  // by any combination of letters, digits, plus, period, or hyphen.
+	  return /^([a-z][a-z\d\+\-\.]*:)?\/\//i.test(url);
+	};
+
+
+/***/ }),
+/* 222 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Creates a new URL by combining the specified URLs
+	 *
+	 * @param {string} baseURL The base URL
+	 * @param {string} relativeURL The relative URL
+	 * @returns {string} The combined URL
+	 */
+	module.exports = function combineURLs(baseURL, relativeURL) {
+	  return relativeURL
+	    ? baseURL.replace(/\/+$/, '') + '/' + relativeURL.replace(/^\/+/, '')
+	    : baseURL;
+	};
+
+
+/***/ }),
+/* 223 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * A `Cancel` is an object that is thrown when an operation is canceled.
+	 *
+	 * @class
+	 * @param {string=} message The message.
+	 */
+	function Cancel(message) {
+	  this.message = message;
+	}
+
+	Cancel.prototype.toString = function toString() {
+	  return 'Cancel' + (this.message ? ': ' + this.message : '');
+	};
+
+	Cancel.prototype.__CANCEL__ = true;
+
+	module.exports = Cancel;
+
+
+/***/ }),
+/* 224 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var Cancel = __webpack_require__(223);
+
+	/**
+	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
+	 *
+	 * @class
+	 * @param {Function} executor The executor function.
+	 */
+	function CancelToken(executor) {
+	  if (typeof executor !== 'function') {
+	    throw new TypeError('executor must be a function.');
+	  }
+
+	  var resolvePromise;
+	  this.promise = new Promise(function promiseExecutor(resolve) {
+	    resolvePromise = resolve;
+	  });
+
+	  var token = this;
+	  executor(function cancel(message) {
+	    if (token.reason) {
+	      // Cancellation has already been requested
+	      return;
+	    }
+
+	    token.reason = new Cancel(message);
+	    resolvePromise(token.reason);
+	  });
+	}
+
+	/**
+	 * Throws a `Cancel` if cancellation has been requested.
+	 */
+	CancelToken.prototype.throwIfRequested = function throwIfRequested() {
+	  if (this.reason) {
+	    throw this.reason;
+	  }
+	};
+
+	/**
+	 * Returns an object that contains a new `CancelToken` and a function that, when called,
+	 * cancels the `CancelToken`.
+	 */
+	CancelToken.source = function source() {
+	  var cancel;
+	  var token = new CancelToken(function executor(c) {
+	    cancel = c;
+	  });
+	  return {
+	    token: token,
+	    cancel: cancel
+	  };
+	};
+
+	module.exports = CancelToken;
+
+
+/***/ }),
+/* 225 */
+/***/ (function(module, exports) {
+
+	'use strict';
+
+	/**
+	 * Syntactic sugar for invoking a function and expanding an array for arguments.
+	 *
+	 * Common use case would be to use `Function.prototype.apply`.
+	 *
+	 *  ```js
+	 *  function f(x, y, z) {}
+	 *  var args = [1, 2, 3];
+	 *  f.apply(null, args);
+	 *  ```
+	 *
+	 * With `spread` this example can be re-written.
+	 *
+	 *  ```js
+	 *  spread(function(x, y, z) {})([1, 2, 3]);
+	 *  ```
+	 *
+	 * @param {Function} callback
+	 * @returns {Function}
+	 */
+	module.exports = function spread(callback) {
+	  return function wrap(arr) {
+	    return callback.apply(null, arr);
+	  };
+	};
+
+
+/***/ }),
+/* 226 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6612,10 +9279,11 @@
 	exports.errorMessage = errorMessage;
 	exports.checkCache = checkCache;
 	exports.checkQueue = checkQueue;
+	exports.checkMock = checkMock;
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _utils = __webpack_require__(188);
+	var _utils = __webpack_require__(191);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -6651,7 +9319,7 @@
 	            message = JSON.stringify(error);
 	        }
 	    } catch (e) {
-	        console.error('Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
+	        _utils2.default.async(console.error, 'Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
 	    }
 	    return message;
 	}
@@ -6679,9 +9347,7 @@
 	        var cacheData = AjaxCache.getCacheData(key);
 	        if (cacheData) {
 	            // 保证异步
-	            setTimeout(function () {
-	                return config.success.apply(config, _toConsumableArray(cacheData));
-	            }, 0);
+	            _utils2.default.async.apply(_utils2.default, [config.success].concat(_toConsumableArray(cacheData)));
 	            return true;
 	        }
 	        // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
@@ -6717,7 +9383,7 @@
 	            for (var _iterator = ajaxQueue[key][Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                var v = _step.value;
 
-	                v[result] && v[result].apply(v, params);
+	                v[result] && _utils2.default.async.apply(_utils2.default, [v[result]].concat(params));
 	            }
 	        } catch (err) {
 	            _didIteratorError = true;
@@ -6771,13 +9437,31 @@
 	    return false;
 	}
 
+	/**
+	 * 检查是否有mock数据接口
+	 *
+	 * @param {*} config ajax的配置
+	 * @return {boolean} 如果有则返回true，否则返回false
+	 */
+	function checkMock(config) {
+	    var mockMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+	    if (config.url && mockMap[config.url]) {
+	        _utils2.default.async(function () {
+	            mockMap[config.url].call(null, config, config.success, config.error);
+	        });
+	        return true;
+	    }
+	    return false;
+	}
+
 /***/ }),
-/* 195 */
+/* 227 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _BaseCache = __webpack_require__(196);
+	var _BaseCache = __webpack_require__(228);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
@@ -6899,13 +9583,19 @@
 	    },
 	    setRequirejs: function setRequirejs(insName, obj) {
 	        return cache.set(insName + '._$tools.Requirejs', obj);
+	    },
+	    getPrecondition: function getPrecondition(insName) {
+	        return cache.get(insName + '._$tools.Precondition');
+	    },
+	    setPrecondition: function setPrecondition(insName, obj) {
+	        return cache.set(insName + '._$tools.Precondition', obj);
 	    }
 	};
 
 	module.exports = ins;
 
 /***/ }),
-/* 196 */
+/* 228 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6922,7 +9612,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
 
-	var _utils = __webpack_require__(188);
+	var _utils = __webpack_require__(191);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -6972,7 +9662,7 @@
 	;
 
 /***/ }),
-/* 197 */
+/* 229 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6985,19 +9675,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7076,6 +9766,11 @@
 	        // 更新 onChange/onBlur 逻辑，额外返回一个参数，为当前组件的值
 
 	    }, {
+	        key: '_updateEventHandler',
+	        value: function _updateEventHandler(param) {
+	            return param;
+	        }
+	    }, {
 	        key: '_updateEvent',
 	        value: function _updateEvent() {
 	            var _this2 = this;
@@ -7097,6 +9792,8 @@
 	                    } else {
 	                        value = params[paramsIndex];
 	                    }
+	                    // 以上规则依然不能满足时，再重写函数进行额外处理
+	                    value = _this2._updateEventHandler(value);
 	                    oriOnChange.apply(undefined, params.concat([value]));
 	                };
 	            }
@@ -7150,7 +9847,7 @@
 	exports.default = DataEntry;
 
 /***/ }),
-/* 198 */
+/* 230 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7163,15 +9860,15 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7308,19 +10005,19 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 199 */
+/* 231 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(200).default,
-	    BaseConf: __webpack_require__(200),
-	    ExtendComponent: __webpack_require__(203)
+	    BaseComponent: __webpack_require__(232).default,
+	    BaseConf: __webpack_require__(232),
+	    ExtendComponent: __webpack_require__(235)
 	};
 
 /***/ }),
-/* 200 */
+/* 232 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7328,7 +10025,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.FilterProps = exports.Uncomplex = exports.ForUserApi = exports.PreventCoverageMap = undefined;
+	exports.FilterProps = exports.Uncomplex = exports.PreventCoverageMap = exports.ForUserApi = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -7336,19 +10033,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _authority = __webpack_require__(201);
+	var _authority = __webpack_require__(233);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(202);
+	var _whitelist = __webpack_require__(234);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -7374,10 +10071,6 @@
 	// import Model from 'src/tools/model.js';
 
 
-	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
-	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
-	var PreventCoverageMap = exports.PreventCoverageMap = ['componentWillMount', 'componentDidMount', 'componentWillReceiveProps', 'componentWillUpdate', 'componentDidUpdate', 'componentWillUnmount', 'shouldComponentUpdate'];
-
 	// // 提供给用户的和生命周期相关的函数，命名更加语义化
 	var ForUserApi = exports.ForUserApi = {
 	    beforeCreate: 'componentWillMount',
@@ -7386,6 +10079,10 @@
 	    afterRender: 'componentDidMount,componentDidUpdate',
 	    beforeDestroy: 'componentWillUnmount'
 	};
+
+	// React的生命周期中的7个常用函数，为了防止函数被终的子组件覆盖，这7个函数会经过逻辑处理
+	// 中间子类在使用这几个函数的时候，需要在函数最前面调用parent.[func]()
+	var PreventCoverageMap = exports.PreventCoverageMap = _utils.Utils.distinct(Object.values(ForUserApi).join(',').split(',').concat(['componentWillReceiveProps', 'shouldComponentUpdate']));
 
 	// 不复杂的属性，即无需merge处理直接覆盖的属性
 	var Uncomplex = exports.Uncomplex = ['params', 'data', 'options'];
@@ -7439,6 +10136,9 @@
 	        _whitelist2.default.getall(_this.type).map(function (v) {
 	            return '_' + v;
 	        }));
+	        _this._innerFilter = _this._filter.filter(function (v) {
+	            return v.indexOf('_') === 0;
+	        });
 	        // 不复杂的属性，即无需merge处理直接覆盖的属性
 	        _this._uncomplex = _utils.Utils.copy(Uncomplex);
 	        // 开放给用户使用的 Api，需处理下
@@ -7505,25 +10205,35 @@
 	        // 有两种情况会调用cwr：
 	        //  一种是父组件刷新，currentProps = this.props，如果props确实发生了变化，则需要重新调用__setProps
 	        //  还有一种是set函数调用的，currentProps = this.__props，如果__props发生变化，则需要重新调用__setProps
+	        // 所以nextProps也有对应另种情况：
+	        //  一种是父组件刷新，传入的是正常的外部传入的配置；
+	        //  还有一种是set函数调用，会额外传入一个_selfCalling属性，此属性中包含了set的原数据。直接使用此属性的内容进行__setProps即可
 
 	    }, {
 	        key: '_componentWillReceiveProps',
 	        value: function _componentWillReceiveProps(nextProps, currentProps) {
+	            var _this3 = this;
+
 	            // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
 	            currentProps = !_utils.Utils.empty(currentProps) ? currentProps : this.props;
 	            // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
+	            //   也就是说 autoReload 仅仅针对父组件刷新是否刷新子组件的场景，自己set自己autoReload无效
 	            var autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
 	            // autoReload，可以使组件无论如何都进行刷新
 	            if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
 	                // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-	                var reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source);
+	                var reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source) || _utils.Utils.isChange(nextProps.params, this.__props.params);
 	                // 重新设置 __props
-	                this.__setProps(nextProps);
+	                // 如果为自身调用，则只传入待更新的值。否则传入整个nextProps（外部刷新）
+	                this.__setProps(nextProps._selfCalling || nextProps);
 	                // 自动重新加载的两种情况：
 	                // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
 	                // 2、如果设置了autoReload为true，则重新加载数据
 	                if (reGetData || autoReload) {
-	                    this._handleAsyncData();
+	                    // 改为异步执行，保证获取数据前，组件自定义的cwr函数的逻辑也执行完毕
+	                    setTimeout(function () {
+	                        _this3._handleAsyncData();
+	                    }, 0);
 	                }
 	            }
 	        }
@@ -7608,8 +10318,8 @@
 	            // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
 	            options = this._factory.handleProps(Object.assign({ type: this.type }, options));
 	            // 要保证调用cwr时传入的nextProps的完整性
-	            // 增加一个_selfCalling属性，标识当前进入componentWillReceiveProps的为内部调用还是外部调用
-	            var props = this.__mergeProps({ _selfCalling: true }, this.__props, options);
+	            // 增加一个_selfCalling属性，标识当前进入cwr的为内部调用还是外部调用；_selfCalling上存储了用户传入的配置对象原值
+	            var props = this.__mergeProps({ _selfCalling: options }, this.__props, options);
 	            // cwr一定存在，且cwr中会执行__setProps。不管子组件是否用的是__props，都能保证兼容性
 	            // 因为默认会更改__props并且forceUpdate；如果组件用的自己的props，必定会自己实现cwr中的逻辑
 	            this.componentWillReceiveProps(props, this.__props);
@@ -7729,12 +10439,12 @@
 	    }, {
 	        key: 'refresh',
 	        value: function refresh() {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            // 取出全部二次解析的属性，并重新解析一次
 	            var newProps = {};
 	            _whitelist2.default.getall(this.type).forEach(function (v) {
-	                var oItem = _this3.__filtered['_' + v];
+	                var oItem = _this4.__filtered['_' + v];
 	                oItem && (newProps[v] = oItem);
 	            });
 	            this.set(newProps);
@@ -7765,6 +10475,7 @@
 	            this._loadUserFunction();
 	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
 	            this._injectEventFunction();
+
 	            // 绑定 control 系列参数处理逻辑
 	            this._injectControl();
 	            // 绑定 api 系列参数处理逻辑
@@ -7788,7 +10499,8 @@
 	        }
 
 	        // 用于在组件开发中更新__props，类似于setState，只不过是在刷新 __props
-	        //   注意：通过 __setProps 只能设置属性，不能更换函数
+	        //   TODO：通过 __setProps 只能设置属性，不能更换函数。
+	        //      原因，函数需要额外注入处理，各个函数各不相同，未统一，无法直接更新到__props。所以在_filterHandler中把传入的函数过滤掉了
 	        // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
 	        // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
 
@@ -7845,12 +10557,16 @@
 	        //   如果是单纯因为父组件属性导致子组件的 cwr 函数被调用，两次的props是相同的，没必要刷新；
 	        //   如果是set导致的，则两次的props肯定会有不同，需刷新
 	        // 还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响
-	        // TODO: 貌似现在没什么作用，都返回true。。。
+	        // update at 2018/08/06, 如果是set的source等过滤属性，要保证这里也能通过，所以仅仅过滤`_`开头的属性
 
 	    }, {
 	        key: '__shouldUpdate',
 	        value: function __shouldUpdate(props, nextProps) {
-	            return !_utils.Utils.equals(_utils.Utils.filter(props, this._filter), _utils.Utils.filter(nextProps, this._filter));
+	            // return !Utils.equals(
+	            //     Utils.filter(props, this._filter),
+	            //     Utils.filter(nextProps, this._filter)
+	            // );
+	            return !_utils.Utils.equals(_utils.Utils.filter(props, this._innerFilter), _utils.Utils.filter(nextProps, this._innerFilter));
 	        }
 
 	        // ajax通用方法
@@ -7858,17 +10574,17 @@
 	    }, {
 	        key: '__ajax',
 	        value: function __ajax(config) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            this._inject(config, 'success', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this4.unmounted) {
+	                if (_this5.unmounted) {
 	                    return false;
 	                }
 	            });
 	            this._inject(config, 'error', function () {
 	                // 增加逻辑：如果组件已销毁，则不再往下执行
-	                if (_this4.unmounted) {
+	                if (_this5.unmounted) {
 	                    return false;
 	                }
 	            });
@@ -7940,53 +10656,74 @@
 	    }, {
 	        key: '__getSourceData',
 	        value: function __getSourceData(config) {
-	            var _this5 = this;
+	            var _this6 = this;
 
-	            var _filtered$source = this.__filtered.source,
-	                paramsHandler = _filtered$source.paramsHandler,
-	                handler = _filtered$source.handler,
-	                target = _filtered$source.target,
-	                onError = _filtered$source.onError,
-	                onSuccess = _filtered$source.onSuccess,
-	                showLoading = _filtered$source.showLoading,
-	                others = _objectWithoutProperties(_filtered$source, ['paramsHandler', 'handler', 'target', 'onError', 'onSuccess', 'showLoading']);
 	            // success 和 error 等来自子组件调用，其余参数如果子组件传入，则进行覆盖
-
-
 	            var _Object$assign = Object.assign({}, this.__filtered.source, config),
-	                url = _Object$assign.url,
-	                method = _Object$assign.method,
-	                params = _Object$assign.params,
-	                _success = _Object$assign.success,
-	                _error = _Object$assign.error,
-	                onchange = _Object$assign.onchange;
+	                target = _Object$assign.target,
+	                showLoading = _Object$assign.showLoading,
+	                onchange = _Object$assign.onchange,
+	                others = _objectWithoutProperties(_Object$assign, ['target', 'showLoading', 'onchange']);
 
-	            var pResult = paramsHandler && paramsHandler(params);
-	            params = pResult || params;
+	            this.__execAjax(_extends({}, others, {
+	                onchange: !showLoading ? onchange : function (status) {
+	                    _this6._handleSourceLoading(status, showLoading);
+	                    onchange && onchange(status);
+	                }
+	            }));
+	        }
+	        // 处理source系列接口参数的通用逻辑（例如handler处理）
+
+	    }, {
+	        key: '__execAjax',
+	        value: function __execAjax(conf) {
+	            var _this7 = this;
+
+	            var usePromise = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+	            var url = conf.url,
+	                params = conf.params,
+	                paramsHandler = conf.paramsHandler,
+	                handler = conf.handler,
+	                _success = conf.success,
+	                onSuccess = conf.onSuccess,
+	                _error = conf.error,
+	                onError = conf.onError,
+	                others = _objectWithoutProperties(conf, ['url', 'params', 'paramsHandler', 'handler', 'success', 'onSuccess', 'error', 'onError']);
+
+	            if (paramsHandler) {
+	                // 如果paramsHandler返回结果为false，则阻止ajax请求
+	                //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求
+	                var result = paramsHandler(params);
+	                // 使用时需注意，如果调用之外有额外的状态控制，例如loading没写到onchange里，则需要自己额外写判断逻辑恢复状态
+	                if (result === false) {
+	                    return false;
+	                }
+	                params = result || params;
+	            }
 	            if (url) {
-	                this.__ajax(_extends({}, others, {
-	                    url: url,
-	                    method: method || 'get',
-	                    params: params,
-	                    success: function success(data, res) {
-	                        // 如果用户定义了数据处理函数，先对数据进行处理
-	                        handler && (data = handler(data, res, _this5));
-	                        // 实际的调用处传入的成功处理逻辑
-	                        _success && _success(data, res);
-	                        // 成功后的额外操作
-	                        onSuccess && onSuccess(data, res, _this5);
-	                    },
-	                    error: function error(res) {
-	                        // 实际的调用处传入的失败处理逻辑
-	                        _error && _error();
-	                        // 失败后额外操作
-	                        return onError && onError(res);
-	                    },
-	                    onchange: !showLoading ? onchange : function (status) {
-	                        _this5._handleSourceLoading(status, showLoading);
-	                        onchange && onchange(status);
-	                    }
-	                }));
+	                return new Promise(function (resolve, reject) {
+	                    _this7.__ajax(_extends({}, others, {
+	                        url: url,
+	                        params: params,
+	                        success: function success(data, res) {
+	                            // 如果用户定义了数据处理函数，先对数据进行处理
+	                            handler && (data = handler(data, res, _this7));
+	                            // 实际的调用处传入的成功处理逻辑
+	                            _success && _success(data, res);
+	                            // 成功后的额外操作
+	                            onSuccess && onSuccess(data, res, _this7);
+	                            usePromise && resolve();
+	                        },
+	                        error: function error(res) {
+	                            // 实际的调用处传入的失败处理逻辑
+	                            var result = _error && _error(res);
+	                            usePromise && reject();
+	                            // 失败后额外操作
+	                            return onError && onError(res) || result;
+	                        }
+	                    }));
+	                });
 	            }
 	        }
 	        // source获取数据时，通用的展示source的逻辑
@@ -8218,11 +10955,11 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this6 = this;
+	            var _this8 = this;
 
 	            var _loop = function _loop(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this6.__filtered[f];
+	                var inject = _this8.__filtered[f];
 	                if (inject) {
 	                    var _iteratorNormalCompletion7 = true;
 	                    var _didIteratorError7 = false;
@@ -8232,12 +10969,12 @@
 	                        for (var _iterator7 = ForUserApi[f].split(',')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                            var v = _step7.value;
 
-	                            _this6._inject(_this6, v, function () {
-	                                var result = inject.call(_this6, _this6.__props, _this6);
+	                            _this8._inject(_this8, v, function () {
+	                                var result = inject.call(_this8, _this8.__props, _this8);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this6.__props = _this6._filterHandler(result);
+	                                    _this8.__props = _this8._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
@@ -8297,7 +11034,7 @@
 	    }, {
 	        key: '_injectControl',
 	        value: function _injectControl() {
-	            var _this7 = this;
+	            var _this9 = this;
 
 	            var _filtered$control = this.__filtered.control,
 	                trigger = _filtered$control.trigger,
@@ -8309,12 +11046,26 @@
 	                        para[_key5] = arguments[_key5];
 	                    }
 
-	                    var _filtered$control2 = _this7.__filtered.control,
+	                    var _filtered$control2 = _this9.__filtered.control,
 	                        type = _filtered$control2.type,
 	                        params = _filtered$control2.params,
-	                        handler = _filtered$control2.handler;
-	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
+	                        handler = _filtered$control2.handler,
+	                        _filtered$control2$pr = _filtered$control2.preventDefault,
+	                        preventDefault = _filtered$control2$pr === undefined ? true : _filtered$control2$pr,
+	                        _filtered$control2$st = _filtered$control2.stopPropagation,
+	                        stopPropagation = _filtered$control2$st === undefined ? true : _filtered$control2$st;
+	                    // 阻止默认事件及冒泡
 
+	                    if (_utils.Utils.typeof(para[0], 'object') && para[0].preventDefault) {
+	                        preventDefault && para[0].preventDefault();
+	                        stopPropagation && para[0].stopPropagation();
+	                    }
+	                    // 1、动作类型为：绑定(开发使用)
+	                    if (type === 'bind') {
+	                        target.apply(undefined, _toConsumableArray(params));
+	                        return;
+	                    }
+	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
 	                    var targetArr = target;
 	                    if (_utils.Utils.typeof(target, 'function')) {
 	                        targetArr = target.apply(undefined, para);
@@ -8339,7 +11090,7 @@
 	                                targetName = _targetStr$split2[0],
 	                                targetAttr = _targetStr$split2.slice(1);
 
-	                            var _target = _this7.__getComponent(targetName);
+	                            var _target = _this9.__getComponent(targetName);
 	                            if (_target) {
 	                                // 如果没设置type，则根据target的类型确定
 	                                if (!type) {
@@ -8352,22 +11103,22 @@
 	                                        {
 	                                            var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
 	                                            // 如果没有设置params，则尝试执行handler
-	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this7])));
+	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this9])));
 	                                            // 转成数组以便解构
 	                                            !_utils.Utils.typeof(params, 'array') && (params = [params]);
-	                                            func.apply(undefined, _toConsumableArray(params));
+	                                            func.call.apply(func, [_target].concat(_toConsumableArray(params)));
 	                                            break;
 	                                        }
 	                                    // 3、动作类型为：赋值
 	                                    case 'assign':
 	                                        {
-	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this7]));
+	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this9]));
 	                                            var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
 	                                            // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
 	                                            if (params) {
 	                                                tData = Object.assign({}, params, tData);
 	                                            }
-	                                            // 要调set函数，才能走componentWillReceiveProps逻辑，适用于自定义组件
+	                                            // 要调set函数，才能走cwr逻辑，适用于自定义组件
 	                                            _target.set(tData);
 	                                            break;
 	                                        }
@@ -8424,19 +11175,24 @@
 	    }, {
 	        key: '_handleAsyncData',
 	        value: function _handleAsyncData() {
-	            var _this8 = this;
+	            var _this10 = this;
 
-	            var target = this.__filtered.source.target;
-	            this.__getSourceData({
-	                success: function success(data) {
-	                    // 如果用户自己配置了 target 属性，则按照用户定义的赋值
-	                    target = target === 'content' ? 'children' : target;
-	                    // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
-	                    var tData = _utils.Utils.generateObject(target, data);
-	                    // __setProps在table、form等自定义组件不适用
-	                    _this8.set(tData);
-	                }
-	            });
+	            var _filtered$source = this.__filtered.source,
+	                url = _filtered$source.url,
+	                target = _filtered$source.target;
+
+	            if (url) {
+	                this.__getSourceData({
+	                    success: function success(data) {
+	                        // 如果用户自己配置了 target 属性，则按照用户定义的赋值
+	                        target = target === 'content' ? 'children' : target;
+	                        // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
+	                        var tData = _utils.Utils.generateObject(target, data);
+	                        // __setProps在table、form等自定义组件不适用
+	                        _this10.set(tData);
+	                    }
+	                });
+	            }
 	        }
 
 	        // 绑定 api 系列参数处理逻辑
@@ -8454,61 +11210,48 @@
 	    }, {
 	        key: '_handleApiProps',
 	        value: function _handleApiProps(oParams) {
-	            var _this9 = this;
-
 	            var _filtered$api = this.__filtered.api,
-	                url = _filtered$api.url,
-	                _filtered$api$method = _filtered$api.method,
-	                method = _filtered$api$method === undefined ? 'post' : _filtered$api$method,
 	                _filtered$api$params = _filtered$api.params,
 	                params = _filtered$api$params === undefined ? oParams : _filtered$api$params,
-	                handler = _filtered$api.handler,
-	                paramsHandler = _filtered$api.paramsHandler,
 	                onSuccess = _filtered$api.onSuccess,
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
-	                others = _objectWithoutProperties(_filtered$api, ['url', 'method', 'params', 'handler', 'paramsHandler', 'onSuccess', 'onError', 'showLoading']);
+	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
 	            // 如果传入或者设置的params不是简单对象，则重置params
 
 
 	            if (!_utils.Utils.directInstanceof(params, [Object, Array])) {
 	                params = {};
 	            }
-	            // COMPAT: 后面移除 handler
-	            handler = handler || paramsHandler;
-	            if (url) {
-	                handler && (params = handler(params));
-	                var hideLoading = void 0;
-	                if (showLoading) {
-	                    hideLoading = _antd.message.loading('提交中，请等待~', 0);
-	                }
-	                return new Promise(function (resolve, reject) {
-	                    _this9.__ajax(_extends({
-	                        url: url,
-	                        method: method,
-	                        params: params
-	                    }, others, {
-	                        success: function success(data, res) {
-	                            hideLoading && hideLoading();
-	                            var result = onSuccess && onSuccess(data, res);
-	                            // onSuccess有返回值，则执行默认提示
-	                            if (result === undefined || result === true) {
-	                                _antd.message.success('执行成功，结果返回: ' + res.msg, 2.5);
-	                            }
-	                            resolve();
-	                        },
-	                        error: function error(res) {
-	                            hideLoading && hideLoading();
-	                            var result = onError && onError(res);
-	                            // onError有返回值，则执行默认提示
-	                            if (result === undefined || result === true) {
-	                                _antd.message.error('执行失败，结果返回: ' + res.msg, 4);
-	                            }
-	                            reject();
+	            var hideLoading = void 0;
+	            return this.__execAjax(_extends({}, others, {
+	                params: params,
+	                success: function success(data, res) {
+	                    // 改变了onSuccess在__execAjax中的执行顺序，所以取出后不再传入给__execAjax
+	                    var result = onSuccess && onSuccess(data, res);
+	                    // onSuccess有返回值，则执行默认提示
+	                    if (result === undefined || result === true) {
+	                        _antd.message.success('执行成功' + (res.msg ? '，结果返回: ' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
+	                    }
+	                },
+	                error: function error(res) {
+	                    var result = onError && onError(res);
+	                    // onError有返回值，则执行默认提示
+	                    if (result === undefined || result === true) {
+	                        _antd.message.error('执行失败' + (res.msg ? '，结果返回: ' + res.msg : '!'), 3);
+	                    }
+	                    return result || false;
+	                },
+	                onchange: function onchange(status) {
+	                    if (status) {
+	                        if (showLoading) {
+	                            hideLoading = _antd.message.loading('提交中，请等待~', 0);
 	                        }
-	                    }));
-	                });
-	            }
+	                    } else {
+	                        hideLoading && hideLoading();
+	                    }
+	                }
+	            }), true);
 	        }
 
 	        // 替换 render 函数，给render加额外处理逻辑
@@ -8571,7 +11314,7 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 201 */
+/* 233 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8580,9 +11323,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	/**
 	 * @file 权限控制模块
@@ -8603,7 +11346,7 @@
 	};
 
 /***/ }),
-/* 202 */
+/* 234 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8612,7 +11355,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	var List = {
 	    Breadcrumb: ['options'],
@@ -8691,7 +11434,7 @@
 	};
 
 /***/ }),
-/* 203 */
+/* 235 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8702,19 +11445,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseComponent2 = __webpack_require__(200);
+	var _BaseComponent2 = __webpack_require__(232);
 
 	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8805,7 +11548,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 204 */
+/* 236 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8821,21 +11564,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _DataDisplay16 = __webpack_require__(205);
+	var _DataDisplay16 = __webpack_require__(237);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -9269,7 +12012,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 205 */
+/* 237 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9278,15 +12021,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9320,7 +12063,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 206 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9334,21 +12077,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _Genaral14 = __webpack_require__(207);
+	var _Genaral14 = __webpack_require__(239);
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -9704,7 +12447,7 @@
 	}(_Genaral15.default);
 
 /***/ }),
-/* 207 */
+/* 239 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9713,15 +12456,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -9755,7 +12498,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 208 */
+/* 240 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9769,27 +12512,27 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(105);
+	var _reactRouter = __webpack_require__(107);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _Navigation9 = __webpack_require__(209);
+	var _Navigation9 = __webpack_require__(241);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
-	var _router = __webpack_require__(210);
+	var _router = __webpack_require__(242);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -10296,7 +13039,7 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 209 */
+/* 241 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10305,15 +13048,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10347,12 +13090,12 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 210 */
+/* 242 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(211);
+	var _Router = __webpack_require__(243);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -10363,7 +13106,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 211 */
+/* 243 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10377,25 +13120,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(105);
+	var _reactRouter = __webpack_require__(107);
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	var _src = __webpack_require__(183);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -10412,7 +13155,10 @@
 
 
 	// 保存当前页面的路由信息
-	var lastRouter = void 0;
+	var lastRouter = {
+	    params: {},
+	    detials: {}
+	};
 	// 用于获取当前页面的路由信息
 	function getRouter() {
 	    return _utils.Utils.copy(lastRouter);
@@ -10681,7 +13427,7 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 212 */
+/* 244 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10695,25 +13441,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(213);
+	var _Feedback4 = __webpack_require__(245);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	var _src = __webpack_require__(183);
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -10901,7 +13647,7 @@
 	});
 
 /***/ }),
-/* 213 */
+/* 245 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10910,15 +13656,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10952,7 +13698,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 214 */
+/* 246 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10968,17 +13714,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(215);
+	var _Layout = __webpack_require__(247);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -11305,7 +14051,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 215 */
+/* 247 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11314,15 +14060,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(198);
+	var _Antd2 = __webpack_require__(230);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11356,15 +14102,15 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 216 */
+/* 248 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(217).default;
+	module.exports = __webpack_require__(249).default;
 
 /***/ }),
-/* 217 */
+/* 249 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11377,15 +14123,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11401,8 +14147,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Last Modified: 2017-10-12 03:17:08
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Modified By: liuzechun
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// import './style.scss';
 
 	var Iframe = function (_BaseComponent) {
 	    _inherits(Iframe, _BaseComponent);
@@ -11520,7 +14264,7 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 218 */
+/* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11528,10 +14272,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(219).default;
+	module.exports = __webpack_require__(251).default;
 
 /***/ }),
-/* 219 */
+/* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11544,19 +14288,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11570,8 +14314,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @date 2017-08-25
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
-
-	// import './style.scss';
 
 	var Export = function (_BaseComponent) {
 	    _inherits(Export, _BaseComponent);
@@ -12006,7 +14748,7 @@
 	            var name = this.getFileName();
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-export' },
+	                { className: 'uf-export ' + (this.config.className || ''), style: this.config.style },
 	                _react2.default.createElement(
 	                    'a',
 	                    { ref: function ref(ele) {
@@ -12023,7 +14765,7 @@
 	        value: function asynExportRender() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-export' },
+	                { className: 'uf-export ' + (this.config.className || ''), style: this.config.style },
 	                _react2.default.createElement(
 	                    'span',
 	                    { onClick: this.showModal.bind(this) },
@@ -12252,7 +14994,7 @@
 	exports.default = Export;
 
 /***/ }),
-/* 220 */
+/* 252 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12260,10 +15002,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(221).default;
+	module.exports = __webpack_require__(253).default;
 
 /***/ }),
-/* 221 */
+/* 253 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12276,19 +15018,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12302,13 +15044,13 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	// import './style.scss';
-
 	var TreeNode = _antd.Tree.TreeNode;
 	var Search = _antd.Input.Search;
 
 	var expandedKeys = [];
-	var getParentNode = function getParentNode(value, tree) {
+	var getParentNode = function getParentNode(value) {
+	    var tree = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+
 	    var node = [];
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
@@ -12435,10 +15177,14 @@
 	            // 针对数据进行处理
 	            // 生成指针树，便于快速定位树节点
 	            this.completePointerTree = {};
-	            this.createPointerTree(propsData, this.completePointerTree);
+	            if (propsData) {
+	                this.createPointerTree(propsData, this.completePointerTree);
+	            }
 	            // 生成层级树，包含每层可展开的父节点的key
 	            this.levalPointerTree = {};
-	            this.createLevalTree(propsData, this.levalPointerTree);
+	            if (propsData) {
+	                this.createLevalTree(propsData, this.levalPointerTree);
+	            }
 
 	            // 针对配置进行处理
 	            // 对用户未配置的项使用默认配置
@@ -12465,7 +15211,7 @@
 	                // showIcon: this.showIcon
 	            };
 	            var state = {
-	                treeData: propsData,
+	                treeData: propsData || [],
 	                completeTree: propsData,
 	                expandedKeys: this.expand.expandedKeys,
 	                autoExpandParent: this.expand.autoExpandParent,
@@ -12475,7 +15221,7 @@
 	            };
 	            if (!!nextProps) {
 	                this.setState(state);
-	                this.componentDidMount();
+	                this.initShowLeval();
 	            } else {
 	                this.state = state;
 	            }
@@ -12483,10 +15229,7 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
-	            if (this.expand.expandLeavals && !this.expand.expandedKeys) {
-	                this.showToLeval(this.expand.expandLeavals);
-	            }
+	            this.initShowLeval();
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
@@ -12494,6 +15237,14 @@
 	            // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
 	            if (this.__shouldUpdate(this.props, nextProps)) {
 	                this.initTree(nextProps);
+	            }
+	        }
+	    }, {
+	        key: 'initShowLeval',
+	        value: function initShowLeval() {
+	            // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
+	            if (this.expand.expandLeavals && !this.expand.expandedKeys) {
+	                this.showToLeval(this.expand.expandLeavals);
 	            }
 	        }
 	        // 创建指针树，创建之后，pointerTree的每个元素都能指向树的一个节点
@@ -12579,7 +15330,8 @@
 	                expandedKeys: expandedKeys,
 	                autoExpandParent: false
 	            });
-	            this.expand.onExpand(expandedKeys, e);
+	            var item = e && e.node && e.node.props._item;
+	            this.expand.onExpand(expandedKeys, e, item);
 	        }
 	    }, {
 	        key: 'onCheck',
@@ -12595,7 +15347,8 @@
 	            this.setState({
 	                selectedKeys: selectedKeys
 	            });
-	            this.select.onSelect(selectedKeys, e);
+	            var item = e && e.node && e.node.props._item;
+	            this.select.onSelect(selectedKeys, e, item);
 	        }
 	        // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
 
@@ -12666,15 +15419,12 @@
 	                });
 	            }
 	            this.setState({
-	                treeData: newTree,
+	                treeData: newTree || [],
 	                searchValue: value
 	            });
 	        }
 	        // 覆盖原生获取异步数据的函数
-
-	    }, {
-	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
+	        // _handleAsyncData() {}
 	        // 异步对数据进行加载，满足一定要求再加载
 
 	    }, {
@@ -12691,7 +15441,8 @@
 	                    params = Object.assign({}, params, {
 	                        key: nodeData.key,
 	                        name: nodeData.name,
-	                        type: nodeData.type
+	                        type: nodeData.type,
+	                        level: nodeData.level
 	                    });
 	                    // 调用通用source获取数据逻辑
 	                    _this3.__getSourceData({
@@ -12713,19 +15464,27 @@
 
 	    }, {
 	        key: 'insertData',
-	        value: function insertData(curKey, type, nodeData) {
+	        value: function insertData(curKey, type) {
+	            var nodeData = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
+
 	            var completeTree = this.state.completeTree;
-	            // 通过完整树指针向完整数据中插入一份数据
-	            this.completePointerTree[curKey].children = nodeData;
-	            // 需要更新指针树的指针情况
-	            this.createPointerTree(nodeData, this.completePointerTree);
-	            // 需要更新层级树的情况
-	            // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
-	            if (!this.levalPointerTree[type]) {
-	                this.levalPointerTree[type] = [];
+	            // 如果返回的数据为依然为空数组或非数组，则更新当前节点为叶子节点，无法再次点击获取
+	            if (_utils.Utils.typeof(nodeData, 'array') && nodeData.length) {
+	                // 通过完整树指针向完整数据中插入一份数据
+	                this.completePointerTree[curKey].children = nodeData;
+	                // 需要更新指针树的指针情况
+	                this.createPointerTree(nodeData, this.completePointerTree);
+	                // 需要更新层级树的情况
+	                // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
+	                if (!this.levalPointerTree[type]) {
+	                    this.levalPointerTree[type] = [];
+	                }
+	                this.levalPointerTree[type].push(curKey);
+	                this.createLevalTree(nodeData, this.levalPointerTree);
+	            } else {
+	                delete this.completePointerTree[curKey].children;
+	                this.completePointerTree[curKey].isLeaf = true;
 	            }
-	            this.levalPointerTree[type].push(curKey);
-	            this.createLevalTree(nodeData, this.levalPointerTree);
 	            this.setState({
 	                completeTree: completeTree
 	            });
@@ -12821,7 +15580,7 @@
 	                if (item.isLeaf === false || !!item.children) {
 	                    return _react2.default.createElement(
 	                        TreeNode,
-	                        { key: item.key, title: title, data: item, isLeaf: false,
+	                        { key: item.key, title: title, data: item, isLeaf: false, _item: item,
 	                            disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled },
 	                        !!item.children && _this5.renderTreeNode(item.children)
 	                    );
@@ -12882,7 +15641,7 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 222 */
+/* 254 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12890,10 +15649,10 @@
 	/**
 	 * @file table组件默认访问文件
 	 */
-	module.exports = __webpack_require__(223).default;
+	module.exports = __webpack_require__(255).default;
 
 /***/ }),
-/* 223 */
+/* 255 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12908,39 +15667,45 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _export2 = __webpack_require__(218);
+	var _export2 = __webpack_require__(250);
 
 	var _export3 = _interopRequireDefault(_export2);
 
-	var _Crud = __webpack_require__(224);
+	var _Crud = __webpack_require__(256);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(225);
+	var _Title = __webpack_require__(257);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Edit = __webpack_require__(226);
+	var _Edit = __webpack_require__(258);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _Filter = __webpack_require__(227);
+	var _Filter = __webpack_require__(259);
 
 	var _Filter2 = _interopRequireDefault(_Filter);
+
+	var _Enum = __webpack_require__(260);
+
+	var _Enum2 = _interopRequireDefault(_Enum);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12982,6 +15747,7 @@
 	        // 纯粹为了 bind this
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction');
 	        _this.__init();
+	        _this._showLoading = _this.__filtered.source.showLoading === undefined || _this.__filtered.source.showLoading;
 	        // 存储source中的初始化params参数
 	        _this.oriSourceParams = {};
 	        _this.state = {
@@ -13004,8 +15770,16 @@
 	        // 用于存储多列的筛选条件
 	        _this.filterConditions = {};
 	        // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
-	        _this.requerstIndex = 0;
+	        _this.requestIndex = 0;
+	        // 当前正在执行的请求数
+	        _this.requestCount = 0;
 	        _this.filter = new _Filter2.default(_this);
+	        _this.enum = new _Enum2.default({
+	            execAjax: _this.__execAjax.bind(_this),
+	            continue: _this.componentDidMount.bind(_this),
+	            formatApi: _this.__formatApi.bind(_this),
+	            getConf: _this.__getConf.bind(_this)
+	        });
 	        _this.initTable(true);
 	        return _this;
 	    }
@@ -13016,18 +15790,14 @@
 	            // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
 	            if (this.__shouldUpdate(this.props, nextProps)) {
 	                this.initTable();
-	                // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
-	                if (this.__filtered.source.autoLoad) {
-	                    // 置为第一页
-	                    this.getData(1);
-	                }
 	            }
 	        }
 	    }, {
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            // 组件删除时，请求返回的数据无效
-	            this.requerstIndex = null;
+	            this.requestIndex = null;
+	            this.requestCount = 0;
 	            // 防止循环引用导致内存泄漏
 	            delete this.crud;
 	            delete this.titleRef;
@@ -13053,6 +15823,8 @@
 	            this.serverPaging = this.__filtered.source.url && this.pagination.pageType === 'server';
 	            // 列配置
 	            this.columns = objProps.columns;
+	            // 根据列初始化枚举类
+	            isFirst && this.enum.init(this.columns);
 	            var propsData = objProps.data;
 	            // 行配置
 	            this.rowSelection = null;
@@ -13108,7 +15880,7 @@
 	            // 关于异步操作
 	            if (propsData) {
 	                state.completeData = propsData;
-	                this.pagination.total = propsData.length;
+	                this.pagination.total = this.pagination.total || propsData.length;
 	            }
 	            // 关于行样式与不可选相关联，不可选时至为灰色
 	            if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -13136,20 +15908,37 @@
 	            }
 	        }
 	    }, {
+	        key: '_afterInitProps',
+	        value: function _afterInitProps() {
+	            var _this3 = this;
+
+	            _get(NewTable.prototype.__proto__ || Object.getPrototypeOf(NewTable.prototype), '_afterInitProps', this).call(this);
+	            // 双击行进行编辑
+	            if (this.__props.doubleClickEdit) {
+	                this._inject(this.__props, 'onRowDoubleClick', function (record) {
+	                    _this3.showCrud('edit', record);
+	                });
+	            }
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            // for enum, 无论如何都刷新一次组件
+	            this.setState({ loading: this.enum.loading && this._showLoading });
 	            // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
-	            if (this.__filtered.source.autoLoad) {
-	                this.getData();
-	            }
+	            // & 如果枚举类正在加载数据，则暂时不获取数据
+	            // 走公共的BaseComponent的刷新逻辑，待观察
+	            // if (this.__filtered.source.autoLoad && !this.enum.loading) {
+	            //     this.getData();
+	            // }
 	        }
 
 	        /* 供用户调用接口 ***********************************************************************/
 	        // 手动拉取数据
 
 	    }, {
-	        key: 'loadData',
-	        value: function loadData() {
+	        key: 'reload',
+	        value: function reload() {
 	            this.getData();
 	        }
 	        // 刷新表格
@@ -13228,7 +16017,7 @@
 	            // 如果为后端分页，则传递 source 配置
 	            if (this.serverPaging) {
 	                return {
-	                    type: 'asyn',
+	                    mode: 'asyn',
 	                    headers: headers,
 	                    source: this.__filtered.source,
 	                    total: this.pagination.total || 0
@@ -13237,7 +16026,7 @@
 	            // 否则传递 data
 	            var data = this.__props.data || [];
 	            return {
-	                type: 'sync',
+	                mode: 'sync',
 	                headers: headers,
 	                data: data,
 	                total: data.length
@@ -13258,11 +16047,11 @@
 	    }, {
 	        key: '_cellSubmit',
 	        value: function _cellSubmit(key, dataIndex, value) {
-	            var _this3 = this;
+	            var _this4 = this;
 
 	            var dataSource = [].concat(_toConsumableArray(this.__props.data));
 	            var dataResult = dataSource.map(function (item) {
-	                if (item[_this3.rowKey] === key) {
+	                if (item[_this4.rowKey] === key) {
 	                    item[dataIndex] = value;
 	                }
 	                return item;
@@ -13274,13 +16063,21 @@
 
 	    }, {
 	        key: '_handleAsyncData',
-	        value: function _handleAsyncData() {}
+	        value: function _handleAsyncData() {
+	            var _this5 = this;
+
+	            setTimeout(function () {
+	                if (!_this5.enum.loading) {
+	                    _this5.getData();
+	                }
+	            }, 0);
+	        }
 	        // 异步获取数据
 
 	    }, {
 	        key: 'getData',
 	        value: function getData(pageNum) {
-	            var _this4 = this;
+	            var _this6 = this;
 
 	            var _filtered$source = this.__filtered.source,
 	                url = _filtered$source.url,
@@ -13304,28 +16101,28 @@
 	            // 当前请求的标号
 	            // 快速多次相同的请求会被合并到第一个（ajax中实现）
 	            var index = _utils.Utils.hash(params);
-	            this.requerstIndex = index;
+	            this.requestIndex = index;
 	            // 调用通用source获取数据逻辑
 	            this.__getSourceData({
 	                params: params,
 	                success: function success(data, res) {
-	                    if (index !== _this4.requerstIndex) {
+	                    if (index !== _this6.requestIndex) {
 	                        return;
 	                    }
 	                    var displayData = data || [];
-	                    if (_this4.pagination.pageType === 'server') {
-	                        displayData = displayData.slice(0, _this4.pagination.pageSize);
+	                    if (_this6.pagination.pageType === 'server') {
+	                        displayData = displayData.slice(0, _this6.pagination.pageSize);
 	                    }
-	                    _this4.pagination.total = +(res.total || res.count || data.length);
-	                    _this4.__setProps({ data: displayData }, false);
-	                    _this4.setState({ completeData: displayData });
-	                    _this4.onRefreshData(data);
+	                    _this6.pagination.total = +(res.total || res.count || data.length);
+	                    _this6.__setProps({ data: displayData }, false);
+	                    _this6.setState({ completeData: displayData });
+	                    _this6.onRefreshData(data);
 	                },
 	                onchange: function onchange(loading) {
-	                    if (index !== _this4.requerstIndex) {
+	                    if (index !== _this6.requestIndex) {
 	                        return;
 	                    }
-	                    _this4.setState({ loading: loading });
+	                    _this6.setState({ loading: loading && _this6._showLoading });
 	                }
 	            });
 	        }
@@ -13421,7 +16218,7 @@
 	    }, {
 	        key: 'filterInputSearch',
 	        value: function filterInputSearch(filteredData) {
-	            var _this5 = this;
+	            var _this7 = this;
 
 	            var data = [];
 	            var needFilterData = !!filteredData ? filteredData : this.state.completeData;
@@ -13429,8 +16226,8 @@
 	            // 如果没有传入如果传入filteredData，则在全量数据上进行筛选
 	            data = needFilterData.filter(function (record) {
 	                var flag = true;
-	                for (var cdit in _this5.filterConditions) {
-	                    if (record[cdit].toString().indexOf(_this5.filterConditions[cdit]) === -1) {
+	                for (var cdit in _this7.filterConditions) {
+	                    if (record[cdit].toString().indexOf(_this7.filterConditions[cdit]) === -1) {
 	                        flag = false;
 	                        break;
 	                    }
@@ -13462,7 +16259,7 @@
 	    }, {
 	        key: '_selectAllData',
 	        value: function _selectAllData() {
-	            var _this6 = this;
+	            var _this8 = this;
 
 	            var displayData = this.__props.data;
 	            var selectedRowKeys = [];
@@ -13470,7 +16267,7 @@
 	            var rowKey = this.__props.rowKey;
 	            // 只有选择形式为复选框时才能进行全选
 	            selectedRows = displayData.filter(function (record) {
-	                if (_this6.rowSelection.disabledRow && _this6.rowSelection.disabledRow(record)) {
+	                if (_this8.rowSelection.disabledRow && _this8.rowSelection.disabledRow(record)) {
 	                    // 当满足不可选条件时，不可以进行选择
 	                    return false;
 	                } else {
@@ -13556,7 +16353,7 @@
 	    }, {
 	        key: '_syntaxHighlight',
 	        value: function _syntaxHighlight(json) {
-	            var _this7 = this;
+	            var _this9 = this;
 
 	            if (typeof json !== 'string') {
 	                json = JSON.stringify(json, undefined, 2);
@@ -13572,7 +16369,7 @@
 	                        try {
 	                            var type = JSON.parse(match);
 	                            if (_typeof(JSON.parse(type)) === 'object') {
-	                                return _this7._syntaxHighlight(JSON.parse(type));
+	                                return _this9._syntaxHighlight(JSON.parse(type));
 	                            } else {
 	                                cls = 'string';
 	                            }
@@ -13593,8 +16390,6 @@
 	    }, {
 	        key: 'handleAction',
 	        value: function handleAction(config, record) {
-	            var _this8 = this;
-
 	            var arr = config;
 	            if (!_utils.Utils.typeof(arr, 'array')) {
 	                arr = [config];
@@ -13604,21 +16399,19 @@
 	            var _iteratorError2 = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var v = _step2.value;
 
 	                    // action的值与crud中的配置的key一一对应
-	                    if (v.action) {
-	                        v.onClick = function (e) {
-	                            e && e.preventDefault();
-	                            e && e.stopPropagation();
-	                            _this8.showCrud(v.action, record);
+	                    if (v.action && !v.control) {
+	                        // BaseComponet不接受更新函数，使用control作为临时解决方案
+	                        v.control = {
+	                            type: 'bind',
+	                            trigger: 'onClick',
+	                            target: this.showCrud,
+	                            params: [v.action, record]
 	                        };
 	                    }
-	                };
-
-	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError2 = true;
@@ -13640,14 +16433,14 @@
 	    }, {
 	        key: 'renderColumns',
 	        value: function renderColumns() {
-	            var _this9 = this;
+	            var _this10 = this;
 
 	            // 列功能相关
 	            var antdColumnConfig = [];
 
-	            var _loop2 = function _loop2(i) {
-	                var item = _this9.columns[i];
-	                if (!_this9.state.showAllTags && item.display === false) {
+	            var _loop = function _loop(i) {
+	                var item = _this10.columns[i];
+	                if (!_this10.state.showAllTags && item.display === false) {
 	                    // 在展示部分字段下过滤掉不展示的列数据
 	                    return 'continue';
 	                }
@@ -13670,17 +16463,21 @@
 	                if (defaultColumn.dataIndex === '_operation') {
 	                    defaultColumn.className += ' uf-operation';
 	                }
-	                // 用户配置的render是一个uf组建配置，在此转为dom
+	                // 如果列为枚举类型，则进行枚举转换
+	                if (item.enum && !item.render) {
+	                    item = _this10.enum.handleColumn(item);
+	                }
+	                // 用户配置的render是一个uf组件配置，在此转为dom
 	                if (!!item.render) {
 	                    defaultColumn.render = function (text, record, index) {
 	                        // 配置中的render返回的是配置，配置再解析后才是真正的元素
 	                        var config = item.render(text, record, index);
 	                        // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
 	                        if (defaultColumn.dataIndex === '_operation') {
-	                            config = _this9.handleAction(config, record);
+	                            config = _this10.handleAction(config, record);
 	                        }
 	                        // 根据是否可编辑状态来判断是否包裹编辑组件
-	                        return _this9.__analysis(config);
+	                        return _this10.__analysis(config);
 	                    };
 	                }
 	                // 将用户配置的单列筛选选项转换成antd的配置
@@ -13707,7 +16504,7 @@
 	                            });
 	                        } else {
 	                            // 用户没有配置options，则将该字段的所有可能值展示出来
-	                            filterObj.filters = _this9.getAllFilterValue(dataIndex);
+	                            filterObj.filters = _this10.getAllFilterValue(dataIndex);
 	                        }
 	                        filterObj.filterMultiple = filter.type === 'checkbox' ? true : false;
 	                        filterObj.onFilter = function (value, record) {
@@ -13722,15 +16519,15 @@
 	                        var _filterObj = {
 	                            filterDropdown: null,
 	                            filterIcon: _react2.default.createElement(_antd.Icon, { type: 'filter',
-	                                style: { color: !!_this9.filterConditions[dataIndex] ? '#108ee9' : '#aaa' } })
+	                                style: { color: !!_this10.filterConditions[dataIndex] ? '#108ee9' : '#aaa' } })
 	                        };
 	                        _filterObj.filterDropdown = _react2.default.createElement(
 	                            'div',
 	                            { className: 'custom-filter-dropdown' },
 	                            _react2.default.createElement(_antd.Input, { placeholder: 'Search',
-	                                value: !!_this9.filterConditions[dataIndex] ? _this9.filterConditions[dataIndex] : '',
-	                                onChange: _this9.filterChange.bind(_this9, dataIndex),
-	                                onPressEnter: _this9.onFilterData.bind(_this9)
+	                                value: !!_this10.filterConditions[dataIndex] ? _this10.filterConditions[dataIndex] : '',
+	                                onChange: _this10.filterChange.bind(_this10, dataIndex),
+	                                onPressEnter: _this10.onFilterData.bind(_this10)
 	                            })
 	                        );
 	                        defaultColumn = Object.assign({}, defaultColumn, _filterObj);
@@ -13739,7 +16536,7 @@
 	                // 文字过长，鼠标移入时进行气泡展示
 	                if (!!item.ellipsis) {
 	                    defaultColumn.render = function (text, record, index) {
-	                        var newText = item.render ? _this9.__analysis(item.render(text, record, index)) : text;
+	                        var newText = item.render ? _this10.__analysis(item.render(text, record, index)) : text;
 	                        var returnText = _react2.default.createElement(
 	                            _antd.Popover,
 	                            { content: newText },
@@ -13775,7 +16572,7 @@
 	                                    dayTime === 0 && hourTime === 0 && minuteTime === 0 && secTime > 0 && timeArr.push(secTime + '秒');
 	                                    var tdData = timeArr.join('');
 	                                    // 若用户配置了render，则将转换之后的数据给用户的render
-	                                    newText = item.render ? _this9.__analysis(item.render(tdData, record, index)) : tdData;
+	                                    newText = item.render ? _this10.__analysis(item.render(tdData, record, index)) : tdData;
 	                                    break;
 	                                }
 	                            case 'json':
@@ -13783,7 +16580,7 @@
 	                                    // 会出现重复json字符串编码现象,加入类型判断
 	                                    var json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
 	                                    if (text && json !== '""') {
-	                                        var html = _this9._syntaxHighlight(json);
+	                                        var html = _this10._syntaxHighlight(json);
 	                                        newText = _react2.default.createElement(
 	                                            _antd.Popover,
 	                                            { content: _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } }) },
@@ -13797,8 +16594,8 @@
 	                                break;
 	                            // 默认将格式进行一下转换然后输出
 	                            default:
-	                                text = _this9._getKeyDataOfObject(text);
-	                                newText = item.render ? _this9.__analysis(item.render(text, record, index)) : text;
+	                                text = _this10._getKeyDataOfObject(text);
+	                                newText = item.render ? _this10.__analysis(item.render(text, record, index)) : text;
 	                                break;
 	                        }
 	                        return newText;
@@ -13819,12 +16616,12 @@
 	                        if (!editableConf) {
 	                            return displayStr;
 	                        }
-	                        return _react2.default.createElement(_Edit2.default, { parent: _this9,
+	                        return _react2.default.createElement(_Edit2.default, { parent: _this10, _factory: _this10._factory,
 	                            value: text,
 	                            columnChild: displayStr,
 	                            editConf: editableConf,
 	                            api: editableConf.api,
-	                            cellSubmit: _this9._cellSubmit.bind(_this9, record[_this9.rowKey], defaultColumn.dataIndex)
+	                            cellSubmit: _this10._cellSubmit.bind(_this10, record[_this10.rowKey], defaultColumn.dataIndex)
 	                        });
 	                    };
 	                }
@@ -13832,14 +16629,14 @@
 	            };
 
 	            for (var i in this.columns) {
-	                var _ret2 = _loop2(i);
+	                var _ret = _loop(i);
 
-	                switch (_ret2) {
+	                switch (_ret) {
 	                    case 'continue':
 	                        continue;
 
 	                    default:
-	                        if ((typeof _ret2 === 'undefined' ? 'undefined' : _typeof(_ret2)) === "object") return _ret2.v;
+	                        if ((typeof _ret === 'undefined' ? 'undefined' : _typeof(_ret)) === "object") return _ret.v;
 	                }
 	            }
 	            return antdColumnConfig;
@@ -13847,7 +16644,7 @@
 	    }, {
 	        key: 'renderRowSelection',
 	        value: function renderRowSelection() {
-	            var _this10 = this;
+	            var _this11 = this;
 
 	            if (!this.rowSelection) {
 	                return null;
@@ -13861,7 +16658,7 @@
 	            rowSelection.selectedRowKeys = this.state.selectedRowKeys;
 	            if (this.rowSelection.disabledRow) {
 	                rowSelection.getCheckboxProps = function (record) {
-	                    return { disabled: _this10.rowSelection.disabledRow(record) };
+	                    return { disabled: _this11.rowSelection.disabledRow(record) };
 	                };
 	            }
 	            // 任何一行的选择与否都会触发改方法
@@ -13914,7 +16711,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            var className = 'uf-table ';
 	            className += this.state.fullScreen ? 'uf-fullscreen ' : '';
@@ -13932,15 +16729,15 @@
 	                { className: className, style: this.__props.style },
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { _factory: _this11._factory, parent: _this11, ref: function ref(ele) {
-	                                return _this11.titleRef = ele;
-	                            }, config: _this11.title });
+	                        return _react2.default.createElement(_Title2.default, { _factory: _this12._factory, parent: _this12, ref: function ref(ele) {
+	                                return _this12.titleRef = ele;
+	                            }, config: _this12.title });
 	                    },
 	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender ? { expandedRowRender: function expandedRowRender(record) {
-	                        return _this11.__analysis(_expandedRowRender(record));
+	                        return _this12.__analysis(_expandedRowRender(record));
 	                    } } : null, !!this.state.expandedRowKeys ? { expandedRowKeys: this.state.expandedRowKeys } : null, _footer ? { footer: function footer(currentPageData) {
-	                        return _this11.__analysis(_footer(currentPageData));
+	                        return _this12.__analysis(_footer(currentPageData));
 	                    } } : null, {
 	                    dataSource: this.__props.data,
 	                    columns: this.renderColumns(),
@@ -13948,12 +16745,13 @@
 	                    pagination: this.renderPagination(),
 	                    loading: this.state.loading })),
 	                _react2.default.createElement(_export3.default, _extends({ _factory: this._factory, ref: function ref(ele) {
-	                        return _this11.exportRef = ele;
-	                    } }, this._getExportConfig())),
-	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
-	                        return _this11.crud = ele;
+	                        return _this12.exportRef = ele;
 	                    },
-	                    config: this.__props.crud })
+	                    style: { display: 'none' } }, this._getExportConfig())),
+	                this.__props.crud && _react2.default.createElement(_Crud2.default, { _factory: this._factory, parent: this, ref: function ref(ele) {
+	                        return _this12.crud = ele;
+	                    },
+	                    'enum': this.enum, config: this.__props.crud })
 	            );
 	        }
 	    }]);
@@ -13964,7 +16762,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 224 */
+/* 256 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13975,19 +16773,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14014,6 +16812,34 @@
 	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, 'table-crud'));
 
 	        _this.parent = props.parent;
+	        _this.enum = props.enum;
+	        // 存储table的全部字段名称对应关系，以在form中复用
+	        _this.columnName = {};
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
+
+	        try {
+	            for (var _iterator = _this.parent.columns[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var v = _step.value;
+
+	                _this.columnName[v.dataIndex] = v.title;
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
+	        }
+
 	        _this.config = null;
 	        _this.oConfig = null;
 	        _this.init();
@@ -14025,13 +16851,29 @@
 	    _createClass(Crud, [{
 	        key: 'shouldComponentUpdate',
 	        value: function shouldComponentUpdate(nextProps, nextState) {
+	            if (this.refresh) {
+	                this.refresh = false;
+	                return true;
+	            }
 	            return false;
 	        }
 	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            var newEnum = JSON.stringify(nextProps.enum.data);
+	            if (newEnum !== this.currentEnum) {
+	                this.currentEnum = newEnum;
+	                this.refresh = true;
+	                this.init(nextProps);
+	            }
+	        }
+	    }, {
 	        key: 'init',
-	        value: function init() {
+	        value: function init(nextProps) {
 	            var _this2 = this;
 
+	            var props = nextProps || this.props;
+	            this.enum = props.enum;
 	            // 批量导入/编辑的表单配置
 	            var batchAddFormConf = {
 	                layout: {
@@ -14042,27 +16884,32 @@
 	                    rows: 6, style: { width: '100%' }
 	                }]
 	            };
-	            var config = this.props.config;
+	            var config = props.config;
 	            var result = {};
 	            // 额外存储的临时配置，用于配置复用
 	            var tempConf = {};
 
 	            var _loop = function _loop(i) {
-	                var item = _utils.Utils.copy(config[i]);
+	                // let item = Utils.copy(config[i]);
+	                var item = _this2.__getConf(_utils.Utils.copy(config[i]));
 	                var action = _this2._getAction(i);
 	                item.api = _this2.__formatApi(item.api);
 	                switch (action) {
 	                    // 新增弹框的配置
 	                    case 'add':
 	                        // add 可以复用 edit 的配置，可以减少配置书写
+	                        item.title = item.title || '新增：';
 	                        tempConf['edit'] && (item = Object.assign(_utils.Utils.clone(tempConf['edit']), item));
 	                        item.okText = item.okText || '提交';
+	                        item.api.method = item.api.method || 'post';
 	                        break;
 	                    // 编辑弹框的配置
 	                    case 'edit':
 	                        // 处理复用相关参数
+	                        item.title = item.title || '编辑：';
 	                        item = _this2.handleReuse(item, tempConf['add']);
 	                        item.okText = item.okText || '提交';
+	                        item.api.method = item.api.method || 'put';
 	                        break;
 	                    // 搜索弹框的配置
 	                    case 'search':
@@ -14076,6 +16923,7 @@
 	                            });
 	                        }
 	                        // 处理复用相关参数
+	                        item.title = item.title || '搜索：';
 	                        item = _this2.handleReuse(item, tempConf['add']);
 	                        item.okText = item.okText || '搜索';
 	                        // 点击搜索时，对Table进行赋值操作
@@ -14086,6 +16934,8 @@
 	                    // 删除确认框的配置
 	                    case 'delete':
 	                        // 默认把参数处理为：只返回 id（rowKey对应的字段）
+	                        item.title = item.title || '删除：';
+	                        item.api.method = item.api.method || 'delete';
 	                        item.api.paramsHandler = item.api.paramsHandler || function (params) {
 	                            return _defineProperty({}, _this2.parent.rowKey, params[_this2.parent.rowKey]);
 	                        };
@@ -14097,7 +16947,7 @@
 	                    // 批量展示table中选中的数据
 	                    case 'batchShow':
 	                        item.okText = item.okText || '关闭';
-	                        item.footer = item.footer || [{
+	                        item.footer = item.footer !== undefined ? item.footer : [{
 	                            type: 'button', mode: 'primary', action: 'cancel', content: item.okText
 	                        }];
 	                        break;
@@ -14108,6 +16958,11 @@
 	                        item.okText = item.okText || '提交';
 	                        // form 需用指定的，此弹框用户传入的form配置无效
 	                        item.form = _utils.Utils.clone(batchAddFormConf);
+	                        item.api.method = item.api.method || 'post';
+	                        // 只有第一次调用执行
+	                        if (!nextProps) {
+	                            _this2._bindParamsHandler(i, item);
+	                        }
 	                        break;
 	                    // 批量新增弹框的配置
 	                    case 'batchEdit':
@@ -14116,10 +16971,16 @@
 	                        item.okText = item.okText || '提交';
 	                        // form 需用指定的，此弹框用户传入的form配置无效
 	                        item.form = _utils.Utils.clone(batchAddFormConf);
+	                        item.api.method = item.api.method || 'put';
+	                        // 只有第一次调用执行
+	                        if (!nextProps) {
+	                            _this2._bindParamsHandler(i, item);
+	                        }
 	                        break;
 	                    // 批量删除确认框的配置
 	                    case 'batchDelete':
 	                        // 默认把参数处理为：只返回英文逗号分隔的 id[s]（rowKey对应的字段）如：{ids: 123,456}
+	                        item.api.method = item.api.method || 'delete';
 	                        item.api.paramsHandler = item.api.paramsHandler || function (params) {
 	                            return _defineProperty({}, _this2.parent.rowKey + 's', params.map(function (v) {
 	                                return v[_this2.parent.rowKey];
@@ -14133,13 +16994,14 @@
 	                    case 'show':
 	                    default:
 	                        item.okText = item.okText || '关闭';
-	                        item.footer = item.footer || [{
+	                        item.footer = item.footer !== undefined ? item.footer : [{
 	                            type: 'button', mode: 'primary', action: 'cancel', content: item.okText
 	                        }];
 	                        break;
 	                }
 	                item.type = item.type || 'modal';
 	                item.name = _this2._getModalName(i);
+	                item.key = item.name;
 	                // 默认点击提交时自动刷新表格。
 	                if (item.autoReload !== false) {
 	                    // 不用this.parent._inject，edit复用add的配置时，这里回把两个同样的函数合并到一起，导致table刷新两次
@@ -14152,7 +17014,10 @@
 	                        });
 	                    });
 	                }
-
+	                // 如果存在form，则对items进行处理
+	                if (item.form && item.form.items) {
+	                    item.form.items = _this2.handleFormItems(item.form.items);
+	                }
 	                result[i] = item;
 	                // 存储的复用配置用action做区分
 	                tempConf[action] = item;
@@ -14163,6 +17028,48 @@
 	            }
 	            this.oConfig = result;
 	            this.config = Object.values(result);
+	        }
+	        // 如果存在form，则对items进行处理
+
+	    }, {
+	        key: 'handleFormItems',
+	        value: function handleFormItems(items) {
+	            // 如果没写label，则复用table的title
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+
+	            try {
+	                for (var _iterator2 = items[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var v = _step2.value;
+
+	                    var _getConf = this.__getConf(v),
+	                        label = _getConf.label,
+	                        name = _getConf.name;
+
+	                    if (!label && this.columnName[name]) {
+	                        v.label = this.columnName[name];
+	                        v.label += v.label.indexOf(':') > -1 ? '' : ': ';
+	                    }
+	                }
+	                // 处理新增/编辑的 form.items 配置，枚举类型转自动添加options
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
+
+	            items = this.enum.handleForm(items);
+	            return items;
 	        }
 	        // 处理配置复用相关参数
 
@@ -14210,7 +17117,7 @@
 	                            params[_key - 1] = arguments[_key];
 	                        }
 
-	                        modal.show.apply(modal, params);
+	                        modal.show.apply(modal, params.concat([this.parent]));
 	                }
 	            }
 	        }
@@ -14231,9 +17138,122 @@
 	            // 如果用户自己配了name，使用用户的name
 	            var config = this.props.config;
 	            if (config[key] && config[key].name) {
-	                return name;
+	                return config[key].name;
 	            }
 	            return '__' + this.parent.key + '-' + key;
+	        }
+	        // 生成批量编辑的字符串
+
+	    }, {
+	        key: '_getStrByList',
+	        value: function _getStrByList(key, list) {
+	            var keys = this.oConfig[key].keys.split(',');
+	            var str = '';
+	            var _iteratorNormalCompletion3 = true;
+	            var _didIteratorError3 = false;
+	            var _iteratorError3 = undefined;
+
+	            try {
+	                for (var _iterator3 = list[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                    var row = _step3.value;
+
+	                    var tmp = '';
+	                    var _iteratorNormalCompletion4 = true;
+	                    var _didIteratorError4 = false;
+	                    var _iteratorError4 = undefined;
+
+	                    try {
+	                        for (var _iterator4 = keys[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                            var v = _step4.value;
+
+	                            tmp += (row[v] !== undefined || row[v] !== null ? row[v] : '') + ',';
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError4 = true;
+	                        _iteratorError4 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                                _iterator4.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError4) {
+	                                throw _iteratorError4;
+	                            }
+	                        }
+	                    }
+
+	                    str += tmp.slice(0, -1) + '\n';
+	                }
+	            } catch (err) {
+	                _didIteratorError3 = true;
+	                _iteratorError3 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                        _iterator3.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError3) {
+	                        throw _iteratorError3;
+	                    }
+	                }
+	            }
+
+	            return str;
+	        }
+	        // 根据字符串转换成要提交的数据对象
+
+	    }, {
+	        key: '_getListByStr',
+	        value: function _getListByStr(key, str) {
+	            var keys = this.oConfig[key].keys.split(',');
+	            var strArr = str.split('\n');
+	            var result = [];
+	            var error = [];
+	            strArr.forEach(function (row, index) {
+	                if (row.trim()) {
+	                    var values = row.trim().split(',');
+	                    if (values.length !== keys.length) {
+	                        error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u5B57\u6BB5\u4F4D\u6570\u4E0D\u6B63\u786E\uFF0C\u8BF7\u68C0\u67E5\uFF01');
+	                    }
+	                    var _item = {};
+	                    var _iteratorNormalCompletion5 = true;
+	                    var _didIteratorError5 = false;
+	                    var _iteratorError5 = undefined;
+
+	                    try {
+	                        for (var _iterator5 = keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                            var v = _step5.value;
+
+	                            _item[v] = values.shift();
+	                        }
+	                    } catch (err) {
+	                        _didIteratorError5 = true;
+	                        _iteratorError5 = err;
+	                    } finally {
+	                        try {
+	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                                _iterator5.return();
+	                            }
+	                        } finally {
+	                            if (_didIteratorError5) {
+	                                throw _iteratorError5;
+	                            }
+	                        }
+	                    }
+
+	                    result.push(_item);
+	                }
+	            });
+	            if (error.length > 0) {
+	                _antd.Modal.error({
+	                    title: '注意：',
+	                    content: error.join('\n')
+	                });
+	                return false;
+	            }
+	            return result;
 	        }
 	        // 展示批量编辑框
 
@@ -14246,64 +17266,32 @@
 	                return;
 	            }
 	            if (this.oConfig[key] && this.oConfig[key].keys) {
-	                var str = '';
-	                var keys = this.oConfig[key].keys.split(',');
-	                var _iteratorNormalCompletion = true;
-	                var _didIteratorError = false;
-	                var _iteratorError = undefined;
-
-	                try {
-	                    for (var _iterator = datas[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                        var row = _step.value;
-
-	                        var tmp = '';
-	                        var _iteratorNormalCompletion2 = true;
-	                        var _didIteratorError2 = false;
-	                        var _iteratorError2 = undefined;
-
-	                        try {
-	                            for (var _iterator2 = keys[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                                var v = _step2.value;
-
-	                                tmp += (row[v] || '') + ',';
-	                            }
-	                        } catch (err) {
-	                            _didIteratorError2 = true;
-	                            _iteratorError2 = err;
-	                        } finally {
-	                            try {
-	                                if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                                    _iterator2.return();
-	                                }
-	                            } finally {
-	                                if (_didIteratorError2) {
-	                                    throw _iteratorError2;
-	                                }
-	                            }
-	                        }
-
-	                        str += tmp.slice(0, -1) + '\n';
-	                    }
-	                } catch (err) {
-	                    _didIteratorError = true;
-	                    _iteratorError = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion && _iterator.return) {
-	                            _iterator.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError) {
-	                            throw _iteratorError;
-	                        }
-	                    }
-	                }
-
+	                datas = this.enum.encodeEnum(datas);
+	                var str = this._getStrByList(key, datas);
 	                var modal = this.__getComponent(this._getModalName(key));
 	                modal && modal.show({ data: str });
 	            } else {
 	                console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
 	            }
+	        }
+	        // 绑定校验逻辑
+
+	    }, {
+	        key: '_bindParamsHandler',
+	        value: function _bindParamsHandler(key, item) {
+	            var _this3 = this;
+
+	            var ohandler = item.api.paramsHandler;
+	            item.api.paramsHandler = function (params) {
+	                var datas = _this3._getListByStr(key, params.data);
+	                if (!datas) {
+	                    return false;
+	                }
+	                // 数据格式为 {data: 'json'}
+	                var result = { data: JSON.stringify(_this3.enum.decodeEnum(datas)) };
+	                ohandler && (result = ohandler(result));
+	                return result;
+	            };
 	        }
 	        // 展示批量删除框
 
@@ -14348,7 +17336,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 225 */
+/* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14363,21 +17351,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _export = __webpack_require__(218);
+	var _export = __webpack_require__(250);
 
 	var _export2 = _interopRequireDefault(_export);
 
@@ -14415,6 +17403,9 @@
 	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, 'table-title'));
 
 	        _this.parent = props.parent;
+	        // 缓存展示字段名称组件的cacheName
+	        _this.cacheName = _this.parent.insName + _this.parent.key;
+	        _this.useCache = true;
 	        // 搜索/过滤功能
 	        _this.filter = _this.parent.filter;
 	        _this.title = props.config;
@@ -14434,6 +17425,18 @@
 	    }
 
 	    _createClass(Title, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            if (this.useCache) {
+	                // 当有缓存时，使用缓存的选中列
+	                var cache = _utils.Utils.getCache(this.cacheName);
+	                if (cache) {
+	                    this.columnsCheckedValues = cache;
+	                    this.setTableColumns();
+	                }
+	            }
+	        }
+	    }, {
 	        key: 'clearState',
 	        value: function clearState() {
 	            this.setState({ filterValue: '' });
@@ -14583,6 +17586,9 @@
 	                            ));
 	                            break;
 	                        case 'switchTags':
+	                            if (v.cache === false) {
+	                                this.useCache = false;
+	                            }
 	                            result.push(_react2.default.createElement(
 	                                'div',
 	                                { className: 'uf-header-widget', key: 'switchTags',
@@ -15167,6 +18173,8 @@
 	            for (var i in allColumns) {
 	                _loop2(i);
 	            }
+	            // 缓存配置
+	            _utils.Utils.setCache(this.cacheName, showColumns);
 	            this.setState({ showSetTagsModal: false });
 	            this.parent.forceUpdate();
 	        }
@@ -15277,7 +18285,7 @@
 	                this.titleGenerate(),
 	                _react2.default.createElement(
 	                    _antd.Modal,
-	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal',
+	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal', key: 'uf-table-modal',
 	                        visible: this.state.showSetTagsModal,
 	                        onOk: this.setTableColumns.bind(this),
 	                        onCancel: this.cancleSetTableColumns.bind(this) },
@@ -15293,7 +18301,7 @@
 	exports.default = Title;
 
 /***/ }),
-/* 226 */
+/* 258 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15306,19 +18314,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15526,7 +18534,7 @@
 	exports.default = TableEdit;
 
 /***/ }),
-/* 227 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15544,7 +18552,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -15823,7 +18831,287 @@
 	exports.default = Filter;
 
 /***/ }),
-/* 228 */
+/* 260 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @file Table扩展 - 枚举类型字段翻译相关逻辑实现
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * */
+
+	var _utils = __webpack_require__(190);
+
+	var _antd = __webpack_require__(108);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Enum = function () {
+	    function Enum(tools) {
+	        _classCallCheck(this, Enum);
+
+	        this.tools = tools;
+	        // 是否正在加载数据
+	        this.loading = false;
+	        this.requestCount = 0;
+	        // 存储全部枚举数据，{[key || id]: [value]}
+	        this.data = {};
+	        // 如果value是字符串或数字，再存储一份反向关系，{[value]: [key]}
+	        this.dataReverse = {};
+	    }
+	    // 传入 columns 配置，判断是否有枚举类型字段并做相应处理
+
+
+	    _createClass(Enum, [{
+	        key: 'init',
+	        value: function init(columns) {
+	            var _this = this;
+
+	            var enumList = {};
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                var _loop = function _loop() {
+	                    var item = _step.value;
+
+	                    if (item.enum) {
+	                        // 已经穷举，无需获取。格式为 enum: [{key: value}]
+	                        if (_utils.Utils.typeof(item.enum, 'array')) {
+	                            _this.save(item.dataIndex, item.enum);
+	                        } else {
+	                            _this.save(item.dataIndex, []);
+	                            // 需要异步获取数据的情况
+	                            _this.start();
+	                            _this.tools.execAjax(_extends({
+	                                // 默认开启缓存
+	                                cache: true
+	                            }, _this.tools.formatApi(item.enum), {
+	                                success: function success(data) {
+	                                    _this.save(item.dataIndex, data);
+	                                    _this.complete();
+	                                },
+	                                error: function error(err) {
+	                                    _this.complete();
+	                                }
+	                            }));
+	                        }
+	                    }
+	                };
+
+	                for (var _iterator = columns[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    _loop();
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'start',
+	        value: function start() {
+	            this.loading = true;
+	            this.requestCount++;
+	        }
+	    }, {
+	        key: 'complete',
+	        value: function complete() {
+	            this.requestCount--;
+	            this.finish();
+	        }
+	        // 请求完成
+
+	    }, {
+	        key: 'finish',
+	        value: function finish() {
+	            if (this.requestCount <= 0) {
+	                this.loading = false;
+	                this.tools.continue();
+	            }
+	        }
+	        // 把数组格式化成键值对并存储
+
+	    }, {
+	        key: 'save',
+	        value: function save(dataIndex, list) {
+	            var result = {};
+	            var reverseResult = {};
+	            // 如果数据格式为 [{id:'',name:'',key:'',value:''}]
+	            if (_utils.Utils.typeof(list, 'array')) {
+	                var _iteratorNormalCompletion2 = true;
+	                var _didIteratorError2 = false;
+	                var _iteratorError2 = undefined;
+
+	                try {
+	                    for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                        var v = _step2.value;
+
+	                        var key = v.id || v.key;
+	                        var value = v.name || v.value;
+	                        result[key] = value;
+	                        if (_utils.Utils.typeof(value, ['string', 'number'])) {
+	                            reverseResult[value] = key;
+	                        }
+	                    }
+	                    // 数据格式为 {key:value, key:value}
+	                } catch (err) {
+	                    _didIteratorError2 = true;
+	                    _iteratorError2 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                            _iterator2.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError2) {
+	                            throw _iteratorError2;
+	                        }
+	                    }
+	                }
+	            } else if (_utils.Utils.typeof(list, 'object')) {
+	                for (var i in list) {
+	                    result[i] = list[i];
+	                    if (_utils.Utils.typeof(list[i], ['string', 'number'])) {
+	                        reverseResult[list[i]] = i;
+	                    }
+	                }
+	            }
+
+	            this.data[dataIndex] = result;
+	            this.dataReverse[dataIndex] = reverseResult;
+	        }
+
+	        /*** Table.js 中的功能 ******************************************************************* */
+	        // 处理列配置，进行枚举替换
+
+	    }, {
+	        key: 'handleColumn',
+	        value: function handleColumn(item) {
+	            var _this2 = this;
+
+	            if (this.data[item.dataIndex]) {
+	                item.render = function (v) {
+	                    return _this2.data[item.dataIndex][v] || v;
+	                };
+	            }
+	            return item;
+	        }
+
+	        /*** Crud.js 中功能 ******************************************************************* */
+	        // 处理新增/编辑的 form.items 配置，自动增加options
+
+	    }, {
+	        key: 'handleForm',
+	        value: function handleForm(items) {
+	            var _this3 = this;
+
+	            return (items || []).map(function (item) {
+	                if (item) {
+	                    // if (Utils.typeof(item, 'object')) {
+	                    // 支持使用自定义组件，会取最终的根类型进行判断
+	                    var _tools$getConf = _this3.tools.getConf(item),
+	                        type = _tools$getConf.type,
+	                        name = _tools$getConf.name;
+
+	                    if (['select', 'radio', 'checkbox-group'].indexOf(type) > -1 && _utils.Utils.empty(item.options) && _this3.data[name]) {
+	                        item.options = _utils.Utils.toOptions(_this3.data[name]);
+	                    }
+	                    // } else {
+	                    //     item = this.handleForm(item)
+	                    // }
+	                }
+	                return item;
+	            });
+	        }
+	        // 把一个数据列表中的枚举字段的id转换为枚举的值，key => value
+
+	    }, {
+	        key: 'encodeEnum',
+	        value: function encodeEnum(list) {
+	            var _this4 = this;
+
+	            var error = [];
+	            var result = (list || []).map(function (item, index) {
+	                return _utils.Utils.each(item, function (v, i) {
+	                    if (_this4.data[i]) {
+	                        if (_this4.data[i][v] !== undefined) {
+	                            return _this4.data[i][v];
+	                        } else {
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u89E3\u6790\u65F6\u51FA\u73B0\u9519\u8BEF\uFF0C\u8BF7\u6CE8\u610F\uFF01');
+	                            return '';
+	                        }
+	                    }
+	                    return v;
+	                });
+	            });
+	            if (error.length > 0) {
+	                // 使报错弹框晚于原来弹框的创建
+	                setTimeout(function () {
+	                    _antd.Modal.warning({
+	                        title: '注意：',
+	                        content: error.join('\n')
+	                    });
+	                }, 10);
+	            }
+	            return result;
+	        }
+	        // 把一个数据列表中的枚举字段的值转换为id，value => key
+
+	    }, {
+	        key: 'decodeEnum',
+	        value: function decodeEnum(list) {
+	            var _this5 = this;
+
+	            var error = [];
+	            var result = (list || []).map(function (item, index) {
+	                return _utils.Utils.each(item, function (v, i) {
+	                    if (_this5.dataReverse[i]) {
+	                        if (_this5.dataReverse[i][v] !== undefined) {
+	                            return _this5.dataReverse[i][v];
+	                        } else {
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u7684\u503C\u3010' + v + '\u3011\u65E0\u6548\uFF0C\u8BF7\u68C0\u67E5\uFF01');
+	                            return '';
+	                        }
+	                    }
+	                    return v;
+	                });
+	            });
+	            if (error.length > 0) {
+	                _antd.Modal.error({
+	                    title: '注意：',
+	                    content: error.join('\n')
+	                });
+	                return false;
+	            }
+	            return result;
+	        }
+	    }]);
+
+	    return Enum;
+	}();
+
+	exports.default = Enum;
+
+/***/ }),
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15835,8 +19123,8 @@
 	// module.exports = require('./Form.js').default;
 	// module.exports = require('./Forms.js').default;
 	module.exports = {
-	  Form: __webpack_require__(229).default,
-	  Forms: __webpack_require__(234).default
+	  Form: __webpack_require__(262).default,
+	  Forms: __webpack_require__(265).default
 	};
 	// const Form = require('./Form.js');
 	// const Forms = require('./Forms.js');
@@ -15844,7 +19132,7 @@
 	// module.exports = {Form, Forms};
 
 /***/ }),
-/* 229 */
+/* 262 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15859,25 +19147,25 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _moment = __webpack_require__(191);
+	var _moment = __webpack_require__(194);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _ueditor = __webpack_require__(230);
+	var _ueditor = __webpack_require__(263);
 
 	var _ueditor2 = _interopRequireDefault(_ueditor);
 
@@ -15969,7 +19257,8 @@
 	    }, {
 	        key: 'setDefaultValues',
 	        value: function setDefaultValues(data) {
-	            this.defaultValues = data || {};
+	            // 防止改变原值
+	            this.defaultValues = _utils.Utils.clone(data || {});
 	        }
 	        // 把数据格式化成需要的格式
 	        // 调用 setFieldsValue 时，如果多传了字段，会报 warning，所以这里只返回可用的表单项的值
@@ -16007,6 +19296,9 @@
 	                    if (this.itemsCache[i] && this.itemsCache[i].format) {
 	                        values[i] = values[i].format(this.itemsCache[i].format);
 	                    }
+	                    // 用 format 把数据格式化成 rules.type 要求的格式
+	                } else if (item.rules && item.rules.type) {
+	                    values[i] = _utils.Utils.format(values[i], item.rules.type);
 	                }
 	                if (item && item.type !== 'button') {
 	                    result[i] = values[i];
@@ -16150,12 +19442,12 @@
 	    }, {
 	        key: 'onChange',
 	        value: function onChange(item, val, string) {
-	            if (string) {
+	            if (string !== undefined) {
 	                val = string;
 	            } else if (_utils.Utils.typeof(val, 'object') && val.target) {
-	                if (val.target.value) {
+	                if (val.target.value !== undefined) {
 	                    val = val.target.value;
-	                } else if (val.target.checked) {
+	                } else if (val.target.checked !== undefined) {
 	                    val = val.target.checked;
 	                }
 	            }
@@ -16196,6 +19488,15 @@
 	                                    break;
 	                                }
 	                            case 'display':
+	                                // 如果是从不展示到进行展示转变，则把默认值一并填上
+	                                if (attrVal) {
+	                                    newConf['default'] = this.defaultValues[i];
+	                                    // 当组件已存在时（存在display为false但组件未来得及销毁的情况），设置default无效，需使用form api设置
+	                                    if (this.itemRef[i] || this.formRef[i]) {
+	                                        this.form.setFieldsValue(_defineProperty({}, i, newConf['default']));
+	                                    }
+	                                }
+	                            // break;
 	                            default:
 	                                {
 	                                    newConf[j] = attrVal;
@@ -16212,7 +19513,7 @@
 	                        this.__mergeProps(this.itemsCache[i], newConf);
 	                    }
 	                }
-	                this.forceUpdate();
+	                // this.forceUpdate();
 	            }
 	        }
 	        // 根据布局参数生成布局配置
@@ -16236,7 +19537,7 @@
 
 	            var okey = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-	            if (!oitem || oitem.type === 'empty') {
+	            if (!oitem || !oitem.type || oitem.type === 'empty') {
 	                return;
 	            }
 	            if (!oitem.name) {
@@ -16264,6 +19565,8 @@
 	                this.itemsCache[key] = oitem;
 	            }
 	            if (oitem.display === false) {
+	                delete this.itemRef[key];
+	                delete this.formRef[key];
 	                return;
 	            }
 	            var getFieldDecorator = this.form.getFieldDecorator;
@@ -16275,6 +19578,9 @@
 	                itemLayout = this.config.layout.type === 'horizontal' ? this.formItemLayout : null;
 	            }
 	            var item = Object.assign({ rules: {} }, oitem);
+	            if (_utils.Utils.typeof(item.rules, 'array')) {
+	                item.rules = item.rules[0] || {};
+	            }
 	            delete item.layout;
 	            // 如果rules外单独设置了required属性，则以此值为准
 	            if (item.required !== undefined) {
@@ -16282,6 +19588,9 @@
 	            }
 	            // form中不允许表单域使用value，所以如果有value值，把值转换到default上
 	            item.default = item.value || item.default;
+	            if (item.default !== undefined) {
+	                this.oriDefaultValues[item.name] = item.default;
+	            }
 	            // 过滤掉一些字段后，剩余的就是组件本身需要的参数
 	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig']);
 	            // 额外配置的禁止更改的字段，设置disabled
@@ -16298,7 +19607,6 @@
 	            itemProps.ref = function (inst) {
 	                _this2.itemRef[key] = inst;
 	            };
-	            var itemContent = void 0;
 	            var otherOptions = {};
 	            switch (item.type) {
 	                case 'group':
@@ -16322,7 +19630,7 @@
 	                        valuePropName: 'formData'
 	                    };
 	                    item.default = item.default || item.formData || {};
-	                    delete item.formData;
+	                    delete itemProps.formData;
 	                    item.rules['type'] = item.rules['type'] || 'object';
 	                    break;
 	                case 'input':
@@ -16332,12 +19640,15 @@
 	                    }
 	                    // 收集值的时机改为onBlur
 	                    otherOptions.trigger = 'onBlur';
+	                    otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'input-number':
 	                    // 数字输入框
 	                    item.rules['type'] = item.rules['type'] || 'number';
 	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
 	                    otherOptions.trigger = 'onBlur';
+	                    // 可减少一些输入过程中的报错信息
+	                    otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'select':
 	                case 'radio':
@@ -16345,7 +19656,10 @@
 	                        if (item.mode && item.mode !== 'combobox') {
 	                            item.rules['type'] = item.rules['type'] || 'array';
 	                        }
-	                        item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        // 当有required时，再加message，否则会产生默认type为string
+	                        if (item.rules['required']) {
+	                            item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        }
 	                        // 默认选中第一个
 	                        if (!item.default && item.defaultFirst) {
 	                            item.default = _utils.Utils.getFirstOption(item.options);
@@ -16355,6 +19669,12 @@
 	                            itemProps.allowClear = false;
 	                        }
 	                    }
+	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
+	                    otherOptions = {
+	                        getValueFromEvent: function getValueFromEvent(e, value) {
+	                            return item.rules.type && value !== '' && value !== undefined ? _utils.Utils.format(value) : value;
+	                        }
+	                    };
 	                    // 两种组件的通用逻辑
 	                    // 如果没有设置类型，则根据default定义类型
 	                    if (!item.rules['type'] && item.default !== null) {
@@ -16362,8 +19682,6 @@
 	                        if (['number', 'string', 'boolean', 'array'].indexOf(_type) > -1) {
 	                            item.rules['type'] = _type;
 	                        }
-	                    } else {
-	                        item.rules['type'] = item.rules['type'] || 'string';
 	                    }
 	                    break;
 	                case 'checkbox':
@@ -16405,19 +19723,8 @@
 	                        var limit = itemProps.limit;
 	                        if (limit) {
 	                            var list = this.form.getFieldValue(key) || [];
-	                            isDisabled = { disabled: list.length >= limit };
+	                            itemProps.disabled = list.length >= limit;
 	                        }
-	                        itemContent = _react2.default.createElement(
-	                            Upload,
-	                            _extends({}, itemProps, isDisabled),
-	                            _react2.default.createElement(
-	                                _antd.Button,
-	                                null,
-	                                _react2.default.createElement(_antd.Icon, { type: 'upload' }),
-	                                ' ',
-	                                itemProps.placeholder || '上传文件'
-	                            )
-	                        );
 	                        otherOptions = {
 	                            valuePropName: 'fileList',
 	                            getValueFromEvent: this.normFile.bind(this)
@@ -16432,10 +19739,6 @@
 	                case 'time-picker':
 	                    // 更改获onchange时form获取组件值的逻辑，传出的为字符串
 	                    otherOptions = {
-	                        // 对传入给组件的数据进行处理
-	                        // normalize(value) {
-	                        //     return Utils.moment(value);
-	                        // },
 	                        // 对从组件内传出的数据进行处理，直接取时间字符串
 	                        getValueFromEvent: function getValueFromEvent(date, string) {
 	                            return string;
@@ -16474,7 +19777,7 @@
 	            // 保存默认值，以form渲染完成后执行initValues
 	            if (item.default !== undefined) {
 	                item.default = _utils.Utils.format(item.default, type);
-	                this.oriDefaultValues[item.name] = item.default;
+	                // this.oriDefaultValues[item.name] = item.default;
 	                this.defaultValues[item.name] = item.default;
 	            }
 	            var fieldProps = {
@@ -16497,12 +19800,10 @@
 	                _extends({}, fieldProps, itemLayout),
 	                getFieldDecorator(key, Object.assign({
 	                    initialValue: item.default,
-	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined,
+	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined
 	                    // 更改收集数据/验证触发事件为失去焦点时
 	                    // onBlur在radio，datepicker中不好用
 	                    // trigger: 'onBlur',
-	                    // 可减少一些输入过程中的报错信息
-	                    validateTrigger: 'onBlur'
 	                }, otherOptions, item.regionConfig))(
 	                // 作为子组件解析
 	                this.__analysis(itemProps))
@@ -16618,6 +19919,9 @@
 	                for (var _iterator = gitem[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var item = _step.value;
 
+	                    if (!item) {
+	                        continue;
+	                    }
 	                    var formItem = void 0;
 	                    if (item instanceof Array) {
 	                        formItem = _react2.default.createElement(
@@ -16897,24 +20201,15 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 230 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	__webpack_require__(231);
-
-	module.exports = __webpack_require__(233).default;
+	module.exports = __webpack_require__(264).default;
 
 /***/ }),
-/* 231 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 232 */,
-/* 233 */
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16925,13 +20220,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _base = __webpack_require__(231);
+
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16945,10 +20244,9 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	// import {BaseComponent} from 'src/base';
-
-	var Ueditor = function (_React$PureComponent) {
-	    _inherits(Ueditor, _React$PureComponent);
+	// export default class Ueditor extends React.PureComponent {
+	var Ueditor = function (_BaseComponent) {
+	    _inherits(Ueditor, _BaseComponent);
 
 	    function Ueditor(props) {
 	        _classCallCheck(this, Ueditor);
@@ -16956,6 +20254,7 @@
 	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
 
 	        _this.name = props.name;
+	        _this.ueditor = null;
 	        // 保证每次实例化都有一个唯一的id
 	        _this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
 	        _this.data = props.data;
@@ -16996,6 +20295,17 @@
 	        value: function componentDidMount() {
 	            var _this3 = this;
 
+	            this._factory.$requirejs(['ueditor'], function (UE) {
+	                // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
+	                _this3.ueditor = window.UE;
+	                _this3.initUeditor();
+	            });
+	        }
+	    }, {
+	        key: 'initUeditor',
+	        value: function initUeditor() {
+	            var _this4 = this;
+
 	            // 初始化
 	            var config = {
 	                autoHeightEnabled: true,
@@ -17009,14 +20319,14 @@
 	            if (this.props.simple) {
 	                config['toolbars'] = [['undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'fontsize', 'forecolor', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'fullscreen', 'cusUpload']];
 	            }
-	            Object.assign(config, this.props);
-	            this.ue = UE.getEditor(this.ueditorId, config);
+	            Object.assign(config, _utils.Utils.filter(this.props, this._filter));
+	            this.ue = this.ueditor.getEditor(this.ueditorId, config);
 	            // 同步数据
 	            this.ue.addListener('contentChange', function () {
-	                clearTimeout(_this3.timer);
-	                _this3.timer = setTimeout(function () {
-	                    var newValue = _this3.ue.getContent();
-	                    _this3.triggerChange(newValue);
+	                clearTimeout(_this4.timer);
+	                _this4.timer = setTimeout(function () {
+	                    var newValue = _this4.ue.getContent();
+	                    _this4.triggerChange(newValue);
 	                }, 150);
 	            });
 	            this._transmitComponent();
@@ -17034,7 +20344,7 @@
 	        key: '_transmitComponent',
 	        value: function _transmitComponent() {
 	            if (!!this.name) {
-	                this._factory$components.set(this.name, this.ue);
+	                this._factory.$components.set(this.name, this.ue);
 	            }
 	        }
 	        // 解除共享
@@ -17043,7 +20353,7 @@
 	        key: '_unsetTransmitComponent',
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.name) {
-	                this._factory$components.del(this.name);
+	                this._factory.$components.del(this.name);
 	            }
 	        }
 	    }, {
@@ -17068,12 +20378,12 @@
 	    }]);
 
 	    return Ueditor;
-	}(_react2.default.PureComponent);
+	}(_base.BaseComponent);
 
 	exports.default = Ueditor;
 
 /***/ }),
-/* 234 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17086,19 +20396,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17144,6 +20454,7 @@
 	                // 使之成为受控组件，实现与Form嵌套
 	                if (!_utils.Utils.equals(this.__prevProps.formData, nextProps.formData)) {
 	                    this.setDefaultValues(nextProps.formData);
+	                    this.forceUpdate();
 	                }
 	            }
 	        }
@@ -17476,7 +20787,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-add-delete-forms' },
+	                { className: 'uf-forms-container ' + (this.__props.className || ''), style: this.__props.style },
 	                this.renderForms(),
 	                this.generateButton()
 	            );
@@ -17489,15 +20800,15 @@
 	exports.default = CopyOrDeleteForm;
 
 /***/ }),
-/* 235 */
+/* 266 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(236).default;
+	module.exports = __webpack_require__(267).default;
 
 /***/ }),
-/* 236 */
+/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17512,19 +20823,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	var _src = __webpack_require__(183);
 
@@ -17541,8 +20852,6 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
-
-	// import './style.scss';
 
 	var NewModal = function (_BaseComponent) {
 	    _inherits(NewModal, _BaseComponent);
@@ -17568,11 +20877,11 @@
 	            }, this.__props);
 	        }
 	    }, {
-	        key: '_afterInit',
-	        value: function _afterInit() {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
 	            var _this2 = this;
 
-	            _get(NewModal.prototype.__proto__ || Object.getPrototypeOf(NewModal.prototype), '_afterInit', this).call(this);
+	            _get(NewModal.prototype.__proto__ || Object.getPrototypeOf(NewModal.prototype), '_afterSetProps', this).call(this);
 	            // footer的按钮点击时增加一些默认处理逻辑
 	            if (this.__props.footer) {
 	                var buttons = this.__props.footer;
@@ -17583,24 +20892,28 @@
 	                    return _this2._handleButton(item);
 	                });
 	                this.__props.footerContent = this.__analysis(buttons);
+	                delete this.__props.footer;
 	            }
 	            // 如果有form属性，说明是form弹框，做额外处理
 	            if (this.__props.form) {
+	                var formConf = this.__props.form;
+	                if (_utils.Utils.typeof(formConf, 'function')) {
+	                    formConf = formConf();
+	                } else {
+	                    // 如果是
+	                    delete this.__props.form;
+	                }
 	                // form配置
-	                var formConf = Object.assign({
+	                formConf = Object.assign({
 	                    type: 'form',
 	                    wrappedComponentRef: function wrappedComponentRef(inst) {
 	                        _this2.formRef = inst;
 	                    }
-	                }, this.__props.form);
+	                }, formConf);
 	                // 兼容 formData 置于不同位置
 	                formConf.formData = formConf.formData || this.__props.params;
 	                // 可以写其他内容在content中，置于form之上
 	                this.__props.formContent = this.__analysis(formConf);
-	            }
-	            // COMPAT: 兼容原来的 message 参数，后续版本中移除
-	            if (this.__props.message) {
-	                this.__props.render = this.__props.message;
 	            }
 	        }
 
@@ -17797,7 +21110,7 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 237 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17806,10 +21119,10 @@
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(238).default;
+	module.exports = __webpack_require__(269).default;
 
 /***/ }),
-/* 238 */
+/* 269 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17820,17 +21133,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17866,7 +21179,7 @@
 	            // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
 	            //     this.chart.setOption(this.__filterProps(nextProps));
 	            // }
-	            this.chart.setOption(this.__filterProps(nextProps));
+	            this.chart && this.chart.setOption(this.__filterProps(nextProps));
 	        }
 	    }, {
 	        key: 'shouldComponentUpdate',
@@ -17880,24 +21193,20 @@
 	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
+	            var _this2 = this;
+
 	            // 执行的时候再获取
 	            var echarts = window.echarts;
 	            if (echarts) {
 	                this.echarts = echarts;
 	                this.initEcharts();
 	            } else {
-	                console.error('There is no echarts, please check.');
-	                // 打包的代码不支持requirejs方式
-	                // _$echarts 的路径见 src/default/index.js 中的配置
-	                // this._factory.$requirejs(['_$echarts'], echarts=>{
-	                //     this.echarts = echarts;
-	                //     this.initEcharts();
-	                // });
-	                // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
-	                // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
-	                //     this.echarts = window.echarts;
-	                //     this.initEcharts();
-	                // });
+	                // 惰性加载
+	                // echarts 的路径见 src/default/index.js 中的配置
+	                this._factory.$requirejs(['echarts'], function (echarts) {
+	                    _this2.echarts = echarts;
+	                    _this2.initEcharts();
+	                });
 	            }
 	        }
 	    }, {
@@ -17912,12 +21221,14 @@
 	                // 把echarts的api全部转移到当前组件上
 	                this._agencyFunction(chart);
 	                this._agencyFunction(Object.getPrototypeOf(chart));
+	            } else {
+	                _utils.Utils.async(console.error, 'There is no echarts, please check.');
 	            }
 	        }
 	    }, {
 	        key: '_agencyFunction',
 	        value: function _agencyFunction(origin) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
@@ -17928,10 +21239,10 @@
 	                    var i = _step.value;
 
 	                    if (_utils.Utils.typeof(origin[i], 'function')) {
-	                        _this2._inject(_this2, i, function () {
+	                        _this3._inject(_this3, i, function () {
 	                            var _chart;
 
-	                            (_chart = _this2.chart)[i].apply(_chart, arguments);
+	                            (_chart = _this3.chart)[i].apply(_chart, arguments);
 	                        });
 	                    }
 	                };
@@ -17974,7 +21285,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 239 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17983,10 +21294,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(240).default;
+	module.exports = __webpack_require__(271).default;
 
 /***/ }),
-/* 240 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17997,17 +21308,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18054,34 +21365,34 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 241 */
+/* 272 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 242 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(243);
+	var _config = __webpack_require__(274);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _components = __webpack_require__(246);
+	var _components = __webpack_require__(277);
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _model = __webpack_require__(247);
+	var _model = __webpack_require__(278);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _ajax = __webpack_require__(248);
+	var _ajax = __webpack_require__(279);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18108,7 +21419,7 @@
 	};
 
 /***/ }),
-/* 243 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18121,19 +21432,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(196);
+	var _BaseCache2 = __webpack_require__(228);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(244);
+	var _default = __webpack_require__(275);
 
 	var _default2 = _interopRequireDefault(_default);
 
-	var _utils = __webpack_require__(188);
+	var _utils = __webpack_require__(191);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18183,7 +21494,7 @@
 	});
 
 /***/ }),
-/* 244 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18192,11 +21503,24 @@
 	    value: true
 	});
 
-	var _components = __webpack_require__(245);
+	var _components = __webpack_require__(276);
 
 	var _components2 = _interopRequireDefault(_components);
 
+	var _env = __webpack_require__(184);
+
+	var _env2 = _interopRequireDefault(_env);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// 指定ueditor资源路径，否则css等加载路径不对
+	/**
+	 * @file 全局默认配置
+	 * @author liuzechun
+	 * Created Date: 2018-01-30 10:55:45
+	 */
+
+	window.UEDITOR_HOME_URL = _env2.default.basePath + '/third_party/ueditor/';
 
 	exports.default = {
 	    // 模块引入相关配置
@@ -18204,7 +21528,24 @@
 	        // 加载模块时是否展示loading
 	        showLoading: false,
 	        paths: {
-	            '_$echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+	            'echarts': _env2.default.basePath + '/third_party/echarts/echarts' + (_env2.default.production ? '.min' : ''),
+	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all',
+	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config',
+	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard'
+	        },
+	        shim: {
+	            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+	            // 'ueditor': {
+	            //     deps: ['zeroclipboard', 'ueditorconfig'],
+	            //     exports: 'UE',
+	            //     init: function (zeroclipboard) {
+	            //         window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
+	            //         return window.UE;
+	            //     }
+	            // },
+	            'echarts': {
+	                exports: 'echarts'
+	            }
 	        }
 	    },
 	    // 全局系统配置
@@ -18219,14 +21560,10 @@
 	    // 权限点，用户有权限的权限点列表
 	    // key（权限点） => value（boolen/object）
 	    authority: {}
-	}; /**
-	    * @file 全局默认配置
-	    * @author liuzechun
-	    * Created Date: 2018-01-30 10:55:45
-	    */
+	};
 
 /***/ }),
-/* 245 */
+/* 276 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -18257,7 +21594,8 @@
 	        },
 	        api: {
 	            showLoading: true,
-	            trigger: 'onClick'
+	            trigger: 'onClick',
+	            method: 'post'
 	        }
 	    },
 	    'antd': {},
@@ -18313,6 +21651,9 @@
 	        control: {
 	            trigger: 'onPressEnter'
 	        }
+	    },
+	    'textarea': {
+	        style: { minHeight: '2em' }
 	    },
 	    'radio': {
 	        source: {
@@ -18406,7 +21747,8 @@
 	        },
 	        source: {
 	            // 自动加载数据
-	            autoLoad: true
+	            autoLoad: true,
+	            autoReload: true
 	        },
 	        data: []
 	    },
@@ -18427,11 +21769,18 @@
 	                return v;
 	            }
 	        }
+	    },
+	    'tree': {
+	        source: {
+	            autoLoad: true,
+	            autoReload: false,
+	            target: 'data'
+	        }
 	    }
 	};
 
 /***/ }),
-/* 246 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18444,11 +21793,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(196);
+	var _BaseCache2 = __webpack_require__(228);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18503,7 +21852,7 @@
 	});
 
 /***/ }),
-/* 247 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18512,13 +21861,13 @@
 	  value: true
 	});
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _BaseCache = __webpack_require__(196);
+	var _BaseCache = __webpack_require__(228);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18533,7 +21882,7 @@
 	     */
 
 /***/ }),
-/* 248 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18544,15 +21893,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _BaseCache2 = __webpack_require__(196);
+	var _BaseCache2 = __webpack_require__(228);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _utils = __webpack_require__(188);
+	var _utils = __webpack_require__(191);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18623,7 +21972,7 @@
 	});
 
 /***/ }),
-/* 249 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18634,33 +21983,33 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _loader = __webpack_require__(250);
+	var _loader = __webpack_require__(281);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(253);
+	var _adaptor = __webpack_require__(284);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(201);
+	var _authority = __webpack_require__(233);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(254);
+	var _validator = __webpack_require__(285);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(202);
+	var _whitelist = __webpack_require__(234);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18743,10 +22092,9 @@
 	            //     return <Item {...props} />;
 	            // }
 
-	            // 校验是否有 type 属性且
-	            // TODO:
+	            // 校验对象是否有 type 属性，如果没有直接跳过解析
 	            if (!_validator2.default.check(item, 'type', 'string')) {
-	                return item;
+	                return null;
 	            }
 	            // 临时存储的变量，供各个tools使用
 	            item.insName = this.insName;
@@ -18836,6 +22184,8 @@
 	            }
 	            var result = void 0;
 	            if (_utils.Utils.typeof(config, 'array')) {
+	                // 如果是数组，则检查数组项中每一项是否有key，如果没有则尝试添加
+	                _adaptor2.default.checkArrayItems(config);
 	                result = [];
 	                var _iteratorNormalCompletion = true;
 	                var _didIteratorError = false;
@@ -18867,6 +22217,7 @@
 	            return result;
 	        }
 
+	        // 
 	        // 有些属性可以是ReactNode，也就是也可以配置成一个组件，所以需要再次把这些属性解析为组件
 
 	    }, {
@@ -18959,7 +22310,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 250 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18968,23 +22319,23 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _dom = __webpack_require__(251);
+	var _dom = __webpack_require__(282);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
-	var _lib = __webpack_require__(184);
+	var _lib = __webpack_require__(185);
 
 	var UF = _interopRequireWildcard(_lib);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -19008,7 +22359,8 @@
 	    get: function get(item) {
 	        var type = item.type;
 	        var name = _utils.Utils.toPascal(type);
-	        var result = this.component[name];
+	        // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
+	        var result = this.component[name] || this.component[type];
 	        if (!result) {
 	            // 检查是否为React原生元素
 	            if (_react2.default.DOM.hasOwnProperty(type)) {
@@ -19029,21 +22381,21 @@
 	    // 获取完整的组件配置
 	    // 1、普通组件本身配置了默认属性，此处进行属性合并
 	    // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-	    getConf: function getConf(item) {
+	    getConf: function getConf() {
+	        var item = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	        var insName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : item.insName;
 
 	        var oType = item.type;
 	        var conf = (0, _instance.getConfig)(insName).get('components.' + oType);
 	        if (conf) {
 	            if (_utils.Utils.typeof(conf, 'function')) {
-	                conf = conf();
+	                conf = conf(item.params);
 	            }
-	            item.type = conf.type || oType;
-	            item = _utils.Utils.merge({}, conf, item);
+	            item = _utils.Utils.merge({}, conf, item, { type: conf.type || oType });
 	        }
 	        // 如果type进行了变换，则再次进行配置获取
 	        if (oType !== item.type) {
-	            item = this.getConf(item);
+	            item = this.getConf(item, insName);
 	        }
 	        return item;
 	    },
@@ -19064,18 +22416,17 @@
 	        console.error('Uncaught TypeError: type \'' + type + '\' is invalid.');
 	    }
 	};
-	// import Model from './model.js';
 
 /***/ }),
-/* 251 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(252).default;
+	module.exports = __webpack_require__(283).default;
 
 /***/ }),
-/* 252 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19090,13 +22441,13 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19173,7 +22524,7 @@
 	exports.default = Dom;
 
 /***/ }),
-/* 253 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19190,19 +22541,19 @@
 	// import Model from './model.js';
 
 
-	var _base = __webpack_require__(199);
+	var _base = __webpack_require__(231);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
-	var _Antd = __webpack_require__(198);
+	var _Antd = __webpack_require__(230);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(250);
+	var _loader = __webpack_require__(281);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(202);
+	var _whitelist = __webpack_require__(234);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -19214,10 +22565,8 @@
 
 	exports.default = {
 	    get: function get(item) {
-	        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
-	        //  但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
-	        // TODO: 性能待观察，不能小于3
-	        item.key = item.key || item.name || _utils.Utils.hash(item, null, 4);
+	        // 移到 factory.analysisAgain 时处理
+	        // item.key = item.key || item.name || Utils.hash(item, null, 4);
 
 	        var Item = _loader2.default.get(item);
 	        var props = _utils.Utils.filter(item, KeyWord);
@@ -19357,6 +22706,47 @@
 	        return obj;
 	    },
 
+	    // 检查数组项中每一项是否有值，如果没有则尝试添加
+	    checkArrayItems: function checkArrayItems(items) {
+	        var existKeys = {};
+	        var _iteratorNormalCompletion3 = true;
+	        var _didIteratorError3 = false;
+	        var _iteratorError3 = undefined;
+
+	        try {
+	            for (var _iterator3 = items[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                var item = _step3.value;
+
+	                if (_utils.Utils.typeof(item, 'object') && item.key === undefined) {
+	                    item.key = item.key || item.name;
+	                    if (item.key === undefined) {
+	                        // 每个组件都要有key。同步设置在用户传入的config上，使key一旦设置即不再变化
+	                        // 但是当配置为函数动态产生时，同步设置无效，所以使用hash值保证产生的配置相同时，key也相同
+	                        // 为保证生成的key在数组中不重复，循环时临时保存生成的key，并对比当新生成的key已存在则不再进行赋值
+	                        var genkey = _utils.Utils.hash(item, null, 4);
+	                        if (!existKeys[genkey]) {
+	                            item.key = genkey;
+	                            existKeys[genkey] = true;
+	                        }
+	                    }
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError3 = true;
+	            _iteratorError3 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                    _iterator3.return();
+	                }
+	            } finally {
+	                if (_didIteratorError3) {
+	                    throw _iteratorError3;
+	                }
+	            }
+	        }
+	    },
+
 
 	    /****** 针对组件的参数处理 ****************************************************************/
 
@@ -19367,7 +22757,7 @@
 	};
 
 /***/ }),
-/* 254 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19376,7 +22766,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	exports.default = {
 	    // 检查对象上的某个(些)属性是否符合指定类型
@@ -19424,7 +22814,9 @@
 
 	    // 打印错误信息
 	    error: function error(item, name, type) {
-	        console.error('Uncaught TypeError: ' + name + ' is ' + ('' + (type ? 'not ' + type : 'undefined')) + (' in item\'s config "' + JSON.stringify(item) + '"'));
+	        _utils.Utils.async(function () {
+	            console.error('Uncaught TypeError: ' + name + ' is ' + ('' + (type ? 'not ' + type : 'undefined')) + (' in item\'s config "' + JSON.stringify(item) + '"'));
+	        });
 	    }
 	}; /**
 	    * @file 数据校验器
@@ -19432,95 +22824,24 @@
 	    */
 
 /***/ }),
-/* 255 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _react = __webpack_require__(103);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(104);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _antd = __webpack_require__(106);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	exports.default = {
-	    uf: {},
-	    count: 0,
-	    success: function success() {
-	        --this.count;
-	        if (this.count === 0) {
-	            // 全部执行完成后执行再执行init初始化页面
-	            this.uf._reInit();
-	        }
-	    },
-	    error: function error(err) {
-	        _antd.notification.error({
-	            top: 24,
-	            message: '执行出错，已阻止页面加载',
-	            duration: 0,
-	            description: JSON.stringify(err)
-	        });
-	    },
-	    handle: function handle(arr, uf) {
-	        this.waiting = true;
-	        this.uf = uf;
-	        this.count = arr.length;
-	        var _iteratorNormalCompletion = true;
-	        var _didIteratorError = false;
-	        var _iteratorError = undefined;
-
-	        try {
-	            for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                var func = _step.value;
-
-	                func(this.success.bind(this), this.error.bind(this));
-	            }
-	        } catch (err) {
-	            _didIteratorError = true;
-	            _iteratorError = err;
-	        } finally {
-	            try {
-	                if (!_iteratorNormalCompletion && _iterator.return) {
-	                    _iterator.return();
-	                }
-	            } finally {
-	                if (_didIteratorError) {
-	                    throw _iteratorError;
-	                }
-	            }
-	        }
-	    }
-	}; /**
-	    * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
-	    * @author liuzechun
-	    * Created Date: 2017-12-18 07:48:32
-	    */
-
-/***/ }),
-/* 256 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _ajax = __webpack_require__(192);
+	var _ajax = __webpack_require__(195);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _requirejs = __webpack_require__(257);
+	var _requirejs = __webpack_require__(287);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
-	var _instance = __webpack_require__(195);
+	var _precondition = __webpack_require__(288);
+
+	var _precondition2 = _interopRequireDefault(_precondition);
+
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19536,12 +22857,16 @@
 	        obj.Requirejs = _requirejs2.default.init(insName);
 	        (0, _instance.setRequirejs)(insName, obj.Requirejs);
 
+	        // precondition 实例
+	        obj.Precondition = _precondition2.default.init(insName);
+	        (0, _instance.setPrecondition)(insName, obj.Precondition);
+
 	        return obj;
 	    }
 	};
 
 /***/ }),
-/* 257 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;'use strict';
@@ -19562,16 +22887,16 @@
 	/*jslint regexp: true, nomen: true, sloppy: true */
 	/*global window, navigator, document, importScripts, setTimeout, opera */
 
-	var _utils = __webpack_require__(188);
+	var _utils = __webpack_require__(191);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(195);
+	var _instance = __webpack_require__(227);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// var appList = {};
-	var globalDefine = [];
+	// 保证只有一份
+	var globalDefine = window.globalDefine = window.globalDefine || [];
 
 	exports.default = (0, _instance.generate)(function (insName) {
 
@@ -21283,7 +24608,7 @@
 	                    //     2、不是仅包含require的回调函数
 	                    // define(($uf, require)=>{}) 函数中，额外传入一个参数`$uf`供模块使用
 	                    var cbStr = callback.toString().slice(0, 50);
-	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
+	                    if (name.indexOf('_@r') === -1 && cbStr.indexOf('(require)') === -1 && cbStr.indexOf('(exports)') === -1 && cbStr.indexOf('require=>') === -1 && cbStr.indexOf('require =>') === -1) {
 	                        var uf = (0, _instance.getInstance)(insName);
 	                        args.unshift(uf);
 	                    }
@@ -21311,9 +24636,15 @@
 	                        //      如果define执行之后立即（同步）触发事件，不会有问题；
 	                        //      如果存在 globalDefine 中出现两个不同requirejs实例存入的内容，则会出错
 	                        // 从 globalDefine 中取走全部加载完成后使用全局 define 函数初始化的模块
-	                        while (globalDefine.length) {
-	                            define.apply(undefined, globalDefine.shift());
-	                        }
+	                        // while(globalDefine.length) {
+	                        //     define.apply(undefined, globalDefine.shift());
+	                        // }
+	                        // update at 2018-07-31, 当有其余模块
+	                        // TODO: 继续待观察
+	                        //   因为使用script引入带umd检查的文件时，文件内容会通过define注册到globalDefine中
+	                        //      出现多余的模块会导致整个requirejs内部模块混乱
+	                        //   所以改为每次触发onScriptLoad时从堆栈中获取一个，剩余的作为僵尸模块（永远存在堆栈的底部）
+	                        define.apply(undefined, globalDefine.pop());
 
 	                        //Pull out the name of the module and the context.
 	                        var data = getScriptData(evt);
@@ -21755,13 +25086,17 @@
 	var define = function define(name, deps, callback) {
 	    globalDefine.push([name, deps, callback]);
 	};
+	// 供umd识别
+	define.amd = {
+	    jQuery: true
+	};
 
 	// update at 2018-03-19 18:41:28 by liuzechun
 	// define 函数临时放在 window._define 上，防止三方模块中的define函数检查。当config有内容时，才放到 window.define 上正常使用。（见line 1807）
 	window['_define'] = define;
 
 /***/ }),
-/* 258 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21770,11 +25105,104 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _antd = __webpack_require__(108);
+
+	var _instance = __webpack_require__(227);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
+	 * @author liuzechun
+	 * Created Date: 2017-12-18 07:48:32
+	 */
+
+	exports.default = (0, _instance.generate)(function (insName) {
+	    return {
+	        count: 0,
+	        // 设置预处理超时时间 30s
+	        delay: 30000,
+	        timer: null,
+	        success: function success() {
+	            --this.count;
+	            if (this.count <= 0) {
+	                this.count = 0;
+	                clearTimeout(this.timer);
+	                // 全部执行完成后执行再执行init初始化页面
+	                (0, _instance.getInstance)(insName)._reInit();
+	            }
+	        },
+	        error: function error(err) {
+	            _antd.notification.error({
+	                top: 24,
+	                message: '执行出错，已中断页面载入',
+	                duration: 0,
+	                description: JSON.stringify(err)
+	            });
+	        },
+	        handle: function handle(arr) {
+	            var _this = this;
+
+	            this.waiting = true;
+	            this.count += arr.length;
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = arr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var func = _step.value;
+
+	                    func(this.success.bind(this), this.error.bind(this));
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            clearTimeout(this.timer);
+	            this.timer = setTimeout(function () {
+	                _this.count = 0;
+	                _this.error('预加载数据超时！');
+	                _this.success();
+	            }, this.delay);
+	        }
+	    };
+	});
+
+/***/ }),
+/* 289 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(105);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21812,7 +25240,7 @@
 	exports.default = IntroductionApp;
 
 /***/ }),
-/* 259 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21821,11 +25249,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21864,7 +25292,7 @@
 	exports.default = UpdateLogApp;
 
 /***/ }),
-/* 260 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21873,11 +25301,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21915,7 +25343,7 @@
 	exports.default = InstallApp;
 
 /***/ }),
-/* 261 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21924,11 +25352,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -21966,7 +25394,7 @@
 	exports.default = Join;
 
 /***/ }),
-/* 262 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21975,11 +25403,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22017,7 +25445,7 @@
 	exports.default = Call;
 
 /***/ }),
-/* 263 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22026,11 +25454,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22068,7 +25496,7 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 264 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22079,11 +25507,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22275,7 +25703,7 @@
 	exports.default = Page;
 
 /***/ }),
-/* 265 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22286,11 +25714,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22348,7 +25776,7 @@
 	exports.default = Install;
 
 /***/ }),
-/* 266 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22357,11 +25785,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22403,7 +25831,7 @@
 	exports.default = Config;
 
 /***/ }),
-/* 267 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22412,11 +25840,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22458,7 +25886,7 @@
 	exports.default = Modules;
 
 /***/ }),
-/* 268 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22467,11 +25895,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22509,7 +25937,7 @@
 	exports.default = Build;
 
 /***/ }),
-/* 269 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22518,11 +25946,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22560,7 +25988,7 @@
 	exports.default = Api;
 
 /***/ }),
-/* 270 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22569,11 +25997,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22611,7 +26039,7 @@
 	exports.default = Params;
 
 /***/ }),
-/* 271 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22620,11 +26048,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22662,7 +26090,7 @@
 	exports.default = Life;
 
 /***/ }),
-/* 272 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22671,11 +26099,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22713,7 +26141,7 @@
 	exports.default = Load;
 
 /***/ }),
-/* 273 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22722,11 +26150,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22764,7 +26192,7 @@
 	exports.default = Others;
 
 /***/ }),
-/* 274 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22775,11 +26203,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22787,7 +26215,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(275);
+	var _markdown = __webpack_require__(306);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -22901,13 +26329,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 275 */
+/* 306 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 通过一定格式的配置以及数据格式，可以将数据导出为.xls以及.csv文件\n* 配置`headers`用于文件中表头的展示以及数据的一一对应\n* 配置`source`，`params`，`total`可通过后端异步导出数据\n* 配置`fileName`，`fileFormat`分别实现导出的文件名称及文件格式类型\n\n## 组件&参数\n\n### # export\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\ndata | 要导出的全部数据列表，需要按照一定的格式书写 | Array |  | 若传入此属性，则直接把data中的数据导出到文件中\nheaders | 导出文件中要显示的字段，以及字段对应的表头，值为数组，数组的每个元素为一个对象，见下方详细说明 | Array |  | 必须\nsource | 获取导出数据接口（一般可直接使用分页接口，接口格式见下面）。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`params`等，可见 [通用参数](#/Params) 中的 # source系列  | string&#124;object | | 如果设置`source`或者`source.url`，则认为是异步导出\ntotal | 当前表格所有数据的总条数 (因为在导出前就会使用，所以最好传入，否则在开始前将不会计算所需请求次数，异步请求接口数据必须传递total或count值) | Number |  |\nmessage | 如上面示例的'提示导出'组件，可自定义下面的提示信息：包含两个属性 `page1`、`page2`，属性值都是数组，详见`提示导出CSV文件`demo | Object |  |\nfileName | 自定义导出的文件名 | String | 格式：20180524-导出文件 |\nfileFormat | 选择导出的文件扩展名，目前支持`.xls`格式和`.csv`格式 | String | `.xls` | \n\n#### *headers*\n> 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名\n\n\n### 函数调用\n\n> 组件自身带有的函数，调用方法如：`UF('export').export()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nexport | 开始导出 | export()\n\n\n```javascript\nheaders: [\n    {\n        key: 'name',\n        title: '姓名'\n    },\n    {\n        key: 'age',\n        title: '年龄'\n    },\n    {...}\n]\n```\n\n#### 异步导出接口数据格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…],\n    total/count: 720\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 276 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22918,11 +26346,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -22934,7 +26362,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(277);
+	var _markdown = __webpack_require__(308);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -22969,7 +26397,7 @@
 	        type: 'input',
 	        label: '专线SN',
 	        name: 'line_sn',
-	        rules: [{required: true, message: '主线SN不能为空'}],
+	        rules: {required: true, message: '主线SN不能为空'},
 	        placeholder: 'sn20134567'
 	    }, */
 	    {
@@ -22991,7 +26419,7 @@
 	        type: 'select',
 	        label: '机房',
 	        name: 'idc_id',
-	        rules: [{ required: true, message: '机房不能为空' }],
+	        rules: { required: true, message: '机房不能为空' },
 	        source: {
 	            autoLoad: false,
 	            url: 'docs/php/data.php',
@@ -23005,7 +26433,7 @@
 	        type: 'input',
 	        label: '所属机构',
 	        name: 'organization',
-	        rules: [{ required: true, message: '所属机构不能为空' }],
+	        rules: { required: true, message: '所属机构不能为空' },
 	        placeholder: '招商银行-百度钱包'
 	    }, {
 	        type: 'select',
@@ -23056,13 +26484,13 @@
 	        type: 'input',
 	        label: '产品',
 	        name: 'product',
-	        rules: [{ required: true, message: '产品不能为空' }],
+	        rules: { required: true, message: '产品不能为空' },
 	        placeholder: '百度钱包'
 	    }, {
 	        type: 'input',
 	        label: '专线带宽',
 	        name: 'bandwith',
-	        rules: [{ required: true, message: '专线带宽不能为空' }],
+	        rules: { required: true, message: '专线带宽不能为空' },
 	        display: false,
 	        placeholder: 10,
 	        addonAfter: 'M'
@@ -23129,18 +26557,22 @@
 	        type: 'input',
 	        label: '地址',
 	        name: 'address',
-	        rules: [{ required: true, message: '地址不能为空' }]
+	        rules: { required: true, message: '地址不能为空' }
 	    }], [{
 	        type: 'input',
 	        label: '百度侧IP',
 	        name: 'baidu_ip',
-	        rules: [{ required: true, message: '百度侧IP不能为空' }]
+	        rules: { required: true, message: '百度侧IP不能为空' }
 	    }, {
 	        type: 'input',
 	        label: '对端IP',
 	        name: 'point_ip',
-	        rules: [{ required: true, message: '对端IP不能为空' }]
-	    }]],
+	        rules: { required: true, message: '对端IP不能为空' }
+	    }], {
+	        type: 'upload',
+	        label: '上传测试',
+	        name: 'upload'
+	    }],
 	    buttons: {
 	        layout: 'center',
 	        items: [{
@@ -23196,7 +26628,7 @@
 	            type: 'input',
 	            label: '姓名',
 	            name: 'endpoint_users_name',
-	            rules: [{ required: true, message: '姓名不能为空' }],
+	            rules: { required: true, message: '姓名不能为空' },
 	            placeholder: '张三'
 	        }, {
 	            type: 'input',
@@ -23301,7 +26733,7 @@
 	        type: 'input',
 	        label: '专线SN',
 	        name: 'line_sn',
-	        rules: [{ required: true, message: '主线SN不能为空' }],
+	        rules: { required: true, message: '主线SN不能为空' },
 	        placeholder: 'sn20134567'
 	    }]]
 	};
@@ -23317,7 +26749,7 @@
 	        type: 'input',
 	        label: '姓名',
 	        name: 'endpoint_users_name',
-	        rules: [{ required: true, message: '姓名不能为空' }],
+	        rules: { required: true, message: '姓名不能为空' },
 	        placeholder: '张三'
 	    }, {
 	        type: 'input',
@@ -23441,13 +26873,13 @@
 	exports.default = FormApp;
 
 /***/ }),
-/* 277 */
+/* 308 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表\n单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示 | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\njoin | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部示例 | object | | \nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\n\n\n## 更多用法\n\n[!图片](/path/to/img.jpg \"Title\")\n\n### 组件联动 - join 属性的用法\n\n```javascript\nitems: [\n    // 【示例1：】\n    {\n        type: 'select',\n        label: '接入方式',\n        name: 'access_type',\n        default: '0',\n        join: {\n            // 当 select 变化时，会联动name为bandwith的表单项\n            bandwith: {\n                // 更新表单项的display属性（控制是否展示）\n                // 属性的值可以直接为固定值，但更多情况下，值是根据当前选择的值动态变化的\n                // 所以也可以是一个函数，函数的参数为当前组件的值，函数的返回值为目标组件待更新的新值\n                display: function (v) {\n                    return !!Number(v) ? true : false;\n                }\n            },\n            // 可以同时联动多个\n            // line_type: {display: v=>!!+v},\n            // port_type: {display: v=>!!+v},\n            // is_converge: {display: v=>!!+v}\n        },\n        options: [\n            {value: '0', label: 'VPN'},\n            {value: '1', label: '专线'}\n        ]\n    },\n    {\n        type: 'input',\n        label: '专线带宽',\n        name: 'bandwith',\n        rules: [{required: true, message: '专线带宽不能为空'}],\n        display: false,\n        placeholder: 10,\n        addonAfter: 'M'\n    },\n\n    // 【示例2：】\n    // 另一个级联选择的例子，选择区域后，根据选择的区域动态的查询该区域的机房列表\n    {\n        type: 'select',\n        label: '区域',\n        name: 'area',\n        options: [\n            {value: 1, label: '华北'},\n            {value: 2, label: '华南'}\n        ],\n        join: {\n            idc_id: {\n                // 选择区域后，更新idc_id组件的source参数，组件会自动重新拉取数据\n                source: function (v) {\n                    return {\n                        params: {\n                            area_id: v\n                        }\n                    };\n                }\n            }\n        }\n    },\n    {\n        type: 'select',\n        label: '机房',\n        name: 'idc_id',\n        source: {\n            autoLoad: false,\n            url: 'docs/php/data.php',\n            handler: data=>data.map(v=>{\n                return {value: v.name, label: v.name};\n            })\n        }\n    }\n]\n```"
+	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表\n单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示 | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\njoin | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部示例 | object | | \nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n> **注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\nclearValues | 清除表单。有别于重置 | clearValues() |\nresetItem | 重新设置某个表单项的配置 | resetItem(targetName, conf) |\n\n\n## 更多用法\n\n[!图片](/path/to/img.jpg \"Title\")\n\n### 组件联动 - join 属性的用法\n\n```javascript\nitems: [\n    // 【示例1：】\n    {\n        type: 'select',\n        label: '接入方式',\n        name: 'access_type',\n        default: '0',\n        join: {\n            // 当 select 变化时，会联动name为bandwith的表单项\n            bandwith: {\n                // 更新表单项的display属性（控制是否展示）\n                // 属性的值可以直接为固定值，但更多情况下，值是根据当前选择的值动态变化的\n                // 所以也可以是一个函数，函数的参数为当前组件的值，函数的返回值为目标组件待更新的新值\n                display: function (v) {\n                    return !!Number(v) ? true : false;\n                }\n            },\n            // 可以同时联动多个\n            // line_type: {display: v=>!!+v},\n            // port_type: {display: v=>!!+v},\n            // is_converge: {display: v=>!!+v}\n        },\n        options: [\n            {value: '0', label: 'VPN'},\n            {value: '1', label: '专线'}\n        ]\n    },\n    {\n        type: 'input',\n        label: '专线带宽',\n        name: 'bandwith',\n        rules: [{required: true, message: '专线带宽不能为空'}],\n        display: false,\n        placeholder: 10,\n        addonAfter: 'M'\n    },\n\n    // 【示例2：】\n    // 另一个级联选择的例子，选择区域后，根据选择的区域动态的查询该区域的机房列表\n    {\n        type: 'select',\n        label: '区域',\n        name: 'area',\n        options: [\n            {value: 1, label: '华北'},\n            {value: 2, label: '华南'}\n        ],\n        join: {\n            idc_id: {\n                // 选择区域后，更新idc_id组件的source参数，组件会自动重新拉取数据\n                source: function (v) {\n                    return {\n                        params: {\n                            area_id: v\n                        }\n                    };\n                }\n            }\n        }\n    },\n    {\n        type: 'select',\n        label: '机房',\n        name: 'idc_id',\n        source: {\n            autoLoad: false,\n            url: 'docs/php/data.php',\n            handler: data=>data.map(v=>{\n                return {value: v.name, label: v.name};\n            })\n        }\n    }\n]\n```"
 
 /***/ }),
-/* 278 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23458,11 +26890,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -23470,7 +26902,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _formsMarkdown = __webpack_require__(279);
+	var _formsMarkdown = __webpack_require__(310);
 
 	var _formsMarkdown2 = _interopRequireDefault(_formsMarkdown);
 
@@ -23692,13 +27124,13 @@
 	exports.default = FormsApp;
 
 /***/ }),
-/* 279 */
+/* 310 */
 /***/ (function(module, exports) {
 
 	module.exports = "## 功能介绍\n * 主要提供表单的扩展功能，复制新增表单\n * 可配置新增方式\n * 可为组件传入数组形式的formData，从而产生多个Form表单\n * 可配置底部按钮\n\n\n## 组件&配置\n\n### # forms\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nclassName | 增加 forms 整体的 class 名称 | string |  | \nkey | 此组件唯一的标识字符串信息 | string | |\naddType | 新增的方式，有两种值：`copy-add` 为复制新增，即会将已填写的值先复制再新增表单；`add`为简单新增。 | string | |\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | 传递给表单的数据，当为对象时则根据配置的`form`渲染出一个表单，当为数组时渲染出多个表单 | object或Array | |\nform | 需渲染的表单内容，详细配置可参考`Form`组件的配置，注意，`buttons`只需在`Forms`组件配置一次就行，不需要在`form`中再次配置 | object或Array | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\n\n> **声明：** 本组件提交时的返回结果为一个数组，数组的每个元素都为一个对象，每个对象对应一个表单的值，如[{'name': 'ZhangSan', 'city': 'Beijing', 'birthDay': '1992-11-02'},{'name': 'LiSi', 'city': 'Shanghai', 'birthDay': '1988-09-02'}]\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues() |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues() |\n\n\n"
 
 /***/ }),
-/* 280 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23709,11 +27141,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -23725,7 +27157,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(281);
+	var _markdown = __webpack_require__(312);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -23928,13 +27360,13 @@
 	exports.default = ModalApp;
 
 /***/ }),
-/* 281 */
+/* 312 */
 /***/ (function(module, exports) {
 
-	module.exports = "对话框。\n\n## 何时使用\n\n需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。\n\n另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。\n\n## 组件&配置\n\n### # modal\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|-------------\nvisible    | 对话框是否可见 | boolean          | 无          \ncontent | 弹框中间的内容 | string&#124;`config`  | 无          \nconfirmLoading | 确定按钮 loading | boolean    | 无          \ntitle      | 标题           | string&#124;`config` | 无          \nclosable   | 是否显示右上角的关闭按钮 | boolean    | true       \nonSubmit       | 点击确定回调       | function(e)     | 无          \nonCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        \nwidth      | 宽度           | string&#124;number | 520          \nfooter     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | `config`&#124;`config[]` | 确定取消按钮\nokText     | 确认按钮文字    | string           | 确定      \nokType     | 确认按钮类型    | string           | primary      \ncancelText | 取消按钮文字    | string           | 取消      \ncancelType | 取消按钮类型    | string           | default      \nmaskClosable | 点击蒙层是否允许关闭 | boolean   | true      \nstyle | 可用于设置浮层的样式，调整浮层位置等 | object   | -\nwrapClassName | 对话框外层容器的类名 | string   | -\nafterClose | Modal 完全关闭后的回调 | function | 无\ngetContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body\nzIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000\n\n> tips: `footer`属性一般为一个配置或配置数组，其中没项可以有一个额外的`action`属性，指定按钮的特定功能，可选值有'submit'、'cancel'，分别对应提交功能（onSubmit）和取消功能（onCancel）\n\n#### modal 高级功能 (额外参数)\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | \napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,paramsHanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | \nparams | form 会填充params中的值为默认值。会覆盖api中的params | object | \nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | function(params) {return `config`;} | \n\n> 最终弹框中展示的内容最多包含三部分，即：content、form、render三个属性对应的内容。从上到下展示顺序依次为：render > content > form\n\n以上有两种常用场景。  \n1、“新增/编辑”表单弹框（见示例：弹框表单）  \n2、“删除”确认弹框（见示例：确认信息弹框）\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-modal').show()`。\n\n参数       | 说明           | 参数    \n-----------|----------------|-----------\nshow      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、message 中的内容。用于form弹框场景和message确认框场景 |  show([params])  \nclose    | 关闭弹框           |   close()  \n\n\n### UF.Modal.method()\n\n包括：\n\n- `UF.Modal.info`\n- `UF.Modal.success`\n- `UF.Modal.error`\n- `UF.Modal.warning`\n- `UF.Modal.confirm`\n\n以上均为一个函数，参数为 object，具体属性如下：\n\n参数       | 说明           | 类型             | 默认值       \n-----------|----------------|------------------|--------------\ntitle      | 标题           | string&#124;`config` | 无           \ncontent    | 内容           | string&#124;`config` | 无           \nonOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           \nonCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           \nwidth      | 宽度           | string&#124;number | 416           \niconType   | 图标 Icon 类型    | string | question-circle \nokText     | 确认按钮文字    | string           | 确定       \ncancelText | 取消按钮文字    | string           | 取消       \nmaskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    \n\n以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。\n\n```javascript\nvar ref = UF.Modal.info({...});\nref.destroy();\n```\n\n"
+	module.exports = "对话框。\n\n## 何时使用\n\n需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。\n\n另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。\n\n## 组件&配置\n\n### # modal\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|-------------\nvisible    | 对话框是否可见 | boolean          | 无          \ncontent | 弹框中间的内容 | string&#124;`config`  | 无          \nconfirmLoading | 确定按钮 loading | boolean    | 无          \ntitle      | 标题           | string&#124;`config` | 无          \nclosable   | 是否显示右上角的关闭按钮 | boolean    | true       \nonSubmit       | 点击确定回调       | function(e)     | 无          \nonCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        \nwidth      | 宽度           | string&#124;number | 520          \nfooter     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | `config`&#124;`config[]` | 确定取消按钮\nokText     | 确认按钮文字    | string           | 确定      \nokType     | 确认按钮类型    | string           | primary      \ncancelText | 取消按钮文字    | string           | 取消      \ncancelType | 取消按钮类型    | string           | default      \nmaskClosable | 点击蒙层是否允许关闭 | boolean   | true      \nstyle | 可用于设置浮层的样式，调整浮层位置等 | object   | -\nwrapClassName | 对话框外层容器的类名 | string   | -\nafterClose | Modal 完全关闭后的回调 | function | 无\ngetContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body\nzIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000\n\n> tips: `footer`属性一般为一个配置或配置数组，其中没项可以有一个额外的`action`属性，指定按钮的特定功能，可选值有'submit'、'cancel'，分别对应提交功能（onSubmit）和取消功能（onCancel）\n\n#### modal 高级功能 (额外参数)\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nform    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config`&#124;`function` | \napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,paramsHanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string&#124;object | \nparams | form 会填充params中的值为默认值。会覆盖api中的params | object | \nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | function(params) {return `config`;} | \n\n> 最终弹框中展示的内容最多包含三部分，即：content、form、render三个属性对应的内容。从上到下展示顺序依次为：render > content > form\n\n以上有两种常用场景。  \n1、“新增/编辑”表单弹框（见示例：弹框表单）  \n2、“删除”确认弹框（见示例：确认信息弹框）\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-modal').show()`。\n\n参数       | 说明           | 参数    \n-----------|----------------|-----------\nshow      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、render 中的内容。用于form弹框场景和render确认框场景 |  show([params])  \nclose    | 关闭弹框           |   close()  \n\n\n### UF.Modal.method()\n\n包括：\n\n- `UF.Modal.info`\n- `UF.Modal.success`\n- `UF.Modal.error`\n- `UF.Modal.warning`\n- `UF.Modal.confirm`\n\n以上均为一个函数，参数为 object，具体属性如下：\n\n参数       | 说明           | 类型             | 默认值       \n-----------|----------------|------------------|--------------\ntitle      | 标题           | string&#124;`config` | 无           \ncontent    | 内容           | string&#124;`config` | 无           \nonOk       | 点击确定回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭      | function         | 无           \nonCancel   | 取消回调，参数为关闭函数，返回 promise 时 resolve 后自动关闭       | function         | 无           \nwidth      | 宽度           | string&#124;number | 416           \niconType   | 图标 Icon 类型    | string | question-circle \nokText     | 确认按钮文字    | string           | 确定       \ncancelText | 取消按钮文字    | string           | 取消       \nmaskClosable | 点击蒙层是否允许关闭 | Boolean   | `false`    \n\n以上函数调用后，会返回一个引用，可以通过该引用关闭弹窗。\n\n```javascript\nvar ref = UF.Modal.info({...});\nref.destroy();\n```\n\n"
 
 /***/ }),
-/* 282 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23945,11 +27377,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -23961,7 +27393,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(283);
+	var _markdown = __webpack_require__(314);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24087,34 +27519,26 @@
 
 	};
 
-	var columns2 = [{
-	    title: 'ID',
-	    dataIndex: 'id',
-	    key: 'id'
-	}, {
-	    title: '机房',
-	    dataIndex: 'name',
-	    key: 'name'
-	}, {
-	    title: '地区',
-	    dataIndex: 'region',
-	    key: 'region',
-	    filter: {
-	        type: 'radio',
-	        options: ['华北', '华南', '华东']
-	    }
-	}, {
-	    title: '描述',
-	    dataIndex: 'description',
-	    key: 'description'
-	}];
 	var demo2 = {
 	    title: '后端获取数据',
 	    description: '采用后端获取数据及分页等',
 	    config: [{
 	        type: 'table',
 	        name: 'newtable2',
-	        columns: columns2,
+	        columns: [{
+	            title: 'ID',
+	            dataIndex: 'id'
+	            // 枚举的使用
+	            // enum: [{key: 1, value: 'TC'}]
+	        }, { title: '机房', dataIndex: 'name', key: 'name' }, { title: '名称', dataIndex: 'idcId' }, {
+	            title: '地区',
+	            dataIndex: 'region',
+	            key: 'region',
+	            filter: {
+	                type: 'radio',
+	                options: ['华北', '华南', '华东']
+	            }
+	        }, { title: '描述', dataIndex: 'description', key: 'description' }],
 	        title: {
 	            // text: 'Table后端分页表格',
 	            basicWidget: ['filter', 'setPageSize', {
@@ -24139,8 +27563,14 @@
 	            method: 'get',
 	            paramsHandler: function paramsHandler(params) {
 	                // 增加 index 参数
-	                params.index = params.page - 1;
+	                // params.index = params.page - 1;
 	                return params;
+	            },
+	            handler: function handler(data) {
+	                return data.map(function (v) {
+	                    v.idcId = v.id;
+	                    return v;
+	                });
 	            }
 	        },
 	        params: {
@@ -24151,7 +27581,8 @@
 	        },
 	        rowKey: 'id',
 	        pagination: {
-	            pageType: 'server'
+	            pageType: 'server',
+	            pageSize: 5
 	        },
 	        rowSelection: {
 	            selections: true
@@ -24309,13 +27740,13 @@
 	exports.default = TableApp;
 
 /***/ }),
-/* 283 */
+/* 314 */
 /***/ (function(module, exports) {
 
-	module.exports = "展示行列数据。\n\n## 何时使用\n\n- 当有大量结构化的数据需要展现时；\n- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。\n\n## 组件&配置\n\n### # table\n\n| 参数           | 说明                     | 类型             | 默认值   |\n|---------------|--------------------------|-----------------|---------|\n| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |\n| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |\n| size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |\n| data    | 数据数组，见下面示例 `data` | any[] |            |\n| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |\n| rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |\n| rowClassName  | 表格行的类名      | Function(record, index):string | - |\n| expandedRowRender  | 额外的展开行 | Function | - |\n| defaultExpandedRowKeys | 默认展开的行 | string[] | - |\n| expandedRowKeys | 展开的行，控制属性 | string[] | - |\n| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |\n| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |\n| bordered  | 是否展示外边框和列边框 | boolean | false      |\n| showHeader  | 是否显示表头 | boolean          | true      |\n| footer | 表格尾部         | Function(currentPageData)   | |\n| title  | 表格标题栏配置,可配置题目及表格控件，见下方[`title`](#/Table/-title-)     | string &#124; object   | - |\n| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |\n| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |\n| source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | \n| params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | \n| crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | \n| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |\n| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |\n| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |\n| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |\n| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |\n| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |\n| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |\n| display    | 默认是否展示列当前列             | boolean | true |\n| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |\n| width      | 列宽度 | string&#124;number | -  |\n| className  | 列的 className             | string          |  -      |\n| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |\n| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |\n| filter    | 表头的筛选设置，详见下方`columns.filter`           | Object           | - |\n| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |\n| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |\n| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |\n| onCellClick | 单元格点击回调 | Function(record, event) | - |\n| textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |\n| ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |\n| editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |\n\n#### *column.filter*\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| type      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |\n| options      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |\n\n#### *column.editable*\n\n主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置\n\n| 参数       | 说明                       | 类型            |  默认值  | 是否必须 |\n|-----------|----------------------------|-----------------|---------|--------|\n| type | 即为输入类型组件的type。除type外，可以使用一切输入型组件的参数 | string | - | 必须 |\n| name | 表单域名称，key，提交时以此名称为键 | string | - | 必须 |\n| rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |\n| icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能. 当直接把icon设置为null时，则editIcon为默认值，其余两个设置为null | Object &#124; null | 默认图标样式 |  |\n| api | 待定 | string | - | 必须 |\n\n#### *column._operation*\n\n当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现表格中对单行的编辑、删除等功能。crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) \n\n例如：\n\n```javascript\ncolumns: [\n    ...\n    {\n        title: '操作',\n        dataIndex: '_operation',\n        width: 100,\n        render: ()=>([\n            {type: 'a', content: '日志', action: 'showLog'},\n            {type: 'a', content: '编辑', action: 'edit'},\n            {type: 'a', content: '删除', action: 'delete'}\n        ])\n    }\n]\n```\n\n\n#### *rowSelection*\n\n选择功能的配置。\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |\n| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |\n| disabledRow | 选择框的不可选的条件，返回值应该为一个Boolean类型的值        | Function(record) |  -   |\n| selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |\n| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |\n| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |\n| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |\n| onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |\n| onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |\n\n#### *selection*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| key | React 需要的 key，建议设置 | string | -  |\n| text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |\n| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |\n\n#### *pagination*\n\n| 参数             | 说明                               | 类型          | 默认值                   |\n|------------------|------------------------------------|---------------|--------------------------|\n| current          | 当前页数                           | number        | -                   |\n| pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |\n| pageSize         | 每页条数   | number | 10 |\n| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |\n| showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |\n| pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |\n| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |\n| showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |\n| size             | 当为「small」时，是小尺寸分页      | string        |                       |\n| simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |\n| total            | 数据总数      | number        |                       |\n| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |\n\n\n#### *title*\n\n参数              | 说明                     | 类型             |  默认值\n-----------------|--------------------------|-----------------|--------\ntext | 表格标题 | string&#124;`config` | -  |\nbasicWidget | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array |\nmenuWidget | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | \nshowText | 是否显示控件图标后面的说明文字 | Boolean | true \nextra | 额外自定义 控件/组件 列表，本身为一个数组，数组中每一项为一个组件配置，例如一个按钮 | array | \n\n> extra或者widget中的自定义控件，都有一个额外的`action`属性，可以关联配置的`crud`，用法类似上面介绍的[`column._operation`](#/Custom/Table/-column-_operation-)\n\n##### *所有可选基础控件说明*\n\n控件 | 说明 | 位置\n---- | ---- | -----\nfilter |  模糊搜索功能。`前端分页`、`后端分页`都支持。当表格为后端分页时模糊搜索不再为实时获取，而是输入完成后点击回车或者🔍，组件会重新调用source接口，并额外传递一个`search`参数，参数值为输入内容。控件会随Table的分页形式自行切换 | 只能用于basic中\nexport |  导出数据。会随Table的分页形式自行切换交互形式 |\nswitchTags |  选择要展示的列 |\nrefresh |  刷新表格按钮 |\nfullScreen |  全屏展示 |\nshowAllTags |  展示全部列功能 |\nsetPageSize |  设置分页条数 |\n\n使用基础控件，可以直接使用字符串形式（控件名），如果想更改控件的默认展示效果，可改用对象的方式，参数和自定义控件类似。`name`即为组件名称，`icon`和`text`可自定义。\n\n##### *控件属性*\n\n为一个对象，包含以下几部分：  \n\n| 参数 | 说明 | 类型 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |\n| icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |\n| text | 按钮文字 | String |  |\n| onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |\n| blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |\n| whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-table').refresh()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nrefresh | 刷新表格数据，会展示loading等 | refresh()\nreload | 手动触发表格获取数据 | reload()\nshowCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)\nexport | 手动触发导出数据功能，可以用于置于任何位置的按钮点击后调用表格的导出功能 | export()\ngetSelected | 手动获取已选中的数据 | getSelected()\ngetSelectedKeys | 获取当前全部选中行的key | getSelectedKeys()\nselectAll | 手动触发全选 | selectAll()\nclearSelect | 手动触发全选 | clearSelect()\n\n### 其余一些 Tips\n\n#### data 数据格式\n表格的数据数组格式如下：\n```javascript\n[{\n    key: '1',\n    name: '胡彦斌',\n    age: 32,\n    address: '西湖区湖底公园1号'\n}, {\n    key: '2',\n    name: '胡彦祖',\n    age: 42,\n    address: '西湖区湖底公园2号'\n}]\n```\n**注意：**  \n\n在 Table 中，`data` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `data` 默认将每列数据的 `key` 属性作为唯一的标识。\n\n如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。\n\n#### 关于后端分页数据缓存问题\n\n如`Table`组件中使用后端分页，如果数据不是实时更新的，可以开启数据缓存功能，切换分页后，再查看原来分页的数据即可无需再次请求。\n\n**但是需要注意**：可能会影响编辑、查询等刷新表格的功能，所以需要谨慎使用。\n\n具体方法有两种：\n* 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法\n* 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`"
+	module.exports = "展示行列数据。\n\n## 何时使用\n\n- 当有大量结构化的数据需要展现时；\n- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。\n\n## 组件&配置\n\n### # table\n\n| 参数           | 说明                     | 类型             | 默认值   |\n|---------------|--------------------------|-----------------|---------|\n| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |\n| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |\n| size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |\n| data    | 数据数组，见下面示例 `data` | any[] |            |\n| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |\n| rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |\n| rowClassName  | 表格行的类名      | Function(record, index):string | - |\n| expandedRowRender  | 额外的展开行 | Function | - |\n| doubleClickEdit | 双击行时进行编辑，需配合`crud.edit` | | |\n| defaultExpandedRowKeys | 默认展开的行 | string[] | - |\n| expandedRowKeys | 展开的行，控制属性 | string[] | - |\n| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |\n| indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |\n| bordered  | 是否展示外边框和列边框 | boolean | false      |\n| showHeader  | 是否显示表头 | boolean          | true      |\n| footer | 表格尾部         | Function(currentPageData)   | |\n| title  | 表格标题栏配置,可配置题目及表格控件，见下方[`title`](#/Table/-title-)     | string &#124; object   | - |\n| scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |\n| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |\n| source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | \n| source.autoReload | 特别提醒下source下面的`autoReload`参数，是否组件刷新时自动重新加载数据 | boolean | true | \n| params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | \n| crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | \n| onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |\n| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |\n| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |\n| onRowClick    | 点击行时触发 | Function(record, index, event)   | - |\n| onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |\n| onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |\n| onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |\n| display    | 默认是否展示列当前列             | boolean | true |\n| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |\n| enum      | 枚举列表。指定当前列展示内容，根据列表里的内容进行转换。用法见下面说明 | array&#124;`source` | -  |\n| enum.cache | 默认会开启缓存，即枚举数据仅会加载一次。如果需要动态获取，则可把cache置为 false | boolean | true  |\n| width      | 列宽度 | string&#124;number | -  |\n| className  | 列的 className             | string          |  -      |\n| fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |\n| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |\n| filter    | 表头的筛选设置，详见下方`columns.filter`           | Object           | - |\n| sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |\n| sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |\n| colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |\n| onCellClick | 单元格点击回调 | Function(record, event) | - |\n| textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |\n| ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |\n| editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |\n\n> **`enum`有两种用法:**  \n> 1、直接列举出全部值，格式为:`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值（*value也可以是一个组件配置*）  \n> 2、枚举的值为通过接口取得，则enum为一个对象，格式为：`enum: {url: '',handler(){}}`, 通过url获取过来的数据通过handler函数处理并return，处理后的数据格式如上面1中的格式即可。其余参数可参考[`source`](#/Params/-source-)系列参数的用法\n\n> **`enum`更多应用场景**  \n> 1、新增、编辑的输入框的表单元素里，如果存在表格里配置了枚举类型的字段，当元素为select、radio等具有options属性且没有配置options，组件会自动把枚举的列表添加到该元素上。  \n> 2、批量新增、批量编辑的keys列表里，如果存在表格里配置了枚举类型的字段，则对应字段也会自动做转换：批量编辑时自动填入的数据是转换之后的值；新增和编辑后提交到后端会自动再转换回id；\n\n具体使用可见 [Table Crud](#/Custom/TableCrud) 中Demo的名称字段（idcId）的展示/新增/编辑/批量编辑，以及提交数据时的对应的字段内容\n\n`enum`属性配置为异步返回时，接口返回格式为以下三种均可：\n```javascript\n// 格式一：\n[\n    {id: 1, name: 'GPU', ...},\n]\n// 格式二：\n[\n    {key: 1, value: 'GPU'},\n]\n// 格式三:\n{\n    1: 'GPU',\n}\n```\n\n#### *column.filter*\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| type      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |\n| options      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |\n\n#### *column.editable*\n\n主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置\n\n| 参数       | 说明                       | 类型            |  默认值  | 是否必须 |\n|-----------|----------------------------|-----------------|---------|--------|\n| type | 即为输入类型组件的type。除type外，可以使用一切输入型组件的参数 | string | - | 必须 |\n| name | 表单域名称，key，提交时以此名称为键 | string | - | 必须 |\n| rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |\n| icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能. 当直接把icon设置为null时，则editIcon为默认值，其余两个设置为null | Object &#124; null | 默认图标样式 |  |\n| api | 待定 | string | - | 必须 |\n\n#### *column._operation*\n\n当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现表格中对单行的编辑、删除等功能。crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) \n\n例如：\n\n```javascript\ncolumns: [\n    ...\n    {\n        title: '操作',\n        dataIndex: '_operation',\n        width: 100,\n        render: ()=>([\n            {type: 'a', content: '日志', action: 'showLog'},\n            {type: 'a', content: '编辑', action: 'edit'},\n            {type: 'a', content: '删除', action: 'delete'}\n        ])\n    }\n]\n```\n\n\n#### *rowSelection*\n\n选择功能的配置。\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| type | 多选/单选，`checkbox` or `radio` | string | `checkbox`  |\n| selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string[] | []  |\n| disabledRow | 选择框的不可选的条件，返回值应该为一个Boolean类型的值        | Function(record) |  -   |\n| selections | 自定义选择项，见下面配置 `selection`, 设为 `true` 时使用默认选择项 | object[]&#124;boolean | true |\n| hideDefaultSelections | 去掉『全选』『反选』两个默认选项 | boolean | false |\n| onChange | 选中项发生变化的时的回调 | Function(selectedRowKeys, selectedRows) | -   |\n| onSelect | 用户手动选择/取消选择某列的回调         | Function(record, selected, selectedRows) |   -   |\n| onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |\n| onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |\n\n#### *selection*\n\n| 参数              | 说明                     | 类型             |  默认值   |\n|------------------|--------------------------|-----------------|---------------------|\n| key | React 需要的 key，建议设置 | string | -  |\n| text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |\n| onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |\n\n#### *pagination*\n\n| 参数             | 说明                               | 类型          | 默认值                   |\n|------------------|------------------------------------|---------------|--------------------------|\n| current          | 当前页数                           | number        | -                   |\n| pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |\n| pageSize         | 每页条数   | number | 10 |\n| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |\n| showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |\n| pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |\n| onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |\n| showQuickJumper  | 是否可以快速跳转至某页             | boolean         | false                    |\n| size             | 当为「small」时，是小尺寸分页      | string        |                       |\n| simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |\n| total            | 数据总数      | number        |                       |\n| showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |\n\n\n#### *title*\n\n参数              | 说明                     | 类型             |  默认值\n-----------------|--------------------------|-----------------|--------\ntext | 表格标题 | string&#124;`config` | -  |\nbasicWidget | 基础控件，直接展示在表格表头上方。例：`basic: ['filter', 'export']`，所有可选控件见下表；也可以是`自定义控件`。参数为一个数组，数组中每一项可以是字符串，也可以是对象，对象的可选属性见`控件属性` | array |\nmenuWidget | 非常用控件，为了节省空间，把这些控件统一放在一个菜单里，可选控件见下表 | array | \nshowText | 是否显示控件图标后面的说明文字 | Boolean | true \nextra | 额外自定义 控件/组件 列表，本身为一个数组，数组中每一项为一个组件配置，例如一个按钮 | array | \n\n> extra或者widget中的自定义控件，都有一个额外的`action`属性，可以关联配置的`crud`，用法类似上面介绍的[`column._operation`](#/Custom/Table/-column-_operation-)\n\n##### *所有可选基础控件说明*\n\n控件 | 说明 | 位置\n---- | ---- | -----\nfilter |  模糊搜索功能。`前端分页`、`后端分页`都支持。当表格为后端分页时模糊搜索不再为实时获取，而是输入完成后点击回车或者🔍，组件会重新调用source接口，并额外传递一个`search`参数，参数值为输入内容。控件会随Table的分页形式自行切换 | 只能用于basic中\nexport |  导出数据。会随Table的分页形式自行切换交互形式 |\nswitchTags |  选择要展示的列 |\nrefresh |  刷新表格按钮 |\nfullScreen |  全屏展示 |\nshowAllTags |  展示全部列功能 |\nsetPageSize |  设置分页条数 |\n\n使用基础控件，可以直接使用字符串形式（控件名），如果想更改控件的默认展示效果，可改用对象的方式，参数和自定义控件类似。`name`即为组件名称，`icon`和`text`可自定义。\n\n##### *控件属性*\n\n为一个对象，包含以下几部分：  \n\n| 参数 | 说明 | 类型 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |\n| icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |\n| text | 按钮文字 | String |  |\n| onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |\n| blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |\n| whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |\n| cache | 是否开启缓存。会永久保存用户自己选择的要展示的字段（默认开启） | boolean | 仅`switchTags`控件有效 | \n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-table').refresh()`。\n\n参数 | 说明 | 参数\n---- | ---- | ---- \nrefresh | 刷新表格数据，会展示loading等 | refresh()\nreload | 手动触发表格获取数据 | reload()\nshowCrud | 展示crud属性中配置的增删改查等弹框。第一个参数为要调用的是crud中配置的哪个弹框，即配置的key；之后的参数为相应弹框需要的额外参数，例如编辑弹框需要把需要编辑的数据传入等  | showAdd(action, otherParams)\nexport | 手动触发导出数据功能，可以用于置于任何位置的按钮点击后调用表格的导出功能 | export()\ngetSelected | 手动获取已选中的数据 | getSelected()\ngetSelectedKeys | 获取当前全部选中行的key | getSelectedKeys()\nselectAll | 手动触发全选 | selectAll()\nclearSelect | 手动触发全选 | clearSelect()\n\n### 其余一些 Tips\n\n#### data 数据格式\n表格的数据数组格式如下：\n```javascript\n[{\n    key: '1',\n    name: '胡彦斌',\n    age: 32,\n    address: '西湖区湖底公园1号'\n}, {\n    key: '2',\n    name: '胡彦祖',\n    age: 42,\n    address: '西湖区湖底公园2号'\n}]\n```\n**注意：**  \n\n在 Table 中，`data` 和 `columns` 里的数据值都需要指定 `key` 值。对于 `data` 默认将每列数据的 `key` 属性作为唯一的标识。\n\n如果你的数据没有这个属性，务必使用 `rowKey` 来指定数据列的主键。若没有指定，控制台会出现以下的提示，表格组件也会出现各类奇怪的错误。\n\n#### 关于后端分页数据缓存问题\n\n如`Table`组件中使用后端分页，如果数据不是实时更新的，可以开启数据缓存功能，切换分页后，再查看原来分页的数据即可无需再次请求。\n\n**但是需要注意**：可能会影响编辑、查询等刷新表格的功能，所以需要谨慎使用。\n\n具体方法有两种：\n* 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法\n* 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`"
 
 /***/ }),
-/* 284 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24326,11 +27757,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -24342,7 +27773,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _crud = __webpack_require__(285);
+	var _crud = __webpack_require__(316);
 
 	var _crud2 = _interopRequireDefault(_crud);
 
@@ -24357,42 +27788,45 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
-	var columns1 = [{
-	    title: 'ID',
-	    dataIndex: 'id',
-	    key: 'id'
-	}, {
-	    title: '机房',
-	    dataIndex: 'name',
-	    key: 'name'
-	}, {
-	    title: '地区',
-	    dataIndex: 'region',
-	    key: 'region'
-	}, {
-	    title: '描述',
-	    dataIndex: 'description',
-	    key: 'description'
-	}, {
-	    title: '操作',
-	    dataIndex: '_operation',
-	    render: function render() {
-	        return [{ type: 'a', content: '编辑', action: 'edit' }, { type: 'a', content: '删除', action: 'delete' }];
-	    }
-	}];
 	var demo1 = {
 	    title: 'Crud 扩展功能展示',
 	    description: 'Table中提供了增删改查等功能的配置',
 	    config: [{
 	        type: 'table',
 	        name: 'newtable',
-	        columns: columns1,
+	        columns: [{ title: 'ID', dataIndex: 'id' }, { title: '机房', dataIndex: 'name' }, {
+	            title: '名称',
+	            dataIndex: 'idcId',
+	            enum: {
+	                url: 'http://uf.baidu.com/docs/php/data.php',
+	                handler: function handler(data) {
+	                    return data.map(function (item) {
+	                        return { key: item.id, value: item.name };
+	                    });
+	                }
+	            }
+	        }, { title: '地区', dataIndex: 'region' }, { title: '描述', dataIndex: 'description' }, {
+	            title: '操作',
+	            dataIndex: '_operation',
+	            render: function render() {
+	                return [{ type: 'a', content: '编辑', action: 'edit' }, { type: 'a', content: '删除', action: 'delete' }];
+	            }
+	        }],
 	        title: {
 	            text: null,
 	            basicWidget: [{ name: 'filter', text: '快捷查询' }],
 	            extra: [{ type: 'button', mode: 'primary', content: '新增', action: 'add' }, { type: 'button', mode: 'primary', content: '查询', action: 'search' }, { type: 'button', mode: 'primary', content: '批量编辑', action: 'batchEdit' }, { type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete' }]
 	        },
-	        source: 'docs/php/data.php',
+	        // source: 'docs/php/data.php',
+	        source: {
+	            url: 'docs/php/data.php',
+	            handler: function handler(data) {
+	                return data.map(function (v) {
+	                    v.idcId = v.id;
+	                    return v;
+	                });
+	            }
+	        },
 	        pagination: {
 	            pageType: 'server'
 	        },
@@ -24405,7 +27839,7 @@
 	                api: 'docs/php/submit.php',
 	                method: 'post',
 	                form: {
-	                    items: [{ type: 'input', label: '机房', name: 'name', rules: { required: true } }, { type: 'input', label: '地区', name: 'region', rules: { required: true } }, { type: 'textarea', label: '描述', name: 'description' }]
+	                    items: [{ type: 'input', label: '机房', name: 'name', rules: { required: true } }, { type: 'select', label: '名称', name: 'idcId', rules: { required: true } }, { type: 'input', label: '地区', name: 'region', rules: { required: true } }, { type: 'textarea', label: '描述', name: 'description' }]
 	                }
 	            },
 	            edit: {
@@ -24431,9 +27865,16 @@
 	                // action 声明还是使用批量导入类型的功能，相当于另一种批量导入
 	                title: '批量更新:',
 	                width: 800,
-	                api: '?r=batchUpdate',
+	                api: {
+	                    url: 'docs/php/submit.php',
+	                    method: 'put',
+	                    contentType: 'application/json',
+	                    paramsHandler: function paramsHandler(params) {
+	                        return { data: JSON.stringify(params) };
+	                    }
+	                },
 	                method: 'post',
-	                keys: 'id,name,region,description',
+	                keys: 'name,idcId,region,description',
 	                okText: '更新',
 	                content: 'aaa'
 	            },
@@ -24480,13 +27921,13 @@
 	exports.default = TableCrudApp;
 
 /***/ }),
-/* 285 */
+/* 316 */
 /***/ (function(module, exports) {
 
-	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框，只有关闭按钮，本身没有其他交互 (当action不与任何类型匹配时，默认是show)  \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * search: 高级查询弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n> * batchShow: 批量展示Table中选中的数据\n\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\ntitle      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |\napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,hanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | \nform   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nparams | form会填充params中的值为默认值。会覆盖api中的params | object | |\nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \nforbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |\nremove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |\nautoReload | 点击提交时自动刷新表格 | boolean | true |\n\n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n\n>"
+	module.exports = "Table可以快速配置增删改查等功能。\n\n**注意：这还是`Table`组件，由于其`crud`属性内容比较多，这里拎出来单独描述。以下全部内容皆在`Table.crud`属性之下**\n\n功能大体分为如下几种：\n\n> * show: 纯展示型弹框或和数据相关的展示型弹框，只有关闭按钮，本身没有其他交互 (当action不与任何类型匹配时，默认是show)  \n> * add: 新增单条数据弹框\n> * edit: 编辑单条数据弹框\n> * delete: 删除单条数据弹框\n> * search: 高级查询弹框\n> * batchAdd: 批量导入数据弹框。用于批量新增数据\n> * batchEdit: 批量编辑表格中选中的数据\n> * batchDelete: 批量删除表格中选中的数据\n> * batchShow: 批量展示Table中选中的数据\n\n\n其中：如`show`,`edit`,`delete`可用于表格`column._operation`配置中。batch***可用于批量操作表格数据。\n\ncrud属性值为一对象，其中键为当前配置的`\"引用名称\"`，用于`_operation`中的`action`属性所指向的功能引用；或者`showCrud`函数调用crud功能时第一个参数指向的功能的引用。值为功能的具体配置，参数如下：\n\n**注意：以上几种类型名称为关键字，每一种都有对应的默认处理逻辑，如果想要自定操作，则避免使用上述关键字命名操作名称**\n\n## 配置属性列表\n\n参数           | 说明                     | 类型             | 默认值 | 是否必填\n--------------|--------------------------|-----------------|-------|-------\ntitle      | 列头显示文字               | string &#124; `config` | - |\naction  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为action和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |\napi    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,hanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | \nform   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |\nparams | form会填充params中的值为默认值。会覆盖api中的params | object | |\nrender | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | \nforbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |\nremove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |\nautoReload | 点击提交时自动刷新表格 | boolean | true |\n\n\n常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)\n\n>"
 
 /***/ }),
-/* 286 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24497,15 +27938,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _tree = __webpack_require__(220);
+	var _tree = __webpack_require__(252);
 
 	var _tree2 = _interopRequireDefault(_tree);
 
@@ -24513,7 +27954,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(287);
+	var _markdown = __webpack_require__(318);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24625,11 +28066,11 @@
 	        onlyShowSearchResult: true // 仅展示搜索的结果, 默认为true
 	    },
 	    source: {
-	        url: 'docs/php/tree-data2.php',
+	        url: 'docs/php/tree-data.php',
 	        paramsHandler: function paramsHandler(params) {
-	            return {
+	            return !params ? {} : {
 	                key: params.key,
-	                type: params.type
+	                level: params.level
 	            };
 	        }
 	    },
@@ -24637,8 +28078,8 @@
 	        resizeAble: true, // 允许改变宽度
 	        minWidth: '200px',
 	        maxWidth: '500px'
-	    },
-	    data: treeData
+	    }
+	    // data: treeData
 	};
 	var treeConfig2 = {
 	    type: 'tree',
@@ -24708,13 +28149,13 @@
 	exports.default = TreeApp;
 
 /***/ }),
-/* 287 */
+/* 318 */
 /***/ (function(module, exports) {
 
 	module.exports = "### 功能说明  \n* 配置`expand`实现节点展开控制\n* 配置`checkbox`实现复选框功能\n* 配置`search`实现搜索功能\n* 配置`select`实现点击选择功能\n* 配置`source`实现异步加载功能\n* 配置`widthResize`实现右边缘拖动加宽功能\n* 配置`showLine`实现带连接线的树\n* 若没有进行任何配置，则为树形图展示1中的样式\n\n## 配置参数\n\n### 基本参数\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |\n| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| search | 搜索功能 | Object | - |  |\n| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| source | 异步加载功能。参数和通用source参数一致，实际用法略有不同 | Object | - |  |\n| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| showLine | 是否展示连接线 | Boolean | false | . |\n| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |\n\n> 当配置了`source`参数时，树组件即具备了异步获取子树的功能，当点击到没有`children`数据又非叶子节点的时候，就会自动去用`source`系列参数获取数据。可见第一个demo的用法\n\n#### expand\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |\n| defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |\n| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |\n| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |\n| autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |\n| onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |\n\n#### checkbox\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |\n| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |\n| checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |\n| defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |\n| onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |\n\n#### search\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 是否启用搜索功能 | Boolean | false |  |\n| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |\n\n#### select\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultSelectedKeys | 默认选中节点 | Array | [] |  |\n| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |\n| multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |\n| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |\n\n#### widthResize\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |\n| minWidth | 树形图允许扩宽的最小宽度 | String | - |  |\n| maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |\n\n### # 每一个节点的数据格式\n```json\n    [{\n        name: '0-0',            // 必须\n        key: '0-0',             // 必须\n        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true\n        disableCheckbox: false, // 非必须，用于指定复选框是否可选\n        disabled: false,        // 非必须，用于指定此节点时候可点\n        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须\n        children: [             // 子节点格式相同\n            ...\n        ]\n    },\n    ...]\n```\n### # url参数对应接口的格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…]\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
 
 /***/ }),
-/* 288 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24725,11 +28166,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -24737,7 +28178,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _markdown = __webpack_require__(289);
+	var _markdown = __webpack_require__(320);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24792,13 +28233,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 289 */
+/* 320 */
 /***/ (function(module, exports) {
 
 	module.exports = "iframe 的增强版。\n\n### 功能说明  \n* iframe加载子页面时自动展示loading状态\n* 文档加载完成后iframe的高度自动重新设定，支持三种模式\n\n\n## 组件&参数\n\n### # iframe\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nsrc | 子页面的url。可以是全路径，也可以是相对路径 | string |  | 必填\nmode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条） | string | 'auto' | \ndelay | 子页面高度变化时，延迟重新设定iframe高度，可防止高度闪烁 | number | 0 |\n\n其他属性同原生的 iframe，例如：`height`、`width`等\n\n#### 注意：\n使用`mode`属性时需要注意以下问题：\n\n* 跨域问题  \n要使用`mode`属性，默认会因跨域问题导致此属性无效。解决办法有两种：\n> * 需在当前页面和其子页面的 js 里同时增加一行代码设置为同一个域：`document.domain = 'baidu.com';`\n> * 使用 `UF.config({global: {domain: 'baidu.com'}})`，见 [全局配置](#/Develop/Config)\n\n* 子页面高度问题  \n此外如果子页面的`body/html`标签 CSS 设置了`height: 100%`，则`mode: 'auto'`失效，展现出的效果同`mode: 'max'`\n> theme.css 里定义了`body`标签为`height: 100%`，所以如果嵌套通用用UF开发的子页面，可以在子页面入口的html中加入`<style>html, body {height: auto !important;}</style>`，覆盖掉默认样式\n\n---\n\n*关于样式：*\n\ndemo里的浏览器样式是文档里额外加的，默认的`Iframe`组件没有额外样式，没有边框及阴影。如果想要使用demo里的样式，可以参考如下css代码：\n```css\n.uf-iframe {\n    border-top: 2em solid rgba(230, 230, 230, 0.7);\n    box-shadow: 0 0.1em 0.5em 0 rgba(0, 0, 0, 0.28);\n    position: relative;\n    border-radius: 3px 3px 0 0;\n}\n.uf-iframe:before {\n    content: '';\n    display: block;\n    position: absolute;\n    top: -1.25em;\n    left: 1em;\n    width: 0.5em;\n    height: 0.5em;\n    border-radius: 50%;\n    background-color: #f44;\n    box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;\n}\n.uf-iframe:after {\n    content: attr(data-src);\n    display: block;\n    position: absolute;\n    color: #ddd;\n    font-weight: 100;\n    padding-left: 5px;\n    width: calc(100% - 6em);\n    height: 1.2em;\n    line-height: 1.2em;\n    top: -1.6em;\n    left: 5.5em;\n    border-radius: 2px;\n    background-color: white;\n}\n```"
 
 /***/ }),
-/* 290 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24809,11 +28250,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -24825,7 +28266,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(291);
+	var _markdown = __webpack_require__(322);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24897,13 +28338,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 291 */
+/* 322 */
 /***/ (function(module, exports) {
 
 	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n\n\n## 组件&参数\n\n### # ueditor\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | false |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
 
 /***/ }),
-/* 292 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24914,11 +28355,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -24930,7 +28371,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(293);
+	var _markdown = __webpack_require__(324);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -24954,15 +28395,20 @@
 	        style: { minWidth: 600, height: 400 },
 	        source: {
 	            url: 'docs/php/data.php?type=echarts',
-	            target: 'series'
+	            target: 'series',
+	            params: {},
+	            handler: function handler(data) {
+	                var params = (0, _src2.default)('my-echarts').get('source.params');
+	                return data.map(function (v) {
+	                    v.type = params.tp || 'bar';
+	                    return v;
+	                });
+	            }
 	        },
 	        title: {
 	            text: 'ECharts 入门示例'
 	        },
 	        tooltip: {},
-	        legend: {
-	            data: ['销量']
-	        },
 	        xAxis: {
 	            data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
 	        },
@@ -24979,12 +28425,12 @@
 	        content: '条形图',
 	        onClick: function onClick() {
 	            (0, _src2.default)('my-echarts').set({
-	                // source: {
-	                //     params: {
-	                //         s: Date.now()
-	                //     }
-	                // },
-	                series: [{ type: 'bar' }, { type: 'bar' }]
+	                source: {
+	                    params: {
+	                        tp: 'bar',
+	                        s: Date.now()
+	                    }
+	                }
 	            });
 	        }
 	    }, {
@@ -24995,10 +28441,10 @@
 	                className: 'aaa',
 	                source: {
 	                    params: {
+	                        tp: 'line',
 	                        s: Date.now()
 	                    }
-	                },
-	                series: [{ type: 'line' }, { type: 'line' }]
+	                }
 	            });
 	        }
 	    }]
@@ -25031,13 +28477,13 @@
 	exports.default = ExportApp;
 
 /***/ }),
-/* 293 */
+/* 324 */
 /***/ (function(module, exports) {
 
-	module.exports = "Echarts 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 Echarts\n* 通过`UF()`可以获取到 Echarts 实例，并调用 Echarts 原生API\n\n\n## 组件&参数\n\n### # echarts\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Echarts组件名称，用于使用`UF()`获取组件 | string | |\nstyle | Echarts所占用元素的样式。一般用来设置宽高等 | object | |\n\n其他参数见：[Echarts 官方配置](http://echarts.baidu.com/option.html)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetOption | 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成 | \ngetOption | 获取当前实例中维护的option对象，返回的option对象中包含了用户多次setOption合并得到的配置项和数据，也记录了用户交互的状态，例如图例的开关，数据区域缩放选择的范围等等 | \nclear | 清空当前实例，会移除实例中所有的组件和图表。 | \nshowLoading | 显示加载动画效果 | \nhideLoading | 隐藏加载动画效果 | \n\n\n其他参见：[Echarts 官方API](http://echarts.baidu.com/api.html#echartsInstance)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是echarts的实例，所以可以使用echarts官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
+	module.exports = "Echarts 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 Echarts\n* 通过`UF()`可以获取到 Echarts 实例，并调用 Echarts 原生API\n\n\n## 组件&参数\n\n### # echarts\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Echarts组件名称，用于使用`UF()`获取组件 | string | |\nstyle | Echarts所占用元素的样式。一般用来设置宽高等 | object | |\n\n其他参数见：[Echarts 官方配置](http://echarts.baidu.com/option.html)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetOption | 设置图表实例的配置项以及数据，万能接口，所有参数和数据的修改都可以通过setOption完成 | \ngetOption | 获取当前实例中维护的option对象，返回的option对象中包含了用户多次setOption合并得到的配置项和数据，也记录了用户交互的状态，例如图例的开关，数据区域缩放选择的范围等等 | \nclear | 清空当前实例，会移除实例中所有的组件和图表。 | \nshowLoading | 显示加载动画效果 | \nhideLoading | 隐藏加载动画效果 | \n\n\n其他参见：[Echarts 官方API](http://echarts.baidu.com/api.html#echartsInstance)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是echarts的实例，所以可以使用echarts官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等\n\n\n默认引用的是 echarts3，如果需要切换其他版本，可在`UF.config`中进行如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        paths: {\n            'echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'\n        }\n    }\n});\n```\n"
 
 /***/ }),
-/* 294 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25048,11 +28494,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25264,7 +28710,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 295 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25275,11 +28721,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25287,7 +28733,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25424,7 +28870,7 @@
 	}(_react2.default.Component);
 
 /***/ }),
-/* 296 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25435,11 +28881,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25585,7 +29031,7 @@
 	exports.default = GridApp;
 
 /***/ }),
-/* 297 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25596,11 +29042,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25932,7 +29378,7 @@
 	exports.default = LayoutApp;
 
 /***/ }),
-/* 298 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25943,11 +29389,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -25959,7 +29405,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _markdown = __webpack_require__(299);
+	var _markdown = __webpack_require__(330);
 
 	var _markdown2 = _interopRequireDefault(_markdown);
 
@@ -26008,13 +29454,13 @@
 	exports.default = RouterApp;
 
 /***/ }),
-/* 299 */
+/* 330 */
 /***/ (function(module, exports) {
 
 	module.exports = "*以上 [demo页面](docs/demo/router.php#/card) 的路由部分配置见底部。更多完整示例见 [页面示例](#/Usage/Demo)*\n\n## 何时使用\n\n* 单页应用的入口，用于负责控制整个应用页面跳转。\n\n\n## 组件&配置\n\n### # router\n参数     | 说明           | 类型             | 默认值   |是否必须\n--------|----------------|------------------|--------|-----\nroutes  | 路由的及组件的映射关系对象列表，可以为数组，也可以为单个route对象。详见`route` | `route`&#124;`route`[] | 无    | 必须\nhistory  | 定义浏览器上的路由展现形式，分为两种：`hashHistory` - 默认形式，路由为`#`后面的值，使用起来较方便； `browserHistory` - 高级用法，会去掉`#`，展现形式像是真正的url，需要服务端配合使用，可参考 [这里](http://react-china.org/t/react-router-hashhistory-browserhistory/6799) | string | `'hashHistory'` |\n\n\n#### *route*\n\n描述路由的及组件的映射关系，是 `routes` 中的一项。\n\n参数       | 说明           | 类型             | 默认值   |是否必须\n------------|----------------|------------------|--------|-----\npath    | URL 中的路径。它会组合父 route 的路径，除非它是从 / 开始的， 将它变成一个绝对路径。 | string  |  无   | 必须\nto    | 从当前路径（path）重定向到另一个路径。**此属性不可和`component`同时使用**（因为一个是解析路由，一个是重定向路由）。例如：访问`/mine`路由时重定向到`/aboutme` |  string  |  无   | \ncomponent  | 当前路由对应的组件。它会作为父 route 组件中包含`childrenHolder: true`的组件的子组件渲染。可以直接是一个配置对象；也可以是一个模块名（*懒加载*）。**此属性不可和`to`同时使用** | `config` &#124; string  | 无  | 必须\nindexRoute    | 当用户在父 route 的 URL 时，indexRoute 允许你为父 route 提供一个默认的 \"child\" | `route` |   |\nindexRedirect    | 自动从当前路由重定向到其子路由的 path。例如：访问首页`/`时，自动重定向到`/Home`，即可在配置`/`路由那一层增加 indexRedirect 字段 | string |   |\nchildRoutes   | route 可以被嵌套，childRoutes 为子路由配置。 | `route` &#124; `route`[] |   |\ngetComponent  | 与 component 一样，但是是异步的。用于动态路由 | function(location, cb) { cb(null, Compnent) }  |     |\nonEnter    | 当 route 即将进入时调用。 | function(nextState, replaceState, callback?){}  |   |\nonLeave    | 当 route 即将退出时调用。 |  |   |\nbreadcrumbName    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\nbreadcrumbIcon    | 供面包屑组件使用，见 [Breadcrumb](#/Navigation/Breadcrumb) | string |   |\n\n> 更详细配置可参考原 [react-router](https://react-guide.github.io/react-router-cn/)\n\n---\n\n*demo中路由部分的配置如下：*\n\n```json\n{\n    type: 'router',\n    routes: [\n        {\n            path: '/',\n            component: App,\n            breadcrumbName: '首页',\n            indexRoute: {component: Card},\n            childRoutes: [\n                {path: 'card', breadcrumbName: '卡片', component: Card},\n                {path: 'card2', breadcrumbName: '卡片2', component: Card2,\n                    childRoutes: [\n                        {path: 'card3', breadcrumbName: '卡片3', component: Card3}\n                    ]\n                }\n            ]\n        }\n    ]\n};\n```"
 
 /***/ }),
-/* 300 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26025,11 +29471,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26102,7 +29548,7 @@
 	exports.default = Affix;
 
 /***/ }),
-/* 301 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26113,11 +29559,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26162,7 +29608,7 @@
 	exports.default = Breadcrumb;
 
 /***/ }),
-/* 302 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26173,11 +29619,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26339,7 +29785,7 @@
 	exports.default = Dropdown;
 
 /***/ }),
-/* 303 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26350,11 +29796,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26537,7 +29983,7 @@
 	exports.default = Menu;
 
 /***/ }),
-/* 304 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26548,11 +29994,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26686,7 +30132,7 @@
 	exports.default = Pagination;
 
 /***/ }),
-/* 305 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26697,11 +30143,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26878,7 +30324,7 @@
 	exports.default = Steps;
 
 /***/ }),
-/* 306 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26889,11 +30335,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -26973,7 +30419,7 @@
 	exports.default = Button;
 
 /***/ }),
-/* 307 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -26984,11 +30430,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27277,7 +30723,7 @@
 	exports.default = CascaderApp;
 
 /***/ }),
-/* 308 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27288,11 +30734,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27375,7 +30821,7 @@
 	exports.default = Checkbox;
 
 /***/ }),
-/* 309 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27386,11 +30832,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27528,7 +30974,7 @@
 	exports.default = DatePicker;
 
 /***/ }),
-/* 310 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27539,11 +30985,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27629,7 +31075,7 @@
 	exports.default = InputNumber;
 
 /***/ }),
-/* 311 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27640,11 +31086,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27822,7 +31268,7 @@
 	exports.default = Input;
 
 /***/ }),
-/* 312 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27833,11 +31279,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -27907,7 +31353,7 @@
 	exports.default = Radio;
 
 /***/ }),
-/* 313 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27918,11 +31364,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28032,7 +31478,7 @@
 	exports.default = Rate;
 
 /***/ }),
-/* 314 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28043,17 +31489,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _BaseDoc2 = __webpack_require__(117);
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _src = __webpack_require__(183);
+
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28096,14 +31546,20 @@
 	var demo3 = {
 	    title: '多选模式',
 	    description: '可以选择多个',
-	    config: {
+	    config: [{
+	        type: 'button',
+	        content: '全选',
+	        onClick: function onClick() {
+	            (0, _src2.default)('my-select3').selectAll();
+	        }
+	    }, {
 	        type: 'select',
-	        name: 'my-select2',
+	        name: 'my-select3',
 	        style: { width: '100%' },
 	        mode: 'multiple',
 	        value: ['Apple'],
 	        options: ['Apple', 'Pear', 'Orange']
-	    }
+	    }]
 	};
 
 	var demo4 = {
@@ -28111,7 +31567,7 @@
 	    description: '可以把随意输入的内容作为选项并选中。',
 	    config: {
 	        type: 'select',
-	        name: 'my-select2',
+	        name: 'my-select4',
 	        style: { width: '100%' },
 	        mode: 'tags',
 	        value: ['Apple'],
@@ -28145,7 +31601,7 @@
 	exports.default = Select;
 
 /***/ }),
-/* 315 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28156,11 +31612,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28245,7 +31701,7 @@
 	exports.default = Switch;
 
 /***/ }),
-/* 316 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28254,11 +31710,13 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28277,6 +31735,43 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
+	var demo1 = {
+	    title: '基本',
+	    description: '最简单的用法。',
+	    config: {
+	        type: 'upload',
+	        defaultFileList: [{
+	            uid: 1,
+	            name: 'xxx.png',
+	            status: 'done',
+	            reponse: 'Server Error 500', // custom error message to show
+	            url: 'http://www.baidu.com/xxx.png'
+	        }, {
+	            uid: 2,
+	            name: 'yyy.png',
+	            status: 'done',
+	            url: 'http://www.baidu.com/yyy.png'
+	        }],
+	        content: {
+	            type: 'button',
+	            mode: 'primary',
+	            icon: 'upload',
+	            content: 'Upload'
+	        }
+	    }
+	};
+	var demo2 = {
+	    title: '基本',
+	    description: '最简单的用法。',
+	    config: {
+	        type: 'dragger',
+	        name: 'file',
+	        multiple: true,
+	        showUploadList: false,
+	        content: [{ type: 'p', className: 'ant-upload-drag-icon', content: { type: 'icon', mode: 'inbox' } }, { type: 'p', className: 'ant-upload-drag-text', content: 'Click or drag file to this area to upload' }, { type: 'p', className: 'ant-upload-drag-hint', content: 'Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files' }]
+	    }
+	};
+
 	var Upload = function (_BaseDoc) {
 	    _inherits(Upload, _BaseDoc);
 
@@ -28290,10 +31785,12 @@
 	        return _this;
 	    }
 
-	    // render() {
-	    //     return <div id="demo-content"></div>;
-	    // }
-
+	    _createClass(Upload, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getDemo(demo1, demo2);
+	        }
+	    }]);
 
 	    return Upload;
 	}(_BaseDoc3.default);
@@ -28301,7 +31798,7 @@
 	exports.default = Upload;
 
 /***/ }),
-/* 317 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28312,11 +31809,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28488,7 +31985,7 @@
 	exports.default = Avatar;
 
 /***/ }),
-/* 318 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28499,11 +31996,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28775,7 +32272,7 @@
 	exports.default = Badge;
 
 /***/ }),
-/* 319 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28786,11 +32283,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -28889,7 +32386,7 @@
 	exports.default = Card;
 
 /***/ }),
-/* 320 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28900,11 +32397,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29002,7 +32499,7 @@
 	exports.default = Carousel;
 
 /***/ }),
-/* 321 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29013,11 +32510,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29025,7 +32522,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29133,7 +32630,7 @@
 	exports.default = Collapse;
 
 /***/ }),
-/* 322 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29144,11 +32641,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29319,7 +32816,7 @@
 	exports.default = Popover;
 
 /***/ }),
-/* 323 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29330,11 +32827,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29415,7 +32912,7 @@
 	exports.default = Tooltip;
 
 /***/ }),
-/* 324 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29426,11 +32923,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29438,7 +32935,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _utils = __webpack_require__(187);
+	var _utils = __webpack_require__(190);
 
 	var _src = __webpack_require__(183);
 
@@ -29568,7 +33065,7 @@
 	exports.default = Tabs;
 
 /***/ }),
-/* 325 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29579,11 +33076,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29764,7 +33261,7 @@
 	exports.default = Tag;
 
 /***/ }),
-/* 326 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29775,11 +33272,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -29878,7 +33375,7 @@
 	exports.default = Timeline;
 
 /***/ }),
-/* 327 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29889,11 +33386,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30016,7 +33513,7 @@
 	exports.default = Alert;
 
 /***/ }),
-/* 328 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30027,11 +33524,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30123,7 +33620,7 @@
 	exports.default = Message;
 
 /***/ }),
-/* 329 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30134,11 +33631,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30289,7 +33786,7 @@
 	exports.default = Notification;
 
 /***/ }),
-/* 330 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30300,11 +33797,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30531,7 +34028,7 @@
 	exports.default = Progress;
 
 /***/ }),
-/* 331 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30542,11 +34039,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30650,7 +34147,7 @@
 	exports.default = Popconfirm;
 
 /***/ }),
-/* 332 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30661,11 +34158,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30798,7 +34295,7 @@
 	exports.default = Loading;
 
 /***/ }),
-/* 333 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30809,11 +34306,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30879,7 +34376,7 @@
 	exports.default = BackTop;
 
 /***/ }),
-/* 334 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -30890,11 +34387,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -30906,7 +34403,7 @@
 
 	var _Demo2 = _interopRequireDefault(_Demo);
 
-	var _antd = __webpack_require__(106);
+	var _antd = __webpack_require__(108);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30991,7 +34488,7 @@
 	exports.default = Home;
 
 /***/ }),
-/* 335 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31000,11 +34497,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -31042,7 +34539,7 @@
 	exports.default = StandardApp;
 
 /***/ }),
-/* 336 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31051,11 +34548,11 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(103);
+	var _react = __webpack_require__(105);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(104);
+	var _reactDom = __webpack_require__(106);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 

@@ -118,6 +118,8 @@ normalize | 转换默认的 value 给控件. [一个选择全部的例子](https
 ---- | ---- | ----- | ----- 
 getValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |
 resetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |
+clearValues | 清除表单。有别于重置 | clearValues() |
+resetItem | 重新设置某个表单项的配置 | resetItem(targetName, conf) |
 
 
 ## 更多用法

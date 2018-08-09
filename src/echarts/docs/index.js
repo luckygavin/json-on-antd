@@ -17,15 +17,20 @@ let demo1 = {
             style: {minWidth: 600, height: 400},
             source: {
                 url: 'docs/php/data.php?type=echarts',
-                target: 'series'
+                target: 'series',
+                params: {},
+                handler: function (data) {
+                    let params = UF('my-echarts').get('source.params');
+                    return data.map(v=>{
+                        v.type = params.tp || 'bar';
+                        return v;
+                    });
+                }
             },
             title: {
                 text: 'ECharts 入门示例'
             },
             tooltip: {},
-            legend: {
-                data:['销量']
-            },
             xAxis: {
                 data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
             },
@@ -43,15 +48,12 @@ let demo1 = {
             content: '条形图',
             onClick() {
                 UF('my-echarts').set({
-                    // source: {
-                    //     params: {
-                    //         s: Date.now()
-                    //     }
-                    // },
-                    series: [
-                        {type: 'bar'},
-                        {type: 'bar'}
-                    ]
+                    source: {
+                        params: {
+                            tp: 'bar',
+                            s: Date.now()
+                        }
+                    }
                 });
             }
         },
@@ -63,13 +65,10 @@ let demo1 = {
                     className: 'aaa',
                     source: {
                         params: {
+                            tp: 'line',
                             s: Date.now()
                         }
-                    },
-                    series: [
-                        {type: 'line'},
-                        {type: 'line'}
-                    ]
+                    }
                 });
             }
         }

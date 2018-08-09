@@ -19,6 +19,7 @@
 | rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | expandedRowRender  | 额外的展开行 | Function | - |
+| doubleClickEdit | 双击行时进行编辑，需配合`crud.edit` | | |
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | expandedRowKeys | 展开的行，控制属性 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
@@ -30,6 +31,7 @@
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
 | source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
 | source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | 
+| source.autoReload | 特别提醒下source下面的`autoReload`参数，是否组件刷新时自动重新加载数据 | boolean | true | 
 | params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | 
 | crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | 
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
@@ -50,6 +52,8 @@
 | key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
 | display    | 默认是否展示列当前列             | boolean | true |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |
+| enum      | 枚举列表。指定当前列展示内容，根据列表里的内容进行转换。用法见下面说明 | array&#124;`source` | -  |
+| enum.cache | 默认会开启缓存，即枚举数据仅会加载一次。如果需要动态获取，则可把cache置为 false | boolean | true  |
 | width      | 列宽度 | string&#124;number | -  |
 | className  | 列的 className             | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
@@ -62,6 +66,32 @@
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
+
+> **`enum`有两种用法:**  
+> 1、直接列举出全部值，格式为:`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值（*value也可以是一个组件配置*）  
+> 2、枚举的值为通过接口取得，则enum为一个对象，格式为：`enum: {url: '',handler(){}}`, 通过url获取过来的数据通过handler函数处理并return，处理后的数据格式如上面1中的格式即可。其余参数可参考[`source`](#/Params/-source-)系列参数的用法
+
+> **`enum`更多应用场景**  
+> 1、新增、编辑的输入框的表单元素里，如果存在表格里配置了枚举类型的字段，当元素为select、radio等具有options属性且没有配置options，组件会自动把枚举的列表添加到该元素上。  
+> 2、批量新增、批量编辑的keys列表里，如果存在表格里配置了枚举类型的字段，则对应字段也会自动做转换：批量编辑时自动填入的数据是转换之后的值；新增和编辑后提交到后端会自动再转换回id；
+
+具体使用可见 [Table Crud](#/Custom/TableCrud) 中Demo的名称字段（idcId）的展示/新增/编辑/批量编辑，以及提交数据时的对应的字段内容
+
+`enum`属性配置为异步返回时，接口返回格式为以下三种均可：
+```javascript
+// 格式一：
+[
+    {id: 1, name: 'GPU', ...},
+]
+// 格式二：
+[
+    {key: 1, value: 'GPU'},
+]
+// 格式三:
+{
+    1: 'GPU',
+}
+```
 
 #### *column.filter*
 
@@ -185,6 +215,7 @@ setPageSize |  设置分页条数 |
 | onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |
 | blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |
 | whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |
+| cache | 是否开启缓存。会永久保存用户自己选择的要展示的字段（默认开启） | boolean | 仅`switchTags`控件有效 | 
 
 
 ### 函数调用

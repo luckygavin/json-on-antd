@@ -7,13 +7,12 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Tree, Input} from 'antd';
-// import './style.scss';
 
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
 
 const expandedKeys = [];
-const getParentNode = (value, tree) => {
+const getParentNode = (value, tree = []) => {
     let node = [];
     for (let v of tree) {
         let children;
@@ -87,10 +86,14 @@ export default class OriginTree extends BaseComponent {
         // 针对数据进行处理
         // 生成指针树，便于快速定位树节点
         this.completePointerTree = {};
-        this.createPointerTree(propsData, this.completePointerTree);
+        if (propsData) {
+            this.createPointerTree(propsData, this.completePointerTree);
+        }
         // 生成层级树，包含每层可展开的父节点的key
         this.levalPointerTree = {};
-        this.createLevalTree(propsData, this.levalPointerTree);
+        if (propsData) {
+            this.createLevalTree(propsData, this.levalPointerTree);
+        }
 
         // 针对配置进行处理
         // 对用户未配置的项使用默认配置
@@ -117,7 +120,7 @@ export default class OriginTree extends BaseComponent {
             // showIcon: this.showIcon
         };
         let state = {
-            treeData: propsData,
+            treeData: propsData || [],
             completeTree: propsData,
             expandedKeys: this.expand.expandedKeys,
             autoExpandParent: this.expand.autoExpandParent,
@@ -127,21 +130,24 @@ export default class OriginTree extends BaseComponent {
         };
         if (!!nextProps) {
             this.setState(state);
-            this.componentDidMount();
+            this.initShowLeval();
         } else {
             this.state = state;
         }
     }
     componentDidMount() {
-        // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
-        if (this.expand.expandLeavals && !this.expand.expandedKeys) {
-            this.showToLeval(this.expand.expandLeavals);
-        }
+        this.initShowLeval();
     }
     componentWillReceiveProps(nextProps) {
         // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
         if (this.__shouldUpdate(this.props, nextProps)) {
             this.initTree(nextProps);
+        }
+    }
+    initShowLeval() {
+        // 具有expand，及expandLeavals配置，且没有配置expandedKeys时才按照用户要求展开到某一层
+        if (this.expand.expandLeavals && !this.expand.expandedKeys) {
+            this.showToLeval(this.expand.expandLeavals);
         }
     }
     // 创建指针树，创建之后，pointerTree的每个元素都能指向树的一个节点
@@ -177,7 +183,8 @@ export default class OriginTree extends BaseComponent {
             expandedKeys,
             autoExpandParent: false
         });
-        this.expand.onExpand(expandedKeys, e);
+        const item = e && e.node && e.node.props._item;
+        this.expand.onExpand(expandedKeys, e, item);
     }
     onCheck(checkedKeys, e) {
         this.setState({
@@ -189,7 +196,8 @@ export default class OriginTree extends BaseComponent {
         this.setState({
             selectedKeys
         });
-        this.select.onSelect(selectedKeys, e);
+        const item = e && e.node && e.node.props._item;
+        this.select.onSelect(selectedKeys, e, item);
     }
     // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
     showToLeval(expandLeavals) {
@@ -252,12 +260,12 @@ export default class OriginTree extends BaseComponent {
             });
         }
         this.setState({
-            treeData: newTree,
+            treeData: newTree || [],
             searchValue: value
         });
     }
     // 覆盖原生获取异步数据的函数
-    _handleAsyncData() {}
+    // _handleAsyncData() {}
     // 异步对数据进行加载，满足一定要求再加载
     onLoadData(treeNode) {
         let key = treeNode.props.data.key;
@@ -271,7 +279,8 @@ export default class OriginTree extends BaseComponent {
                 params = Object.assign({}, params, {
                     key: nodeData.key,
                     name: nodeData.name,
-                    type: nodeData.type
+                    type: nodeData.type,
+                    level: nodeData.level
                 });
                 // 调用通用source获取数据逻辑
                 this.__getSourceData({
@@ -290,19 +299,25 @@ export default class OriginTree extends BaseComponent {
         });
     }
     // 向展示树和完整树中插入数据
-    insertData(curKey, type, nodeData) {
+    insertData(curKey, type, nodeData = []) {
         let completeTree = this.state.completeTree;
-        // 通过完整树指针向完整数据中插入一份数据
-        this.completePointerTree[curKey].children = nodeData;
-        // 需要更新指针树的指针情况
-        this.createPointerTree(nodeData, this.completePointerTree);
-        // 需要更新层级树的情况
-        // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
-        if (!this.levalPointerTree[type]) {
-            this.levalPointerTree[type] = [];
+        // 如果返回的数据为依然为空数组或非数组，则更新当前节点为叶子节点，无法再次点击获取
+        if (Utils.typeof(nodeData, 'array') && nodeData.length) {
+            // 通过完整树指针向完整数据中插入一份数据
+            this.completePointerTree[curKey].children = nodeData;
+            // 需要更新指针树的指针情况
+            this.createPointerTree(nodeData, this.completePointerTree);
+            // 需要更新层级树的情况
+            // 当前节点为一个可展开的父节点，故层级树中加入此节点，同时用取回的数据更新层级树
+            if (!this.levalPointerTree[type]) {
+                this.levalPointerTree[type] = [];
+            }
+            this.levalPointerTree[type].push(curKey);
+            this.createLevalTree(nodeData, this.levalPointerTree);
+        } else {
+            delete this.completePointerTree[curKey].children;
+            this.completePointerTree[curKey].isLeaf = true;
         }
-        this.levalPointerTree[type].push(curKey);
-        this.createLevalTree(nodeData, this.levalPointerTree);
         this.setState({
             completeTree: completeTree
         });
@@ -374,7 +389,7 @@ export default class OriginTree extends BaseComponent {
             }
             if (item.isLeaf === false || !!item.children) {
                 return (
-                    <TreeNode key={item.key} title={title} data={item} isLeaf={false}
+                    <TreeNode key={item.key} title={title} data={item} isLeaf={false} _item={item}
                         disableCheckbox={!!item.disableCheckbox} disabled={!!item.disabled}>
                         {!!item.children && this.renderTreeNode(item.children)}
                     </TreeNode>

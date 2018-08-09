@@ -27,7 +27,7 @@ const Step1 = {
                 type: 'input',
                 label: '专线SN',
                 name: 'line_sn',
-                rules: [{required: true, message: '主线SN不能为空'}],
+                rules: {required: true, message: '主线SN不能为空'},
                 placeholder: 'sn20134567'
             }, */
             {
@@ -50,7 +50,7 @@ const Step1 = {
                 type: 'select',
                 label: '机房',
                 name: 'idc_id',
-                rules: [{required: true, message: '机房不能为空'}],
+                rules: {required: true, message: '机房不能为空'},
                 source: {
                     autoLoad: false,
                     url: 'docs/php/data.php',
@@ -65,7 +65,7 @@ const Step1 = {
                 type: 'input',
                 label: '所属机构',
                 name: 'organization',
-                rules: [{required: true, message: '所属机构不能为空'}],
+                rules: {required: true, message: '所属机构不能为空'},
                 placeholder: '招商银行-百度钱包'
             },
             {
@@ -119,14 +119,14 @@ const Step1 = {
                 type: 'input',
                 label: '产品',
                 name: 'product',
-                rules: [{required: true, message: '产品不能为空'}],
+                rules: {required: true, message: '产品不能为空'},
                 placeholder: '百度钱包'
             },
             {
                 type: 'input',
                 label: '专线带宽',
                 name: 'bandwith',
-                rules: [{required: true, message: '专线带宽不能为空'}],
+                rules: {required: true, message: '专线带宽不能为空'},
                 display: false,
                 placeholder: 10,
                 addonAfter: 'M'
@@ -203,7 +203,7 @@ const Step1 = {
                 type: 'input',
                 label: '地址',
                 name: 'address',
-                rules: [{required: true, message: '地址不能为空'}]
+                rules: {required: true, message: '地址不能为空'}
             }
         ],
         [
@@ -211,15 +211,20 @@ const Step1 = {
                 type: 'input',
                 label: '百度侧IP',
                 name: 'baidu_ip',
-                rules: [{required: true, message: '百度侧IP不能为空'}]
+                rules: {required: true, message: '百度侧IP不能为空'}
             },
             {
                 type: 'input',
                 label: '对端IP',
                 name: 'point_ip',
-                rules: [{required: true, message: '对端IP不能为空'}]
+                rules: {required: true, message: '对端IP不能为空'}
             }
-        ]
+        ],
+        {
+            type: 'upload',
+            label: '上传测试',
+            name: 'upload'
+        }
     ],
     buttons: {
         layout: 'center',
@@ -281,7 +286,7 @@ const Step21 = {
                         type: 'input',
                         label: '姓名',
                         name: 'endpoint_users_name',
-                        rules: [{required: true, message: '姓名不能为空'}],
+                        rules: {required: true, message: '姓名不能为空'},
                         placeholder: '张三'
                     },
                     {
@@ -408,7 +413,7 @@ const Step22 = {
                 type: 'input',
                 label: '专线SN',
                 name: 'line_sn',
-                rules: [{required: true, message: '主线SN不能为空'}],
+                rules: {required: true, message: '主线SN不能为空'},
                 placeholder: 'sn20134567'
             }
         ]
@@ -428,7 +433,7 @@ const Step23 = {
                 type: 'input',
                 label: '姓名',
                 name: 'endpoint_users_name',
-                rules: [{required: true, message: '姓名不能为空'}],
+                rules: {required: true, message: '姓名不能为空'},
                 placeholder: '张三'
             },
             {

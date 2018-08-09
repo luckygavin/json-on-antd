@@ -21,7 +21,8 @@ export default {
         },
         api: {
             showLoading: true,
-            trigger: 'onClick'
+            trigger: 'onClick',
+            method: 'post'
         }
     },
     'antd': {},
@@ -71,6 +72,9 @@ export default {
         control: {
             trigger: 'onPressEnter'
         }
+    },
+    'textarea': {
+        style: {minHeight: '2em'}
     },
     'radio': {
         source: {
@@ -160,7 +164,8 @@ export default {
         },
         source: {
             // 自动加载数据
-            autoLoad: true
+            autoLoad: true,
+            autoReload: true
         },
         data: []
     },
@@ -178,6 +183,13 @@ export default {
         control: {
             trigger: 'onSubmit',
             handler: v=>v
+        }
+    },
+    'tree': {
+        source: {
+            autoLoad: true,
+            autoReload: false,
+            target: 'data'
         }
     }
 };

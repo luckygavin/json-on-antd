@@ -37,8 +37,8 @@ zIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000
 
 参数       | 说明           | 类型             | 默认值      
 -----------|----------------|------------------|------
-form    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | 
-api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,paramsHanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | 
+form    | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config`&#124;`function` | 
+api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,paramsHanlder等参数)，具体可见[通用参数](#/Params)#api 系列 | string&#124;object | 
 params | form 会填充params中的值为默认值。会覆盖api中的params | object | 
 render | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | function(params) {return `config`;} | 
 
@@ -53,7 +53,7 @@ render | 弹框中的动态内容。content为静态内容，render为一个函�
 
 参数       | 说明           | 参数    
 -----------|----------------|-----------
-show      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、message 中的内容。用于form弹框场景和message确认框场景 |  show([params])  
+show      | 展示弹框。可以同时传入新的params，以刷新弹框中的 form、render 中的内容。用于form弹框场景和render确认框场景 |  show([params])  
 close    | 关闭弹框           |   close()  
 
 

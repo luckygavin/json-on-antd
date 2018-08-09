@@ -31,6 +31,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
             // 使之成为受控组件，实现与Form嵌套
             if (!Utils.equals(this.__prevProps.formData, nextProps.formData)) {
                 this.setDefaultValues(nextProps.formData);
+                this.forceUpdate();
             }
         }
     }
@@ -283,12 +284,11 @@ export default class CopyOrDeleteForm extends BaseComponent {
                 </Col>
             </Row>
         );
-    }
+    } 
     render() {
-        return (<div className="uf-add-delete-forms">
+        return <div className={'uf-forms-container ' + (this.__props.className || '')} style={this.__props.style}>
             {this.renderForms()}
             {this.generateButton()}
-        </div>
-       );
+        </div>;
     }
 }

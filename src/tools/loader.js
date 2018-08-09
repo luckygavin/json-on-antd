@@ -6,7 +6,6 @@
 import React from 'react';
 import {BaseConf} from 'src/base';
 import {Utils} from 'src/utils';
-// import Model from './model.js';
 import Dom from 'src/dom';
 import * as UF from 'src/lib.js';
 
@@ -24,7 +23,8 @@ export default {
     get(item) {
         let type = item.type;
         let name = Utils.toPascal(type);
-        let result = this.component[name];
+        // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
+        let result = this.component[name] || this.component[type];
         if (!result) {
             // 检查是否为React原生元素
             if (React.DOM.hasOwnProperty(type)) {
@@ -44,19 +44,18 @@ export default {
     // 获取完整的组件配置
     // 1、普通组件本身配置了默认属性，此处进行属性合并
     // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-    getConf(item, insName = item.insName) {
+    getConf(item = {}, insName = item.insName) {
         let oType = item.type;
         let conf = getConfig(insName).get(`components.${oType}`);
         if (conf) {
             if (Utils.typeof(conf, 'function')) {
-                conf = conf();
+                conf = conf(item.params);
             }
-            item.type = conf.type || oType;
-            item = Utils.merge({}, conf, item);
+            item = Utils.merge({}, conf, item, {type: conf.type || oType});
         }
         // 如果type进行了变换，则再次进行配置获取
         if (oType !== item.type) {
-            item = this.getConf(item);
+            item = this.getConf(item, insName);
         }
         return item;
     },

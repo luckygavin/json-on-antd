@@ -7,38 +7,6 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'src';
 import md from './crud.md';
 
-const columns1 = [
-    {
-        title: 'ID',
-        dataIndex: 'id',
-        key: 'id'
-    },
-    {
-        title: '机房',
-        dataIndex: 'name',
-        key: 'name'
-    },
-    {
-        title: '地区',
-        dataIndex: 'region',
-        key: 'region'
-    },
-    {
-        title: '描述',
-        dataIndex: 'description',
-        key: 'description'
-    },
-    {
-        title: '操作',
-        dataIndex: '_operation',
-        render() {
-            return [
-                {type: 'a', content: '编辑', action: 'edit'},
-                {type: 'a', content: '删除', action: 'delete'}
-            ];
-        }
-    },
-];
 const demo1 = {
     title: 'Crud 扩展功能展示',
     description: 'Table中提供了增删改查等功能的配置',
@@ -46,7 +14,34 @@ const demo1 = {
         {
             type: 'table',
             name: 'newtable',
-            columns: columns1,
+            columns: [
+                {title: 'ID', dataIndex: 'id'},
+                {title: '机房', dataIndex: 'name'},
+                {
+                    title: '名称',
+                    dataIndex: 'idcId',
+                    enum: {
+                        url: 'http://uf.baidu.com/docs/php/data.php',
+                        handler: function (data) {
+                            return data.map(item=>(
+                                {key: item.id, value: item.name}
+                            ));
+                        }
+                    }
+                },
+                {title: '地区', dataIndex: 'region'},
+                {title: '描述', dataIndex: 'description'},
+                {
+                    title: '操作',
+                    dataIndex: '_operation',
+                    render() {
+                        return [
+                            {type: 'a', content: '编辑', action: 'edit'},
+                            {type: 'a', content: '删除', action: 'delete'}
+                        ];
+                    }
+                }
+            ],
             title: {
                 text: null,
                 basicWidget: [{name: 'filter', text: '快捷查询'}],
@@ -57,7 +52,16 @@ const demo1 = {
                     {type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete'}
                 ]
             },
-            source: 'docs/php/data.php',
+            // source: 'docs/php/data.php',
+            source: {
+                url: 'docs/php/data.php',
+                handler(data) {
+                    return data.map(v=>{
+                        v.idcId = v.id;
+                        return v;
+                    });
+                }
+            },
             pagination: {
                 pageType: 'server'
             },
@@ -72,6 +76,7 @@ const demo1 = {
                     form: {
                         items: [
                             {type: 'input', label: '机房', name: 'name', rules: {required: true}},
+                            {type: 'select', label: '名称', name: 'idcId', rules: {required: true}},
                             {type: 'input', label: '地区', name: 'region', rules: {required: true}},
                             {type: 'textarea', label: '描述', name: 'description'}
                         ]
@@ -100,9 +105,16 @@ const demo1 = {
                     // action 声明还是使用批量导入类型的功能，相当于另一种批量导入
                     title: '批量更新:',
                     width: 800,
-                    api: '?r=batchUpdate',
+                    api: {
+                        url: 'docs/php/submit.php',
+                        method: 'put',
+                        contentType: 'application/json',
+                        paramsHandler(params) {
+                            return {data: JSON.stringify(params)};
+                        }
+                    },
                     method: 'post',
-                    keys: 'id,name,region,description',
+                    keys: 'name,idcId,region,description',
                     okText: '更新',
                     content: 'aaa'
                 },

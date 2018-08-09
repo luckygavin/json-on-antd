@@ -31,7 +31,7 @@ function getErrorMsg(error) {
             message = JSON.stringify(error);
         }
     } catch (e) {
-        console.error(`Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
+        Utils.async(console.error, `Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
     }
     return message;
 }
@@ -59,7 +59,7 @@ export function checkCache(config, AjaxCache) {
         let cacheData = AjaxCache.getCacheData(key);
         if (cacheData) {
             // 保证异步
-            setTimeout(()=>config.success(...cacheData), 0);
+            Utils.async(config.success, ...cacheData);
             return true;
         }
         // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
@@ -80,7 +80,7 @@ export function checkCache(config, AjaxCache) {
 function executeQueue(key, result, ...params) {
     if (ajaxQueue[key] && ajaxQueue[key].length > 0) {
         for (let v of ajaxQueue[key]) {
-            v[result] && v[result](...params);
+            v[result] && Utils.async(v[result], ...params);
         }
     }
     delete ajaxQueue[key];
@@ -108,6 +108,22 @@ export function checkQueue(config) {
         Utils.inject(config, 'error', (...params)=>{
             executeQueue(key, 'error', ...params);
         }, true);
+    }
+    return false;
+}
+
+/**
+ * 检查是否有mock数据接口
+ *
+ * @param {*} config ajax的配置
+ * @return {boolean} 如果有则返回true，否则返回false
+ */
+export function checkMock(config, mockMap = {}) {
+    if (config.url && mockMap[config.url]) {
+        Utils.async(()=>{
+            mockMap[config.url].call(null, config, config.success, config.error);
+        });
+        return true;
     }
     return false;
 }

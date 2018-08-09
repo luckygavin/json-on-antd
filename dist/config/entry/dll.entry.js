@@ -13,7 +13,6 @@ window.DLL = {
     Immutable: require('immutable'),
     // Antd 内部也在用
     CoreJs: require('core-js'),    
-    reqwest: require('reqwest'),
     moment: require('moment'),
     // 使用moment时，需指定locale，会导致重新打包
     moment_zh_cn: require('moment/locale/zh-cn')

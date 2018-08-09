@@ -11,7 +11,10 @@ import {Factory, Authority} from 'src';
 import {getConfig, getRequirejs} from 'src/tools/instance.js';
 
 // 保存当前页面的路由信息
-let lastRouter;
+let lastRouter = {
+    params: {},
+    detials: {}
+};
 // 用于获取当前页面的路由信息
 function getRouter() {
     return Utils.copy(lastRouter);

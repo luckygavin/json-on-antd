@@ -15,6 +15,70 @@
 
 ### 0.3.0
 
+`2018-08-09`
+
+* ⚙ 内部调整，调整生成主题文件逻辑
+* 🌟 `Select`组件增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项
+
+
+`2018-08-06`
+
+* 🐞 修复`Export`组件同步导出不可用问题
+* 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)
+* 💄 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件
+
+
+`2018-08-01`
+
+* 🌟 新增`Upload`组件，并支持在Form组件中使用
+* 🌟 Ajax 支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)
+* 💄 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件
+
+
+`2018-07-30`
+
+* 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)
+* 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)
+
+
+`2018-07-27`
+
+* ⚙ 改造内部代码，更改`Table`组件的获取source的时机，复用BaseComponent的逻辑
+* `Form`
+    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置
+    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)
+
+`2018-07-26`
+
+* 🌟 `Table`组件的crud里的form表单，可以不用配置label属性，自动复用表格的columns.title属性
+* 🌟 `Form`组件的表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况
+
+`2018-07-24`
+
+* 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点
+* 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选
+
+
+`2018-07-19`
+
+* 📖 在 **`资产监控平台`** 项目中投入使用
+
+* 🌟 `Select`组件增加API:`selectAll`，多选模式下，可调用函数进行全选
+* 🐞 `Form`组件中使用级联框是，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)
+
+
+`2018-07-18`
+
+* `Table`
+    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）
+    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)
+    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。
+    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`
+
+`2018-07-17`
+
+* 🌟 `SiderTrigger`组件增加`reverse`属性
+* 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可
 
 `2018-07-17`
 
@@ -22,17 +86,9 @@
 
 * 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)
 
-#### # 组件升级
-
-* 🌟 `SiderTrigger`组件增加`reverse`属性
-* 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可
-
+---
 
 ### 0.2.5
-
-`2018-07-11`
-
-* 📖 在 **`资产监控平台`** 项目中投入使用
 
 `2018-07-10`
 

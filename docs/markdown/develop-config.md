@@ -22,9 +22,11 @@
 name | 实例名称，根据不同的名称产生不同的实例 | String | default | 
 modules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
 components | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
+plugins | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | 
 global | 其他一些全局配置。见：`global`表 | Object |  | 
+data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
 authority | 权限控制。见：`authority`表 | Object |  | 
-precondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化，见：`precondition` | Function[] |  | 
+precondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | 
 
 
 ### # modules
@@ -114,6 +116,33 @@ UF.init({
 > 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置
 
 
+### # plugins
+`插件系统`
+
+一些使用频率较低的组件，为了防止UF过于膨胀，从UF库中剥离了出来，想要使用的时候需要在config中指定加载。同时用户也可以在此处载入自己开发的React模块，只要模块为用AMD的方式打包的匿名模块即可。
+
+`plugins`参数为一个数组，其每一项的参数有两种形式，对应以上两种用法：
+
+* 第一种为一个字符串，直接引用UF官方提供的插件名称即可；  
+* 第二种为一个对象，引入用户自己开发的插件，对象包含如下属性：
+
+参数 | 说明 | 类型 | 是否必填
+---- | ---- | ----- | ----
+name | 载入之后的模块名称，和使用组件时的`type`一致 | string | 必填
+path | 模块完整路径 | string | 必填
+
+```javascript
+UF.config({
+    plugins: [
+        'example',
+        {
+            name: 'mycomponent',
+            path: 'http://..to/path/mycomponent.js'
+        }
+    ]
+});
+```
+
 
 ### # global
 
@@ -123,8 +152,8 @@ UF.init({
 ---- | ---- | ----- | ----- | ----
 domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
 ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | 
-data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
 cacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
+mock | Mock数据功能配置 | Object[] |  | 
 
 
 #### # *global.ajax*
@@ -184,13 +213,6 @@ UF.config({
 });
 ```
 
-#### # *global.data*
-
-用于存放一些公用数据或静态数据（供select等组件直接调用）。
-
-和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。
-
-
 #### # *global.cacheApis*
 
 配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。
@@ -215,6 +237,57 @@ UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{
 如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。
 
 > Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求
+
+#### # *global.mock*
+
+Mock数据功能。
+
+参数为一个数组，数组的每一项代表一个接口，参数如下：
+
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | ----
+url | 接口地址 | string |  | 必填
+handler | 接口对应的处理逻辑。handler中调用success并传入数据，则接口处理成功并返回了数据；调用error，则接口返回处理失败 | function (conf, success, error) {} |  | 必填
+
+```javascript
+UF.config({
+    global: {
+        mock: [
+            // 示例1：可延迟调用success，模拟数据加载中效果
+            {
+                url: '/mock/test',
+                handler: function (config, success, error) {
+                    setTimeout(()=>{
+                        success({
+                            status: 0,
+                            data: 'Mock数据测试'
+                        });
+                    }, 1000);
+                }
+            },
+            // 示例2：高端用法，可以使用mock功能简化交互。
+            // 比如多级级联，后端接口一次性返回全部数据，前端缓存起来。按以往思路，级联需不断获取数据并set给下一级，逻辑不够顺畅。此时即可以使用mock+source，定义几个mock接口，每个级联框绑定一个，各个mock接口分别取数据并返回
+            {
+                url: '/mock/test2',
+                handler: function (config, success, error) {
+                    success({
+                        status: 0,
+                        data: UF.get('cacheData');
+                    });
+                }
+            }
+        ]
+    }
+});
+```
+
+
+#### # data
+
+用于存放一些公用数据或静态数据（供select等组件直接调用）。
+
+和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。
+
 
 ### # authority
 

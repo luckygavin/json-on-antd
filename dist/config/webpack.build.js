@@ -7,14 +7,27 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const autoprefixer = require('autoprefixer');
 const {outputPath, production, __root} = require('./env.js');
+const cssSuffix = (!production ? `.css` : `.min.css`);
+const themes = require(__root + '/theme/index.js');
 
-// 分离css文件
-let cssName = process.env.CSS_NAME || 'theme';
-cssName += !production ? `.css` : `.min.css`;
+// 主题列表
+const themeList = Object.keys(themes).map(i=>({
+    name: i,
+    path: new RegExp(themes[i])
+}));
+// 全部 ExtractLessPlugin 的集合
+const themeBuilders = themeList.map(({name}) => new ExtractTextPlugin(`${name + cssSuffix}`));
+// 主题 Loader 的集合
+const themeLoaders = themeList.map(({path}, index) => {
+    return {
+        test: /\.(less|css)$/,
+        include: path,
+        loader: themeBuilders[index].extract('style', 'css!postcss!less')
+    }
+});
 
-console.log('CSS_NAME: ', cssName);
+console.log('THEME_NAMES: ', themeList.map(({name})=>`${name + cssSuffix}`).join(' | '));
 
-const cssBuilder = new ExtractTextPlugin(cssName);
 const jsBuilder = new webpack.optimize.UglifyJsPlugin({
     compress: {
         warnings: false,
@@ -22,15 +35,11 @@ const jsBuilder = new webpack.optimize.UglifyJsPlugin({
         drop_console: true
     }
 });
-const plugins = [cssBuilder];
-if (production) {
-    plugins.push(jsBuilder);
-}
 
 module.exports = {
     entry: {
-        'uf.p': __root + '/dist/entry/uf.p.entry.js',
-        'uf': __root + '/dist/entry/uf.entry.js'
+        'uf.p': __dirname + '/entry/uf.p.entry.js',
+        'uf': __dirname + '/entry/uf.entry.js'
     },
     output: {
         path: outputPath,
@@ -39,11 +48,6 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.(css|scss)$/,
-                // loader: 'style!css!sass'
-                // loader: cssBuilder.extract('style', 'css!sass?modules&outputStyle=expanded')
-                loader: cssBuilder.extract('style', 'css!postcss!sass') // 分离css和js文件
-            }, {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
@@ -58,15 +62,10 @@ module.exports = {
                 }
             },
             {
-                test: /\.(css|less)$/,
-                // loader: 'style!css!sass'
-                // loader: cssBuilder.extract('style', 'css!sass?modules&outputStyle=expanded')
-                loader: cssBuilder.extract('style', 'css!postcss!less') // 分离css和js文件
-            },
-            {
                 test: /\.json$/,
                 loader: 'json'
-            }
+            },
+            ...themeLoaders
         ],
         noParse: ['react', 'react-dom', 'antd', 'react-router']
     },
@@ -77,19 +76,39 @@ module.exports = {
         alias: {
             'src': __root + '/src',
             'root': __root,
-            'uf': __root
+            'uf': __root,
+            'theme': __root + '/theme'
         }
     },
-    externals: {
-        'react': 'window.DLL.React',
-        'react-dom': 'window.DLL.ReactDOM',
-        'react-router': 'window.DLL.ReactRouter',
-        'immutable': 'window.DLL.Immutable',
-        'core-js': 'window.DLL.CoreJs',
-        'reqwest': 'window.DLL.reqwest',
-        'moment': 'window.DLL.moment',
-        'moment/locale/zh-cn': 'window.DLL.moment_zh_cn',
-        'antd': 'window.DLL.Antd'
-    },
-    plugins: plugins
+    externals: [
+        {
+            'react': 'window.DLL.React',
+            'react-dom': 'window.DLL.ReactDOM',
+            'react-router': 'window.DLL.ReactRouter',
+            'immutable': 'window.DLL.Immutable',
+            'core-js': 'window.DLL.CoreJs',
+            'moment': 'window.DLL.moment',
+            'moment/locale/zh-cn': 'window.DLL.moment_zh_cn',
+            'antd': 'window.DLL.Antd'
+        },
+        // 根据配置，过滤无需打包的主题，加快效率
+        function (context, request, callback) {
+            // 针对这种形式 ./we-theme/index.less
+            if (/\.\/.*\/index\.less/.test(request)){
+                // 转换包名进行匹配
+                let package = request.replace('./', 'theme/').replace('/index.less', '');
+                // 如果不在打包列表中，则跳过不打包
+                if (Object.values(themes).indexOf(package) === -1) {
+                    return callback(null, 'global ' + request);
+                }
+            }
+            callback();
+        }
+    ],
+    plugins: [].concat(
+        // js压缩
+        production ? jsBuilder : [],
+        // 其他主题文件
+        themeBuilders
+    )
 };

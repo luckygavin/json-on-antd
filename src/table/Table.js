@@ -11,8 +11,9 @@ import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Po
 import Export from 'src/export';
 import Crud from './Crud.js';
 import Title from './Title.js';
-import EditCell from './Edit.js';
+import Edit from './Edit.js';
 import Filter from './Filter.js';
+import Enum from './Enum.js';
 
 const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
@@ -37,6 +38,7 @@ export default class NewTable extends BaseComponent {
             'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction'
         );
         this.__init();
+        this._showLoading = this.__filtered.source.showLoading === undefined || this.__filtered.source.showLoading;
         // 存储source中的初始化params参数
         this.oriSourceParams = {};
         this.state = {
@@ -59,24 +61,28 @@ export default class NewTable extends BaseComponent {
         // 用于存储多列的筛选条件
         this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
-        this.requerstIndex = 0;
+        this.requestIndex = 0;
+        // 当前正在执行的请求数
+        this.requestCount = 0;
         this.filter = new Filter(this);
+        this.enum = new Enum({
+            execAjax: this.__execAjax.bind(this),
+            continue: this.componentDidMount.bind(this),
+            formatApi: this.__formatApi.bind(this),
+            getConf: this.__getConf.bind(this)
+        });
         this.initTable(true);
     }
     componentWillReceiveProps(nextProps) {
         // 即使props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
         if (this.__shouldUpdate(this.props, nextProps)) {
             this.initTable();
-            // 只有自动获取数据开启时，参数变化才会导致数据刷新；否则需用户手动调用 loadData() 函数拉取数据
-            if (this.__filtered.source.autoLoad) {
-                // 置为第一页
-                this.getData(1);
-            }
         }
     }
     componentWillUnmount() {
         // 组件删除时，请求返回的数据无效
-        this.requerstIndex = null;
+        this.requestIndex = null;
+        this.requestCount = 0;
         // 防止循环引用导致内存泄漏
         delete this.crud;
         delete this.titleRef;
@@ -98,6 +104,8 @@ export default class NewTable extends BaseComponent {
         this.serverPaging = this.__filtered.source.url && this.pagination.pageType === 'server';
         // 列配置
         this.columns = objProps.columns;
+        // 根据列初始化枚举类
+        isFirst && this.enum.init(this.columns);
         let propsData = objProps.data;
         // 行配置
         this.rowSelection = null;
@@ -153,7 +161,7 @@ export default class NewTable extends BaseComponent {
         // 关于异步操作
         if (propsData) {
             state.completeData = propsData;
-            this.pagination.total = propsData.length;
+            this.pagination.total = this.pagination.total || propsData.length;
         }
         // 关于行样式与不可选相关联，不可选时至为灰色
         if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -180,17 +188,29 @@ export default class NewTable extends BaseComponent {
             this.setState(state);
         }
     }
-    componentDidMount() {
-        // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
-        if (this.__filtered.source.autoLoad) {
-            this.getData();
+    _afterInitProps() {
+        super._afterInitProps();
+        // 双击行进行编辑
+        if (this.__props.doubleClickEdit) {
+            this._inject(this.__props, 'onRowDoubleClick', record=>{
+                this.showCrud('edit', record);
+            });
         }
     }
-
+    componentDidMount() {
+        // for enum, 无论如何都刷新一次组件
+        this.setState({loading: this.enum.loading && this._showLoading});
+        // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
+        // & 如果枚举类正在加载数据，则暂时不获取数据
+        // 走公共的BaseComponent的刷新逻辑，待观察
+        // if (this.__filtered.source.autoLoad && !this.enum.loading) {
+        //     this.getData();
+        // }
+    }
 
     /* 供用户调用接口 ***********************************************************************/
     // 手动拉取数据
-    loadData() {
+    reload() {
         this.getData();
     }
     // 刷新表格
@@ -241,7 +261,7 @@ export default class NewTable extends BaseComponent {
         // 如果为后端分页，则传递 source 配置
         if (this.serverPaging) {
             return {
-                type: 'asyn',
+                mode: 'asyn',
                 headers: headers,
                 source: this.__filtered.source,
                 total: this.pagination.total || 0
@@ -250,7 +270,7 @@ export default class NewTable extends BaseComponent {
         // 否则传递 data
         let data = this.__props.data || [];
         return {
-            type: 'sync',
+            mode: 'sync',
             headers: headers,
             data: data,
             total: data.length
@@ -276,7 +296,13 @@ export default class NewTable extends BaseComponent {
         this.__setProps({data: dataResult});
     }
     // 覆盖原生获取异步数据的函数
-    _handleAsyncData() {}
+    _handleAsyncData() {
+        setTimeout(()=>{
+            if (!this.enum.loading) {
+                this.getData();
+            }
+        }, 0);
+    }
     // 异步获取数据
     getData(pageNum) {
         let {url, params} = this.__filtered.source;
@@ -298,12 +324,12 @@ export default class NewTable extends BaseComponent {
         // 当前请求的标号
         // 快速多次相同的请求会被合并到第一个（ajax中实现）
         let index = Utils.hash(params);
-        this.requerstIndex = index;
+        this.requestIndex = index;
         // 调用通用source获取数据逻辑
         this.__getSourceData({
             params: params,
             success: (data, res) => {
-                if (index !== this.requerstIndex) {
+                if (index !== this.requestIndex) {
                     return;
                 }
                 let displayData = data || [];
@@ -316,10 +342,10 @@ export default class NewTable extends BaseComponent {
                 this.onRefreshData(data);
             },
             onchange: loading => {
-                if (index !== this.requerstIndex) {
+                if (index !== this.requestIndex) {
                     return;
                 }
-                this.setState({loading});
+                this.setState({loading: loading && this._showLoading});
             }
         });
     }
@@ -521,11 +547,13 @@ export default class NewTable extends BaseComponent {
         }
         for (let v of arr) {
             // action的值与crud中的配置的key一一对应
-            if (v.action) {
-                v.onClick = e=>{
-                    e && e.preventDefault();
-                    e && e.stopPropagation();
-                    this.showCrud(v.action, record);
+            if (v.action && !v.control) {
+                // BaseComponet不接受更新函数，使用control作为临时解决方案
+                v.control = {
+                    type: 'bind',
+                    trigger: 'onClick',
+                    target: this.showCrud,
+                    params: [v.action, record]
                 };
             }
         }
@@ -559,7 +587,11 @@ export default class NewTable extends BaseComponent {
             if (defaultColumn.dataIndex === '_operation') {
                 defaultColumn.className += ' uf-operation';
             }
-            // 用户配置的render是一个uf组建配置，在此转为dom
+            // 如果列为枚举类型，则进行枚举转换
+            if (item.enum && !item.render) {
+                item = this.enum.handleColumn(item);
+            }
+            // 用户配置的render是一个uf组件配置，在此转为dom
             if (!!item.render) {
                 defaultColumn.render = (text, record, index) => {
                     // 配置中的render返回的是配置，配置再解析后才是真正的元素
@@ -706,7 +738,7 @@ export default class NewTable extends BaseComponent {
                     if (!editableConf) {
                         return displayStr;
                     }
-                    return <EditCell parent = {this}
+                    return <Edit parent={this} _factory={this._factory}
                             value={text}
                             columnChild={displayStr}
                             editConf = {editableConf}
@@ -811,10 +843,12 @@ export default class NewTable extends BaseComponent {
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {/* 导出功能 */}
-            <Export _factory={this._factory} ref={ele=>(this.exportRef = ele)} {...this._getExportConfig()} />
+            <Export _factory={this._factory} ref={ele=>(this.exportRef = ele)}
+                style={{display: 'none'}} {...this._getExportConfig()}/>
             {/* 增删改查 */}
-            {this.__props.crud && (<Crud _factory={this._factory} parent={this} ref={ele=>(this.crud = ele)}
-                config={this.__props.crud}/>
+            {this.__props.crud && (
+                <Crud _factory={this._factory} parent={this} ref={ele=>(this.crud = ele)}
+                    enum={this.enum} config={this.__props.crud}/>
             )}
         </div>;
     }

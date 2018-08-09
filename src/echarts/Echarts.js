@@ -20,7 +20,7 @@ export default class Echarts extends BaseComponent {
         // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
         //     this.chart.setOption(this.__filterProps(nextProps));
         // }
-        this.chart.setOption(this.__filterProps(nextProps));
+        this.chart && this.chart.setOption(this.__filterProps(nextProps));
     }
     shouldComponentUpdate(nextProps, nextState) {
         // 只有className/style变，才刷新当前组件，否则只进行setOption处理就行了
@@ -36,18 +36,12 @@ export default class Echarts extends BaseComponent {
             this.echarts = echarts;
             this.initEcharts();
         } else {
-            console.error('There is no echarts, please check.');
-            // 打包的代码不支持requirejs方式
-            // _$echarts 的路径见 src/default/index.js 中的配置
-            // this._factory.$requirejs(['_$echarts'], echarts=>{
-            //     this.echarts = echarts;
-            //     this.initEcharts();
-            // });
-            // $LAB.setGlobalDefaults({AllowDuplicates: true, CacheBust: true});
-            // $LAB.script('http://echarts.baidu.com/dist/echarts.js').wait(()=>{
-            //     this.echarts = window.echarts;
-            //     this.initEcharts();
-            // });
+            // 惰性加载
+            // echarts 的路径见 src/default/index.js 中的配置
+            this._factory.$requirejs(['echarts'], echarts=>{
+                this.echarts = echarts;
+                this.initEcharts();
+            });
         }
     }
     initEcharts() {
@@ -60,6 +54,8 @@ export default class Echarts extends BaseComponent {
             // 把echarts的api全部转移到当前组件上
             this._agencyFunction(chart);
             this._agencyFunction(Object.getPrototypeOf(chart));
+        } else {
+            Utils.async(console.error, 'There is no echarts, please check.');
         }
     }
     _agencyFunction(origin) {

@@ -25,7 +25,7 @@ if (production) {
 
 module.exports = {
     entry: {
-        'react': __root + '/dist/entry/react.entry.js'
+        'react': __dirname + '/entry/react.entry.js'
     },
     output: {
         path: __root + "/dist",

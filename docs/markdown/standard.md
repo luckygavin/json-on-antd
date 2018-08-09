@@ -37,7 +37,7 @@ uf
 ## 文件组织：
 src 中，每个组件一个文件夹，里面包含：
 > js代码  
-> scss代码 - style.scss  
+> less代码 - style.less  
 > 引入文件 - index.js  
 
 

@@ -23,7 +23,7 @@ if (production) {
 
 module.exports = {
     entry: {
-        'antd': __root + '/dist/entry/antd.entry.js'
+        'antd': __dirname + '/entry/antd.entry.js'
     },
     output: {
         path: outputPath,

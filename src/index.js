@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import env from './env.js';
 import uf from './lib.js';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
@@ -10,7 +11,7 @@ import Factory from 'src/tools/factory.js';
 import Loader from 'src/tools/loader.js';
 import WhiteList from 'src/tools/whitelist.js';
 // import Model from 'src/tools/model.js';
-import Precondition from 'src/tools/precondition.js';
+// import Precondition from 'src/tools/precondition.js';
 
 import Tools from 'src/tools/init.js';
 import {setInstance, getInstance, setAjax, getAll} from 'src/tools/instance.js';
@@ -28,7 +29,7 @@ const create = ({name})=>{
     // 初始化缓存空间
     const {Config, ModelCache, ComponentsCache} = Cache.init(name);
     // 初始化其他工具实例，如ajax
-    const {Ajax, Requirejs} = Tools.init(name);
+    const {Ajax, Requirejs, Precondition} = Tools.init(name);
 
     // UF实例上的工具函数
     const func = {
@@ -38,13 +39,13 @@ const create = ({name})=>{
         insName: name,
         // 是否阻塞
         waiting: false,
-        waitingCache: {},
+        // waitingCache: {},
         // 异步逻辑执行完成后，重新执行init函数
         _reInit() {
             this.waiting = false;
-            let config = this.waitingCache.config;
-            let selector = this.waitingCache.selector;
-            this.waitingCache = {};
+            // let {config, selector} = this.waitingCache;
+            // this.waitingCache = {};
+            let {config, selector} = ModelCache.get('_$waitingCache');
             this.render(config, selector);
         },
         // 获取组件
@@ -100,11 +101,12 @@ const create = ({name})=>{
                 destory: destory
             };
         },
-    
+
         /*******************************************************/
         /******** 公共属性/方法 *********************************/
         /*****************************************************/
-    
+
+        require: Requirejs,
         // ajax请求。包含 ajax(), ajax.get(), ajax.post()
         ajax: Ajax,
         // 暴露全部工具类
@@ -125,7 +127,8 @@ const create = ({name})=>{
             if (!this.waiting) {
                 this.render(config, selector);
             } else {
-                this.waitingCache = {config, selector};
+                // this.waitingCache = {config, selector};
+                ModelCache.set('_$waitingCache', {config, selector});
             }
         },
         // 根据组件配置 生成&渲染组件实例
@@ -147,6 +150,12 @@ const create = ({name})=>{
         },
         // 整体配置
         config(obj) {
+            // 处理global.mock，数组转对象
+            if (obj && obj.global && obj.global.mock) {
+                let map = {};
+                obj.global.mock.forEach(v=>map[v.url] = v.handler);
+                obj.global.mock = map;
+            }
             let config = Config.set(Utils.filter(obj, 'data'));
             // 用户自定义 UF 别名
             if (config.alias) {
@@ -160,14 +169,31 @@ const create = ({name})=>{
             if (obj.data) {
                 ModelCache.set(obj.data);
             }
+            // 加载扩展组件。格式为[ {name, path} || name ]
+            if (config.plugins) {
+                config.precondition = (config.precondition || []).concat(
+                    config.plugins.map(mod => {
+                        let path, modName = mod;
+                        if (Utils.typeof(mod, 'string')) {
+                            path = `${env.pluginPath + modName}.js`;
+                        } else {
+                            path = mod.path;
+                            modName = mod.name;
+                        }
+                        return resovle => {
+                            Requirejs([path], foo=>{
+                                Loader.add({[modName]: foo && foo.default ? foo.default : foo});
+                                resovle();
+                            });
+                        }
+                    }
+                ));
+            }
             // 执行阻塞页面加载的函数
-            if (obj.precondition) {
-                if (Utils.typeof(obj.precondition, 'array') && obj.precondition.length > 0) {
+            if (config.precondition) {
+                if (Utils.typeof(config.precondition, 'array') && config.precondition.length > 0) {
                     this.waiting = true;
-                    // 置为异步，保证实例能成功返回后再调用预处理函数
-                    setTimeout(()=>{
-                        Precondition.handle(obj.precondition, this);
-                    }, 0);
+                    Precondition.handle(config.precondition);
                 }
             }
         },
@@ -190,13 +216,14 @@ const create = ({name})=>{
 
 // 先产生一个默认实例，以兼容以前的用法
 const defaultName = '_$default';
-const defUF = create({name: defaultName});
+const defaultUF = create({name: defaultName});
+defaultUF.config({});
 
 // 重写window上的UF函数，使其增加创建uf实例功能
 const UF = (conf = {}) => {
     // 如果传入的是字符串，则走原来的获取组件的逻辑
     if (typeof conf === 'string') {
-        return defUF(conf);
+        return defaultUF(conf);
     }
     // 默认使用default名称
     conf.name = conf.name || conf.appName || defaultName;
@@ -212,7 +239,7 @@ const UF = (conf = {}) => {
 };
 
 // 并把默认实例抛出以供直接调用
-Object.assign(UF, defUF);
+Object.assign(UF, defaultUF);
 
 export default UF;
 // 获取到window上的_catch，即用户事先用到的UF方法，在此进行执行

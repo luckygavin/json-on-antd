@@ -1,6 +1,7 @@
 import Ajax from 'src/utils/ajax.js';
 import requirejs from './requirejs.js';
-import {setAjax, setRequirejs} from 'src/tools/instance.js';
+import Precondition from './precondition.js';
+import {setAjax, setRequirejs, setPrecondition} from 'src/tools/instance.js';
 
 module.exports = {
     init(insName) {
@@ -13,6 +14,10 @@ module.exports = {
         // requirejs 实例
         obj.Requirejs = requirejs.init(insName);
         setRequirejs(insName, obj.Requirejs);
+
+        // precondition 实例
+        obj.Precondition = Precondition.init(insName);
+        setPrecondition(insName, obj.Precondition);
 
         return obj;
     }

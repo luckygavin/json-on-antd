@@ -114,11 +114,11 @@ const treeConfig = {
         onlyShowSearchResult: true // 仅展示搜索的结果, 默认为true
     },
     source: {
-        url: 'docs/php/tree-data2.php',
+        url: 'docs/php/tree-data.php',
         paramsHandler(params) {
-            return {
+            return !params ? {} : {
                 key: params.key,
-                type: params.type
+                level: params.level
             };
         }
     },
@@ -127,7 +127,7 @@ const treeConfig = {
         minWidth: '200px',
         maxWidth: '500px'
     },
-    data: treeData
+    // data: treeData
 };
 const treeConfig2 = {
     type: 'tree',

@@ -27,8 +27,10 @@ export default {
     },
     // 打印错误信息
     error(item, name, type) {
-        console.error(`Uncaught TypeError: ${name} is `
-            + `${type ? 'not ' + type : 'undefined'}`
-            + ` in item's config "${JSON.stringify(item)}"`);
+        Utils.async(() => {
+            console.error(`Uncaught TypeError: ${name} is `
+                + `${type ? 'not ' + type : 'undefined'}`
+                + ` in item's config "${JSON.stringify(item)}"`);
+        });
     }
 }

@@ -2,7 +2,6 @@
  * @file index.js 汇总所有 src 里对用户暴露的组件
  * @author liuzechun@baidu.com
  */
-import './style/index.less';
 
 module.exports = Object.assign(
     // require('./dom'),
@@ -24,7 +23,5 @@ module.exports = Object.assign(
         Ueditor: require('./ueditor'),
         Echarts: require('./echarts'),
         Fieldset: require('./fieldset')
-        // ...require('./modal'),
-        // Table2: require('./uf-old/table')
     }
 );

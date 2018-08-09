@@ -25,13 +25,6 @@
 
 > 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到
 
-#### # configTpl 
-
-配置模板。用于指定复用在`UF.config`函数中定义的`components`属性中定义的通用模板配置。
-
-> 优先级：默认值 < configTpl < 组件本身配置
-
-
 #### # style 
 `object` | `string`
 
@@ -97,6 +90,7 @@ onSuccess | 请求数据成功后的回调函数（与handler的区别是，hand
 onError | 请求数据失败的回调函数 | function(res) {} |
 autoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true
 autoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false
+autoReload | 父级刷新时自动刷新当前组件。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false
 showLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false
 
 > * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  

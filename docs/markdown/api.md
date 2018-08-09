@@ -139,6 +139,7 @@ cache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boo
 requestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |
 params | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
 type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
+useAxios | 改为使用`axios`库进行ajax请求 | boolean | false | 
 success | 成功时的处理逻辑 | function(data, res){} |  | 
 error | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
@@ -209,7 +210,14 @@ setTimeout(()=>{
 
 载入自定义组件。如果已有组件不能满足日常开发，也支持使用 React 开发的自定义组件，在使用前把自定义组件加载到组件库中，即可和其他组件一样使用。
 
-> 注意：配置中使用的type为`-`连接命名，实际配置的组件为`Pascal`命名，框架内部会做转换。(例如：加入一个自定义组件`UF.load({MyComponent: window.myComponet})`，配置中使用的type为`my-component`)。也可以通过这种方式覆盖原生的组件。
+```javascript
+UF.load({mycomponent: window.myComponet})
+UF.init({
+    type: 'mycomponent'
+}, '#test');
+```
+
+> 另一种加载自定义组件的方法见：[`plugins`](#/Develop/Config/-plugins)
 
 
 ## # UF.message()
@@ -307,14 +315,13 @@ UF.init(config, '#demo');
 
 `component.hide()`可以重新展示组件。
 
-## # component.loading()
-
-`component.loading([boolean|config])`可以控制组件是否展示loading效果。
-
 ## # component.reload()
 
 `component.reload()`可以控制组件重新获取数据（和`source`属性配合）。
 
+## # component.loading()
+
+`component.loading([boolean|config])`可以控制组件是否展示loading效果。
 
 参数有如下几种情况：
 

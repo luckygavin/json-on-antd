@@ -143,32 +143,6 @@ const demo1 = {
 
 };
 
-const columns2 = [
-    {
-        title: 'ID',
-        dataIndex: 'id',
-        key: 'id'
-    },
-    {
-        title: '机房',
-        dataIndex: 'name',
-        key: 'name'
-    },
-    {
-        title: '地区',
-        dataIndex: 'region',
-        key: 'region',
-        filter: {
-            type: 'radio',
-            options: ['华北', '华南', '华东']
-        }
-    },
-    {
-        title: '描述',
-        dataIndex: 'description',
-        key: 'description'
-    }
-];
 const demo2 = {
     title: '后端获取数据',
     description: '采用后端获取数据及分页等',
@@ -176,7 +150,26 @@ const demo2 = {
         {
             type: 'table',
             name: 'newtable2',
-            columns: columns2,
+            columns: [
+                {
+                    title: 'ID',
+                    dataIndex: 'id'
+                    // 枚举的使用
+                    // enum: [{key: 1, value: 'TC'}]
+                },
+                {title: '机房', dataIndex: 'name', key: 'name'},
+                {title: '名称', dataIndex: 'idcId'},
+                {
+                    title: '地区',
+                    dataIndex: 'region',
+                    key: 'region',
+                    filter: {
+                        type: 'radio',
+                        options: ['华北', '华南', '华东']
+                    }
+                },
+                {title: '描述', dataIndex: 'description', key: 'description'}
+            ],
             title: {
                 // text: 'Table后端分页表格',
                 basicWidget: ['filter', 'setPageSize',
@@ -202,8 +195,14 @@ const demo2 = {
                 method: 'get',
                 paramsHandler(params) {
                     // 增加 index 参数
-                    params.index = params.page - 1;
+                    // params.index = params.page - 1;
                     return params;
+                },
+                handler(data) {
+                    return data.map(v=>{
+                        v.idcId = v.id;
+                        return v;
+                    });
                 }
             },
             params: {
@@ -214,7 +213,8 @@ const demo2 = {
             },
             rowKey: 'id',
             pagination: {
-                pageType: 'server'
+                pageType: 'server',
+                pageSize: 5
             },
             rowSelection: {
                 selections: true

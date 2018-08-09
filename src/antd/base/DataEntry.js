@@ -59,6 +59,9 @@ export default class DataEntry extends Antd {
     }
 
     // 更新 onChange/onBlur 逻辑，额外返回一个参数，为当前组件的值
+    _updateEventHandler(param) {
+        return param;
+    }
     _updateEvent() {
         if (this.__props.onChange) {
             const {key, paramsIndex} = this.__controlled;
@@ -70,6 +73,8 @@ export default class DataEntry extends Antd {
                 } else {
                     value = params[paramsIndex];
                 }
+                // 以上规则依然不能满足时，再重写函数进行额外处理
+                value = this._updateEventHandler(value);
                 oriOnChange(...params, value);
             };
         }

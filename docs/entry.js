@@ -9,8 +9,8 @@ import {Row, Col} from 'antd';
 import Header from './Header.js';
 import Nav from './Nav.js';
 
-require('src/style/index.less');
-require('./doc.scss');
+require('theme/default/index.less');
+require('./doc.less');
 
 // 通用文档
 const DocsList = [

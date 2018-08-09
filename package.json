@@ -10,7 +10,7 @@
     "0.3.0"
   ],
   "version": "0.3.0",
-  "fixedVersion": "0.3.0.0",
+  "fixedVersion": "0.3.0.6",
   "stableVersion": "0.3.0",
   "description": "new uf",
   "author": "liuzechun",
@@ -26,11 +26,11 @@
     "moment": "^2.17.1",
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
-    "react-router": "^3.0.0",
-    "reqwest": "^2.0.5"
+    "react-router": "^3.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.5.4",
+    "axios": "^0.18.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-plugin-import": "^1.4.0",
@@ -40,6 +40,7 @@
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "history": "^4.4.1",
+    "html2canvas": "^0.5.0-beta4",
     "json-loader": "^0.5.4",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
@@ -52,6 +53,7 @@
     "webpack": "^1.14.0"
   },
   "scripts": {
+    "plugins": "webpack --config plugins/webpack.plugins.js --watch",
     "build-watch": "webpack --config dist/config/webpack.build.js --watch",
     "antd-watch": "webpack --config dist/config/webpack.antd.js --watch",
     "build": "webpack --config dist/config/webpack.build.js",

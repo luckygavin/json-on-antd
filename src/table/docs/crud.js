@@ -34,10 +34,12 @@ const demo1 = {
                 {
                     title: '操作',
                     dataIndex: '_operation',
+                    width: 100,
                     render() {
                         return [
                             {type: 'a', content: '编辑', action: 'edit'},
-                            {type: 'a', content: '删除', action: 'delete'}
+                            {type: 'a', content: '删除', action: 'delete'},
+                            {type: 'a', content: '详情', action: 'details'}
                         ];
                     }
                 }
@@ -63,7 +65,7 @@ const demo1 = {
                 }
             },
             pagination: {
-                pageType: 'server'
+                pageType: 'client'
             },
             rowSelection: {
                 selections: true
@@ -86,6 +88,17 @@ const demo1 = {
                     title: '编辑机房信息:',
                     api: 'docs/php/submit.php',
                     forbidden: 'id'
+                },
+                details: {
+                    title: '查看详情',
+                    list: null,
+                    posRank: 'content|render|form',
+                    content: {
+                        type: 'alert',
+                        mode: 'info',
+                        message: '默认复用Table组件的columns配置，可通过使用list属性或者render来自定义详情展示形式',
+                        showIcon: true
+                    }
                 },
                 search: {
                     title: '高级搜索:',

@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRedirect, Redirect} from 'react-router';
-import {Row, Col} from 'antd';
+import {Row, Col, BackTop} from 'antd';
 
 import Header from './Header.js';
 import Nav from './Nav.js';
@@ -48,9 +48,9 @@ const ComponentList = [
         {path: 'Table', name: 'Table 表格', component: require('src/table/docs').default},
         {path: 'TableCrud', name: 'Table Crud 表格扩展', component: require('src/table/docs/crud.js').default},
         {path: 'Tree', name: 'Tree 树形控件', component: require('src/tree/docs').default},
-        {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
         {path: 'Ueditor', name: 'Ueditor 富文本', component: require('src/ueditor/docs').default},
-        {path: 'Echarts', name: 'Echarts 图表', component: require('src/echarts/docs').default}
+        {path: 'Echarts', name: 'Echarts 图表', component: require('src/echarts/docs').default},
+        {path: 'List', name: 'List 列表', component: require('src/list/docs').default}
     ]},
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('src/antd/docs/antd-button').default},
@@ -68,7 +68,7 @@ const ComponentList = [
         {path: 'Steps', name: 'Steps 步骤条', component: require('src/antd/docs/antd-steps').default}
     ]},
     {path: 'DataEntry', name: '数据录入', children: [
-        {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('src/antd/docs/antd-auto-complete').default},
+        {path: 'AutoComplete', name: 'AutoComplete 自动完成', component: require('src/auto-complete/docs').default},
         {path: 'Cascader', name: 'Cascader 级联选择', component: require('src/antd/docs/antd-cascader').default},
         {path: 'Checkbox', name: 'Checkbox 多选框', component: require('src/antd/docs/antd-checkbox').default},
         {path: 'DatePicker', name: 'DatePicker 日期选择框', component: require('src/antd/docs/antd-date-picker').default},
@@ -102,8 +102,10 @@ const ComponentList = [
         {path: 'Loading', name: 'Loading 加载中', component: require('src/antd/docs/antd-loading').default}
     ]},
     {path: 'Other', name: '其他组件', children: [
-        // {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
-        {path: 'Backtop', name: 'Backtop 回到顶部', component: require('src/antd/docs/antd-backtop').default}
+        {path: 'Backtop', name: 'Backtop 回到顶部', component: require('src/antd/docs/antd-backtop').default},
+        {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
+        {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
+        {path: 'Fieldset', name: 'Fieldset 文字块', component: require('src/fieldset/docs').default}
     ]}
 ];
 
@@ -148,6 +150,7 @@ class App extends React.Component {
                         </Row>
                         }
                     </div>
+                    <BackTop/>
                </section>
         );
     }

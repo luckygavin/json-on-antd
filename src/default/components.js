@@ -102,6 +102,9 @@ export default {
         // 搜索时忽略大小写
         filterOption: (v, opt) => opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
     },
+    'auto-complete': {
+        mode: 'combobox'
+    },
     'switch': {
         source: {
             target: 'checked'
@@ -151,8 +154,8 @@ export default {
             handler: v=>v
         }
     },
-    forms: {
-        addType: 'copy-add'
+    'forms': {
+        addType: 'copy'
     },
     'table': {
         rowKey: 'id',
@@ -177,6 +180,7 @@ export default {
     },
     'modal': {
         visible: false,
+        maskClosable: false,
         api: {
             trigger: 'onSubmit'
         },
@@ -190,6 +194,16 @@ export default {
             autoLoad: true,
             autoReload: false,
             target: 'data'
+        }
+    },
+    'list': {
+        interleave: true,
+        bordered: true,
+        layout: {
+            labelCol: 6,
+            labelStyle: {},
+            valueCol: 18,
+            valueStyle: {}
         }
     }
 };

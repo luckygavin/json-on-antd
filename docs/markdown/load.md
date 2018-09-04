@@ -15,4 +15,9 @@ html代码会被一个`<section>`标签包裹，为了方便定义样式，html 
 
 方法2：`UF.config({plugins: []});`
 
-使用插件的加载方式。
+使用插件的加载方式，见 [Plugins](#/Develop/Config/-plugins)
+
+
+## 强制使用原生标签
+
+可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`

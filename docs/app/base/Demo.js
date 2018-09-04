@@ -76,7 +76,7 @@ export default class Demo extends React.Component {
                 <div className="show" id={`demo-${i}`}></div>
                 <div className="description">
                     <div className="title">{item.title}</div>
-                    <div className="content" dangerouslySetInnerHTML={{__html: marked(item.description || '')}}></div>
+                    <div className="content markdown" dangerouslySetInnerHTML={{__html: marked(item.description || '')}}></div>
                     <Icon className="collapse" type={this.show[i] ? 'up-circle-o' : 'down-circle-o'}
                             onClick={this.toggle.bind(this, i)}/>
                 </div>

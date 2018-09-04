@@ -27,6 +27,11 @@ let demo1 = {
                     });
                 }
             },
+            afterCreate() {
+                UF('my-echarts').on('click', function() {
+                    console.log('额外绑定事件.');
+                });
+            },
             title: {
                 text: 'ECharts 入门示例'
             },

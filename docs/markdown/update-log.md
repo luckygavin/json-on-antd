@@ -15,6 +15,70 @@
 
 ### 0.3.0
 
+`2018-09-04`
+
+* 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)
+* `Table`
+    * 🌟 新增表头单字段过滤功能可用于后端分页的情况
+* ⚙ 调整参数`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持，[传送门](#/Params/-source-)
+
+
+`2018-08-28`
+
+* 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）
+* `Table`
+    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置
+    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称
+    * 💄 增强属性`footer`，除函数外，也可以直接使用配置对象
+* ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性
+
+
+`2018-08-24`
+
+* 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`
+* 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）
+* 🌟 `Form`组件增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值
+
+
+`2018-08-23`
+
+* `Table`
+    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，该行展示为空
+    * 💄 移除提交编辑表格时额外传给后端的翻译字段
+    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)
+* `Form`
+    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)
+    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)
+* 🌟 全局配置项`plugins`功能增强，支持单次加载多个组件
+* 🌟 全局配置项`components`功能增强，支持异步加载组件配置
+
+
+`2018-08-19`
+
+* `Table`
+    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用
+    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）
+    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮
+    * 💄 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能
+* 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`
+* 🌟 新增`List`组件，对单条数据进展展示。[传送门](#/Custom/List)
+* 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)
+
+
+`2018-08-17`
+
+* 🌟 `Form`组件新增支持使用非输入型组件做布局/展示等功能
+* `Forms`
+    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)
+    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能
+
+
+`2018-08-14`
+
+* 🐞 修复`Form`组件多级联动无效问题
+* 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效）
+
+
 `2018-08-09`
 
 * ⚙ 内部调整，调整生成主题文件逻辑

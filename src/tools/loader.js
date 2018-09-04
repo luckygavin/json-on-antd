@@ -26,6 +26,10 @@ export default {
         // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
         let result = this.component[name] || this.component[type];
         if (!result) {
+            // 通过使用 o-table 来强制使用原生标签
+            if (type.indexOf('o-') === 0) {
+                type = type.substr(2);
+            }
             // 检查是否为React原生元素
             if (React.DOM.hasOwnProperty(type)) {
                 // 如果是Uf组件，则使用Dom组件，否则用原生的增强性能
@@ -44,7 +48,9 @@ export default {
     // 获取完整的组件配置
     // 1、普通组件本身配置了默认属性，此处进行属性合并
     // 2、组件的type可能为一个自定义组件，这里将其转化为普通可用的组件
-    getConf(item = {}, insName = item.insName) {
+    getConf(item, insName = item.insName) {
+        // undefined/null/''等都能兼容处理
+        item = item || {};
         let oType = item.type;
         let conf = getConfig(insName).get(`components.${oType}`);
         if (conf) {

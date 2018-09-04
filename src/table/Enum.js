@@ -92,8 +92,19 @@ export default class Enum {
     // 处理列配置，进行枚举替换
     handleColumn(item) {
         if (this.data[item.dataIndex]) {
-            item.render = v=>{
-                return this.data[item.dataIndex][v] || v;
+            item.render = (v, row)=>{
+                let display = this.data[item.dataIndex][v];
+                // 无法翻译是是否允许为空
+                if (display === undefined) {
+                    if (Utils.typeof(item.enum, 'object') && item.enum.allowEmpty) {
+                        display = '';
+                    } else {
+                        display = v;
+                    }
+                }
+                // 将翻译后的结果存入行数据中
+                row[`${item.dataIndex}_fyi`] = display;
+                return display;
             };
         }
         return item;
@@ -127,8 +138,8 @@ export default class Enum {
                     if (this.data[i][v] !== undefined) {
                         return this.data[i][v];
                     } else {
-                        error.push(`第【${index + 1}】行数据解析时出现错误，请注意！`);
-                        return '';
+                        error.push(`第【${index + 1}】行数据【${v}】解析时出现错误，已展示源数据，请注意！`);
+                        return v;
                     }
                 }
                 return v;

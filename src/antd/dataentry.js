@@ -9,56 +9,7 @@ import DataEntry from './base/DataEntry.js';
 import moment from 'moment';
 import * as Antd from 'antd';
 
-
-/************ AutoComplete 自动补全 *************************************************************************** */
-// 简单的补全功能
-// TODO: 完善
-export class AutoComplete extends DataEntry {
-    constructor(props) {
-        super(props);
-        // _onSearch 中的逻辑会注入到 onSearch 事件中，见 BaseComponent
-        this._injectEvent = ['onSearch'];
-        this.__init();
-        this.state = {
-            result: []
-        };
-    }
-    // 注入到 onSearch 事件中
-    _onSearch(value, ...params) {
-        let result  = [];
-        if (!!value) {
-            result = this.__props.options.map(i=>value + i);
-        }
-        this.setState({result});
-    }
-    // 默认对应的是 onChange
-    _onControlEvent(...params) {
-        // 对change前后的数据进行对比
-        let oldValue = this.__props.value;
-        super._onControlEvent.call(this, ...params);
-        let newValue = this.__props.value;
-        // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
-        if (oldValue && newValue && oldValue.length > newValue.length) {
-            for (let v of this.__props.options) {
-                if (oldValue.indexOf(v) !== -1) {
-                    let result = oldValue.replace(v, '');
-                    if (result.length < newValue.length) {
-                        this.__props.value = result;
-                        this.__props.onSearch(result);
-                        break;
-                    }
-                }
-            }
-        }
-    }
-    render() {
-        return <Antd.AutoComplete {...this.__props}>
-            {this.state.result.map(item=>
-                <Antd.AutoComplete.Option key={item}>{item}</Antd.AutoComplete.Option>
-            )}
-        </Antd.AutoComplete>;
-    }
-}
+const OptionsDataEntry = DataEntry.OptionsDataEntry;
 
 /************* Cascader 级联选择 ************************************************************************** */
 
@@ -242,59 +193,6 @@ export class Rate extends DataEntry {
     }
 }
 
-/************* 多选的基类 ************************************************************************** */
-
-export class BaseMultiple extends DataEntry {
-    _afterSetProps() {
-        super._afterSetProps();
-        // 给 source.onSuccess 绑定默认处理逻辑
-        this.__filtered.source = Object.assign({
-            onSuccess: this._onSourceSuccess.bind(this)
-        }, this.__filtered.source);
-        this.__props.options = Utils.toOptions(this.__props.options);
-    }
-    _onSourceSuccess() {}
-    // 处理多选情况
-    _handleMultipleSelect(data) {
-        let current = this.__props.value || [];
-        // 当设置默认全选时，更新当前内容为全选
-        if (this.__props.defaultSelectAll) {
-            let all = Utils.toOptions(data).map(v=>v.value);
-            this.__props.onChange && this.__props.onChange(all);
-            return;
-        }
-        // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
-        let matchVal = Utils.toOptions(data).filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
-        if (matchVal.length === current.length) {
-            return;
-        }
-        this.__props.onChange && this.__props.onChange(matchVal);
-    }
-    // 处理默认选中
-    _handleDefaultSelect(data) {
-        let current = this.__props.value;
-        // 如果当前值再列表中，则不做任何处理
-        let alldata = Utils.toOptions(data);
-        // 追加上extOptions中的内容，仅select组件有
-        if (this.getAllOptions) {
-            alldata = this.getAllOptions(alldata);
-        }
-        if (alldata.some(v=>(v.value + '') === (current + ''))) {
-            return;
-        }
-        // 否则把值设置为第一个或者清空
-        if (this.__props.defaultFirst) {
-            let first = Utils.getFirstOption(data);
-            this.__props.onChange && this.__props.onChange(first);
-        } else if (this.__props.value !== undefined
-            && !Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
-            // 为实现刷新组件时，清空原数据
-            // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-            this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
-        }
-    }
-}
-
 /************* Checkbox 复选框 ************************************************************************** */
 
 export class Checkbox extends DataEntry {
@@ -309,16 +207,12 @@ export class Checkbox extends DataEntry {
     }
 }
 // 多复选框组合
-export class CheckboxGroup extends BaseMultiple {
+export class CheckboxGroup extends OptionsDataEntry {
     constructor(props) {
         super(props);
         this._openApi.push('checkAll');
         this.__controlled.defaultVal = [];
         this.__init();
-    }
-    _afterSetProps() {
-        super._afterSetProps();
-        this.__props.options = Utils.toOptions(this.__props.options);
     }
     _onSourceSuccess(data) {
         this._handleDefaultSelect(data);
@@ -336,7 +230,7 @@ export class CheckboxGroup extends BaseMultiple {
 /************* Radio 单选 ************************************************************************** */
 
 // 这里直接使用Radio组，单个radio没想到什么应用场景
-export class Radio extends BaseMultiple {
+export class Radio extends OptionsDataEntry {
     constructor(props) {
         super(props);
         this.__init();
@@ -353,7 +247,7 @@ export class Radio extends BaseMultiple {
         return <Antd.Radio.Group {...Utils.filter(this.__props, 'options')} value={
                 this.__props.value !== undefined ? '' + this.__props.value : undefined
             }>{
-                this.__props.options.map(item=>
+            this.__props.options.map(item=>
                 <Item key={'' + item.value} disabled={item.disabled} style={item.style}
                     value={'' + item.value}>{item.label}</Item>
             )
@@ -364,15 +258,18 @@ export class Radio extends BaseMultiple {
 
 /************* Select 下拉菜单 ************************************************************************** */
 
-export class Select extends BaseMultiple {
+export class Select extends OptionsDataEntry {
     constructor(props) {
         super(props);
-        this.isMultiple = props.type === 'multiple' || props.type === 'tags';
+        this._openApi.push('selectAll');
+        this.__init();
+    }
+    _afterInitProps() {
+        super._afterInitProps();
+        this.isMultiple = this.__props.type === 'multiple' || this.__props.type === 'tags';
         if (this.isMultiple) {
             this.__controlled.defaultVal = [];
         }
-        this.__init();
-        this._openApi.push('selectAll');
     }
     selectAll(status = true) {
         if (this.isMultiple) {
@@ -390,7 +287,7 @@ export class Select extends BaseMultiple {
         }
     }
     getAllOptions(data = this.__props.options) {
-        return [].concat(this.__props.extOptions || [], data);
+        return [].concat(this.__props.extOptions || [], data || []);
     }
     render() {
         let formatType = Utils.getType(this.__controlled.defaultVal);

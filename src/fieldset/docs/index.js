@@ -1,5 +1,5 @@
 /**
- * @file 配置化树形控件，Demo及文档说明
+ * @file Demo及文档说明
  * **/
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -9,8 +9,25 @@ import md from './markdown.md';
 
 let demo1 = {
     title: '基本用法',
-    description: '默认高度自动根据内容调整',
-    config: ''
+    description: '',
+    config: {
+        type: 'fieldset',
+        title: '这是标题',
+        content: [
+            {
+                type: 'alert',
+                mode: 'info',
+                message: 'Informational Notes',
+                showIcon: true
+            },
+            {
+                type: 'alert',
+                mode: 'info',
+                message: 'Informational Notes',
+                showIcon: true
+            }
+        ]
+    }
 };
 
 export default class FieldsetApp extends BaseDoc {
@@ -23,5 +40,4 @@ export default class FieldsetApp extends BaseDoc {
     render() {
         return this.__getDemoSingle(demo1);
     }
-
 }

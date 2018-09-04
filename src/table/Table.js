@@ -6,16 +6,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Input, Table, Button, Icon, Dropdown, Menu, Modal, Checkbox, Popover, Popconfirm, message} from 'antd';
+import {Table, Popover} from 'antd';
 // 扩展功能 - 增删改查等
 import Export from 'src/export';
 import Crud from './Crud.js';
 import Title from './Title.js';
 import Edit from './Edit.js';
-import Filter from './Filter.js';
 import Enum from './Enum.js';
+import {Filter} from './Filters.js';
 
-const CheckboxGroup = Checkbox.Group;
 // 从obg2中获取obj1所需要的一些属性
 const getNeedObject = (obj1, obj2) => {
     for (let i in obj1) {
@@ -45,8 +44,6 @@ export default class NewTable extends BaseComponent {
             antdConfig: null,
             // 数据默认为空
             completeData: [],
-            // 单列过滤
-            filterInputValue: '',
             // 全屏展示与否
             fullScreen: false,
             // 是否展示全部字段
@@ -58,12 +55,8 @@ export default class NewTable extends BaseComponent {
         };
         // 保存选中的行数据
         this.selectedRows = [];
-        // 用于存储多列的筛选条件
-        this.filterConditions = {};
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
-        this.requestIndex = 0;
-        // 当前正在执行的请求数
-        this.requestCount = 0;
+        this.requestIndex = null;
         this.filter = new Filter(this);
         this.enum = new Enum({
             execAjax: this.__execAjax.bind(this),
@@ -82,11 +75,7 @@ export default class NewTable extends BaseComponent {
     componentWillUnmount() {
         // 组件删除时，请求返回的数据无效
         this.requestIndex = null;
-        this.requestCount = 0;
-        // 防止循环引用导致内存泄漏
-        delete this.crud;
-        delete this.titleRef;
-        delete this.exportRef;
+        this.expandThEle && this.expandThEle.removeEventListener('click', this.expandAllEventListener.bind(this));
     }
     initTable(isFirst) {
         let objProps = this.__props;
@@ -98,6 +87,12 @@ export default class NewTable extends BaseComponent {
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
+        this.rowKeyFunc = null;
+        // 如果rowKey为一个函数，则把函数转存到rowKeyFunc中，rowKey置为_uniqueRowKey
+        if (Utils.typeof(this.rowKey, 'function')) {
+            this.rowKeyFunc = this.rowKey;
+            this.rowKey = '_uniqueRowKey';
+        }
         // 注意：引用类型，this.pagination 和 this.__props.pagination 基本上是同一个东西
         this.pagination = objProps.pagination || {};
         // 是否为后端分页
@@ -107,6 +102,7 @@ export default class NewTable extends BaseComponent {
         // 根据列初始化枚举类
         isFirst && this.enum.init(this.columns);
         let propsData = objProps.data;
+        propsData = this.handleRowKeyFunc(propsData);
         // 行配置
         this.rowSelection = null;
         if (!!objProps.rowSelection) {
@@ -137,7 +133,7 @@ export default class NewTable extends BaseComponent {
             showHeader: true,
             footer: null,
             scroll: {},
-            onChange: () => {},
+            onChange: null,
             onExpand: () => {},
             onExpandedRowsChange: () => {},
             onRowClick: () => {},
@@ -158,6 +154,7 @@ export default class NewTable extends BaseComponent {
         } else {
             this.title = null;
         }
+        // this.header = this.handleHeader(objProps.header);
         // 关于异步操作
         if (propsData) {
             state.completeData = propsData;
@@ -192,10 +189,19 @@ export default class NewTable extends BaseComponent {
         super._afterInitProps();
         // 双击行进行编辑
         if (this.__props.doubleClickEdit) {
-            this._inject(this.__props, 'onRowDoubleClick', record=>{
+            this._inject(this.__props, 'onRowDoubleClick', record => {
                 this.showCrud('edit', record);
             });
         }
+        // 分页、排序、筛选变化时触发
+        this._inject(this.__props, 'onChange', (page, filter, sorter) => {
+            // filter发生变化时，如果是后端分页进行处理
+            if (this.serverPaging && Utils.isChange(filter, this.filterParams)) {
+                let oldFilterParams = this.filterParams || {};
+                this.filterParams = filter;
+                this.filter.handleChange(filter, oldFilterParams);
+            }
+        });
     }
     componentDidMount() {
         // for enum, 无论如何都刷新一次组件
@@ -206,6 +212,8 @@ export default class NewTable extends BaseComponent {
         // if (this.__filtered.source.autoLoad && !this.enum.loading) {
         //     this.getData();
         // }
+        // 添加展开全部功能按钮
+        this.handleExpandAllIcon();
     }
 
     /* 供用户调用接口 ***********************************************************************/
@@ -214,12 +222,12 @@ export default class NewTable extends BaseComponent {
         this.getData();
     }
     // 刷新表格
-    refresh() {
-        this.refreshTable();
+    refresh(page) {
+        this.refreshTable(page);
     }
     // 展示增删改查等弹框，具体实现逻辑见 Crud.js
     showCrud(...params) {
-        this.crud && this.crud.showCrud(...params);
+        this.refs.crud && this.refs.crud.showCrud(...params);
     }
     // 获取当前全部选中行的数据
     getSelected() {
@@ -233,12 +241,16 @@ export default class NewTable extends BaseComponent {
     selectAll() {
         this._selectAllData();
     }
+    // 所有分页全部选中
+    selectAllPage() {
+        this._selectAllData(true);
+    }
     clearSelect() {
         this.rowOnChange([], []);
     }
     // 导出数据
     export() {
-        this.exportRef && this.exportRef.export();
+        this.refs.export && this.refs.export.export();
     }
 
     /* 内部函数 ****************************************************************************/
@@ -251,7 +263,7 @@ export default class NewTable extends BaseComponent {
         let headers = [];
         for (let i in columns) {
             // 只导出展示的字段
-            if (columns[i].display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
+            if (columns[i].display !== false || (this.refs.title && this.refs.title.state.showAllTags)) {
                 headers.push({
                     key: columns[i].dataIndex || columns[i].key,
                     title: columns[i].title
@@ -276,6 +288,49 @@ export default class NewTable extends BaseComponent {
             total: data.length
         };
     }
+    // 执行用户自定义的 rowKey 函数，生成唯一key
+    handleRowKeyFunc(data) {
+        if (this.rowKeyFunc) {
+            data.forEach(v => {
+                v[this.rowKey] = this.rowKeyFunc(v);
+            });
+        }
+        return data;
+    }
+    // 添加展开全部功能按钮
+    // 因为原始组件未提供相应API，所以此处通过操作真是dom上的className实现
+    handleExpandAllIcon() {
+        if (this.__props.expandedRowRender) {
+            // 需操作真是dom
+            let collection = ReactDOM.findDOMNode(this).getElementsByClassName('ant-table-expand-icon-th');
+            this.expandThEle = collection[0];
+            // 可能会进来多次，这里判断当没oriClassName才执行
+            if (this.expandThEle && !this.expandThEle.oriClassName) {
+                this.expandThEle.oriClassName = this.expandThEle.oriClassName || this.expandThEle.className;
+                // 切换图标
+                this.expandThEle.toggleClassName = () => {
+                    if (this.expandThEle.className.indexOf('uf-table-expand-all') === -1) {
+                        this.expandThEle.className = this.expandThEle.oriClassName + ' uf-table-expand-all';
+                        this.expandThEle.isExpand = false;
+                    } else {
+                        this.expandThEle.className = this.expandThEle.oriClassName + ' uf-table-fold-all';
+                        this.expandThEle.isExpand = true;
+                    }
+                };
+                this.expandThEle.toggleClassName();
+                this.expandThEle.addEventListener('click', this.expandAllEventListener.bind(this));
+            }
+        }
+    }
+    expandAllEventListener() {
+        this.expandThEle && this.expandThEle.toggleClassName();
+        if (this.expandThEle.isExpand) {
+            let obj = this.getAllCanSelectRows();
+            this.onExpandedRowsChange(obj.rowKeys);
+        } else {
+            this.onExpandedRowsChange([]);
+        }
+    }
     // 行展开收起相关的两个方法
     onExpandedRowsChange(expandedRows) {
         this.setState({
@@ -297,11 +352,13 @@ export default class NewTable extends BaseComponent {
     }
     // 覆盖原生获取异步数据的函数
     _handleAsyncData() {
-        setTimeout(()=>{
+        Utils.defer(() => {
             if (!this.enum.loading) {
-                this.getData();
+                this.getData(1);
+                // 清空过滤状态
+                // this.refreshTable(1);
             }
-        }, 0);
+        });
     }
     // 异步获取数据
     getData(pageNum) {
@@ -315,10 +372,13 @@ export default class NewTable extends BaseComponent {
         } else {
             pageNum = this.pagination.current || 1;
         }
+        // 可以通过 paramIndex 属性更改默认传递的page和size参数
+        let paramIndex = this.pagination.paramIndex || {};
+        let {page = 'page', size = 'size'} = paramIndex;
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
-                page: pageNum,
-                size: this.pagination.pageSize
+                [page]: pageNum,
+                [size]: this.pagination.pageSize
             });
         }
         // 当前请求的标号
@@ -333,45 +393,51 @@ export default class NewTable extends BaseComponent {
                     return;
                 }
                 let displayData = data || [];
+                // 生成唯一key
+                displayData = this.handleRowKeyFunc(displayData);
                 if (this.pagination.pageType === 'server') {
                     displayData = displayData.slice(0, this.pagination.pageSize);
                 }
                 this.pagination.total = +(res.total || res.count || data.length);
                 this.__setProps({data: displayData}, false);
                 this.setState({completeData: displayData});
-                this.onRefreshData(data);
+                this.onRefreshData();
             },
             onchange: loading => {
                 if (index !== this.requestIndex) {
                     return;
                 }
                 this.setState({loading: loading && this._showLoading});
+            },
+            error: res => {
+                this.pagination.total = 0;
+                this.__setProps({data: []});
             }
         });
     }
     // 数据刷新
-    onRefreshData(data) {
+    onRefreshData() {
         this.forceUpdate();
     }
     // 刷新表格
-    refreshTable() {
-        // 清空某些控制状态
+    refreshTable(page) {
+        // 清空某些控制状态，例如过滤
         this.clearState();
         this.__setProps({data: this.state.completeData}, false);
         if (this.__filtered.source.url) {
-            this.getData();
+            this.getData(page);
         } else {
             this.onRefreshData(this.state.completeData);
         }
     }
     // 清空某些控制状态
+    // TODO: 清空的时机待考量，特别针对filter的情况，当前处理不太准确
     clearState() {
         this.setState({
-            filterInputValue: '',
             selectedRowKeys: []
         });
-        this.filterConditions = {};
-        this.titleRef && this.titleRef.clearState();
+        this.filter && this.filter.clearState();
+        this.refs.title && this.refs.title.clearState();
         this.forceUpdate();
     }
     // 全屏或退出全屏
@@ -394,65 +460,11 @@ export default class NewTable extends BaseComponent {
             this.pagination.onShowSizeChange(current, size);
         }
     }
-    // 过滤
-    onFilterData() {
-        let data = this.state.completeData;
-        // 对数据进行单列过滤
-        if (!Utils.empty(this.filterConditions)) {
-            data = this.filterInputSearch(data);
-        }
-        this.__setProps({data});
-    }
-    // 单列数据搜索
-    filterChange(filterProperty, e) {
-        // this.filterConditions用于记录多个列的同时筛选条件
-        const searchText = e.target.value;
-        if (!!searchText && searchText.length > 0) {
-            this.filterConditions[filterProperty] = searchText;
-        } else {
-            delete this.filterConditions[filterProperty];
-        }
-        this.forceUpdate();
-    }
-    filterInputSearch(filteredData) {
-        let data = [];
-        let needFilterData = !!filteredData ? filteredData : this.state.completeData;
-        // 如果传入filteredData,则在filteredData基础上筛选
-        // 如果没有传入如果传入filteredData，则在全量数据上进行筛选
-        data = needFilterData.filter(record => {
-            let flag = true;
-            for (let cdit in this.filterConditions) {
-                if (record[cdit].toString().indexOf(this.filterConditions[cdit]) === -1) {
-                    flag = false;
-                    break;
-                }
-            }
-            return flag;
-        });
-        return data;
-    }
-    // 从全量数据中提取某列的所有可能的值
-    getAllFilterValue(dataIndex) {
-        let obj = {};
-        let result = [];
-        let data = this.state.completeData;
-        for (let i = 0; i < data.length; i++) {
-            // 用obj存储所有可能的字段
-            if (data[i][dataIndex] && !obj[data[i][dataIndex]]) {
-                obj[data[i][dataIndex]] = 1;
-            }
-        }
-        // 将obj转换为数组
-        for (let key in obj) {
-            result.push({text: key, value: key});
-        }
-        return result;
-    }
-    _selectAllData() {
-        let displayData = this.__props.data;
+    getAllCanSelectRows(isAllPage = false) {
+        let displayData = isAllPage ? this.state.completeData : this.__props.data;
+        let rowKey = this.rowKey;
         let selectedRowKeys = [];
         let selectedRows = [];
-        let rowKey = this.__props.rowKey;
         // 只有选择形式为复选框时才能进行全选
         selectedRows = displayData.filter(record => {
             if (this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
@@ -463,8 +475,15 @@ export default class NewTable extends BaseComponent {
                 return true;
             }
         });
+        return {
+            rows: selectedRows,
+            rowKeys: selectedRowKeys
+        };
+    }
+    _selectAllData(isAllPage) {
+        let {rows, rowKeys} = this.getAllCanSelectRows(isAllPage);
         // 通过组件的onChange函数完成全选
-        this.rowOnChange(selectedRowKeys, selectedRows);
+        this.rowOnChange(rowKeys, rows);
     }
     // 行change时触发此函数
     rowOnChange(selectedRowKeys, selectedRows) {
@@ -479,7 +498,7 @@ export default class NewTable extends BaseComponent {
     onPageChange(page) {
         this.pagination.current = page;
         if (this.pagination.pageType === 'server') {
-            this.getData(page);
+            Utils.defer(() => this.getData(page));
         }
         this.forceUpdate();
     }
@@ -514,7 +533,7 @@ export default class NewTable extends BaseComponent {
         }
         json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
         let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;
-        return json.replace(reg, match=>{
+        return json.replace(reg, match => {
             let cls = 'number';
             if (/^"/.test(match)) {
                 if (/:$/.test(match)) {
@@ -522,7 +541,7 @@ export default class NewTable extends BaseComponent {
                 } else {
                     try {
                         let type = JSON.parse(match);
-                        if (typeof(JSON.parse(type)) === 'object') {
+                        if (typeof (JSON.parse(type)) === 'object') {
                             return this._syntaxHighlight(JSON.parse(type));
                         } else {
                             cls = 'string';
@@ -564,6 +583,10 @@ export default class NewTable extends BaseComponent {
         let antdColumnConfig = [];
         for (let i in this.columns) {
             let item = this.columns[i];
+            // 如果列为枚举类型，则进行枚举转换
+            if (item.enum && !item.render) {
+                item = this.enum.handleColumn(item);
+            }
             if (!this.state.showAllTags && item.display === false) {
                 // 在展示部分字段下过滤掉不展示的列数据
                 continue;
@@ -574,22 +597,19 @@ export default class NewTable extends BaseComponent {
                 dataIndex: '',
                 // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
                 render: null,
-                sorter: false,
+                sorter: null,
                 colSpan: null,
                 width: '',
                 className: '',
                 fixed: false,
-                sortOrder: false,
+                // 当配置了sorter时，默认自动设置sortOrder为正序
+                sortOrder: !!item.sorter ? 'ascend' : false,
                 onCellClick: null
             };
 
             getNeedObject(defaultColumn, item);
             if (defaultColumn.dataIndex === '_operation') {
                 defaultColumn.className += ' uf-operation';
-            }
-            // 如果列为枚举类型，则进行枚举转换
-            if (item.enum && !item.render) {
-                item = this.enum.handleColumn(item);
             }
             // 用户配置的render是一个uf组件配置，在此转为dom
             if (!!item.render) {
@@ -601,59 +621,14 @@ export default class NewTable extends BaseComponent {
                         config = this.handleAction(config, record);
                     }
                     // 根据是否可编辑状态来判断是否包裹编辑组件
-                    return  this.__analysis(config);
+                    return this.__analysis(config);
                 };
             }
             // 将用户配置的单列筛选选项转换成antd的配置
             if (!!item.filter) {
-                let filter = item.filter;
-                if (!filter.type) {
-                    // 若没有配置type则直接返回
-                    return;
-                }
-                let dataIndex = item.dataIndex;
-                if (filter.type === 'checkbox' || filter.type === 'radio') {
-                    // 多选框或单选框筛选
-                    let filterObj = {
-                        options: null,
-                        filterMultiple: false,
-                        onFilter: null
-                    };
-                    if (!!filter.options) {
-                        // 用户配置了options,则将用户配置进行转换
-                        filterObj.filters = Utils.toOptions(filter.options).map(o => {
-                            return {text: o.label, value: o.value};
-                        });
-                    } else {
-                        // 用户没有配置options，则将该字段的所有可能值展示出来
-                        filterObj.filters = this.getAllFilterValue(dataIndex);
-                    }
-                    filterObj.filterMultiple = filter.type === 'checkbox' ? true : false;
-                    filterObj.onFilter = (value, record) => {
-                        // if (this.serverPaging) {
-                        // } else {
-                        return record[item.dataIndex].indexOf(value) !== -1;
-                        // }
-                    };
-                    defaultColumn = Object.assign({}, defaultColumn, filterObj);
-                }
-                else if (filter.type === 'input') {
-                    // 通过输入筛选
-                    let filterObj = {
-                        filterDropdown: null,
-                        filterIcon: <Icon type="filter"
-                            style={{color: !! this.filterConditions[dataIndex] ? '#108ee9' : '#aaa'}} />
-                    };
-                    filterObj.filterDropdown = (
-                        <div className="custom-filter-dropdown">
-                            <Input placeholder="Search"
-                                value={!!this.filterConditions[dataIndex] ? this.filterConditions[dataIndex] : ''}
-                                onChange={this.filterChange.bind(this, dataIndex)}
-                                onPressEnter={this.onFilterData.bind(this)}
-                            />
-                        </div>
-                    );
-                    defaultColumn = Object.assign({}, defaultColumn, filterObj);
+                let filterConf = this.filter.handleFilterConf(item.filter, item.dataIndex);
+                if (filterConf) {
+                    defaultColumn = Object.assign({}, defaultColumn, filterConf);
                 }
             }
             // 文字过长，鼠标移入时进行气泡展示
@@ -704,8 +679,8 @@ export default class NewTable extends BaseComponent {
                             if (text && json !== '""') {
                                 let html = this._syntaxHighlight(json);
                                 newText = <Popover content={<pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>}>
-                                        <pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>
-                                    </Popover>;
+                                    <pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>
+                                </Popover>;
                             }
                             break;
                         }
@@ -739,12 +714,12 @@ export default class NewTable extends BaseComponent {
                         return displayStr;
                     }
                     return <Edit parent={this} _factory={this._factory}
-                            value={text}
-                            columnChild={displayStr}
-                            editConf = {editableConf}
-                            api = {editableConf.api}
-                            cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
-                        />;
+                        value={text}
+                        columnChild={displayStr}
+                        editConf={editableConf}
+                        api={editableConf.api}
+                        cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
+                    />;
                 };
             }
             antdColumnConfig.push(defaultColumn);
@@ -778,7 +753,7 @@ export default class NewTable extends BaseComponent {
                 {
                     key: 'uf-table-select-all',
                     text: '全选',
-                    onSelect: this._selectAllData.bind(this)
+                    onSelect: this._selectAllData.bind(this, true)
                 }
             ];
             if (Utils.typeof(this.rowSelection.selections, 'array')) {
@@ -804,10 +779,12 @@ export default class NewTable extends BaseComponent {
             },
             current: 1,
             total: 0,
-            onShowSizeChange: this.onShowSizeChange.bind(this),
-            onChange: this.onPageChange.bind(this)
+            onShowSizeChange: null,
+            onChange: null
         };
         getNeedObject(pagination, this.pagination);
+        this._inject(pagination, 'onChange', this.onPageChange.bind(this));
+        this._inject(pagination, 'onShowSizeChange', this.onShowSizeChange.bind(this));
         return pagination;
     }
     render() {
@@ -820,36 +797,38 @@ export default class NewTable extends BaseComponent {
             className += ' uf-table-mini';
             size = 'small';
         }
+        if (this.pagination && this.pagination.layout) {
+            if (this.pagination.layout === 'left') {
+                className += ' uf-table-pagination-left';
+            } else if (this.pagination.layout === 'center') {
+                className += ' uf-table-pagination-center';
+            }
+        }
         let expandedRowRender = this.state.antdConfig.expandedRowRender;
+        let expandedRowKeys = this.state.expandedRowKeys;
         let footer = this.state.antdConfig.footer;
         return <div className={className} style={this.__props.style}>
+            {this.header && (this.__analysis(this.header))}
             <Table {...this.state.antdConfig} size={size}
-                title={this.title && (()=>(
-                    <Title _factory={this._factory} parent={this} ref={ele=>(this.titleRef = ele)} config={this.title}/>
+                title={this.title && (() => (
+                    <Title ref="title" _factory={this._factory} parent={this} config={this.title} />
                 ))}
-                onExpandedRowsChange = {this.onExpandedRowsChange.bind(this)}
-                {...(expandedRowRender
-                    ? {expandedRowRender: record => this.__analysis(expandedRowRender(record))}
-                    : null)
-                }
-                {...(!!this.state.expandedRowKeys ? {expandedRowKeys: this.state.expandedRowKeys} : null)}
-                {...(footer
+                onExpandedRowsChange={this.onExpandedRowsChange.bind(this)}
+                {...(expandedRowRender && ({expandedRowRender: row => this.__analysis(expandedRowRender(row))}))}
+                {...(expandedRowKeys && ({expandedRowKeys: expandedRowKeys}))}
+                {...(footer && (Utils.typeof(footer, 'function')
                     ? {footer: currentPageData => this.__analysis(footer(currentPageData))}
-                    : null)
-                }
+                    : {footer: v => this.__analysis(footer)}
+                ))}
                 dataSource={this.__props.data}
                 columns={this.renderColumns()}
                 rowSelection={this.renderRowSelection()}
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
             {/* 导出功能 */}
-            <Export _factory={this._factory} ref={ele=>(this.exportRef = ele)}
-                style={{display: 'none'}} {...this._getExportConfig()}/>
+            <Export ref="export" _factory={this._factory} style={{display: 'none'}} {...this._getExportConfig()} />
             {/* 增删改查 */}
-            {this.__props.crud && (
-                <Crud _factory={this._factory} parent={this} ref={ele=>(this.crud = ele)}
-                    enum={this.enum} config={this.__props.crud}/>
-            )}
+            <Crud ref="crud" _factory={this._factory} parent={this} enum={this.enum} config={this.__props.crud || {}} />
         </div>;
     }
 }

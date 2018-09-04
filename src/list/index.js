@@ -1,5 +1,5 @@
 /**
- * @file Fieldset组件入口
+ * @file 组件入口
  * **/
 
-module.exports = require('./Fieldset.js').default;
+module.exports = require('./List.js').default;

@@ -1,32 +1,42 @@
-@list-padding: 10px;
+@uf-list-padding: 8px;
+@uf-list-border: 1px solid #e9e9e9;
+@uf-list-bg: #f8f8f8;
 
 .uf-list {
-    .uf-list-ul {
-        list-style: none;
-        li {
-            // border-bottom: 1px dashed #ddd;
-            overflow: hidden;
-        }
-        li:nth-child(odd) {
-            background: #fff;
-        }
-        li:nth-child(even) {
-            background: #f8f8f8;
-        }
-        li:last-child {
-            border-bottom: none;
-        }
-    }
-    .uf-li-title {
-        width: 20%;
+    .uf-list-label {
         font-weight: bold;
-        float: left;
-        padding: @list-padding;
+        padding: @uf-list-padding;
         text-align: right;
-        padding-right: 16px;
+        &::after {
+            content: ':';
+            margin-left: 2px;
+        }
     }
-    .uf-li-value {
-        padding-left: 20%;
-        padding: @list-padding;
+    .uf-list-value {
+        padding: @uf-list-padding;
+    }
+    &.show-border {
+        border: @uf-list-border;
+        .uf-list-row:not(:last-child) {
+            border-bottom: @uf-list-border;
+        }
+        .uf-list-label {
+            border-right: @uf-list-border;
+            &::after {
+                content: '';
+            }
+        }
+        .uf-list-value {
+            border-left: @uf-list-border;
+            margin-left: -1px;
+        }
+    }
+    &.show-bg {
+        background: @uf-list-bg;
+        .uf-list-row {
+            &:nth-child(odd) {
+                background: #fff;
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@
 |----------|----------------|----------|--------------|
 | value    | 指定当前选中的条目 | string&#124;string[] |  -  |
 | defaultValue | 指定默认选中的条目 | string&#124;string[] |  -  |
-| mode | 设置 Select 的模式 | 'multiple' &#124; 'tags' &#124; 'combobox' | - |
+| mode | 设置 Select 的模式。分为多选`multiple`、标签`tags`、任意输入`combobox` | 'multiple' &#124; 'tags' &#124; 'combobox' | - |
 | allowClear   | 支持清除 | boolean | false |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 `true`，反之则返回 `false`。 | boolean or function(inputValue, option) | true     |
 | onSelect | 被选中时调用，参数为选中项的 value (或 key) 值 | function(value, option) | -   |
@@ -38,6 +38,9 @@
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |
+| defaultFirst | 默认选中第一个，仅使用source时可用 | string[] |  |
+| defaultSelectAll | 默认全选，仅使用source时可用 | string[] |  |
+
 
 ### 函数调用
 > 组件自身带有的函数，调用方法如：`UF('select').selectAll(true)`。
@@ -45,6 +48,8 @@
 参数       | 说明           | 参数    
 -----------|----------------|-----------
 selectAll  | 适用于多选模式下的下拉框，进行全选或取消全选 |  selectAll(boolean)  
+getValue  | 获取当前选中的值 |  getValue()  
+getDisplayValue  | 获取当前选中的展示内容（label值） |  getDisplayValue()  
 
 
 > 注意，如果发现下拉菜单跟随页面滚动，或者需要在其他弹层中触发 Select，请尝试使用 `getPopupContainer={triggerNode => triggerNode.parentNode}` 将下拉弹层渲染节点固定在触发器的父元素中。

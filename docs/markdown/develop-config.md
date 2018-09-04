@@ -91,7 +91,7 @@ UF.config({
 
 ##### 另一种用法：
 
-除了上面给通用组件声明全局配置，还可以定义自定义配置作为配置模板，以在开发时在指定地方复用。需配合组件通用配置属性`configTpl`，用法如下：
+除了上面给通用组件声明全局配置，还可以定义配置作为自定义组件，以在开发时按照真正的组件使用。用法如下：
 
 ```javascript
 UF.config({
@@ -105,15 +105,12 @@ UF.config({
 });
 UF.init({
     name: 'test-picker',
-    type: 'date-picker', 
-    configTpl: 'my-datepicker',
+    type: 'my-datepicker', 
     allowClear: false
 }, '#demo');
 ```
 
-如上面示例，首先在config中定义了一个名为'my-datepicker'配置模板，因为没有和任何组件type匹配，所以不会设置到任何组件的全局配置中。当在下面使用组件时，通过`configTpl`属性引入了'my-datepicker'，则config中定义的配置会直接复用到当前组件中。
-
-> 配置的优先级是：默认配置 < configTpl引入的配置 < 组件中定义的配置
+如上面示例，首先在config中定义了一个名为'my-datepicker'的自定义组件配置。当在下面使用type为'my-datepicker'的组件时，最终会找到config.components中定义的自定义组件，并将其配置加以复用，并可在组件中覆盖自定义组件中定义的默认属性。
 
 
 ### # plugins
@@ -128,7 +125,7 @@ UF.init({
 
 参数 | 说明 | 类型 | 是否必填
 ---- | ---- | ----- | ----
-name | 载入之后的模块名称，和使用组件时的`type`一致 | string | 必填
+name | 载入之后的模块名称，和使用组件时的`type`一致。当不配置name时，认为通过path加载到的为多个组件，各个组件名称和包内定义的值保持一致 | string | 
 path | 模块完整路径 | string | 必填
 
 ```javascript

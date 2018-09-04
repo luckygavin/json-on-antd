@@ -19,8 +19,7 @@ layout | 表单布局，支持三种常见布局，见`# layout` | object | |
 size | 控件大小。可选 `large` `default` `small` | string | `large` |
 items | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须
 buttons | 表单的按钮配置，见`# buttons` | object[] | |
-formData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表
-单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |
+formData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |
 formDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |
 beforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |
 beforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |
@@ -37,13 +36,52 @@ column | 分成多列布局（不是特别好用，推荐使用分组功能，�
 labelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6
 wrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14
 
+**注意：在使用column布局时**  
+默认会对`items`中的全部项进行计算并按设置的列进行布局。但是当表单项不被`column`整除时，展示并不友好。  
+例如：items中有4项，而column为3，这样最后一行只有一项，后面都以此为例子说明。此处有两种处理方式：  
+> * 使用`{type: 'empty'}`做“凑数”组件，以保证多余的表单项能和其余表单项保持在所在行中占比一致，即最后一项只占最后一行的三分之一；
+> * 使用`null`作为“凑数”组件，计算列时会把`null`计算到布局列中，实际展示时会剔除掉，即最后一项占据最后一行的整行（一般会搭配表单项的layout属性使用）
+
+```javascript
+// 方法1：
+layout: {
+    column: 3
+},
+items: [
+    {type: 'input', name: 'a'},
+    {type: 'input', name: 'b'},
+    {type: 'input', name: 'c'},
+    {type: 'input', name: 'd'},
+    {type: 'empty'},
+    {type: 'empty'}
+]
+
+// 方法2：
+layout: {
+    column: 3,
+    labelCol: 9,
+    wrapperCol: 12
+},
+items: [
+    {type: 'input', name: 'a'},
+    {type: 'input', name: 'b'},
+    {type: 'input', name: 'c'},
+    {type: 'input', name: 'd', layout: {labelCol: 3, wrapperCol: 20}},
+    null,
+    null
+]
+```
+> d表单项layout中的3和20的计算公式为：  
+> labelCol = 9 / 3  
+> wrapperCol = 24 - labelCol - (24 - (9 + 12)) / 3  
+> 以上数字：固定值 (24)，总layout.labelCol (9)，总layout.wrapperCol (12)，总layout.column (3)
 
 #### *item*
 
 参数名称 | 说明 | 类型 | 默认值 | 是否必须
 ----- | --- | ---------| --- | ---
 type | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须
-name | 表单域名称，key，提交时以此名称为键。当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示 | string | |
+name | 表单域名称，key，提交时以此名称为键。**当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示（可在内部再嵌套输入组件）** | string | |
 label | 表单域左侧的label | string | | 必须
 default | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |
 join | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部示例 | object | | 
@@ -53,10 +91,28 @@ required | 是否必选 | boolean | `false`
 rules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |
 regionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |
 
-> **注意：** 使用自定义组件时
+**注意：** 使用自定义组件时
 > * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。
 > * 提供 onChange 事件或 trigger 的值同名的事件。
 > * 不能是函数式组件
+
+**注意2：** 不配置name属性
+> 当组件不配置name时，组件会作为一个纯展示类组件进行解析展示，不会再对其获取数据和设置数据，也无法操作。同时，其内部可以再次嵌套具有name属性的输入型组件。见下面例子：
+
+```javascript
+{
+    items: [{
+        type: 'div',
+        style: {background: 'green'},
+        content: {
+            type: 'input',
+            name: 'name',
+            label: '名称'
+        }
+    }]
+}
+```
+更高级的用法，比如可使用表格布局表单；再比如使用Row/Col组件自定义布局。
 
 
 #### *buttons*
@@ -117,6 +173,7 @@ normalize | 转换默认的 value 给控件. [一个选择全部的例子](https
 函数名称 | 说明 | 参数 |  默认值
 ---- | ---- | ----- | ----- 
 getValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |
+getDisplayValues | 获取全部表单项展示给用户的值。比如下拉选择框，展示给用户的值和最终提交的内容不同。效果可见demo的自定义按钮 | getDisplayValues() |
 resetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |
 clearValues | 清除表单。有别于重置 | clearValues() |
 resetItem | 重新设置某个表单项的配置 | resetItem(targetName, conf) |

@@ -14,6 +14,7 @@ module.exports = Object.assign(
         // Dom: require('./dom'),
         Iframe: require('./iframe'),
 
+        AutoComplete: require('./auto-complete'),
         Export: require('./export'),
         Tree: require('./tree'),
         Table: require('./table'),
@@ -22,6 +23,7 @@ module.exports = Object.assign(
         Modal: require('./modal'),
         Ueditor: require('./ueditor'),
         Echarts: require('./echarts'),
-        Fieldset: require('./fieldset')
+        Fieldset: require('./fieldset'),
+        List: require('./list')
     }
 );

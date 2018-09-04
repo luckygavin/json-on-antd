@@ -47,17 +47,22 @@ const Step1 = {
                 }
             },
             {
-                type: 'select',
-                label: '机房',
-                name: 'idc_id',
-                rules: {required: true, message: '机房不能为空'},
-                source: {
-                    autoLoad: false,
-                    url: 'docs/php/data.php',
-                    handler: data=>data.map(v=>{
-                        return {value: v.name, label: v.name};
-                    })
-                }
+                // 这一层为测试嵌套组件在form中的使用，平时无需使用
+                // type: 'div',
+                // style: {background: '#ccc'},
+                // content: {
+                    type: 'select',
+                    label: '机房',
+                    name: 'idc_id',
+                    rules: {required: true, message: '机房不能为空'},
+                    source: {
+                        autoLoad: false,
+                        url: 'docs/php/data.php',
+                        handler: data=>data.map(v=>{
+                            return {value: v.name, label: v.name};
+                        })
+                    }
+                // }
             }
         ],
         [
@@ -106,7 +111,7 @@ const Step1 = {
                     bandwith: {display: v=>!!+v},
                     line_type: {display: v=>!!+v},
                     port_type: {display: v=>!!+v},
-                    is_converge: {display: v=>!!+v}
+                    is_converge: {display: v=>!!+v, value: 0}
                 },
                 options: [
                     {value: '0', label: 'VPN'},
@@ -258,10 +263,10 @@ const Step1 = {
                 action: 'test',
                 type: '',
                 value: '自定义',
-                // size: 'large',
                 icon: 'copy',
                 onClick: data=>{
-                    console.log('自定义按钮');
+                    // console.log('自定义按钮');
+                    console.log(UF('my-form1').getDisplayValues());
                 }
             }
         ]

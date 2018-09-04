@@ -1,3 +1,5 @@
+@operate-icon-color: #8c959d;
+
 .uf-form {
     &.uf-form-inline {
         margin: 15px 0 5px 0;
@@ -24,6 +26,13 @@
             }
         }
     }
+    // 多列布局时，默认每列内容宽度为100%，保持对齐
+    // &.uf-form-multiseriate {
+    //     .ant-form-item-control,
+    //     .ant-form-item-control>* {
+    //         width: 100%;
+    //     }
+    // }
     .header {
         h5 {
             font-size: 14px;
@@ -50,11 +59,82 @@
 }
 
 /**Forms组件样式**/
-.uf-forms-container {
+.uf-forms {
+    overflow: hidden;
     // 消除最后一行产生的下边距
     margin-bottom: -12px;
+    // 表格表单布局
+    .table-forms {
+        display: table;
+        width: 100%;
+        .thead-div {
+            display: table-header-group;
+            text-align: center;
+            // th
+            .th-div {
+                display: table-cell;
+                font-weight: 700;
+                height: 36px;
+                padding: 2px;
+                vertical-align: middle;
+                background: @table-header-bg;
+                border: 1px solid @border-color-split;
+                color: @heading-color;
+                &:not(:first-child) {
+                    border-left: 0px;
+                }
+                .operate-add {
+                    margin: 0 2px;
+                    color: @operate-icon-color;
+                    cursor: pointer;
+                }
+            }
+        }
+        .tbody-div {
+            display: table-row-group;
+            // tr
+            &>* {
+                display: table-row;
+                // td
+                &>* {
+                    display: table-cell;
+                    padding: 2px;
+                    border-right: 1px solid @border-color-split;
+                    border-bottom: 1px solid @border-color-split;
+                    &:first-child {
+                        border-left: 1px solid @border-color-split;
+                    }
+                }
+            }
+            // 修改原样式
+            .ant-form-item-label {
+                display: none;
+            }
+            .ant-form-item-control-wrapper,
+            .ant-form-item-control,
+            .ant-form-item-control>* {
+                width: 100%;
+            }
+            .ant-form-item-control-wrapper .ant-form-explain {
+                position: relative;
+            }
+            // 操作按钮
+            .operate {
+                vertical-align: middle;
+                color: @operate-icon-color;
+                font-size: 14px;
+                padding: 0 4px;
+                text-align: center;
+                min-width: 50px;
+                .anticon {
+                    margin: 0 2px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }
-.uf-forms {
+.uf-forms-item {
     width: 100%;
     padding-right: 60px;
     position: relative;
@@ -70,16 +150,7 @@
         width: 60px;
         right: 0px;
         top: 0px;
-        .addFormIcon, .deleteFormIcon {
-            // display: inline-block;
-            // height: 50%;
-            // width: 100%;
-            float: left;
-            font-size: 14px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
-        .deleteFormIcon {
+        .delete-form-icon {
             margin-left: 5px;
         }
         // antd-buttons样式覆盖
@@ -88,4 +159,11 @@
             padding-right: 5px;
         }
     }
+}
+.add-form-icon,
+.delete-form-icon {
+    float: left;
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

@@ -39,13 +39,15 @@ export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
     // api 系列参数有： url,method,params,handler,trigger
     'api',
     // 组件额外动作及组件关联相关属性
-    'control'
+    'control',
+    // 隐藏组件
+    'hidden'
 ]);
 
 
 // 因为组件很少使用 props 和 state，某些时候需要组件刷新的。例如面包屑组件
 export default class BaseComponent extends Component {
-// export default class BaseComponent extends PureComponent {
+    // export default class BaseComponent extends PureComponent {
     // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
     constructor(props, type) {
         super(props);
@@ -70,13 +72,15 @@ export default class BaseComponent extends Component {
             // 一些隐藏的属性
             ['__cache', '__type', '__key', '_factory', '_selfCalling'],
             // 二次解析白名单里的属性的原值存储在 _${v} 中
-            WhiteList.getall(this.type).map(v=>`_${v}`)
+            WhiteList.getall(this.type).map(v => `_${v}`)
         );
-        this._innerFilter = this._filter.filter(v=>v.indexOf('_') === 0);
+        this._innerFilter = this._filter.filter(v => v.indexOf('_') === 0);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex = Utils.copy(Uncomplex);
         // 开放给用户使用的 Api，需处理下
         this._openApi = ['set', 'get', 'show', 'hide', 'loading', 'reload'];
+        // 可用于链式调用的API
+        this._chainedApi = ['set', 'show', 'hide', 'loading', 'reload'];
         // 存储一些程序执行过程中的数据
         this._tempData = {};
         // 临时存储组件更新之后执行的逻辑。类似于 setState 之后的回调函数（但是 forceUpdate 没有）
@@ -92,7 +96,7 @@ export default class BaseComponent extends Component {
     _getDefautlProps() {
         let conf = this._factory.$config.get(`components.${this.type}`) || {};
         // 取中间各基类的默认配置，并合并全部配置
-        let confArr = this.class.map(v=>(this._factory.$config.get(`components.${v}`) || {}));
+        let confArr = this.class.map(v => (this._factory.$config.get(`components.${v}`) || {}));
         conf = this.__mergeProps(...confArr, conf);
         return conf;
     }
@@ -115,32 +119,65 @@ export default class BaseComponent extends Component {
     _componentWillReceiveProps(nextProps, currentProps) {
         // cwr函数执行很频繁，这里对一些props不变的情况进行一些过滤
         currentProps = !Utils.empty(currentProps) ? currentProps : this.props;
-        // 如果不是内部调用set（即真正的cwr生命周期），且设置了autoReload为true，则重新加载数据
-        //   也就是说 autoReload 仅仅针对父组件刷新是否刷新子组件的场景，自己set自己autoReload无效
-        let autoReload = !nextProps._selfCalling && this.__filtered.source.autoReload;
-        // autoReload，可以使组件无论如何都进行刷新
-        if (this.__shouldUpdate(currentProps, nextProps) || autoReload) {
+
+        let reGetData = false;
+        // 更新 __props
+        if (this.__shouldUpdate(currentProps, nextProps)) {
             // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-            let reGetData = nextProps.source && Utils.isChange(
-                this.__formatApi(nextProps.source),
-                this.__filtered.source
-            ) || Utils.isChange(
-                nextProps.params,
-                this.__props.params
-            );
+            reGetData = nextProps.source
+                && Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source)
+                // 由于isChange对于子集的情况无效，对于标记为非复杂属性，需使用equals做检测
+                || !Utils.equals(
+                    nextProps.params,
+                    this.__props.params
+                );
             // 重新设置 __props
             // 如果为自身调用，则只传入待更新的值。否则传入整个nextProps（外部刷新）
             this.__setProps(nextProps._selfCalling || nextProps);
-            // 自动重新加载的两种情况：
-            // 1、如果source参数变化，则重新获取数据（此时 __props 已变更完成）
-            // 2、如果设置了autoReload为true，则重新加载数据
-            if (reGetData || autoReload) {
-                // 改为异步执行，保证获取数据前，组件自定义的cwr函数的逻辑也执行完毕
-                setTimeout(()=>{
-                    this._handleAsyncData();
-                }, 0);
-            }
         }
+
+        // 判断是否重新加载数据
+        this._tryReloadData(reGetData, nextProps._selfCalling);
+    }
+    // 自动重新加载数据
+    _tryReloadData(reGetData, selfCalling) {
+        /**
+         * 自动重新加载概括起来讲，分几种判断条件：
+         *  1、是否为自身set (selfCalling，除此之外还有cwr生命周期)
+         *  2、是否发生了source参数变化（reGetData）
+         *  3、是否设置过source参数（isSetSource，对应的为set了source参数(不管有没有变化)，注意和reGetData两者有交集但互不包含）
+         *
+         * 自动重新加载有几种不同的等级，对应参数值依次为：
+         *  1、true: 范围最宽，source参数变动、自身set source参数、父组件刷新都会触发
+         *  2、'set': source参数变动、自身set source参数都会更新
+         *  3、false: 只有params或者source变化时才会更新
+         *  4、'never': 则永远不更新，除非手动调用 reload 函数
+         *
+         * 一般组件默认为false
+         */
+        let autoReload = this.__filtered.source.autoReload;
+        let isSetSource = selfCalling && (selfCalling.source || selfCalling.params);
+        switch (autoReload) {
+            case true:
+                if (selfCalling && !isSetSource && !reGetData) {
+                    return;
+                }
+                break;
+            case 'set':
+                if (!isSetSource && !reGetData) {
+                    return;
+                }
+                break;
+            case 'never':
+                return;
+            case false:
+            default:
+                if (!reGetData) {
+                    return;
+                }
+        }
+        // 改为异步执行，保证获取数据前，组件自定义的cwr函数的逻辑也执行完毕
+        Utils.defer(this._handleAsyncData.bind(this));
     }
 
     // componentDidMount 中注入的处理逻辑
@@ -179,6 +216,9 @@ export default class BaseComponent extends Component {
 
     // 执行完 __setProps 后附加的逻辑，由子类自行实现
     _afterSetProps() {}
+
+    // 执行完 _initProps 后附加的逻辑，由子类自行实现
+    _afterInitProps() {}
 
     // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
     setState(...params) {
@@ -233,13 +273,7 @@ export default class BaseComponent extends Component {
     // 隐藏组件
     // 子组件中有可能重写
     hide() {
-        let oStyle = this.__props.style || {};
-        this._tempData.display = oStyle.display;
-        this.__setProps({
-            style: Object.assign({}, oStyle, {
-                display: 'none'
-            })
-        });
+        this.__setProps({hidden: true});
     }
     // 展示组件
     show() {
@@ -249,7 +283,7 @@ export default class BaseComponent extends Component {
         } else {
             style.display = undefined;
         }
-        this.__setProps({style});
+        this.__setProps({style, hidden: false});
     }
     // 展示 loading 效果
     loading(__showLoading = true) {
@@ -265,12 +299,41 @@ export default class BaseComponent extends Component {
     refresh() {
         // 取出全部二次解析的属性，并重新解析一次
         let newProps = {};
-        WhiteList.getall(this.type).forEach(v=>{
+        WhiteList.getall(this.type).forEach(v => {
             let oItem = this.__filtered[`_${v}`];
             oItem && (newProps[v] = oItem);
         });
         this.set(newProps);
     }
+    // 产生快捷操作某个参数的api
+    // 比如可以通过 component.source.set 等直接操作 source 参数（不会触发reload）
+    // operator(targetStr) {
+    //     let self = this;
+    //     let target = Utils.fromObject(targetStr, this.__filtered) || Utils.fromObject(targetStr, this.__props);
+    //     return {
+    //         get(key) {
+    //             if (key) {
+    //                 return target[key];
+    //             }
+    //             return target;
+    //         },
+    //         set(key, value) {
+    //             let params = {};
+    //             if (Utils.typeof(key, 'object')) {
+    //                 params = key;
+    //             } else {
+    //                 params[key] = value;
+    //             }
+    //             return Object.assign(target, params);
+    //         },
+    //         delete(key) {
+    //             if (target[key] !== undefined) {
+    //                 delete target[key];
+    //             }
+    //             return target;
+    //         }
+    //     };
+    // }
 
     /* 供子组件调用方法 ***********************************************************************/
 
@@ -287,6 +350,8 @@ export default class BaseComponent extends Component {
 
         // 后面传入组件的参数用 __props 代替 props
         this._initProps();
+        // 执行完 _initProps 后附加的逻辑
+        this._afterInitProps();
 
         // 处理数据绑定页面
         // this._handleModel();
@@ -319,15 +384,18 @@ export default class BaseComponent extends Component {
     //      原因，函数需要额外注入处理，各个函数各不相同，未统一，无法直接更新到__props。所以在_filterHandler中把传入的函数过滤掉了
     // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
     // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
-    __setProps(nextProps, follow) {
+    //  注：isInit只有_initProps时会用到
+    __setProps(nextProps, follow, isInit = false) {
         // 如果组件已销毁，则不再进行任何操作
         if (this.unmounted) {
             return;
         }
         // 去除掉多余的属性（解决报warning问题）
-        let __props = this._filterHandler(nextProps, true);
+        // 因为初始化的时候对函数有额外处理，所以暂时不能随意更改函数属性，需全部过滤
+        // 但是初始化时，需把this.props上的全部赋值给__props，所以是否过滤函数需要增加判断
+        let __props = this._filterHandler(nextProps, !isInit);
         this.__prevProps = this.__props;
-        this.__props =  this.__mergeProps({}, this.__props, __props);
+        this.__props = this.__mergeProps({}, this.__props, __props);
         // 执行附加逻辑
         this._afterSetProps();
         if (follow !== false) {
@@ -372,13 +440,13 @@ export default class BaseComponent extends Component {
 
     // ajax通用方法
     __ajax(config) {
-        this._inject(config, 'success', ()=>{
+        this._inject(config, 'success', () => {
             // 增加逻辑：如果组件已销毁，则不再往下执行
             if (this.unmounted) {
                 return false;
             }
         });
-        this._inject(config, 'error', ()=>{
+        this._inject(config, 'error', () => {
             // 增加逻辑：如果组件已销毁，则不再往下执行
             if (this.unmounted) {
                 return false;
@@ -407,9 +475,9 @@ export default class BaseComponent extends Component {
     // 否则，根据返回的是否为false判断要执行成功还是失败
     __compatePromise(result, success, error) {
         if (result instanceof Promise) {
-            result.then(()=>{
+            result.then(() => {
                 success && success();
-            }).catch(()=>{
+            }).catch(() => {
                 error && error();
             });
         } else if (result !== false) {
@@ -436,7 +504,7 @@ export default class BaseComponent extends Component {
         this.__execAjax({
             // 用户配置的source中的其他参数直接传入
             ...others,
-            onchange: !showLoading ? onchange  : status => {
+            onchange: !showLoading ? onchange : status => {
                 this._handleSourceLoading(status, showLoading);
                 onchange && onchange(status);
             }
@@ -444,27 +512,38 @@ export default class BaseComponent extends Component {
     }
     // 处理source系列接口参数的通用逻辑（例如handler处理）
     __execAjax(conf, usePromise = false) {
-        let {url, params, paramsHandler, handler, success, onSuccess, error, onError, ...others} = conf;
-        if (paramsHandler) {
-            // 如果paramsHandler返回结果为false，则阻止ajax请求
-            //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求
-            let result = paramsHandler(params);
-            // 使用时需注意，如果调用之外有额外的状态控制，例如loading没写到onchange里，则需要自己额外写判断逻辑恢复状态
-            if (result === false) {
+        let {url, params, _paramsHandler, paramsHandler, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
+        if (url) {
+            // 额外增加对参数预处理逻辑，不暴露给用户使用
+            if (false === (_paramsHandler && (params = _paramsHandler(params)))) {
                 return false;
             }
-            params = result || params;
-        }
-        if (url) {
+            if (paramsHandler) {
+                // 如果paramsHandler返回结果为false，则阻止ajax请求
+                //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求
+                let result = paramsHandler(params, this);
+                // 使用时需注意，如果调用之外有额外的状态控制，例如loading没写到onchange里，则需要自己额外写判断逻辑恢复状态
+                if (result === false) {
+                    return false;
+                }
+                params = result !== undefined ? result : params;
+            }
             return new Promise((resolve, reject) => {
                 this.__ajax({
                     // 其他参数直接传入
                     ...others,
                     url: url,
                     params: params,
-                    success: (data, res)=>{
+                    success: (data, res) => {
+                        if (false === (_handler && (data = _handler(data, res)))) {
+                            return false;
+                        }
                         // 如果用户定义了数据处理函数，先对数据进行处理
                         handler && (data = handler(data, res, this));
+                        // 两个handler都可以通过return false 阻止后续逻辑
+                        if (data === false) {
+                            return;
+                        }
                         // 实际的调用处传入的成功处理逻辑
                         success && success(data, res);
                         // 成功后的额外操作
@@ -475,8 +554,9 @@ export default class BaseComponent extends Component {
                         // 实际的调用处传入的失败处理逻辑
                         let result = error && error(res);
                         usePromise && reject();
+                        let userResult = onError && onError(res);
                         // 失败后额外操作
-                        return onError && onError(res) || result;
+                        return userResult !== undefined ? userResult : result;
                     }
                 });
             });
@@ -493,7 +573,8 @@ export default class BaseComponent extends Component {
             }
             loadingConf.spinning = true;
         }
-        this.loading(loadingConf);
+        // DataEntry里重写了loading，会用到showLoading参数
+        this.loading(loadingConf, showLoading);
     }
 
     /* 私有方法 ***********************************************************************/
@@ -508,6 +589,7 @@ export default class BaseComponent extends Component {
                 if (this._filter.indexOf(i) === -1) {
                     // 过滤掉为函数的属性
                     // 如果设置不过滤函数、或者不为函数、或者__props上没有此属性
+                    // if (!filterFunc || !Utils.typeof(props[i], 'function') || !Utils.typeof(this.__props[i], 'function')) {
                     if (!filterFunc || !Utils.typeof(props[i], 'function') || !this.__props[i]) {
                         newProps[i] = props[i];
                     }
@@ -534,13 +616,8 @@ export default class BaseComponent extends Component {
         // 因为会对函数进行绑定、注入等操作，所以仅在 init 时把配置的函数转移到__props上，之后不会再更新函数
         // this._setPropsFunctions();
         // 然后把组件原props作为新值传给__setProps做合并
-        this.__setProps(this.props, false);
-        // 执行附加逻辑
-        this._afterInitProps();
+        this.__setProps(this.props, false, true);
     }
-
-    // 执行完 _initProps 后附加的逻辑，由子类自行实现
-    _afterInitProps() {}
 
     // 把 this.props 上配置的函数转移到 this.__props 上
     // _setPropsFunctions() {
@@ -588,6 +665,17 @@ export default class BaseComponent extends Component {
                 this[v] = this[v].bind(this);
             }
         }
+        // 可用于链式调用的api，执行完成后返回当前组件
+        for (let v of this._chainedApi) {
+            if (Utils.typeof(this[v], 'function')) {
+                this[v] = this[v].bind(this);
+                let origin = this[v];
+                this[v] = (...p) => {
+                    origin.call(this, ...p);
+                    return this;
+                };
+            }
+        }
     }
 
     // 把父组件定义的 需在React的生命周期中的7个函数中增加的处理逻辑 注入到对应的7个函数中
@@ -618,7 +706,7 @@ export default class BaseComponent extends Component {
             let inject = this.__filtered[f];
             if (inject) {
                 for (let v of ForUserApi[f].split(',')) {
-                    this._inject(this, v, ()=>{
+                    this._inject(this, v, () => {
                         let result = inject.call(this, this.__props, this);
                         // 组件渲染/刷新前可以让用户有机会改参数
                         if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
@@ -643,7 +731,7 @@ export default class BaseComponent extends Component {
     _injectControl() {
         let {trigger, target} = this.__filtered.control;
         if (target) {
-            this._inject(this.__props, trigger, (...para)=>{
+            this._inject(this.__props, trigger, (...para) => {
                 let {type, params, handler, preventDefault = true, stopPropagation = true} = this.__filtered.control;
                 // 阻止默认事件及冒泡
                 if (Utils.typeof(para[0], 'object') && para[0].preventDefault) {
@@ -815,6 +903,11 @@ export default class BaseComponent extends Component {
                 {render.call(this)}
             </Spin>;
         }
+        // 隐藏组件，如果组件隐藏，则不再进行render
+        //  TODO: 待观察，如果有问题，可以改为外出嵌套display:none的div实现
+        if (this.__filtered.hidden === true) {
+            return null;
+        }
         return render.call(this);
     }
 
@@ -822,19 +915,6 @@ export default class BaseComponent extends Component {
     // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前
     _inject(parent, target, newFunc, oldAhead) {
         return Utils.inject(parent, target, newFunc, oldAhead, this);
-        // let origin = parent[target];
-        // parent[target] = !!origin
-        //     ? (...params) => {
-        //         // return原函数执行结果
-        //         let result;
-        //         oldAhead ? (result = origin.call(this, ...params)) : null;
-        //         let newResult = newFunc.call(this, ...params);
-        //         // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
-        //         !oldAhead && newResult !== false ? (result = origin.call(this, ...params)) : null;
-        //         return result;
-        //     }
-        //     : newFunc.bind(this);
-        // return parent;
     }
 
 }

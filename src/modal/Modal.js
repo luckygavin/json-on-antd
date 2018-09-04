@@ -42,6 +42,10 @@ class NewModal extends BaseComponent {
             let formConf = this.__props.form;
             if (Utils.typeof(formConf, 'function')) {
                 formConf = formConf();
+                // 如果form为函数，则认为用户想要每次都刷新form整个配置，所以此处给form.key一个随机值，使form强制刷新
+                if (formConf.key === undefined) {
+                    formConf.key = Utils.uniqueId();
+                }
             } else {
                 // 如果是
                 delete this.__props.form;
@@ -158,7 +162,22 @@ class NewModal extends BaseComponent {
         }
         return result;
     }
-
+    // 根据用户配置的 posRank 对展示内容进行排序
+    // 默认顺序是：render|content|form
+    getChildrenRank() {
+        let map = {
+            render: this.__props.renderContent,
+            content: this.__props.children,
+            form: this.__props.formContent
+        };
+        let rank = ['render', 'content', 'form'];
+        if (this.__props.posRank) {
+            let arr = this.__props.posRank.split('|');
+            // 去重并取后三个，防止用户传入非规定的字符串导致程序异常
+            rank = Utils.distinct(arr.concat(rank)).splice(-3);
+        }
+        return rank.map(v=>map[v]);
+    }
     render() {
         // footer是在组件中解析的，解析后放置在footerContent中
         let selfProps = {
@@ -167,11 +186,12 @@ class NewModal extends BaseComponent {
         if (this.__props.footerContent) {
             selfProps.footer = this.__props.footerContent;
         }
-        // Modal中展示的内容书序是：render > content > form
+        // 获取排序后的结果
+        let children = this.getChildrenRank();
         return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps} className="uf-modal">
-            {this.__props.renderContent}
-            {this.__props.children}
-            {this.__props.formContent}
+            {children[0]}
+            {children[1]}
+            {children[2]}
         </Modal>;
     }
 }

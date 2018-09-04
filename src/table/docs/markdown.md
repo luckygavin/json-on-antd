@@ -26,10 +26,10 @@
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
-| footer | 表格尾部         | Function(currentPageData)   | |
+| footer | 表格尾部         | Function(currentPageData) &#124; `config`  | |
 | title  | 表格标题栏配置,可配置题目及表格控件，见下方[`title`](#/Table/-title-)     | string &#124; object   | - |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
-| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`hanlder`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
+| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`handler`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
 | source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | 
 | source.autoReload | 特别提醒下source下面的`autoReload`参数，是否组件刷新时自动重新加载数据 | boolean | true | 
 | params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | 
@@ -49,7 +49,6 @@
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string &#124; `config` | - |
-| key        | React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string          | - |
 | display    | 默认是否展示列当前列             | boolean | true |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |
 | enum      | 枚举列表。指定当前列展示内容，根据列表里的内容进行转换。用法见下面说明 | array&#124;`source` | -  |
@@ -57,7 +56,7 @@
 | width      | 列宽度 | string&#124;number | -  |
 | className  | 列的 className             | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
-| render     | 生成复杂数据的渲染函数，参数分别为当前行的值，当前行数据，行索引，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record, index) {} | - |
+| render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record) {} | - |
 | filter    | 表头的筛选设置，详见下方`columns.filter`           | Object           | - |
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
@@ -67,13 +66,14 @@
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
 
-> **`enum`有两种用法:**  
+**`enum`有两种用法:**  
 > 1、直接列举出全部值，格式为:`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值（*value也可以是一个组件配置*）  
 > 2、枚举的值为通过接口取得，则enum为一个对象，格式为：`enum: {url: '',handler(){}}`, 通过url获取过来的数据通过handler函数处理并return，处理后的数据格式如上面1中的格式即可。其余参数可参考[`source`](#/Params/-source-)系列参数的用法
 
-> **`enum`更多应用场景**  
+**`enum`更多应用场景**  
 > 1、新增、编辑的输入框的表单元素里，如果存在表格里配置了枚举类型的字段，当元素为select、radio等具有options属性且没有配置options，组件会自动把枚举的列表添加到该元素上。  
-> 2、批量新增、批量编辑的keys列表里，如果存在表格里配置了枚举类型的字段，则对应字段也会自动做转换：批量编辑时自动填入的数据是转换之后的值；新增和编辑后提交到后端会自动再转换回id；
+> 2、批量新增、批量编辑的keys列表里，如果存在表格里配置了枚举类型的字段，则对应字段也会自动做转换：批量编辑时自动填入的数据是转换之后的值；新增和编辑后提交到后端会自动再转换回id；  
+> 3、每个字段的翻译结果都会追加到每行的原数据中，查看详情、模糊搜索时可以直接从行数据中获取到，字段命名规则为`${dataIndex}_fyi`
 
 具体使用可见 [Table Crud](#/Custom/TableCrud) 中Demo的名称字段（idcId）的展示/新增/编辑/批量编辑，以及提交数据时的对应的字段内容
 
@@ -166,7 +166,7 @@ columns: [
 | current          | 当前页数                           | number        | -                   |
 | pageType         | 分页类型：前端分页时值为`client`, 后端分页值为`server`,为后端分页时每切换一页会去后端取数据，当采用后端分页时除了传递指定的params外，还会传递`page` `size` `pageType`三个字段，`page`为要获取的第几页 `size`为获取数据条数 `pageType`为分页方式   | string | client |
 | pageSize         | 每页条数   | number | 10 |
-| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |                      |
+| onChange         | 页码改变的回调，参数是改变后的页码及每页条数 | Function(page, pageSize)      |    |
 | showSizeChanger  | 是否可以改变 pageSize              | boolean        | false                    |
 | pageSizeOptions  | 指定每页可以显示多少条             | string[] | ['10', '20', '30', '40'] |
 | onShowSizeChange | pageSize 变化的回调                | Function(current, size)      |                      |
@@ -175,6 +175,8 @@ columns: [
 | simple           | 当添加该属性时，显示为简单分页     | boolean        |                      |
 | total            | 数据总数      | number        |                       |
 | showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |
+| layout           | 设置分页布局，可以设置在左侧展示还是在右侧。可选值：`left`、`right`    | string        | 'right'  |
+| paramIndex       | 更改请求中的分页参数名称  | object        | {page: 'page', size: 'size'} |
 
 
 #### *title*
@@ -212,9 +214,11 @@ setPageSize |  设置分页条数 |
 | name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |
 | icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |
 | text | 按钮文字 | String |  |
+| action | 同`column._operation`的action | String |  |
 | onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |
 | blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |
 | whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |
+| paramIndex | 后端分页时，`filter`控件会向后端发送请求，可以通过此参数修改请求携带的参数名称，默认值为`'search'` | string | 仅`filter`控件有效 |
 | cache | 是否开启缓存。会永久保存用户自己选择的要展示的字段（默认开启） | boolean | 仅`switchTags`控件有效 | 
 
 

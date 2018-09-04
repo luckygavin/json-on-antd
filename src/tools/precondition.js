@@ -13,7 +13,7 @@ export default generate(function (insName) {
     return {
         count: 0,
         // 设置预处理超时时间 30s
-        delay: 30000,
+        delay: 60000,
         timer: null,
         success() {
             --this.count;
@@ -45,7 +45,6 @@ export default generate(function (insName) {
             this.timer = setTimeout(()=>{
                 this.count = 0;
                 this.error('预加载数据超时！');
-                this.success();
             }, this.delay);
         }
     };

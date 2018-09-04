@@ -247,6 +247,7 @@ const utils = {
         return false;
     },
     // 检查是否有改变内容
+    //  注意：newVal是oldVal的子集且值没有变化时，返回的是false
     isChange(newVal, oldVal) {
         // 检测类型，类型一致才继续后续的对比
         if (this.getType(newVal) !== this.getType(oldVal)) {
@@ -286,6 +287,25 @@ const utils = {
             result.push(callback(obj[i], i, obj));
         }
         return result;
+    },
+    // 把多数组嵌套层级拉平
+    drawLevel(arr) {
+        let result = [];
+        arr.forEach(item => {
+            if (this.typeof(item, 'array')) {
+                item = this.drawLevel(item);
+            }
+            result = result.concat(item);
+        });
+        return result;
+    },
+    // 遍历深层数组
+    // 多层数组嵌套，保证原来数组层级的情况下遍历数组，值到值不为数组，并对每一项执行函数func
+    traverse(arr, func) {
+        if (this.typeof(arr, 'array')) {
+            return arr.map(item=>this.traverse(item, func));
+        }
+        return func(arr);
     },
     // 根据路由模式生成真实的链接
     // pattern  路由模式，如：#/visual/room/:room/realMode/:rack_col/:sn
@@ -344,6 +364,16 @@ const utils = {
     toPascal(str) {
         return (str || '').split('-').map(i=>i.replace(/^\w/g, v=>v.toUpperCase())).join('');
     },
+    // 下划线转换驼峰
+    toHump(str) {
+        return (str || '').replace(/\_(\w)/g, (all, letter) => {
+            return letter.toUpperCase();
+        });
+    },
+    // 驼峰转换下划线
+    toLine(str) {
+        return (str || '').replace(/([A-Z])/g, '_$1').toLowerCase();
+    },
     // 判断组件是否继承自某个类，支持验证自己
     // 根据组件的引用（通过import获得）判断，支持深层查找
     isExtendsOf(item, superClass) {
@@ -381,7 +411,10 @@ const utils = {
             // ['value', 'value2']
             if (this.typeof(data[0], ['string', 'number', 'boolean'])) {
                 result = this.distinct(data).map(v=>({label: v, value: v}));
-            // 已格式化好的数据
+            // 如果数据无需格式化，直接返回
+            } else if (data[0] && data[0].label !== undefined && data[0].value !== undefined) {
+                result = data;
+            // 可以处理以下几种格式的数据
             // {label: 'a', value: 1}
             // {key: 1, value: 'a'}
             // {id: 1, name: 'a'}
@@ -412,6 +445,12 @@ const utils = {
         }
         return result;
     },
+    // 从options结构中取值并形成一个新的数组（或者是类似于options的结构）
+    // 可以取value或label
+    // fromOptions(data, propName) {
+    //     let format = this.toOptions(data);
+    //     return format.map(item=>item[propName]);
+    // },
     // 获取options数据中的第一个值
     getFirstOption(data) {
         let format = this.toOptions(data);
@@ -502,7 +541,7 @@ const utils = {
         return parent;
     },
     // 延迟执行
-    // timer(func, delay) {
+    // debounce(func, delay) {
     // }
     getCache(key) {
         let result = localStorage.getItem(key);
@@ -528,18 +567,13 @@ const utils = {
         value = JSON.stringify(value);
         return sessionStorage.setItem(key, value);
     },
-    async(func, ...args) {
-        setTimeout(args.length === 0 ? func : ()=>{
-            func(...args);
-        }, 0);
-    },
 
 
     /************************************************************************/
     // 私有方法
     syntaxHighlight(json) {
         if (typeof json !== 'string') {
-            json = JSON.stringify(json, undefined, 2);
+            json = JSON.stringify(json, undefined, 4);
         }
         json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
         let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;

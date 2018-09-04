@@ -30,3 +30,5 @@
 参数       | 说明           | 参数    
 -----------|----------------|-----------
 checkAll  | 适用于`checkbox-group`，进行全选或取消全选 |  checkAll(boolean)  
+getValue  | 获取当前选中的值 |  getValue()  
+getDisplayValue  | 获取当前选中的展示内容（label值） |  getDisplayValue()  

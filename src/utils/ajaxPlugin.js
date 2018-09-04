@@ -31,7 +31,7 @@ function getErrorMsg(error) {
             message = JSON.stringify(error);
         }
     } catch (e) {
-        Utils.async(console.error, `Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
+        Utils.defer(console.error, `Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
     }
     return message;
 }
@@ -59,7 +59,7 @@ export function checkCache(config, AjaxCache) {
         let cacheData = AjaxCache.getCacheData(key);
         if (cacheData) {
             // 保证异步
-            Utils.async(config.success, ...cacheData);
+            Utils.defer(config.success, ...cacheData);
             return true;
         }
         // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
@@ -80,7 +80,7 @@ export function checkCache(config, AjaxCache) {
 function executeQueue(key, result, ...params) {
     if (ajaxQueue[key] && ajaxQueue[key].length > 0) {
         for (let v of ajaxQueue[key]) {
-            v[result] && Utils.async(v[result], ...params);
+            v[result] && Utils.defer(v[result], ...params);
         }
     }
     delete ajaxQueue[key];
@@ -121,7 +121,7 @@ export function checkQueue(config) {
  */
 export function checkMock(config, mockMap = {}) {
     if (config.url && mockMap[config.url]) {
-        Utils.async(()=>{
+        Utils.defer(()=>{
             mockMap[config.url].call(null, config, config.success, config.error);
         });
         return true;

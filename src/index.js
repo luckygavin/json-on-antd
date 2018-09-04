@@ -148,31 +148,46 @@ const create = ({name})=>{
         load(components) {
             Loader.add(components);
         },
-        // 整体配置
-        config(obj) {
-            // 处理global.mock，数组转对象
-            if (obj && obj.global && obj.global.mock) {
-                let map = {};
-                obj.global.mock.forEach(v=>map[v.url] = v.handler);
-                obj.global.mock = map;
+        // components 配置处理，components有两种情况
+        //  1、直接为一个对象，即一系列配置对象列表
+        //  2、还有一种为一个数组，数组中每一项即可以为1中的配置对象列表，又可以为一个url（异步加载其余地方的公用配置）
+        _handleComponentsConf(conf) {
+            let componentsLoader = [];
+            if (conf.components && Utils.typeof(conf.components, 'array')) {
+                // 为字符串的项为异步加载配置的url，需追加到precondition里处理
+                // 剩余的为真正的配置
+                let componentsConf = {};
+                conf.components.forEach(item=>{
+                    if (Utils.typeof(item, 'string')) {
+                        componentsLoader.push(item);
+                    } else {
+                        Object.assign(componentsConf, item);
+                    }
+                });
+                conf.components = componentsConf;
             }
-            let config = Config.set(Utils.filter(obj, 'data'));
-            // 用户自定义 UF 别名
-            if (config.alias) {
-                window[config.alias] = window.UF;
+            // 如果有异步components，将加载逻辑加入到precondition中
+            if (!Utils.empty(componentsLoader)) {
+                conf.precondition = (conf.precondition || []).concat(
+                    componentsLoader.map(path => {
+                        return resovle => {
+                            Requirejs([path], foo=>{
+                                console.log(foo);
+                                foo && this.config({components: foo});
+                                resovle();
+                            });
+                        };
+                    })
+                );
             }
-            // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
-            Requirejs.config(config.modules);
-            // 设置默认域，解决跨域问题
-            !!document.domain && (document.domain = config.global['domain']);
-            // 设置默认公用数据，存入 model 中
-            if (obj.data) {
-                ModelCache.set(obj.data);
-            }
+            return conf;
+        },
+        // plugins 配置处理，将异步加载逻辑加入到precondition中
+        _handlePluginsConf(conf) {
             // 加载扩展组件。格式为[ {name, path} || name ]
-            if (config.plugins) {
-                config.precondition = (config.precondition || []).concat(
-                    config.plugins.map(mod => {
+            if (conf.plugins) {
+                conf.precondition = (conf.precondition || []).concat(
+                    conf.plugins.map(mod => {
                         let path;
                         let modName;
                         if (Utils.typeof(mod, 'string')) {
@@ -184,20 +199,60 @@ const create = ({name})=>{
                         }
                         return resovle => {
                             Requirejs([path], foo=>{
-                                Loader.add({[modName]: foo && foo.default ? foo.default : foo});
+                                // 如果有 mod.name，则认为是单一组件，名称使用名字命名
+                                // 如果没有 mod.name，则认为是多个组件，直接添加
+                                if (modName) {
+                                    Loader.add({[modName]: foo && foo.default ? foo.default : foo});
+                                } else {
+                                    Loader.add(foo);
+                                }
                                 resovle();
                             });
                         };
                     }
                 ));
             }
-            // 执行阻塞页面加载的函数
-            if (config.precondition) {
-                if (Utils.typeof(config.precondition, 'array') && config.precondition.length > 0) {
+            return conf;
+        },
+        // precondition 配置处理，执行加载逻辑
+        _handlePreconditionConf(conf) {
+            if (conf.precondition) {
+                if (Utils.typeof(conf.precondition, 'array') && conf.precondition.length > 0) {
                     this.waiting = true;
-                    Precondition.handle(config.precondition);
+                    Precondition.handle(conf.precondition);
                 }
             }
+        },
+        // 整体配置
+        config(conf) {
+            // 处理global.mock，数组转对象
+            if (conf && conf.global && conf.global.mock) {
+                let map = {};
+                conf.global.mock.forEach(v=>map[v.url] = v.handler);
+                conf.global.mock = map;
+            }
+            // 用户自定义 UF 别名
+            if (conf.alias) {
+                window[conf.alias] = window.UF;
+            }
+            // 设置默认公用数据，存入 model 中
+            if (conf.data) {
+                ModelCache.set(conf.data);
+            }
+
+            // 处理 components 参数
+            conf = this._handleComponentsConf(conf);
+            // 处理 plugins 参数
+            conf = this._handlePluginsConf(conf);
+            // 存储全部配置
+            let config = Config.set(Utils.filter(conf, ['data', 'precondition']));
+            // modules 属性里定义了 requirejs的配置项，具体参数详见：http://requirejs.org/docs/api.html#config
+            Requirejs.config(config.modules);
+            // 设置默认域，解决跨域问题
+            !!document.domain && (document.domain = config.global['domain']);
+
+            // 处理 precondition 参数, 执行阻塞页面加载的函数
+            this._handlePreconditionConf(conf);
         },
         // 获取全部实例，可以和其他实例做交互
         getIns(name) {

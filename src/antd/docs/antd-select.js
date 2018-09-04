@@ -49,7 +49,7 @@ const demo3 = {
         {
             type: 'select',
             name: 'my-select3',
-            style: {width: '100%'},
+            style: {width: '100%', marginTop: 10},
             mode: 'multiple',
             value: ['Apple'],
             options: ['Apple', 'Pear', 'Orange']
@@ -58,16 +58,25 @@ const demo3 = {
 };
 
 const demo4 = {
-    title: '标签模式',
+    title: '任意输入',
     description: '可以把随意输入的内容作为选项并选中。',
-    config: {
-        type: 'select',
-        name: 'my-select4',
-        style: {width: '100%'},
-        mode: 'tags',
-        value: ['Apple'],
-        options: ['Apple', 'Pear', 'Orange']
-    }
+    config:[
+        {
+            type: 'select',
+            style: {width: '100%'},
+            mode: 'tags',
+            placeholder: '标签模式',
+            options: ['Apple', 'Pear', 'Orange']
+        },
+        {
+            type: 'select',
+            style: {width: '100%'},
+            mode: 'combobox',
+            style: {marginTop: 10},
+            placeholder: '单选模式',
+            options: ['Apple', 'Pear', 'Orange']
+        }
+    ]
 };
 
 

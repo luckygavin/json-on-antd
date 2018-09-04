@@ -11,6 +11,8 @@ import {Utils} from 'src/utils';
 export default class Ueditor extends BaseComponent {
     constructor(props) {
         super(props);
+        // 在form组件中使用时，会额外传入一个 data-__meta 字段
+        this._filter.push('data-__meta');
         this.name = props.name;
         this.ueditor = null;
         // 保证每次实例化都有一个唯一的id
@@ -65,7 +67,8 @@ export default class Ueditor extends BaseComponent {
             ]]
         };
         // 简版，适合给普通用户使用
-        if (this.props.simple) {
+        // 默认为简版
+        if (this.props.simple === undefined || this.props.simple) {
             config['toolbars'] = [[
                 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'fontsize', 'forecolor', 'removeformat',
                 '|', 'insertorderedlist', 'insertunorderedlist', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify',
@@ -73,15 +76,14 @@ export default class Ueditor extends BaseComponent {
             ]]
         }
         Object.assign(config, Utils.filter(this.props, this._filter));
+        console.log(config);
         this.ue = this.ueditor.getEditor(this.ueditorId, config);
         // 同步数据
-        this.ue.addListener('contentChange', ()=>{
-            clearTimeout(this.timer);
-            this.timer = setTimeout(()=>{
-                let newValue = this.ue.getContent();
-                this.triggerChange(newValue);
-            }, 150);
-        });
+        let contentChange = Utils.debounce(()=>{
+            let newValue = this.ue.getContent();
+            this.triggerChange(newValue);
+        }, 150);
+        this.ue.addListener('contentChange', contentChange);
         this._transmitComponent();
     }
     componentWillUnmount() {
@@ -111,9 +113,7 @@ export default class Ueditor extends BaseComponent {
     render() {
         let style = Object.assign({width: '100%', height: '220px', lineHeight: 'initial'}, this.props.style);
         return (
-            <div>
-                <script type="text/plain" id={this.ueditorId} style={style} />
-            </div>
+            <script type="text/plain" id={this.ueditorId} style={style} />
         );
     }
 }

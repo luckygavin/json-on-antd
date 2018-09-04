@@ -19,6 +19,16 @@ const utils = Object.assign({}, _utils, {
         }
         return params[0];
     },
+    // 延迟调用
+    defer(...params) {
+        // setTimeout(args.length === 0 ? func : ()=>{
+        //     func(...args);
+        // }, 0);
+        return underscore.defer(...params);
+    },
+    debounce(...params) {
+        return underscore.debounce(...params);
+    },
     // 获取数组的交集
     without(...params) {
         return underscore.without(...params);

@@ -1,6 +1,21 @@
 每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。
 
-## 几个 "通用参数" 的说明
+## 几个 "通用参数" 简介
+
+属性|说明|类型
+----|----|----
+[type](#/Params/-type) |  组件类型  | string
+[content](#/Params/-content) |  子组件内容  | string&#124;config
+[name](#/Params/-name)  |  组件名称，唯一  | string
+[style](#/Params/-style)  |  组件样式  | object
+[hidden](#/Params/-hidden)  |  隐藏组件  | boolean
+[className](#/Params/-classname-class)  |  样式类名称  | string
+[childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true
+[authority](#/Params/-authority)  |  权限绑定  | string
+[source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object
+[api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object
+[control](#/Params/-control-)  |  组件交互  | target[string]&#124;object
+
 
 #### # type 
 `string`
@@ -25,6 +40,12 @@
 
 > 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到
 
+#### # hidden 
+`boolean`
+
+设置组件为默认隐藏，可以通过对组件调用`show()`函数使组件重新展示
+
+
 #### # style 
 `object` | `string`
 
@@ -41,7 +62,7 @@ style: {
 style: 'margin-top: 16px; font-size: 12px;'
 ```
 
-#### # className/class 
+#### # className 
 `string`
 
 和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名
@@ -63,6 +84,11 @@ style: 'margin-top: 16px; font-size: 12px;'
 `[boolean] true`
 
 配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法
+
+
+#### # authority
+
+给组件绑定权限点，当有权限点相关权限的时候组件才会展示
 
 
 #### # source 系列参数
@@ -88,13 +114,17 @@ target | 定义数据处理好后赋值的属性（一般有默认的初始值�
 handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |
 onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |
 onError | 请求数据失败的回调函数 | function(res) {} |
-autoLoad | 组件首次渲染时自动获取数据。默认为true，如果设置成false，则变更params时才会触发获取逻辑 | boolean | true
-autoReload | 组件刷新时自动重新获取数据。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false
-autoReload | 父级刷新时自动刷新当前组件。默认为false，如果设置成true，则每次组件刷新（包括父组件刷新）都会触发获取逻辑 | boolean | false
+autoLoad | 组件首次渲染时自动获取数据，仅创建组件时有效。组件创建完成后，通过 autoReload 属性控制 | boolean | true
+autoReload | 自动重新获取数据。不同取值时，自动获取数据的时机不同，详见表格下面说明 | boolean&#124;`'never'`&#124;`'set'` | false
 showLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false
 
 > * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  
 > * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）
+> * `autoReload`属性：自动重新加载有几种不同的等级，对应参数值依次为（从上到下，刷新频率依次降低）：
+> > *  1、true: 范围最宽，source参数变动、自身set source参数、父组件刷新都会触发
+> > *  2、'set': source参数变动、自身set source参数都会更新
+> > *  3、false: 只有params或者source变化时才会更新
+> > *  4、'never': 则永远不更新，除非手动调用 reload 函数
 
 
 下面为一个使用场景较复杂的`下拉框`实现。

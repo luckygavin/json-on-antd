@@ -16,6 +16,14 @@ export default class Echarts extends BaseComponent {
         this.chart;
         this.__init();
     }
+    _afterSetProps() {
+        super._afterSetProps();
+        // 改变生命周期
+        if (this.__filtered.afterCreate) {
+            this.__filtered.oriAfterCreate = this.__filtered.afterCreate;
+            delete this.__filtered.afterCreate;
+        }
+    }
     componentWillReceiveProps(nextProps) {
         // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
         //     this.chart.setOption(this.__filterProps(nextProps));
@@ -24,7 +32,7 @@ export default class Echarts extends BaseComponent {
     }
     shouldComponentUpdate(nextProps, nextState) {
         // 只有className/style变，才刷新当前组件，否则只进行setOption处理就行了
-        if (Utils.isChange(this.__prevProps, {className: nextProps.className, style: nextProps.style})) {
+        if (Utils.isChange({className: nextProps.className, style: nextProps.style}, this.__prevProps)) {
             return true;
         }
         return false;
@@ -51,18 +59,22 @@ export default class Echarts extends BaseComponent {
             chart.setOption(this.__props);
             this.chart = chart;
             this._transmitComponent();
+
             // 把echarts的api全部转移到当前组件上
             this._agencyFunction(chart);
             this._agencyFunction(Object.getPrototypeOf(chart));
+
+            // 真正创建完echarts时再执行用户配置的afterCreate逻辑
+            this.__filtered.oriAfterCreate && this.__filtered.oriAfterCreate();
         } else {
-            Utils.async(console.error, 'There is no echarts, please check.');
+            Utils.defer(console.error, 'There is no echarts, please check.');
         }
     }
     _agencyFunction(origin) {
         for (let i of Object.keys(origin)) {
             if (Utils.typeof(origin[i], 'function')) {
                 this._inject(this, i, (...p)=>{
-                    this.chart[i](...p);
+                    return this.chart[i](...p);
                 });
             }
         }

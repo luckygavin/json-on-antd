@@ -18,6 +18,8 @@ export default {
     get(item) {
         // 移到 factory.analysisAgain 时处理
         // item.key = item.key || item.name || Utils.hash(item, null, 4);
+        // update at 2018/08/10, checkArrayItems 无法覆盖模块为函数的情况，所以此处需再次进行额外处理
+        item.key = item.key || item.name;
 
         let Item = Loader.get(item);
         let props = Utils.filter(item, KeyWord);

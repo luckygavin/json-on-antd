@@ -4,7 +4,6 @@ module.exports = {
     'antd-grid.md': require('./antd-grid.md'),
     'antd-layout.md': require('./antd-layout.md'),
 
-    'antd-auto-complete.md': require('./antd-auto-complete.md'),
     'antd-cascader.md': require('./antd-cascader.md'),
     'antd-checkbox.md': require('./antd-checkbox.md'),
     'antd-date-picker.md': require('./antd-date-picker.md'),

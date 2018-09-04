@@ -9,10 +9,10 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Icon, Button, Row, Col} from 'antd';
 
-export default class CopyOrDeleteForm extends BaseComponent {
+export default class Forms extends BaseComponent {
     constructor(props) {
         super(props);
-        this._openApi.push('getValues', 'resetValues', 'resetItem');
+        this._openApi.push('getValues', 'resetValues', 'resetItem', 'getDisplayValues');
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex.push('formData');
         this.__init();
@@ -37,18 +37,20 @@ export default class CopyOrDeleteForm extends BaseComponent {
     }
     // 设置 formData 并保证 formData 不会为空
     setDefaultValues(formData) {
-        formData = formData || this.__props.formData || [{}];
+        formData = formData || this.__props.formData || [];
         if (Utils.typeof(formData, 'object')) {
             formData = [formData];
         }
+        // if (formData.length === 0) {
+        //     formData = [{}];
+        // }
         this.__props.formData = formData;
     }
     /* 外部调用函数 **********************************************************************/
 
     // 获取所有表单的值
-    getValues(check = true) {
-        // 获取每个Form的值
-        return Utils.map(this.formRef, item=>item.getValues(check));
+    getValues(...params) {
+        return Utils.map(this.formRef, item=>item.getValues(...params));
     }
     // 重置所有表单的值
     resetValues(o) {
@@ -63,9 +65,10 @@ export default class CopyOrDeleteForm extends BaseComponent {
         }
     }
     resetItem(...params) {
-        Utils.each(this.formRef, item => {
-            item.resetItem(...params);
-        });
+        return Utils.map(this.formRef, item=>item.resetItem(...params));
+    }
+    getDisplayValues(...params) {
+        return Utils.map(this.formRef, item=>item.getDisplayValues(...params));
     }
 
     /* 组件内部逻辑 **********************************************************************/
@@ -89,7 +92,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
         this.__props.onChange && this.__props.onChange(...p);
     }
     // 复制新增
-    copyAddForm(key, index) {
+    copyForm(index) {
         // 获取已经填写的form内容
         let formData = this.getValues(false);
         // 为formData增加一个元素并重新渲染
@@ -98,20 +101,22 @@ export default class CopyOrDeleteForm extends BaseComponent {
         this.onChange(formData);
     }
     // 简单新增
-    addForm(key, index) {
+    addForm(index) {
         // 获取已经填写的form内容
         let formData = this.getValues(false);
+        if (!index && index !== 0) {
+            index = formData.length;
+        }
         // 新增的form的formdata为一个空对象
         formData.splice(index + 1, 0, {});
         this.__setProps({formData});
         this.onChange(formData);
     }
     // 删除表单
-    deleteForm(key, index) {
+    deleteForm(index) {
         // 为formData减少一个元素并重新渲染
         let formData = this.__props.formData;
         formData.splice(index, 1);
-        delete this.formRef[key];
         this.__setProps({formData});
         this.onChange(formData);
     }
@@ -158,63 +163,105 @@ export default class CopyOrDeleteForm extends BaseComponent {
         }
         this.onChange(this.__props.formData);
     }
+    // 默认展示形式
     renderForms() {
         let formData = this.__props.formData;
         // 清空原来记录的formRef，因为index会变
         this.formRef = {};
         // 渲染多个form
-        return formData.map((v, index) => {
-            let key = this.key + '-' + index;
-            let formConfig = Object.assign({}, this.__props.form, {
-                type: 'form',
-                key: key,
-                wrappedComponentRef: inst=>(this.formRef[key] = inst),
-                onChange: this.handleChange.bind(this, index),
-                formData: v
-            });
-            // 检测是否只剩下一个表单，是：不显示删除键
-            return this.renderForm(formConfig, index, formData.length <= 1);
-        });
-    }
-    renderForm(formConfig, index = 0, onlyOne = true) {
-        let divConfig = {
-            // key 不应该是用 index
-            key: this.key + '-' + index,
-            type: 'div',
-            className: 'uf-forms',
-            content: [
-                formConfig,
-                {
-                    type: 'div',
-                    className: 'forms-icons',
-                    content: [
-                        {
-                            type: 'button',
-                            mode: 'dashed',
-                            className: 'addFormIcon',
-                            icon: 'plus-circle-o',
-                            onClick: () => {
-                                if (this.__props.addType === 'add') {
-                                    this.addForm(formConfig.key, index);
-                                } else {
-                                    this.copyAddForm(formConfig.key, index);
+        // 如果没有数据，则只展示一个加号
+        return formData.length === 0
+            ? <Button type="dashed" className="add-form-icon"
+                icon="plus-circle-o"
+                onClick={this.addForm.bind(this, null)}/>
+            : formData.map((v, index) => {
+                let key = this.key + '-' + index;
+                let formConfig = Object.assign({}, this.__props.form, {
+                    type: 'form',
+                    key: key,
+                    wrappedComponentRef: inst=>(this.formRef[key] = inst),
+                    onChange: this.handleChange.bind(this, index),
+                    formData: v
+                });
+                return <div key={this.key + '-' + index} className="uf-forms-item">
+                    {this.__analysis(formConfig)}
+                    {this.__props.addType !== false && (
+                        <div key="operate" className="forms-icons">
+                            <Button type="dashed" className="add-form-icon"
+                                icon="plus-circle-o"
+                                onClick={this.__props.addType === 'add'
+                                    ? this.addForm.bind(this, index)
+                                    : this.copyForm.bind(this, index)
                                 }
-                            }
-                        },
-                        !onlyOne && {
-                            type: 'button',
-                            mode: 'dashed',
-                            className: 'deleteFormIcon',
-                            icon: 'minus-circle-o',
-                            onClick: () => {
-                                this.deleteForm(formConfig.key, index);
-                            }
-                        }
-                    ]
-                }
-            ]
-        };
-        return this.__analysis(divConfig);
+                            />
+                            <Button type="dashed" className="delete-form-icon"
+                                icon="minus-circle-o"
+                                onClick={this.deleteForm.bind(this, index)}/>
+                        </div>
+                    )}
+                </div>;
+            });
+    }
+    // 使用表格的方式展示
+    renderTableForms() {
+        let formData = this.__props.formData;
+        let formConfig = Object.assign({}, this.__props.form);
+        // 如果items中有数组嵌套，使用drawLevel打平
+        formConfig.items = Utils.drawLevel(formConfig.items);
+        // 清空原来记录的formRef，因为index会变
+        this.formRef = {};
+        return <div className="table-forms">
+            <div className="thead-div">
+                {formConfig.items.map((item, index)=>(
+                    <div key={index} className="th-div">{item.label}</div>)
+                )}
+                {this.__props.addType !== false && (
+                    <div key="operate" className="th-div">
+                        操作
+                        <Icon type="plus-square-o" className="operate-add"
+                            onClick={this.addForm.bind(this, null)}/>
+                    </div>
+                )}
+            </div>
+            <div className="tbody-div">
+                {/* 渲染多个form */}
+                {formData.map((v, index) => {
+                    let key = this.key + '-' + index;
+                    return this.__analysis(Object.assign({}, formConfig, {
+                        type: 'form',
+                        layout: {type: 'inline'},
+                        key: key,
+                        wrappedComponentRef: inst=>(this.formRef[key] = inst),
+                        onChange: this.handleChange.bind(this, index),
+                        formData: v,
+                        // 增加操作列
+                        items: formConfig.items.concat(
+                            this.__props.addType === false
+                                ? []
+                                : {
+                                    type: 'div',
+                                    key: key,
+                                    className: 'operate',
+                                    content: [
+                                        {
+                                            type: 'icon',
+                                            key: 'add',
+                                            mode: 'plus-circle',
+                                            onClick: this.copyForm.bind(this, index)
+                                        },
+                                        {
+                                            type: 'icon',
+                                            key: 'delete',
+                                            mode: 'minus-circle',
+                                            onClick: this.deleteForm.bind(this, index)
+                                        }
+                                    ]
+                                }
+                        )
+                    }));
+                })}
+            </div>
+        </div>;
     }
     // 解析 Button 的配置，格式化成统一格式
     analysisButtonConfig() {
@@ -242,7 +289,7 @@ export default class CopyOrDeleteForm extends BaseComponent {
         return formatCfg;
     }
     // 生成按钮
-    generateButton() {
+    renderButtons() {
         const buttonsCfg = this.analysisButtonConfig();
         if (!buttonsCfg) {
             return;
@@ -286,9 +333,12 @@ export default class CopyOrDeleteForm extends BaseComponent {
         );
     }
     render() {
-        return <div className={'uf-forms-container ' + (this.__props.className || '')} style={this.__props.style}>
-            {this.renderForms()}
-            {this.generateButton()}
+        return <div className={'uf-forms ' + (this.__props.className || '')} style={this.__props.style}>
+            {this.__props.mode === 'table'
+                ? this.renderTableForms()
+                : this.renderForms()
+            }
+            {this.renderButtons()}
         </div>;
     }
 }

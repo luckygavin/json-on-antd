@@ -1,57 +1,39 @@
 /**
- * @file fieldset 封装
+ * @file 封装
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Row, Col} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 
 export default class List extends BaseComponent {
     constructor(props) {
         super(props);
-        this.__init();
         this.state = {};
-        this.init();
-    }
-    init(nextProps) {
-        let props = nextProps || this.props;
-        this.config = props.config || {};
-        this.tags = this.config.tags || {};
-        if (!!nextProps) {
-            this.forceUpdate();
-        }
-    }
-    generateList() {
-        let data = this.props.data;
-        let tags = this.tags;
-        let liList = [];
-        for (let key in tags) {
-            let v = tags[key];
-            let title = v;
-            let value = data[key];
-            if (typeof v === 'object') {
-                if (v.disabled) {
-                    continue;
-                }
-                title = v.title || key;
-                if (v.render) {
-                    value = v.render(data[key], data);
-                } else {
-                    value = data[key];
-                }
-            }
-            liList.push(<li key={key}>
-                <div className="uf-li-title">{title} :</div>
-                <div className="uf-li-value">{value}</div>
-            </li>);
-        }
-        return <ul className="uf-list-ul">
-            {liList}
-        </ul>;
+        this.__init();
     }
     render() {
-        return <div className="uf-list">
-            {this.props.data && this.generateList()}
+        let {data = {}, columns = [], layout = {}, className = ''} = this.__props;
+        let {labelCol, valueCol, labelStyle, valueStyle} = layout;
+        className += ' uf-list';
+        className += this.__props.bordered ? ' show-border' : '';
+        className += this.__props.interleave ? ' show-bg' : '';
+
+        return <div className={className} style={this.__props.style}>
+            {columns.map(item=>(
+                <Row key={item.dataIndex} className="uf-list-row">
+                    <Col key="label" span={labelCol} style={labelStyle} className="uf-list-label">
+                        {item.title}
+                    </Col>
+                    <Col key="value" span={valueCol} style={valueStyle} className="uf-list-value">
+                        {!item.render
+                            ? data[item.dataIndex]
+                            : this.__analysis(item.render(data[item.dataIndex], data))
+                        }
+                    </Col>
+                </Row>
+            ))}
         </div>;
     }
 }

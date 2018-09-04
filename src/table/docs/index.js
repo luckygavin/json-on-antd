@@ -7,6 +7,88 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'src';
 import md from './markdown.md';
 
+const demo1 = {
+    title: '后端获取数据',
+    description: '采用后端获取数据及分页等',
+    config: [
+        {
+            type: 'table',
+            name: 'newtable2',
+            columns: [
+                {
+                    title: 'ID',
+                    dataIndex: 'id'
+                    // 枚举的使用
+                    // enum: [{key: 1, value: 'TC'}]
+                },
+                {title: '机房', dataIndex: 'name', key: 'name', filter: {type: 'input'}},
+                {title: '名称', dataIndex: 'idcId'},
+                {
+                    title: '地区',
+                    dataIndex: 'region',
+                    key: 'region',
+                    filter: {
+                        type: 'radio',
+                        options: ['华北', '华南', '华东']
+                    }
+                }
+            ],
+            title: {
+                // text: 'Table后端分页表格',
+                basicWidget: ['filter', 'setPageSize',
+                    {
+                        name: 'selctAll',
+                        icon: 'like-o',
+                        text: '自定义全选',
+                        onClick: function(table) {
+                            return table.selectAll();
+                        }
+                    }, 'export', 'switchTags'],
+                menuWidget: ['refresh', 'fullScreen', 'setPageSize'],
+                extra: [{
+                    type: 'button',
+                    mode: 'primary',
+                    icon: 'sync',
+                    content: '刷新',
+                    control: 'newtable2.refresh'
+                }]
+            },
+            source: {
+                url: 'docs/php/data.php',
+                method: 'get',
+                paramsHandler(params) {
+                    // 增加 index 参数
+                    // params.index = params.page - 1;
+                    return params;
+                },
+                handler(data) {
+                    return data.map(v=>{
+                        v.idcId = v.id;
+                        return v;
+                    });
+                },
+                onError() {
+                    return false;
+                }
+            },
+            params: {},
+            rowKey: 'id',
+            pagination: {
+                pageType: 'server',
+                pageSize: 5
+                // paramIndex: {
+                //     page: 'pageNum',
+                //     size: 'pageSize'
+                // }
+            },
+            rowSelection: {
+                selections: true
+            },
+            expandedRowRender: v=>v.description
+        }
+    ]
+};
+
 const dataSource = [
     {key: '1', name: '胡彦斌', age: 32, address: '西湖区湖底公园1号', sex: '男', json: {a: 1, b: 2}, html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '1'},
     {key: '2',name: '胡彦祖',age: 42,address: '西湖区湖底公园2号',sex: 'femal', json: [{a: 1, b: 2}, {a: 3, b: 4}], html: '<i>表格</i>', duration: '2017-05-21 00:00:00', customRender: '2'},
@@ -76,7 +158,7 @@ const columns = [
     }
 ];
 
-const demo1 = {
+const demo2 = {
     title: '基本用法',
     description: '简单的表格，最后一列是各种操作。',
     config: [
@@ -142,86 +224,6 @@ const demo1 = {
     ]
 
 };
-
-const demo2 = {
-    title: '后端获取数据',
-    description: '采用后端获取数据及分页等',
-    config: [
-        {
-            type: 'table',
-            name: 'newtable2',
-            columns: [
-                {
-                    title: 'ID',
-                    dataIndex: 'id'
-                    // 枚举的使用
-                    // enum: [{key: 1, value: 'TC'}]
-                },
-                {title: '机房', dataIndex: 'name', key: 'name'},
-                {title: '名称', dataIndex: 'idcId'},
-                {
-                    title: '地区',
-                    dataIndex: 'region',
-                    key: 'region',
-                    filter: {
-                        type: 'radio',
-                        options: ['华北', '华南', '华东']
-                    }
-                },
-                {title: '描述', dataIndex: 'description', key: 'description'}
-            ],
-            title: {
-                // text: 'Table后端分页表格',
-                basicWidget: ['filter', 'setPageSize',
-                    {
-                        name: 'selctAll',
-                        icon: 'like-o',
-                        text: '自定义全选',
-                        onClick: function(table) {
-                            return table.selectAll();
-                        }
-                    }, 'export', 'switchTags'],
-                menuWidget: ['refresh', 'fullScreen', 'setPageSize'],
-                extra: [{
-                    type: 'button',
-                    mode: 'primary',
-                    icon: 'sync',
-                    content: '刷新',
-                    control: 'newtable2.refresh'
-                }]
-            },
-            source: {
-                url: 'docs/php/data.php',
-                method: 'get',
-                paramsHandler(params) {
-                    // 增加 index 参数
-                    // params.index = params.page - 1;
-                    return params;
-                },
-                handler(data) {
-                    return data.map(v=>{
-                        v.idcId = v.id;
-                        return v;
-                    });
-                }
-            },
-            params: {
-                "isExport": true,
-                "container_id": 484,
-                "zone": "china",
-                "type": "server"
-            },
-            rowKey: 'id',
-            pagination: {
-                pageType: 'server',
-                pageSize: 5
-            },
-            rowSelection: {
-                selections: true
-            }
-        }
-    ]
-}
 
 // 下拉框数据字典
 const selectData = {
@@ -368,6 +370,6 @@ export default class TableApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo2, demo1, demo3);
+        return this.__getDemoSingle(demo1, demo2, demo3);
     }
 }

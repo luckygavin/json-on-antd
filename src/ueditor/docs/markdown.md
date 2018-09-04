@@ -15,7 +15,7 @@ Ueditor 用法。
 name | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |
 style | Ueditor样式 | object | |
 data | 输入框内的默认内容 | string |  |
-simple | 使用简洁版本，省略大量默认按钮 | boolen | false |
+simple | 使用简洁版本，省略大量默认按钮 | boolen | true |
 onChange | 内容变动时的回调函数 | function(value) {} |  |
 serverUrl | 服务器统一请求接口路径 | string | URL + "php/controller.php" |
 toolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |

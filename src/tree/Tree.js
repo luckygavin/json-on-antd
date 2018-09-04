@@ -77,7 +77,7 @@ export default class OriginTree extends BaseComponent {
             showIcon: false
         };
         this.initTree();
-        this.timer = 0;
+        this.handleSearch = Utils.debounce(this.handleSearch, 200);
     }
     // 树形控件初始化配置及数据
     initTree(nextProps) {
@@ -183,7 +183,7 @@ export default class OriginTree extends BaseComponent {
             expandedKeys,
             autoExpandParent: false
         });
-        const item = e && e.node && e.node.props._item;
+        const item = e && e.node && e.node.props.data;
         this.expand.onExpand(expandedKeys, e, item);
     }
     onCheck(checkedKeys, e) {
@@ -196,7 +196,7 @@ export default class OriginTree extends BaseComponent {
         this.setState({
             selectedKeys
         });
-        const item = e && e.node && e.node.props._item;
+        const item = e && e.node && e.node.props.data;
         this.select.onSelect(selectedKeys, e, item);
     }
     // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
@@ -219,12 +219,7 @@ export default class OriginTree extends BaseComponent {
     }
     onChange(e) {
         let value = e.target.value;
-        // 延迟200ms再做处理
-        clearTimeout(this.timer);
-        this.timer = setTimeout(()=>{
-            this.handleSearch(value);
-            this.timer = null;
-        }, 200);
+        this.handleSearch(value);
     }
     // 通过搜索内容对策略树进行搜索
     handleSearch(value) {

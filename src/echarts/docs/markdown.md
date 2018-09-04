@@ -42,7 +42,7 @@ hideLoading | 隐藏加载动画效果 |
 UF.config({
     modules: {
         paths: {
-            'echarts': 'http://uf.baidu.com/third_party/echarts4/echarts.min'
+            'echarts': 'http://uf.baidu.com/third_party/echarts4/echarts'
         }
     }
 });

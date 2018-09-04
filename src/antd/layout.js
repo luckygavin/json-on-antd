@@ -30,7 +30,7 @@ export class Layout extends BaseLayout {
             }
             for (let v of children) {
                 // children中为实例化后的组件，type对应组件的构造函数
-                if (v.type === Sider) {
+                if (v && v.type === Sider) {
                     return ' ant-layout-has-sider';
                 }
             }

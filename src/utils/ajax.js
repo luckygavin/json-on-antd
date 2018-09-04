@@ -47,10 +47,10 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
         // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
         let onchange = config.onchange || (()=>{});
         // successHandler
-        let tmpHandler = config.success || (()=>{});
+        let tmpSuccess = config.success || (()=>{});
         let successHandler = (...p) => {
-            tmpHandler(...p);
             onchange(false, 'success');
+            return tmpSuccess(...p);
         };
         // errorHandler
         // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
@@ -60,8 +60,8 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
         }
         tmpError = config.error === true ? errorMessage : config.error;
         let errorHandler = (...p) => {
-            tmpError(...p);
             onchange(false, 'error');
+            return tmpError(...p);
         };
         // onerror 处理逻辑
         const onerror = err => {
@@ -151,7 +151,16 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
             && final.url.indexOf('http://') === -1
             && final.url.indexOf('https://') === -1
         ) {
-            final.url = globalAjax.baseUrl + final.url;
+            // 两个字符串连接时，自动添加或去除多余的斜线
+            let startReg = /^\//i;
+            let endReg = /\/$/i;
+            if (startReg.test(final.url) && endReg.test(globalAjax.baseUrl)) {
+                final.url = globalAjax.baseUrl + final.url.substr(1);
+            } else if (!startReg.test(final.url) && !endReg.test(globalAjax.baseUrl)) {
+                final.url = globalAjax.baseUrl + '/' + final.url;
+            } else {
+                final.url = globalAjax.baseUrl + final.url;
+            }
         }
         // 发送请求前，用户可配置通用参数处理方法，比如把传入的参数序列化
         if (globalAjax.beforeSend) {

@@ -13,8 +13,6 @@ export default class Antd extends BaseComponent {
         // 追加中间基类
         super(props);
         this.class.push('antd');
-        // __props 需要过滤的属性
-        // this._filter.push();
         // 开放给用户使用的 Api
         this._openApi.push('trigger');
         // 壳子调用antd组件，调用的组件的实例存储在_component中
@@ -63,7 +61,12 @@ export default class Antd extends BaseComponent {
         // 受控属性对应的默认属性，(如：value => defaultValue)
         const defaultKey = 'default' + key.replace(/^\w/g, v=>v.toUpperCase());
         // 把value和defaultValue merge一下，统一交由 value 控制
-        let keyValue = this.__props[key] || this.__props[defaultKey];
+        // let keyValue = this.__props[key] || this.__props[defaultKey];
+        let keyValue = this.__props[defaultKey];
+        // 注意需用undefined判断，否则为0的时候会不符合预期
+        if (this.__props[key] !== undefined) {
+            keyValue = this.__props[key];
+        }
         // 如果这个值为空，否则受控属性为空会出现异常
         if (keyValue !== undefined) {
             this.__props[key] = keyValue;

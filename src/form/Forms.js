@@ -333,7 +333,7 @@ export default class Forms extends BaseComponent {
         );
     }
     render() {
-        return <div className={'uf-forms ' + (this.__props.className || '')} style={this.__props.style}>
+        return <div {...this.__getCommonProps({className: 'uf-forms'})}>
             {this.__props.mode === 'table'
                 ? this.renderTableForms()
                 : this.renderForms()

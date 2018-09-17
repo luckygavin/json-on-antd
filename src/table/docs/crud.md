@@ -9,7 +9,7 @@ Table可以快速配置增删改查等功能。
 > * edit: 编辑单条数据弹框
 > * delete: 删除单条数据弹框
 > * details: 查看单条数据详细信息弹框
-> * search: 高级查询弹框
+> * search: 高级查询
 > * batchAdd: 批量导入数据弹框。用于批量新增数据
 > * batchEdit: 批量编辑表格中选中的数据
 > * batchDelete: 批量删除表格中选中的数据
@@ -26,8 +26,9 @@ crud属性值为一对象，其中键为当前配置的`"引用名称"`，用于
 
 参数           | 说明                     | 类型             | 默认值 | 是否必填
 --------------|--------------------------|-----------------|-------|-------
-title      | 列头显示文字               | string &#124; `config` | - |
+title      | 弹框头部显示内容               | string &#124; `config` | - |
 mode  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为mode和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |
+position  | 显示位置，可以选择：`modal`以弹框显示、`beforeHeader`展示在表格头部以上、`afterHeader`展示在表格头部以下   | string | 'modal' |
 api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,handler等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | 
 form   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |
 params | form会填充params中的值为默认值。会覆盖api中的params | object | |
@@ -38,3 +39,12 @@ autoReload | 点击提交时自动刷新表格 | boolean | true |
 
 
 常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)
+
+以上介绍仅针对弹框的展示形式，但是有时对于一些高频操作弹框并不是特别易用，所以可以使扩展内容展示在表格上方，配置属性如下。**和前面部分名称相同的属性用法也保持一致，不再做过多说明**：
+
+
+## 另一种用法
+
+当`position`不为modal时，crud的内容不再以弹框的形式进行展示，而是直接置于页面上（不过属性基本和弹框一致，同样自动控制显示/隐藏）。
+
+根据position的值决定：`beforeHeader`展示在表头之上（例如Demo中一直展示在页面上的高级查询功能）；或者`afterHeader`展示在表头及表格之间（例如点击"批量查询"按钮展示出的批量查询功能）

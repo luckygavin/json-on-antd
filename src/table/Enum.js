@@ -91,8 +91,12 @@ export default class Enum {
     /*** Table.js 中的功能 ******************************************************************* */
     // 处理列配置，进行枚举替换
     handleColumn(item) {
-        if (this.data[item.dataIndex]) {
-            item.render = (v, row)=>{
+        if (this.data[item.dataIndex] && !item._enumed) {
+            // 标记为已处理，无需重复处理
+            item._enumed = true;
+            // 如果原本已存在render，则需要执行原render
+            let orender = item.render;
+            item.render = (v, row, ...params)=>{
                 let display = this.data[item.dataIndex][v];
                 // 无法翻译是是否允许为空
                 if (display === undefined) {
@@ -104,7 +108,7 @@ export default class Enum {
                 }
                 // 将翻译后的结果存入行数据中
                 row[`${item.dataIndex}_fyi`] = display;
-                return display;
+                return orender ? orender(display, row, ...params) : display;
             };
         }
         return item;

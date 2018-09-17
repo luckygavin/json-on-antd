@@ -23,7 +23,7 @@ const utils = {
     hash(text, len, level) {
         let hash = 5381;
         if (level) {
-            text = this.stringify(text, level);
+            text = utils.stringify(text, level);
         } else {
             text = JSON.stringify(text);
         }
@@ -53,15 +53,15 @@ const utils = {
         if (level <= 0) {
             return '_$leaf';
         }
-        if (this.typeof(data, ['object', 'array', 'symbol'])) {
-            if (this.directInstanceof(data, [Object, Array])) {
-                data = this.each(data, v=>this.stringify(v, level - 1));
+        if (utils.typeof(data, ['object', 'array', 'symbol'])) {
+            if (utils.directInstanceof(data, [Object, Array])) {
+                data = utils.each(data, v=>utils.stringify(v, level - 1));
                 data = JSON.stringify(data);
             } else {
                 // Symbol(react.element)
                 data = '_$Symbol';
             }
-        } else if (this.typeof(data, 'function')) {
+        } else if (utils.typeof(data, 'function')) {
             data = '_$function';
         }
         return `${data}`;
@@ -79,10 +79,10 @@ const utils = {
                 value = value === 'false' || value === 'FALSE' ? false : !!value;
                 break;
             case 'array':
-                if (this.typeof(value, 'undefined')) {
+                if (utils.typeof(value, 'undefined')) {
                     value = [];
                 }
-                if (!this.typeof(value, 'array')) {
+                if (!utils.typeof(value, 'array')) {
                     value = [value];
                 }
                 break;
@@ -99,7 +99,7 @@ const utils = {
     },
     // 判断数组或对象是否为空
     empty(obj) {
-        if (this.typeof(obj, ['array', 'object'])) {
+        if (utils.typeof(obj, ['array', 'object'])) {
             for (let t in obj) {
                 return false;
             }
@@ -110,7 +110,7 @@ const utils = {
     },
     // 浅拷贝，指针指向，只拷贝一层
     copy(obj) {
-        return this.clone(obj, 1);
+        return utils.clone(obj, 1);
     },
     // 深拷贝对象/数组
     // level 为深拷贝的层级，默认一直遍历到最深层.
@@ -120,16 +120,16 @@ const utils = {
             return data;
         }
         let newData;
-        if (this.typeof(data, 'array')) {
+        if (utils.typeof(data, 'array')) {
             newData = [];
-        } else if (this.typeof(data, 'object')) {
+        } else if (utils.typeof(data, 'object')) {
             newData = {};
         } else {
             return data;
         }
         for (let i in data) {
             if (data.hasOwnProperty(i)) {
-                newData[i] = this.clone(data[i], level - 1);
+                newData[i] = utils.clone(data[i], level - 1);
             }
         }
         return newData;
@@ -143,10 +143,10 @@ const utils = {
         let filter = [];
         let level = 10;
         // 场景1：ghost 为level值，即merge的深度
-        if (this.typeof(ghost, 'number')) {
+        if (utils.typeof(ghost, 'number')) {
             level = ghost;
         // 场景2：ghost 为filter数组，声明某些属性无需合并直接覆盖
-        } else if (this.typeof(ghost, 'array')) {
+        } else if (utils.typeof(ghost, 'array')) {
             filter = ghost;
         // 场景3：无上述两种类型的参数，ghost为target
         } else {
@@ -155,7 +155,7 @@ const utils = {
         }
         if (level <= 0) {
             // 如果存储内容不为普通对象，例如类的实例，copy不能拷贝继承的函数
-            // return this.copy(objs[0]);
+            // return utils.copy(objs[0]);
             return objs[0];
         }
         let result = target;
@@ -165,12 +165,12 @@ const utils = {
             // 然后判断对象是否为直接继承自Object，如果不是，复杂对象不再深层遍历，直接覆盖
             // array 应该直接覆盖，否则数组的值只增不减
             if (!Object.isFrozen(result)
-                && this.typeof(result, 'object')
-                && this.typeof(obj, 'object')
-                && this.directInstanceof(result, Object)) {
+                && utils.typeof(result, 'object')
+                && utils.typeof(obj, 'object')
+                && utils.directInstanceof(result, Object)) {
                 for (let i in obj) {
                     if (filter.indexOf(i) === -1) {
-                        result[i] = this.merge(level - 1, result[i], obj[i]);
+                        result[i] = utils.merge(level - 1, result[i], obj[i]);
                     } else {
                         result[i] = obj[i];
                     }
@@ -185,7 +185,7 @@ const utils = {
     },
     // 从obj中过滤掉某些属性
     filter(obj, arr) {
-        if (this.typeof(arr, 'string')) {
+        if (utils.typeof(arr, 'string')) {
             arr = [arr];
         }
         let newObj = {};
@@ -197,8 +197,11 @@ const utils = {
         return newObj;
     },
     // 从obj中获取某些属性
+    pass(...params) {
+        return utils.reverseFilter(...params);
+    },
     reverseFilter(obj, arr) {
-        if (this.typeof(arr, 'string')) {
+        if (utils.typeof(arr, 'string')) {
             arr = [arr];
         }
         let newObj = {};
@@ -212,13 +215,8 @@ const utils = {
     // 对比两个值是否相等
     // 注意：不要随意切换其余的对比函数，例如underscore的isEqual
     equals(value1, value2) {
-        // 方式1
-        // return JSON.stringify(value1) === JSON.stringify(value2);
-        // 方式2
-        // return underscore.isEqual(value1, value2);
-        // 方式3
         // 检测类型，类型一致才继续后续的对比
-        if (this.getType(value1) !== this.getType(value2)) {
+        if (utils.getType(value1) !== utils.getType(value2)) {
             return false;
         }
         // 普通类型校验
@@ -226,12 +224,12 @@ const utils = {
             return true;
         }
         // 对象或数组的话，只检查了一层
-        if (this.typeof(value1, ['object', 'array'])) {
+        if (utils.typeof(value1, ['object', 'array'])) {
             let keys = Object.keys(Object.assign({}, value1, value2));
             for (let i of keys) {
                 // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
-                if (this.typeof(value1[i], 'function') && this.typeof(value2[i], 'function')) {
-                    if (this.toString(value1[i]) !== this.toString(value2[i])) {
+                if (utils.typeof(value1[i], 'function') && utils.typeof(value2[i], 'function')) {
+                    if (utils.toString(value1[i]) !== utils.toString(value2[i])) {
                         return false;
                     }
                 } else if (!Object.is(value1[i], value2[i])) {
@@ -241,29 +239,39 @@ const utils = {
             return true;
         }
         // 包括：function、null、undefined、regexp、number、string、boolean、date ...
-        if (this.toString(value1) === this.toString(value2)) {
+        if (utils.toString(value1) === utils.toString(value2)) {
             return true;
         }
         return false;
     },
-    // 检查是否有改变内容
+    // 检查是否有改变内容。与equals的区别是，仅检测newVal中的值相对于oldVal相应的值是否发生了变化
     //  注意：newVal是oldVal的子集且值没有变化时，返回的是false
     isChange(newVal, oldVal) {
         // 检测类型，类型一致才继续后续的对比
-        if (this.getType(newVal) !== this.getType(oldVal)) {
+        if (utils.getType(newVal) !== utils.getType(oldVal)) {
             return true;
         }
-        if (this.typeof(newVal, ['object', 'array'])) {
+        if (utils.typeof(newVal, ['object', 'array'])) {
             for (let i of Object.keys(newVal)) {
-                if (this.isChange(newVal[i], oldVal[i])) {
+                if (utils.isChange(newVal[i], oldVal[i])) {
                     return true;
                 }
             }
         }
-        if (this.toString(newVal) !== this.toString(oldVal)) {
+        if (utils.toString(newVal) !== utils.toString(oldVal)) {
             return true;
         }
         return false;
+    },
+    // 获取变化的内容
+    getChange(newVal, oldVal) {
+        let result = {};
+        for (let i of Object.keys(newVal)) {
+            if (!utils.equals(newVal[i], oldVal[i])) {
+                result[i] = newVal[i];
+            }
+        }
+        return result;
     },
     // 子串是否处于字符串最末尾
     isLast(sub, str) {
@@ -273,7 +281,7 @@ const utils = {
     // callback 为回调函数，支持三个参数：依次是 item, index, obj
     // 注意：返回结果随着传入的参数变化，如果传入的是数组，则返回数组；如果传入的是对象，则返回对象
     each(obj, callback) {
-        let result = this.typeof(obj, 'array') ? [] : {};
+        let result = utils.typeof(obj, 'array') ? [] : {};
         for (let i in obj) {
             result[i] = callback(obj[i], i, obj);
         }
@@ -292,8 +300,8 @@ const utils = {
     drawLevel(arr) {
         let result = [];
         arr.forEach(item => {
-            if (this.typeof(item, 'array')) {
-                item = this.drawLevel(item);
+            if (utils.typeof(item, 'array')) {
+                item = utils.drawLevel(item);
             }
             result = result.concat(item);
         });
@@ -302,8 +310,8 @@ const utils = {
     // 遍历深层数组
     // 多层数组嵌套，保证原来数组层级的情况下遍历数组，值到值不为数组，并对每一项执行函数func
     traverse(arr, func) {
-        if (this.typeof(arr, 'array')) {
-            return arr.map(item=>this.traverse(item, func));
+        if (utils.typeof(arr, 'array')) {
+            return arr.map(item=>utils.traverse(item, func));
         }
         return func(arr);
     },
@@ -352,10 +360,10 @@ const utils = {
     // 判断 value 是否为指定类型
     // type 可以为一个字符串或者一个数组
     typeof(value, type) {
-        if (this.getType(type) === 'string') {
-            return this.getType(value) === type;
-        } else if (this.getType(type) === 'array') {
-            return type.indexOf(this.getType(value)) !== -1;
+        if (utils.getType(type) === 'string') {
+            return utils.getType(value) === type;
+        } else if (utils.getType(type) === 'array') {
+            return type.indexOf(utils.getType(value)) !== -1;
         } else {
             return false;
         }
@@ -393,7 +401,7 @@ const utils = {
     },
     // 某个对象是否直接来自某个类的实例
     directInstanceof(obj, cls) {
-        if (!this.typeof(cls, 'array')) {
+        if (!utils.typeof(cls, 'array')) {
             cls = [cls];
         }
         for (let v of cls) {
@@ -407,10 +415,10 @@ const utils = {
     // 把数组、对象转换成select等需要的options标准格式
     toOptions(data) {
         let result = [];
-        if (this.typeof(data, 'array')) {
+        if (utils.typeof(data, 'array')) {
             // ['value', 'value2']
-            if (this.typeof(data[0], ['string', 'number', 'boolean'])) {
-                result = this.distinct(data).map(v=>({label: v, value: v}));
+            if (utils.typeof(data[0], ['string', 'number', 'boolean'])) {
+                result = utils.distinct(data).map(v=>({label: v, value: v}));
             // 如果数据无需格式化，直接返回
             } else if (data[0] && data[0].label !== undefined && data[0].value !== undefined) {
                 result = data;
@@ -421,16 +429,24 @@ const utils = {
             } else {
                 result = data.map(v=>(
                     (v.key !== undefined && v.value !== undefined)
-                    ? {label: v.value, value: v.key}
+                    ? v.children 
+                        ? {label: v.value, value: v.key, children: utils.toOptions(v.children)}
+                        : {label: v.value, value: v.key}
                     : (v.id !== undefined && v.name !== undefined)
-                        ? {label: v.name, value: v.id}
+                        ? v.children
+                            ? {label: v.name, value: v.id, children: utils.toOptions(v.children)}
+                            : {label: v.name, value: v.id}
                         : v
                     )
                 );
             }
-        } else if (this.typeof(data, 'object')) {
+        } else if (utils.typeof(data, 'object')) {
             // {key: value}
             for (let i in data) {
+                // 如果 data 的值还是对象，则不是简单的键值对，很可能是 键-原数据对象 的结构
+                if (utils.typeof(data[i], 'object')) {
+                    return utils.toOptions(Object.values(data));
+                }
                 let item = {
                     label: data[i],
                     value: i
@@ -448,12 +464,12 @@ const utils = {
     // 从options结构中取值并形成一个新的数组（或者是类似于options的结构）
     // 可以取value或label
     // fromOptions(data, propName) {
-    //     let format = this.toOptions(data);
+    //     let format = utils.toOptions(data);
     //     return format.map(item=>item[propName]);
     // },
     // 获取options数据中的第一个值
     getFirstOption(data) {
-        let format = this.toOptions(data);
+        let format = utils.toOptions(data);
         if (format[0]) {
             return format[0].value;
         }
@@ -461,12 +477,12 @@ const utils = {
     // 把数据格式化成json展示
     prettyJson(data, origin) {
         if (origin) {
-            return this.syntaxHighlight(data);
+            return utils.syntaxHighlight(data);
         }
         return {
             type: 'pre',
             className: 'json',
-            dangerouslySetInnerHTML: {__html: this.syntaxHighlight(data)}
+            dangerouslySetInnerHTML: {__html: utils.syntaxHighlight(data)}
         };
     },
     // 根据一个字符串，生成一个深层的对象
@@ -488,7 +504,7 @@ const utils = {
         // 如果 strc 为空字符串，则返回 obj 本身
         if (strc) {
             for (let v of strc.split('.')) {
-                if (!target || !this.typeof(target, 'object')) {
+                if (!target || !utils.typeof(target, 'object')) {
                     return undefined;
                 }
                 target = target[v];
@@ -498,44 +514,48 @@ const utils = {
     },
     // 根据一个字符串，把数据塞入一个深层的对象中
     toObject(origin, strc, value) {
-        let tData = this.generateObject(strc, value);
+        let tData = utils.generateObject(strc, value);
         let level = strc.split('.').length;
-        this.merge(level, origin, tData);
+        utils.merge(level, origin, tData);
     },
     // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
     urlAnalysis(url, params, delParams = true) {
-        if (!url || url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+        if (!url || url.indexOf(':') === -1 || !utils.typeof(params, 'object')) {
             return url;
         }
+        let matched = '';
         for (let i in params) {
-            if (url.indexOf(`:${i}`) > -1) {
-                url = url.replace(`:${i}`, params[i]);
-                delParams && (delete params[i]);
+            if (url.indexOf(`:${i}`) > -1 && matched.length < i.length) {
+                matched = i;
             }
+        }
+        if (matched) {
+            url = url.replace(`:${matched}`, params[matched]);
+            delParams && (delete params[matched]);
         }
         return url;
     },
     // 想某个对象上的某个函数注入额外逻辑
     // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前、bind的对象
-    inject(parent, target, newFunc, oldAhead = false, thisObj = null) {
+    inject(parent, target, newFunc, oldAhead = false, utilsObj = null) {
         let origin = parent[target];
         parent[target] = !!origin
             ? (...params) => {
                 // return原函数执行结果
                 let result;
-                oldAhead ? (result = origin.call(thisObj, ...params)) : null;
+                oldAhead ? (result = origin.call(utilsObj, ...params)) : null;
                 // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
-                let newResult = newFunc.call(thisObj, ...params);
-                !oldAhead && newResult !== false ? (result = origin.call(thisObj, ...params)) : null;
+                let newResult = newFunc.call(utilsObj, ...params);
+                !oldAhead && newResult !== false ? (result = origin.call(utilsObj, ...params)) : null;
                 // let oResult;
-                // oldAhead ? (oResult = origin.call(thisObj, ...params)) : null;
+                // oldAhead ? (oResult = origin.call(utilsObj, ...params)) : null;
                 // // 如果返回false，可阻止注入函数的继续执行
-                // let newResult = oResult !== false ? newFunc.call(thisObj, ...params) : oResult;
+                // let newResult = oResult !== false ? newFunc.call(utilsObj, ...params) : oResult;
                 // // 如果注入的逻辑返回false，可阻止原函数的继续执行
-                // let result = !oldAhead && newResult !== false ? origin.call(thisObj, ...params) : oResult;
+                // let result = !oldAhead && newResult !== false ? origin.call(utilsObj, ...params) : oResult;
                 return result;
             }
-            : newFunc.bind(thisObj);
+            : newFunc.bind(utilsObj);
         // 被替换函数标记
         parent[target].replaced = true;
         return parent;
@@ -567,6 +587,15 @@ const utils = {
         value = JSON.stringify(value);
         return sessionStorage.setItem(key, value);
     },
+    // 遍历一个数组，从数组里取出某两个字段，组合成键值对数据
+    // 如更不传valueName，则相当于把keyName的值提出来当key，整条数据为value
+    detachToMap(arr, keyName, valueName = null) {
+        let obj = {};
+        utils.each(arr, v=>{
+            v[keyName] && (obj[v[keyName]] = valueName ? v[valueName] : v);
+        });
+        return obj;
+    },
 
 
     /************************************************************************/
@@ -586,7 +615,7 @@ const utils = {
                     try {
                         let type = JSON.parse(match);
                         if (typeof(JSON.parse(type)) === 'object') {
-                            return this.syntaxHighlight(JSON.parse(type));
+                            return utils.syntaxHighlight(JSON.parse(type));
                         } else {
                             cls = 'string';
                         }

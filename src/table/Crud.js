@@ -20,7 +20,8 @@ export default class Crud extends BaseComponent {
         for (let v of this.parent.columns) {
             this.columnName[v.dataIndex] = v.title;
         }
-        this.config = null;
+        this.configBefore = null;
+        this.configAfter = null;
         this.oConfig = null;
         this.init();
     }
@@ -92,24 +93,25 @@ export default class Crud extends BaseComponent {
                     break;
                 // 搜索弹框的配置
                 case 'search':
-                    // search 的表单可以复用 add 的配置，并移除必填限制以及校验规则
-                    if (!item.form && tempConf['add']) {
-                        item.form = Utils.clone(tempConf['add'].form);
-                        // 移除必填限制以及校验规则
-                        item.form.items.forEach(v => {
-                            delete v.rules;
-                            delete v.required;
-                        });
-                    }
-                    // 处理复用相关参数
-                    item.title = item.title || '搜索：';
-                    item.okText = item.okText || '搜索';
                     // 点击搜索时，对Table进行赋值操作
                     this._inject(item, 'onSubmit', params => {
                         this.parent.set({params});
                     });
-                    item = this.handleReuse(item, tempConf['add']);
-                    break;
+                    // 如果没定义type，则使用默认处理逻辑
+                    if (!item.type) {
+                        // 处理复用相关参数
+                        item.title = item.title || '高级查询：';
+                        item.okText = item.okText || '查询';
+                        item = this.handleReuse(item, tempConf['add']);
+                        // 移除必填限制以及校验规则
+                        if (item.form) {
+                            item.form.items.forEach(v => {
+                                delete v.rules;
+                                delete v.required;
+                            });
+                        }
+                        break;
+                    }
                 // 删除确认框的配置
                 case 'delete':
                     // 默认把参数处理为：只返回 id（rowKey对应的字段）
@@ -120,6 +122,10 @@ export default class Crud extends BaseComponent {
                     );
                     item.render = item.render || (() => ('确定要删除吗？'));
                     item.okText = item.okText || '删除';
+                    break;
+                // 批量查询
+                case 'batchSearch':
+                    item.okText = item.okText || '查询';
                     break;
                 // 批量展示table中选中的数据
                 case 'batchShow':
@@ -179,6 +185,9 @@ export default class Crud extends BaseComponent {
                     }];
                     break;
             }
+            if (item.position && item.position !== 'modal') {
+                item.type = item.type || 'dashboard';
+            }
             item.type = item.type || 'modal';
             item.name = this._getModalName(i);
             item.key = item.name;
@@ -200,12 +209,17 @@ export default class Crud extends BaseComponent {
             if (item.form && item.form.items) {
                 item.form.items = this.handleFormItems(item.form.items);
             }
+            if (item.type === 'form' && item.items) {
+                item.key = Utils.uniqueId();
+                item.items = this.handleFormItems(item.items);
+            }
             result[i] = item;
             // 存储的复用配置用action做区分
             tempConf[action] = item;
         }
         this.oConfig = result;
-        this.config = Object.values(result);
+        this.configBefore = Object.values(result).filter(v=>v.position === 'beforeHeader');
+        this.configAfter = Object.values(result).filter(v => v.position !== 'beforeHeader');
     }
     getLastPageNum(item, action) {
         let pagination = this.parent.pagination;
@@ -292,22 +306,23 @@ export default class Crud extends BaseComponent {
 
     // 展示各种弹框框
     showCrud(key, record, ...params) {
+        let visibale = params[1];
         let action = this._getAction(key);
         let modal = this.__getComponent(this._getModalName(key));
         if (modal) {
             // 除批量编辑需要额外操作，其他都是直接展示即可
             switch (action) {
                 case 'batchEdit':
-                    this._showBatchEdit(key);
+                    this._showBatchEdit(key, visibale);
                     break;
                 case 'batchDelete':
-                    this._showBatchDelete(key);
+                    this._showBatchDelete(key, visibale);
                     break;
                 case '_showBatchShow':
-                    this._showBatchShow(key);
+                    this._showBatchShow(key, visibale);
                     break;
                 default:
-                    modal.show(record, ...params, this.parent);
+                    modal.show(record, visibale);
             }
         }
     }
@@ -399,7 +414,7 @@ export default class Crud extends BaseComponent {
         return result;
     }
     // 展示批量编辑框
-    _showBatchEdit(key) {
+    _showBatchEdit(key, visibale) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
             message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
@@ -409,7 +424,7 @@ export default class Crud extends BaseComponent {
             datas = this.enum.encodeEnum(datas);
             let str = this._getStrByList(key, datas);
             let modal = this.__getComponent(this._getModalName(key));
-            modal && modal.show({data: str});
+            modal && modal.show({data: str}, visibale);
         } else {
             console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
         }
@@ -426,27 +441,36 @@ export default class Crud extends BaseComponent {
         };
     }
     // 展示批量删除框
-    _showBatchDelete(key) {
+    _showBatchDelete(key, visibale) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
             message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
             return;
         }
         let modal = this.__getComponent(this._getModalName(key));
-        modal && modal.show(datas);
+        modal && modal.show(datas, visibale);
     }
     // 批量展示数据。即展示表格中的选中的数据
-    _showBatchShow(key) {
+    _showBatchShow(key, visibale) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
             message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
             return;
         }
         let modal = this.__getComponent(this._getModalName(key));
-        modal && modal.show(datas);
+        modal && modal.show(datas, visibale);
     }
 
     render() {
-        return <div>{this.parent.__analysis(this.config)}</div>;
+        return <div className="uf-table-crud">
+            <div className="uf-table-crud-before">
+                {this.parent.__analysis(this.configBefore)}
+            </div>
+            {/* 表格的title内容 */}
+            {this.props.children}
+            <div className="uf-table-crud-after">
+                {this.parent.__analysis(this.configAfter)}
+            </div>
+        </div>;
     }
 }

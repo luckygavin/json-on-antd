@@ -49,9 +49,9 @@ const demo1 = {
                 basicWidget: [{name: 'filter', text: '快捷查询'}],
                 extra: [
                     {type: 'button', mode: 'primary', content: '新增', action: 'add'},
-                    {type: 'button', mode: 'primary', content: '查询', action: 'search'},
                     {type: 'button', mode: 'primary', content: '批量编辑', action: 'batchEdit'},
-                    {type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete'}
+                    {type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete'},
+                    {type: 'button', mode: 'primary', content: '批量查询', action: 'batchSearch', actived: true}
                 ]
             },
             // source: 'docs/php/data.php',
@@ -101,8 +101,37 @@ const demo1 = {
                     }
                 },
                 search: {
-                    title: '高级搜索:',
-                    remove: 'description'
+                    position: 'beforeHeader',
+                    type: 'form',
+                    layout: {type: 'inline'},
+                    size: 'default',
+                    items: [
+                        {type: 'input', label: '机房', name: 'name', style: {width: 90}},
+                        {type: 'select', label: '名称', name: 'idcId', style: {width: 90}},
+                        {type: 'input', label: '地区', name: 'region', style: {width: 90}},
+                        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}
+                    ]
+                },
+                batchSearch: {
+                    position: 'afterHeader',
+                    size: 'default',
+                    title: [
+                        {type: 'span', content: '批量查询', style: {display: 'inline-block', marginRight: 10, fontWeight: 700}},
+                        {type: 'button', size: 'small', mode: 'default', content: '清空', action: 'reset'},
+                        {type: 'button', size: 'small', mode: 'primary', content: '查询', action: 'submit'}
+                    ],
+                    content: {
+                        type: 'div',
+                        style: {padding: '7px 0'},
+                        content: '请在下方的输入框中输入机房名称进行查询，每个记录请用英文逗号(,)或换行相隔。'
+                    },
+                    form: {
+                        layout: {wrapperCol: 24},
+                        items: [
+                            {type: 'textarea', name: 'batchSearch', rows: 8}
+                        ]
+                    },
+                    footer: null
                 },
                 delete: {
                     title: '删除机房:',

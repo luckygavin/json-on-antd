@@ -15,12 +15,33 @@
 
 ### 0.3.0
 
+`2018-09-17`
+
+* 🌟 `Button`组件新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态
+* 🌟 新增`Dashboard`组件【内测中】
+* `Table`
+    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)
+
+`2018-09-14`
+
+* 💄 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)
+* 💄 优化`Select`组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断
+* 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能
+* `Table`
+    * 🐞 修复组件的`crud`功能按钮点击无效问题
+    * 💄 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）
+    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息
+* ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）
+
+
 `2018-09-04`
 
 * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)
 * `Table`
     * 🌟 新增表头单字段过滤功能可用于后端分页的情况
-* ⚙ 调整参数`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持，[传送门](#/Params/-source-)
+    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮
+* 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)
+* ⚙ 调整参数`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持
 
 
 `2018-08-28`

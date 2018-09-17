@@ -68,11 +68,11 @@
 
 	var map = {
 		"./baidu-theme/index.less": 2,
-		"./dark/index.less": 3,
-		"./default/index.less": 4,
-		"./green/index.less": 5,
-		"./large/index.less": 6,
-		"./we-theme/index.less": 7
+		"./dark/index.less": 5,
+		"./default/index.less": 6,
+		"./green/index.less": 7,
+		"./large/index.less": 8,
+		"./we-theme/index.less": 9
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -92,31 +92,21 @@
 /* 2 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./baidu-theme/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	(function() { module.exports = global["./dark/index.less"]; }());
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-	(function() { module.exports = global["./default/index.less"]; }());
-
-/***/ }),
+/* 3 */,
+/* 4 */,
 /* 5 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./green/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./large/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 7 */
@@ -125,8 +115,18 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */,
-/* 9 */,
+/* 8 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.9","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.10","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -184,19 +184,19 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(107);
+	__webpack_require__(108);
 
 	var _utils = __webpack_require__(19);
 
-	var _cache = __webpack_require__(108);
+	var _cache = __webpack_require__(109);
 
 	var _cache2 = _interopRequireDefault(_cache);
 
-	var _factory = __webpack_require__(115);
+	var _factory = __webpack_require__(116);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(116);
+	var _loader = __webpack_require__(117);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -204,7 +204,7 @@
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _init = __webpack_require__(121);
+	var _init = __webpack_require__(122);
 
 	var _init2 = _interopRequireDefault(_init);
 
@@ -398,7 +398,6 @@
 	                conf.precondition = (conf.precondition || []).concat(componentsLoader.map(function (path) {
 	                    return function (resovle) {
 	                        Requirejs([path], function (foo) {
-	                            console.log(foo);
 	                            foo && _this.config({ components: foo });
 	                            resovle();
 	                        });
@@ -515,7 +514,6 @@
 	    }
 	    // 默认使用default名称
 	    conf.name = conf.name || conf.appName || defaultName;
-	    delete conf.appName;
 	    // 获取当前name的uf实例
 	    var ufIns = (0, _instance.getInstance)(conf.name);
 	    // 如果不存在生成一个新的实例
@@ -608,11 +606,12 @@
 	    Table: __webpack_require__(87),
 	    Form: __webpack_require__(94).Form,
 	    Forms: __webpack_require__(94).Forms,
-	    Modal: __webpack_require__(99),
+	    Modal: __webpack_require__(99).Modal,
+	    Dashboard: __webpack_require__(99).Dashboard,
 	    Ueditor: __webpack_require__(96),
-	    Echarts: __webpack_require__(101),
-	    Fieldset: __webpack_require__(103),
-	    List: __webpack_require__(105)
+	    Echarts: __webpack_require__(102),
+	    Fieldset: __webpack_require__(104),
+	    List: __webpack_require__(106)
 	});
 
 /***/ }),
@@ -683,15 +682,15 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _DataEntry11 = __webpack_require__(59);
+	var _DataEntry10 = __webpack_require__(59);
 
-	var _DataEntry12 = _interopRequireDefault(_DataEntry11);
+	var _DataEntry11 = _interopRequireDefault(_DataEntry10);
 
 	var _moment = __webpack_require__(23);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -709,12 +708,12 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	var OptionsDataEntry = _DataEntry12.default.OptionsDataEntry;
+	var OptionsDataEntry = _DataEntry11.default.OptionsDataEntry;
 
 	/************* Cascader 级联选择 ************************************************************************** */
 
-	var Cascader = exports.Cascader = function (_DataEntry) {
-	    _inherits(Cascader, _DataEntry);
+	var Cascader = exports.Cascader = function (_OptionsDataEntry) {
+	    _inherits(Cascader, _OptionsDataEntry);
 
 	    function Cascader(props) {
 	        _classCallCheck(this, Cascader);
@@ -734,12 +733,12 @@
 	    }]);
 
 	    return Cascader;
-	}(_DataEntry12.default);
+	}(OptionsDataEntry);
 
 	/************* DatePicker 日期选择框 ************************************************************************** */
 
-	var BasePicker = function (_DataEntry2) {
-	    _inherits(BasePicker, _DataEntry2);
+	var BasePicker = function (_DataEntry) {
+	    _inherits(BasePicker, _DataEntry);
 
 	    function BasePicker(props) {
 	        _classCallCheck(this, BasePicker);
@@ -767,7 +766,7 @@
 	    }]);
 
 	    return BasePicker;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 	// 日期[时间]选择
 
 
@@ -916,8 +915,8 @@
 
 	/************* Input 输入框 ************************************************************************** */
 
-	var Input = exports.Input = function (_DataEntry3) {
-	    _inherits(Input, _DataEntry3);
+	var Input = exports.Input = function (_DataEntry2) {
+	    _inherits(Input, _DataEntry2);
 
 	    function Input(props) {
 	        _classCallCheck(this, Input);
@@ -936,12 +935,12 @@
 	    }]);
 
 	    return Input;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 	// textarea
 
 
-	var Textarea = exports.Textarea = function (_DataEntry4) {
-	    _inherits(Textarea, _DataEntry4);
+	var Textarea = exports.Textarea = function (_DataEntry3) {
+	    _inherits(Textarea, _DataEntry3);
 
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
@@ -960,7 +959,7 @@
 	    }]);
 
 	    return Textarea;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 	// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
 
 
@@ -989,8 +988,8 @@
 	// 输入框连接在一起形成一组
 
 
-	var InputGroup = exports.InputGroup = function (_DataEntry5) {
-	    _inherits(InputGroup, _DataEntry5);
+	var InputGroup = exports.InputGroup = function (_DataEntry4) {
+	    _inherits(InputGroup, _DataEntry4);
 
 	    function InputGroup(props) {
 	        _classCallCheck(this, InputGroup);
@@ -1011,12 +1010,12 @@
 	    }]);
 
 	    return InputGroup;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 	// 数字输入框
 
 
-	var InputNumber = exports.InputNumber = function (_DataEntry6) {
-	    _inherits(InputNumber, _DataEntry6);
+	var InputNumber = exports.InputNumber = function (_DataEntry5) {
+	    _inherits(InputNumber, _DataEntry5);
 
 	    function InputNumber(props) {
 	        _classCallCheck(this, InputNumber);
@@ -1035,12 +1034,12 @@
 	    }]);
 
 	    return InputNumber;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 
 	/************* Rate 评分 ************************************************************************** */
 
-	var Rate = exports.Rate = function (_DataEntry7) {
-	    _inherits(Rate, _DataEntry7);
+	var Rate = exports.Rate = function (_DataEntry6) {
+	    _inherits(Rate, _DataEntry6);
 
 	    function Rate(props) {
 	        _classCallCheck(this, Rate);
@@ -1059,12 +1058,12 @@
 	    }]);
 
 	    return Rate;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 
 	/************* Checkbox 复选框 ************************************************************************** */
 
-	var Checkbox = exports.Checkbox = function (_DataEntry8) {
-	    _inherits(Checkbox, _DataEntry8);
+	var Checkbox = exports.Checkbox = function (_DataEntry7) {
+	    _inherits(Checkbox, _DataEntry7);
 
 	    function Checkbox(props) {
 	        _classCallCheck(this, Checkbox);
@@ -1085,12 +1084,12 @@
 	    }]);
 
 	    return Checkbox;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 	// 多复选框组合
 
 
-	var CheckboxGroup = exports.CheckboxGroup = function (_OptionsDataEntry) {
-	    _inherits(CheckboxGroup, _OptionsDataEntry);
+	var CheckboxGroup = exports.CheckboxGroup = function (_OptionsDataEntry2) {
+	    _inherits(CheckboxGroup, _OptionsDataEntry2);
 
 	    function CheckboxGroup(props) {
 	        _classCallCheck(this, CheckboxGroup);
@@ -1134,8 +1133,8 @@
 	// 这里直接使用Radio组，单个radio没想到什么应用场景
 
 
-	var Radio = exports.Radio = function (_OptionsDataEntry2) {
-	    _inherits(Radio, _OptionsDataEntry2);
+	var Radio = exports.Radio = function (_OptionsDataEntry3) {
+	    _inherits(Radio, _OptionsDataEntry3);
 
 	    function Radio(props) {
 	        _classCallCheck(this, Radio);
@@ -1179,8 +1178,8 @@
 
 	/************* Select 下拉菜单 ************************************************************************** */
 
-	var Select = exports.Select = function (_OptionsDataEntry3) {
-	    _inherits(Select, _OptionsDataEntry3);
+	var Select = exports.Select = function (_OptionsDataEntry4) {
+	    _inherits(Select, _OptionsDataEntry4);
 
 	    function Select(props) {
 	        _classCallCheck(this, Select);
@@ -1214,14 +1213,27 @@
 	                this.__props.onChange && this.__props.onChange(value);
 	            }
 	        }
+	        // _onSourceSuccess(data) {
+	        //     // 根据是否多选做区别处理
+	        //     if (this.isMultiple) {
+	        //         this._handleMultipleSelect(data);
+	        //     } else {
+	        //         this._handleDefaultSelect(data);
+	        //     }
+	        // }
+	        // 改为每次set值时检查，如果更新了options，则进行是否清空或者重置为默认值的处理
+
 	    }, {
-	        key: '_onSourceSuccess',
-	        value: function _onSourceSuccess(data) {
-	            // 根据是否多选做区别处理
-	            if (this.isMultiple) {
-	                this._handleMultipleSelect(data);
-	            } else {
-	                this._handleDefaultSelect(data);
+	        key: '_afterSetProps',
+	        value: function _afterSetProps(newProps) {
+	            _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_afterSetProps', this).call(this, newProps);
+	            if (newProps.options) {
+	                // 根据是否多选做区别处理
+	                if (this.isMultiple) {
+	                    this._handleMultipleSelect(newProps.options);
+	                } else {
+	                    this._handleDefaultSelect(newProps.options);
+	                }
 	            }
 	        }
 	    }, {
@@ -1287,8 +1299,8 @@
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry9) {
-	    _inherits(Switch, _DataEntry9);
+	var Switch = exports.Switch = function (_DataEntry8) {
+	    _inherits(Switch, _DataEntry8);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
@@ -1310,12 +1322,12 @@
 	    }]);
 
 	    return Switch;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 
 	/************* Upload 开关 ************************************************************************** */
 
-	var Upload = exports.Upload = function (_DataEntry10) {
-	    _inherits(Upload, _DataEntry10);
+	var Upload = exports.Upload = function (_DataEntry9) {
+	    _inherits(Upload, _DataEntry9);
 
 	    function Upload(props) {
 	        _classCallCheck(this, Upload);
@@ -1345,7 +1357,7 @@
 	    }]);
 
 	    return Upload;
-	}(_DataEntry12.default);
+	}(_DataEntry11.default);
 
 	var Dragger = exports.Dragger = function (_Upload) {
 	    _inherits(Dragger, _Upload);
@@ -1402,7 +1414,7 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// 引入了underscore的功能，并在其上增加了自定义的一些函数
-	var utils = Object.assign({}, _utils3.default, {
+	var utils = Object.assign({}, _underscore2.default, _utils3.default, {
 	    // 如果要使用原生的功能，可通过 _ 来访问
 	    _: _underscore2.default,
 	    // 如果数据合法，返回moment数据；否则返回null
@@ -1414,35 +1426,12 @@
 	        return arguments.length <= 0 ? undefined : arguments[0];
 	    },
 
-	    // 延迟调用
-	    defer: function defer() {
-	        // setTimeout(args.length === 0 ? func : ()=>{
-	        //     func(...args);
-	        // }, 0);
-	        return _underscore2.default.defer.apply(_underscore2.default, arguments);
-	    },
-	    debounce: function debounce() {
-	        return _underscore2.default.debounce.apply(_underscore2.default, arguments);
-	    },
-
-	    // 获取数组的交集
-	    without: function without() {
-	        return _underscore2.default.without.apply(_underscore2.default, arguments);
-	    },
-
-	    // 获取数组的交集
-	    difference: function difference() {
-	        return _underscore2.default.difference.apply(_underscore2.default, arguments);
-	    },
-
-	    // 获取数组的交集
-	    intersection: function intersection() {
-	        return _underscore2.default.intersection.apply(_underscore2.default, arguments);
-	    },
-
 	    // 数组是否有交集
 	    isIntersection: function isIntersection() {
 	        return _underscore2.default.intersection.apply(_underscore2.default, arguments).length > 0;
+	    },
+	    assign: function assign() {
+	        return Object.assign.apply(Object, arguments);
 	    }
 	}); /**
 	     * @file 一些常用的函数工具
@@ -1494,7 +1483,7 @@
 	    hash: function hash(text, len, level) {
 	        var hash = 5381;
 	        if (level) {
-	            text = this.stringify(text, level);
+	            text = utils.stringify(text, level);
 	        } else {
 	            text = JSON.stringify(text);
 	        }
@@ -1522,24 +1511,22 @@
 
 	    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
 	    stringify: function stringify(data) {
-	        var _this = this;
-
 	        var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
 
 	        if (level <= 0) {
 	            return '_$leaf';
 	        }
-	        if (this.typeof(data, ['object', 'array', 'symbol'])) {
-	            if (this.directInstanceof(data, [Object, Array])) {
-	                data = this.each(data, function (v) {
-	                    return _this.stringify(v, level - 1);
+	        if (utils.typeof(data, ['object', 'array', 'symbol'])) {
+	            if (utils.directInstanceof(data, [Object, Array])) {
+	                data = utils.each(data, function (v) {
+	                    return utils.stringify(v, level - 1);
 	                });
 	                data = JSON.stringify(data);
 	            } else {
 	                // Symbol(react.element)
 	                data = '_$Symbol';
 	            }
-	        } else if (this.typeof(data, 'function')) {
+	        } else if (utils.typeof(data, 'function')) {
 	            data = '_$function';
 	        }
 	        return '' + data;
@@ -1558,10 +1545,10 @@
 	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
-	                if (this.typeof(value, 'undefined')) {
+	                if (utils.typeof(value, 'undefined')) {
 	                    value = [];
 	                }
-	                if (!this.typeof(value, 'array')) {
+	                if (!utils.typeof(value, 'array')) {
 	                    value = [value];
 	                }
 	                break;
@@ -1581,7 +1568,7 @@
 
 	    // 判断数组或对象是否为空
 	    empty: function empty(obj) {
-	        if (this.typeof(obj, ['array', 'object'])) {
+	        if (utils.typeof(obj, ['array', 'object'])) {
 	            for (var t in obj) {
 	                return false;
 	            }
@@ -1593,7 +1580,7 @@
 
 	    // 浅拷贝，指针指向，只拷贝一层
 	    copy: function copy(obj) {
-	        return this.clone(obj, 1);
+	        return utils.clone(obj, 1);
 	    },
 
 	    // 深拷贝对象/数组
@@ -1606,16 +1593,16 @@
 	            return data;
 	        }
 	        var newData = void 0;
-	        if (this.typeof(data, 'array')) {
+	        if (utils.typeof(data, 'array')) {
 	            newData = [];
-	        } else if (this.typeof(data, 'object')) {
+	        } else if (utils.typeof(data, 'object')) {
 	            newData = {};
 	        } else {
 	            return data;
 	        }
 	        for (var i in data) {
 	            if (data.hasOwnProperty(i)) {
-	                newData[i] = this.clone(data[i], level - 1);
+	                newData[i] = utils.clone(data[i], level - 1);
 	            }
 	        }
 	        return newData;
@@ -1635,10 +1622,10 @@
 	            objs[_key - 2] = arguments[_key];
 	        }
 
-	        if (this.typeof(ghost, 'number')) {
+	        if (utils.typeof(ghost, 'number')) {
 	            level = ghost;
 	            // 场景2：ghost 为filter数组，声明某些属性无需合并直接覆盖
-	        } else if (this.typeof(ghost, 'array')) {
+	        } else if (utils.typeof(ghost, 'array')) {
 	            filter = ghost;
 	            // 场景3：无上述两种类型的参数，ghost为target
 	        } else {
@@ -1647,7 +1634,7 @@
 	        }
 	        if (level <= 0) {
 	            // 如果存储内容不为普通对象，例如类的实例，copy不能拷贝继承的函数
-	            // return this.copy(objs[0]);
+	            // return utils.copy(objs[0]);
 	            return objs[0];
 	        }
 	        var result = target;
@@ -1663,10 +1650,10 @@
 	                // 其次判断两个数据的格式，只有两个数据都为引用类型时，才需要循环合并
 	                // 然后判断对象是否为直接继承自Object，如果不是，复杂对象不再深层遍历，直接覆盖
 	                // array 应该直接覆盖，否则数组的值只增不减
-	                if (!Object.isFrozen(result) && this.typeof(result, 'object') && this.typeof(obj, 'object') && this.directInstanceof(result, Object)) {
+	                if (!Object.isFrozen(result) && utils.typeof(result, 'object') && utils.typeof(obj, 'object') && utils.directInstanceof(result, Object)) {
 	                    for (var i in obj) {
 	                        if (filter.indexOf(i) === -1) {
-	                            result[i] = this.merge(level - 1, result[i], obj[i]);
+	                            result[i] = utils.merge(level - 1, result[i], obj[i]);
 	                        } else {
 	                            result[i] = obj[i];
 	                        }
@@ -1697,7 +1684,7 @@
 
 	    // 从obj中过滤掉某些属性
 	    filter: function filter(obj, arr) {
-	        if (this.typeof(arr, 'string')) {
+	        if (utils.typeof(arr, 'string')) {
 	            arr = [arr];
 	        }
 	        var newObj = {};
@@ -1710,8 +1697,11 @@
 	    },
 
 	    // 从obj中获取某些属性
+	    pass: function pass() {
+	        return utils.reverseFilter.apply(utils, arguments);
+	    },
 	    reverseFilter: function reverseFilter(obj, arr) {
-	        if (this.typeof(arr, 'string')) {
+	        if (utils.typeof(arr, 'string')) {
 	            arr = [arr];
 	        }
 	        var newObj = {};
@@ -1726,13 +1716,8 @@
 	    // 对比两个值是否相等
 	    // 注意：不要随意切换其余的对比函数，例如underscore的isEqual
 	    equals: function equals(value1, value2) {
-	        // 方式1
-	        // return JSON.stringify(value1) === JSON.stringify(value2);
-	        // 方式2
-	        // return underscore.isEqual(value1, value2);
-	        // 方式3
 	        // 检测类型，类型一致才继续后续的对比
-	        if (this.getType(value1) !== this.getType(value2)) {
+	        if (utils.getType(value1) !== utils.getType(value2)) {
 	            return false;
 	        }
 	        // 普通类型校验
@@ -1740,7 +1725,7 @@
 	            return true;
 	        }
 	        // 对象或数组的话，只检查了一层
-	        if (this.typeof(value1, ['object', 'array'])) {
+	        if (utils.typeof(value1, ['object', 'array'])) {
 	            var keys = Object.keys(Object.assign({}, value1, value2));
 	            var _iteratorNormalCompletion2 = true;
 	            var _didIteratorError2 = false;
@@ -1751,8 +1736,8 @@
 	                    var i = _step2.value;
 
 	                    // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
-	                    if (this.typeof(value1[i], 'function') && this.typeof(value2[i], 'function')) {
-	                        if (this.toString(value1[i]) !== this.toString(value2[i])) {
+	                    if (utils.typeof(value1[i], 'function') && utils.typeof(value2[i], 'function')) {
+	                        if (utils.toString(value1[i]) !== utils.toString(value2[i])) {
 	                            return false;
 	                        }
 	                    } else if (!Object.is(value1[i], value2[i])) {
@@ -1777,20 +1762,20 @@
 	            return true;
 	        }
 	        // 包括：function、null、undefined、regexp、number、string、boolean、date ...
-	        if (this.toString(value1) === this.toString(value2)) {
+	        if (utils.toString(value1) === utils.toString(value2)) {
 	            return true;
 	        }
 	        return false;
 	    },
 
-	    // 检查是否有改变内容
+	    // 检查是否有改变内容。与equals的区别是，仅检测newVal中的值相对于oldVal相应的值是否发生了变化
 	    //  注意：newVal是oldVal的子集且值没有变化时，返回的是false
 	    isChange: function isChange(newVal, oldVal) {
 	        // 检测类型，类型一致才继续后续的对比
-	        if (this.getType(newVal) !== this.getType(oldVal)) {
+	        if (utils.getType(newVal) !== utils.getType(oldVal)) {
 	            return true;
 	        }
-	        if (this.typeof(newVal, ['object', 'array'])) {
+	        if (utils.typeof(newVal, ['object', 'array'])) {
 	            var _iteratorNormalCompletion3 = true;
 	            var _didIteratorError3 = false;
 	            var _iteratorError3 = undefined;
@@ -1799,7 +1784,7 @@
 	                for (var _iterator3 = Object.keys(newVal)[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
 	                    var i = _step3.value;
 
-	                    if (this.isChange(newVal[i], oldVal[i])) {
+	                    if (utils.isChange(newVal[i], oldVal[i])) {
 	                        return true;
 	                    }
 	                }
@@ -1818,10 +1803,43 @@
 	                }
 	            }
 	        }
-	        if (this.toString(newVal) !== this.toString(oldVal)) {
+	        if (utils.toString(newVal) !== utils.toString(oldVal)) {
 	            return true;
 	        }
 	        return false;
+	    },
+
+	    // 获取变化的内容
+	    getChange: function getChange(newVal, oldVal) {
+	        var result = {};
+	        var _iteratorNormalCompletion4 = true;
+	        var _didIteratorError4 = false;
+	        var _iteratorError4 = undefined;
+
+	        try {
+	            for (var _iterator4 = Object.keys(newVal)[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                var i = _step4.value;
+
+	                if (!utils.equals(newVal[i], oldVal[i])) {
+	                    result[i] = newVal[i];
+	                }
+	            }
+	        } catch (err) {
+	            _didIteratorError4 = true;
+	            _iteratorError4 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                    _iterator4.return();
+	                }
+	            } finally {
+	                if (_didIteratorError4) {
+	                    throw _iteratorError4;
+	                }
+	            }
+	        }
+
+	        return result;
 	    },
 
 	    // 子串是否处于字符串最末尾
@@ -1833,7 +1851,7 @@
 	    // callback 为回调函数，支持三个参数：依次是 item, index, obj
 	    // 注意：返回结果随着传入的参数变化，如果传入的是数组，则返回数组；如果传入的是对象，则返回对象
 	    each: function each(obj, callback) {
-	        var result = this.typeof(obj, 'array') ? [] : {};
+	        var result = utils.typeof(obj, 'array') ? [] : {};
 	        for (var i in obj) {
 	            result[i] = callback(obj[i], i, obj);
 	        }
@@ -1852,12 +1870,10 @@
 
 	    // 把多数组嵌套层级拉平
 	    drawLevel: function drawLevel(arr) {
-	        var _this2 = this;
-
 	        var result = [];
 	        arr.forEach(function (item) {
-	            if (_this2.typeof(item, 'array')) {
-	                item = _this2.drawLevel(item);
+	            if (utils.typeof(item, 'array')) {
+	                item = utils.drawLevel(item);
 	            }
 	            result = result.concat(item);
 	        });
@@ -1867,11 +1883,9 @@
 	    // 遍历深层数组
 	    // 多层数组嵌套，保证原来数组层级的情况下遍历数组，值到值不为数组，并对每一项执行函数func
 	    traverse: function traverse(arr, func) {
-	        var _this3 = this;
-
-	        if (this.typeof(arr, 'array')) {
+	        if (utils.typeof(arr, 'array')) {
 	            return arr.map(function (item) {
-	                return _this3.traverse(item, func);
+	                return utils.traverse(item, func);
 	            });
 	        }
 	        return func(arr);
@@ -1884,13 +1898,13 @@
 	        var path = '#';
 	        if (pattern) {
 	            var arr = pattern.slice(2, pattern.length).split('/');
-	            var _iteratorNormalCompletion4 = true;
-	            var _didIteratorError4 = false;
-	            var _iteratorError4 = undefined;
+	            var _iteratorNormalCompletion5 = true;
+	            var _didIteratorError5 = false;
+	            var _iteratorError5 = undefined;
 
 	            try {
-	                for (var _iterator4 = arr[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	                    var v = _step4.value;
+	                for (var _iterator5 = arr[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                    var v = _step5.value;
 
 	                    if (v.indexOf(':') === 0) {
 	                        var key = v.slice(1, v.length);
@@ -1900,16 +1914,16 @@
 	                    }
 	                }
 	            } catch (err) {
-	                _didIteratorError4 = true;
-	                _iteratorError4 = err;
+	                _didIteratorError5 = true;
+	                _iteratorError5 = err;
 	            } finally {
 	                try {
-	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	                        _iterator4.return();
+	                    if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                        _iterator5.return();
 	                    }
 	                } finally {
-	                    if (_didIteratorError4) {
-	                        throw _iteratorError4;
+	                    if (_didIteratorError5) {
+	                        throw _iteratorError5;
 	                    }
 	                }
 	            }
@@ -1947,10 +1961,10 @@
 	    // 判断 value 是否为指定类型
 	    // type 可以为一个字符串或者一个数组
 	    typeof: function _typeof(value, type) {
-	        if (this.getType(type) === 'string') {
-	            return this.getType(value) === type;
-	        } else if (this.getType(type) === 'array') {
-	            return type.indexOf(this.getType(value)) !== -1;
+	        if (utils.getType(type) === 'string') {
+	            return utils.getType(value) === type;
+	        } else if (utils.getType(type) === 'array') {
+	            return type.indexOf(utils.getType(value)) !== -1;
 	        } else {
 	            return false;
 	        }
@@ -1997,32 +2011,32 @@
 
 	    // 某个对象是否直接来自某个类的实例
 	    directInstanceof: function directInstanceof(obj, cls) {
-	        if (!this.typeof(cls, 'array')) {
+	        if (!utils.typeof(cls, 'array')) {
 	            cls = [cls];
 	        }
-	        var _iteratorNormalCompletion5 = true;
-	        var _didIteratorError5 = false;
-	        var _iteratorError5 = undefined;
+	        var _iteratorNormalCompletion6 = true;
+	        var _didIteratorError6 = false;
+	        var _iteratorError6 = undefined;
 
 	        try {
-	            for (var _iterator5 = cls[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-	                var v = _step5.value;
+	            for (var _iterator6 = cls[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                var v = _step6.value;
 
 	                if (obj && obj.constructor && obj.constructor.prototype === v.prototype) {
 	                    return true;
 	                }
 	            }
 	        } catch (err) {
-	            _didIteratorError5 = true;
-	            _iteratorError5 = err;
+	            _didIteratorError6 = true;
+	            _iteratorError6 = err;
 	        } finally {
 	            try {
-	                if (!_iteratorNormalCompletion5 && _iterator5.return) {
-	                    _iterator5.return();
+	                if (!_iteratorNormalCompletion6 && _iterator6.return) {
+	                    _iterator6.return();
 	                }
 	            } finally {
-	                if (_didIteratorError5) {
-	                    throw _iteratorError5;
+	                if (_didIteratorError6) {
+	                    throw _iteratorError6;
 	                }
 	            }
 	        }
@@ -2034,10 +2048,10 @@
 	    // 把数组、对象转换成select等需要的options标准格式
 	    toOptions: function toOptions(data) {
 	        var result = [];
-	        if (this.typeof(data, 'array')) {
+	        if (utils.typeof(data, 'array')) {
 	            // ['value', 'value2']
-	            if (this.typeof(data[0], ['string', 'number', 'boolean'])) {
-	                result = this.distinct(data).map(function (v) {
+	            if (utils.typeof(data[0], ['string', 'number', 'boolean'])) {
+	                result = utils.distinct(data).map(function (v) {
 	                    return { label: v, value: v };
 	                });
 	                // 如果数据无需格式化，直接返回
@@ -2049,12 +2063,16 @@
 	                // {id: 1, name: 'a'}
 	            } else {
 	                result = data.map(function (v) {
-	                    return v.key !== undefined && v.value !== undefined ? { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? { label: v.name, value: v.id } : v;
+	                    return v.key !== undefined && v.value !== undefined ? v.children ? { label: v.value, value: v.key, children: utils.toOptions(v.children) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children ? { label: v.name, value: v.id, children: utils.toOptions(v.children) } : { label: v.name, value: v.id } : v;
 	                });
 	            }
-	        } else if (this.typeof(data, 'object')) {
+	        } else if (utils.typeof(data, 'object')) {
 	            // {key: value}
 	            for (var i in data) {
+	                // 如果 data 的值还是对象，则不是简单的键值对，很可能是 键-原数据对象 的结构
+	                if (utils.typeof(data[i], 'object')) {
+	                    return utils.toOptions(Object.values(data));
+	                }
 	                var item = {
 	                    label: data[i],
 	                    value: i
@@ -2073,12 +2091,12 @@
 	    // 从options结构中取值并形成一个新的数组（或者是类似于options的结构）
 	    // 可以取value或label
 	    // fromOptions(data, propName) {
-	    //     let format = this.toOptions(data);
+	    //     let format = utils.toOptions(data);
 	    //     return format.map(item=>item[propName]);
 	    // },
 	    // 获取options数据中的第一个值
 	    getFirstOption: function getFirstOption(data) {
-	        var format = this.toOptions(data);
+	        var format = utils.toOptions(data);
 	        if (format[0]) {
 	            return format[0].value;
 	        }
@@ -2087,12 +2105,12 @@
 	    // 把数据格式化成json展示
 	    prettyJson: function prettyJson(data, origin) {
 	        if (origin) {
-	            return this.syntaxHighlight(data);
+	            return utils.syntaxHighlight(data);
 	        }
 	        return {
 	            type: 'pre',
 	            className: 'json',
-	            dangerouslySetInnerHTML: { __html: this.syntaxHighlight(data) }
+	            dangerouslySetInnerHTML: { __html: utils.syntaxHighlight(data) }
 	        };
 	    },
 
@@ -2102,52 +2120,15 @@
 	        var tData = value;
 	        // 如果 strc 为空，则返回 value 本身
 	        if (strc) {
-	            var _iteratorNormalCompletion6 = true;
-	            var _didIteratorError6 = false;
-	            var _iteratorError6 = undefined;
-
-	            try {
-	                for (var _iterator6 = strc.split('.').reverse()[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	                    var v = _step6.value;
-
-	                    tData = _defineProperty({}, v, tData);
-	                }
-	            } catch (err) {
-	                _didIteratorError6 = true;
-	                _iteratorError6 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion6 && _iterator6.return) {
-	                        _iterator6.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError6) {
-	                        throw _iteratorError6;
-	                    }
-	                }
-	            }
-	        }
-	        return tData;
-	    },
-
-	    // 根据一个字符串，从一个深层的对象中取数据
-	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
-	    fromObject: function fromObject(strc, obj) {
-	        var target = obj;
-	        // 如果 strc 为空字符串，则返回 obj 本身
-	        if (strc) {
 	            var _iteratorNormalCompletion7 = true;
 	            var _didIteratorError7 = false;
 	            var _iteratorError7 = undefined;
 
 	            try {
-	                for (var _iterator7 = strc.split('.')[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+	                for (var _iterator7 = strc.split('.').reverse()[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
 	                    var v = _step7.value;
 
-	                    if (!target || !this.typeof(target, 'object')) {
-	                        return undefined;
-	                    }
-	                    target = target[v];
+	                    tData = _defineProperty({}, v, tData);
 	                }
 	            } catch (err) {
 	                _didIteratorError7 = true;
@@ -2164,28 +2145,69 @@
 	                }
 	            }
 	        }
+	        return tData;
+	    },
+
+	    // 根据一个字符串，从一个深层的对象中取数据
+	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
+	    fromObject: function fromObject(strc, obj) {
+	        var target = obj;
+	        // 如果 strc 为空字符串，则返回 obj 本身
+	        if (strc) {
+	            var _iteratorNormalCompletion8 = true;
+	            var _didIteratorError8 = false;
+	            var _iteratorError8 = undefined;
+
+	            try {
+	                for (var _iterator8 = strc.split('.')[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+	                    var v = _step8.value;
+
+	                    if (!target || !utils.typeof(target, 'object')) {
+	                        return undefined;
+	                    }
+	                    target = target[v];
+	                }
+	            } catch (err) {
+	                _didIteratorError8 = true;
+	                _iteratorError8 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+	                        _iterator8.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError8) {
+	                        throw _iteratorError8;
+	                    }
+	                }
+	            }
+	        }
 	        return target;
 	    },
 
 	    // 根据一个字符串，把数据塞入一个深层的对象中
 	    toObject: function toObject(origin, strc, value) {
-	        var tData = this.generateObject(strc, value);
+	        var tData = utils.generateObject(strc, value);
 	        var level = strc.split('.').length;
-	        this.merge(level, origin, tData);
+	        utils.merge(level, origin, tData);
 	    },
 
 	    // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
 	    urlAnalysis: function urlAnalysis(url, params) {
 	        var delParams = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
 
-	        if (!url || url.indexOf(':') === -1 || !this.typeof(params, 'object')) {
+	        if (!url || url.indexOf(':') === -1 || !utils.typeof(params, 'object')) {
 	            return url;
 	        }
+	        var matched = '';
 	        for (var i in params) {
-	            if (url.indexOf(':' + i) > -1) {
-	                url = url.replace(':' + i, params[i]);
-	                delParams && delete params[i];
+	            if (url.indexOf(':' + i) > -1 && matched.length < i.length) {
+	                matched = i;
 	            }
+	        }
+	        if (matched) {
+	            url = url.replace(':' + matched, params[matched]);
+	            delParams && delete params[matched];
 	        }
 	        return url;
 	    },
@@ -2194,7 +2216,7 @@
 	    // 参数依次为 父级、目标函数、新函数、是否把原来逻辑提前、bind的对象
 	    inject: function inject(parent, target, newFunc) {
 	        var oldAhead = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : false;
-	        var thisObj = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
+	        var utilsObj = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : null;
 
 	        var origin = parent[target];
 	        parent[target] = !!origin ? function () {
@@ -2204,18 +2226,18 @@
 
 	            // return原函数执行结果
 	            var result = void 0;
-	            oldAhead ? result = origin.call.apply(origin, [thisObj].concat(params)) : null;
+	            oldAhead ? result = origin.call.apply(origin, [utilsObj].concat(params)) : null;
 	            // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
-	            var newResult = newFunc.call.apply(newFunc, [thisObj].concat(params));
-	            !oldAhead && newResult !== false ? result = origin.call.apply(origin, [thisObj].concat(params)) : null;
+	            var newResult = newFunc.call.apply(newFunc, [utilsObj].concat(params));
+	            !oldAhead && newResult !== false ? result = origin.call.apply(origin, [utilsObj].concat(params)) : null;
 	            // let oResult;
-	            // oldAhead ? (oResult = origin.call(thisObj, ...params)) : null;
+	            // oldAhead ? (oResult = origin.call(utilsObj, ...params)) : null;
 	            // // 如果返回false，可阻止注入函数的继续执行
-	            // let newResult = oResult !== false ? newFunc.call(thisObj, ...params) : oResult;
+	            // let newResult = oResult !== false ? newFunc.call(utilsObj, ...params) : oResult;
 	            // // 如果注入的逻辑返回false，可阻止原函数的继续执行
-	            // let result = !oldAhead && newResult !== false ? origin.call(thisObj, ...params) : oResult;
+	            // let result = !oldAhead && newResult !== false ? origin.call(utilsObj, ...params) : oResult;
 	            return result;
-	        } : newFunc.bind(thisObj);
+	        } : newFunc.bind(utilsObj);
 	        // 被替换函数标记
 	        parent[target].replaced = true;
 	        return parent;
@@ -2249,12 +2271,22 @@
 	        return sessionStorage.setItem(key, value);
 	    },
 
+	    // 遍历一个数组，从数组里取出某两个字段，组合成键值对数据
+	    // 如更不传valueName，则相当于把keyName的值提出来当key，整条数据为value
+	    detachToMap: function detachToMap(arr, keyName) {
+	        var valueName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+	        var obj = {};
+	        utils.each(arr, function (v) {
+	            v[keyName] && (obj[v[keyName]] = valueName ? v[valueName] : v);
+	        });
+	        return obj;
+	    },
+
 
 	    /************************************************************************/
 	    // 私有方法
 	    syntaxHighlight: function syntaxHighlight(json) {
-	        var _this4 = this;
-
 	        if (typeof json !== 'string') {
 	            json = JSON.stringify(json, undefined, 4);
 	        }
@@ -2269,7 +2301,7 @@
 	                    try {
 	                        var type = JSON.parse(match);
 	                        if (_typeof2(JSON.parse(type)) === 'object') {
-	                            return _this4.syntaxHighlight(JSON.parse(type));
+	                            return utils.syntaxHighlight(JSON.parse(type));
 	                        } else {
 	                            cls = 'string';
 	                        }
@@ -3859,9 +3891,7 @@
 	    value: true
 	});
 
-	var _antd = __webpack_require__(25);
-
-	var _reqwest = __webpack_require__(26);
+	var _reqwest = __webpack_require__(25);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
@@ -3869,34 +3899,18 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _axios = __webpack_require__(28);
+	var _axios = __webpack_require__(27);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _ajaxPlugin = __webpack_require__(56);
+	var _ajaxPlugin = __webpack_require__(55);
 
 	var _instance = __webpack_require__(57);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	// 依赖 Config, AjaxCache 两个实例，通过generete获取
-	/**
-	 * @file 通用的请求发送+错误处理工具
-	 *       全部请求都通过这里处理
-	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
-	 *          但是有几个参数需要注意：
-	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
-	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
-	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
-	 *              onchange: 请求开始/结束时执行。
-	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
-	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
-	 *              complete:
-	 *
-	 * @author liuzechun@baidu.com
-	 * **/
-
-	exports.default = (0, _instance.generate)(['Config', 'AjaxCache'], function (Config, AjaxCache) {
+	exports.default = (0, _instance.generate)(['Config', 'AjaxCache', 'ModelCache'], function (Config, AjaxCache, ModelCache) {
 
 	    // 通用ajax函数，参数为一个对象
 	    function request(config) {
@@ -3908,6 +3922,10 @@
 	        var globalAjax = Config.get('global.ajax');
 	        var mockMap = Config.get('global.mock');
 
+	        // 检查是否中断请求，如果有中断请求的钩子，则完全不会进入获取数据的逻辑
+	        if ((0, _ajaxPlugin.checkInterrupt)(config)) {
+	            return;
+	        }
 	        // TODO: 两种情况下都不会触发onchange
 	        // 检查是否有缓存，如果有，则直接中断后续逻辑
 	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
@@ -3960,8 +3978,9 @@
 	        // 复制一份，防止url解析时更改原数据
 	        var params = Object.assign({}, config.params, config.data);
 	        var final = Object.assign({}, config, {
-	            // url中可以使用来自params中的动态参数
-	            url: _utils2.default.urlAnalysis(config.url, params),
+	            // url中可以使用来自 params 或 uf.config.data 中的动态参数
+	            // params中的数据取完会从params中移除，uf.config.data 会保留原数据
+	            url: _utils2.default.urlAnalysis(_utils2.default.urlAnalysis(config.url, params), ModelCache.get(), false),
 	            // data 可能来自 globalAjax
 	            data: params,
 	            success: function success(res) {
@@ -4069,15 +4088,24 @@
 	    return request;
 	});
 	// export default request;
+	/**
+	 * @file 通用的请求发送+错误处理工具
+	 *       全部请求都通过这里处理
+	 *       request参数为一个对象，即reqwest这个库需要的参数的对象
+	 *          但是有几个参数需要注意：
+	 *              success: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)
+	 *              error:   除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)
+	 *                       >> tips: 如果error执行完返回true，则会继续执行默认的error处理函数
+	 *              onchange: 请求开始/结束时执行。
+	 *                      开始执行请求时执行 onchange 参数为 (true, 'sending');
+	 *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
+	 *              complete:
+	 *
+	 * @author liuzechun@baidu.com
+	 * **/
 
 /***/ }),
 /* 25 */
-/***/ (function(module, exports) {
-
-	module.exports = window.DLL.Antd;
-
-/***/ }),
-/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -4101,7 +4129,7 @@
 	  } else {
 	    var XHR2
 	    try {
-	      XHR2 = __webpack_require__(27)
+	      XHR2 = __webpack_require__(26)
 	    } catch (ex) {
 	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
 	    }
@@ -4713,13 +4741,13 @@
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4729,7 +4757,7 @@
 	});
 
 	exports.default = function (config) {
-	    var conf = _utils2.default.filter(config, ['baseUrl', 'success', 'error']);
+	    var conf = _utils2.default.filter(config, ['baseUrl', 'success', 'error', 'interrupt']);
 	    conf.data = conf.params;
 	    return (0, _axios2.default)(conf).then(function (response) {
 	        config.success(response.data);
@@ -4738,7 +4766,7 @@
 	    });
 	};
 
-	var _axios = __webpack_require__(29);
+	var _axios = __webpack_require__(28);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -4749,21 +4777,21 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(30);
+	module.exports = __webpack_require__(29);
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
-	var bind = __webpack_require__(32);
-	var Axios = __webpack_require__(34);
-	var defaults = __webpack_require__(35);
+	var utils = __webpack_require__(30);
+	var bind = __webpack_require__(31);
+	var Axios = __webpack_require__(33);
+	var defaults = __webpack_require__(34);
 
 	/**
 	 * Create an instance of Axios
@@ -4796,15 +4824,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(53);
-	axios.CancelToken = __webpack_require__(54);
-	axios.isCancel = __webpack_require__(50);
+	axios.Cancel = __webpack_require__(52);
+	axios.CancelToken = __webpack_require__(53);
+	axios.isCancel = __webpack_require__(49);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(55);
+	axios.spread = __webpack_require__(54);
 
 	module.exports = axios;
 
@@ -4813,13 +4841,13 @@
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(32);
-	var isBuffer = __webpack_require__(33);
+	var bind = __webpack_require__(31);
+	var isBuffer = __webpack_require__(32);
 
 	/*global toString:true*/
 
@@ -5122,7 +5150,7 @@
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -5139,7 +5167,7 @@
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -5166,15 +5194,15 @@
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(35);
-	var utils = __webpack_require__(31);
-	var InterceptorManager = __webpack_require__(47);
-	var dispatchRequest = __webpack_require__(48);
+	var defaults = __webpack_require__(34);
+	var utils = __webpack_require__(30);
+	var InterceptorManager = __webpack_require__(46);
+	var dispatchRequest = __webpack_require__(47);
 
 	/**
 	 * Create a new instance of Axios
@@ -5251,13 +5279,13 @@
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(31);
-	var normalizeHeaderName = __webpack_require__(37);
+	var utils = __webpack_require__(30);
+	var normalizeHeaderName = __webpack_require__(36);
 
 	var DEFAULT_CONTENT_TYPE = {
 	  'Content-Type': 'application/x-www-form-urlencoded'
@@ -5273,10 +5301,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(38);
+	    adapter = __webpack_require__(37);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(38);
+	    adapter = __webpack_require__(37);
 	  }
 	  return adapter;
 	}
@@ -5351,10 +5379,10 @@
 
 	module.exports = defaults;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports) {
 
 	// shim for using process in browser
@@ -5544,12 +5572,12 @@
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -5562,18 +5590,18 @@
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(31);
-	var settle = __webpack_require__(39);
-	var buildURL = __webpack_require__(42);
-	var parseHeaders = __webpack_require__(43);
-	var isURLSameOrigin = __webpack_require__(44);
-	var createError = __webpack_require__(40);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(45);
+	var utils = __webpack_require__(30);
+	var settle = __webpack_require__(38);
+	var buildURL = __webpack_require__(41);
+	var parseHeaders = __webpack_require__(42);
+	var isURLSameOrigin = __webpack_require__(43);
+	var createError = __webpack_require__(39);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(44);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -5670,7 +5698,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(46);
+	      var cookies = __webpack_require__(45);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -5746,15 +5774,15 @@
 	  });
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(36)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(35)))
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(40);
+	var createError = __webpack_require__(39);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -5781,12 +5809,12 @@
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(41);
+	var enhanceError = __webpack_require__(40);
 
 	/**
 	 * Create an Error with the specified message, config, error code, request and response.
@@ -5805,7 +5833,7 @@
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -5832,12 +5860,12 @@
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -5904,12 +5932,12 @@
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	// Headers whose duplicates are ignored by node
 	// c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -5963,12 +5991,12 @@
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -6037,7 +6065,7 @@
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6079,12 +6107,12 @@
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -6138,12 +6166,12 @@
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -6196,17 +6224,17 @@
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
-	var transformData = __webpack_require__(49);
-	var isCancel = __webpack_require__(50);
-	var defaults = __webpack_require__(35);
-	var isAbsoluteURL = __webpack_require__(51);
-	var combineURLs = __webpack_require__(52);
+	var utils = __webpack_require__(30);
+	var transformData = __webpack_require__(48);
+	var isCancel = __webpack_require__(49);
+	var defaults = __webpack_require__(34);
+	var isAbsoluteURL = __webpack_require__(50);
+	var combineURLs = __webpack_require__(51);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -6288,12 +6316,12 @@
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(31);
+	var utils = __webpack_require__(30);
 
 	/**
 	 * Transform the data for a request or a response
@@ -6314,7 +6342,7 @@
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6325,7 +6353,7 @@
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6345,7 +6373,7 @@
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6365,7 +6393,7 @@
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6390,12 +6418,12 @@
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(53);
+	var Cancel = __webpack_require__(52);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -6453,7 +6481,7 @@
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6486,7 +6514,7 @@
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6498,8 +6526,9 @@
 	exports.checkCache = checkCache;
 	exports.checkQueue = checkQueue;
 	exports.checkMock = checkMock;
+	exports.checkInterrupt = checkInterrupt;
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _utils = __webpack_require__(20);
 
@@ -6673,6 +6702,36 @@
 	    }
 	    return false;
 	}
+
+	/**
+	 * 检查是否中断请求
+	 * > 可以通过返回数据中断请求，从而使用钩子返回的数据；
+	 * > 如果钩子未返回任何内容，或返回true，则请求继续；
+	 * > 如果钩子返回false，则仅中断请求，不做任何处理
+	 *
+	 * @param {*} config ajax的配置
+	 * @return {boolean} 如果有则返回true，否则返回false
+	 */
+	function checkInterrupt(config) {
+	    if (config.interrupt) {
+	        var data = config.interrupt.call(null, config);
+	        // 如果钩子未返回任何内容，或返回true，则请求继续
+	        if (data === undefined || data === true) {
+	            return false;
+	        }
+	        if (data !== false) {
+	            // 保证异步
+	            _utils2.default.defer(config.success, data);
+	        }
+	        return true;
+	    }
+	}
+
+/***/ }),
+/* 56 */
+/***/ (function(module, exports) {
+
+	module.exports = window.DLL.Antd;
 
 /***/ }),
 /* 57 */
@@ -7372,7 +7431,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _utils = __webpack_require__(19);
 
@@ -7561,9 +7620,14 @@
 	                reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source)
 	                // 由于isChange对于子集的情况无效，对于标记为非复杂属性，需使用equals做检测
 	                || !_utils.Utils.equals(nextProps.params, this.__props.params);
-	                // 重新设置 __props
-	                // 如果为自身调用，则只传入待更新的值。否则传入整个nextProps（外部刷新）
-	                this.__setProps(nextProps._selfCalling || nextProps);
+	                // 重新设置 __props.只传入待更新的值
+	                // 如果为自身调用，则待更新的值存储在_selfCalling中；
+	                // 否则为外部刷新，用 nextProps 和 currentProps 做对比，获取变化的值
+	                var changeProps = nextProps._selfCalling;
+	                if (!changeProps) {
+	                    changeProps = _utils.Utils.getChange(nextProps, currentProps);
+	                }
+	                this.__setProps(changeProps);
 	            }
 
 	            // 判断是否重新加载数据
@@ -7636,6 +7700,7 @@
 	        value: function _componentWillUnmount() {
 	            this._unsetTransmitComponent();
 	            this.unmounted = true;
+	            delete this.parent;
 	        }
 
 	        /**
@@ -7688,6 +7753,23 @@
 
 	            (_get2 = _get(BaseComponent.prototype.__proto__ || Object.getPrototypeOf(BaseComponent.prototype), 'setState', this)).call.apply(_get2, [this].concat(params));
 	        }
+	        // 覆盖原生的forceUpdate方法。如果组件已销毁，则不再执行forceUpdate。用于异步操作中调用forceUpdate时的通用状态检测
+
+	    }, {
+	        key: 'forceUpdate',
+	        value: function forceUpdate() {
+	            var _get3;
+
+	            if (this.unmounted) {
+	                return;
+	            }
+
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
+	            }
+
+	            (_get3 = _get(BaseComponent.prototype.__proto__ || Object.getPrototypeOf(BaseComponent.prototype), 'forceUpdate', this)).call.apply(_get3, [this].concat(params));
+	        }
 
 	        /* 暴露给用户的方法 ***********************************************************************/
 
@@ -7715,8 +7797,8 @@
 	        value: function get() {
 	            var props = Object.assign({}, this.__filtered, this.__props);
 
-	            for (var _len2 = arguments.length, keys = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                keys[_key2] = arguments[_key2];
+	            for (var _len3 = arguments.length, keys = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                keys[_key3] = arguments[_key3];
 	            }
 
 	            if (keys.length > 0) {
@@ -7761,8 +7843,8 @@
 	        key: 'trigger',
 	        value: function trigger(event) {
 	            if (this.__props[event]) {
-	                for (var _len3 = arguments.length, params = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-	                    params[_key3 - 1] = arguments[_key3];
+	                for (var _len4 = arguments.length, params = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+	                    params[_key4 - 1] = arguments[_key4];
 	                }
 
 	                this.__props[event](params);
@@ -7927,7 +8009,7 @@
 	            this.__prevProps = this.__props;
 	            this.__props = this.__mergeProps({}, this.__props, __props);
 	            // 执行附加逻辑
-	            this._afterSetProps();
+	            this._afterSetProps(nextProps);
 	            if (follow !== false) {
 	                this.forceUpdate();
 	                // 延迟执行
@@ -7947,8 +8029,8 @@
 	    }, {
 	        key: '__mergeProps',
 	        value: function __mergeProps() {
-	            for (var _len4 = arguments.length, props = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                props[_key4] = arguments[_key4];
+	            for (var _len5 = arguments.length, props = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                props[_key5] = arguments[_key5];
 	            }
 
 	            return _utils.Utils.merge.apply(_utils.Utils, [this._uncomplex].concat(props));
@@ -8096,13 +8178,14 @@
 	                params = conf.params,
 	                _paramsHandler = conf._paramsHandler,
 	                paramsHandler = conf.paramsHandler,
+	                removeEmptyParams = conf.removeEmptyParams,
 	                _handler = conf._handler,
 	                handler = conf.handler,
 	                _success = conf.success,
 	                onSuccess = conf.onSuccess,
 	                _error = conf.error,
 	                onError = conf.onError,
-	                others = _objectWithoutProperties(conf, ['url', 'params', '_paramsHandler', 'paramsHandler', '_handler', 'handler', 'success', 'onSuccess', 'error', 'onError']);
+	                others = _objectWithoutProperties(conf, ['url', 'params', '_paramsHandler', 'paramsHandler', 'removeEmptyParams', '_handler', 'handler', 'success', 'onSuccess', 'error', 'onError']);
 
 	            if (url) {
 	                // 额外增加对参数预处理逻辑，不暴露给用户使用
@@ -8111,13 +8194,21 @@
 	                }
 	                if (paramsHandler) {
 	                    // 如果paramsHandler返回结果为false，则阻止ajax请求
-	                    //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求    
+	                    //  可以在paramsHandler中格式化参数的同时对参数进行校验，如果校验失败，则终止请求
 	                    var result = paramsHandler(params, this);
 	                    // 使用时需注意，如果调用之外有额外的状态控制，例如loading没写到onchange里，则需要自己额外写判断逻辑恢复状态
 	                    if (result === false) {
 	                        return false;
 	                    }
 	                    params = result !== undefined ? result : params;
+	                }
+	                // 移除为空的属性
+	                if (params && removeEmptyParams === true) {
+	                    for (var i in params) {
+	                        if (params[i] === null || params[i] === undefined || params[i] === '') {
+	                            delete params[i];
+	                        }
+	                    }
 	                }
 	                return new Promise(function (resolve, reject) {
 	                    _this6.__ajax(_extends({}, others, {
@@ -8151,6 +8242,7 @@
 	                });
 	            }
 	        }
+
 	        // source获取数据时，通用的展示source的逻辑
 
 	    }, {
@@ -8167,6 +8259,21 @@
 	            }
 	            // DataEntry里重写了loading，会用到showLoading参数
 	            this.loading(loadingConf, showLoading);
+	        }
+
+	        // 获取通用的公共属性
+
+	    }, {
+	        key: '__getCommonProps',
+	        value: function __getCommonProps() {
+	            var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+	            var commonProps = ['style', 'className'];
+	            var result = _utils.Utils.pass(this.__props, commonProps);
+	            if (props.className) {
+	                result.className = props.className + ' ' + (result.className || '');
+	            }
+	            return result;
 	        }
 
 	        /* 私有方法 ***********************************************************************/
@@ -8259,6 +8366,10 @@
 	        value: function _unsetTransmitComponent() {
 	            if (!!this.cacheName) {
 	                this._factory.$components.del(this.cacheName);
+	                // 删除全部this上的变量，防止循环引用
+	                // for (let i in this) {
+	                //     delete this[i];
+	                // }
 	            }
 	        }
 
@@ -8315,8 +8426,8 @@
 	                            _this7[_v] = _this7[_v].bind(_this7);
 	                            var origin = _this7[_v];
 	                            _this7[_v] = function () {
-	                                for (var _len5 = arguments.length, p = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
-	                                    p[_key5] = arguments[_key5];
+	                                for (var _len6 = arguments.length, p = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+	                                    p[_key6] = arguments[_key6];
 	                                }
 
 	                                origin.call.apply(origin, [_this7].concat(p));
@@ -8502,8 +8613,8 @@
 
 	            if (target) {
 	                this._inject(this.__props, trigger, function () {
-	                    for (var _len6 = arguments.length, para = Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
-	                        para[_key6] = arguments[_key6];
+	                    for (var _len7 = arguments.length, para = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+	                        para[_key7] = arguments[_key7];
 	                    }
 
 	                    var _filtered$control2 = _this9.__filtered.control,
@@ -8522,7 +8633,7 @@
 	                    }
 	                    // 1、动作类型为：绑定(开发使用)
 	                    if (type === 'bind') {
-	                        target.apply(undefined, _toConsumableArray(params));
+	                        target.apply(undefined, _toConsumableArray(params).concat(para));
 	                        return;
 	                    }
 	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
@@ -8744,8 +8855,16 @@
 	            }
 	            // 隐藏组件，如果组件隐藏，则不再进行render
 	            //  TODO: 待观察，如果有问题，可以改为外出嵌套display:none的div实现
+	            //      return null 会导致组件销毁，不能保存组件操作状态
+	            // if (this.__filtered.hidden === true) {
+	            //     return null;
+	            // }
 	            if (this.__filtered.hidden === true) {
-	                return null;
+	                // return null;
+	                this.__props.style = this.__props.style || {};
+	                this.__props.style.display = 'none';
+	            } else if (this.__filtered.hidden === false && this.__props.style) {
+	                delete this.__props.style.display;
 	            }
 	            return render.call(this);
 	        }
@@ -9030,7 +9149,7 @@
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -9527,6 +9646,8 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(13);
@@ -9543,7 +9664,7 @@
 
 	var _Genaral15 = _interopRequireDefault(_Genaral14);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -9617,13 +9738,30 @@
 
 	        var _this3 = _possibleConstructorReturn(this, (Button.__proto__ || Object.getPrototypeOf(Button)).call(this, props));
 
-	        _this3._filter.push('link');
+	        _this3._filter.push('link', 'active', 'actived');
 	        _this3._injectEvent.push('onClick');
 	        _this3.__init();
 	        return _this3;
 	    }
 
 	    _createClass(Button, [{
+	        key: '_afterInit',
+	        value: function _afterInit() {
+	            var _this4 = this;
+
+	            _get(Button.prototype.__proto__ || Object.getPrototypeOf(Button.prototype), '_afterInit', this).call(this);
+	            if (this.__filtered.actived === true) {
+	                if (this.__props.onClick) {
+	                    var origin = this.__props.onClick;
+	                    this.__props.onClick = function (e) {
+	                        _this4.__filtered.active = !_this4.__filtered.active;
+	                        _this4.forceUpdate();
+	                        return origin(e, _this4.__filtered.active);
+	                    };
+	                }
+	            }
+	        }
+	    }, {
 	        key: '_onClick',
 	        value: function _onClick() {
 	            // 如果配置了link属性，则按钮点击后会跳转到link指定的页面
@@ -9635,14 +9773,16 @@
 	        key: 'render',
 	        value: function render() {
 	            var className = '';
-	            className += this.__props.className || '';
 	            // 额外加一个mini类型的size
 	            var size = this.__props.size;
 	            if (size === 'mini') {
 	                className += ' uf-btn-mini';
 	                size = 'small';
 	            }
-	            return _react2.default.createElement(Antd.Button, _extends({}, this.__props, { className: className, size: size }));
+	            if (this.__filtered.active) {
+	                className += ' active';
+	            }
+	            return _react2.default.createElement(Antd.Button, _extends({}, this.__props, this.__getCommonProps({ className: className }), { size: size }));
 	        }
 	    }]);
 
@@ -9657,10 +9797,10 @@
 	    function ButtonGroup(props) {
 	        _classCallCheck(this, ButtonGroup);
 
-	        var _this4 = _possibleConstructorReturn(this, (ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (ButtonGroup.__proto__ || Object.getPrototypeOf(ButtonGroup)).call(this, props));
 
-	        _this4.__init();
-	        return _this4;
+	        _this5.__init();
+	        return _this5;
 	    }
 
 	    _createClass(ButtonGroup, [{
@@ -9681,10 +9821,10 @@
 	    function Backtop(props) {
 	        _classCallCheck(this, Backtop);
 
-	        var _this5 = _possibleConstructorReturn(this, (Backtop.__proto__ || Object.getPrototypeOf(Backtop)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (Backtop.__proto__ || Object.getPrototypeOf(Backtop)).call(this, props));
 
-	        _this5.__init();
-	        return _this5;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(Backtop, [{
@@ -9705,10 +9845,10 @@
 	    function Icon(props) {
 	        _classCallCheck(this, Icon);
 
-	        var _this6 = _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (Icon.__proto__ || Object.getPrototypeOf(Icon)).call(this, props));
 
-	        _this6.__init();
-	        return _this6;
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(Icon, [{
@@ -9731,10 +9871,10 @@
 	    function Row(props) {
 	        _classCallCheck(this, Row);
 
-	        var _this7 = _possibleConstructorReturn(this, (Row.__proto__ || Object.getPrototypeOf(Row)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (Row.__proto__ || Object.getPrototypeOf(Row)).call(this, props));
 
-	        _this7.__init();
-	        return _this7;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(Row, [{
@@ -9755,10 +9895,10 @@
 	    function Col(props) {
 	        _classCallCheck(this, Col);
 
-	        var _this8 = _possibleConstructorReturn(this, (Col.__proto__ || Object.getPrototypeOf(Col)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Col.__proto__ || Object.getPrototypeOf(Col)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Col, [{
@@ -9782,10 +9922,10 @@
 	    function Layout(props) {
 	        _classCallCheck(this, Layout);
 
-	        var _this9 = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Layout, [{
@@ -9807,10 +9947,10 @@
 	    function Header(props) {
 	        _classCallCheck(this, Header);
 
-	        var _this10 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(Header, [{
@@ -9832,10 +9972,10 @@
 	    function Footer(props) {
 	        _classCallCheck(this, Footer);
 
-	        var _this11 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(Footer, [{
@@ -9857,10 +9997,10 @@
 	    function Sider(props) {
 	        _classCallCheck(this, Sider);
 
-	        var _this12 = _possibleConstructorReturn(this, (Sider.__proto__ || Object.getPrototypeOf(Sider)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (Sider.__proto__ || Object.getPrototypeOf(Sider)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(Sider, [{
@@ -9882,10 +10022,10 @@
 	    function Content(props) {
 	        _classCallCheck(this, Content);
 
-	        var _this13 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(Content, [{
@@ -9980,7 +10120,7 @@
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -10917,7 +11057,7 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -11045,6 +11185,10 @@
 	                throw _iteratorError;
 	            }
 	        }
+	    }
+
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = _src2.default.render(config);
 	    }
 
 	    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
@@ -11182,7 +11326,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var Antd = _interopRequireWildcard(_antd);
 
@@ -11585,7 +11729,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _base = __webpack_require__(61);
 
@@ -11759,7 +11903,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _dataentry = __webpack_require__(18);
 
@@ -12049,7 +12193,7 @@
 
 	var _base = __webpack_require__(61);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _utils = __webpack_require__(19);
 
@@ -12781,7 +12925,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12923,17 +13067,21 @@
 	    _createClass(OriginTree, [{
 	        key: 'initTree',
 	        value: function initTree(nextProps) {
-	            var objProps = nextProps ? nextProps : this.props;
+	            var objProps = this.props;
+	            // 过滤出变化的属性
+	            if (nextProps) {
+	                objProps = _utils.Utils.getChange(nextProps, objProps);
+	            }
 	            var propsData = _utils.Utils.clone(objProps.data);
 	            // 针对数据进行处理
 	            // 生成指针树，便于快速定位树节点
 	            this.completePointerTree = {};
-	            if (propsData) {
+	            if (objProps.data) {
 	                this.createPointerTree(propsData, this.completePointerTree);
 	            }
 	            // 生成层级树，包含每层可展开的父节点的key
 	            this.levalPointerTree = {};
-	            if (propsData) {
+	            if (objProps.data) {
 	                this.createLevalTree(propsData, this.levalPointerTree);
 	            }
 
@@ -13425,7 +13573,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _export2 = __webpack_require__(83);
 
@@ -13604,6 +13752,10 @@
 	                onRowMouseEnter: function onRowMouseEnter() {},
 	                onRowMouseLeave: function onRowMouseLeave() {}
 	            };
+	            // 为了层级清晰，把扩展行相关的属性聚合到了expended属性中。此处兼容放属性里和属性外两种用法
+	            if (this.__props.expanded) {
+	                getNeedObject(defaultCif, this.__props.expanded);
+	            }
 	            getNeedObject(defaultCif, this.__props);
 	            // 关于表头
 	            if (!!objProps.title) {
@@ -13622,6 +13774,10 @@
 	            if (propsData) {
 	                state.completeData = propsData;
 	                this.pagination.total = this.pagination.total || propsData.length;
+	                // 如果传入新的data，则需刷新total
+	                if (!this.__prevProps.data || this.__prevProps.data.length !== propsData.length) {
+	                    this.pagination.total = propsData.length;
+	                }
 	            }
 	            // 关于行样式与不可选相关联，不可选时至为灰色
 	            if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -13705,9 +13861,9 @@
 	    }, {
 	        key: 'showCrud',
 	        value: function showCrud() {
-	            var _refs$crud;
+	            var _crudRef;
 
-	            this.refs.crud && (_refs$crud = this.refs.crud).showCrud.apply(_refs$crud, arguments);
+	            this.crudRef && (_crudRef = this.crudRef).showCrud.apply(_crudRef, arguments);
 	        }
 	        // 获取当前全部选中行的数据
 
@@ -13747,7 +13903,7 @@
 	    }, {
 	        key: 'export',
 	        value: function _export() {
-	            this.refs.export && this.refs.export.export();
+	            this.exportRef && this.exportRef.export();
 	        }
 
 	        /* 内部函数 ****************************************************************************/
@@ -13766,7 +13922,7 @@
 	            var headers = [];
 	            for (var i in columns) {
 	                // 只导出展示的字段
-	                if (columns[i].display !== false || this.refs.title && this.refs.title.state.showAllTags) {
+	                if (columns[i].display !== false || this.titleRef && this.titleRef.state.showAllTags) {
 	                    headers.push({
 	                        key: columns[i].dataIndex || columns[i].key,
 	                        title: columns[i].title
@@ -13813,7 +13969,7 @@
 	        value: function handleExpandAllIcon() {
 	            var _this5 = this;
 
-	            if (this.__props.expandedRowRender) {
+	            if (this.__props.expandedRowRender || this.__props.expanded) {
 	                // 需操作真是dom
 	                var collection = _reactDom2.default.findDOMNode(this).getElementsByClassName('ant-table-expand-icon-th');
 	                this.expandThEle = collection[0];
@@ -13985,7 +14141,7 @@
 	                selectedRowKeys: []
 	            });
 	            this.filter && this.filter.clearState();
-	            this.refs.title && this.refs.title.clearState();
+	            this.titleRef && this.titleRef.clearState();
 	            this.forceUpdate();
 	        }
 	        // 全屏或退出全屏
@@ -14169,7 +14325,8 @@
 
 	    }, {
 	        key: 'handleAction',
-	        value: function handleAction(config, record) {
+	        value: function handleAction(oConfig, record) {
+	            var config = _utils.Utils.clone(oConfig);
 	            var arr = config;
 	            if (!_utils.Utils.typeof(arr, 'array')) {
 	                arr = [config];
@@ -14221,7 +14378,7 @@
 	            var _loop = function _loop(i) {
 	                var item = _this12.columns[i];
 	                // 如果列为枚举类型，则进行枚举转换
-	                if (item.enum && !item.render) {
+	                if (item.enum) {
 	                    item = _this12.enum.handleColumn(item);
 	                }
 	                if (!_this12.state.showAllTags && item.display === false) {
@@ -14236,7 +14393,7 @@
 	                    render: null,
 	                    sorter: null,
 	                    colSpan: null,
-	                    width: '',
+	                    width: null,
 	                    className: '',
 	                    fixed: false,
 	                    // 当配置了sorter时，默认自动设置sortOrder为正序
@@ -14247,6 +14404,21 @@
 	                getNeedObject(defaultColumn, item);
 	                if (defaultColumn.dataIndex === '_operation') {
 	                    defaultColumn.className += ' uf-operation';
+	                }
+	                // 自定义最小宽度参数
+	                if (item.minWidth) {
+	                    var orender = item.render;
+	                    item.render = function (v, row) {
+	                        for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	                            params[_key - 2] = arguments[_key];
+	                        }
+
+	                        return {
+	                            type: 'div',
+	                            style: { minWidth: item.minWidth },
+	                            content: orender ? orender.apply(undefined, [v, row].concat(params)) : v
+	                        };
+	                    };
 	                }
 	                // 用户配置的render是一个uf组件配置，在此转为dom
 	                if (!!item.render) {
@@ -14368,6 +14540,29 @@
 
 	                if (_ret === 'continue') continue;
 	            }
+	            if (this.__props.rowTooltips) {
+	                antdColumnConfig.unshift({
+	                    title: '',
+	                    className: 'uf-row-tooltips',
+	                    render: function render() {
+	                        var _props;
+
+	                        var content = (_props = _this12.__props).rowTooltips.apply(_props, arguments);
+	                        if (content) {
+	                            return _react2.default.createElement(
+	                                'div',
+	                                { className: 'uf-row-tooltips-content' },
+	                                _react2.default.createElement(
+	                                    _antd.Tooltip,
+	                                    { title: content, placement: 'right' },
+	                                    _react2.default.createElement(_antd.Icon, { type: _this12.__props.rowTooltipsIcon || 'question-circle' })
+	                                )
+	                            );
+	                        }
+	                        return '';
+	                    }
+	                });
+	            }
 	            return antdColumnConfig;
 	        }
 	    }, {
@@ -14440,13 +14635,38 @@
 	            return pagination;
 	        }
 	    }, {
+	        key: 'renderTitle',
+	        value: function renderTitle() {
+	            var _this14 = this;
+
+	            return [
+	            // 增删改查
+	            _react2.default.createElement(
+	                _Crud2.default,
+	                { key: 'crud', _factory: this._factory, parent: this, 'enum': this.enum,
+	                    ref: function ref(ele) {
+	                        return _this14.crudRef = ele;
+	                    },
+	                    config: this.__props.crud || {} },
+	                _react2.default.createElement(_Title2.default, { key: 'title', _factory: this._factory, parent: this, config: this.title,
+	                    ref: function ref(ele) {
+	                        return _this14.titleRef = ele;
+	                    } })
+	            ),
+	            // 导出功能
+	            _react2.default.createElement(_export3.default, _extends({ key: 'export', _factory: this._factory, style: { display: 'none' },
+	                ref: function ref(ele) {
+	                    return _this14.exportRef = ele;
+	                }
+	            }, this._getExportConfig()))];
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this14 = this;
+	            var _this15 = this;
 
 	            var className = 'uf-table ';
 	            className += this.state.fullScreen ? 'uf-fullscreen ' : '';
-	            className += this.__props.className || '';
 	            // 额外加一个mini类型的size
 	            var size = this.state.antdConfig.size;
 	            if (size === 'mini') {
@@ -14460,32 +14680,32 @@
 	                    className += ' uf-table-pagination-center';
 	                }
 	            }
+	            if (!this.title) {
+	                className += ' uf-table-no-title';
+	            }
 	            var _expandedRowRender = this.state.antdConfig.expandedRowRender;
 	            var expandedRowKeys = this.state.expandedRowKeys;
 	            var _footer = this.state.antdConfig.footer;
 	            return _react2.default.createElement(
 	                'div',
-	                { className: className, style: this.__props.style },
-	                this.header && this.__analysis(this.header),
+	                this.__getCommonProps({ className: className }),
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
-	                    title: this.title && function () {
-	                        return _react2.default.createElement(_Title2.default, { ref: 'title', _factory: _this14._factory, parent: _this14, config: _this14.title });
+	                    title: function title() {
+	                        return _this15.renderTitle();
 	                    },
 	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender && { expandedRowRender: function expandedRowRender(row) {
-	                        return _this14.__analysis(_expandedRowRender(row));
+	                        return _this15.__analysis(_expandedRowRender(row));
 	                    } }, expandedRowKeys && { expandedRowKeys: expandedRowKeys }, _footer && (_utils.Utils.typeof(_footer, 'function') ? { footer: function footer(currentPageData) {
-	                        return _this14.__analysis(_footer(currentPageData));
+	                        return _this15.__analysis(_footer(currentPageData));
 	                    } } : { footer: function footer(v) {
-	                        return _this14.__analysis(_footer);
+	                        return _this15.__analysis(_footer);
 	                    } }), {
 	                    dataSource: this.__props.data,
 	                    columns: this.renderColumns(),
 	                    rowSelection: this.renderRowSelection(),
 	                    pagination: this.renderPagination(),
-	                    loading: this.state.loading })),
-	                _react2.default.createElement(_export3.default, _extends({ ref: 'export', _factory: this._factory, style: { display: 'none' } }, this._getExportConfig())),
-	                _react2.default.createElement(_Crud2.default, { ref: 'crud', _factory: this._factory, parent: this, 'enum': this.enum, config: this.__props.crud || {} })
+	                    loading: this.state.loading }))
 	            );
 	        }
 	    }]);
@@ -14515,7 +14735,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _base = __webpack_require__(61);
 
@@ -14574,7 +14794,8 @@
 	            }
 	        }
 
-	        _this.config = null;
+	        _this.configBefore = null;
+	        _this.configAfter = null;
 	        _this.oConfig = null;
 	        _this.init();
 	        return _this;
@@ -14658,24 +14879,25 @@
 	                        break;
 	                    // 搜索弹框的配置
 	                    case 'search':
-	                        // search 的表单可以复用 add 的配置，并移除必填限制以及校验规则
-	                        if (!item.form && tempConf['add']) {
-	                            item.form = _utils.Utils.clone(tempConf['add'].form);
-	                            // 移除必填限制以及校验规则
-	                            item.form.items.forEach(function (v) {
-	                                delete v.rules;
-	                                delete v.required;
-	                            });
-	                        }
-	                        // 处理复用相关参数
-	                        item.title = item.title || '搜索：';
-	                        item.okText = item.okText || '搜索';
 	                        // 点击搜索时，对Table进行赋值操作
 	                        _this2._inject(item, 'onSubmit', function (params) {
 	                            _this2.parent.set({ params: params });
 	                        });
-	                        item = _this2.handleReuse(item, tempConf['add']);
-	                        break;
+	                        // 如果没定义type，则使用默认处理逻辑
+	                        if (!item.type) {
+	                            // 处理复用相关参数
+	                            item.title = item.title || '高级查询：';
+	                            item.okText = item.okText || '查询';
+	                            item = _this2.handleReuse(item, tempConf['add']);
+	                            // 移除必填限制以及校验规则
+	                            if (item.form) {
+	                                item.form.items.forEach(function (v) {
+	                                    delete v.rules;
+	                                    delete v.required;
+	                                });
+	                            }
+	                            break;
+	                        }
 	                    // 删除确认框的配置
 	                    case 'delete':
 	                        // 默认把参数处理为：只返回 id（rowKey对应的字段）
@@ -14688,6 +14910,10 @@
 	                            return '确定要删除吗？';
 	                        };
 	                        item.okText = item.okText || '删除';
+	                        break;
+	                    // 批量查询
+	                    case 'batchSearch':
+	                        item.okText = item.okText || '查询';
 	                        break;
 	                    // 批量展示table中选中的数据
 	                    case 'batchShow':
@@ -14751,6 +14977,9 @@
 	                        }];
 	                        break;
 	                }
+	                if (item.position && item.position !== 'modal') {
+	                    item.type = item.type || 'dashboard';
+	                }
 	                item.type = item.type || 'modal';
 	                item.name = _this2._getModalName(i);
 	                item.key = item.name;
@@ -14772,6 +15001,10 @@
 	                if (item.form && item.form.items) {
 	                    item.form.items = _this2.handleFormItems(item.form.items);
 	                }
+	                if (item.type === 'form' && item.items) {
+	                    item.key = _utils.Utils.uniqueId();
+	                    item.items = _this2.handleFormItems(item.items);
+	                }
 	                result[i] = item;
 	                // 存储的复用配置用action做区分
 	                tempConf[action] = item;
@@ -14781,7 +15014,12 @@
 	                _loop(i);
 	            }
 	            this.oConfig = result;
-	            this.config = Object.values(result);
+	            this.configBefore = Object.values(result).filter(function (v) {
+	                return v.position === 'beforeHeader';
+	            });
+	            this.configAfter = Object.values(result).filter(function (v) {
+	                return v.position !== 'beforeHeader';
+	            });
 	        }
 	    }, {
 	        key: 'getLastPageNum',
@@ -14933,26 +15171,23 @@
 	    }, {
 	        key: 'showCrud',
 	        value: function showCrud(key, record) {
+	            var visibale = arguments.length <= 3 ? undefined : arguments[3];
 	            var action = this._getAction(key);
 	            var modal = this.__getComponent(this._getModalName(key));
 	            if (modal) {
 	                // 除批量编辑需要额外操作，其他都是直接展示即可
 	                switch (action) {
 	                    case 'batchEdit':
-	                        this._showBatchEdit(key);
+	                        this._showBatchEdit(key, visibale);
 	                        break;
 	                    case 'batchDelete':
-	                        this._showBatchDelete(key);
+	                        this._showBatchDelete(key, visibale);
 	                        break;
 	                    case '_showBatchShow':
-	                        this._showBatchShow(key);
+	                        this._showBatchShow(key, visibale);
 	                        break;
 	                    default:
-	                        for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	                            params[_key - 2] = arguments[_key];
-	                        }
-
-	                        modal.show.apply(modal, [record].concat(params, [this.parent]));
+	                        modal.show(record, visibale);
 	                }
 	            }
 	        }
@@ -15125,7 +15360,7 @@
 
 	    }, {
 	        key: '_showBatchEdit',
-	        value: function _showBatchEdit(key) {
+	        value: function _showBatchEdit(key, visibale) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
 	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
@@ -15135,7 +15370,7 @@
 	                datas = this.enum.encodeEnum(datas);
 	                var str = this._getStrByList(key, datas);
 	                var modal = this.__getComponent(this._getModalName(key));
-	                modal && modal.show({ data: str });
+	                modal && modal.show({ data: str }, visibale);
 	            } else {
 	                console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
 	            }
@@ -15160,35 +15395,45 @@
 
 	    }, {
 	        key: '_showBatchDelete',
-	        value: function _showBatchDelete(key) {
+	        value: function _showBatchDelete(key, visibale) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
 	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
-	            modal && modal.show(datas);
+	            modal && modal.show(datas, visibale);
 	        }
 	        // 批量展示数据。即展示表格中的选中的数据
 
 	    }, {
 	        key: '_showBatchShow',
-	        value: function _showBatchShow(key) {
+	        value: function _showBatchShow(key, visibale) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
 	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
-	            modal && modal.show(datas);
+	            modal && modal.show(datas, visibale);
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                this.parent.__analysis(this.config)
+	                { className: 'uf-table-crud' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'uf-table-crud-before' },
+	                    this.parent.__analysis(this.configBefore)
+	                ),
+	                this.props.children,
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'uf-table-crud-after' },
+	                    this.parent.__analysis(this.configAfter)
+	                )
 	            );
 	        }
 	    }]);
@@ -15224,7 +15469,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _Filters = __webpack_require__(91);
 
@@ -15250,13 +15495,11 @@
 
 	        // 其本身无需初始化组件
 	        // this.__init();
+	        // 缓存展示字段名称组件的cacheName
 	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, 'table-title'));
 
-	        _this.parent = props.parent;
-	        // 缓存展示字段名称组件的cacheName
-	        _this.cacheName = _this.parent.insName + _this.parent.key;
+	        _this.cacheName = props.parent.insName + props.parent.key;
 	        _this.useCache = true;
-	        _this.title = props.config;
 	        _this.state = {
 	            antdConfig: null,
 	            // table表头右侧设置按钮的下拉框是否展示
@@ -15265,10 +15508,22 @@
 	            showAllTags: false,
 	            showSetTagsModal: false
 	        };
+	        _this.init(props);
 	        return _this;
 	    }
 
 	    _createClass(Title, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.init(nextProps);
+	        }
+	    }, {
+	        key: 'init',
+	        value: function init(props) {
+	            this.parent = props.parent;
+	            this.title = props.config;
+	        }
+	    }, {
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
 	            if (this.useCache) {
@@ -15388,7 +15643,9 @@
 	                                'div',
 	                                { className: 'uf-header-widget', key: 'refresh',
 	                                    title: v.text || '刷新',
-	                                    onClick: _this2.parent.refreshTable },
+	                                    onClick: function onClick() {
+	                                        _this2.parent.refreshTable();
+	                                    } },
 	                                _react2.default.createElement(_antd.Icon, { type: v.icon || 'retweet' }),
 	                                showText && _react2.default.createElement(
 	                                    'span',
@@ -15483,36 +15740,30 @@
 	                            ));
 	                            break;
 	                        default:
-	                            // v = this.parent.handleAction(v);
-	                            // result.push(this.parent.__analysis({
-	                            //     type: 'div',
-	                            //     key: v.name,
-	                            //     control: v.control,
-	                            //     className: 'uf-header-widget ' + (v.name || ''),
-	                            //     onClick: v.onClick && v.onClick.bind(null, this.parent),
-	                            //     content: [
-	                            //         {type: 'icon', mode: v.icon || 'file-unknown'},
-	                            //         showText ? {type: 'span', content: v.text || ''} : ''
-	                            //     ]
-	                            // }));
-	                            var onClick = v.onClick && v.onClick.bind(null, _this2.parent);
-	                            if (v.action) {
-	                                onClick = function onClick() {
-	                                    _this2.parent.showCrud(v.action);
-	                                };
+	                            // 如果设置了type，则按照用户的意愿进行展示，否则使用默认的展示形式
+	                            if (v.type) {
+	                                v.key = v.key || _utils.Utils.hash(v);
+	                                result.push(_this2.parent.__analysis(v));
+	                            } else {
+	                                var onClick = v.onClick && v.onClick.bind(null, _this2.parent);
+	                                if (v.action) {
+	                                    onClick = function onClick() {
+	                                        _this2.parent.showCrud(v.action);
+	                                    };
+	                                }
+	                                result.push(_react2.default.createElement(
+	                                    'div',
+	                                    { key: v.name || _utils.Utils.hash(v), className: 'uf-header-widget ' + (v.name || ''),
+	                                        title: v.text,
+	                                        onClick: onClick },
+	                                    _react2.default.createElement(_antd.Icon, { key: 'icon', type: v.icon || 'file-unknown' }),
+	                                    showText && _react2.default.createElement(
+	                                        'span',
+	                                        { key: 'text' },
+	                                        v.text || ''
+	                                    )
+	                                ));
 	                            }
-	                            result.push(_react2.default.createElement(
-	                                'div',
-	                                { key: v.name || _utils.Utils.hash(v), className: 'uf-header-widget ' + (v.name || ''),
-	                                    title: v.text,
-	                                    onClick: onClick },
-	                                _react2.default.createElement(_antd.Icon, { key: 'icon', type: v.icon || 'file-unknown' }),
-	                                showText && _react2.default.createElement(
-	                                    'span',
-	                                    { key: 'text' },
-	                                    v.text || ''
-	                                )
-	                            ));
 	                    }
 	                };
 
@@ -15909,7 +16160,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { key: 'title-container' },
+	                { className: 'uf-table-title' },
 	                this.titleGenerate(),
 	                _react2.default.createElement(
 	                    _antd.Modal,
@@ -15949,7 +16200,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _utils = __webpack_require__(19);
 
@@ -16511,7 +16762,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16737,7 +16988,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -16895,8 +17146,16 @@
 	        value: function handleColumn(item) {
 	            var _this2 = this;
 
-	            if (this.data[item.dataIndex]) {
+	            if (this.data[item.dataIndex] && !item._enumed) {
+	                // 标记为已处理，无需重复处理
+	                item._enumed = true;
+	                // 如果原本已存在render，则需要执行原render
+	                var orender = item.render;
 	                item.render = function (v, row) {
+	                    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	                        params[_key - 2] = arguments[_key];
+	                    }
+
 	                    var display = _this2.data[item.dataIndex][v];
 	                    // 无法翻译是是否允许为空
 	                    if (display === undefined) {
@@ -16908,7 +17167,7 @@
 	                    }
 	                    // 将翻译后的结果存入行数据中
 	                    row[item.dataIndex + '_fyi'] = display;
-	                    return display;
+	                    return orender ? orender.apply(undefined, [display, row].concat(params)) : display;
 	                };
 	            }
 	            return item;
@@ -17062,7 +17321,7 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _ueditor = __webpack_require__(96);
 
@@ -17546,7 +17805,7 @@
 	            this._inject(itemProps, 'onChange', this.onChange.bind(this, item), true);
 	            // 存储ref
 	            itemProps.ref = function (inst) {
-	                _this4.itemRef[key] = inst;
+	                return _this4.itemRef[key] = inst;
 	            };
 	            var otherOptions = {};
 	            switch (item.type) {
@@ -18341,7 +18600,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -18785,7 +19044,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-forms ' + (this.__props.className || ''), style: this.__props.style },
+	                this.__getCommonProps({ className: 'uf-forms' }),
 	                this.__props.mode === 'table' ? this.renderTableForms() : this.renderForms(),
 	                this.renderButtons()
 	            );
@@ -18803,7 +19062,11 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(100).default;
+	// module.exports = require('./Modal.js').default;
+	module.exports = {
+	    Modal: __webpack_require__(100).default,
+	    Dashboard: __webpack_require__(101).default
+	};
 
 /***/ }),
 /* 100 */
@@ -18825,11 +19088,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(14);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _base = __webpack_require__(61);
 
@@ -18857,9 +19116,10 @@
 	    function NewModal(props) {
 	        _classCallCheck(this, NewModal);
 
-	        // 开放给用户使用的 Api，需处理下
 	        var _this = _possibleConstructorReturn(this, (NewModal.__proto__ || Object.getPrototypeOf(NewModal)).call(this, props));
 
+	        _this.class.push('modal');
+	        // 开放给用户使用的 Api，需处理下
 	        _this._openApi.push('show', 'close');
 	        _this.__init();
 	        return _this;
@@ -18882,13 +19142,7 @@
 	            _get(NewModal.prototype.__proto__ || Object.getPrototypeOf(NewModal.prototype), '_afterSetProps', this).call(this);
 	            // footer的按钮点击时增加一些默认处理逻辑
 	            if (this.__props.footer) {
-	                var buttons = this.__props.footer;
-	                if (_utils.Utils.typeof(buttons, 'object')) {
-	                    buttons = [buttons];
-	                }
-	                buttons = buttons.map(function (item) {
-	                    return _this2._handleButton(item);
-	                });
+	                var buttons = this._handleButtons(this.__props.footer);
 	                this.__props.footerContent = this.__analysis(buttons);
 	                delete this.__props.footer;
 	            }
@@ -18924,7 +19178,7 @@
 
 	    }, {
 	        key: 'show',
-	        value: function show(data) {
+	        value: function show(data, active) {
 	            var _this3 = this;
 
 	            var newProps = { visible: true };
@@ -18949,8 +19203,13 @@
 	            var _this4 = this;
 
 	            this.__setProps({ visible: false }, function () {
-	                // 如果是form弹框，重置form内容
-	                _this4.formRef && _this4.formRef.clearValues();
+	                console.log(_this4.formRef);
+	                if (_this4.formRef && !_this4.formRef.unmounted) {
+	                    // 如果是form弹框，重置form内容
+	                    _this4.formRef.clearValues();
+	                } else {
+	                    delete _this4.formRef;
+	                }
 	            });
 	        }
 
@@ -19028,27 +19287,68 @@
 	        // 处理 footer 按钮
 
 	    }, {
-	        key: '_handleButton',
-	        value: function _handleButton(item) {
-	            var result = _utils.Utils.copy(item);
-	            delete result.action;
-	            switch (item.action) {
-	                case 'submit':
-	                    // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
-	                    this.__props.onSubmit = item.onClick || this.__props.onSubmit;
-	                    result.onClick = this._onSubmit.bind(this);
-	                    break;
-	                case 'cancel':
-	                    // action === 'cancel' 的按钮和默认的取消按钮等价（onClick === onCancel)
-	                    if (result.onClick) {
-	                        this.__props.onCancel = item.onClick;
-	                    } else {
-	                        result.onClick = this.__props.onCancel;
-	                    }
-	                    break;
-	                default:
-	                    break;
+	        key: '_handleButtons',
+	        value: function _handleButtons(items) {
+	            var _this6 = this;
+
+	            if (!_utils.Utils.typeof(items, 'array')) {
+	                items = [items];
 	            }
+	            var result = [];
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = items[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var v = _step.value;
+
+	                    var item = _utils.Utils.copy(v);
+	                    delete item.action;
+	                    switch (v.action) {
+	                        case 'submit':
+	                            // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
+	                            this.__props.onSubmit = v.onClick || this.__props.onSubmit;
+	                            item.onClick = this._onSubmit.bind(this);
+	                            break;
+	                        case 'reset':
+	                            item.onClick = function () {
+	                                _this6.formRef && _this6.formRef.resetValues();
+	                            };
+	                            break;
+	                        case 'clear':
+	                            item.onClick = function () {
+	                                _this6.formRef && _this6.formRef.clearValues();
+	                            };
+	                            break;
+	                        case 'cancel':
+	                            // action === 'cancel' 的按钮和默认的取消按钮等价（onClick === onCancel)
+	                            if (item.onClick) {
+	                                this.__props.onCancel = v.onClick;
+	                            } else {
+	                                item.onClick = this.__props.onCancel;
+	                            }
+	                            break;
+	                        default:
+	                            break;
+	                    }
+	                    result.push(item);
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
 	            return result;
 	        }
 	        // 根据用户配置的 posRank 对展示内容进行排序
@@ -19139,14 +19439,140 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(13);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _antd = __webpack_require__(56);
+
+	var _Modal = __webpack_require__(100);
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ReactModal 适用于弹出层快速提交表单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
+
+
+	/**** 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件 *************************************/
+
+	var Dashboard = function (_NewModal) {
+	    _inherits(Dashboard, _NewModal);
+
+	    function Dashboard() {
+	        _classCallCheck(this, Dashboard);
+
+	        return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+	    }
+
+	    _createClass(Dashboard, [{
+	        key: 'show',
+
+	        // 当传入visible时，根据visible控制是否展示
+	        // 未传入visible时，根据当前的状态切换是否展示
+	        // 即show同时包含了展示和隐藏的功能
+	        value: function show(data) {
+	            var visible = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+	            if (!visible || this.__props.visible) {
+	                this._close();
+	            } else {
+	                var _get2;
+
+	                for (var _len = arguments.length, p = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	                    p[_key - 2] = arguments[_key];
+	                }
+
+	                (_get2 = _get(Dashboard.prototype.__proto__ || Object.getPrototypeOf(Dashboard.prototype), 'show', this)).call.apply(_get2, [this, data, visible].concat(p));
+	            }
+	        }
+	    }, {
+	        key: '_close',
+	        value: function _close() {
+	            this.__props.onClose && this.__props.onClose();
+	            return _get(Dashboard.prototype.__proto__ || Object.getPrototypeOf(Dashboard.prototype), 'close', this).call(this);
+	        }
+	        // 覆盖原来关闭弹框的函数，防止页面隐藏
+
+	    }, {
+	        key: 'close',
+	        value: function close() {}
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            // 获取排序后的结果
+	            var children = this.getChildrenRank();
+	            var body = _react2.default.createElement(
+	                'div',
+	                this.__getCommonProps(),
+	                children[0],
+	                children[1],
+	                children[2],
+	                _react2.default.createElement(
+	                    'div',
+	                    { style: { overflow: 'hidden' } },
+	                    this.__props.footerContent
+	                )
+	            );
+	            return !this.__props.visible ? null : !this.__props.title && !this.__props.closable ? body : _react2.default.createElement(
+	                _antd.Collapse,
+	                _extends({ activeKey: 'active', bordered: !!this.__props.bordered
+	                }, this.__getCommonProps({ className: 'uf-dashboard' })),
+	                _react2.default.createElement(
+	                    _antd.Collapse.Panel,
+	                    { key: 'active', header: _react2.default.createElement(
+	                            'div',
+	                            { style: { overflow: 'hidden' } },
+	                            this.__analysis(this._handleButtons(this.__props.title)),
+	                            this.__props.closable && _react2.default.createElement(
+	                                _antd.Button,
+	                                { size: 'small', style: { float: 'right' }, type: 'danger',
+	                                    onClick: this._close.bind(this) },
+	                                '\u5173\u95ED'
+	                            )
+	                        ) },
+	                    body
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Dashboard;
+	}(_Modal2.default);
+
+	exports.default = Dashboard;
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	/**
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(102).default;
+	module.exports = __webpack_require__(103).default;
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19325,7 +19751,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19334,10 +19760,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(104).default;
+	module.exports = __webpack_require__(105).default;
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19388,7 +19814,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'fieldset',
-	                { className: 'uf-fieldset ' + (this.__props.className || ''), style: this.__props.style },
+	                this.__getCommonProps({ className: 'uf-fieldset' }),
 	                _react2.default.createElement(
 	                    'legend',
 	                    null,
@@ -19405,7 +19831,7 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19414,10 +19840,10 @@
 	 * @file 组件入口
 	 * **/
 
-	module.exports = __webpack_require__(106).default;
+	module.exports = __webpack_require__(107).default;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19432,15 +19858,9 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(14);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _base = __webpack_require__(61);
-
-	var _utils = __webpack_require__(19);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19477,21 +19897,19 @@
 	                _props$columns = _props.columns,
 	                columns = _props$columns === undefined ? [] : _props$columns,
 	                _props$layout = _props.layout,
-	                layout = _props$layout === undefined ? {} : _props$layout,
-	                _props$className = _props.className,
-	                className = _props$className === undefined ? '' : _props$className;
+	                layout = _props$layout === undefined ? {} : _props$layout;
 	            var labelCol = layout.labelCol,
 	                valueCol = layout.valueCol,
 	                labelStyle = layout.labelStyle,
 	                valueStyle = layout.valueStyle;
 
-	            className += ' uf-list';
+	            var className = 'uf-list';
 	            className += this.__props.bordered ? ' show-border' : '';
 	            className += this.__props.interleave ? ' show-bg' : '';
 
 	            return _react2.default.createElement(
 	                'div',
-	                { className: className, style: this.__props.style },
+	                this.__getCommonProps({ className: className }),
 	                columns.map(function (item) {
 	                    return _react2.default.createElement(
 	                        _antd.Row,
@@ -19518,30 +19936,30 @@
 	exports.default = List;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(109);
+	var _config = __webpack_require__(110);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _components = __webpack_require__(112);
+	var _components = __webpack_require__(113);
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _model = __webpack_require__(113);
+	var _model = __webpack_require__(114);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _ajax = __webpack_require__(114);
+	var _ajax = __webpack_require__(115);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
@@ -19572,7 +19990,7 @@
 	};
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19589,7 +20007,7 @@
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(110);
+	var _default = __webpack_require__(111);
 
 	var _default2 = _interopRequireDefault(_default);
 
@@ -19647,7 +20065,7 @@
 	});
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19656,7 +20074,7 @@
 	    value: true
 	});
 
-	var _components = __webpack_require__(111);
+	var _components = __webpack_require__(112);
 
 	var _components2 = _interopRequireDefault(_components);
 
@@ -19688,14 +20106,6 @@
 	        },
 	        shim: {
 	            'ueditor': ['zeroclipboard', 'ueditorconfig'],
-	            // 'ueditor': {
-	            //     deps: ['zeroclipboard', 'ueditorconfig'],
-	            //     exports: 'UE',
-	            //     init: function (zeroclipboard) {
-	            //         window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
-	            //         return window.UE;
-	            //     }
-	            // },
 	            'echarts': {
 	                exports: 'echarts'
 	            }
@@ -19716,7 +20126,7 @@
 	};
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -19748,7 +20158,9 @@
 	        },
 	        source: {
 	            // 如果组件没有设置target，则
-	            // target: 'content'
+	            // target: 'content',
+	            // 默认自动移除空参数
+	            removeEmptyParams: true
 	        },
 	        api: {
 	            showLoading: true,
@@ -19905,6 +20317,7 @@
 	}), _defineProperty(_baseComponent$antd$, 'modal', {
 	    visible: false,
 	    maskClosable: false,
+	    closable: true,
 	    api: {
 	        trigger: 'onSubmit'
 	    },
@@ -19914,6 +20327,8 @@
 	            return v;
 	        }
 	    }
+	}), _defineProperty(_baseComponent$antd$, 'dashboard', {
+	    closable: false
 	}), _defineProperty(_baseComponent$antd$, 'tree', {
 	    source: {
 	        autoLoad: true,
@@ -19932,7 +20347,7 @@
 	}), _baseComponent$antd$);
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20004,7 +20419,7 @@
 	});
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20034,7 +20449,7 @@
 	     */
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20074,19 +20489,22 @@
 	        function AjaxCache() {
 	            _classCallCheck(this, AjaxCache);
 
-	            return _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).apply(this, arguments));
+	            // 只检测请求携带的参数
+	            var _this = _possibleConstructorReturn(this, (AjaxCache.__proto__ || Object.getPrototypeOf(AjaxCache)).call(this));
+
+	            _this.paramList = ['url', 'params', 'method', 'type', 'contentType'];
+	            return _this;
 	        }
+	        // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
+
 
 	        _createClass(AjaxCache, [{
 	            key: 'getCacheKey',
-
-
-	            // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
 	            value: function getCacheKey(config) {
 	                var cacheApis = Config.get('global.cacheApis');
 	                // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
 	                if (config.cache || cacheApis && cacheApis.indexOf(config.url) > -1) {
-	                    return _utils2.default.hash(config, 32);
+	                    return _utils2.default.hash(_utils2.default.pass(config, this.paramList), 32);
 	                }
 	                return null;
 	            }
@@ -20124,7 +20542,7 @@
 	});
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20141,11 +20559,11 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _loader = __webpack_require__(116);
+	var _loader = __webpack_require__(117);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(119);
+	var _adaptor = __webpack_require__(120);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
@@ -20153,7 +20571,7 @@
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(120);
+	var _validator = __webpack_require__(121);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
@@ -20233,7 +20651,7 @@
 	                    return this.generateElement(item);
 	                }
 	            }
-	            // 如果不是对象直接返回 或 不是配置对象
+	            // 如果不是对象或不是配置对象 直接返回
 	            if (!_utils.Utils.typeof(item, 'object') || Object.isFrozen(item)) {
 	                return item;
 	            }
@@ -20462,7 +20880,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20479,7 +20897,7 @@
 
 	var _utils = __webpack_require__(19);
 
-	var _dom = __webpack_require__(117);
+	var _dom = __webpack_require__(118);
 
 	var _dom2 = _interopRequireDefault(_dom);
 
@@ -20575,15 +20993,15 @@
 	};
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(118).default;
+	module.exports = __webpack_require__(119).default;
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20681,7 +21099,7 @@
 	exports.default = Dom;
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20706,7 +21124,7 @@
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(116);
+	var _loader = __webpack_require__(117);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -20916,7 +21334,7 @@
 	};
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20983,7 +21401,7 @@
 	    */
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20992,11 +21410,11 @@
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _requirejs = __webpack_require__(122);
+	var _requirejs = __webpack_require__(123);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
-	var _precondition = __webpack_require__(123);
+	var _precondition = __webpack_require__(124);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
@@ -21025,7 +21443,7 @@
 	};
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;'use strict';
@@ -23255,7 +23673,7 @@
 	window['_define'] = define;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23272,7 +23690,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _antd = __webpack_require__(25);
+	var _antd = __webpack_require__(56);
 
 	var _instance = __webpack_require__(57);
 

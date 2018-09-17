@@ -20,11 +20,9 @@ export default class Title extends BaseComponent {
         super(props, 'table-title');
         // 其本身无需初始化组件
         // this.__init();
-        this.parent = props.parent;
         // 缓存展示字段名称组件的cacheName
-        this.cacheName = this.parent.insName + this.parent.key;
+        this.cacheName = props.parent.insName + props.parent.key;
         this.useCache = true;
-        this.title = props.config;
         this.state = {
             antdConfig: null,
             // table表头右侧设置按钮的下拉框是否展示
@@ -33,6 +31,14 @@ export default class Title extends BaseComponent {
             showAllTags: false,
             showSetTagsModal: false
         };
+        this.init(props);
+    }
+    componentWillReceiveProps(nextProps) {
+        this.init(nextProps);
+    }
+    init(props) {
+        this.parent = props.parent;
+        this.title = props.config;
     }
     componentDidMount() {
         if (this.useCache) {
@@ -114,7 +120,9 @@ export default class Title extends BaseComponent {
                 case 'refresh':
                     result.push(<div className="uf-header-widget" key="refresh"
                                 title={v.text || '刷新'}
-                                onClick={this.parent.refreshTable}>
+                                onClick={()=>{
+                                    this.parent.refreshTable();
+                                }}>
                             <Icon type={v.icon || 'retweet'} />
                             {showText && <span>{v.text || '刷新'}</span>}
                         </div>);
@@ -175,30 +183,24 @@ export default class Title extends BaseComponent {
                         </Popconfirm>);
                     break;
                 default:
-                    // v = this.parent.handleAction(v);
-                    // result.push(this.parent.__analysis({
-                    //     type: 'div',
-                    //     key: v.name,
-                    //     control: v.control,
-                    //     className: 'uf-header-widget ' + (v.name || ''),
-                    //     onClick: v.onClick && v.onClick.bind(null, this.parent),
-                    //     content: [
-                    //         {type: 'icon', mode: v.icon || 'file-unknown'},
-                    //         showText ? {type: 'span', content: v.text || ''} : ''
-                    //     ]
-                    // }));
-                    let onClick = v.onClick && v.onClick.bind(null, this.parent);
-                    if (v.action) {
-                        onClick = ()=>{
-                            this.parent.showCrud(v.action);
-                        };
-                    }
-                    result.push(<div key={v.name || Utils.hash(v)} className={'uf-header-widget ' + (v.name || '')}
+                    // 如果设置了type，则按照用户的意愿进行展示，否则使用默认的展示形式
+                    if (v.type) {
+                        v.key = v.key || Utils.hash(v);
+                        result.push(this.parent.__analysis(v));
+                    } else {
+                        let onClick = v.onClick && v.onClick.bind(null, this.parent);
+                        if (v.action) {
+                            onClick = () => {
+                                this.parent.showCrud(v.action);
+                            };
+                        }
+                        result.push(<div key={v.name || Utils.hash(v)} className={'uf-header-widget ' + (v.name || '')}
                             title={v.text}
                             onClick={onClick}>
                             <Icon key="icon" type={v.icon || 'file-unknown'} />
                             {showText && <span key="text">{v.text || ''}</span>}
                         </div>);
+                    }
             }
         }
         return result;
@@ -431,7 +433,7 @@ export default class Title extends BaseComponent {
     }
 
     render() {
-        return <div key="title-container">
+        return <div className="uf-table-title">
             {this.titleGenerate()}
             <Modal title="展示字段" className="uf-table-modal" key="uf-table-modal"
                 visible={this.state.showSetTagsModal}

@@ -53,7 +53,7 @@ export default class Factory extends PureComponent {
                 return this.generateElement(item);
             }
         }
-        // 如果不是对象直接返回 或 不是配置对象
+        // 如果不是对象或不是配置对象 直接返回
         if (!Utils.typeof(item, 'object') || Object.isFrozen(item)) {
             return item;
         }

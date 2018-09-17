@@ -13,7 +13,7 @@ const OptionsDataEntry = DataEntry.OptionsDataEntry;
 
 /************* Cascader 级联选择 ************************************************************************** */
 
-export class Cascader extends DataEntry {
+export class Cascader extends OptionsDataEntry {
     constructor(props) {
         super(props);
         this.__controlled.defaultVal = [];
@@ -278,12 +278,24 @@ export class Select extends OptionsDataEntry {
             this.__props.onChange && this.__props.onChange(value);
         }
     }
-    _onSourceSuccess(data) {
-        // 根据是否多选做区别处理
-        if (this.isMultiple) {
-            this._handleMultipleSelect(data);
-        } else {
-            this._handleDefaultSelect(data);
+    // _onSourceSuccess(data) {
+    //     // 根据是否多选做区别处理
+    //     if (this.isMultiple) {
+    //         this._handleMultipleSelect(data);
+    //     } else {
+    //         this._handleDefaultSelect(data);
+    //     }
+    // }
+    // 改为每次set值时检查，如果更新了options，则进行是否清空或者重置为默认值的处理
+    _afterSetProps(newProps) {
+        super._afterSetProps(newProps);
+        if (newProps.options) {
+            // 根据是否多选做区别处理
+            if (this.isMultiple) {
+                this._handleMultipleSelect(newProps.options);
+            } else {
+                this._handleDefaultSelect(newProps.options);
+            }
         }
     }
     getAllOptions(data = this.__props.options) {

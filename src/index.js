@@ -172,7 +172,6 @@ const create = ({name})=>{
                     componentsLoader.map(path => {
                         return resovle => {
                             Requirejs([path], foo=>{
-                                console.log(foo);
                                 foo && this.config({components: foo});
                                 resovle();
                             });
@@ -284,7 +283,6 @@ const UF = (conf = {}) => {
     }
     // 默认使用default名称
     conf.name = conf.name || conf.appName || defaultName;
-    delete conf.appName;
     // 获取当前name的uf实例
     let ufIns = getInstance(conf.name);
     // 如果不存在生成一个新的实例

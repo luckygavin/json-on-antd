@@ -288,14 +288,15 @@
         // padding: 0px 10px;
         padding: 0px;
         overflow: hidden;
-        line-height: 47px;
-        // border: 1px solid @border-color-base;
         &+.ant-table-content {
             border-radius: 0;
             table {
                 border-radius: 0;
             }
         }
+    }
+    .uf-table-title {
+        line-height: 47px;
     }
     .ant-table-thead > tr > th {
         background: @table-header-bg;
@@ -321,6 +322,11 @@
             padding: 3px 4px;
         }
     }
+    // 原始title没有内容时的样式
+    &.uf-table-no-title .ant-table-title{
+        padding: 0px;
+        margin-bottom: -1px;
+    }
     // 选择框样式
     .ant-table-thead > tr > th,
     .ant-table-tbody > tr > td {
@@ -338,6 +344,7 @@
     .ant-table-row-expand-icon-cell {
         min-width: 0;
         width: auto;
+        border-right: 0 !important;
     }
     // 展开扩展内容列和复选框列调整间距（合并）
     .ant-table-expand-icon-th+.ant-table-selection-column,
@@ -346,5 +353,38 @@
         min-width: 30px;
         width: auto;
         text-align: left;
+    }
+    // tooltips提示信息列样式
+    .uf-row-tooltips {
+        padding-left: 0;
+        // width: 12px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    // 带边框时，单独占一列比较占地方
+    .ant-table-bordered {
+        .uf-row-tooltips {
+            padding-left: 0;
+            // width: 12px;
+            color: #7b7b7b;
+            width: 0px;
+            padding: 0;
+            border: 0 !important;
+            .uf-row-tooltips-content {
+                position: absolute;
+                margin-left: -28px;
+                margin-top: -12px;
+                font-size: 16px;
+                z-index: 1;
+            }
+        }
+        .disabledRow {
+            .uf-row-tooltips .uf-row-tooltips-content {
+                background: #f7f7f7;
+                // display: none;
+            }
+            // &:hover .uf-row-tooltips .uf-row-tooltips-content {
+            //     display: block;
+            // }
+        }
     }
 }

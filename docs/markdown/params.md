@@ -110,6 +110,7 @@ requestMerge | 开启请求合并（默认），多个重复请求先后同时�
 method    | ajax方式：`post`、`get`等 | string | 'get'
 params | 请求数据时携带的参数 | object | 
 paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | 
+removeEmptyParams | 自动移除为空的属性 | boolean | true
 target | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |
 handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |
 onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |
@@ -117,6 +118,7 @@ onError | 请求数据失败的回调函数 | function(res) {} |
 autoLoad | 组件首次渲染时自动获取数据，仅创建组件时有效。组件创建完成后，通过 autoReload 属性控制 | boolean | true
 autoReload | 自动重新获取数据。不同取值时，自动获取数据的时机不同，详见表格下面说明 | boolean&#124;`'never'`&#124;`'set'` | false
 showLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false
+
 
 > * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  
 > * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）

@@ -23,14 +23,6 @@ export default {
         },
         shim: {
             'ueditor': ['zeroclipboard', 'ueditorconfig'],
-            // 'ueditor': {
-            //     deps: ['zeroclipboard', 'ueditorconfig'],
-            //     exports: 'UE',
-            //     init: function (zeroclipboard) {
-            //         window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
-            //         return window.UE;
-            //     }
-            // },
             'echarts': {
                 exports: 'echarts'
             }

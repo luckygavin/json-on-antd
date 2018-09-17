@@ -128,3 +128,27 @@ export function checkMock(config, mockMap = {}) {
     }
     return false;
 }
+
+/**
+ * 检查是否中断请求
+ * > 可以通过返回数据中断请求，从而使用钩子返回的数据；
+ * > 如果钩子未返回任何内容，或返回true，则请求继续；
+ * > 如果钩子返回false，则仅中断请求，不做任何处理
+ *
+ * @param {*} config ajax的配置
+ * @return {boolean} 如果有则返回true，否则返回false
+ */
+export function checkInterrupt(config) {
+    if (config.interrupt) {
+        let data = config.interrupt.call(null, config);
+        // 如果钩子未返回任何内容，或返回true，则请求继续
+        if (data === undefined || data === true) {
+            return false;
+        }
+        if (data !== false) {
+            // 保证异步
+            Utils.defer(config.success, data);
+        }
+        return true;
+    }
+}

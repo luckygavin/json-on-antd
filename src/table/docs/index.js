@@ -31,7 +31,8 @@ const demo1 = {
                         type: 'radio',
                         options: ['华北', '华南', '华东']
                     }
-                }
+                },
+                {title: '描述', dataIndex: 'description'}
             ],
             title: {
                 // text: 'Table后端分页表格',
@@ -81,10 +82,17 @@ const demo1 = {
                 //     size: 'pageSize'
                 // }
             },
+            bordered: true,
             rowSelection: {
-                selections: true
+                // 指定满足某些条件时复选框不可选
+                disabledRow: function (record) {
+                    return true;
+                }
             },
-            expandedRowRender: v=>v.description
+            rowTooltips: v => v.description,
+            expanded: {
+                expandedRowRender: v => v.description
+            }
         }
     ]
 };

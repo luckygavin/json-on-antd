@@ -20,13 +20,13 @@
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
 name | 实例名称，根据不同的名称产生不同的实例 | String | default | 
-modules | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
-components | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
-plugins | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | 
-global | 其他一些全局配置。见：`global`表 | Object |  | 
-data | 用于存放一些公用数据或静态数据（供select等组件直接调用）。 | Object |  | 
-authority | 权限控制。见：`authority`表 | Object |  | 
-precondition | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | 
+[modules](#/Develop/Config/-modules) | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | 
+[components](#/Develop/Config/-components) | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | 
+[plugins](#/Develop/Config/-plugins) | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | 
+[global](#/Develop/Config/-global) | 其他一些全局配置。见：`global`表 | Object |  | 
+[data](#/Develop/Config/-data) | 用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** | Object |  | 
+[authority](#/Develop/Config/-authority) | 权限控制。见：`authority`表 | Object |  | 
+[precondition](#/Develop/Config/-precondition) | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | 
 
 
 ### # modules
@@ -281,9 +281,32 @@ UF.config({
 
 #### # data
 
-用于存放一些公用数据或静态数据（供select等组件直接调用）。
+用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** 
 
 和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。
+
+同时，data中的数据还有一个常见用法，即在url中作为动态参数使用。从而可以在全局初始化一个变量作为某些ajax的前缀（或参数），在设置url时可以便捷的使用此变量，例如：
+
+```javascript
+// 在入口配置变量
+var $uf = window.UF({
+    ...
+    data: {
+        // 使用 ms-common 的接口所需配置
+        'ms-common': window.location.origin + '/api/ms-common/'
+    }
+    ...
+});
+
+// 在组件中使用
+{
+    type: 'select',
+    name: 'room-list',
+    // 注意 :ms-common，会转化成入口处设置的变量的值
+    source: ':ms-common/idc/list/map'
+}
+```
+
 
 
 ### # authority

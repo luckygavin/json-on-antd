@@ -31,3 +31,25 @@
         padding: 6px 16px 18px 10px;
     }
 }
+
+// 自定义Dashboard样式
+.uf-dashboard.ant-collapse > .ant-collapse-item {
+    .ant-collapse-header {
+        background-color: #eee;
+        padding: 8px 20px;
+        cursor: default;
+        &:hover {
+            background-color: #eee !important;
+        }
+        &>i {
+            display: none !important;
+        }
+    }
+    .ant-collapse-content {
+        padding: 0;
+        &>.ant-collapse-content-box {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+}

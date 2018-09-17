@@ -12,7 +12,7 @@ export default class Fieldset extends BaseComponent {
         this.__init();
     }
     render() {
-        return <fieldset className={'uf-fieldset ' + (this.__props.className || '')} style={this.__props.style}>
+        return <fieldset {...this.__getCommonProps({className: 'uf-fieldset'})}>
             <legend>{this.__props.title}</legend>
             {this.__props.children}
         </fieldset>;

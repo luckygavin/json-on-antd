@@ -14,15 +14,14 @@
  * @author liuzechun@baidu.com
  * **/
 
-import {notification} from 'antd';
 import reqwest from 'reqwest';
 import Utils from './utils.js';
 import axios from './axios.js';
-import {errorMessage, checkCache, checkQueue, checkMock} from './ajaxPlugin.js';
+import {errorMessage, checkCache, checkQueue, checkMock, checkInterrupt} from './ajaxPlugin.js';
 import {generate} from 'src/tools/instance.js';
 
 // 依赖 Config, AjaxCache 两个实例，通过generete获取
-export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
+export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCache, ModelCache) => {
 
     // 通用ajax函数，参数为一个对象
     function request (config) {
@@ -34,6 +33,10 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
         let globalAjax = Config.get('global.ajax');
         let mockMap = Config.get('global.mock');
 
+        // 检查是否中断请求，如果有中断请求的钩子，则完全不会进入获取数据的逻辑
+        if (checkInterrupt(config)) {
+            return;
+        }
         // TODO: 两种情况下都不会触发onchange
         // 检查是否有缓存，如果有，则直接中断后续逻辑
         if (checkCache(config, AjaxCache)) {
@@ -87,8 +90,13 @@ export default generate(['Config', 'AjaxCache'], (Config, AjaxCache) => {
         const params = Object.assign({}, config.params, config.data);
         const final = Object.assign({}, config,
             {
-                // url中可以使用来自params中的动态参数
-                url: Utils.urlAnalysis(config.url, params),
+                // url中可以使用来自 params 或 uf.config.data 中的动态参数
+                // params中的数据取完会从params中移除，uf.config.data 会保留原数据
+                url: Utils.urlAnalysis(
+                    Utils.urlAnalysis(config.url, params),
+                    ModelCache.get(),
+                    false
+                ),
                 // data 可能来自 globalAjax
                 data: params,
                 success: res=>{

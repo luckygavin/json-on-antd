@@ -3,8 +3,7 @@
  * @author liuzechun@baidu.com
  * */
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Modal, message} from 'antd';
+import {Modal} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import UF from 'src';
@@ -12,6 +11,7 @@ import UF from 'src';
 class NewModal extends BaseComponent {
     constructor(props) {
         super(props);
+        this.class.push('modal');
         // 开放给用户使用的 Api，需处理下
         this._openApi.push('show', 'close');
         this.__init();
@@ -27,13 +27,7 @@ class NewModal extends BaseComponent {
         super._afterSetProps();
         // footer的按钮点击时增加一些默认处理逻辑
         if (this.__props.footer) {
-            let buttons = this.__props.footer;
-            if (Utils.typeof(buttons, 'object')) {
-                buttons = [buttons];
-            }
-            buttons = buttons.map(item=>{
-                return this._handleButton(item);
-            });
+            let buttons = this._handleButtons(this.__props.footer);
             this.__props.footerContent = this.__analysis(buttons);
             delete this.__props.footer;
         }
@@ -66,7 +60,7 @@ class NewModal extends BaseComponent {
 
     /********** 外部调用函数 *************************************************/
     // 展示弹框
-    show(data) {
+    show(data, active) {
         let newProps = {visible: true};
         // 保存传入的值
         if (data) {
@@ -84,8 +78,13 @@ class NewModal extends BaseComponent {
     // 关闭弹框
     close() {
         this.__setProps({visible: false}, ()=>{
-            // 如果是form弹框，重置form内容
-            this.formRef && this.formRef.clearValues();
+            console.log(this.formRef);
+            if (this.formRef && !this.formRef.unmounted) {
+                // 如果是form弹框，重置form内容
+                this.formRef.clearValues();
+            } else {
+                delete this.formRef;
+            }
         });
     }
 
@@ -140,25 +139,42 @@ class NewModal extends BaseComponent {
         return this.__props.onSuccess && this.__props.onSuccess(...params);
     }
     // 处理 footer 按钮
-    _handleButton(item) {
-        let result = Utils.copy(item);
-        delete result.action;
-        switch (item.action) {
-            case 'submit':
-                // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
-                this.__props.onSubmit = item.onClick || this.__props.onSubmit;
-                result.onClick = this._onSubmit.bind(this);
-                break;
-            case 'cancel':
-                // action === 'cancel' 的按钮和默认的取消按钮等价（onClick === onCancel)
-                if (result.onClick) {
-                    this.__props.onCancel = item.onClick;
-                } else {
-                    result.onClick = this.__props.onCancel;
-                }
-                break;
-            default:
-                break;
+    _handleButtons(items) {
+        if (!Utils.typeof(items, 'array')) {
+            items = [items];
+        }
+        let result = [];
+        for (let v of items) {
+            let item = Utils.copy(v);
+            delete item.action;
+            switch (v.action) {
+                case 'submit':
+                    // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
+                    this.__props.onSubmit = v.onClick || this.__props.onSubmit;
+                    item.onClick = this._onSubmit.bind(this);
+                    break;
+                case 'reset':
+                    item.onClick = () => {
+                        this.formRef && this.formRef.resetValues();
+                    };
+                    break;
+                case 'clear':
+                    item.onClick = () => {
+                        this.formRef && this.formRef.clearValues();
+                    };
+                    break;
+                case 'cancel':
+                    // action === 'cancel' 的按钮和默认的取消按钮等价（onClick === onCancel)
+                    if (item.onClick) {
+                        this.__props.onCancel = v.onClick;
+                    } else {
+                        item.onClick = this.__props.onCancel;
+                    }
+                    break;
+                default:
+                    break;
+            }
+            result.push(item);
         }
         return result;
     }
@@ -195,7 +211,6 @@ class NewModal extends BaseComponent {
         </Modal>;
     }
 }
-
 
 /**** Modal静态类调用函数 *************************************************************************/
 

@@ -81,17 +81,21 @@ export default class OriginTree extends BaseComponent {
     }
     // 树形控件初始化配置及数据
     initTree(nextProps) {
-        let objProps = nextProps ? nextProps : this.props;
+        let objProps = this.props;
+        // 过滤出变化的属性
+        if (nextProps) {
+            objProps = Utils.getChange(nextProps, objProps)
+        }
         let propsData = Utils.clone(objProps.data);
         // 针对数据进行处理
         // 生成指针树，便于快速定位树节点
         this.completePointerTree = {};
-        if (propsData) {
+        if (objProps.data) {
             this.createPointerTree(propsData, this.completePointerTree);
         }
         // 生成层级树，包含每层可展开的父节点的key
         this.levalPointerTree = {};
-        if (propsData) {
+        if (objProps.data) {
             this.createLevalTree(propsData, this.levalPointerTree);
         }
 

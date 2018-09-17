@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Table, Popover} from 'antd';
+import {Table, Popover, Tooltip, Icon} from 'antd';
 // 扩展功能 - 增删改查等
 import Export from 'src/export';
 import Crud from './Crud.js';
@@ -141,6 +141,10 @@ export default class NewTable extends BaseComponent {
             onRowMouseEnter: () => {},
             onRowMouseLeave: () => {}
         };
+        // 为了层级清晰，把扩展行相关的属性聚合到了expended属性中。此处兼容放属性里和属性外两种用法
+        if (this.__props.expanded) {
+            getNeedObject(defaultCif, this.__props.expanded);
+        }
         getNeedObject(defaultCif, this.__props);
         // 关于表头
         if (!!objProps.title) {
@@ -159,6 +163,10 @@ export default class NewTable extends BaseComponent {
         if (propsData) {
             state.completeData = propsData;
             this.pagination.total = this.pagination.total || propsData.length;
+            // 如果传入新的data，则需刷新total
+            if (!this.__prevProps.data || this.__prevProps.data.length !== propsData.length) {
+                this.pagination.total = propsData.length;
+            }
         }
         // 关于行样式与不可选相关联，不可选时至为灰色
         if (this.rowSelection && this.rowSelection.disabledRow) {
@@ -227,7 +235,7 @@ export default class NewTable extends BaseComponent {
     }
     // 展示增删改查等弹框，具体实现逻辑见 Crud.js
     showCrud(...params) {
-        this.refs.crud && this.refs.crud.showCrud(...params);
+        this.crudRef && this.crudRef.showCrud(...params);
     }
     // 获取当前全部选中行的数据
     getSelected() {
@@ -250,7 +258,7 @@ export default class NewTable extends BaseComponent {
     }
     // 导出数据
     export() {
-        this.refs.export && this.refs.export.export();
+        this.exportRef && this.exportRef.export();
     }
 
     /* 内部函数 ****************************************************************************/
@@ -263,7 +271,7 @@ export default class NewTable extends BaseComponent {
         let headers = [];
         for (let i in columns) {
             // 只导出展示的字段
-            if (columns[i].display !== false || (this.refs.title && this.refs.title.state.showAllTags)) {
+            if (columns[i].display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
                 headers.push({
                     key: columns[i].dataIndex || columns[i].key,
                     title: columns[i].title
@@ -300,7 +308,7 @@ export default class NewTable extends BaseComponent {
     // 添加展开全部功能按钮
     // 因为原始组件未提供相应API，所以此处通过操作真是dom上的className实现
     handleExpandAllIcon() {
-        if (this.__props.expandedRowRender) {
+        if (this.__props.expandedRowRender || this.__props.expanded) {
             // 需操作真是dom
             let collection = ReactDOM.findDOMNode(this).getElementsByClassName('ant-table-expand-icon-th');
             this.expandThEle = collection[0];
@@ -437,7 +445,7 @@ export default class NewTable extends BaseComponent {
             selectedRowKeys: []
         });
         this.filter && this.filter.clearState();
-        this.refs.title && this.refs.title.clearState();
+        this.titleRef && this.titleRef.clearState();
         this.forceUpdate();
     }
     // 全屏或退出全屏
@@ -559,7 +567,8 @@ export default class NewTable extends BaseComponent {
         });
     }
     // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
-    handleAction(config, record) {
+    handleAction(oConfig, record) {
+        let config = Utils.clone(oConfig);
         let arr = config;
         if (!Utils.typeof(arr, 'array')) {
             arr = [config];
@@ -584,7 +593,7 @@ export default class NewTable extends BaseComponent {
         for (let i in this.columns) {
             let item = this.columns[i];
             // 如果列为枚举类型，则进行枚举转换
-            if (item.enum && !item.render) {
+            if (item.enum) {
                 item = this.enum.handleColumn(item);
             }
             if (!this.state.showAllTags && item.display === false) {
@@ -599,7 +608,7 @@ export default class NewTable extends BaseComponent {
                 render: null,
                 sorter: null,
                 colSpan: null,
-                width: '',
+                width: null,
                 className: '',
                 fixed: false,
                 // 当配置了sorter时，默认自动设置sortOrder为正序
@@ -610,6 +619,17 @@ export default class NewTable extends BaseComponent {
             getNeedObject(defaultColumn, item);
             if (defaultColumn.dataIndex === '_operation') {
                 defaultColumn.className += ' uf-operation';
+            }
+            // 自定义最小宽度参数
+            if (item.minWidth) {
+                let orender = item.render;
+                item.render = (v, row, ...params) => {
+                    return {
+                        type: 'div',
+                        style: {minWidth: item.minWidth},
+                        content: orender ? orender(v, row, ...params) : v
+                    };
+                };
             }
             // 用户配置的render是一个uf组件配置，在此转为dom
             if (!!item.render) {
@@ -724,6 +744,23 @@ export default class NewTable extends BaseComponent {
             }
             antdColumnConfig.push(defaultColumn);
         }
+        if (this.__props.rowTooltips) {
+            antdColumnConfig.unshift({
+                title: '',
+                className: 'uf-row-tooltips',
+                render: (...params) => {
+                    let content = this.__props.rowTooltips(...params);
+                    if (content) {
+                        return <div className="uf-row-tooltips-content">
+                            <Tooltip title={content} placement="right">
+                                <Icon type={this.__props.rowTooltipsIcon || 'question-circle'} />
+                            </Tooltip>
+                        </div>
+                    }
+                    return '';
+                }
+            });
+        }
         return antdColumnConfig;
     }
     renderRowSelection() {
@@ -787,10 +824,25 @@ export default class NewTable extends BaseComponent {
         this._inject(pagination, 'onShowSizeChange', this.onShowSizeChange.bind(this));
         return pagination;
     }
+    renderTitle() {
+        return [
+            // 增删改查
+            <Crud key="crud" _factory={this._factory} parent={this} enum={this.enum}
+                ref={ele => (this.crudRef = ele)}
+                config={this.__props.crud || {}}>
+                {/* 原title内容 */}
+                <Title key="title" _factory={this._factory} parent={this} config={this.title}
+                    ref={ele => (this.titleRef = ele)} />
+            </Crud>,
+            // 导出功能
+            <Export key="export" _factory={this._factory} style={{display: 'none'}}
+                ref={ele => (this.exportRef = ele)}
+                {...this._getExportConfig()} />
+        ];
+    }
     render() {
         let className = 'uf-table ';
         className += this.state.fullScreen ? 'uf-fullscreen ' : '';
-        className += this.__props.className || '';
         // 额外加一个mini类型的size
         let size = this.state.antdConfig.size;
         if (size === 'mini') {
@@ -804,15 +856,15 @@ export default class NewTable extends BaseComponent {
                 className += ' uf-table-pagination-center';
             }
         }
+        if (!this.title) {
+            className += ' uf-table-no-title';
+        }
         let expandedRowRender = this.state.antdConfig.expandedRowRender;
         let expandedRowKeys = this.state.expandedRowKeys;
         let footer = this.state.antdConfig.footer;
-        return <div className={className} style={this.__props.style}>
-            {this.header && (this.__analysis(this.header))}
+        return <div {...this.__getCommonProps({className: className})}>
             <Table {...this.state.antdConfig} size={size}
-                title={this.title && (() => (
-                    <Title ref="title" _factory={this._factory} parent={this} config={this.title} />
-                ))}
+                title={() => this.renderTitle()}
                 onExpandedRowsChange={this.onExpandedRowsChange.bind(this)}
                 {...(expandedRowRender && ({expandedRowRender: row => this.__analysis(expandedRowRender(row))}))}
                 {...(expandedRowKeys && ({expandedRowKeys: expandedRowKeys}))}
@@ -825,10 +877,6 @@ export default class NewTable extends BaseComponent {
                 rowSelection={this.renderRowSelection()}
                 pagination={this.renderPagination()}
                 loading={this.state.loading} />
-            {/* 导出功能 */}
-            <Export ref="export" _factory={this._factory} style={{display: 'none'}} {...this._getExportConfig()} />
-            {/* 增删改查 */}
-            <Crud ref="crud" _factory={this._factory} parent={this} enum={this.enum} config={this.__props.crud || {}} />
         </div>;
     }
 }

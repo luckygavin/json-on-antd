@@ -35,9 +35,22 @@ export class AnchorLink extends Genaral {
 export class Button extends Genaral {
     constructor(props) {
         super(props);
-        this._filter.push('link');
+        this._filter.push('link', 'active', 'actived');
         this._injectEvent.push('onClick');
         this.__init();
+    }
+    _afterInit() {
+        super._afterInit();
+        if (this.__filtered.actived === true) {
+            if (this.__props.onClick) {
+                let origin = this.__props.onClick;
+                this.__props.onClick = e=>{
+                    this.__filtered.active = !this.__filtered.active;
+                    this.forceUpdate();
+                    return origin(e, this.__filtered.active);
+                }
+            }
+        }
     }
     _onClick() {
         // 如果配置了link属性，则按钮点击后会跳转到link指定的页面
@@ -47,14 +60,16 @@ export class Button extends Genaral {
     }
     render() {
         let className = '';
-        className += this.__props.className || '';
         // 额外加一个mini类型的size
         let size = this.__props.size;
         if (size === 'mini') {
             className += ' uf-btn-mini';
             size = 'small';
         }
-        return <Antd.Button {...this.__props} className={className} size={size}/>;
+        if (this.__filtered.active) {
+            className += ' active';
+        }
+        return <Antd.Button {...this.__props} {...this.__getCommonProps({className})} size={size}/>;
     }
 }
 // 按钮组

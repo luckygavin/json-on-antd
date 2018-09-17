@@ -11,36 +11,43 @@
 
 | 参数           | 说明                     | 类型             | 默认值   |
 |---------------|--------------------------|-----------------|---------|
-| rowSelection  | 列表项是否可选择，具体见下面配置`rowSelection` | object  | null  |
-| pagination    | 分页器，具体见下方配置`pagination`，设为 false 时不展示和进行分页 | object &#124; `false` |   |
+| title  | 表格标题栏配置，可配置题目及表格控件，具体见下面配置[`title`](#/Custom/Table/-title-)     | string &#124; object   | - |
+| rowSelection  | 列表项是否可选择，具体见下面配置[`rowSelection`](#/Custom/Table/-rowselection-) | object  | null  |
+| pagination    | 分页器，具体见下方配置[`pagination`](#/Custom/Table/-pagination-) ，设为 false 时不展示和进行分页 | object &#124; `false` |   |
 | size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |
 | data    | 数据数组，见下面示例 `data` | any[] |            |
-| columns       | 表格列的配置描述，具体项见下表`columns` | ColumnProps[] | - |
+| columns   | 表格列的配置描述，具体项见下表[`columns`](#/Custom/Table/-column-) | ColumnProps[] | - |
 | rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
-| expandedRowRender  | 额外的展开行 | Function | - |
-| doubleClickEdit | 双击行时进行编辑，需配合`crud.edit` | | |
-| defaultExpandedRowKeys | 默认展开的行 | string[] | - |
-| expandedRowKeys | 展开的行，控制属性 | string[] | - |
-| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
 | showHeader  | 是否显示表头 | boolean          | true      |
+| expanded  | 配置额外的展开行，具体见下面配置[`expanded`](#/Custom/Table/-expand-) | object          | true      |
 | footer | 表格尾部         | Function(currentPageData) &#124; `config`  | |
-| title  | 表格标题栏配置,可配置题目及表格控件，见下方[`title`](#/Table/-title-)     | string &#124; object   | - |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
-| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致。为对象时，其中常用的参数还有`url`,`method`,`handler`,`autoLoad`等，可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
+| source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致，具体可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
 | source.autoLoad | 特别提醒下source下面的`autoLoad`参数，是否组件渲染完成后自动加载数据 | boolean | true | 
 | source.autoReload | 特别提醒下source下面的`autoReload`参数，是否组件刷新时自动重新加载数据 | boolean | true | 
 | params | `source.params`的别名，通过source向后端请求时传的参数（一般用于外部搜索)，由于调用频繁，所以放在source平级方便设置 | Object |  | 
+| doubleClickEdit | 双击行时进行编辑，需配合`crud.edit` | | |
 | crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | 
+| rowTooltips   | 表格行的额外提示信息，展示位置固定。返回空时不展示提示图标  | Function(record, index):string | - |
+| rowTooltipsIcon | 表格行的额外提示信息图标  | string | - |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
-| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
-| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
 | onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
 | onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
 | onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
+
+#### *expanded*
+
+| 参数       | 说明                       | 类型    |  默认值  |
+|-----------|----------------------------|--------|---------|
+| expandedRowRender  | 额外的展开行 | Function | - |
+| defaultExpandedRowKeys | 默认展开的行 | string[] | - |
+| defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
+| onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
 
 #### *column*
 
@@ -50,21 +57,22 @@
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string &#124; `config` | - |
 | display    | 默认是否展示列当前列             | boolean | true |
-| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见`column._operation` | string | - |
+| dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见[`column._operation`](#/Custom/Table/-column-_operation-) | string | - |
 | enum      | 枚举列表。指定当前列展示内容，根据列表里的内容进行转换。用法见下面说明 | array&#124;`source` | -  |
 | enum.cache | 默认会开启缓存，即枚举数据仅会加载一次。如果需要动态获取，则可把cache置为 false | boolean | true  |
 | width      | 列宽度 | string&#124;number | -  |
+| minWidth   | 列最小宽度 | string&#124;number | -  |
 | className  | 列的 className             | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
 | render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record) {} | - |
-| filter    | 表头的筛选设置，详见下方`columns.filter`           | Object           | - |
+| filter     | 表头的筛选设置，详见下方[`columns.filter`](#/Custom/Table/-column-filter-)      | Object           | - |
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
-| editable | 此单元格是否可编辑,详见下方`columns.editable` | Object | - |
+| editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object | - |
 
 **`enum`有两种用法:**  
 > 1、直接列举出全部值，格式为:`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值（*value也可以是一个组件配置*）  
@@ -151,7 +159,7 @@ columns: [
 | onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |
 
-#### *selection*
+#### *rowSelection.selection*
 
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|
@@ -214,6 +222,7 @@ setPageSize |  设置分页条数 |
 | name | 控件名称。可以为上表中的基础控件名称，如果不在上表中，则认为是自定义控件 | String | 是 |
 | icon | 按钮图标，如：'like-o'，详见 [这里](#/General/Icon) | String |  |
 | text | 按钮文字 | String |  |
+| type | 组件类型。一旦设置了组件类型，则控件不再以默认的展示方式展示，及设置什么类型就展示成什么类型，例如select | String |  |
 | action | 同`column._operation`的action | String |  |
 | onClick | 点击按钮时的回调函数，回调函数会返回一个参数，参数为 table 组件的引用 | function(table){} | `自定义组件`必填 |
 | blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |

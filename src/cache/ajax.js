@@ -11,13 +11,20 @@ import {generate} from 'src/tools/instance.js';
 export default generate(['Config'], Config=>{
 
     class AjaxCache extends BaseCache {
-
+        constructor() {
+            super();
+            // 只检测请求携带的参数
+            this.paramList = ['url', 'params', 'method', 'type', 'contentType'];
+        }
         // 检查是否需要缓存返回数据，如果需要，则根据config取hash值，并返回；否则返回null
         getCacheKey(config) {
             let cacheApis = Config.get('global.cacheApis');
             // 开启cache的方式有两种：1、config中配置cache属性为true; 2、UF.config()中配置global.cacheApis
             if (config.cache || (cacheApis && cacheApis.indexOf(config.url) > -1)) {
-                return Utils.hash(config, 32);
+                return Utils.hash(
+                    Utils.pass(config, this.paramList),
+                    32
+                );
             }
             return null;
         }

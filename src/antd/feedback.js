@@ -61,6 +61,9 @@ function messageHandler(type, config, ...params) {
     for (let v of list) {
         config[v] = UF.render(config[v]);
     }
+    if (Utils.typeof(config, ['object', 'array'])) {
+        config = UF.render(config);
+    }
     return Antd.message[type](config, ...params);
 }
 

@@ -21,6 +21,8 @@ loading | 设置按钮载入状态 | boolean &#124; { delay: number } | `false`
 onClick | `click` 事件的 handler | function | -
 ghost | 幽灵属性，使按钮背景透明 | boolean | false
 link | 如果配置了link属性，则按钮点击后会跳转到link指定的页面 | string | 
+active | 设置按钮当前状态是否为激活状态（仅`actived`为true时有效） | boolean | false
+actived | 按钮是否可以存在激活状态 | boolean | false
 
 
 ### # button-group

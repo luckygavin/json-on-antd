@@ -131,9 +131,14 @@ export default class BaseComponent extends Component {
                     nextProps.params,
                     this.__props.params
                 );
-            // 重新设置 __props
-            // 如果为自身调用，则只传入待更新的值。否则传入整个nextProps（外部刷新）
-            this.__setProps(nextProps._selfCalling || nextProps);
+            // 重新设置 __props.只传入待更新的值
+            // 如果为自身调用，则待更新的值存储在_selfCalling中；
+            // 否则为外部刷新，用 nextProps 和 currentProps 做对比，获取变化的值
+            let changeProps = nextProps._selfCalling;
+            if (!changeProps) {
+                changeProps = Utils.getChange(nextProps, currentProps);
+            }
+            this.__setProps(changeProps);
         }
 
         // 判断是否重新加载数据
@@ -197,6 +202,7 @@ export default class BaseComponent extends Component {
     _componentWillUnmount() {
         this._unsetTransmitComponent();
         this.unmounted = true;
+        delete this.parent;
     }
 
     /**
@@ -226,6 +232,13 @@ export default class BaseComponent extends Component {
             return;
         }
         super.setState.call(this, ...params);
+    }
+    // 覆盖原生的forceUpdate方法。如果组件已销毁，则不再执行forceUpdate。用于异步操作中调用forceUpdate时的通用状态检测
+    forceUpdate(...params) {
+        if (this.unmounted) {
+            return;
+        }
+        super.forceUpdate.call(this, ...params);
     }
 
     /* 暴露给用户的方法 ***********************************************************************/
@@ -397,7 +410,7 @@ export default class BaseComponent extends Component {
         this.__prevProps = this.__props;
         this.__props = this.__mergeProps({}, this.__props, __props);
         // 执行附加逻辑
-        this._afterSetProps();
+        this._afterSetProps(nextProps);
         if (follow !== false) {
             this.forceUpdate();
             // 延迟执行
@@ -512,7 +525,7 @@ export default class BaseComponent extends Component {
     }
     // 处理source系列接口参数的通用逻辑（例如handler处理）
     __execAjax(conf, usePromise = false) {
-        let {url, params, _paramsHandler, paramsHandler, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
+        let {url, params, _paramsHandler, paramsHandler, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
         if (url) {
             // 额外增加对参数预处理逻辑，不暴露给用户使用
             if (false === (_paramsHandler && (params = _paramsHandler(params)))) {
@@ -527,6 +540,14 @@ export default class BaseComponent extends Component {
                     return false;
                 }
                 params = result !== undefined ? result : params;
+            }
+            // 移除为空的属性
+            if (params && removeEmptyParams === true) {
+                for (let i in params) {
+                    if (params[i] === null || params[i] === undefined || params[i] === '') {
+                        delete params[i];
+                    }
+                }
             }
             return new Promise((resolve, reject) => {
                 this.__ajax({
@@ -562,6 +583,7 @@ export default class BaseComponent extends Component {
             });
         }
     }
+
     // source获取数据时，通用的展示source的逻辑
     _handleSourceLoading(status, showLoading) {
         // 展示loading可以自定义展示效果，showLoading为loading的配置
@@ -575,6 +597,16 @@ export default class BaseComponent extends Component {
         }
         // DataEntry里重写了loading，会用到showLoading参数
         this.loading(loadingConf, showLoading);
+    }
+
+    // 获取通用的公共属性
+    __getCommonProps(props = {}) {
+        const commonProps = ['style', 'className']
+        let result = Utils.pass(this.__props, commonProps);
+        if (props.className) {
+            result.className = props.className + ' ' + (result.className || '');
+        }
+        return result;
     }
 
     /* 私有方法 ***********************************************************************/
@@ -650,6 +682,10 @@ export default class BaseComponent extends Component {
     _unsetTransmitComponent() {
         if (!!this.cacheName) {
             this._factory.$components.del(this.cacheName);
+            // 删除全部this上的变量，防止循环引用
+            // for (let i in this) {
+            //     delete this[i];
+            // }
         }
     }
 
@@ -740,7 +776,7 @@ export default class BaseComponent extends Component {
                 }
                 // 1、动作类型为：绑定(开发使用)
                 if (type === 'bind') {
-                    target(...params);
+                    target(...params, ...para);
                     return;
                 }
                 // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
@@ -905,8 +941,16 @@ export default class BaseComponent extends Component {
         }
         // 隐藏组件，如果组件隐藏，则不再进行render
         //  TODO: 待观察，如果有问题，可以改为外出嵌套display:none的div实现
+        //      return null 会导致组件销毁，不能保存组件操作状态
+        // if (this.__filtered.hidden === true) {
+        //     return null;
+        // }
         if (this.__filtered.hidden === true) {
-            return null;
+            // return null;
+            this.__props.style = this.__props.style || {};
+            this.__props.style.display = 'none';
+        } else if (this.__filtered.hidden === false && this.__props.style) {
+            delete this.__props.style.display;
         }
         return render.call(this);
     }

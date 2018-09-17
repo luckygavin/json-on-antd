@@ -13,7 +13,10 @@ const demo1 = {
         {
             type: 'button',
             content: 'Success',
-            onClick: v=>UF.message.success('Success message.')
+            onClick: v=>UF.message.success({
+                type: 'div',
+                content: 'Success message.'
+            })
         },
         {
             type: 'button',

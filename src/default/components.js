@@ -17,7 +17,9 @@ export default {
         },
         source: {
             // 如果组件没有设置target，则
-            // target: 'content'
+            // target: 'content',
+            // 默认自动移除空参数
+            removeEmptyParams: true
         },
         api: {
             showLoading: true,
@@ -181,6 +183,7 @@ export default {
     'modal': {
         visible: false,
         maskClosable: false,
+        closable: true,
         api: {
             trigger: 'onSubmit'
         },
@@ -188,6 +191,9 @@ export default {
             trigger: 'onSubmit',
             handler: v=>v
         }
+    },
+    'dashboard': {
+        closable: false
     },
     'tree': {
         source: {

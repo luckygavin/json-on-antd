@@ -755,7 +755,7 @@ export default class NewTable extends BaseComponent {
                             <Tooltip title={content} placement="right">
                                 <Icon type={this.__props.rowTooltipsIcon || 'question-circle'} />
                             </Tooltip>
-                        </div>
+                        </div>;
                     }
                     return '';
                 }

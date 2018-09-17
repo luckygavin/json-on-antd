@@ -429,7 +429,7 @@ const utils = {
             } else {
                 result = data.map(v=>(
                     (v.key !== undefined && v.value !== undefined)
-                    ? v.children 
+                    ? v.children
                         ? {label: v.value, value: v.key, children: utils.toOptions(v.children)}
                         : {label: v.value, value: v.key}
                     : (v.id !== undefined && v.name !== undefined)

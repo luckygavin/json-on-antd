@@ -48,7 +48,7 @@ export class Button extends Genaral {
                     this.__filtered.active = !this.__filtered.active;
                     this.forceUpdate();
                     return origin(e, this.__filtered.active);
-                }
+                };
             }
         }
     }

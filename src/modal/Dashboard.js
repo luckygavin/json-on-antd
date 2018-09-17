@@ -41,7 +41,7 @@ export default class Dashboard extends NewModal {
             : (!this.__props.title && !this.__props.closable)
                 ? body
                 : <Collapse activeKey={'active'} bordered={!!this.__props.bordered}
-                    {...this.__getCommonProps({ className: 'uf-dashboard'})}>
+                    {...this.__getCommonProps({className: 'uf-dashboard'})}>
                     <Collapse.Panel key="active" header={
                             <div style={{overflow: 'hidden'}}>
                                 {this.__analysis(this._handleButtons(this.__props.title))}

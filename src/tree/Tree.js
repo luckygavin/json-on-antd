@@ -84,7 +84,7 @@ export default class OriginTree extends BaseComponent {
         let objProps = this.props;
         // 过滤出变化的属性
         if (nextProps) {
-            objProps = Utils.getChange(nextProps, objProps)
+            objProps = Utils.getChange(nextProps, objProps);
         }
         let propsData = Utils.clone(objProps.data);
         // 针对数据进行处理

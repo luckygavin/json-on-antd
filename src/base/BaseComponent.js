@@ -601,7 +601,7 @@ export default class BaseComponent extends Component {
 
     // 获取通用的公共属性
     __getCommonProps(props = {}) {
-        const commonProps = ['style', 'className']
+        const commonProps = ['style', 'className'];
         let result = Utils.pass(this.__props, commonProps);
         if (props.className) {
             result.className = props.className + ' ' + (result.className || '');

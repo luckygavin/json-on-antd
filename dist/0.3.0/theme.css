@@ -18703,6 +18703,14 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .test-menu-dark-sider {
   background: #404040;
 }
+.ant-collapse.uf-collapse-fixed > .ant-collapse-item > .ant-collapse-header {
+  padding: 0 0 0 12px;
+  cursor: default;
+  line-height: 38px;
+}
+.ant-collapse.uf-collapse-fixed > .ant-collapse-item > .ant-collapse-header > i {
+  display: none;
+}
 .uf-table {
   background-color: #fff;
 }
@@ -18860,6 +18868,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table .uf-header-widget a {
   color: inherit;
 }
+.uf-table .uf-header-widget.filter .ant-input-affix-wrapper {
+  width: auto;
+}
 .uf-table .spantip {
   margin-right: 10px;
 }
@@ -18954,6 +18965,28 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table.uf-table-pagination-left .ant-pagination {
   float: left;
 }
+.uf-table .uf-row-tooltips {
+  color: rgba(0, 0, 0, 0.5);
+}
+.uf-table .uf-row-tooltips .uf-row-tooltips-content > i {
+  cursor: default;
+}
+.uf-table.uf-table-special-tooltips .ant-table-bordered .disabledRow .ant-table-selection-column .ant-checkbox-disabled {
+  visibility: hidden;
+}
+.uf-table.uf-table-special-tooltips .ant-table-bordered .uf-row-tooltips {
+  color: #7b7b7b;
+  width: 0px;
+  padding: 0;
+  border: 0 !important;
+}
+.uf-table.uf-table-special-tooltips .ant-table-bordered .uf-row-tooltips .uf-row-tooltips-content {
+  position: absolute;
+  margin-left: -25px;
+  margin-top: -12px;
+  font-size: 16px;
+  z-index: 1;
+}
 .uf-table-modal .ant-checkbox-group-item.ant-checkbox-wrapper {
   display: inline-block;
   margin: 0 0 6px 10px;
@@ -18992,9 +19025,15 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table.uf-table-mini .ant-table-title {
   padding: 1px 10px;
 }
-.uf-table.uf-table-mini .ant-table-small .ant-table-thead > tr > th,
 .uf-table.uf-table-mini .ant-table-small .ant-table-tbody > tr > td {
-  padding: 3px 4px;
+  padding: 4px 4px;
+}
+.uf-table.uf-table-crowd .ant-table-title {
+  padding: 1px 10px;
+}
+.uf-table.uf-table-crowd .ant-table-small .ant-table-thead > tr > th,
+.uf-table.uf-table-crowd .ant-table-small .ant-table-tbody > tr > td {
+  padding: 3px 2px;
 }
 .uf-table.uf-table-no-title .ant-table-title {
   padding: 0px;
@@ -19015,33 +19054,30 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   width: auto;
   border-right: 0 !important;
 }
+.uf-table .ant-table-expand-icon-th + th,
+.uf-table .ant-table-row-expand-icon-cell + th,
+.uf-table .ant-table-expand-icon-th + td,
+.uf-table .ant-table-row-expand-icon-cell + td {
+  border-left: 1px solid #e9e9e9;
+}
+.uf-table .ant-table-expand-icon-th + .ant-table-selection-column,
+.uf-table .ant-table-row-expand-icon-cell + .ant-table-selection-column,
+.uf-table .ant-table-expand-icon-th + .uf-row-tooltips,
+.uf-table .ant-table-row-expand-icon-cell + .uf-row-tooltips {
+  border-left: 0;
+}
 .uf-table .ant-table-expand-icon-th + .ant-table-selection-column,
 .uf-table .ant-table-row-expand-icon-cell + .ant-table-selection-column {
-  padding-left: 0;
   min-width: 30px;
   width: auto;
   text-align: left;
 }
-.uf-table .uf-row-tooltips {
+.uf-table .ant-table-expand-icon-th + .ant-table-selection-column,
+.uf-table .ant-table-row-expand-icon-cell + .ant-table-selection-column,
+.uf-table .ant-table-expand-icon-th + .uf-row-tooltips,
+.uf-table .ant-table-row-expand-icon-cell + .uf-row-tooltips,
+.uf-table .ant-table-selection-column + .uf-row-tooltips {
   padding-left: 0;
-  color: rgba(0, 0, 0, 0.5);
-}
-.uf-table .ant-table-bordered .uf-row-tooltips {
-  padding-left: 0;
-  color: #7b7b7b;
-  width: 0px;
-  padding: 0;
-  border: 0 !important;
-}
-.uf-table .ant-table-bordered .uf-row-tooltips .uf-row-tooltips-content {
-  position: absolute;
-  margin-left: -28px;
-  margin-top: -12px;
-  font-size: 16px;
-  z-index: 1;
-}
-.uf-table .ant-table-bordered .disabledRow .uf-row-tooltips .uf-row-tooltips-content {
-  background: #f7f7f7;
 }
 .uf-modal .ant-modal-content,
 .uf-table-modal .ant-modal-content {
@@ -19080,7 +19116,8 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-header {
   background-color: #eee;
-  padding: 8px 20px;
+  padding: 0 20px;
+  line-height: 38px;
   cursor: default;
 }
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-header:hover {
@@ -19091,6 +19128,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-content {
   padding: 0;
+  border-top: 1px solid #e6e6e6;
 }
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-content > .ant-collapse-content-box {
   padding-top: 0;

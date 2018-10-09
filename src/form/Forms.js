@@ -4,24 +4,23 @@
  * **/
 
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Icon, Button, Row, Col} from 'antd';
+import {OriginForm} from './Form.js';
 
-export default class Forms extends BaseComponent {
+// 继承Form组件，以复用其逻辑
+// export default class Forms extends BaseComponent {
+export default class Forms extends OriginForm {
     constructor(props) {
         super(props);
-        this._openApi.push('getValues', 'resetValues', 'resetItem', 'getDisplayValues');
-        // 不复杂的属性，即无需merge处理直接覆盖的属性
-        this._uncomplex.push('formData');
-        this.__init();
-        this.state = {
-            loading: false
-        };
+        // __init 由父组件执行
+        // this.__init();
         this.setDefaultValues();
         this.formRef = {}; // 用于存储子Form的引用（因为无法直接拿到refs）
     }
+    // 覆盖原Form初始化逻辑
+    init() {}
     componentDidMount() {
         // 把this抛出，供外部调用，因为使用refs找不到包装前的ReactForm对象
         this.props.wrappedComponentRef && this.props.wrappedComponentRef(this);
@@ -63,6 +62,9 @@ export default class Forms extends BaseComponent {
                 item.resetValues(o);
             });
         }
+    }
+    clearValues(...params) {
+        return Utils.map(this.formRef, item => item.clearValues(...params));
     }
     resetItem(...params) {
         return Utils.map(this.formRef, item=>item.resetItem(...params));
@@ -120,43 +122,6 @@ export default class Forms extends BaseComponent {
         this.__setProps({formData});
         this.onChange(formData);
     }
-    handleSubmit(e, callback) {
-        // 否则阻止提交按钮默认事件
-        e && e.preventDefault();
-        // 如果没有传入callback且没有props.onSubmit回调函数，则submit没有被捕获，不阻止提交（方便后面增加 action 扩展提交功能）
-        if (!callback && !this.__props.onSubmit) {
-            return true;
-        }
-        let values = this.getValues();
-        if (values) {
-            let submit = callback || this.__props.onSubmit;
-            let result = submit(values, this);
-            // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
-            if (result instanceof Promise) {
-                this.setState({loading: true});
-                result.catch(()=>{}).finally(
-                    resolve=>this.setState({loading: false})
-                );
-            }
-        }
-    }
-    submitClick(callback, e) {
-        this.handleSubmit(e, callback);
-    }
-    resetClick(callback) {
-        let formData = [];
-        for (let i in this.formRef) {
-            this.formRef[i].resetValues();
-            formData.push({});// 因为formData进行的页面渲染，如做清空操作
-        }
-        callback && callback(this);
-        this.__setProps({formData});
-    }
-    // 自定义按钮点击事件，返回表单数据
-    customClick(callback) {
-        let values = this.getValues(false);
-        callback && callback(values, this);
-    }
     handleChange(index, data) {
         if (this.__props.formData[index]) {
             this.__props.formData[index] = data;
@@ -176,7 +141,8 @@ export default class Forms extends BaseComponent {
                 onClick={this.addForm.bind(this, null)}/>
             : formData.map((v, index) => {
                 let key = this.key + '-' + index;
-                let formConfig = Object.assign({}, this.__props.form, {
+                // form 属性被Form组件过滤到了 __filtered 中
+                let formConfig = Object.assign({}, this.__filtered.form, {
                     type: 'form',
                     key: key,
                     wrappedComponentRef: inst=>(this.formRef[key] = inst),
@@ -205,7 +171,8 @@ export default class Forms extends BaseComponent {
     // 使用表格的方式展示
     renderTableForms() {
         let formData = this.__props.formData;
-        let formConfig = Object.assign({}, this.__props.form);
+        // form 属性被Form组件过滤到了 __filtered 中
+        let formConfig = Object.assign({}, this.__filtered.form);
         // 如果items中有数组嵌套，使用drawLevel打平
         formConfig.items = Utils.drawLevel(formConfig.items);
         // 清空原来记录的formRef，因为index会变
@@ -262,75 +229,6 @@ export default class Forms extends BaseComponent {
                 })}
             </div>
         </div>;
-    }
-    // 解析 Button 的配置，格式化成统一格式
-    analysisButtonConfig() {
-        const buttonsCfg = this.__props.buttons;
-        if (!buttonsCfg) {
-            return;
-        }
-        let formatCfg = {
-            layout: {
-                type: 'center'
-            }
-        };
-        if (buttonsCfg instanceof Array) {
-            formatCfg.items = buttonsCfg;
-        } else {
-            if (!!buttonsCfg.layout) {
-                if (typeof buttonsCfg.layout === 'string') {
-                    formatCfg.layout.type = buttonsCfg.layout;
-                } else {
-                    formatCfg.layout = buttonsCfg.layout;
-                }
-            }
-            formatCfg.items = buttonsCfg.items;
-        }
-        return formatCfg;
-    }
-    // 生成按钮
-    renderButtons() {
-        const buttonsCfg = this.analysisButtonConfig();
-        if (!buttonsCfg) {
-            return;
-        }
-        return (
-            <Row type="flex" justify={buttonsCfg.layout.type}>
-                <Col {...buttonsCfg.layout}>
-                    <div className="form-buttons">
-                    {buttonsCfg.items.map(item => {
-                        switch (item.action) {
-                            case 'submit':
-                                if (item.icon === undefined) {
-                                    item.icon = 'search';
-                                }
-                                return <Button key="submit" {...item}
-                                        loading={this.state.loading}
-                                        onClick={this.submitClick.bind(this, item.onClick)}>
-                                        {item.value}
-                                        </Button>;
-                                break;
-                            case 'reset':
-                                if (item.icon === undefined) {
-                                    item.icon = 'reload';
-                                }
-                                return <Button key="reset" {...item}
-                                        onClick={this.resetClick.bind(this, item.onClick)}>
-                                        {item.value}
-                                        </Button>;
-                                break;
-                            default:
-                                return <Button key={item.value} {...item}
-                                        onClick={this.customClick.bind(this, item.onClick)}>
-                                        {item.value}
-                                        </Button>;
-                                break;
-                        }
-                    })}
-                    </div>
-                </Col>
-            </Row>
-        );
     }
     render() {
         return <div {...this.__getCommonProps({className: 'uf-forms'})}>

@@ -13,6 +13,7 @@ export default class Antd extends BaseComponent {
         // 追加中间基类
         super(props);
         this.class.push('antd');
+        this._filter.push('controlled');
         // 开放给用户使用的 Api
         this._openApi.push('trigger');
         // 壳子调用antd组件，调用的组件的实例存储在_component中
@@ -74,7 +75,13 @@ export default class Antd extends BaseComponent {
             // 屏蔽warning，非受控组件转换为受控组件会报warning
             this.__props[key] = defaultVal;
         }
-        this._inject(this.__props, event, this._onControlEvent);
+        this._inject(this.__props, event, (...params)=>{
+            // 如果用户传入了 controlled 属性，则完全由用户自己控制，不再执行默认控制逻辑
+            if (this.__filtered.controlled) {
+                return;
+            }
+            this._onControlEvent(...params);
+        });
     }
 
     // 同步onChange的数据到受控属性上，默认取第一个参数

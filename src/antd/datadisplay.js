@@ -65,12 +65,47 @@ export class Carousel extends DataDisplay {
 export class Collapse extends DataDisplay {
     constructor(props) {
         super(props);
+        this._openApi.push('open', 'close');
         // 受控属性
         // event: onChange / paramsIndex: 0
         this.__controlled = {
             key: 'activeKey'
         };
         this.__init();
+    }
+    _afterSetProps() {
+        // 如果activeKey不是数组，则默认打开手风琴模式
+        if (this.__props.activeKey && !Utils.typeof(this.__props.activeKey, 'array')) {
+            this.__props.accordion = true;
+        }
+        // 如果设置了fixed属性，则移除折叠展开的交互，仅作为展示组件
+        if (this.__props.fixed) {
+            this.__controlled = null;
+            this.__props.className = (this.__props.className || '') + ' uf-collapse-fixed';
+        }
+    }
+    // 打开某个面板
+    open(key) {
+        if (this.__props.accordion) {
+            this.__setProps({activeKey: key});
+        } else {
+            let current = this.__props.activeKey || [];
+            if (!current.some(v => v === key)) {
+                current.push(key);
+            }
+            this.__setProps({activeKey: current});
+        }
+    }
+    // 关闭某个面板
+    close(key) {
+        if (this.__props.accordion) {
+            if (!this.__props.activeKey || this.__props.activeKey === key) {
+                this.__setProps({activeKey: ''});
+            }
+        } else {
+            let current = this.__props.activeKey || [];
+            this.__setProps({activeKey: current.filter(v=>v !== key)});
+        }
     }
     render() {
         return <Antd.Collapse {...this.__props}/>;
@@ -93,6 +128,11 @@ export class Panel extends DataDisplay {
 export class Tooltip extends DataDisplay {
     constructor(props) {
         super(props);
+        // 受控属性
+        this.__controlled = {
+            key: 'visible',
+            event: 'onVisibleChange'
+        };
         this.__init();
     }
     render() {
@@ -103,6 +143,11 @@ export class Tooltip extends DataDisplay {
 export class Popover extends DataDisplay {
     constructor(props) {
         super(props);
+        // 受控属性
+        this.__controlled = {
+            key: 'visible',
+            event: 'onVisibleChange'
+        };
         this.__init();
     }
     render() {
@@ -113,6 +158,11 @@ export class Popover extends DataDisplay {
 export class Popconfirm extends DataDisplay {
     constructor(props) {
         super(props);
+        // 受控属性
+        this.__controlled = {
+            key: 'visible',
+            event: 'onVisibleChange'
+        };
         this.__init();
     }
     render() {
@@ -132,26 +182,22 @@ export class Tabs extends DataDisplay {
             key: 'activeKey'
         };
         this._filter.push('forceRefresh');
+        this._injectEvent.push('onTabClick');
         this.__init();
         // 标签页的引用
         this.tabRefs = {};
     }
-    _afterInit() {
-        super._afterInit();
-        // 每次点击tab页切换时，展示内容强制刷新
+    _onTabClick(activeKey) {
         if (this.__filtered.forceRefresh) {
-            this.__props.animated = this.__props.animated || false;
-            this._inject(this.__props, 'onTabClick', activeKey => {
-                // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
-                if (this.tabRefs[activeKey]) {
-                    this.tabRefs[activeKey].refresh();
-                } else {
-                    // 全部Tab都会解析一遍
-                    this.set({
-                        content: this.__filtered._children
-                    });
-                }
-            });
+            // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs
+            if (this.tabRefs[activeKey]) {
+                this.tabRefs[activeKey].refresh();
+            } else {
+                // 全部Tab都会解析一遍
+                this.set({
+                    content: this.__filtered._children
+                });
+            }
         }
     }
     _afterSetProps() {

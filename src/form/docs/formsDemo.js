@@ -19,9 +19,18 @@ let demo1 = {
             layout: 'center',
             items: [
                 {
-                    action: 'reset',
+                    action: 'clear',
                     type: '',
                     value: '清除',
+                    icon: 'delete',
+                    onClick: function onClick(data) {
+                        console.log(data);
+                    }
+                },
+                {
+                    action: 'reset',
+                    type: '',
+                    value: '重置',
                     icon: 'delete',
                     onClick: function onClick(data) {
                         console.log(data);
@@ -62,6 +71,7 @@ let demo1 = {
                         type: 'input',
                         name: 'sn-input',
                         label: 'SN',
+                        default: '123',
                         rules: [{required: true, message: '请输入sn名称'}]
                     }
                 ],

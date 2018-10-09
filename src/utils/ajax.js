@@ -69,17 +69,18 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         // onerror 处理逻辑
         const onerror = err => {
             // 如果用户配置了error处理逻辑，则全部按照用户配置的逻辑做处理
+            let result;
             if (globalAjax.error) {
-                globalAjax.error(err, errorHandler, config);
+                result = globalAjax.error(err, errorHandler, config);
             } else {
-                let result = errorHandler(err);
-                // handler有返回值，则执行默认错误提示
-                if (result !== false) {
-                    if (result === true || result === undefined) {
-                        errorMessage(err);
-                    } else {
-                        errorMessage(result);
-                    }
+                result = errorHandler(err);
+            }
+            // handler有返回值，则执行默认错误提示
+            if (result !== false) {
+                if (result === true || result === undefined) {
+                    errorMessage(err);
+                } else {
+                    errorMessage(result);
                 }
             }
         };
@@ -101,26 +102,28 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
                 data: params,
                 success: res=>{
                     // 如果用户配置了success处理逻辑，则全部按照用户配置的逻辑做处理
+                    // 与 globalAjax.error 的处理逻辑稍微有点区别，error执行完之后还有默认处理逻辑，所以根据返回结果进行判断
+                    // 而 globalAjax.success 的处理是直接截断，并传入调用处定义的成功与失败的回调
                     if (globalAjax.success) {
                         globalAjax.success(res, successHandler, errorHandler, config);
+                        return;
+                    }
+                    // 默认成功处理逻辑
+                    // 如果接口无返回值，则res为http实例
+                    if (res instanceof XMLHttpRequest) {
+                        onerror({msg: '接口未返回任何数据'});
+                    // 如果data为null
+                    } else if (res.data === null) {
+                        onerror({msg: '接口返回值为空'});
                     } else {
-                        // 默认成功处理逻辑
-                        // 如果接口无返回值，则res为http实例
-                        if (res instanceof XMLHttpRequest) {
-                            onerror({msg: '接口未返回任何数据'});
-                        // 如果data为null
-                        } else if (res.data === null) {
-                            onerror({msg: '接口返回值为空'});
+                        // 兼容 message/msg、status/code
+                        res.status = res.status || res.code || 0;
+                        res.message = res.message || res.msg;
+                        res.msg = res.message;
+                        if (+res.status === 0) {
+                            successHandler(res.data, res);
                         } else {
-                            // 兼容 message/msg、status/code
-                            res.status = res.status || res.code || 0;
-                            res.message = res.message || res.msg;
-                            res.msg = res.message;
-                            if (+res.status === 0) {
-                                successHandler(res.data, res);
-                            } else {
-                                onerror(res);
-                            }
+                            onerror(res);
                         }
                     }
                 },

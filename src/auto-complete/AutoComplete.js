@@ -104,11 +104,6 @@ class SourceAutoComplete extends Select {
             requestMerge: false,
             cache: true
         });
-        // loading展示效果
-        // 使用this.triggerLoading()代替
-        // this._inject(this.__filtered, 'beforeRender', ()=>{
-        //     this.__props.notFoundContent = this.__props.fetching ? <Spin size="small" /> : null;
-        // });
     }
     // 多选时，输入完触发onSearch，选中选项后触发onChange
     _onSearch(value) {

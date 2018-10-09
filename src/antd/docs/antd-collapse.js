@@ -2,9 +2,9 @@
  * @file 按钮
  * **/
 import React from 'react';
-import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
 import {Utils} from 'src/utils';
+import UF from 'src';
 
 const content = [
     {
@@ -38,11 +38,21 @@ const customPanelStyle = {
 const demo1 = {
     title: '折叠面板',
     description: '可以同时展开多个面板，这个例子默认展开了第一个。',
-    config: {
-        type: 'collapse',
-        activeKey: ['1'],
-        content: content
-    }
+    config: [
+        {
+            type: 'collapse',
+            activeKey: ['1'],
+            name: 'collapse-control',
+            content: content
+        },
+        {
+            type: 'button',
+            content: '关闭第一个面板',
+            onClick() {
+                UF('collapse-control').close('1');
+            }
+        }
+    ]
 };
 
 const demo2 = {

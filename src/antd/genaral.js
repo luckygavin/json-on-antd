@@ -35,21 +35,13 @@ export class AnchorLink extends Genaral {
 export class Button extends Genaral {
     constructor(props) {
         super(props);
-        this._filter.push('link', 'active', 'actived');
+        this._filter.push('link', 'active', 'actived', 'activedChildren', 'unActivedChildren');
         this._injectEvent.push('onClick');
         this.__init();
     }
-    _afterInit() {
-        super._afterInit();
+    _afterInitProps() {
         if (this.__filtered.actived === true) {
-            if (this.__props.onClick) {
-                let origin = this.__props.onClick;
-                this.__props.onClick = e=>{
-                    this.__filtered.active = !this.__filtered.active;
-                    this.forceUpdate();
-                    return origin(e, this.__filtered.active);
-                };
-            }
+            this.__filtered.active = !!this.__filtered.active;
         }
     }
     _onClick() {
@@ -57,6 +49,37 @@ export class Button extends Genaral {
         if (this.__filtered.link) {
             Utils.goto(this.__filtered.link);
         }
+        if (this.__filtered.actived === true) {
+            this.__filtered.active = !this.__filtered.active;
+            this.forceUpdate();
+        }
+    }
+    // 处理 activedChildren 及 unActivedChildren 参数，可以通过这两个参数控制按钮处于两种状态时分别展示的内容
+    handlerOtherProps() {
+        let otherProps = {};
+        if (!this.__filtered.activedChildren && !this.__filtered.unActivedChildren) {
+            return otherProps;
+        }
+        // 根据是否active决定使用哪个配置
+        if (this.__filtered.active) {
+            otherProps = this.__filtered.activedChildren || {};
+        } else {
+            otherProps = this.__filtered.unActivedChildren || {};
+        }
+        otherProps = Utils.copy(otherProps);
+        // 如果配置了content，重新解析成children
+        if (otherProps.content) {
+            otherProps.children = this.__analysis(otherProps.content);
+        }
+        // 不能直接覆盖掉原组件内部绑定的onClick事件
+        if (otherProps.onClick) {
+            let oriOnClick = otherProps.onClick;
+            otherProps.onClick = e => {
+                this.__props.onClick(e);
+                oriOnClick(e);
+            }
+        }
+        return otherProps;
     }
     render() {
         let className = '';
@@ -66,10 +89,14 @@ export class Button extends Genaral {
             className += ' uf-btn-mini';
             size = 'small';
         }
-        if (this.__filtered.active) {
+        if (this.__filtered.active && !this.__filtered.activedChildren) {
             className += ' active';
         }
-        return <Antd.Button {...this.__props} {...this.__getCommonProps({className})} size={size}/>;
+        return <Antd.Button {...this.__props}
+                {...this.handlerOtherProps()}
+                {...this.__getCommonProps({className})}
+                size={size}
+            />;
     }
 }
 // 按钮组

@@ -28,11 +28,13 @@ export default class NewTable extends BaseComponent {
     // 以下是函数定义
     constructor(props) {
         super(props);
+        this._injectEvent.push('onRowDoubleClick', 'onChange');
         // 暴露给用户使用的函数
         this._openApi.push(
             'reload', 'refresh', 'export',
             'showCrud',
             'getSelected', 'getSelectedKeys', 'selectAll', 'clearSelect',
+            'getValues', 'getDisplayValues',
             // 纯粹为了 bind this
             'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction'
         );
@@ -193,33 +195,26 @@ export default class NewTable extends BaseComponent {
             this.setState(state);
         }
     }
-    _afterInitProps() {
-        super._afterInitProps();
-        // 双击行进行编辑
+    // 双击行进行编辑功能
+    _onRowDoubleClick(record) {
         if (this.__props.doubleClickEdit) {
-            this._inject(this.__props, 'onRowDoubleClick', record => {
-                this.showCrud('edit', record);
-            });
+            this.showCrud('edit', record);
         }
-        // 分页、排序、筛选变化时触发
-        this._inject(this.__props, 'onChange', (page, filter, sorter) => {
-            // filter发生变化时，如果是后端分页进行处理
-            if (this.serverPaging && Utils.isChange(filter, this.filterParams)) {
-                let oldFilterParams = this.filterParams || {};
-                this.filterParams = filter;
-                this.filter.handleChange(filter, oldFilterParams);
-            }
-        });
+    }
+    // 分页、排序、筛选变化时触发
+    _onChange(page, filter, sorter) {
+        // filter发生变化时，如果是后端分页进行处理
+        if (this.serverPaging && Utils.isChange(filter, this.filterParams)) {
+            let oldFilterParams = this.filterParams || {};
+            this.filterParams = filter;
+            this.filter.handleChange(filter, oldFilterParams);
+        }
     }
     componentDidMount() {
         // for enum, 无论如何都刷新一次组件
         this.setState({loading: this.enum.loading && this._showLoading});
-        // 可以通过给 source.autoLoad 设置 false 来阻止自动加载数据
-        // & 如果枚举类正在加载数据，则暂时不获取数据
-        // 走公共的BaseComponent的刷新逻辑，待观察
-        // if (this.__filtered.source.autoLoad && !this.enum.loading) {
-        //     this.getData();
-        // }
+        // 请求数据见公共的BaseComponent的_componentDidMount逻辑
+        // code
         // 添加展开全部功能按钮
         this.handleExpandAllIcon();
     }
@@ -259,6 +254,18 @@ export default class NewTable extends BaseComponent {
     // 导出数据
     export() {
         this.exportRef && this.exportRef.export();
+    }
+    getValues() {
+        return Utils.map(Utils.clone(this.__props.data || []), item => {
+            for (let i in item) {
+                delete item[`${i}.fyi`];
+            }
+            return item;
+        });
+    }
+    // 获取展示内容
+    getDisplayValues() {
+        return Utils.clone(this.__props.data);
     }
 
     /* 内部函数 ****************************************************************************/
@@ -406,10 +413,15 @@ export default class NewTable extends BaseComponent {
                 if (this.pagination.pageType === 'server') {
                     displayData = displayData.slice(0, this.pagination.pageSize);
                 }
-                this.pagination.total = +(res.total || res.count || data.length);
-                this.__setProps({data: displayData}, false);
-                this.setState({completeData: displayData});
-                this.onRefreshData();
+                // 实时翻译
+                // 返回值为promise对象
+                let promise = this.enum.realtimeTrans(displayData);
+                promise.then(()=>{
+                    this.pagination.total = +(res.total || res.count || data.length);
+                    this.__setProps({data: displayData}, false);
+                    this.setState({completeData: displayData});
+                    this.onRefreshData();
+                });
             },
             onchange: loading => {
                 if (index !== this.requestIndex) {
@@ -475,7 +487,7 @@ export default class NewTable extends BaseComponent {
         let selectedRows = [];
         // 只有选择形式为复选框时才能进行全选
         selectedRows = displayData.filter(record => {
-            if (this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
+            if (this.rowSelection && this.rowSelection.disabledRow && this.rowSelection.disabledRow(record)) {
                 // 当满足不可选条件时，不可以进行选择
                 return false;
             } else {
@@ -620,13 +632,20 @@ export default class NewTable extends BaseComponent {
             if (defaultColumn.dataIndex === '_operation') {
                 defaultColumn.className += ' uf-operation';
             }
-            // 自定义最小宽度参数
-            if (item.minWidth) {
+            // 自定义样式参数
+            if (item.minWidth || item.style) {
+                let style = item.style || {};
                 let orender = item.render;
                 item.render = (v, row, ...params) => {
+                    if (Utils.typeof(style, 'function')) {
+                        style = style();
+                    }
+                    if (item.minWidth) {
+                        Object.assign(style, {minWidth: item.minWidth});
+                    }
                     return {
                         type: 'div',
-                        style: {minWidth: item.minWidth},
+                        style: style,
                         content: orender ? orender(v, row, ...params) : v
                     };
                 };
@@ -744,9 +763,11 @@ export default class NewTable extends BaseComponent {
             }
             antdColumnConfig.push(defaultColumn);
         }
+        // 提示信息，主要用于行不可选是勾选框那里的提示
         if (this.__props.rowTooltips) {
             antdColumnConfig.unshift({
                 title: '',
+                key: '_tooltips',
                 className: 'uf-row-tooltips',
                 render: (...params) => {
                     let content = this.__props.rowTooltips(...params);
@@ -840,14 +861,13 @@ export default class NewTable extends BaseComponent {
                 {...this._getExportConfig()} />
         ];
     }
-    render() {
-        let className = 'uf-table ';
-        className += this.state.fullScreen ? 'uf-fullscreen ' : '';
-        // 额外加一个mini类型的size
+    getClassName() {
+        let className = 'uf-table';
+        className += this.state.fullScreen ? ' uf-fullscreen' : '';
+        // 额外加一个mini类型的size和一个crowd类型的size
         let size = this.state.antdConfig.size;
-        if (size === 'mini') {
-            className += ' uf-table-mini';
-            size = 'small';
+        if (size === 'mini' || size === 'crowd') {
+            className += ` uf-table-${size}`;
         }
         if (this.pagination && this.pagination.layout) {
             if (this.pagination.layout === 'left') {
@@ -859,10 +879,22 @@ export default class NewTable extends BaseComponent {
         if (!this.title) {
             className += ' uf-table-no-title';
         }
+        // 当同时有提示信息且有复选框时，修改样式节省空间
+        if (this.__props.rowTooltips && this.rowSelection) {
+            className += ' uf-table-special-tooltips';
+        }
+        return className;
+    }
+    render() {
+        // 额外加一个mini类型的size和一个crowd类型的size
+        let size = this.state.antdConfig.size;
+        if (size === 'mini' || size === 'crowd') {
+            size = 'small';
+        }
         let expandedRowRender = this.state.antdConfig.expandedRowRender;
         let expandedRowKeys = this.state.expandedRowKeys;
         let footer = this.state.antdConfig.footer;
-        return <div {...this.__getCommonProps({className: className})}>
+        return <div {...this.__getCommonProps({className: this.getClassName()})}>
             <Table {...this.state.antdConfig} size={size}
                 title={() => this.renderTitle()}
                 onExpandedRowsChange={this.onExpandedRowsChange.bind(this)}

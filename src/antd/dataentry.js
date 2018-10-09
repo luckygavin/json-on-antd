@@ -3,13 +3,12 @@
  * @author liuzechun
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {Utils} from 'src/utils';
 import DataEntry from './base/DataEntry.js';
-import moment from 'moment';
 import * as Antd from 'antd';
 
 const OptionsDataEntry = DataEntry.OptionsDataEntry;
+const BasePicker = DataEntry.BasePicker;
 
 /************* Cascader 级联选择 ************************************************************************** */
 
@@ -24,26 +23,8 @@ export class Cascader extends OptionsDataEntry {
     }
 }
 
-/************* DatePicker 日期选择框 ************************************************************************** */
+/************* DatePicker 日期[时间]选择 ****************************************************************** */
 
-class BasePicker extends DataEntry {
-    constructor(props) {
-        super(props);
-        this._filter.push('current');
-        // this.__init();
-    }
-    // 继承父组件的函数，_initProps 后增加额外处理逻辑
-    _afterInitProps() {
-        super._afterInitProps();
-        // 如果设置了 value='current'，则把current转换为当前时间
-        if (this.__props.value === 'current') {
-            this.__props.value = moment().format(this.__props.format);
-        }
-        // this._inject(this.__props, 'onChange', (...params)=>{
-        // });
-    }
-}
-// 日期[时间]选择
 export class DatePicker extends BasePicker {
     constructor(props) {
         super(props);
@@ -68,7 +49,7 @@ export class DatePicker extends BasePicker {
             value={value ? Utils.moment(value) : value}/>;
     }
 }
-// 范围选择
+// RangePicker 日期范围选择
 export class RangePicker extends DatePicker {
     constructor(props) {
         super(props);
@@ -81,10 +62,10 @@ export class RangePicker extends DatePicker {
         // 如果设置了 value='current'，则把current转换为当前时间
         let value = this.__props.value;
         if (value && value[0] === 'current') {
-            value[0] = moment().format(this.__props.format);
+            value[0] = this._getCurrentValue();
         }
         if (value && value[1] === 'current') {
-            value[1] = moment().format(this.__props.format);
+            value[1] = this._getCurrentValue();
         }
         this.__props.value = value;
     }
@@ -96,7 +77,7 @@ export class RangePicker extends DatePicker {
             value={value ? [Utils.moment(value[0], format), Utils.moment(value[1], format)] : value}/>;
     }
 }
-// 月份选择
+// MonthPicker 月份选择
 export class MonthPicker extends BasePicker {
     constructor(props) {
         super(props);
@@ -109,9 +90,7 @@ export class MonthPicker extends BasePicker {
             value={value ? Utils.moment(value, this.__props.format) : value}/>;
     }
 }
-
-/************* TimePicker 时间选择 *************** */
-// 时间选择，注意是继承的 DataEntry
+// TimePicker 时间选择
 export class TimePicker extends BasePicker {
     constructor(props) {
         super(props);
@@ -214,8 +193,11 @@ export class CheckboxGroup extends OptionsDataEntry {
         this.__controlled.defaultVal = [];
         this.__init();
     }
-    _onSourceSuccess(data) {
-        this._handleDefaultSelect(data);
+    _afterSetProps(newProps) {
+        super._afterSetProps(newProps);
+        if (newProps.options) {
+            this._handleDefaultSelect();
+        }
     }
     checkAll(status = true) {
         let value = status ? this.__props.options.map(v=>v.value) : [];
@@ -235,8 +217,15 @@ export class Radio extends OptionsDataEntry {
         super(props);
         this.__init();
     }
-    _onSourceSuccess(data) {
-        this._handleDefaultSelect(data);
+    _afterSetProps(newProps) {
+        super._afterSetProps(newProps);
+        if (newProps.options) {
+            this.__props.options = this.__props.options.map(item=>{
+                item.value += '';
+                return item;
+            });
+            this._handleDefaultSelect();
+        }
     }
     render() {
         // 增加了一个配置项，来控制是否以button的形式展示
@@ -248,8 +237,8 @@ export class Radio extends OptionsDataEntry {
                 this.__props.value !== undefined ? '' + this.__props.value : undefined
             }>{
             this.__props.options.map(item=>
-                <Item key={'' + item.value} disabled={item.disabled} style={item.style}
-                    value={'' + item.value}>{item.label}</Item>
+                <Item key={item.value} disabled={item.disabled} style={item.style}
+                    value={item.value}>{item.label}</Item>
             )
         }</Antd.Radio.Group>;
     }
@@ -278,23 +267,22 @@ export class Select extends OptionsDataEntry {
             this.__props.onChange && this.__props.onChange(value);
         }
     }
-    // _onSourceSuccess(data) {
-    //     // 根据是否多选做区别处理
-    //     if (this.isMultiple) {
-    //         this._handleMultipleSelect(data);
-    //     } else {
-    //         this._handleDefaultSelect(data);
-    //     }
-    // }
     // 改为每次set值时检查，如果更新了options，则进行是否清空或者重置为默认值的处理
     _afterSetProps(newProps) {
         super._afterSetProps(newProps);
+        // combobox 模式下，由于可以任意输入，所以不再对当前数据进行处理
         if (newProps.options) {
-            // 根据是否多选做区别处理
-            if (this.isMultiple) {
-                this._handleMultipleSelect(newProps.options);
-            } else {
-                this._handleDefaultSelect(newProps.options);
+            this.__props.options = this.__props.options.map(item => {
+                item.value += '';
+                return item;
+            });
+            if (this.__props.type !== 'combobox') {
+                // 根据是否多选做区别处理
+                if (this.isMultiple) {
+                    this._handleMultipleSelect();
+                } else {
+                    this._handleDefaultSelect();
+                }
             }
         }
     }
@@ -311,8 +299,8 @@ export class Select extends OptionsDataEntry {
         }
         return <Antd.Select {...Utils.filter(this.__props, 'options')} value={value}>
             {this.getAllOptions().map(item=>
-                <Antd.Select.Option key={'' + item.value} disabled={item.disabled} style={item.style}
-                    value={'' + item.value}>{item.label}</Antd.Select.Option>
+                <Antd.Select.Option key={item.value} disabled={item.disabled} style={item.style}
+                    value={item.value}>{item.label}</Antd.Select.Option>
             )}
         </Antd.Select>;
     }

@@ -76,6 +76,8 @@ export default class OriginTree extends BaseComponent {
             showLine: false,
             showIcon: false
         };
+        this.completePointerTree = {};
+        this.levalPointerTree = {};
         this.initTree();
         this.handleSearch = Utils.debounce(this.handleSearch, 200);
     }
@@ -86,16 +88,22 @@ export default class OriginTree extends BaseComponent {
         if (nextProps) {
             objProps = Utils.getChange(nextProps, objProps);
         }
-        let propsData = Utils.clone(objProps.data);
+        if (Utils.empty(objProps)) {
+            return;
+        }
+        let propsData;
+        if (objProps.data) {
+            propsData = Utils.clone(objProps.data);
+        }
         // 针对数据进行处理
         // 生成指针树，便于快速定位树节点
-        this.completePointerTree = {};
-        if (objProps.data) {
+        if (propsData) {
+            this.completePointerTree = {};
             this.createPointerTree(propsData, this.completePointerTree);
         }
         // 生成层级树，包含每层可展开的父节点的key
-        this.levalPointerTree = {};
-        if (objProps.data) {
+        if (propsData) {
+            this.levalPointerTree = {};
             this.createLevalTree(propsData, this.levalPointerTree);
         }
 
@@ -124,18 +132,22 @@ export default class OriginTree extends BaseComponent {
             // showIcon: this.showIcon
         };
         let state = {
-            treeData: propsData || [],
-            completeTree: propsData,
             expandedKeys: this.expand.expandedKeys,
             autoExpandParent: this.expand.autoExpandParent,
             checkedKeys: this.checkbox.checkedKeys, // 受控选择复选框
             selectedKeys: this.select.selectedKeys, // 受控选择
             searchValue: '' // 搜索框中输入内容
         };
+        if (propsData) {
+            state.treeData = propsData;
+            state.completeTree = propsData;
+        }
         if (!!nextProps) {
             this.setState(state);
             this.initShowLeval();
         } else {
+            state.treeData = state.treeData || [];
+            state.completeTree = state.treeData || [];
             this.state = state;
         }
     }

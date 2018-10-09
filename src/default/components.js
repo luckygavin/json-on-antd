@@ -102,7 +102,8 @@ export default {
         // 默认充满全部
         style: {width: '100%', minWidth: 50},
         // 搜索时忽略大小写
-        filterOption: (v, opt) => opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
+        filterOption: (v, opt) => (opt.props.children !== undefined)
+            && opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
     },
     'auto-complete': {
         mode: 'combobox'

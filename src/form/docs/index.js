@@ -8,7 +8,7 @@ import BaseDoc from 'docs/app/base/BaseDoc.js';
 import UF from 'src';
 import md from './markdown.md';
 
-const Step1 = {
+const Step1 = [{
     type: 'form',
     name: 'my-form1',
     // header: {
@@ -20,6 +20,9 @@ const Step1 = {
         type: 'horizontal',
         labelCol: 6,
         wrapperCol: 16
+    },
+    formData: {
+        address: 123
     },
     items: [
         [
@@ -208,7 +211,8 @@ const Step1 = {
                 type: 'input',
                 label: '地址',
                 name: 'address',
-                rules: {required: true, message: '地址不能为空'}
+                rules: {required: true, message: '地址不能为空'},
+                default: ''
             }
         ],
         [
@@ -222,14 +226,36 @@ const Step1 = {
                 type: 'input',
                 label: '对端IP',
                 name: 'point_ip',
-                rules: {required: true, message: '对端IP不能为空'}
+                rules: {required: true, message: '对端IP不能为空'},
+                onChange(e, value) {
+                    // 跨form联动
+                    if (UF('test-crossing-join')) {
+                        if (!!value) {
+                            UF('test-crossing-join').resetItem('point_ip', {display: true});
+                        } else {
+                            UF('test-crossing-join').resetItem('point_ip', {display: false});
+                        }
+                    }
+                }
             }
         ],
-        {
-            type: 'upload',
-            label: '上传测试',
-            name: 'upload'
-        }
+        [
+            {
+                type: 'upload',
+                label: '上传测试',
+                name: 'upload'
+            },
+            {
+                type: 'date-picker',
+                label: '日期',
+                name: 'date-picker-test',
+                format: 'YYYY-MM-DD HH:mm:ss',
+                required: true,
+                onOk: function (value) {
+                    console.log('onOk:', value);
+                }
+            }
+        ]
     ],
     buttons: {
         layout: 'center',
@@ -271,7 +297,16 @@ const Step1 = {
             }
         ]
     }
-};
+}, {
+    type: 'form',
+    name: 'test-crossing-join',
+    items: [{
+        type: 'input',
+        label: '对端IP',
+        name: 'point_ip',
+        display: false
+    }]
+}];
 const Step21 = {
     type: 'form',
     // title: '新增专线 - 第2步（1）',

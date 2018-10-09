@@ -17,16 +17,22 @@ const demo1 = {
             columns: [
                 {
                     title: 'ID',
-                    dataIndex: 'id'
-                    // 枚举的使用
-                    // enum: [{key: 1, value: 'TC'}]
+                    dataIndex: 'id',
+                    width: 40,
                 },
-                {title: '机房', dataIndex: 'name', key: 'name', filter: {type: 'input'}},
-                {title: '名称', dataIndex: 'idcId'},
+                {title: '机房', dataIndex: 'name', key: 'name', width: 60, filter: {type: 'input'}},
+                {title: '名称（实时翻译）', dataIndex: 'idcId', width: 120, enum: {
+                    url: 'docs/php/data.php',
+                    realtime: {
+                        key: 'idcIds',
+                        comma: false
+                    }
+                }},
                 {
                     title: '地区',
                     dataIndex: 'region',
                     key: 'region',
+                    width: 60,
                     filter: {
                         type: 'radio',
                         options: ['华北', '华南', '华东']
@@ -83,12 +89,12 @@ const demo1 = {
                 // }
             },
             bordered: true,
-            rowSelection: {
-                // 指定满足某些条件时复选框不可选
-                disabledRow: function (record) {
-                    return true;
-                }
-            },
+            // rowSelection: {
+            //     // 指定满足某些条件时复选框不可选
+            //     // disabledRow: function (record) {
+            //     //     return true;
+            //     // }
+            // },
             rowTooltips: v => v.description,
             expanded: {
                 expandedRowRender: v => v.description
@@ -180,6 +186,13 @@ const demo2 = {
                     },
                     data: [dataSource[3]]
                 });
+            }
+        },
+        {
+            type: 'button',
+            content: '获取Table当前数据',
+            onClick: () => {
+                console.log(UF('newtable2').getValues());
             }
         },
         {

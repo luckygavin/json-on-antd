@@ -14,7 +14,7 @@
 | title  | 表格标题栏配置，可配置题目及表格控件，具体见下面配置[`title`](#/Custom/Table/-title-)     | string &#124; object   | - |
 | rowSelection  | 列表项是否可选择，具体见下面配置[`rowSelection`](#/Custom/Table/-rowselection-) | object  | null  |
 | pagination    | 分页器，具体见下方配置[`pagination`](#/Custom/Table/-pagination-) ，设为 false 时不展示和进行分页 | object &#124; `false` |   |
-| size          | 正常或紧凑型表格，`default`、`middle` or `small`  | string | default |
+| size          | 正常或紧凑型表格，依次间距变小：`default`、`middle`、`small`、`mini`、`crowd`  | string | default |
 | data    | 数据数组，见下面示例 `data` | any[] |            |
 | columns   | 表格列的配置描述，具体项见下表[`columns`](#/Custom/Table/-column-) | ColumnProps[] | - |
 | rowKey        | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id' |
@@ -58,11 +58,11 @@
 | title      | 列头显示文字               | string &#124; `config` | - |
 | display    | 默认是否展示列当前列             | boolean | true |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见[`column._operation`](#/Custom/Table/-column-_operation-) | string | - |
-| enum      | 枚举列表。指定当前列展示内容，根据列表里的内容进行转换。用法见下面说明 | array&#124;`source` | -  |
-| enum.cache | 默认会开启缓存，即枚举数据仅会加载一次。如果需要动态获取，则可把cache置为 false | boolean | true  |
+| enum      | 字段内容翻译，详见下方[`columns.enum`](#/Custom/Table/-column-enum-) | array&#124;`source` | -  |
 | width      | 列宽度 | string&#124;number | -  |
 | minWidth   | 列最小宽度 | string&#124;number | -  |
-| className  | 列的 className             | string          |  -      |
+| style      | 自定义样式。当为函数时，函数参数同render，函数返回一个样式对象 | object&#124;function | -  |
+| className  | 列的 className | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
 | render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record) {} | - |
 | filter     | 表头的筛选设置，详见下方[`columns.filter`](#/Custom/Table/-column-filter-)      | Object           | - |
@@ -74,14 +74,30 @@
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object | - |
 
-**`enum`有两种用法:**  
-> 1、直接列举出全部值，格式为:`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值（*value也可以是一个组件配置*）  
-> 2、枚举的值为通过接口取得，则enum为一个对象，格式为：`enum: {url: '',handler(){}}`, 通过url获取过来的数据通过handler函数处理并return，处理后的数据格式如上面1中的格式即可。其余参数可参考[`source`](#/Params/-source-)系列参数的用法
+#### *column.enum*
+
+将字段根据枚举的列表、或者通过接口获取的列表、或者实时查询，将字段翻译成另一个字段。
+
+**`enum`有3种用法:**  
+* **直接列举出全部值**：格式为`enum: [{key: '', value: ''}]`, key为原数据的值，value为要展示的值  
+* **枚举的值为通过接口一次取得**，enum为一个对象，格式为：`enum: {url: '',handler(){}}`, 参数和`source`一致  
+* **分页数据加载时实时通过接口查询**，enum同2一致，额外设置属性`realtime`为`true`。适用于数据量较大无法通过接口一次获得的情况
+
+enum为对象时，除[`source`](#/Params/-source-)系列参数外，还需要注意一下参数：
+
+| 参数       | 说明                       | 类型    |  默认值  |
+|-----------|----------------------------|--------|---------|
+| cache  | 默认会开启缓存，即枚举数据仅会加载一次。如果需要动态获取，则可把cache置为 false | boolean | true  |
+| allowEmpty  | 可控制当数据不在枚举类型中时，是否要展示原值。当配置为false时，展示源数据 | boolean | true  |
+| realtime | 声明翻译功能为实时翻译，即每次翻页实时去接口查询（默认是一次请求全量，当数据量较大时可以切换为实时翻译） | boolean&#124;object | false |
+| realtime.key | realtime为对象时，key用于声明传递给后端的参数名称 | string | 'ids' |
+| realtime.comma | realtime为对象时，用于设置是否逗号分隔多个id值。当置于false时，参数值为一个数组 | boolean | true |
+
 
 **`enum`更多应用场景**  
 > 1、新增、编辑的输入框的表单元素里，如果存在表格里配置了枚举类型的字段，当元素为select、radio等具有options属性且没有配置options，组件会自动把枚举的列表添加到该元素上。  
 > 2、批量新增、批量编辑的keys列表里，如果存在表格里配置了枚举类型的字段，则对应字段也会自动做转换：批量编辑时自动填入的数据是转换之后的值；新增和编辑后提交到后端会自动再转换回id；  
-> 3、每个字段的翻译结果都会追加到每行的原数据中，查看详情、模糊搜索时可以直接从行数据中获取到，字段命名规则为`${dataIndex}_fyi`
+> 3、每个字段的翻译结果都会追加到每行的原数据中，查看详情、模糊搜索时可以直接从行数据中获取到，字段命名规则为`${dataIndex}.fyi`
 
 具体使用可见 [Table Crud](#/Custom/TableCrud) 中Demo的名称字段（idcId）的展示/新增/编辑/批量编辑，以及提交数据时的对应的字段内容
 
@@ -228,6 +244,7 @@ setPageSize |  设置分页条数 |
 | blacklist | `filter`控件默认检索全部字段，可以设置一个白名单来声明只检索哪些字段。参数为待检索的字段名列表 | array | 仅`filter`控件有效 |
 | whitelist | `filter`控件可以设置一个黑名单，作用和上面刚好相反 | array | 仅`filter`控件有效 |
 | paramIndex | 后端分页时，`filter`控件会向后端发送请求，可以通过此参数修改请求携带的参数名称，默认值为`'search'` | string | 仅`filter`控件有效 |
+| label | `filter`控件前面的label文字提示 | string | 仅`filter`控件有效 |
 | cache | 是否开启缓存。会永久保存用户自己选择的要展示的字段（默认开启） | boolean | 仅`switchTags`控件有效 | 
 
 
@@ -244,6 +261,8 @@ getSelected | 手动获取已选中的数据 | getSelected()
 getSelectedKeys | 获取当前全部选中行的key | getSelectedKeys()
 selectAll | 手动触发全选 | selectAll()
 clearSelect | 手动触发全选 | clearSelect()
+getValues | 获取Table当前的全部数据（源数据） | getValues()
+getDisplayValues | 获取Table当前的全部数据（包含展示数据） | getDisplayValues()
 
 ### 其余一些 Tips
 

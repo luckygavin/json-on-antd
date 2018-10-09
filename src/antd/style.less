@@ -8,3 +8,14 @@
 .test-menu-dark-sider {
     background: @menu-dark-bg;
 }
+// 折叠面板，固定模式
+.ant-collapse.uf-collapse-fixed>.ant-collapse-item {
+    &>.ant-collapse-header {
+        padding: 0 0 0 12px;
+        cursor: default;
+        line-height: 38px;
+        &>i {
+            display: none;
+        }
+    }
+}

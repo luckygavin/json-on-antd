@@ -16,15 +16,40 @@ export default class Enum {
         this.data = {};
         // 如果value是字符串或数字，再存储一份反向关系，{[value]: [key]}
         this.dataReverse = {};
+
+        // 实时翻译相关属性，为避免相互影响，参数尽量分开
+        this.realtimeConfs = {};
     }
     // 传入 columns 配置，判断是否有枚举类型字段并做相应处理
     init(columns) {
-        let enumList = {};
         for (let item of columns) {
             if (item.enum) {
                 // 已经穷举，无需获取。格式为 enum: [{key: value}]
                 if (Utils.typeof(item.enum, 'array')) {
                     this.save(item.dataIndex, item.enum);
+                // 实时翻译
+                } else if (Utils.typeof(item.enum, 'object') && item.enum.realtime) {
+                    let others = others = {
+                        // 参数属性
+                        key: 'ids',
+                        // 是否逗号分隔
+                        comma: true
+                    };
+                    if (Utils.typeof(item.enum.realtime, 'object')) {
+                        Object.assign(others, item.enum.realtime);
+                    }
+
+                    let conf = Utils.clone(item.enum);
+                    if (!conf.paramsHandler) {
+                        conf.paramsHandler = (params) => {
+                            let values = params.map(v => v[item.dataIndex]);
+                            return {
+                                [others.key]: others.comma ? values.join(',') : values
+                            };
+                        };
+                    }
+                    this.realtimeConfs[item.dataIndex] = conf;
+                // 全量枚举
                 } else {
                     this.save(item.dataIndex, []);
                     // 需要异步获取数据的情况
@@ -62,8 +87,9 @@ export default class Enum {
     }
     // 把数组格式化成键值对并存储
     save(dataIndex, list) {
-        let result = {};
-        let reverseResult = {};
+        // 如果原来有值，则再原列表上追加
+        let result = this.data[dataIndex] || {};
+        let reverseResult = this.dataReverse[dataIndex] || {};
         // 如果数据格式为 [{id:'',name:'',key:'',value:''}]
         if (Utils.typeof(list, 'array')) {
             for (let v of list) {
@@ -98,20 +124,46 @@ export default class Enum {
             let orender = item.render;
             item.render = (v, row, ...params)=>{
                 let display = this.data[item.dataIndex][v];
-                // 无法翻译是是否允许为空
+                // 无法翻译是是否允许为空，默认无法翻译是展示空
                 if (display === undefined) {
-                    if (Utils.typeof(item.enum, 'object') && item.enum.allowEmpty) {
-                        display = '';
-                    } else {
+                    if (Utils.typeof(item.enum, 'object') && item.enum.allowEmpty === false) {
                         display = v;
+                    } else {
+                        display = '';
                     }
                 }
                 // 将翻译后的结果存入行数据中
-                row[`${item.dataIndex}_fyi`] = display;
+                row[`${item.dataIndex}.fyi`] = display;
                 return orender ? orender(display, row, ...params) : display;
             };
         }
         return item;
+    }
+    // 实时翻译
+    realtimeTrans(list) {
+        return new Promise(resolve=>{
+            if (Utils.empty(this.realtimeConfs)) {
+                resolve();
+            }
+            let count = 0;
+            let finish = ()=>{
+                (--count === 0) && resolve();
+            };
+            for (let i in this.realtimeConfs) {
+                count++;
+                this.tools.execAjax({
+                    // 默认开启缓存
+                    cache: true,
+                    ...this.realtimeConfs[i],
+                    params: list,
+                    success: data => {
+                        this.save(i, data);
+                        finish();
+                    },
+                    error: finish
+                });
+            }
+        });
     }
 
     /*** Crud.js 中功能 ******************************************************************* */

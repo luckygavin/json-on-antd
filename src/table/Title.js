@@ -107,7 +107,9 @@ export default class Title extends BaseComponent {
             switch (v.name) {
                 case 'filter':
                     result.push(<div className="uf-header-widget filter no-hover" key="uf-header-widget">
+                            {v.label && (<label>{v.label}</label>)}
                             <FuzzyFilter ref="filter" parent={this.parent} {...{
+                                others: Utils.filter(v, ['paramIndex', 'text', 'label', 'whitelist', 'blacklist']),
                                 placeholder: v.text || '模糊搜索',
                                 paramIndex: v.paramIndex,
                                 globalFilterList: {

@@ -65,6 +65,7 @@ const demo4 = {
             type: 'select',
             style: {width: '100%'},
             mode: 'tags',
+            name: 'tag-test',
             placeholder: '标签模式',
             options: ['Apple', 'Pear', 'Orange']
         },
@@ -72,9 +73,22 @@ const demo4 = {
             type: 'select',
             style: {width: '100%'},
             mode: 'combobox',
+            name: 'combobox-test',
             style: {marginTop: 10},
             placeholder: '单选模式',
             options: ['Apple', 'Pear', 'Orange']
+        },
+        {
+            type: 'button',
+            content: '变化',
+            onClick() {
+                UF('combobox-test').set({
+                    options: []
+                });
+                UF('tag-test').set({
+                    options: []
+                });
+            }
         }
     ]
 };

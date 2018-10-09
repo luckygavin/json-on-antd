@@ -43,10 +43,11 @@ const create = ({name})=>{
         // 异步逻辑执行完成后，重新执行init函数
         _reInit() {
             this.waiting = false;
-            // let {config, selector} = this.waitingCache;
-            // this.waitingCache = {};
-            let {config, selector} = ModelCache.get('_$waitingCache');
-            this.render(config, selector);
+            if (ModelCache.get('_$waitingCache')) {
+                let {config, selector} = ModelCache.get('_$waitingCache');
+                ModelCache.del('_$waitingCache');
+                this.render(config, selector);
+            }
         },
         // 获取组件
         _get(name, key) {

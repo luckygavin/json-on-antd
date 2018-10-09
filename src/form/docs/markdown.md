@@ -32,7 +32,7 @@ wrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不
 参数名称 | 说明 | 类型 | 默认值
 ----- | --- | ---------| ---
 type | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` 
-column | 分成多列布局（不是特别好用，推荐使用分组功能，见`item`） | number | 1
+column | 分成多列布局 | number | 1
 labelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6
 wrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14
 

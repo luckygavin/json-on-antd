@@ -66,6 +66,8 @@ export default class BaseComponent extends Component {
         this.insName = this._factory.insName;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
+        // 需要先执行函数得到组件配置并需要重新解析配置的属性
+        this._analysis = [];
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
         this._injectEvent = [];
         this._filter = (Utils.copy(FilterProps)).concat(
@@ -134,6 +136,8 @@ export default class BaseComponent extends Component {
             // 重新设置 __props.只传入待更新的值
             // 如果为自身调用，则待更新的值存储在_selfCalling中；
             // 否则为外部刷新，用 nextProps 和 currentProps 做对比，获取变化的值
+            // TODO: 深层次的属性变换无法检测到（currentProps使用的this.props）！！
+            //  是否可以考虑clone一份缓存起来专门用于做检查呢？
             let changeProps = nextProps._selfCalling;
             if (!changeProps) {
                 changeProps = Utils.getChange(nextProps, currentProps);
@@ -215,6 +219,9 @@ export default class BaseComponent extends Component {
         // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
         this.__defaultProps = this._getDefautlProps();
         this.__props = Utils.clone(this.__defaultProps);
+
+        // 将_injectEvent中定义的需要额外处理的函数追加到_filter中
+        // this._filter = this._filter.concat(this._injectEvent);
     }
 
     // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
@@ -370,13 +377,18 @@ export default class BaseComponent extends Component {
         // this._handleModel();
         // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
         this._loadUserFunction();
-        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中（防止被覆盖）
+
+        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中
         this._injectEventFunction();
 
         // 绑定 control 系列参数处理逻辑
         this._injectControl();
         // 绑定 api 系列参数处理逻辑
         this._injectApi();
+
+        // 针对一些需要先执行函数得到组件配置并需要重新解析配置的属性进行处理
+        this._analysisProps();
+
         // 替换 render 函数，给render加额外处理逻辑
         this._injectRender();
 
@@ -441,10 +453,6 @@ export default class BaseComponent extends Component {
     // 还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响
     // update at 2018/08/06, 如果是set的source等过滤属性，要保证这里也能通过，所以仅仅过滤`_`开头的属性
     __shouldUpdate(props, nextProps) {
-        // return !Utils.equals(
-        //     Utils.filter(props, this._filter),
-        //     Utils.filter(nextProps, this._filter)
-        // );
         return !Utils.equals(
             Utils.filter(props, this._innerFilter),
             Utils.filter(nextProps, this._innerFilter)
@@ -734,6 +742,34 @@ export default class BaseComponent extends Component {
             }
         }
     }
+    // _injectEvent 中定义的事件，会被过滤到__filtered中，并在此处加上额外自定义的逻辑重新创建函数
+    // 需考虑如果其他地方有直接往this.__props上注入的情况
+    //  所以_injectEventFunction需要和__initProps紧挨着，最好在其上面
+    //  而_injectApi等如果想要使用此逻辑，需要放此函数之前
+    // _injectEventFunction() {
+    //     for (let v of this._injectEvent) {
+    //         this.__props[v] = (...p) => {
+    //             let result = this[`_${v}`] && this[`_${v}`](...p);
+    //             // 返回false会阻止事件
+    //             if (result === false) {
+    //                 return;
+    //             }
+    //             return this.__filtered[v] && this.__filtered[v]();
+    //         };
+    //     }
+    // }
+
+    // 针对一些需要先执行函数得到组件配置并需要重新解析配置的属性进行处理
+    _analysisProps() {
+        for (let v of this._analysis) {
+            if (this.__props[v]) {
+                let func = this.__props[v];
+                this.__props[v] = (...params) => {
+                    return this.__analysis(func(...params));
+                };
+            }
+        }
+    }
 
     // 挂载用户传入的需要关联到生命周期中的函数
     _loadUserFunction() {
@@ -894,7 +930,7 @@ export default class BaseComponent extends Component {
                 // onSuccess有返回值，则执行默认提示
                 if (result === undefined || result === true) {
                     message.success('执行成功' + (
-                        res.msg ? '，结果返回: ' + res.msg : (
+                        res.msg ? '：' + res.msg : (
                             Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'
                         )), 2);
                 }
@@ -903,7 +939,7 @@ export default class BaseComponent extends Component {
                 let result = onError && onError(res);
                 // onError有返回值，则执行默认提示
                 if (result === undefined || result === true) {
-                    message.error('执行失败' + (res.msg ? '，结果返回: ' + res.msg : '!'), 3);
+                    message.error(res.msg ? res.msg : '执行失败!', 3);
                 }
                 return result || false;
             },

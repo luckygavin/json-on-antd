@@ -50,7 +50,7 @@ const demo2 = {
                 width: '200px',
                 marginBottom: '15px'
             },
-            placeholder: 'Select Time',
+            // placeholder: ['Select Time'],
             format: 'YYYY-MM-DD HH:mm:ss',
             showTime: true,
             onOk: function(value) {
@@ -84,10 +84,10 @@ const demo3 = {
                 marginBottom: '15px'
             },
             renderExtraFooter: function() {
-                return UF.init({
+                return {
                     type: 'button',
                     content: '额外的页脚'
-                });
+                };
             }
         },
         {
@@ -96,10 +96,10 @@ const demo3 = {
                 display: 'block'
             },
             renderExtraFooter: function() {
-                return UF.init({
-                    type: 'button',
-                    content: '额外的页脚'
-                });
+                return [
+                    '额外的页脚 ',
+                    {type: 'button', content: '点我'}
+                ];
             }
         }
     ]

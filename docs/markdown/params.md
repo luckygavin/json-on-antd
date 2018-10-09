@@ -12,10 +12,10 @@
 [className](#/Params/-classname-class)  |  样式类名称  | string
 [childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true
 [authority](#/Params/-authority)  |  权限绑定  | string
+[controlled](#/Params/-controlled-)  |  声明组件为完全受控组件  | boolean
 [source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object
 [api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object
 [control](#/Params/-control-)  |  组件交互  | target[string]&#124;object
-
 
 #### # type 
 `string`
@@ -89,6 +89,13 @@ style: 'margin-top: 16px; font-size: 12px;'
 #### # authority
 
 给组件绑定权限点，当有权限点相关权限的时候组件才会展示
+
+
+#### # controlled
+
+声明组件为完全受控组件，比如`Popconfirm`等组件的visible属性，或者输入框的value等，这些可变值皆为受控属性。
+
+拿`Popconfirm`组件举例，除了手动控制visible可展示出提示信息外，当点击组件时提示信息也会展示；当点击确认或取消时，提示信息会隐藏。但当设置`controlled`为true时，不会再有默认行为，提示信息的显示隐藏完全由用户手动设置`visible`属性来控制。
 
 
 #### # source 系列参数

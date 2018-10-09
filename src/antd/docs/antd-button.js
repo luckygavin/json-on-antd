@@ -13,7 +13,18 @@ const demo1 = {
         {
             type: 'button',
             mode: 'primary',
-            content: 'Primary'
+            content: [
+                'Primary',
+                {
+                    type: 'html',
+                    name: 'test-html',
+                    style: {display: 'inline'},
+                    content: '2'
+                }
+            ],
+            onClick() {
+                UF('test-html').set({content: Date.now().toString().slice(-1)});
+            }
         },
         {
             type: 'button',
@@ -211,7 +222,37 @@ const demo4 = {
         },
     ]
 };
-
+const demo5 = {
+    title: '激活态/非激活态',
+    description: '`active`系列属性使按钮具备了两种状态：激活态/非激活态。需设置`actived`为`true`其余属性才能生效',
+    config: [
+        {
+            type: 'button',
+            mode: 'primary',
+            actived: true,
+            content: 'Default'
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            actived: true,
+            activedChildren: {
+                icon: 'down',
+                content: '展示查询条件',
+                onClick: function () {
+                    console.log('open');
+                }
+            },
+            unActivedChildren: {
+                icon: 'up',
+                content: '收起查询条件',
+                onClick: function () {
+                    console.log('close');
+                }
+            }
+        }
+    ]
+};
         
 export default class Button extends BaseDoc {
     constructor(props) {
@@ -220,6 +261,6 @@ export default class Button extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemo(demo1, demo2, demo3, demo4);
+        return this.__getDemo(demo1, demo2, demo3, demo4, demo5);
     }
 }

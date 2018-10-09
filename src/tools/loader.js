@@ -6,7 +6,7 @@
 import React from 'react';
 import {BaseConf} from 'src/base';
 import {Utils} from 'src/utils';
-import Dom from 'src/dom';
+import {Dom} from 'src/dom';
 import * as UF from 'src/lib.js';
 
 import {getConfig} from './instance.js';

@@ -30,6 +30,10 @@ export function switchCode(config) {
     // 替换UF名称
     cfgStr = cfgStr.replace(/\(0\, _tools2\.default\)/g, ufName);
     cfgStr = cfgStr.replace(/_tools2\.default/g, ufName);
+    cfgStr = cfgStr.replace(/\(0\, _src2\.default\)/g, ufName);
+    cfgStr = cfgStr.replace(/_src2\.default/g, ufName);
+    // 移除匿名函数的名称
+    cfgStr = cfgStr.replace(/function\s(\S+?)\(/g, (str, d)=>{return str.replace(d, '')});
     return cfgStr;
 }
 
@@ -66,7 +70,7 @@ export default class Demo extends React.Component {
         let code = `var config = ${switchCode(config)};\n${ufName}.init(config, \'#demo\');`;
         return (
             <pre className="language-javascript" style={{background: 'transparent'}}>
-                <code className="language-json" dangerouslySetInnerHTML={{__html: code}}></code>
+                <code className="language-javascript" dangerouslySetInnerHTML={{__html: code}}></code>
             </pre>
         );
     }

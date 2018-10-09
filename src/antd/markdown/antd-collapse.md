@@ -14,8 +14,17 @@
 |------------------|----------------------------------------------|----------|---------------------------------|
 | accordion        | 手风琴，每次只打开一个tab。默认打开第一个。 | boolean   | 无 |
 | activeKey        | 当前激活 tab 面板的 key| string[]&#124;string   | 默认无，accordion模式下默认第一个元素|
+| fixed            | 固定面板，无法再点击面板头进行折叠展开交互 |  boolean  | false |
 | bordered        | 是否显示边框，提供一套没有边框的简洁样式。 |  boolean  | true |
 | onChange         | 切换面板的回调                               | Function | 无  |
+
+### 函数调用
+> 组件自身带有的函数，调用方法如：`UF('collapse').open(key)`。
+
+参数       | 说明           | 参数    
+-----------|----------------|-----------
+open  | 打开某个Panel，传参为Panel的key值 |  open(key)  
+close  | 关闭某个Panel，传参为Panel的key值 |  close(key)  
 
 ### # panel
 

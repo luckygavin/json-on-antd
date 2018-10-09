@@ -20,6 +20,7 @@ export default class BaseDoc extends React.Component {
     
     componentDidMount() {
         this.scrollToPos(this.props);
+        this.switchTitle();
     }
 
     scrollToPos(props) {
@@ -31,6 +32,11 @@ export default class BaseDoc extends React.Component {
         }
         // window.scrollTo(0, offset);
         offset && window.scrollTo(0, offset);
+    }
+    switchTitle() {
+        let name = this.props.route.name;
+        let title = document.head.getElementsByTagName('title')[0];
+        title.innerHTML = `UF2.0 - ${name}`;
     }
 
     __init() {

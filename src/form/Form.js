@@ -4,6 +4,7 @@
  */
 import React from 'react';
 import {BaseComponent} from 'src/base';
+import DataEntry from 'src/antd/base/DataEntry.js';
 import {Utils} from 'src/utils';
 import moment from 'moment';
 import {Form, Icon, Button, Tooltip, Row, Col} from 'antd';
@@ -270,11 +271,30 @@ export class OriginForm extends BaseComponent {
             let target = this.itemRef[name];
             // 属性结果
             let attrVal = props[j];
+            let oValue;
+            target && (oValue = target.get(j));
             if (Utils.typeof(attrVal, 'function')) {
-                let oValue;
-                target && (oValue = target.get(j));
                 // 参数依次为：当前组件值，目标组件原值，目标组件ref，当前组件ref
-                attrVal = attrVal(val, oValue, target || parentTarget, self);
+                // attrVal = attrVal(val, oValue, target || parentTarget, self);
+                // 参数依次为：当前组件值，目标组件原值，其他（包括目标组件ref、当前组件ref、Form的引用等）
+                attrVal = attrVal(val, oValue, {target, parentTarget, self, form: this});
+            }
+            // 特殊值处理，:value/:label
+            if (Utils.typeof(attrVal, 'string') && (
+                attrVal.indexOf(':value') > -1
+                || attrVal.indexOf(':checked') > -1
+                || attrVal.indexOf(':label') > -1
+                || attrVal.indexOf(':old') > -1
+            )) {
+                let label = self.getDisplayValue ? self.getDisplayValue() : '';
+                // 支持使用表达式
+                attrVal = eval(
+                    attrVal
+                        .replace(':value', JSON.stringify(val))
+                        .replace(':checked', JSON.stringify(val))
+                        .replace(':label', JSON.stringify(label))
+                        .replace(':old', JSON.stringify(oValue))
+                );
             }
             switch (j) {
                 case 'checked':
@@ -302,7 +322,9 @@ export class OriginForm extends BaseComponent {
                     }
                 // break;
                 default: {
-                    newConf[j] = attrVal;
+                    // newConf[j] = attrVal;
+                    // j 支持使用多层级属性，例如：source.params.type
+                    Utils.toObject(newConf, j, attrVal);
                     break;
                 }
             }
@@ -469,20 +491,33 @@ export class OriginForm extends BaseComponent {
                         itemProps.allowClear = false;
                     }
                 }
+                // 两种组件的通用逻辑
                 // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
                 otherOptions = {
                     getValueFromEvent(e, value) {
-                        return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
+                        if (value === '' || value === undefined) {
+                            return value;
+                        }
+                        // 如果没有设置类型，则根据default定义类型做转换
+                        let type = item.rules.type || (item.default !== undefined ? Utils.getType(item.default) : null);
+                        return type ? Utils.format(value, type) : value;
                     }
                 };
+                // update at 2018/10/10 需避免无故增加的验证
                 // 两种组件的通用逻辑
+                // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
+                // otherOptions = {
+                //     getValueFromEvent(e, value) {
+                //         return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
+                //     }
+                // };
                 // 如果没有设置类型，则根据default定义类型
-                if (!item.rules['type'] && item.default !== null) {
-                    let type = Utils.getType(item.default);
-                    if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
-                        item.rules['type'] = type;
-                    }
-                }
+                // if (!item.rules['type'] && item.default !== null) {
+                //     let type = Utils.getType(item.default);
+                //     if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
+                //         item.rules['type'] = type;
+                //     }
+                // }
                 break;
             case 'checkbox':
             case 'switch':
@@ -555,8 +590,13 @@ export class OriginForm extends BaseComponent {
                 // 带有各种功能的按钮
                 itemProps.content = itemProps.content || item.label;
                 return this.getButtonItem(itemProps, okey);
-                break;
             default:
+                let Item = this._factory.getComp(item);
+                // 如果不是输入型组件，且没有content属性，设置受控属性为content
+                // 则将组件受控属性设置为children(content)，即当Form中的item.name对应的字段值变化时，展示的内容随着变化
+                if (!Utils.isExtendsOf(Item, DataEntry) && itemProps.content === undefined) {
+                    otherOptions.valuePropName = 'children';
+                }
                 break;
         }
         // 通用的默认错误提示信息
@@ -607,14 +647,14 @@ export class OriginForm extends BaseComponent {
     handleSubmit(e, callback) {
         // 否则阻止提交按钮默认事件
         e && e.preventDefault();
+        let onSubmit = callback || this.__props.onSubmit;
         // 如果没有传入callback且没有props.onSubmit回调函数，则submit没有被捕获，不阻止提交（方便后面增加 action 扩展提交功能）
-        if (!callback && !this.__props.onSubmit) {
+        if (!onSubmit) {
             return true;
         }
         let values = this.getValues();
         if (values) {
-            let submit = callback || this.__props.onSubmit;
-            let result = submit(values, this);
+            let result = onSubmit(values, this);
             // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
             if (result instanceof Promise) {
                 this.setState({loading: true});

@@ -113,7 +113,7 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
                     if (res instanceof XMLHttpRequest) {
                         onerror({msg: '接口未返回任何数据'});
                     // 如果data为null
-                    } else if (res.data === null) {
+                    } else if (config.verifyData && res.data === null) {
                         onerror({msg: '接口返回值为空'});
                     } else {
                         // 兼容 message/msg、status/code

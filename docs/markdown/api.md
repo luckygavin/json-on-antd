@@ -319,6 +319,10 @@ UF.init(config, '#demo');
 
 `component.reload()`可以控制组件重新获取数据（和`source`属性配合）。
 
+## # component.refresh()
+
+`component.refresh()`刷新组件。
+
 ## # component.loading()
 
 `component.loading([boolean|config])`可以控制组件是否展示loading效果。

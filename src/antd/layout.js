@@ -77,10 +77,14 @@ export class Sider extends BaseLayout {
         this._filter.push('triggerPosition');
         this._openApi.push('toggleCollapsed');
         this.__init();
+    }
+    _afterInit() {
+        super._afterInit();
         this.handleCollapsed();
     }
     // __setProps 后，增加附加处理逻辑
     _afterSetProps() {
+        super._afterSetProps();
         let topClass = ' top-trigger';
         let className = this.__props.className || '';
         if (this.__filtered.triggerPosition === 'top' && className.indexOf(topClass) === -1) {
@@ -120,6 +124,7 @@ export class Sider extends BaseLayout {
                             }
                         };
                         // 注入到 onCollapse 函数中
+                        // 此处往this.__props注入没有问题，__controlled中已经使用了onCollapse，已经做过一次注入，处理后的结果在__props上
                         this._inject(this.__props, 'onCollapse', inject);
                     }
                 }

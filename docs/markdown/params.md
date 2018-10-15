@@ -12,7 +12,7 @@
 [className](#/Params/-classname-class)  |  样式类名称  | string
 [childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true
 [authority](#/Params/-authority)  |  权限绑定  | string
-[controlled](#/Params/-controlled-)  |  声明组件为完全受控组件  | boolean
+[controlled](#/Params/-controlled)  |  声明组件为完全受控组件  | boolean
 [source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object
 [api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object
 [control](#/Params/-control-)  |  组件交互  | target[string]&#124;object

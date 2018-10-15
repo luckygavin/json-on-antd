@@ -770,8 +770,6 @@
 
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -780,7 +778,11 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 基础类
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by xuziqian on 2017/8/4.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by liuzechun on 2017/8/4.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  * 多个处理逻辑最终合并为一个事件函数传给组件
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      执行顺序依次为：((__controlled > this._xxx > api > control)->this._xxx) > this.__props.onXxx
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *  
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 	// import Model from 'src/tools/model.js';
@@ -940,7 +942,7 @@
 	            // 更新 __props
 	            if (this.__shouldUpdate(currentProps, nextProps)) {
 	                // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
-	                reGetData = nextProps.source && _utils.Utils.isChange(this.__formatApi(nextProps.source), this.__filtered.source)
+	                reGetData = nextProps.source && _utils.Utils.isChange(_utils.Utils.varietyFormat(nextProps.source, 'url'), this.__filtered.source)
 	                // 由于isChange对于子集的情况无效，对于标记为非复杂属性，需使用equals做检测
 	                || !_utils.Utils.equals(nextProps.params, this.__props.params);
 	                // 重新设置 __props.只传入待更新的值
@@ -1041,9 +1043,6 @@
 	            // 开发组件的时候，也可以在this.__props上增加一些默认的参数（注意不要直接用对象覆盖）
 	            this.__defaultProps = this._getDefautlProps();
 	            this.__props = _utils.Utils.clone(this.__defaultProps);
-
-	            // 将_injectEvent中定义的需要额外处理的函数追加到_filter中
-	            // this._filter = this._filter.concat(this._injectEvent);
 	        }
 
 	        // __init 执行之后，紧跟着执行的逻辑。一般用于初始化后追加的子类内部初始化逻辑
@@ -1052,17 +1051,23 @@
 	        key: '_afterInit',
 	        value: function _afterInit() {}
 
-	        // 执行完 __setProps 后附加的逻辑，由子类自行实现
+	        // 执行 _initProps 之前的附加的逻辑
 
 	    }, {
-	        key: '_afterSetProps',
-	        value: function _afterSetProps() {}
+	        key: '_beforeInitProps',
+	        value: function _beforeInitProps() {}
 
 	        // 执行完 _initProps 后附加的逻辑，由子类自行实现
 
 	    }, {
 	        key: '_afterInitProps',
 	        value: function _afterInitProps() {}
+
+	        // 执行完 __setProps 后附加的逻辑，由子类自行实现
+
+	    }, {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {}
 
 	        // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
 
@@ -1280,8 +1285,15 @@
 	            // 共享组件
 	            this._transmitComponent();
 
+	            // 执行 _initProps 之前的附加的逻辑
+	            this._beforeInitProps();
+	            // 将_injectEvent定义的属性转义到_filter上
+	            this._injectEventFilter();
 	            // 后面传入组件的参数用 __props 代替 props
 	            this._initProps();
+	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，并置于__props上
+	            // 由于_initProps中会把_injectEvent指定的函数过滤到__filtered中，所以紧接着需要进行处理并重新赋值给__props
+	            this._injectEventFunction();
 	            // 执行完 _initProps 后附加的逻辑
 	            this._afterInitProps();
 
@@ -1289,14 +1301,6 @@
 	            // this._handleModel();
 	            // 挂载用户传入的需要关联到生命周期中的函数（这个把生命周期的函数做个一个转换，更加语义化）
 	            this._loadUserFunction();
-
-	            // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中
-	            this._injectEventFunction();
-
-	            // 绑定 control 系列参数处理逻辑
-	            this._injectControl();
-	            // 绑定 api 系列参数处理逻辑
-	            this._injectApi();
 
 	            // 针对一些需要先执行函数得到组件配置并需要重新解析配置的属性进行处理
 	            this._analysisProps();
@@ -1324,13 +1328,10 @@
 	        //      原因，函数需要额外注入处理，各个函数各不相同，未统一，无法直接更新到__props。所以在_filterHandler中把传入的函数过滤掉了
 	        // 也可以传入待刷新完成后执行自己想要执行的逻辑（比如Modal，需弹框显示后才能执行其他操作）
 	        // 默认会刷新组件；也可以把第二个参数设为 false 阻止刷新
-	        //  注：isInit只有_initProps时会用到
 
 	    }, {
 	        key: '__setProps',
 	        value: function __setProps(nextProps, follow) {
-	            var isInit = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
 	            // 如果组件已销毁，则不再进行任何操作
 	            if (this.unmounted) {
 	                return;
@@ -1338,7 +1339,7 @@
 	            // 去除掉多余的属性（解决报warning问题）
 	            // 因为初始化的时候对函数有额外处理，所以暂时不能随意更改函数属性，需全部过滤
 	            // 但是初始化时，需把this.props上的全部赋值给__props，所以是否过滤函数需要增加判断
-	            var __props = this._filterHandler(nextProps, !isInit);
+	            var __props = this._filterHandler(nextProps);
 	            this.__prevProps = this.__props;
 	            this.__props = this.__mergeProps({}, this.__props, __props);
 	            // 执行附加逻辑
@@ -1457,21 +1458,6 @@
 	            }
 	        }
 
-	        // api/source/control 系列参数格式化工具
-	        // 保证格式化后必需为对象
-
-	    }, {
-	        key: '__formatApi',
-	        value: function __formatApi() {
-	            var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-	            var attr = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'url';
-
-	            if (!_utils.Utils.typeof(value, 'object')) {
-	                value = _defineProperty({}, attr, value);
-	            }
-	            return value;
-	        }
-
 	        // 从source接口获取数据
 	        // 传入的config包含 success 和 error，source一系列处理完成后最终数据才会传给 success
 
@@ -1488,6 +1474,8 @@
 	                others = _objectWithoutProperties(_Object$assign, ['target', 'showLoading', 'onchange']);
 
 	            this.__execAjax(_extends({}, others, {
+	                // 验证返回结果是否为空
+	                verifyData: true,
 	                onchange: !showLoading ? onchange : function (status) {
 	                    _this5._handleSourceLoading(status, showLoading);
 	                    onchange && onchange(status);
@@ -1608,27 +1596,20 @@
 	        /* 私有方法 ***********************************************************************/
 
 	        // 过滤 props，生成 __props 和 __filtered
-	        // 第二个参数为是否过滤掉为函数的属性
 
 	    }, {
 	        key: '_filterHandler',
 	        value: function _filterHandler(props) {
-	            var filterFunc = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
 	            var newProps = {};
 	            var haveFiltered = false;
 	            for (var i in props) {
 	                if (props.hasOwnProperty(i)) {
 	                    if (this._filter.indexOf(i) === -1) {
-	                        // 过滤掉为函数的属性
-	                        // 如果设置不过滤函数、或者不为函数、或者__props上没有此属性
-	                        // if (!filterFunc || !Utils.typeof(props[i], 'function') || !Utils.typeof(this.__props[i], 'function')) {
-	                        if (!filterFunc || !_utils.Utils.typeof(props[i], 'function') || !this.__props[i]) {
-	                            newProps[i] = props[i];
-	                        }
+	                        newProps[i] = props[i];
 	                    } else {
 	                        // 使用merge，保证增量合并。使进入到__filtered中的属性，也能增量的set
-	                        this.__filtered[i] = this.__mergeProps({}, this.__filtered[i], props[i]);
+	                        // this.__filtered[i] = this.__mergeProps({}, this.__filtered[i], props[i]);
+	                        this.__filtered[i] = _utils.Utils.merge(this.__filtered[i] || {}, props[i]);
 	                        haveFiltered = true;
 	                    }
 	                }
@@ -1648,22 +1629,9 @@
 	            // 先把 this.__props 中初始化的多余属性过滤掉
 	            // 在这里执行是为了方便子类中__init之前在去更改__props
 	            this.__props = this._filterHandler(this.__props);
-	            // 待观察...
-	            // 因为会对函数进行绑定、注入等操作，所以仅在 init 时把配置的函数转移到__props上，之后不会再更新函数
-	            // this._setPropsFunctions();
 	            // 然后把组件原props作为新值传给__setProps做合并
-	            this.__setProps(this.props, false, true);
+	            this.__setProps(this.props, false);
 	        }
-
-	        // 把 this.props 上配置的函数转移到 this.__props 上
-	        // _setPropsFunctions() {
-	        //     let props = this.props;
-	        //     for (let i in props) {
-	        //         if (props.hasOwnProperty(i) && Utils.typeof(props[i], 'function') && this._filter.indexOf(i) === -1) {
-	        //             this.__props[i] = props[i];
-	        //         }
-	        //     }
-	        // }
 
 	        // 获取key的名称
 
@@ -1815,24 +1783,53 @@
 	                }
 	            }
 	        }
+	    }, {
+	        key: '_injectEventFilter',
+	        value: function _injectEventFilter() {
+	            // api 及 control 的功能使用 injectEvent 的处理方式实现
+	            // 必须先处理api参数，只有先注入的函数才能使用其返回值
+	            // 绑定 api 系列参数处理逻辑
+	            this._handleApiProps();
+	            // 绑定 control 系列参数处理逻辑
+	            this._handleControlProps();
+
+	            // initProps之前，将_injectEvent中定义的需要额外处理的函数追加到_filter中
+	            this._filter = this._filter.concat(this._injectEvent);
+	        }
 
 	        // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
+	        // _injectEvent 中定义的事件，会被过滤到__filtered中，并在此处加上额外自定义的逻辑重新创建函数
 
 	    }, {
 	        key: '_injectEventFunction',
 	        value: function _injectEventFunction() {
+	            var _this8 = this;
+
 	            var _iteratorNormalCompletion6 = true;
 	            var _didIteratorError6 = false;
 	            var _iteratorError6 = undefined;
 
 	            try {
-	                for (var _iterator6 = this._injectEvent[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                var _loop = function _loop() {
 	                    var v = _step6.value;
 
-	                    var inject = this['_' + v];
-	                    if (inject) {
-	                        this._inject(this.__props, v, inject);
-	                    }
+	                    _this8.__props[v] = function () {
+	                        var _filtered;
+
+	                        var result = _this8['_' + v] && _this8['_' + v].apply(_this8, arguments);
+	                        // 返回false会阻止事件
+	                        if (result === false) {
+	                            return;
+	                        }
+	                        var oResult = _this8.__filtered[v] && (_filtered = _this8.__filtered)[v].apply(_filtered, arguments);
+	                        // 当函数返回结果为空时，尝试获取用户定义的函数的结果
+	                        result === undefined && (result = oResult);
+	                        return result;
+	                    };
+	                };
+
+	                for (var _iterator6 = this._injectEvent[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError6 = true;
@@ -1849,29 +1846,13 @@
 	                }
 	            }
 	        }
-	        // _injectEvent 中定义的事件，会被过滤到__filtered中，并在此处加上额外自定义的逻辑重新创建函数
-	        // 需考虑如果其他地方有直接往this.__props上注入的情况
-	        //  所以_injectEventFunction需要和__initProps紧挨着，最好在其上面
-	        //  而_injectApi等如果想要使用此逻辑，需要放此函数之前
-	        // _injectEventFunction() {
-	        //     for (let v of this._injectEvent) {
-	        //         this.__props[v] = (...p) => {
-	        //             let result = this[`_${v}`] && this[`_${v}`](...p);
-	        //             // 返回false会阻止事件
-	        //             if (result === false) {
-	        //                 return;
-	        //             }
-	        //             return this.__filtered[v] && this.__filtered[v]();
-	        //         };
-	        //     }
-	        // }
 
 	        // 针对一些需要先执行函数得到组件配置并需要重新解析配置的属性进行处理
 
 	    }, {
 	        key: '_analysisProps',
 	        value: function _analysisProps() {
-	            var _this8 = this;
+	            var _this9 = this;
 
 	            var _iteratorNormalCompletion7 = true;
 	            var _didIteratorError7 = false;
@@ -1879,13 +1860,13 @@
 
 	            try {
 	                for (var _iterator7 = this._analysis[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-	                    var v = _step7.value;
+	                    var _v2 = _step7.value;
 
-	                    if (this.__props[v]) {
+	                    if (this.__props[_v2]) {
 	                        (function () {
-	                            var func = _this8.__props[v];
-	                            _this8.__props[v] = function () {
-	                                return _this8.__analysis(func.apply(undefined, arguments));
+	                            var func = _this9.__props[_v2];
+	                            _this9.__props[_v2] = function () {
+	                                return _this9.__analysis(func.apply(undefined, arguments));
 	                            };
 	                        })();
 	                    }
@@ -1911,11 +1892,11 @@
 	    }, {
 	        key: '_loadUserFunction',
 	        value: function _loadUserFunction() {
-	            var _this9 = this;
+	            var _this10 = this;
 
-	            var _loop = function _loop(f) {
+	            var _loop2 = function _loop2(f) {
 	                // 如果props中有等待注入的函数
-	                var inject = _this9.__filtered[f];
+	                var inject = _this10.__filtered[f];
 	                if (inject) {
 	                    var _iteratorNormalCompletion9 = true;
 	                    var _didIteratorError9 = false;
@@ -1923,14 +1904,14 @@
 
 	                    try {
 	                        for (var _iterator9 = ForUserApi[f].split(',')[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-	                            var v = _step9.value;
+	                            var _v3 = _step9.value;
 
-	                            _this9._inject(_this9, v, function () {
-	                                var result = inject.call(_this9, _this9.__props, _this9);
+	                            _this10._inject(_this10, _v3, function () {
+	                                var result = inject.call(_this10, _this10.__props, _this10);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
-	                                    _this9.__props = _this9._filterHandler(result);
+	                                    _this10.__props = _this10._filterHandler(result);
 	                                }
 	                            }, true);
 	                        }
@@ -1952,7 +1933,7 @@
 	            };
 
 	            for (var f in ForUserApi) {
-	                _loop(f);
+	                _loop2(f);
 	            }
 	            // 支持高级用户（专业前端）直接使用原始的生命周期函数
 	            var _iteratorNormalCompletion8 = true;
@@ -1961,12 +1942,13 @@
 
 	            try {
 	                for (var _iterator8 = PreventCoverageMap[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	                    var v = _step8.value;
+	                    var _v4 = _step8.value;
 
 	                    // 如果父组件中有等待注入的函数
-	                    var _inject2 = this.__filtered['_' + v];
+	                    var _inject2 = this.__filtered['_' + _v4];
 	                    if (_inject2) {
-	                        this._inject(this, v, _inject2);
+	                        // 绑定this，使用户可以在函数中是用this指向当前的this
+	                        this._inject(this, _v4, _inject2, false, this);
 	                    }
 	                }
 	            } catch (err) {
@@ -1985,119 +1967,128 @@
 	            }
 	        }
 
-	        // 绑定组件额外动作处理逻辑
+	        // 组件 control 系列参数相关处理
+	        // 使用 injectEvent 的处理方式实现
 
 	    }, {
-	        key: '_injectControl',
-	        value: function _injectControl() {
-	            var _this10 = this;
-
+	        key: '_handleControlProps',
+	        value: function _handleControlProps() {
+	            // 还未进行initProps，control参数还在__props上
+	            var control = _utils.Utils.varietyFormat(this.__props.control, 'target');
+	            if (this.__defaultProps.control) {
+	                control = this.__mergeProps({}, this.__defaultProps.control, control);
+	            }
+	            if (control && control.trigger) {
+	                this._injectEvent.push(control.trigger);
+	                this._inject(this, '_' + control.trigger, this._controlHandler.bind(this), true);
+	            }
+	        }
+	    }, {
+	        key: '_controlHandler',
+	        value: function _controlHandler() {
 	            var _filtered$control = this.__filtered.control,
-	                trigger = _filtered$control.trigger,
-	                target = _filtered$control.target;
+	                target = _filtered$control.target,
+	                type = _filtered$control.type,
+	                params = _filtered$control.params,
+	                handler = _filtered$control.handler,
+	                _filtered$control$pre = _filtered$control.preventDefault,
+	                preventDefault = _filtered$control$pre === undefined ? true : _filtered$control$pre,
+	                _filtered$control$sto = _filtered$control.stopPropagation,
+	                stopPropagation = _filtered$control$sto === undefined ? true : _filtered$control$sto;
 
-	            if (target) {
-	                this._inject(this.__props, trigger, function () {
-	                    for (var _len7 = arguments.length, para = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
-	                        para[_key7] = arguments[_key7];
-	                    }
+	            if (!target) {
+	                return;
+	            }
+	            // 阻止默认事件及冒泡
 
-	                    var _filtered$control2 = _this10.__filtered.control,
-	                        type = _filtered$control2.type,
-	                        params = _filtered$control2.params,
-	                        handler = _filtered$control2.handler,
-	                        _filtered$control2$pr = _filtered$control2.preventDefault,
-	                        preventDefault = _filtered$control2$pr === undefined ? true : _filtered$control2$pr,
-	                        _filtered$control2$st = _filtered$control2.stopPropagation,
-	                        stopPropagation = _filtered$control2$st === undefined ? true : _filtered$control2$st;
-	                    // 阻止默认事件及冒泡
+	            for (var _len7 = arguments.length, para = Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {
+	                para[_key7] = arguments[_key7];
+	            }
 
-	                    if (_utils.Utils.typeof(para[0], 'object') && para[0].preventDefault) {
-	                        preventDefault && para[0].preventDefault();
-	                        stopPropagation && para[0].stopPropagation();
-	                    }
-	                    // 1、动作类型为：绑定(开发使用)
-	                    if (type === 'bind') {
-	                        target.apply(undefined, _toConsumableArray(params).concat(para));
-	                        return;
-	                    }
-	                    // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
-	                    var targetArr = target;
-	                    if (_utils.Utils.typeof(target, 'function')) {
-	                        targetArr = target.apply(undefined, para);
-	                    }
-	                    // 支持target为一个数组，配置同时操作多个同类的target
-	                    if (!_utils.Utils.typeof(targetArr, 'array')) {
-	                        targetArr = [targetArr];
-	                    }
-	                    var _iteratorNormalCompletion10 = true;
-	                    var _didIteratorError10 = false;
-	                    var _iteratorError10 = undefined;
+	            if (_utils.Utils.typeof(para[0], 'object') && para[0].preventDefault) {
+	                preventDefault && para[0].preventDefault();
+	                stopPropagation && para[0].stopPropagation();
+	            }
+	            // 1、动作类型为：绑定(开发使用)
+	            if (type === 'bind') {
+	                target.apply(undefined, _toConsumableArray(params).concat(para));
+	                return;
+	            }
+	            // target可以为一个函数，函数的参数为trigger的参数列表，函数返回一个target的字符串
+	            var targetArr = target;
+	            if (_utils.Utils.typeof(target, 'function')) {
+	                targetArr = target.apply(undefined, para);
+	            }
+	            // 支持target为一个数组，配置同时操作多个同类的target
+	            if (!_utils.Utils.typeof(targetArr, 'array')) {
+	                targetArr = [targetArr];
+	            }
+	            var _iteratorNormalCompletion10 = true;
+	            var _didIteratorError10 = false;
+	            var _iteratorError10 = undefined;
 
-	                    try {
-	                        for (var _iterator10 = targetArr[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
-	                            var v = _step10.value;
+	            try {
+	                for (var _iterator10 = targetArr[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+	                    var _v5 = _step10.value;
 
-	                            var targetStr = v;
-	                            // targetAttr 可以为空数组，即目标直接指向组件
+	                    var targetStr = _v5;
+	                    // targetAttr 可以为空数组，即目标直接指向组件
 
-	                            var _targetStr$split = targetStr.split('.'),
-	                                _targetStr$split2 = _toArray(_targetStr$split),
-	                                targetName = _targetStr$split2[0],
-	                                targetAttr = _targetStr$split2.slice(1);
+	                    var _targetStr$split = targetStr.split('.'),
+	                        _targetStr$split2 = _toArray(_targetStr$split),
+	                        targetName = _targetStr$split2[0],
+	                        targetAttr = _targetStr$split2.slice(1);
 
-	                            var _target = _this10.__getComponent(targetName);
-	                            if (_target) {
-	                                // 如果没设置type，则根据target的类型确定
-	                                if (!type) {
-	                                    var attr = _utils.Utils.fromObject(targetAttr.join('.'), _target);
-	                                    type = _utils.Utils.typeof(attr, 'function') ? 'call' : 'assign';
-	                                }
-	                                switch (type) {
-	                                    // 2、动作类型为：调用
-	                                    case 'call':
-	                                        {
-	                                            var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
-	                                            // 如果没有设置params，则尝试执行handler
-	                                            !params && handler && (params = handler.apply(undefined, para.concat([_target, _this10])));
-	                                            // 转成数组以便解构
-	                                            !_utils.Utils.typeof(params, 'array') && (params = [params]);
-	                                            func.call.apply(func, [_target].concat(_toConsumableArray(params)));
-	                                            break;
-	                                        }
-	                                    // 3、动作类型为：赋值
-	                                    case 'assign':
-	                                        {
-	                                            var result = handler && handler.apply(undefined, para.concat([_target, _this10]));
-	                                            var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
-	                                            // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
-	                                            if (params) {
-	                                                tData = Object.assign({}, params, tData);
-	                                            }
-	                                            // 要调set函数，才能走cwr逻辑，适用于自定义组件
-	                                            _target.set(tData);
-	                                            break;
-	                                        }
-	                                    default:
-	                                        break;
-	                                }
-	                            }
+	                    var _target = this.__getComponent(targetName);
+	                    if (_target) {
+	                        // 如果没设置type，则根据target的类型确定
+	                        if (!type) {
+	                            var attr = _utils.Utils.fromObject(targetAttr.join('.'), _target);
+	                            type = _utils.Utils.typeof(attr, 'function') ? 'call' : 'assign';
 	                        }
-	                    } catch (err) {
-	                        _didIteratorError10 = true;
-	                        _iteratorError10 = err;
-	                    } finally {
-	                        try {
-	                            if (!_iteratorNormalCompletion10 && _iterator10.return) {
-	                                _iterator10.return();
-	                            }
-	                        } finally {
-	                            if (_didIteratorError10) {
-	                                throw _iteratorError10;
-	                            }
+	                        switch (type) {
+	                            // 2、动作类型为：调用
+	                            case 'call':
+	                                {
+	                                    var func = _utils.Utils.fromObject(targetAttr.join('.'), _target);
+	                                    // 如果没有设置params，则尝试执行handler
+	                                    !params && handler && (params = handler.apply(undefined, para.concat([_target, this])));
+	                                    // 转成数组以便解构
+	                                    !_utils.Utils.typeof(params, 'array') && (params = [params]);
+	                                    func.call.apply(func, [_target].concat(_toConsumableArray(params)));
+	                                    break;
+	                                }
+	                            // 3、动作类型为：赋值
+	                            case 'assign':
+	                                {
+	                                    var result = handler && handler.apply(undefined, para.concat([_target, this]));
+	                                    var tData = _utils.Utils.generateObject(targetAttr.join('.'), result);
+	                                    // 如果设置了params，则会把要设置的值和params合并到一起，并同时set给组件
+	                                    if (params) {
+	                                        tData = Object.assign({}, params, tData);
+	                                    }
+	                                    // 要调set函数，才能走cwr逻辑，适用于自定义组件
+	                                    _target.set(tData);
+	                                    break;
+	                                }
+	                            default:
+	                                break;
 	                        }
 	                    }
-	                }, true);
+	                }
+	            } catch (err) {
+	                _didIteratorError10 = true;
+	                _iteratorError10 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion10 && _iterator10.return) {
+	                        _iterator10.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError10) {
+	                        throw _iteratorError10;
+	                    }
+	                }
 	            }
 	        }
 
@@ -2107,9 +2098,9 @@
 	        key: '_filteredPropsFormat',
 	        value: function _filteredPropsFormat() {
 	            // 把 api 处理成对象
-	            var api = this.__formatApi(this.__filtered.api);
-	            var source = this.__formatApi(this.__filtered.source);
-	            var control = this.__formatApi(this.__filtered.control, 'target');
+	            var api = _utils.Utils.varietyFormat(this.__filtered.api, 'url');
+	            var source = _utils.Utils.varietyFormat(this.__filtered.source, 'url');
+	            var control = _utils.Utils.varietyFormat(this.__filtered.control, 'target');
 	            // 检查默认配置中是否有配置，如果有进行合并
 	            if (this.__defaultProps.api) {
 	                api = this.__mergeProps({}, this.__defaultProps.api, api);
@@ -2151,21 +2142,29 @@
 	            }
 	        }
 
-	        // 绑定 api 系列参数处理逻辑
+	        // 组件 api 系列参数相关处理
+	        // 使用 injectEvent 的处理方式实现
 
 	    }, {
-	        key: '_injectApi',
-	        value: function _injectApi() {
-	            if (this.__filtered.api.trigger) {
-	                this._inject(this.__props, this.__filtered.api.trigger, this._handleApiProps, true);
+	        key: '_handleApiProps',
+	        value: function _handleApiProps() {
+	            // 还未进行initProps，api参数还在__props上
+	            var api = _utils.Utils.varietyFormat(this.__props.api, 'url');
+	            if (this.__defaultProps.api) {
+	                api = this.__mergeProps({}, this.__defaultProps.api, api);
+	            }
+	            if (api && api.trigger) {
+	                this._injectEvent.push(api.trigger);
+	                // TODO: 有待观察，目前看代码之间的相互限制有点多
+	                this._inject(this, '_' + api.trigger, this._apiHandler.bind(this), true);
 	            }
 	        }
 
 	        // 提交数据功能
 
 	    }, {
-	        key: '_handleApiProps',
-	        value: function _handleApiProps(oParams) {
+	        key: '_apiHandler',
+	        value: function _apiHandler(oParams) {
 	            var _filtered$api = this.__filtered.api,
 	                _filtered$api$params = _filtered$api.params,
 	                params = _filtered$api$params === undefined ? oParams : _filtered$api$params,
@@ -2173,9 +2172,11 @@
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
 	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
+
+	            if (!others.url) {
+	                return;
+	            }
 	            // 如果传入或者设置的params不是简单对象，则重置params
-
-
 	            if (!_utils.Utils.directInstanceof(params, [Object, Array])) {
 	                params = {};
 	            }
@@ -3133,6 +3134,9 @@
 	            // let newResult = oResult !== false ? newFunc.call(utilsObj, ...params) : oResult;
 	            // // 如果注入的逻辑返回false，可阻止原函数的继续执行
 	            // let result = !oldAhead && newResult !== false ? origin.call(utilsObj, ...params) : oResult;
+	            // TODO: 返回哪个结果有待斟酌，目前代码之间的相互限制有点多
+	            //  好像还不能随便return，比如可能会得到预期之外的结果
+	            // return result || newResult;
 	            return result;
 	        } : newFunc.bind(utilsObj);
 	        // 被替换函数标记
@@ -3178,6 +3182,20 @@
 	            v[keyName] && (obj[v[keyName]] = valueName ? v[valueName] : v);
 	        });
 	        return obj;
+	    },
+
+	    // 多变参数格式化工具，保证格式化后必需为对象
+	    //  使用场景，参数既可以为一个对象，也可以简写为某个对象的属性，不管使用哪种方式，此函数可以统一格式成对象的形式
+	    //  第一个参数为参数值，第二个参数为简写时对应的属性名称
+	    // 例如：api/source/control 系列参数，api即可以写成一个url字符串，也可以是一个对象
+	    varietyFormat: function varietyFormat() {
+	        var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	        var attr = arguments[1];
+
+	        if (!utils.typeof(value, 'object')) {
+	            value = _defineProperty({}, attr, value);
+	        }
+	        return value;
 	    },
 
 
@@ -4894,7 +4912,7 @@
 	                if (res instanceof XMLHttpRequest) {
 	                    onerror({ msg: '接口未返回任何数据' });
 	                    // 如果data为null
-	                } else if (res.data === null) {
+	                } else if (config.verifyData && res.data === null) {
 	                    onerror({ msg: '接口返回值为空' });
 	                } else {
 	                    // 兼容 message/msg、status/code
@@ -9273,6 +9291,26 @@
 	        /* 供子组件调用方法 ***********************************************************************/
 
 	    }, {
+	        key: '_beforeInitProps',
+	        value: function _beforeInitProps() {
+	            _get(Antd.prototype.__proto__ || Object.getPrototypeOf(Antd.prototype), '_beforeInitProps', this).call(this);
+	            // 受控配置 - 如果不为null,则合并覆盖
+	            this.__controlled = this.__controlled ? this.__mergeProps({
+	                key: 'value',
+	                event: 'onChange',
+	                defaultVal: undefined,
+	                paramsIndex: 0
+	            }, this.__controlled) : null;
+	            // 使用 _injectEvent 的方式将属性的控制逻辑注入到事件中，将事件名称推入_injectEvent数组中即可
+	            if (this.__controlled) {
+	                var event = this.__controlled.event;
+	                this._injectEvent.push(event);
+	                // 创建一个名为_${event}的函数，供_injectEvent的相关逻辑调用
+	                // 防止子类中已经实现了_${event}函数，此处使用注入的方式进行赋值
+	                this._inject(this, '_' + event, this._onControlEventHandler);
+	            }
+	        }
+	    }, {
 	        key: '_afterInit',
 	        value: function _afterInit() {
 	            var _this2 = this;
@@ -9282,24 +9320,15 @@
 	            this.__props['ref'] = function (ele) {
 	                return _this2._component = ele;
 	            };
-	            // 受控配置 - 如果不为null,则合并覆盖
-	            this.__controlled = this.__controlled ? this.__mergeProps({
-	                key: 'value',
-	                event: 'onChange',
-	                defaultVal: undefined,
-	                paramsIndex: 0
-	            }, this.__controlled) : null;
 	            // 受控组件默认处理逻辑
 	            this._handleControlled();
 	        }
 
-	        // 受控属性绑定change事件，同时也受控于用户传入的值
+	        // 组件创建时，对受控属性值进行同步
 
 	    }, {
 	        key: '_handleControlled',
 	        value: function _handleControlled() {
-	            var _this3 = this;
-
 	            if (!this.__controlled) {
 	                return;
 	            }
@@ -9326,15 +9355,19 @@
 	                // 屏蔽warning，非受控组件转换为受控组件会报warning
 	                this.__props[key] = defaultVal;
 	            }
-	            this._inject(this.__props, event, function () {
-	                // 如果用户传入了 controlled 属性，则完全由用户自己控制，不再执行默认控制逻辑
-	                if (_this3.__filtered.controlled) {
-	                    return;
-	                }
-	                _this3._onControlEvent.apply(_this3, arguments);
-	            });
 	        }
 
+	        // 供 _injectEvent 使用
+
+	    }, {
+	        key: '_onControlEventHandler',
+	        value: function _onControlEventHandler() {
+	            // 如果用户传入了 controlled 属性，则完全由用户自己控制，不再执行默认控制逻辑
+	            if (this.__filtered.controlled) {
+	                return;
+	            }
+	            this._onControlEvent.apply(this, arguments);
+	        }
 	        // 同步onChange的数据到受控属性上，默认取第一个参数
 	        // ** 可直接被子类覆盖重写 **
 	        // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）
@@ -10041,6 +10074,13 @@
 	    }
 
 	    _createClass(Button, [{
+	        key: 'loading',
+	        value: function loading() {
+	            var status = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+	            this.__setProps({ loading: status });
+	        }
+	    }, {
 	        key: '_afterInitProps',
 	        value: function _afterInitProps() {
 	            if (this.__filtered.actived === true) {
@@ -11304,13 +11344,6 @@
 	        _this4.__init();
 	        return _this4;
 	    }
-	    // _afterInit() {
-	    //     this._inject(this.__props, 'onClick', e=>{
-	    //         e.preventDefault();
-	    //         OriRouter.browserHistory.push('#' + this.__props.to);
-	    //     });
-	    // }
-
 
 	    _createClass(Link, [{
 	        key: 'render',
@@ -11806,15 +11839,21 @@
 	        _this4._filter.push('triggerPosition');
 	        _this4._openApi.push('toggleCollapsed');
 	        _this4.__init();
-	        _this4.handleCollapsed();
 	        return _this4;
 	    }
-	    // __setProps 后，增加附加处理逻辑
-
 
 	    _createClass(Sider, [{
+	        key: '_afterInit',
+	        value: function _afterInit() {
+	            _get(Sider.prototype.__proto__ || Object.getPrototypeOf(Sider.prototype), '_afterInit', this).call(this);
+	            this.handleCollapsed();
+	        }
+	        // __setProps 后，增加附加处理逻辑
+
+	    }, {
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
+	            _get(Sider.prototype.__proto__ || Object.getPrototypeOf(Sider.prototype), '_afterSetProps', this).call(this);
 	            var topClass = ' top-trigger';
 	            var className = this.__props.className || '';
 	            if (this.__filtered.triggerPosition === 'top' && className.indexOf(topClass) === -1) {
@@ -11870,6 +11909,7 @@
 	                                        }
 	                                    };
 	                                    // 注入到 onCollapse 函数中
+	                                    // 此处往this.__props注入没有问题，__controlled中已经使用了onCollapse，已经做过一次注入，处理后的结果在__props上
 	                                    _this5._inject(_this5.__props, 'onCollapse', inject);
 	                                })();
 	                            }
@@ -13991,7 +14031,6 @@
 	        _this.enum = new _Enum2.default({
 	            execAjax: _this.__execAjax.bind(_this),
 	            continue: _this.componentDidMount.bind(_this),
-	            formatApi: _this.__formatApi.bind(_this),
 	            getConf: _this.__getConf.bind(_this)
 	        });
 	        _this.initTable(true);
@@ -14852,6 +14891,8 @@
 	                            case 'html':
 	                                newText = _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: text } });
 	                                break;
+	                            case 'array':
+	                                break;
 	                            // 默认将格式进行一下转换然后输出
 	                            default:
 	                                text = _this11._getKeyDataOfObject(text);
@@ -15219,7 +15260,7 @@
 	                var item = _this2.__getConf(_utils.Utils.clone(config[i]));
 	                var action = _this2._getAction(i);
 	                // api属性不能复用
-	                item.api = _this2.__formatApi(item.api);
+	                item.api = _utils.Utils.varietyFormat(item.api, 'url');
 	                switch (action) {
 	                    // 新增弹框的配置
 	                    case 'add':
@@ -17442,7 +17483,7 @@
 	                            _this.tools.execAjax(_extends({
 	                                // 默认开启缓存
 	                                cache: true
-	                            }, _this.tools.formatApi(item.enum), {
+	                            }, _utils.Utils.varietyFormat(item.enum, 'url'), {
 	                                success: function success(data) {
 	                                    _this.save(item.dataIndex, data);
 	                                    _this.complete();
@@ -17757,6 +17798,10 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _base = __webpack_require__(19);
+
+	var _DataEntry = __webpack_require__(67);
+
+	var _DataEntry2 = _interopRequireDefault(_DataEntry);
 
 	var _utils = __webpack_require__(22);
 
@@ -18105,11 +18150,19 @@
 	                var target = this.itemRef[name];
 	                // 属性结果
 	                var attrVal = props[j];
+	                var oValue = void 0;
+	                target && (oValue = target.get(j));
 	                if (_utils.Utils.typeof(attrVal, 'function')) {
-	                    var oValue = void 0;
-	                    target && (oValue = target.get(j));
 	                    // 参数依次为：当前组件值，目标组件原值，目标组件ref，当前组件ref
-	                    attrVal = attrVal(val, oValue, target || parentTarget, self);
+	                    // attrVal = attrVal(val, oValue, target || parentTarget, self);
+	                    // 参数依次为：当前组件值，目标组件原值，其他（包括目标组件ref、当前组件ref、Form的引用等）
+	                    attrVal = attrVal(val, oValue, { target: target, parentTarget: parentTarget, self: self, form: this });
+	                }
+	                // 特殊值处理，:value/:label
+	                if (_utils.Utils.typeof(attrVal, 'string') && (attrVal.indexOf(':value') > -1 || attrVal.indexOf(':checked') > -1 || attrVal.indexOf(':label') > -1 || attrVal.indexOf(':old') > -1)) {
+	                    var label = self.getDisplayValue ? self.getDisplayValue() : '';
+	                    // 支持使用表达式
+	                    attrVal = eval(attrVal.replace(':value', JSON.stringify(val)).replace(':checked', JSON.stringify(val)).replace(':label', JSON.stringify(label)).replace(':old', JSON.stringify(oValue)));
 	                }
 	                switch (j) {
 	                    case 'checked':
@@ -18139,7 +18192,9 @@
 	                    // break;
 	                    default:
 	                        {
-	                            newConf[j] = attrVal;
+	                            // newConf[j] = attrVal;
+	                            // j 支持使用多层级属性，例如：source.params.type
+	                            _utils.Utils.toObject(newConf, j, attrVal);
 	                            break;
 	                        }
 	                }
@@ -18317,20 +18372,33 @@
 	                            itemProps.allowClear = false;
 	                        }
 	                    }
+	                    // 两种组件的通用逻辑
 	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
 	                    otherOptions = {
 	                        getValueFromEvent: function getValueFromEvent(e, value) {
-	                            return item.rules.type && value !== '' && value !== undefined ? _utils.Utils.format(value) : value;
+	                            if (value === '' || value === undefined) {
+	                                return value;
+	                            }
+	                            // 如果没有设置类型，则根据default定义类型做转换
+	                            var type = item.rules.type || (item.default !== undefined ? _utils.Utils.getType(item.default) : null);
+	                            return type ? _utils.Utils.format(value, type) : value;
 	                        }
 	                    };
+	                    // update at 2018/10/10 需避免无故增加的验证
 	                    // 两种组件的通用逻辑
+	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
+	                    // otherOptions = {
+	                    //     getValueFromEvent(e, value) {
+	                    //         return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
+	                    //     }
+	                    // };
 	                    // 如果没有设置类型，则根据default定义类型
-	                    if (!item.rules['type'] && item.default !== null) {
-	                        var _type = _utils.Utils.getType(item.default);
-	                        if (['number', 'string', 'boolean', 'array'].indexOf(_type) > -1) {
-	                            item.rules['type'] = _type;
-	                        }
-	                    }
+	                    // if (!item.rules['type'] && item.default !== null) {
+	                    //     let type = Utils.getType(item.default);
+	                    //     if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
+	                    //         item.rules['type'] = type;
+	                    //     }
+	                    // }
 	                    break;
 	                case 'checkbox':
 	                case 'switch':
@@ -18404,8 +18472,13 @@
 	                    // 带有各种功能的按钮
 	                    itemProps.content = itemProps.content || item.label;
 	                    return this.getButtonItem(itemProps, okey);
-	                    break;
 	                default:
+	                    var Item = this._factory.getComp(item);
+	                    // 如果不是输入型组件，且没有content属性，设置受控属性为content
+	                    // 则将组件受控属性设置为children(content)，即当Form中的item.name对应的字段值变化时，展示的内容随着变化
+	                    if (!_utils.Utils.isExtendsOf(Item, _DataEntry2.default) && itemProps.content === undefined) {
+	                        otherOptions.valuePropName = 'children';
+	                    }
 	                    break;
 	            }
 	            // 通用的默认错误提示信息
@@ -18465,14 +18538,14 @@
 
 	            // 否则阻止提交按钮默认事件
 	            e && e.preventDefault();
+	            var onSubmit = callback || this.__props.onSubmit;
 	            // 如果没有传入callback且没有props.onSubmit回调函数，则submit没有被捕获，不阻止提交（方便后面增加 action 扩展提交功能）
-	            if (!callback && !this.__props.onSubmit) {
+	            if (!onSubmit) {
 	                return true;
 	            }
 	            var values = this.getValues();
 	            if (values) {
-	                var submit = callback || this.__props.onSubmit;
-	                var result = submit(values, this);
+	                var result = onSubmit(values, this);
 	                // 如果回调函数返回了promise实例，则展示按钮上的loading效果，防止多次点击
 	                if (result instanceof Promise) {
 	                    this.setState({ loading: true });
@@ -19400,8 +19473,8 @@
 	        // onSubmit 以此函数为入口
 
 	    }, {
-	        key: '_onSubmit',
-	        value: function _onSubmit() {
+	        key: '_submitHandler',
+	        value: function _submitHandler() {
 	            var _props,
 	                _this5 = this;
 
@@ -19426,7 +19499,7 @@
 	            }
 	            // 不管是否为Promise，成功与失败逻辑如下
 	            this.__compatePromise(result, function (success) {
-	                var finish = _this5._onSuccess(result);
+	                var finish = _this5._successHandler(result);
 	                _this5.__compatePromise(finish, function (success) {
 	                    _this5.__setProps({ confirmLoading: false });
 	                    _this5.close();
@@ -19436,8 +19509,8 @@
 	            });
 	        }
 	    }, {
-	        key: '_onSuccess',
-	        value: function _onSuccess() {
+	        key: '_successHandler',
+	        value: function _successHandler() {
 	            var _props2;
 
 	            return this.__props.onSuccess && (_props2 = this.__props).onSuccess.apply(_props2, arguments);
@@ -19467,7 +19540,7 @@
 	                        case 'submit':
 	                            // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
 	                            this.__props.onSubmit = v.onClick || this.__props.onSubmit;
-	                            item.onClick = this._onSubmit.bind(this);
+	                            item.onClick = this._submitHandler.bind(this);
 	                            break;
 	                        case 'reset':
 	                            item.onClick = function () {
@@ -19535,7 +19608,7 @@
 	        value: function render() {
 	            // footer是在组件中解析的，解析后放置在footerContent中
 	            var selfProps = {
-	                onOk: this._onSubmit.bind(this)
+	                onOk: this._submitHandler.bind(this)
 	            };
 	            if (this.__props.footerContent) {
 	                selfProps.footer = this.__props.footerContent;
@@ -19544,7 +19617,7 @@
 	            var children = this.getChildrenRank();
 	            return _react2.default.createElement(
 	                _antd.Modal,
-	                _extends({}, _utils.Utils.filter(this.__props, 'children'), selfProps, { className: 'uf-modal' }),
+	                _extends({}, _utils.Utils.filter(this.__props, 'children'), selfProps, this.__getCommonProps({ className: 'uf-modal' })),
 	                children[0],
 	                children[1],
 	                children[2]
@@ -21041,6 +21114,11 @@
 	        key: 'getConf',
 	        value: function getConf(item) {
 	            return _loader2.default.getConf(item, this.insName);
+	        }
+	    }, {
+	        key: 'getComp',
+	        value: function getComp(item) {
+	            return _loader2.default.get(item);
 	        }
 
 	        // 处理用户配置的参数，并生成组件需要使用的 props

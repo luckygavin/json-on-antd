@@ -29,17 +29,30 @@ const demo1 = {
         {
             type: 'button',
             mode: 'default',
-            content: 'Default'
+            name: 'test-button2',
+            content: 'Default',
+            onClick() {
+                console.log(1);
+            }
         },
         {
             type: 'button',
             mode: 'dashed',
-            content: 'Dashed'
+            content: 'Dashed',
+            onClick() {
+                // 测试更新函数属性是否有效
+                UF('test-button2').set({
+                    onClick() {
+                        console.log(2);
+                    }
+                });
+            }
         },
         {
             type: 'button',
             mode: 'danger',
-            content: 'Danger'
+            content: 'Danger',
+            api: 'docs/php/submit.php'
         }
     ]
 };
@@ -206,9 +219,11 @@ const demo4 = {
             name: 'my-button1',
             mode: 'primary',
             content: 'Click me!',
-            onClick: v=>UF('my-button1').set({
-                loading: true
-            })
+            onClick: ()=>{
+                UF('my-button1').set({
+                    loading: true
+                });
+            }
         },
         {
             type: 'button',
@@ -216,13 +231,14 @@ const demo4 = {
             name: 'my-button2',
             icon: 'poweroff',
             content: 'Click me!',
-            onClick: v=>UF('my-button2').set({
-                loading: true
-            })
+            onClick: ()=>{
+                // 也可以直接调用loading函数
+                UF('my-button2').loading();
+            }
         },
     ]
 };
-const demo5 = {
+export const demo5 = {
     title: '激活态/非激活态',
     description: '`active`系列属性使按钮具备了两种状态：激活态/非激活态。需设置`actived`为`true`其余属性才能生效',
     config: [

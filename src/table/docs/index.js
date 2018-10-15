@@ -38,6 +38,7 @@ const demo1 = {
                         options: ['华北', '华南', '华东']
                     }
                 },
+                {title: '数组', dataIndex: 'arr'},
                 {title: '描述', dataIndex: 'description'}
             ],
             title: {
@@ -71,6 +72,8 @@ const demo1 = {
                 handler(data) {
                     return data.map(v=>{
                         v.idcId = v.id;
+                        v.arr = [1,2,3];
+                        // v.arr = {a: 1, b: 2, c: 3};
                         return v;
                     });
                 },

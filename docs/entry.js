@@ -6,6 +6,7 @@ import ReactDOM from 'react-dom';
 import {Router, Route, hashHistory, IndexRedirect, Redirect} from 'react-router';
 import {Row, Col, BackTop} from 'antd';
 
+import NewTips from './newTips/index.js';
 import Header from './Header.js';
 import Nav from './Nav.js';
 
@@ -150,6 +151,7 @@ class App extends React.Component {
                         </Row>
                         }
                     </div>
+                    <NewTips/>
                     <BackTop/>
                </section>
         );

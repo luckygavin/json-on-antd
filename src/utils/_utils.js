@@ -553,6 +553,9 @@ const utils = {
                 // let newResult = oResult !== false ? newFunc.call(utilsObj, ...params) : oResult;
                 // // 如果注入的逻辑返回false，可阻止原函数的继续执行
                 // let result = !oldAhead && newResult !== false ? origin.call(utilsObj, ...params) : oResult;
+                // TODO: 返回哪个结果有待斟酌，目前代码之间的相互限制有点多
+                //  好像还不能随便return，比如可能会得到预期之外的结果
+                // return result || newResult;
                 return result;
             }
             : newFunc.bind(utilsObj);
@@ -596,7 +599,16 @@ const utils = {
         });
         return obj;
     },
-
+    // 多变参数格式化工具，保证格式化后必需为对象
+    //  使用场景，参数既可以为一个对象，也可以简写为某个对象的属性，不管使用哪种方式，此函数可以统一格式成对象的形式
+    //  第一个参数为参数值，第二个参数为简写时对应的属性名称
+    // 例如：api/source/control 系列参数，api即可以写成一个url字符串，也可以是一个对象
+    varietyFormat(value = {}, attr) {
+        if (!utils.typeof(value, 'object')) {
+            value = {[attr]: value};
+        }
+        return value;
+    },
 
     /************************************************************************/
     // 私有方法

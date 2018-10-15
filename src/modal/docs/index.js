@@ -37,7 +37,8 @@ const demo2 = {
         {
             type: 'button',
             mode: 'primary',
-            content: '新增弹框'
+            content: '新增弹框',
+            onClick: ()=>UF('my-modal2').show()
         },
         {
             type: 'button',
@@ -50,7 +51,7 @@ const demo2 = {
             name: 'my-modal2',
             visible: false,
             title: '新增/编辑弹框',
-            width: 700,
+            width: 600,
             api: 'docs/php/submit.php',
             form: {
                 items: [

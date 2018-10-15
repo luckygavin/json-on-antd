@@ -63,7 +63,6 @@ export default class NewTable extends BaseComponent {
         this.enum = new Enum({
             execAjax: this.__execAjax.bind(this),
             continue: this.componentDidMount.bind(this),
-            formatApi: this.__formatApi.bind(this),
             getConf: this.__getConf.bind(this)
         });
         this.initTable(true);
@@ -725,6 +724,8 @@ export default class NewTable extends BaseComponent {
                         }
                         case 'html':
                             newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
+                            break;
+                        case 'array':
                             break;
                         // 默认将格式进行一下转换然后输出
                         default:

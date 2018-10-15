@@ -31,7 +31,6 @@ const demo2 = {
         content: {
             type: 'card',
             bordered: false,
-            style: {width: 300},
             title: 'Card title',
             content: '包含标题、内容、操作区域的卡片内容区域'
         }
@@ -54,7 +53,6 @@ const demo4 = {
     description: '只包含内容区域。',
     config: {
         type: 'card',
-        style: {width: 300},
         content: '包含标题、内容、操作区域的卡片内容区域'
     }
 };

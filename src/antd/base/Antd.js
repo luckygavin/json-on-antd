@@ -36,24 +36,35 @@ export default class Antd extends BaseComponent {
 
     /* 供子组件调用方法 ***********************************************************************/
 
+    _beforeInitProps() {
+        super._beforeInitProps();
+        // 受控配置 - 如果不为null,则合并覆盖
+        this.__controlled = this.__controlled
+            ? this.__mergeProps({
+                key: 'value',
+                event: 'onChange',
+                defaultVal: undefined,
+                paramsIndex: 0
+            }, this.__controlled)
+            : null;
+        // 使用 _injectEvent 的方式将属性的控制逻辑注入到事件中，将事件名称推入_injectEvent数组中即可
+        if (this.__controlled) {
+            let event = this.__controlled.event;
+            this._injectEvent.push(event);
+            // 创建一个名为_${event}的函数，供_injectEvent的相关逻辑调用
+            // 防止子类中已经实现了_${event}函数，此处使用注入的方式进行赋值
+            this._inject(this, `_${event}`, this._onControlEventHandler)
+        }
+    }
     _afterInit() {
         super._afterInit();
         // 保存原始antd组件的引用
         this.__props['ref'] = (ele) => this._component = ele;
-        // 受控配置 - 如果不为null,则合并覆盖
-        this.__controlled = this.__controlled
-            ? this.__mergeProps({
-                    key: 'value',
-                    event: 'onChange',
-                    defaultVal: undefined,
-                    paramsIndex: 0
-                }, this.__controlled)
-            : null;
         // 受控组件默认处理逻辑
         this._handleControlled();
     }
 
-    // 受控属性绑定change事件，同时也受控于用户传入的值
+    // 组件创建时，对受控属性值进行同步
     _handleControlled() {
         if (!this.__controlled) {
             return;
@@ -75,15 +86,16 @@ export default class Antd extends BaseComponent {
             // 屏蔽warning，非受控组件转换为受控组件会报warning
             this.__props[key] = defaultVal;
         }
-        this._inject(this.__props, event, (...params)=>{
-            // 如果用户传入了 controlled 属性，则完全由用户自己控制，不再执行默认控制逻辑
-            if (this.__filtered.controlled) {
-                return;
-            }
-            this._onControlEvent(...params);
-        });
     }
 
+    // 供 _injectEvent 使用
+    _onControlEventHandler(...params) {
+        // 如果用户传入了 controlled 属性，则完全由用户自己控制，不再执行默认控制逻辑
+        if (this.__filtered.controlled) {
+            return;
+        }
+        this._onControlEvent(...params);
+    }
     // 同步onChange的数据到受控属性上，默认取第一个参数
     // ** 可直接被子类覆盖重写 **
     // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）

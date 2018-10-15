@@ -65,7 +65,7 @@ export default class Crud extends BaseComponent {
             let item = this.__getConf(Utils.clone(config[i]));
             let action = this._getAction(i);
             // api属性不能复用
-            item.api = this.__formatApi(item.api);
+            item.api = Utils.varietyFormat(item.api, 'url');
             switch (action) {
                 // 新增弹框的配置
                 case 'add':

@@ -57,7 +57,7 @@ export default class Enum {
                     this.tools.execAjax({
                         // 默认开启缓存
                         cache: true,
-                        ...this.tools.formatApi(item.enum),
+                        ...Utils.varietyFormat(item.enum, 'url'),
                         success: data => {
                             this.save(item.dataIndex, data);
                             this.complete();

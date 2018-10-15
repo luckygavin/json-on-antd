@@ -109,7 +109,7 @@ class NewModal extends BaseComponent {
         }
     }
     // onSubmit 以此函数为入口
-    _onSubmit(...op) {
+    _submitHandler(...op) {
         let params = this._getParams();
         if (!params) {
             return;
@@ -126,7 +126,7 @@ class NewModal extends BaseComponent {
         }
         // 不管是否为Promise，成功与失败逻辑如下
         this.__compatePromise(result, success=>{
-            let finish = this._onSuccess(result);
+            let finish = this._successHandler(result);
             this.__compatePromise(finish, success=>{
                 this.__setProps({confirmLoading: false});
                 this.close();
@@ -135,7 +135,7 @@ class NewModal extends BaseComponent {
             this.__setProps({confirmLoading: false});
         });
     }
-    _onSuccess(...params) {
+    _successHandler(...params) {
         return this.__props.onSuccess && this.__props.onSuccess(...params);
     }
     // 处理 footer 按钮
@@ -151,7 +151,7 @@ class NewModal extends BaseComponent {
                 case 'submit':
                     // action === 'submit' 的按钮和默认的确认按钮等价（onClick === onSubmit）
                     this.__props.onSubmit = v.onClick || this.__props.onSubmit;
-                    item.onClick = this._onSubmit.bind(this);
+                    item.onClick = this._submitHandler.bind(this);
                     break;
                 case 'reset':
                     item.onClick = () => {
@@ -197,14 +197,15 @@ class NewModal extends BaseComponent {
     render() {
         // footer是在组件中解析的，解析后放置在footerContent中
         let selfProps = {
-            onOk: this._onSubmit.bind(this)
+            onOk: this._submitHandler.bind(this)
         };
         if (this.__props.footerContent) {
             selfProps.footer = this.__props.footerContent;
         }
         // 获取排序后的结果
         let children = this.getChildrenRank();
-        return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps} className="uf-modal">
+        return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps}
+            {...this.__getCommonProps({className: 'uf-modal'})}>
             {children[0]}
             {children[1]}
             {children[2]}

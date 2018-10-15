@@ -109,6 +109,9 @@ export default class Factory extends PureComponent {
     getConf(item) {
         return Loader.getConf(item, this.insName);
     }
+    getComp(item) {
+        return Loader.get(item);
+    }
 
     // 处理用户配置的参数，并生成组件需要使用的 props
     handleProps(item) {

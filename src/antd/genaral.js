@@ -39,6 +39,9 @@ export class Button extends Genaral {
         this._injectEvent.push('onClick');
         this.__init();
     }
+    loading(status = true) {
+        this.__setProps({loading: status});
+    }
     _afterInitProps() {
         if (this.__filtered.actived === true) {
             this.__filtered.active = !!this.__filtered.active;

@@ -158,12 +158,6 @@ export class Link extends BaseRouter {
         super(props);
         this.__init();
     }
-    // _afterInit() {
-    //     this._inject(this.__props, 'onClick', e=>{
-    //         e.preventDefault();
-    //         OriRouter.browserHistory.push('#' + this.__props.to);
-    //     });
-    // }
     render() {
         return <OriRouter.Link {...this.__props}/>;
     }

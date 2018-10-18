@@ -203,6 +203,13 @@ export default {
             target: 'data'
         }
     },
+    'tree-select': {
+        source: {
+            autoLoad: true,
+            autoReload: false,
+            target: 'treeData'
+        }
+    },
     'list': {
         interleave: true,
         bordered: true,

@@ -40,8 +40,6 @@ export default class NewTable extends BaseComponent {
         );
         this.__init();
         this._showLoading = this.__filtered.source.showLoading === undefined || this.__filtered.source.showLoading;
-        // 存储source中的初始化params参数
-        this.oriSourceParams = {};
         this.state = {
             antdConfig: null,
             // 数据默认为空
@@ -78,13 +76,26 @@ export default class NewTable extends BaseComponent {
         this.requestIndex = null;
         this.expandThEle && this.expandThEle.removeEventListener('click', this.expandAllEventListener.bind(this));
     }
+    _afterSetProps(changeProps) {
+        super._afterSetProps();
+        // 当只改了source.params参数，未更改params，则将source.params更新的值覆盖到params上
+        if (!changeProps.params && changeProps.source && changeProps.source.params) {
+            this.__props.params = Utils.merge(this.__props.params, changeProps.source.params);
+        }
+    }
+    // 为了兼容params的两种用法。
+    // 需使用params的地方，直接调用此函数
+    // 参数逻辑为，params为直接覆盖，source.params为增量更新；params > source.params
+    getSourceParams() {
+        return Utils.merge({}, this.__filtered.source.params, this.__props.params)
+    }
     initTable(isFirst) {
         let objProps = this.__props;
-        isFirst && (this.oriSourceParams = Utils.clone(this.__filtered.source.params));
+        // isFirst && (this.oriSourceParams = Utils.clone(this.__filtered.source.params));
         // 兼容参数处理，兼容params的两种用法（写source外面也可以）
-        if (objProps.params) {
-            this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
-        }
+        // if (objProps.params) {
+        //     this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
+        // }
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
@@ -112,10 +123,6 @@ export default class NewTable extends BaseComponent {
                 state.selectedRowKeys = this.rowSelection.selectedRowKeys;
             }
         }
-        // 判断数据是disable。如果没定义，默认处理逻辑为数据中是否有disable/disabled === true
-        // this.disabledRow = this.rowSelection && (this.rowSelection.disabledRow !== undefined)
-        //         ? this.rowSelection.disabledRow
-        //         : v=>v.disable || v.disabled;
         // 展开相关
         if (!!objProps.expandedRowKeys) {
             state.expandedRowKeys = objProps.expandedRowKeys;
@@ -289,7 +296,10 @@ export default class NewTable extends BaseComponent {
             return {
                 mode: 'asyn',
                 headers: headers,
-                source: this.__filtered.source,
+                source: {
+                    ...this.__filtered.source,
+                    params: this.getSourceParams()
+                },
                 total: this.pagination.total || 0
             };
         }
@@ -376,7 +386,8 @@ export default class NewTable extends BaseComponent {
     }
     // 异步获取数据
     getData(pageNum) {
-        let {url, params} = this.__filtered.source;
+        let url = this.__filtered.source.url;
+        let params = this.getSourceParams();
         if (!url) {
             return;
         }

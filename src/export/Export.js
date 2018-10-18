@@ -11,7 +11,7 @@ import {Utils} from 'src/utils';
 
 export default class Export extends BaseComponent {
     constructor(props) {
-        super(props, 'export');
+        super(props, {type: 'export'});
         this._openApi.push('export');
         this.__init();
         this.state = {};

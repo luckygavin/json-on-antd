@@ -53,13 +53,13 @@ export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
 export default class BaseComponent extends Component {
     // export default class BaseComponent extends PureComponent {
     // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
-    constructor(props, type) {
+    constructor(props, options = {}) {
         super(props);
         this.state = {};
         // 组件类型，用于组件及其基类基础配置的获取
         this.class = ['base-component'];
         // 未使用__init的组件，手动传入组件类型
-        this.type = this.props.__type || type;
+        this.type = this.props.__type || options.type;
         this.key = this.props.__key;
         // 组件缓存的key。有值的话组件才会缓存，如果值为null，则不会做缓存
         this.cacheName = this._getTransmitName();

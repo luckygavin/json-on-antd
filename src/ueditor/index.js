@@ -1,1 +1,4 @@
-module.exports = require('./Ueditor.js').default;
+module.exports = {
+    Ueditor: require('./Ueditor.js').default,
+    UeditorParse: require('./UeditorParse.js').default
+};

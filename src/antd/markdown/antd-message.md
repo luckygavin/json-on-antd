@@ -30,7 +30,7 @@
 
 ### message.config
 
-```js
+```javascript
 UF.message.config({
     top: 100,
     duration: 2,
@@ -41,3 +41,19 @@ UF.message.config({
 |------------|--------------------|--------------------------|-------------|
 | top        | 消息距离顶部的位置 | number                      | 24px        |
 | duration   | 默认自动关闭延时，单位秒 | number                 | 3         |
+| autoMerge  | 自动合并相同内容的提示信息 | boolean                 | true        |
+
+> 以上参数，除使用`UF.message.config`进行配置外，也可以在`UF.config({components: ''})`中配置，如下：
+
+```javascript
+UF.config({
+    // ...
+    components: {
+        message: {
+            top: '50px',
+            duration: 2.5,
+            autoMerge: false
+        }
+    }
+});
+```

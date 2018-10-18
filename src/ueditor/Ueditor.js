@@ -1,6 +1,5 @@
 /**
  * @file Ueditor封装
- *      重写了上传图片组件
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -13,10 +12,10 @@ export default class Ueditor extends BaseComponent {
         super(props);
         // 在form组件中使用时，会额外传入一个 data-__meta 字段
         this._filter.push('data-__meta');
-        this.name = props.name;
+        this.name = this._getTransmitName();
         this.ueditor = null;
         // 保证每次实例化都有一个唯一的id
-        this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
+        this.ueditorId = (this.name || 'create_editor') + '_' + Date.now();
         this.data = props.data;
     }
     componentWillReceiveProps(nextProps) {
@@ -47,6 +46,7 @@ export default class Ueditor extends BaseComponent {
             // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
             this.ueditor = window.UE;
             this.initUeditor();
+            this.ueSetData(this.data);
         });
     }
     initUeditor() {

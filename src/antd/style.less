@@ -19,3 +19,15 @@
         }
     }
 }
+
+// message组件，当新增和销毁的提示信息挨着时，修改动画效果
+.ant-message {
+    .move-up-leave+.move-up-enter {
+        display: none;
+    }
+}
+.ant-notification-notice {
+    .ant-notification-fade-leave+.ant-notification-fade-enter {
+        display: none;
+    }
+}

@@ -28,7 +28,6 @@ const List = {
     Sider: ['trigger'],
     Modal: ['title'],
     Notification: ['message', 'description', 'btn', 'icon'],
-    Message: ['content'],
     Fieldset: ['title']
 };
 

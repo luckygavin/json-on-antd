@@ -10,7 +10,7 @@ import {Utils} from 'src/utils';
 
 export default class Crud extends BaseComponent {
     constructor(props) {
-        super(props, 'table-crud');
+        super(props, {type: 'table-crud'});
         // 其本身无需初始化组件
         // this.__init();
         this.parent = props.parent;

@@ -14,7 +14,7 @@ import {Input, InputNumber, Button, Icon, Dropdown, Checkbox, message, Option} f
 // 为每个单元格创建一个包装父类组件
 export default class TableEdit extends BaseComponent {
     constructor(props) {
-        super(props, 'table-edit');
+        super(props, {type: 'table-edit'});
         // 自己制定组件类型
         this.__init();
 

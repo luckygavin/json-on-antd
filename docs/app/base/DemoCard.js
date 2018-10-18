@@ -18,6 +18,10 @@ export function switchCode(config) {
         if (Utils.typeof(value, 'function')) {
             result = `$F${funcList.length}$`;
             funcList.push(value.toString().replace(/\t/g, ''));
+            // if (/\t/g) {
+            //     funcList.push(value.toString().replace(/\t/g, ''));
+            // }
+            // funcList.push(value.toString().replace(/\n\s{5}/g, '\n'));
         }
         return result;
     }, 4);

@@ -197,7 +197,8 @@ export class FuzzyFilter extends Component {
             return;
         }
         // 在原有参数基础上，追加一个search参数
-        let oParams = this.parent.__filtered.source.params || {};
+        // let oParams = this.parent.__filtered.source.params || {};
+        let oParams = this.parent.__props.params || {};
         // 默认参数名称为search，可修改
         oParams[this.props.paramIndex || 'search'] = value;
         this.parent.set({params: oParams});

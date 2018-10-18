@@ -22,7 +22,7 @@
 | source | 异步加载功能。参数和通用source参数一致，实际用法略有不同 | Object | - |  |
 | widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |
 | showLine | 是否展示连接线 | Boolean | false | . |
-| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |
+| data | 外部传入数据，需要按照一定的格式书写，见底部示例 | Array |  | . |
 
 > 当配置了`source`参数时，树组件即具备了异步获取子树的功能，当点击到没有`children`数据又非叶子节点的时候，就会自动去用`source`系列参数获取数据。可见第一个demo的用法
 
@@ -66,7 +66,9 @@
 | minWidth | 树形图允许扩宽的最小宽度 | String | - |  |
 | maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |
 
-### # 每一个节点的数据格式
+<a name="node-parameter"></a>
+
+### # 节点的数据格式
 ```json
     [{
         name: '0-0',            // 必须
@@ -80,17 +82,4 @@
         ]
     },
     ...]
-```
-### # url参数对应接口的格式
-```json
-success:
-{
-    status:0,
-    data:[{…},…]
-}
-error:
-{
-    status: 1,
-    msg: 'error'
-}
 ```

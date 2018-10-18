@@ -17,12 +17,13 @@ export default {
         showLoading: false,
         paths: {
             'echarts': `${env.basePath}/third_party/echarts/echarts${env.production ? '.min' : ''}`,
-            'ueditor': `${env.basePath}/third_party/ueditor/ueditor.all`,
-            'ueditorconfig': `${env.basePath}/third_party/ueditor/ueditor.config`,
-            'zeroclipboard': `${env.basePath}/third_party/ueditor/ZeroClipboard`
+            'ueditor': `${env.basePath}/third_party/ueditor/ueditor.all${env.production ? '.min' : ''}`,
+            'ueditorconfig': `${env.basePath}/third_party/ueditor/ueditor.config${env.production ? '.min' : ''}`,
+            'zeroclipboard': `${env.basePath}/third_party/ueditor/ZeroClipboard${env.production ? '.min' : ''}`,
+            'ueditorparse': `${env.basePath}/third_party/ueditor/ueditor.parse${env.production ? '.min' : ''}`
         },
         shim: {
-            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+            'ueditor': ['zeroclipboard', 'ueditorconfig', 'ueditorparse'],
             'echarts': {
                 exports: 'echarts'
             }

@@ -78,7 +78,7 @@ const treeConfig = {
         // 必须为符合react语法的css样式
         width: '300px',
         paddingTop: '10px',
-        border: '1px solid #e2e2e2'
+        border: '1px dashed #e2e2e2'
     },
     expand: {
         // 全部为可选项，可写可不写

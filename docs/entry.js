@@ -78,6 +78,7 @@ const ComponentList = [
         {path: 'Radio', name: 'Radio 单选框', component: require('src/antd/docs/antd-radio').default},
         {path: 'Rate', name: 'Rate 评分', component: require('src/antd/docs/antd-rate').default},
         {path: 'Select', name: 'Select 选择器', component: require('src/antd/docs/antd-select').default},
+        {path: 'TreeSelect', name: 'TreeSelect 树选择', component: require('src/antd/docs/antd-tree-select').default},
         {path: 'Switch', name: 'Switch 开关', component: require('src/antd/docs/antd-switch').default},
         {path: 'Upload', name: 'Upload 上传', component: require('src/antd/docs/antd-upload').default}
     ]},

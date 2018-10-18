@@ -307,6 +307,19 @@ export class Select extends OptionsDataEntry {
 }
 
 
+/************* TreeSelect 树选择 ************************************************************************** */
+
+export class TreeSelect extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.TreeSelect {...this.__props}/>;
+    }
+}
+
+
 /************* Transfer 穿梭框 ************************************************************************** */
 
 // export class Transfer extends DataEntry {

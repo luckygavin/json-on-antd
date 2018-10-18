@@ -4,6 +4,7 @@ Ueditor 用法。
 
 * 使用和其他组件用法相似的方式使用 ueditor
 * 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API
+* 提供`ueditor-parse`组件对通过`ueditor`编辑的内容进行展示
 
 
 ## 组件&参数
@@ -42,3 +43,9 @@ selection.getText | 获得当前选中的文本 | ue.selection.getText()
 ### 注意
 
 与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等
+
+### # ueditor-parse
+
+用于对通过Ueditor编辑的内容进行展示，见顶部实例。
+
+相比于直接使用`html`组件，此组件会额外增加一些ueditor自己的样式，为官方推荐用法。

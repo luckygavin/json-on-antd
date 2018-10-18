@@ -35,8 +35,6 @@ const getParentsKeys = (nodes, keyArray) => {
     }
 };
 
-// TODO: 异步获取数据不能用。data字段必须填
-
 export default class OriginTree extends BaseComponent {
     constructor(props) {
         super(props);
@@ -111,7 +109,6 @@ export default class OriginTree extends BaseComponent {
         // 对用户未配置的项使用默认配置
         // this.config = this.__mergeProps(this.config, objProps.config);
         this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
-        this.style = this.config.style;
         this.expand = this.config.expand;
         this.checkbox = this.config.checkbox;
         this.search = this.config.search;
@@ -382,7 +379,7 @@ export default class OriginTree extends BaseComponent {
     }
     // 渲染树
     renderTreeNode(data) {
-        const {expandedKeys, searchValue} = this.state;
+        const searchValue = this.state.searchValue;
         return data.map(item => {
             let title = item.name;
             if (this.search && this.search.enable) {
@@ -398,52 +395,55 @@ export default class OriginTree extends BaseComponent {
                     </span>
                 ) : <span>{item.name}</span>;
             }
-            if (item.isLeaf === false || !!item.children) {
-                return (
-                    <TreeNode key={item.key} title={title} data={item} isLeaf={false} _item={item}
-                        disableCheckbox={!!item.disableCheckbox} disabled={!!item.disabled}>
-                        {!!item.children && this.renderTreeNode(item.children)}
-                    </TreeNode>
-                );
-            }
-            else {
-                return <TreeNode key={item.key} title={title} isLeaf data={item}
-                    disableCheckbox={!!item.disableCheckbox} disabled={!!item.disabled}/>;
-            }
+            return <TreeNode
+                    key={item.key}
+                    title={title}
+                    value={item.value || item.key}
+                    data={item}
+                    _item={item}
+                    isLeaf={!(item.isLeaf === false || !!item.children)}
+                    disableCheckbox={!!item.disableCheckbox}
+                    disabled={!!item.disabled}
+                >
+                {!!item.children && this.renderTreeNode(item.children)}
+            </TreeNode>;
         });
     }
+    getTreeProps() {
+        const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, treeData} = this.state;
+        return {
+            ...this.antdConfig,
+            autoExpandParent,
+            onExpand: this.onExpand.bind(this),
+            onSelect: this.onSelect.bind(this),
+            onCheck: this.onCheck.bind(this),
+            ...(!!expandedKeys ? {expandedKeys: expandedKeys} : null),
+            ...(!!checkedKeys ? {checkedKeys: checkedKeys} : null),
+            ...(!!selectedKeys ? {selectedKeys: selectedKeys} : null),
+            ...(!!this.loadData ? {loadData: this.onLoadData.bind(this)} : null),
+            children: this.renderTreeNode(treeData)
+        };
+    }
     render() {
-        const {expandedKeys, autoExpandParent, checkedKeys, selectedKeys, searchValue, treeData} = this.state;
-        let searchTip = treeData.length === 0 ? '未找到可以匹配的结果' : '';
+        let searchTip = this.state.treeData.length === 0 ? '未找到可以匹配的结果' : '';
         return (
-            <div className="uf-tree" style={this.style} ref="tree">
-            {this.search.enable
-                && <div className="uf-tree-search">
-                    <Search
-                    style={{width: '90%'}}
-                    placeholder="Search"
-                    onChange={this.onChange.bind(this)}
-                    />
-                    <div className="uf-tree-treeSearchTip"
-                        style={{display: searchTip.length > 0 ? 'block' : 'none'}}>{searchTip}</div>
-                </div>
-            }
-            <Tree
-                {...this.antdConfig}
-                autoExpandParent = {autoExpandParent}
-                onExpand = {this.onExpand.bind(this)}
-                onSelect = {this.onSelect.bind(this)}
-                onCheck = {this.onCheck.bind(this)}
-                {...(!!expandedKeys ? {expandedKeys: expandedKeys} : null)}
-                {...(!!checkedKeys ? {checkedKeys: checkedKeys} : null)}
-                {...(!!selectedKeys ? {selectedKeys: selectedKeys} : null)}
-                {...(!!this.loadData ? {loadData: this.onLoadData.bind(this)} : null)}
-            >
-                {this.renderTreeNode(treeData)}
-            </Tree>
-            {this.widthResize['resizeAble']
-                && <div className="uf-tree-ew-resize" onMouseDown={this.resizeWidth.bind(this)}></div>
-            }
-        </div>);
+            <div ref="tree" {...this.__getCommonProps({className: 'uf-tree'})}>
+                {this.search.enable && (
+                    <div className="uf-tree-search">
+                        <Search
+                        style={{width: '90%'}}
+                        placeholder="Search"
+                        onChange={this.onChange.bind(this)}
+                        />
+                        <div className="uf-tree-treeSearchTip"
+                            style={{display: searchTip.length > 0 ? 'block' : 'none'}}>{searchTip}</div>
+                    </div>
+                )}
+                <Tree {...this.getTreeProps()}/>
+                {this.widthResize['resizeAble'] && (
+                    <div className="uf-tree-ew-resize" onMouseDown={this.resizeWidth.bind(this)}></div>
+                )}
+            </div>
+        );
     }
 }

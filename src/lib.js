@@ -21,7 +21,8 @@ module.exports = Object.assign(
         Forms: require('./form').Forms,
         Modal: require('./modal').Modal,
         Dashboard: require('./modal').Dashboard,
-        Ueditor: require('./ueditor'),
+        Ueditor: require('./ueditor').Ueditor,
+        UeditorParse: require('./ueditor').UeditorParse,
         Echarts: require('./echarts'),
         Fieldset: require('./fieldset'),
         List: require('./list')

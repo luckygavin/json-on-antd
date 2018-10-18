@@ -68,11 +68,11 @@
 
 	var map = {
 		"./baidu-theme/index.less": 2,
-		"./dark/index.less": 3,
-		"./default/index.less": 4,
-		"./green/index.less": 5,
-		"./large/index.less": 6,
-		"./we-theme/index.less": 7
+		"./dark/index.less": 5,
+		"./default/index.less": 6,
+		"./green/index.less": 7,
+		"./large/index.less": 8,
+		"./we-theme/index.less": 9
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -92,31 +92,21 @@
 /* 2 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./baidu-theme/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-	(function() { module.exports = global["./dark/index.less"]; }());
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-	(function() { module.exports = global["./default/index.less"]; }());
-
-/***/ }),
+/* 3 */,
+/* 4 */,
 /* 5 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./green/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	(function() { module.exports = global["./large/index.less"]; }());
+	// removed by extract-text-webpack-plugin
 
 /***/ }),
 /* 7 */
@@ -125,8 +115,18 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */,
-/* 9 */,
+/* 8 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.11","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.12","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -184,19 +184,19 @@
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(111);
+	__webpack_require__(112);
 
 	var _utils = __webpack_require__(22);
 
-	var _cache = __webpack_require__(112);
+	var _cache = __webpack_require__(113);
 
 	var _cache2 = _interopRequireDefault(_cache);
 
-	var _factory = __webpack_require__(119);
+	var _factory = __webpack_require__(120);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(120);
+	var _loader = __webpack_require__(121);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -204,7 +204,7 @@
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _init = __webpack_require__(123);
+	var _init = __webpack_require__(124);
 
 	var _init2 = _interopRequireDefault(_init);
 
@@ -480,6 +480,15 @@
 
 	            // 处理 precondition 参数, 执行阻塞页面加载的函数
 	            this._handlePreconditionConf(conf);
+
+	            // message组件设置
+	            if (config.components.message) {
+	                _lib2.default.message.config(config.components.message);
+	            }
+	            // notification组件设置
+	            if (config.components.notification) {
+	                _lib2.default.notification.config(config.components.notification);
+	            }
 	        },
 
 	        // 获取全部实例，可以和其他实例做交互
@@ -606,10 +615,11 @@
 	    Forms: __webpack_require__(97).Forms,
 	    Modal: __webpack_require__(100).Modal,
 	    Dashboard: __webpack_require__(100).Dashboard,
-	    Ueditor: __webpack_require__(103),
-	    Echarts: __webpack_require__(105),
-	    Fieldset: __webpack_require__(107),
-	    List: __webpack_require__(109)
+	    Ueditor: __webpack_require__(103).Ueditor,
+	    UeditorParse: __webpack_require__(103).UeditorParse,
+	    Echarts: __webpack_require__(106),
+	    Fieldset: __webpack_require__(108),
+	    List: __webpack_require__(110)
 	});
 
 /***/ }),
@@ -826,7 +836,9 @@
 
 	    // export default class BaseComponent extends PureComponent {
 	    // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
-	    function BaseComponent(props, type) {
+	    function BaseComponent(props) {
+	        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
 	        _classCallCheck(this, BaseComponent);
 
 	        var _this = _possibleConstructorReturn(this, (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).call(this, props));
@@ -835,7 +847,7 @@
 	        // 组件类型，用于组件及其基类基础配置的获取
 	        _this.class = ['base-component'];
 	        // 未使用__init的组件，手动传入组件类型
-	        _this.type = _this.props.__type || type;
+	        _this.type = _this.props.__type || options.type;
 	        _this.key = _this.props.__key;
 	        // 组件缓存的key。有值的话组件才会缓存，如果值为null，则不会做缓存
 	        _this.cacheName = _this._getTransmitName();
@@ -7918,7 +7930,6 @@
 	    Sider: ['trigger'],
 	    Modal: ['title'],
 	    Notification: ['message', 'description', 'btn', 'icon'],
-	    Message: ['content'],
 	    Fieldset: ['title']
 	}; /**
 	    * @file 属性需进一步解析的组件属性名单
@@ -8195,7 +8206,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Dragger = exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = undefined;
+	exports.Dragger = exports.Upload = exports.Switch = exports.TreeSelect = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -8209,9 +8220,9 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _DataEntry9 = __webpack_require__(67);
+	var _DataEntry10 = __webpack_require__(67);
 
-	var _DataEntry10 = _interopRequireDefault(_DataEntry9);
+	var _DataEntry11 = _interopRequireDefault(_DataEntry10);
 
 	var _antd = __webpack_require__(21);
 
@@ -8231,8 +8242,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	var OptionsDataEntry = _DataEntry10.default.OptionsDataEntry;
-	var BasePicker = _DataEntry10.default.BasePicker;
+	var OptionsDataEntry = _DataEntry11.default.OptionsDataEntry;
+	var BasePicker = _DataEntry11.default.BasePicker;
 
 	/************* Cascader 级联选择 ************************************************************************** */
 
@@ -8424,7 +8435,7 @@
 	    }]);
 
 	    return Input;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// textarea
 
 
@@ -8448,7 +8459,7 @@
 	    }]);
 
 	    return Textarea;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
 
 
@@ -8499,7 +8510,7 @@
 	    }]);
 
 	    return InputGroup;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 数字输入框
 
 
@@ -8523,7 +8534,7 @@
 	    }]);
 
 	    return InputNumber;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Rate 评分 ************************************************************************** */
 
@@ -8547,7 +8558,7 @@
 	    }]);
 
 	    return Rate;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Checkbox 复选框 ************************************************************************** */
 
@@ -8573,7 +8584,7 @@
 	    }]);
 
 	    return Checkbox;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 多复选框组合
 
 
@@ -8769,6 +8780,30 @@
 	    return Select;
 	}(OptionsDataEntry);
 
+	/************* TreeSelect 树选择 ************************************************************************** */
+
+	var TreeSelect = exports.TreeSelect = function (_DataEntry7) {
+	    _inherits(TreeSelect, _DataEntry7);
+
+	    function TreeSelect(props) {
+	        _classCallCheck(this, TreeSelect);
+
+	        var _this16 = _possibleConstructorReturn(this, (TreeSelect.__proto__ || Object.getPrototypeOf(TreeSelect)).call(this, props));
+
+	        _this16.__init();
+	        return _this16;
+	    }
+
+	    _createClass(TreeSelect, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.TreeSelect, this.__props);
+	        }
+	    }]);
+
+	    return TreeSelect;
+	}(_DataEntry11.default);
+
 	/************* Transfer 穿梭框 ************************************************************************** */
 
 	// export class Transfer extends DataEntry {
@@ -8797,18 +8832,18 @@
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry7) {
-	    _inherits(Switch, _DataEntry7);
+	var Switch = exports.Switch = function (_DataEntry8) {
+	    _inherits(Switch, _DataEntry8);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this16 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this16.__controlled.key = 'checked';
-	        _this16.__controlled.defaultVal = false;
-	        _this16.__init();
-	        return _this16;
+	        _this17.__controlled.key = 'checked';
+	        _this17.__controlled.defaultVal = false;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Switch, [{
@@ -8820,24 +8855,24 @@
 	    }]);
 
 	    return Switch;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Upload 开关 ************************************************************************** */
 
-	var Upload = exports.Upload = function (_DataEntry8) {
-	    _inherits(Upload, _DataEntry8);
+	var Upload = exports.Upload = function (_DataEntry9) {
+	    _inherits(Upload, _DataEntry9);
 
 	    function Upload(props) {
 	        _classCallCheck(this, Upload);
 
-	        var _this17 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
 
-	        _this17.__controlled.key = 'fileList';
-	        _this17.__controlled.defaultVal = [];
-	        _this17._filter.push('fieldName');
-	        _this17.__init();
-	        _this17.__props.name = _this17.props.fieldName || 'file';
-	        return _this17;
+	        _this18.__controlled.key = 'fileList';
+	        _this18.__controlled.defaultVal = [];
+	        _this18._filter.push('fieldName');
+	        _this18.__init();
+	        _this18.__props.name = _this18.props.fieldName || 'file';
+	        return _this18;
 	    }
 	    // 参数额外处理
 
@@ -8855,7 +8890,7 @@
 	    }]);
 
 	    return Upload;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	var Dragger = exports.Dragger = function (_Upload) {
 	    _inherits(Dragger, _Upload);
@@ -11511,13 +11546,77 @@
 
 	/************* message 提示 ************************************************************************** */
 
+	// 保存当前未销毁的提示信息的销毁函数
+
+
+	var currentMessageHandle = {};
+	var messageAutoMerge = true;
 	// 统一处理config（某些属性需要二次解析）
-
-
-	function messageHandler(type, config) {
+	function messageHandler(type, config, duration, onClose) {
 	    var _Antd$message;
 
-	    var list = _src.WhiteList.get(config, 'message');
+	    // key 相同的提示信息只展示一个
+	    var key = _utils.Utils.hash({ type: type, config: config });
+	    if (messageAutoMerge && currentMessageHandle[key]) {
+	        // 先创建，再销毁
+	        _utils.Utils.defer(currentMessageHandle[key]);
+	    }
+	    // 重写onClose函数
+	    close = function close() {
+	        delete currentMessageHandle[key];
+	        onClose && onClose.apply(undefined, arguments);
+	    };
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = _src2.default.render(config);
+	    }
+	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
+
+	    for (var _len = arguments.length, params = Array(_len > 4 ? _len - 4 : 0), _key = 4; _key < _len; _key++) {
+	        params[_key - 4] = arguments[_key];
+	    }
+
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    currentMessageHandle[key] = distroy;
+	    return distroy;
+	}
+	// 拦截 message.config ，加入自定义参数处理
+	function messageConfHandler(conf) {
+	    if (conf.autoMerge !== undefined) {
+	        messageAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading'),
+	    config: messageConfHandler
+	});
+
+	/************* notification 提示 ************************************************************************** */
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentNotificationHandle = {};
+	var notificationAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function notificationHandler(type, config) {
+	    if (notificationAutoMerge) {
+	        // key 相同的提示信息只展示一个
+	        if (config.key) {
+	            Antd.notification.close(config.key);
+	        } else {
+	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
+	            var hashKey = _utils.Utils.hash({ type: type, config: config });
+	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
+	            var key = _utils.Utils.uniqueId();
+	            currentNotificationHandle[hashKey] = key;
+	            config.key = key;
+	        }
+	    }
+	    var list = _src.WhiteList.get(config, 'notification');
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -11543,56 +11642,14 @@
 	        }
 	    }
 
-	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = _src2.default.render(config);
-	    }
-
-	    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	        params[_key - 2] = arguments[_key];
-	    }
-
-	    return (_Antd$message = Antd.message)[type].apply(_Antd$message, [config].concat(params));
-	}
-
-	var message = exports.message = Object.assign({}, Antd.message, {
-	    success: messageHandler.bind(null, 'success'),
-	    error: messageHandler.bind(null, 'error'),
-	    info: messageHandler.bind(null, 'info'),
-	    warning: messageHandler.bind(null, 'warning'),
-	    warn: messageHandler.bind(null, 'warn'),
-	    loading: messageHandler.bind(null, 'loading')
-	});
-
-	/************* notification 提示 ************************************************************************** */
-
-	function notificationHandler(type, config) {
-	    var list = _src.WhiteList.get(config, 'notification');
-	    var _iteratorNormalCompletion2 = true;
-	    var _didIteratorError2 = false;
-	    var _iteratorError2 = undefined;
-
-	    try {
-	        for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	            var v = _step2.value;
-
-	            config[v] = _src2.default.render(config[v]);
-	        }
-	    } catch (err) {
-	        _didIteratorError2 = true;
-	        _iteratorError2 = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                _iterator2.return();
-	            }
-	        } finally {
-	            if (_didIteratorError2) {
-	                throw _iteratorError2;
-	            }
-	        }
-	    }
-
 	    return Antd.notification[type](config);
+	}
+	// 拦截 notification.config ，加入自定义参数处理
+	function notificationConfHandler(conf) {
+	    if (conf.autoMerge !== undefined) {
+	        notificationAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
 	}
 
 	var notification = exports.notification = Object.assign({}, Antd.notification, {
@@ -11601,7 +11658,8 @@
 	    info: notificationHandler.bind(null, 'info'),
 	    warning: notificationHandler.bind(null, 'warning'),
 	    warn: notificationHandler.bind(null, 'warn'),
-	    open: notificationHandler.bind(null, 'open')
+	    open: notificationHandler.bind(null, 'open'),
+	    config: notificationConfHandler
 	});
 
 /***/ }),
@@ -12574,7 +12632,7 @@
 	    function Export(props) {
 	        _classCallCheck(this, Export);
 
-	        var _this = _possibleConstructorReturn(this, (Export.__proto__ || Object.getPrototypeOf(Export)).call(this, props, 'export'));
+	        var _this = _possibleConstructorReturn(this, (Export.__proto__ || Object.getPrototypeOf(Export)).call(this, props, { type: 'export' }));
 
 	        _this._openApi.push('export');
 	        _this.__init();
@@ -13369,8 +13427,6 @@
 	    }
 	};
 
-	// TODO: 异步获取数据不能用。data字段必须填
-
 	var OriginTree = function (_BaseComponent) {
 	    _inherits(OriginTree, _BaseComponent);
 
@@ -13455,7 +13511,6 @@
 	            // 对用户未配置的项使用默认配置
 	            // this.config = this.__mergeProps(this.config, objProps.config);
 	            this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
-	            this.style = this.config.style;
 	            this.expand = this.config.expand;
 	            this.checkbox = this.config.checkbox;
 	            this.search = this.config.search;
@@ -13812,10 +13867,7 @@
 	        value: function renderTreeNode(data) {
 	            var _this4 = this;
 
-	            var _state = this.state,
-	                expandedKeys = _state.expandedKeys,
-	                searchValue = _state.searchValue;
-
+	            var searchValue = this.state.searchValue;
 	            return data.map(function (item) {
 	                var title = item.name;
 	                if (_this4.search && _this4.search.enable) {
@@ -13839,34 +13891,48 @@
 	                        item.name
 	                    );
 	                }
-	                if (item.isLeaf === false || !!item.children) {
-	                    return _react2.default.createElement(
-	                        TreeNode,
-	                        { key: item.key, title: title, data: item, isLeaf: false, _item: item,
-	                            disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled },
-	                        !!item.children && _this4.renderTreeNode(item.children)
-	                    );
-	                } else {
-	                    return _react2.default.createElement(TreeNode, { key: item.key, title: title, isLeaf: true, data: item,
-	                        disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled });
-	                }
+	                return _react2.default.createElement(
+	                    TreeNode,
+	                    {
+	                        key: item.key,
+	                        title: title,
+	                        value: item.value || item.key,
+	                        data: item,
+	                        _item: item,
+	                        isLeaf: !(item.isLeaf === false || !!item.children),
+	                        disableCheckbox: !!item.disableCheckbox,
+	                        disabled: !!item.disabled
+	                    },
+	                    !!item.children && _this4.renderTreeNode(item.children)
+	                );
+	            });
+	        }
+	    }, {
+	        key: 'getTreeProps',
+	        value: function getTreeProps() {
+	            var _state = this.state,
+	                expandedKeys = _state.expandedKeys,
+	                autoExpandParent = _state.autoExpandParent,
+	                checkedKeys = _state.checkedKeys,
+	                selectedKeys = _state.selectedKeys,
+	                treeData = _state.treeData;
+
+	            return _extends({}, this.antdConfig, {
+	                autoExpandParent: autoExpandParent,
+	                onExpand: this.onExpand.bind(this),
+	                onSelect: this.onSelect.bind(this),
+	                onCheck: this.onCheck.bind(this)
+	            }, !!expandedKeys ? { expandedKeys: expandedKeys } : null, !!checkedKeys ? { checkedKeys: checkedKeys } : null, !!selectedKeys ? { selectedKeys: selectedKeys } : null, !!this.loadData ? { loadData: this.onLoadData.bind(this) } : null, {
+	                children: this.renderTreeNode(treeData)
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _state2 = this.state,
-	                expandedKeys = _state2.expandedKeys,
-	                autoExpandParent = _state2.autoExpandParent,
-	                checkedKeys = _state2.checkedKeys,
-	                selectedKeys = _state2.selectedKeys,
-	                searchValue = _state2.searchValue,
-	                treeData = _state2.treeData;
-
-	            var searchTip = treeData.length === 0 ? '未找到可以匹配的结果' : '';
+	            var searchTip = this.state.treeData.length === 0 ? '未找到可以匹配的结果' : '';
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-tree', style: this.style, ref: 'tree' },
+	                _extends({ ref: 'tree' }, this.__getCommonProps({ className: 'uf-tree' })),
 	                this.search.enable && _react2.default.createElement(
 	                    'div',
 	                    { className: 'uf-tree-search' },
@@ -13882,16 +13948,7 @@
 	                        searchTip
 	                    )
 	                ),
-	                _react2.default.createElement(
-	                    _antd.Tree,
-	                    _extends({}, this.antdConfig, {
-	                        autoExpandParent: autoExpandParent,
-	                        onExpand: this.onExpand.bind(this),
-	                        onSelect: this.onSelect.bind(this),
-	                        onCheck: this.onCheck.bind(this)
-	                    }, !!expandedKeys ? { expandedKeys: expandedKeys } : null, !!checkedKeys ? { checkedKeys: checkedKeys } : null, !!selectedKeys ? { selectedKeys: selectedKeys } : null, !!this.loadData ? { loadData: this.onLoadData.bind(this) } : null),
-	                    this.renderTreeNode(treeData)
-	                ),
+	                _react2.default.createElement(_antd.Tree, this.getTreeProps()),
 	                this.widthResize['resizeAble'] && _react2.default.createElement('div', { className: 'uf-tree-ew-resize', onMouseDown: this.resizeWidth.bind(this) })
 	            );
 	        }
@@ -13923,11 +13980,13 @@
 	    value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 	var _react = __webpack_require__(13);
 
@@ -14008,8 +14067,6 @@
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction');
 	        _this.__init();
 	        _this._showLoading = _this.__filtered.source.showLoading === undefined || _this.__filtered.source.showLoading;
-	        // 存储source中的初始化params参数
-	        _this.oriSourceParams = {};
 	        _this.state = {
 	            antdConfig: null,
 	            // 数据默认为空
@@ -14053,16 +14110,34 @@
 	            this.expandThEle && this.expandThEle.removeEventListener('click', this.expandAllEventListener.bind(this));
 	        }
 	    }, {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps(changeProps) {
+	            _get(NewTable.prototype.__proto__ || Object.getPrototypeOf(NewTable.prototype), '_afterSetProps', this).call(this);
+	            // 当只改了source.params参数，未更改params，则将source.params更新的值覆盖到params上
+	            if (!changeProps.params && changeProps.source && changeProps.source.params) {
+	                this.__props.params = _utils.Utils.merge(this.__props.params, changeProps.source.params);
+	            }
+	        }
+	        // 为了兼容params的两种用法。
+	        // 需使用params的地方，直接调用此函数
+	        // 参数逻辑为，params为直接覆盖，source.params为增量更新；params > source.params
+
+	    }, {
+	        key: 'getSourceParams',
+	        value: function getSourceParams() {
+	            return _utils.Utils.merge({}, this.__filtered.source.params, this.__props.params);
+	        }
+	    }, {
 	        key: 'initTable',
 	        value: function initTable(isFirst) {
 	            var _this2 = this;
 
 	            var objProps = this.__props;
-	            isFirst && (this.oriSourceParams = _utils.Utils.clone(this.__filtered.source.params));
+	            // isFirst && (this.oriSourceParams = Utils.clone(this.__filtered.source.params));
 	            // 兼容参数处理，兼容params的两种用法（写source外面也可以）
-	            if (objProps.params) {
-	                this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
-	            }
+	            // if (objProps.params) {
+	            //     this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
+	            // }
 	            var state = {};
 	            // TODO: rowKey 为函数时，下面很多地方不适用
 	            this.rowKey = objProps.rowKey || 'id';
@@ -14090,10 +14165,6 @@
 	                    state.selectedRowKeys = this.rowSelection.selectedRowKeys;
 	                }
 	            }
-	            // 判断数据是disable。如果没定义，默认处理逻辑为数据中是否有disable/disabled === true
-	            // this.disabledRow = this.rowSelection && (this.rowSelection.disabledRow !== undefined)
-	            //         ? this.rowSelection.disabledRow
-	            //         : v=>v.disable || v.disabled;
 	            // 展开相关
 	            if (!!objProps.expandedRowKeys) {
 	                state.expandedRowKeys = objProps.expandedRowKeys;
@@ -14314,7 +14385,9 @@
 	                return {
 	                    mode: 'asyn',
 	                    headers: headers,
-	                    source: this.__filtered.source,
+	                    source: _extends({}, this.__filtered.source, {
+	                        params: this.getSourceParams()
+	                    }),
 	                    total: this.pagination.total || 0
 	                };
 	            }
@@ -14431,10 +14504,8 @@
 	        value: function getData(pageNum) {
 	            var _this7 = this;
 
-	            var _filtered$source = this.__filtered.source,
-	                url = _filtered$source.url,
-	                params = _filtered$source.params;
-
+	            var url = this.__filtered.source.url;
+	            var params = this.getSourceParams();
 	            if (!url) {
 	                return;
 	            }
@@ -15172,7 +15243,7 @@
 
 	        // 其本身无需初始化组件
 	        // this.__init();
-	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, 'table-crud'));
+	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, { type: 'table-crud' }));
 
 	        _this.parent = props.parent;
 	        _this.enum = props.enum;
@@ -15910,7 +15981,7 @@
 	        // 其本身无需初始化组件
 	        // this.__init();
 	        // 缓存展示字段名称组件的cacheName
-	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, 'table-title'));
+	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, { type: 'table-title' }));
 
 	        _this.cacheName = props.parent.insName + props.parent.key;
 	        _this.useCache = true;
@@ -16905,7 +16976,8 @@
 	                return;
 	            }
 	            // 在原有参数基础上，追加一个search参数
-	            var oParams = this.parent.__filtered.source.params || {};
+	            // let oParams = this.parent.__filtered.source.params || {};
+	            var oParams = this.parent.__props.params || {};
 	            // 默认参数名称为search，可修改
 	            oParams[this.props.paramIndex || 'search'] = value;
 	            this.parent.set({ params: oParams });
@@ -17208,7 +17280,7 @@
 	        _classCallCheck(this, TableEdit);
 
 	        // 自己制定组件类型
-	        var _this = _possibleConstructorReturn(this, (TableEdit.__proto__ || Object.getPrototypeOf(TableEdit)).call(this, props, 'table-edit'));
+	        var _this = _possibleConstructorReturn(this, (TableEdit.__proto__ || Object.getPrototypeOf(TableEdit)).call(this, props, { type: 'table-edit' }));
 
 	        _this.__init();
 
@@ -19796,7 +19868,10 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(104).default;
+	module.exports = {
+	    Ueditor: __webpack_require__(104).default,
+	    UeditorParse: __webpack_require__(105).default
+	};
 
 /***/ }),
 /* 104 */
@@ -19830,7 +19905,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor封装
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
@@ -19845,10 +19919,10 @@
 	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
 
 	        _this._filter.push('data-__meta');
-	        _this.name = props.name;
+	        _this.name = _this._getTransmitName();
 	        _this.ueditor = null;
 	        // 保证每次实例化都有一个唯一的id
-	        _this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
+	        _this.ueditorId = (_this.name || 'create_editor') + '_' + Date.now();
 	        _this.data = props.data;
 	        return _this;
 	    }
@@ -19891,6 +19965,7 @@
 	                // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
 	                _this3.ueditor = window.UE;
 	                _this3.initUeditor();
+	                _this3.ueSetData(_this3.data);
 	            });
 	        }
 	    }, {
@@ -19976,14 +20051,102 @@
 
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(13);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(14);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _dom = __webpack_require__(17);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor内容解析器，对ueditor编辑的内容进行展示
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var UeditorParse = function (_Html) {
+	    _inherits(UeditorParse, _Html);
+
+	    function UeditorParse(props) {
+	        _classCallCheck(this, UeditorParse);
+
+	        var _this = _possibleConstructorReturn(this, (UeditorParse.__proto__ || Object.getPrototypeOf(UeditorParse)).call(this, props));
+
+	        _this.type = 'div';
+	        return _this;
+	    }
+	    // 解析
+
+
+	    _createClass(UeditorParse, [{
+	        key: 'parse',
+	        value: function parse() {
+	            window.uParse('#' + this.ueditorId, {
+	                rootPath: window.UEDITOR_HOME_URL
+	            });
+	        }
+	    }, {
+	        key: '_beforeInit',
+	        value: function _beforeInit() {
+	            // 保证每次实例化都有一个唯一的id
+	            this.ueditorId = (this._getTransmitName() || 'editor_parse') + '_' + Date.now();
+	            this.__props.id = this.ueditorId;
+	        }
+	        // 加载ueditor相关文件
+
+	    }, {
+	        key: '_componentDidMount',
+	        value: function _componentDidMount() {
+	            var _this2 = this;
+
+	            _get(UeditorParse.prototype.__proto__ || Object.getPrototypeOf(UeditorParse.prototype), '_componentDidMount', this).call(this);
+	            this._factory.$requirejs(['ueditor'], function (UE) {
+	                _this2.parse();
+	            });
+	        }
+	    }, {
+	        key: '_componentDidUpdate',
+	        value: function _componentDidUpdate(prevProps, prevState) {
+	            _get(UeditorParse.prototype.__proto__ || Object.getPrototypeOf(UeditorParse.prototype), '_componentDidUpdate', this).call(this);
+	            this.parse();
+	        }
+	    }]);
+
+	    return UeditorParse;
+	}(_dom.Html);
+
+	exports.default = UeditorParse;
+
+/***/ }),
+/* 106 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	/**
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(106).default;
+	module.exports = __webpack_require__(107).default;
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20162,7 +20325,7 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20171,10 +20334,10 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(108).default;
+	module.exports = __webpack_require__(109).default;
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20236,7 +20399,7 @@
 	exports.default = Fieldset;
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20245,10 +20408,10 @@
 	 * @file 组件入口
 	 * **/
 
-	module.exports = __webpack_require__(110).default;
+	module.exports = __webpack_require__(111).default;
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20341,30 +20504,30 @@
 	exports.default = List;
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(113);
+	var _config = __webpack_require__(114);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _components = __webpack_require__(116);
+	var _components = __webpack_require__(117);
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _model = __webpack_require__(117);
+	var _model = __webpack_require__(118);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _ajax = __webpack_require__(118);
+	var _ajax = __webpack_require__(119);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
@@ -20395,7 +20558,7 @@
 	};
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20412,7 +20575,7 @@
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(114);
+	var _default = __webpack_require__(115);
 
 	var _default2 = _interopRequireDefault(_default);
 
@@ -20470,7 +20633,7 @@
 	});
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20479,7 +20642,7 @@
 	    value: true
 	});
 
-	var _components = __webpack_require__(115);
+	var _components = __webpack_require__(116);
 
 	var _components2 = _interopRequireDefault(_components);
 
@@ -20505,12 +20668,13 @@
 	        showLoading: false,
 	        paths: {
 	            'echarts': _env2.default.basePath + '/third_party/echarts/echarts' + (_env2.default.production ? '.min' : ''),
-	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all',
-	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config',
-	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard'
+	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all' + (_env2.default.production ? '.min' : ''),
+	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config' + (_env2.default.production ? '.min' : ''),
+	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard' + (_env2.default.production ? '.min' : ''),
+	            'ueditorparse': _env2.default.basePath + '/third_party/ueditor/ueditor.parse' + (_env2.default.production ? '.min' : '')
 	        },
 	        shim: {
-	            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+	            'ueditor': ['zeroclipboard', 'ueditorconfig', 'ueditorparse'],
 	            'echarts': {
 	                exports: 'echarts'
 	            }
@@ -20531,7 +20695,7 @@
 	};
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -20740,6 +20904,12 @@
 	        autoReload: false,
 	        target: 'data'
 	    }
+	}), _defineProperty(_baseComponent$antd$, 'tree-select', {
+	    source: {
+	        autoLoad: true,
+	        autoReload: false,
+	        target: 'treeData'
+	    }
 	}), _defineProperty(_baseComponent$antd$, 'list', {
 	    interleave: true,
 	    bordered: true,
@@ -20752,7 +20922,7 @@
 	}), _baseComponent$antd$);
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20824,7 +20994,7 @@
 	});
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20854,7 +21024,7 @@
 	     */
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20947,7 +21117,7 @@
 	});
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -20964,11 +21134,11 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _loader = __webpack_require__(120);
+	var _loader = __webpack_require__(121);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(121);
+	var _adaptor = __webpack_require__(122);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
@@ -20976,7 +21146,7 @@
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(122);
+	var _validator = __webpack_require__(123);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
@@ -21290,7 +21460,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21401,7 +21571,7 @@
 	};
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21426,7 +21596,7 @@
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(120);
+	var _loader = __webpack_require__(121);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
@@ -21636,7 +21806,7 @@
 	};
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21703,7 +21873,7 @@
 	    */
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21712,11 +21882,11 @@
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _requirejs = __webpack_require__(124);
+	var _requirejs = __webpack_require__(125);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
-	var _precondition = __webpack_require__(125);
+	var _precondition = __webpack_require__(126);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
@@ -21745,7 +21915,7 @@
 	};
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;'use strict';
@@ -23975,7 +24145,7 @@
 	window['_define'] = define;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';

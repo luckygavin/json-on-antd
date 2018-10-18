@@ -17,8 +17,13 @@
 
 `2018-10-15`
 
-* ⚙ 大调内部实现，支持事件函数更新
+* ⚙ 调整内部实现，支持事件函数更新
 * 🌟 文档平台，增加新功能提示功能
+* 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示
+* 🎨 `Ueditor`默认字号改为12px
+* 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息
+* 🌟 新增`TreeSelect`组件，树形选择框
+* ⚙ `Table`组件调整params参数和source.params的合并逻辑
 
 
 `2018-10-09`

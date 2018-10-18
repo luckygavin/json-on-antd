@@ -17,7 +17,7 @@ const MenuItem = Menu.Item;
 
 export default class Title extends BaseComponent {
     constructor(props) {
-        super(props, 'table-title');
+        super(props, {type: 'table-title'});
         // 其本身无需初始化组件
         // this.__init();
         // 缓存展示字段名称组件的cacheName

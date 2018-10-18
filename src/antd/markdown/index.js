@@ -12,6 +12,7 @@ module.exports = {
     'antd-radio.md': require('./antd-radio.md'),
     'antd-rate.md': require('./antd-rate.md'),
     'antd-select.md': require('./antd-select.md'),
+    'antd-tree-select.md': require('./antd-tree-select.md'),
     'antd-switch.md': require('./antd-switch.md'),
     'antd-upload.md': require('./antd-upload.md'),
 

@@ -90,7 +90,7 @@
 	var DocsList = [{ path: 'Guide', name: '写在最前面', component: __webpack_require__(299).default }, { path: 'Introduction', name: '功能介绍', component: __webpack_require__(300).default }, { path: 'UpdateLog', name: '更新日志', component: __webpack_require__(301).default }, { path: 'Usage', name: '入门', children: [{ path: 'Install', name: '开始使用', component: __webpack_require__(302).default }, { path: 'Join', name: '组件嵌套', component: __webpack_require__(303).default }, { path: 'Call', name: '组件交互', component: __webpack_require__(304).default }, { path: 'Layout', name: '页面布局', component: __webpack_require__(305).default }, { path: 'Page', name: '一个例子', component: __webpack_require__(306).default }] }, { path: 'Develop', name: '进阶', children: [{ path: 'Install', name: '路由&模块', component: __webpack_require__(307).default }, { path: 'Config', name: '全局配置', component: __webpack_require__(308).default }, { path: 'Modules', name: '模块开发', component: __webpack_require__(309).default }, { path: 'Build', name: '另一种模式', component: __webpack_require__(310).default }] }, { path: 'Api', name: '交互API', component: __webpack_require__(311).default }, { path: 'Params', name: '通用参数', component: __webpack_require__(312).default }, { path: 'Lifecycle', name: '生命周期', component: __webpack_require__(313).default }, { path: 'Load', name: '特殊组件', component: __webpack_require__(314).default }, { path: 'Others', name: '更多用法', component: __webpack_require__(315).default }];
 
 	// 组件文档列表
-	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(316).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(318).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(320).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(322).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(324).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(326).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(328).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(330).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(332).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(334).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(225).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(336).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(337).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(338).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(339).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(341).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(342).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(343).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(344).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(345).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(346).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(347).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(349).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(350).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(351).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(352).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(353).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(354).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(355).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(356).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(357).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(358).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(359).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(360).default },
+	var ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(316).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(318).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(320).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(322).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(324).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(326).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(328).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(330).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(332).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(334).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(225).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(336).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(337).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(338).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(339).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(341).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(342).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(343).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(344).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(345).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(346).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(347).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(349).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(350).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(351).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(352).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(353).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(354).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(355).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(356).default }, { path: 'TreeSelect', name: 'TreeSelect 树选择', component: __webpack_require__(385).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(357).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(358).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(359).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(360).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
 	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(361).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(362).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(363).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(364).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(365).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(366).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(367).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(368).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(369).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(370).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(371).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(372).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(373).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(374).default }] }, { path: 'Other', name: '其他组件', children: [{ path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(375).default }, { path: 'Anchor', name: 'Anchor 锚点', component: __webpack_require__(376).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(377).default }, { path: 'Fieldset', name: 'Fieldset 文字块', component: __webpack_require__(379).default }] }];
 
@@ -419,7 +419,7 @@
 	    _createClass(NewTips, [{
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {
-	            _src2.default.init(config, '#new-tips');
+	            // UF.init(config, '#new-tips');
 	        }
 	    }, {
 	        key: 'render',
@@ -491,6 +491,10 @@
 	        if (_utils.Utils.typeof(value, 'function')) {
 	            result = '$F' + funcList.length + '$';
 	            funcList.push(value.toString().replace(/\t/g, ''));
+	            // if (/\t/g) {
+	            //     funcList.push(value.toString().replace(/\t/g, ''));
+	            // }
+	            // funcList.push(value.toString().replace(/\n\s{5}/g, '\n'));
 	        }
 	        return result;
 	    }, 4);
@@ -2216,6 +2220,15 @@
 
 	            // 处理 precondition 参数, 执行阻塞页面加载的函数
 	            this._handlePreconditionConf(conf);
+
+	            // message组件设置
+	            if (config.components.message) {
+	                _lib2.default.message.config(config.components.message);
+	            }
+	            // notification组件设置
+	            if (config.components.notification) {
+	                _lib2.default.notification.config(config.components.notification);
+	            }
 	        },
 
 	        // 获取全部实例，可以和其他实例做交互
@@ -2330,7 +2343,8 @@
 	    Forms: __webpack_require__(195).Forms,
 	    Modal: __webpack_require__(198).Modal,
 	    Dashboard: __webpack_require__(198).Dashboard,
-	    Ueditor: __webpack_require__(201),
+	    Ueditor: __webpack_require__(201).Ueditor,
+	    UeditorParse: __webpack_require__(201).UeditorParse,
 	    Echarts: __webpack_require__(203),
 	    Fieldset: __webpack_require__(205),
 	    List: __webpack_require__(207)
@@ -2550,7 +2564,9 @@
 
 	    // export default class BaseComponent extends PureComponent {
 	    // 组件、中间基类不调用__init，如果想要给Base设置type，则需要构造函数传入
-	    function BaseComponent(props, type) {
+	    function BaseComponent(props) {
+	        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
 	        _classCallCheck(this, BaseComponent);
 
 	        var _this = _possibleConstructorReturn(this, (BaseComponent.__proto__ || Object.getPrototypeOf(BaseComponent)).call(this, props));
@@ -2559,7 +2575,7 @@
 	        // 组件类型，用于组件及其基类基础配置的获取
 	        _this.class = ['base-component'];
 	        // 未使用__init的组件，手动传入组件类型
-	        _this.type = _this.props.__type || type;
+	        _this.type = _this.props.__type || options.type;
 	        _this.key = _this.props.__key;
 	        // 组件缓存的key。有值的话组件才会缓存，如果值为null，则不会做缓存
 	        _this.cacheName = _this._getTransmitName();
@@ -9636,7 +9652,6 @@
 	    Sider: ['trigger'],
 	    Modal: ['title'],
 	    Notification: ['message', 'description', 'btn', 'icon'],
-	    Message: ['content'],
 	    Fieldset: ['title']
 	}; /**
 	    * @file 属性需进一步解析的组件属性名单
@@ -9913,7 +9928,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Dragger = exports.Upload = exports.Switch = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = undefined;
+	exports.Dragger = exports.Upload = exports.Switch = exports.TreeSelect = exports.Select = exports.Radio = exports.CheckboxGroup = exports.Checkbox = exports.Rate = exports.InputNumber = exports.InputGroup = exports.InputSearch = exports.Textarea = exports.Input = exports.TimePicker = exports.MonthPicker = exports.RangePicker = exports.DatePicker = exports.Cascader = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -9927,9 +9942,9 @@
 
 	var _utils = __webpack_require__(121);
 
-	var _DataEntry9 = __webpack_require__(166);
+	var _DataEntry10 = __webpack_require__(166);
 
-	var _DataEntry10 = _interopRequireDefault(_DataEntry9);
+	var _DataEntry11 = _interopRequireDefault(_DataEntry10);
 
 	var _antd = __webpack_require__(110);
 
@@ -9949,8 +9964,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
-	var OptionsDataEntry = _DataEntry10.default.OptionsDataEntry;
-	var BasePicker = _DataEntry10.default.BasePicker;
+	var OptionsDataEntry = _DataEntry11.default.OptionsDataEntry;
+	var BasePicker = _DataEntry11.default.BasePicker;
 
 	/************* Cascader 级联选择 ************************************************************************** */
 
@@ -10142,7 +10157,7 @@
 	    }]);
 
 	    return Input;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// textarea
 
 
@@ -10166,7 +10181,7 @@
 	    }]);
 
 	    return Textarea;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 带搜索按钮 - 其余功能与Input一致，所以继承 Input 的处理逻辑
 
 
@@ -10217,7 +10232,7 @@
 	    }]);
 
 	    return InputGroup;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 数字输入框
 
 
@@ -10241,7 +10256,7 @@
 	    }]);
 
 	    return InputNumber;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Rate 评分 ************************************************************************** */
 
@@ -10265,7 +10280,7 @@
 	    }]);
 
 	    return Rate;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Checkbox 复选框 ************************************************************************** */
 
@@ -10291,7 +10306,7 @@
 	    }]);
 
 	    return Checkbox;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 	// 多复选框组合
 
 
@@ -10487,6 +10502,30 @@
 	    return Select;
 	}(OptionsDataEntry);
 
+	/************* TreeSelect 树选择 ************************************************************************** */
+
+	var TreeSelect = exports.TreeSelect = function (_DataEntry7) {
+	    _inherits(TreeSelect, _DataEntry7);
+
+	    function TreeSelect(props) {
+	        _classCallCheck(this, TreeSelect);
+
+	        var _this16 = _possibleConstructorReturn(this, (TreeSelect.__proto__ || Object.getPrototypeOf(TreeSelect)).call(this, props));
+
+	        _this16.__init();
+	        return _this16;
+	    }
+
+	    _createClass(TreeSelect, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.TreeSelect, this.__props);
+	        }
+	    }]);
+
+	    return TreeSelect;
+	}(_DataEntry11.default);
+
 	/************* Transfer 穿梭框 ************************************************************************** */
 
 	// export class Transfer extends DataEntry {
@@ -10515,18 +10554,18 @@
 
 	/************* Switch 开关 ************************************************************************** */
 
-	var Switch = exports.Switch = function (_DataEntry7) {
-	    _inherits(Switch, _DataEntry7);
+	var Switch = exports.Switch = function (_DataEntry8) {
+	    _inherits(Switch, _DataEntry8);
 
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this16 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this16.__controlled.key = 'checked';
-	        _this16.__controlled.defaultVal = false;
-	        _this16.__init();
-	        return _this16;
+	        _this17.__controlled.key = 'checked';
+	        _this17.__controlled.defaultVal = false;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Switch, [{
@@ -10538,24 +10577,24 @@
 	    }]);
 
 	    return Switch;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	/************* Upload 开关 ************************************************************************** */
 
-	var Upload = exports.Upload = function (_DataEntry8) {
-	    _inherits(Upload, _DataEntry8);
+	var Upload = exports.Upload = function (_DataEntry9) {
+	    _inherits(Upload, _DataEntry9);
 
 	    function Upload(props) {
 	        _classCallCheck(this, Upload);
 
-	        var _this17 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (Upload.__proto__ || Object.getPrototypeOf(Upload)).call(this, props));
 
-	        _this17.__controlled.key = 'fileList';
-	        _this17.__controlled.defaultVal = [];
-	        _this17._filter.push('fieldName');
-	        _this17.__init();
-	        _this17.__props.name = _this17.props.fieldName || 'file';
-	        return _this17;
+	        _this18.__controlled.key = 'fileList';
+	        _this18.__controlled.defaultVal = [];
+	        _this18._filter.push('fieldName');
+	        _this18.__init();
+	        _this18.__props.name = _this18.props.fieldName || 'file';
+	        return _this18;
 	    }
 	    // 参数额外处理
 
@@ -10573,7 +10612,7 @@
 	    }]);
 
 	    return Upload;
-	}(_DataEntry10.default);
+	}(_DataEntry11.default);
 
 	var Dragger = exports.Dragger = function (_Upload) {
 	    _inherits(Dragger, _Upload);
@@ -13223,13 +13262,77 @@
 
 	/************* message 提示 ************************************************************************** */
 
+	// 保存当前未销毁的提示信息的销毁函数
+
+
+	var currentMessageHandle = {};
+	var messageAutoMerge = true;
 	// 统一处理config（某些属性需要二次解析）
-
-
-	function messageHandler(type, config) {
+	function messageHandler(type, config, duration, onClose) {
 	    var _Antd$message;
 
-	    var list = _src.WhiteList.get(config, 'message');
+	    // key 相同的提示信息只展示一个
+	    var key = _utils.Utils.hash({ type: type, config: config });
+	    if (messageAutoMerge && currentMessageHandle[key]) {
+	        // 先创建，再销毁
+	        _utils.Utils.defer(currentMessageHandle[key]);
+	    }
+	    // 重写onClose函数
+	    close = function close() {
+	        delete currentMessageHandle[key];
+	        onClose && onClose.apply(undefined, arguments);
+	    };
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = _src2.default.render(config);
+	    }
+	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
+
+	    for (var _len = arguments.length, params = Array(_len > 4 ? _len - 4 : 0), _key = 4; _key < _len; _key++) {
+	        params[_key - 4] = arguments[_key];
+	    }
+
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    currentMessageHandle[key] = distroy;
+	    return distroy;
+	}
+	// 拦截 message.config ，加入自定义参数处理
+	function messageConfHandler(conf) {
+	    if (conf.autoMerge !== undefined) {
+	        messageAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading'),
+	    config: messageConfHandler
+	});
+
+	/************* notification 提示 ************************************************************************** */
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentNotificationHandle = {};
+	var notificationAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function notificationHandler(type, config) {
+	    if (notificationAutoMerge) {
+	        // key 相同的提示信息只展示一个
+	        if (config.key) {
+	            Antd.notification.close(config.key);
+	        } else {
+	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
+	            var hashKey = _utils.Utils.hash({ type: type, config: config });
+	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
+	            var key = _utils.Utils.uniqueId();
+	            currentNotificationHandle[hashKey] = key;
+	            config.key = key;
+	        }
+	    }
+	    var list = _src.WhiteList.get(config, 'notification');
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
@@ -13255,56 +13358,14 @@
 	        }
 	    }
 
-	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = _src2.default.render(config);
-	    }
-
-	    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	        params[_key - 2] = arguments[_key];
-	    }
-
-	    return (_Antd$message = Antd.message)[type].apply(_Antd$message, [config].concat(params));
-	}
-
-	var message = exports.message = Object.assign({}, Antd.message, {
-	    success: messageHandler.bind(null, 'success'),
-	    error: messageHandler.bind(null, 'error'),
-	    info: messageHandler.bind(null, 'info'),
-	    warning: messageHandler.bind(null, 'warning'),
-	    warn: messageHandler.bind(null, 'warn'),
-	    loading: messageHandler.bind(null, 'loading')
-	});
-
-	/************* notification 提示 ************************************************************************** */
-
-	function notificationHandler(type, config) {
-	    var list = _src.WhiteList.get(config, 'notification');
-	    var _iteratorNormalCompletion2 = true;
-	    var _didIteratorError2 = false;
-	    var _iteratorError2 = undefined;
-
-	    try {
-	        for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	            var v = _step2.value;
-
-	            config[v] = _src2.default.render(config[v]);
-	        }
-	    } catch (err) {
-	        _didIteratorError2 = true;
-	        _iteratorError2 = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                _iterator2.return();
-	            }
-	        } finally {
-	            if (_didIteratorError2) {
-	                throw _iteratorError2;
-	            }
-	        }
-	    }
-
 	    return Antd.notification[type](config);
+	}
+	// 拦截 notification.config ，加入自定义参数处理
+	function notificationConfHandler(conf) {
+	    if (conf.autoMerge !== undefined) {
+	        notificationAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
 	}
 
 	var notification = exports.notification = Object.assign({}, Antd.notification, {
@@ -13313,7 +13374,8 @@
 	    info: notificationHandler.bind(null, 'info'),
 	    warning: notificationHandler.bind(null, 'warning'),
 	    warn: notificationHandler.bind(null, 'warn'),
-	    open: notificationHandler.bind(null, 'open')
+	    open: notificationHandler.bind(null, 'open'),
+	    config: notificationConfHandler
 	});
 
 /***/ }),
@@ -14286,7 +14348,7 @@
 	    function Export(props) {
 	        _classCallCheck(this, Export);
 
-	        var _this = _possibleConstructorReturn(this, (Export.__proto__ || Object.getPrototypeOf(Export)).call(this, props, 'export'));
+	        var _this = _possibleConstructorReturn(this, (Export.__proto__ || Object.getPrototypeOf(Export)).call(this, props, { type: 'export' }));
 
 	        _this._openApi.push('export');
 	        _this.__init();
@@ -15081,8 +15143,6 @@
 	    }
 	};
 
-	// TODO: 异步获取数据不能用。data字段必须填
-
 	var OriginTree = function (_BaseComponent) {
 	    _inherits(OriginTree, _BaseComponent);
 
@@ -15167,7 +15227,6 @@
 	            // 对用户未配置的项使用默认配置
 	            // this.config = this.__mergeProps(this.config, objProps.config);
 	            this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
-	            this.style = this.config.style;
 	            this.expand = this.config.expand;
 	            this.checkbox = this.config.checkbox;
 	            this.search = this.config.search;
@@ -15524,10 +15583,7 @@
 	        value: function renderTreeNode(data) {
 	            var _this4 = this;
 
-	            var _state = this.state,
-	                expandedKeys = _state.expandedKeys,
-	                searchValue = _state.searchValue;
-
+	            var searchValue = this.state.searchValue;
 	            return data.map(function (item) {
 	                var title = item.name;
 	                if (_this4.search && _this4.search.enable) {
@@ -15551,34 +15607,48 @@
 	                        item.name
 	                    );
 	                }
-	                if (item.isLeaf === false || !!item.children) {
-	                    return _react2.default.createElement(
-	                        TreeNode,
-	                        { key: item.key, title: title, data: item, isLeaf: false, _item: item,
-	                            disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled },
-	                        !!item.children && _this4.renderTreeNode(item.children)
-	                    );
-	                } else {
-	                    return _react2.default.createElement(TreeNode, { key: item.key, title: title, isLeaf: true, data: item,
-	                        disableCheckbox: !!item.disableCheckbox, disabled: !!item.disabled });
-	                }
+	                return _react2.default.createElement(
+	                    TreeNode,
+	                    {
+	                        key: item.key,
+	                        title: title,
+	                        value: item.value || item.key,
+	                        data: item,
+	                        _item: item,
+	                        isLeaf: !(item.isLeaf === false || !!item.children),
+	                        disableCheckbox: !!item.disableCheckbox,
+	                        disabled: !!item.disabled
+	                    },
+	                    !!item.children && _this4.renderTreeNode(item.children)
+	                );
+	            });
+	        }
+	    }, {
+	        key: 'getTreeProps',
+	        value: function getTreeProps() {
+	            var _state = this.state,
+	                expandedKeys = _state.expandedKeys,
+	                autoExpandParent = _state.autoExpandParent,
+	                checkedKeys = _state.checkedKeys,
+	                selectedKeys = _state.selectedKeys,
+	                treeData = _state.treeData;
+
+	            return _extends({}, this.antdConfig, {
+	                autoExpandParent: autoExpandParent,
+	                onExpand: this.onExpand.bind(this),
+	                onSelect: this.onSelect.bind(this),
+	                onCheck: this.onCheck.bind(this)
+	            }, !!expandedKeys ? { expandedKeys: expandedKeys } : null, !!checkedKeys ? { checkedKeys: checkedKeys } : null, !!selectedKeys ? { selectedKeys: selectedKeys } : null, !!this.loadData ? { loadData: this.onLoadData.bind(this) } : null, {
+	                children: this.renderTreeNode(treeData)
 	            });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _state2 = this.state,
-	                expandedKeys = _state2.expandedKeys,
-	                autoExpandParent = _state2.autoExpandParent,
-	                checkedKeys = _state2.checkedKeys,
-	                selectedKeys = _state2.selectedKeys,
-	                searchValue = _state2.searchValue,
-	                treeData = _state2.treeData;
-
-	            var searchTip = treeData.length === 0 ? '未找到可以匹配的结果' : '';
+	            var searchTip = this.state.treeData.length === 0 ? '未找到可以匹配的结果' : '';
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-tree', style: this.style, ref: 'tree' },
+	                _extends({ ref: 'tree' }, this.__getCommonProps({ className: 'uf-tree' })),
 	                this.search.enable && _react2.default.createElement(
 	                    'div',
 	                    { className: 'uf-tree-search' },
@@ -15594,16 +15664,7 @@
 	                        searchTip
 	                    )
 	                ),
-	                _react2.default.createElement(
-	                    _antd.Tree,
-	                    _extends({}, this.antdConfig, {
-	                        autoExpandParent: autoExpandParent,
-	                        onExpand: this.onExpand.bind(this),
-	                        onSelect: this.onSelect.bind(this),
-	                        onCheck: this.onCheck.bind(this)
-	                    }, !!expandedKeys ? { expandedKeys: expandedKeys } : null, !!checkedKeys ? { checkedKeys: checkedKeys } : null, !!selectedKeys ? { selectedKeys: selectedKeys } : null, !!this.loadData ? { loadData: this.onLoadData.bind(this) } : null),
-	                    this.renderTreeNode(treeData)
-	                ),
+	                _react2.default.createElement(_antd.Tree, this.getTreeProps()),
 	                this.widthResize['resizeAble'] && _react2.default.createElement('div', { className: 'uf-tree-ew-resize', onMouseDown: this.resizeWidth.bind(this) })
 	            );
 	        }
@@ -15635,11 +15696,13 @@
 	    value: true
 	});
 
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 	var _react = __webpack_require__(107);
 
@@ -15720,8 +15783,6 @@
 	        'toggleFullScreen', 'refreshTable', 'toShowAllTags', '_handleExport', 'handleAction');
 	        _this.__init();
 	        _this._showLoading = _this.__filtered.source.showLoading === undefined || _this.__filtered.source.showLoading;
-	        // 存储source中的初始化params参数
-	        _this.oriSourceParams = {};
 	        _this.state = {
 	            antdConfig: null,
 	            // 数据默认为空
@@ -15765,16 +15826,34 @@
 	            this.expandThEle && this.expandThEle.removeEventListener('click', this.expandAllEventListener.bind(this));
 	        }
 	    }, {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps(changeProps) {
+	            _get(NewTable.prototype.__proto__ || Object.getPrototypeOf(NewTable.prototype), '_afterSetProps', this).call(this);
+	            // 当只改了source.params参数，未更改params，则将source.params更新的值覆盖到params上
+	            if (!changeProps.params && changeProps.source && changeProps.source.params) {
+	                this.__props.params = _utils.Utils.merge(this.__props.params, changeProps.source.params);
+	            }
+	        }
+	        // 为了兼容params的两种用法。
+	        // 需使用params的地方，直接调用此函数
+	        // 参数逻辑为，params为直接覆盖，source.params为增量更新；params > source.params
+
+	    }, {
+	        key: 'getSourceParams',
+	        value: function getSourceParams() {
+	            return _utils.Utils.merge({}, this.__filtered.source.params, this.__props.params);
+	        }
+	    }, {
 	        key: 'initTable',
 	        value: function initTable(isFirst) {
 	            var _this2 = this;
 
 	            var objProps = this.__props;
-	            isFirst && (this.oriSourceParams = _utils.Utils.clone(this.__filtered.source.params));
+	            // isFirst && (this.oriSourceParams = Utils.clone(this.__filtered.source.params));
 	            // 兼容参数处理，兼容params的两种用法（写source外面也可以）
-	            if (objProps.params) {
-	                this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
-	            }
+	            // if (objProps.params) {
+	            //     this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
+	            // }
 	            var state = {};
 	            // TODO: rowKey 为函数时，下面很多地方不适用
 	            this.rowKey = objProps.rowKey || 'id';
@@ -15802,10 +15881,6 @@
 	                    state.selectedRowKeys = this.rowSelection.selectedRowKeys;
 	                }
 	            }
-	            // 判断数据是disable。如果没定义，默认处理逻辑为数据中是否有disable/disabled === true
-	            // this.disabledRow = this.rowSelection && (this.rowSelection.disabledRow !== undefined)
-	            //         ? this.rowSelection.disabledRow
-	            //         : v=>v.disable || v.disabled;
 	            // 展开相关
 	            if (!!objProps.expandedRowKeys) {
 	                state.expandedRowKeys = objProps.expandedRowKeys;
@@ -16026,7 +16101,9 @@
 	                return {
 	                    mode: 'asyn',
 	                    headers: headers,
-	                    source: this.__filtered.source,
+	                    source: _extends({}, this.__filtered.source, {
+	                        params: this.getSourceParams()
+	                    }),
 	                    total: this.pagination.total || 0
 	                };
 	            }
@@ -16143,10 +16220,8 @@
 	        value: function getData(pageNum) {
 	            var _this7 = this;
 
-	            var _filtered$source = this.__filtered.source,
-	                url = _filtered$source.url,
-	                params = _filtered$source.params;
-
+	            var url = this.__filtered.source.url;
+	            var params = this.getSourceParams();
 	            if (!url) {
 	                return;
 	            }
@@ -16884,7 +16959,7 @@
 
 	        // 其本身无需初始化组件
 	        // this.__init();
-	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, 'table-crud'));
+	        var _this = _possibleConstructorReturn(this, (Crud.__proto__ || Object.getPrototypeOf(Crud)).call(this, props, { type: 'table-crud' }));
 
 	        _this.parent = props.parent;
 	        _this.enum = props.enum;
@@ -17622,7 +17697,7 @@
 	        // 其本身无需初始化组件
 	        // this.__init();
 	        // 缓存展示字段名称组件的cacheName
-	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, 'table-title'));
+	        var _this = _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).call(this, props, { type: 'table-title' }));
 
 	        _this.cacheName = props.parent.insName + props.parent.key;
 	        _this.useCache = true;
@@ -18617,7 +18692,8 @@
 	                return;
 	            }
 	            // 在原有参数基础上，追加一个search参数
-	            var oParams = this.parent.__filtered.source.params || {};
+	            // let oParams = this.parent.__filtered.source.params || {};
+	            var oParams = this.parent.__props.params || {};
 	            // 默认参数名称为search，可修改
 	            oParams[this.props.paramIndex || 'search'] = value;
 	            this.parent.set({ params: oParams });
@@ -18920,7 +18996,7 @@
 	        _classCallCheck(this, TableEdit);
 
 	        // 自己制定组件类型
-	        var _this = _possibleConstructorReturn(this, (TableEdit.__proto__ || Object.getPrototypeOf(TableEdit)).call(this, props, 'table-edit'));
+	        var _this = _possibleConstructorReturn(this, (TableEdit.__proto__ || Object.getPrototypeOf(TableEdit)).call(this, props, { type: 'table-edit' }));
 
 	        _this.__init();
 
@@ -21508,7 +21584,10 @@
 
 	'use strict';
 
-	module.exports = __webpack_require__(202).default;
+	module.exports = {
+	    Ueditor: __webpack_require__(202).default,
+	    UeditorParse: __webpack_require__(384).default
+	};
 
 /***/ }),
 /* 202 */
@@ -21542,7 +21621,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor封装
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *      重写了上传图片组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
 
 
@@ -21557,10 +21635,10 @@
 	        var _this = _possibleConstructorReturn(this, (Ueditor.__proto__ || Object.getPrototypeOf(Ueditor)).call(this, props));
 
 	        _this._filter.push('data-__meta');
-	        _this.name = props.name;
+	        _this.name = _this._getTransmitName();
 	        _this.ueditor = null;
 	        // 保证每次实例化都有一个唯一的id
-	        _this.ueditorId = (props.name || 'create_editor') + '_' + Date.now();
+	        _this.ueditorId = (_this.name || 'create_editor') + '_' + Date.now();
 	        _this.data = props.data;
 	        return _this;
 	    }
@@ -21603,6 +21681,7 @@
 	                // ueditor未做umd兼容，而且不知为何 requirejs shim 无效，只能从window上拿
 	                _this3.ueditor = window.UE;
 	                _this3.initUeditor();
+	                _this3.ueSetData(_this3.data);
 	            });
 	        }
 	    }, {
@@ -22217,12 +22296,13 @@
 	        showLoading: false,
 	        paths: {
 	            'echarts': _env2.default.basePath + '/third_party/echarts/echarts' + (_env2.default.production ? '.min' : ''),
-	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all',
-	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config',
-	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard'
+	            'ueditor': _env2.default.basePath + '/third_party/ueditor/ueditor.all' + (_env2.default.production ? '.min' : ''),
+	            'ueditorconfig': _env2.default.basePath + '/third_party/ueditor/ueditor.config' + (_env2.default.production ? '.min' : ''),
+	            'zeroclipboard': _env2.default.basePath + '/third_party/ueditor/ZeroClipboard' + (_env2.default.production ? '.min' : ''),
+	            'ueditorparse': _env2.default.basePath + '/third_party/ueditor/ueditor.parse' + (_env2.default.production ? '.min' : '')
 	        },
 	        shim: {
-	            'ueditor': ['zeroclipboard', 'ueditorconfig'],
+	            'ueditor': ['zeroclipboard', 'ueditorconfig', 'ueditorparse'],
 	            'echarts': {
 	                exports: 'echarts'
 	            }
@@ -22451,6 +22531,12 @@
 	        autoLoad: true,
 	        autoReload: false,
 	        target: 'data'
+	    }
+	}), _defineProperty(_baseComponent$antd$, 'tree-select', {
+	    source: {
+	        autoLoad: true,
+	        autoReload: false,
+	        target: 'treeData'
 	    }
 	}), _defineProperty(_baseComponent$antd$, 'list', {
 	    interleave: true,
@@ -26493,7 +26579,7 @@
 /* 248 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n`2018-10-15`\n\n* ⚙ 大调内部实现，支持事件函数更新\n* 🌟 文档平台，增加新功能提示功能\n\n\n`2018-10-09`\n\n* 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n* 🎨 `Form`组件修改join参数为函数时的参数列表\n\n\n\n`2018-09-28`\n\n* ##### 新增组件\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * 🐞 修复`Export`组件同步导出不可用问题\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.3.0\n\n`2018-10-15`\n\n* ⚙ 调整内部实现，支持事件函数更新\n* 🌟 文档平台，增加新功能提示功能\n* 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示\n* 🎨 `Ueditor`默认字号改为12px\n* 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息\n* 🌟 新增`TreeSelect`组件，树形选择框\n\n`2018-10-09`\n\n* 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n* 🎨 `Form`组件修改join参数为函数时的参数列表\n\n\n\n`2018-09-28`\n\n* ##### 新增组件\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * 🐞 修复`Export`组件同步导出不可用问题\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致  \n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)  \n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table` \n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 249 */
@@ -26515,6 +26601,7 @@
 	    'antd-radio.md': __webpack_require__(259),
 	    'antd-rate.md': __webpack_require__(260),
 	    'antd-select.md': __webpack_require__(261),
+	    'antd-tree-select.md': __webpack_require__(386),
 	    'antd-switch.md': __webpack_require__(262),
 	    'antd-upload.md': __webpack_require__(263),
 
@@ -26744,13 +26831,13 @@
 /* 282 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局展示操作反馈信息。\n\n## 何时使用\n\n- 可提供成功、警告和错误等反馈信息。\n- 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。\n\n## API\n\n组件提供了一些静态方法，使用方式和参数如下：\n\n- `UF.message.success(content, duration, onClose)`\n- `UF.message.error(content, duration, onClose)`\n- `UF.message.info(content, duration, onClose)`\n- `UF.message.warning(content, duration, onClose)`\n- `UF.message.warn(content, duration, onClose)` // alias of warning\n- `UF.message.loading(content, duration, onClose)`\n\n| 参数       | 说明           | 类型                       | 默认值       |\n|------------|----------------|--------------------------|--------------|\n| content    | 提示内容       | string&#124;`config` | -           |\n| duration   | 自动关闭的延时，单位秒。如果设置为0，则一直显示，直到调用 `destroy` 方法 | number               | 3          |\n| onClose   | 关闭时触发的回调函数 | Function          | -         |\n\n还提供了全局配置和全局销毁方法：\n\n- `UF.message.config(options)`\n- `UF.message.destroy()`\n\n### message.config\n\n```js\nUF.message.config({\n    top: 100,\n    duration: 2,\n});\n```\n\n| 参数       | 说明                | 类型                       | 默认值       |\n|------------|--------------------|--------------------------|-------------|\n| top        | 消息距离顶部的位置 | number                      | 24px        |\n| duration   | 默认自动关闭延时，单位秒 | number                 | 3         |\n"
+	module.exports = "\n全局展示操作反馈信息。\n\n## 何时使用\n\n- 可提供成功、警告和错误等反馈信息。\n- 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。\n\n## API\n\n组件提供了一些静态方法，使用方式和参数如下：\n\n- `UF.message.success(content, duration, onClose)`\n- `UF.message.error(content, duration, onClose)`\n- `UF.message.info(content, duration, onClose)`\n- `UF.message.warning(content, duration, onClose)`\n- `UF.message.warn(content, duration, onClose)` // alias of warning\n- `UF.message.loading(content, duration, onClose)`\n\n| 参数       | 说明           | 类型                       | 默认值       |\n|------------|----------------|--------------------------|--------------|\n| content    | 提示内容       | string&#124;`config` | -           |\n| duration   | 自动关闭的延时，单位秒。如果设置为0，则一直显示，直到调用 `destroy` 方法 | number               | 3          |\n| onClose   | 关闭时触发的回调函数 | Function          | -         |\n\n还提供了全局配置和全局销毁方法：\n\n- `UF.message.config(options)`\n- `UF.message.destroy()`\n\n### message.config\n\n```javascript\nUF.message.config({\n    top: 100,\n    duration: 2,\n});\n```\n\n| 参数       | 说明                | 类型                       | 默认值       |\n|------------|--------------------|--------------------------|-------------|\n| top        | 消息距离顶部的位置 | number                      | 24px        |\n| duration   | 默认自动关闭延时，单位秒 | number                 | 3         |\n| autoMerge  | 自动合并相同内容的提示信息 | boolean                 | true        |\n\n> 以上参数，除使用`UF.message.config`进行配置外，也可以在`UF.config({components: ''})`中配置，如下：\n\n```javascript\nUF.config({\n    // ...\n    components: {\n        message: {\n            top: '50px',\n            duration: 2.5,\n            autoMerge: false\n        }\n    }\n});\n```"
 
 /***/ }),
 /* 283 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局展示通知提醒信息。\n\n## 何时使用\n\n在系统四个角显示通知提醒信息。经常用于以下情况：\n\n- 较为复杂的通知内容。\n- 带有交互的通知，给出用户下一步的行动点。\n- 系统主动推送。\n\n## API\n\n- `UF.notification.success(config)`\n- `UF.notification.error(config)`\n- `UF.notification.info(config)`\n- `UF.notification.warning(config)`\n- `UF.notification.warn(config)`\n- `UF.notification.close(key: String)`\n- `UF.notification.destroy()`\n\nconfig 参数如下：\n\n| 参数          | 说明                                       | 类型                | 默认值      |\n| ----------- | ---------------------------------------- | ----------------- | -------- |\n| message     | 通知提醒标题，必选                                | string&#124;`config` | -        |\n| description | 通知提醒内容，必选                                | string&#124;`config` | -        |\n| className   | 自定义 CSS class                            | string            | -        |\n| style       | 自定义内联样式                                  | Object            | -        |\n| btn         | 自定义关闭按钮                                  | `config`         | -        |\n| icon        | 自定义图标                                    | `config`         | -        |\n| key         | 当前通知唯一标志                                 | string            | -        |\n| onClose     | 点击默认关闭按钮时触发的回调函数                         | Function          | -        |\n| duration    | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭            | number            | 4.5      |\n| placement   | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string            | topRight |\n\n还提供了一个全局配置方法，在调用前提前配置，全局一次生效。\n\n- `UF.notification.config(options)`\n\n```js\nUF.notification.config({\n    placement: 'bottomRight',\n    bottom: 50,\n    duration: 3,\n});\n```\n\n| 参数           | 说明                                       | 类型             | 默认值                 |\n| ------------ | ---------------------------------------- | -------------- | ------------------- |\n| placement    | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string         | topRight            |\n| top          | 消息从顶部弹出时，距离顶部的位置，单位像素。                   | number         | 24                  |\n| bottom       | 消息从底部弹出时，距离底部的位置，单位像素。                   | number         | 24                  |\n| duration     | 默认自动关闭延时，单位秒                             | number         | 4.5                 |\n"
+	module.exports = "\n全局展示通知提醒信息。\n\n## 何时使用\n\n在系统四个角显示通知提醒信息。经常用于以下情况：\n\n- 较为复杂的通知内容。\n- 带有交互的通知，给出用户下一步的行动点。\n- 系统主动推送。\n\n## API\n\n- `UF.notification.success(config)`\n- `UF.notification.error(config)`\n- `UF.notification.info(config)`\n- `UF.notification.warning(config)`\n- `UF.notification.warn(config)`\n- `UF.notification.close(key: String)`\n- `UF.notification.destroy()` // 销毁当前全部提示信息\n\nconfig 参数如下：\n\n| 参数          | 说明                                       | 类型                | 默认值      |\n| ----------- | ---------------------------------------- | ----------------- | -------- |\n| message     | 通知提醒标题，必选                                | string&#124;`config` | -        |\n| description | 通知提醒内容，必选                                | string&#124;`config` | -        |\n| className   | 自定义 CSS class                            | string            | -        |\n| style       | 自定义内联样式                                  | Object            | -        |\n| btn         | 自定义关闭按钮                                  | `config`         | -        |\n| icon        | 自定义图标                                    | `config`         | -        |\n| key         | 当前通知唯一标志                                 | string            | -        |\n| onClose     | 点击默认关闭按钮时触发的回调函数                         | Function          | -        |\n| duration    | 默认 4.5 秒后自动关闭，配置为 null 则不自动关闭            | number            | 4.5      |\n| placement   | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string            | topRight |\n\n\n- `UF.notification.config(options)`\n\n还提供了一个全局配置方法，在调用前提前配置，全局一次生效。\n\n| 参数           | 说明                                       | 类型             | 默认值                 |\n| ------------ | ---------------------------------------- | -------------- | ------------------- |\n| placement    | 弹出位置，可选 `topLeft` `topRight` `bottomLeft` `bottomRight` | string         | topRight            |\n| top          | 消息从顶部弹出时，距离顶部的位置，单位像素。                   | number         | 24                  |\n| bottom       | 消息从底部弹出时，距离底部的位置，单位像素。                   | number         | 24                  |\n| duration     | 默认自动关闭延时，单位秒                             | number         | 4.5                 |\n| autoMerge    | 自动合并相同内容的提示信息 | boolean                 | true        |\n\n\n```js\nUF.notification.config({\n    placement: 'bottomRight',\n    bottom: 50,\n    duration: 3,\n});\n```"
 
 /***/ }),
 /* 284 */
@@ -26786,7 +26873,7 @@
 /* 289 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.11","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.12","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 290 */
@@ -30156,7 +30243,7 @@
 	        // 必须为符合react语法的css样式
 	        width: '300px',
 	        paddingTop: '10px',
-	        border: '1px solid #e2e2e2'
+	        border: '1px dashed #e2e2e2'
 	    },
 	    expand: {
 	        // 全部为可选项，可写可不写
@@ -30278,7 +30365,7 @@
 /* 329 */
 /***/ (function(module, exports) {
 
-	module.exports = "### 功能说明  \n* 配置`expand`实现节点展开控制\n* 配置`checkbox`实现复选框功能\n* 配置`search`实现搜索功能\n* 配置`select`实现点击选择功能\n* 配置`source`实现异步加载功能\n* 配置`widthResize`实现右边缘拖动加宽功能\n* 配置`showLine`实现带连接线的树\n* 若没有进行任何配置，则为树形图展示1中的样式\n\n## 配置参数\n\n### 基本参数\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |\n| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| search | 搜索功能 | Object | - |  |\n| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| source | 异步加载功能。参数和通用source参数一致，实际用法略有不同 | Object | - |  |\n| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| showLine | 是否展示连接线 | Boolean | false | . |\n| data | 外部传入数据，需要按照一定的格式书写 | Array |  | . |\n\n> 当配置了`source`参数时，树组件即具备了异步获取子树的功能，当点击到没有`children`数据又非叶子节点的时候，就会自动去用`source`系列参数获取数据。可见第一个demo的用法\n\n#### expand\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |\n| defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |\n| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |\n| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |\n| autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |\n| onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |\n\n#### checkbox\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |\n| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |\n| checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |\n| defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |\n| onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |\n\n#### search\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 是否启用搜索功能 | Boolean | false |  |\n| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |\n\n#### select\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultSelectedKeys | 默认选中节点 | Array | [] |  |\n| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |\n| multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |\n| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |\n\n#### widthResize\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |\n| minWidth | 树形图允许扩宽的最小宽度 | String | - |  |\n| maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |\n\n### # 每一个节点的数据格式\n```json\n    [{\n        name: '0-0',            // 必须\n        key: '0-0',             // 必须\n        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true\n        disableCheckbox: false, // 非必须，用于指定复选框是否可选\n        disabled: false,        // 非必须，用于指定此节点时候可点\n        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须\n        children: [             // 子节点格式相同\n            ...\n        ]\n    },\n    ...]\n```\n### # url参数对应接口的格式\n```json\nsuccess:\n{\n    status:0,\n    data:[{…},…]\n}\nerror:\n{\n    status: 1,\n    msg: 'error'\n}\n```\n"
+	module.exports = "### 功能说明  \n* 配置`expand`实现节点展开控制\n* 配置`checkbox`实现复选框功能\n* 配置`search`实现搜索功能\n* 配置`select`实现点击选择功能\n* 配置`source`实现异步加载功能\n* 配置`widthResize`实现右边缘拖动加宽功能\n* 配置`showLine`实现带连接线的树\n* 若没有进行任何配置，则为树形图展示1中的样式\n\n## 配置参数\n\n### 基本参数\n\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| style | 树形图的样式配置，必须为符合`react`语法的`css`样式 | Object | - |  |\n| expand | 节点展开功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| checkbox | 复选框功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| search | 搜索功能 | Object | - |  |\n| select | 点选功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| source | 异步加载功能。参数和通用source参数一致，实际用法略有不同 | Object | - |  |\n| widthResize | 右边缘拖动变宽功能，包含多个可配置参数，见下面详细说明 | Object | - |  |\n| showLine | 是否展示连接线 | Boolean | false | . |\n| data | 外部传入数据，需要按照一定的格式书写，见底部示例 | Array |  | . |\n\n> 当配置了`source`参数时，树组件即具备了异步获取子树的功能，当点击到没有`children`数据又非叶子节点的时候，就会自动去用`source`系列参数获取数据。可见第一个demo的用法\n\n#### expand\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultExpandAll | 默认展开所有树节点 | Boolean | false |  |\n| defaultExpandedKeys | 默认展开指定的树节点，数组不为空时屏蔽`defaultExpandAll` | Array | [] |  |\n| expandLeavals | 哪些类型节点进行展开，由data数据中的type字段决定，此配置会屏蔽`defaultExpandAll`，`defaultExpandedKeys` | Array | - |  |\n| expandedKeys | (受控）展开指定的树节点，设定之后屏蔽`defaultExpandAll`，`defaultExpandedKeys`, `expandLeavals` | Array | [] |  |\n| autoExpandParent | 是否自动展开父节点，ture->如果某节点是展开的则其父节点自动展开，false->某节点展开的，但是其父节点是收缩的，只有将父节点展开才能看到某节点的展开情况 | Boolean | true |  |\n| onExpand | 展开/收起节点时触发, `expandedKeys`, `e`为两个默认参数 | function(expandedKeys, e:{expanded: bool, node}) | - | . |\n\n#### checkbox\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| checkable | 节点前添加 `Checkbox` 复选框 | Boolean | false |  |\n| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点`key`，则子节点自动选中；相应当子节点`key`都传入，父节点也自动选中。当设置`checkable = true`和`checkStrictly = true`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | Array | [] |  |\n| checkStrictly | 父子之间的选中是否受关联: `true`->不关联，此时必须要设定`checkedKeys`，否则会报错, `false`->关联 | Boolean | false |  |\n| defaultCheckedKeys | 默认选中选框，只有在不设定`checedKeys`时起作用 | Array | [] |  |\n| onCheck | 点击复选框触发, `checkedKeys`, `e`为两个默认参数 | function(checkedKeys, e:{checked: bool, checkedNodes, node, event}) | - | . |\n\n#### search\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| enable | 是否启用搜索功能 | Boolean | false |  |\n| onlyShowSearchResult | 是否只展示搜索的结果，为`true`时只展示包含搜索内容的节点，`false`时展示全部数据，但是只对包含搜索结果的父节点进行展开 | Boolean | true | . |\n\n#### select\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| defaultSelectedKeys | 默认选中节点 | Array | [] |  |\n| selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |\n| multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |\n| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |\n\n#### widthResize\n| 参数 | 说明 | 类型 | 默认值 | 是否必填 |\n| ---- | ---- | ----- | ----- | ----- |\n| resizeAble | 开启右边缘扩宽功能 | Bealoon | false |  |\n| minWidth | 树形图允许扩宽的最小宽度 | String | - |  |\n| maxWidth | 树形图允许扩宽的最大宽度 | String | - | . |\n\n<a name=\"node-parameter\"></a>\n\n### # 节点的数据格式\n```json\n    [{\n        name: '0-0',            // 必须\n        key: '0-0',             // 必须\n        isLeaf: false,          // 非必须，但是当没有isLeaf且没有children属性时，被置为true\n        disableCheckbox: false, // 非必须，用于指定复选框是否可选\n        disabled: false,        // 非必须，用于指定此节点时候可点\n        type: 'leval1',         // 非必须，但是当指定展开哪些层时必须\n        children: [             // 子节点格式相同\n            ...\n        ]\n    },\n    ...]\n```\n"
 
 /***/ }),
 /* 330 */
@@ -30330,13 +30417,14 @@
 	        type: 'ueditor',
 	        name: 'my-editor',
 	        style: { marginBottom: '10px' },
-	        simple: true
+	        data: '123',
+	        simple: false
 	    }, {
 	        type: 'button',
 	        content: '获取内容',
 	        onClick: function onClick() {
 	            var result = (0, _src2.default)('my-editor').getContent();
-	            _src2.default.message.info(result, 3);
+	            (0, _src2.default)('u-parse').set({ content: result });
 	        }
 	    }, {
 	        type: 'button',
@@ -30349,6 +30437,15 @@
 	        content: '追加内容',
 	        onClick: function onClick() {
 	            (0, _src2.default)('my-editor').setContent('追加内容', true);
+	        }
+	    }, {
+	        type: 'card',
+	        title: 'Ueditor内容展示：',
+	        style: { marginTop: 10 },
+	        content: {
+	            type: 'ueditor-parse',
+	            name: 'u-parse',
+	            content: '<p>123</p>'
 	        }
 	    }]
 	};
@@ -30383,7 +30480,7 @@
 /* 331 */
 /***/ (function(module, exports) {
 
-	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n\n\n## 组件&参数\n\n### # ueditor\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | true |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等"
+	module.exports = "Ueditor 用法。\n\n### 功能说明\n\n* 使用和其他组件用法相似的方式使用 ueditor\n* 通过`UF()`可以获取到ueditor实例，并调用ueditor原生API\n* 提供`ueditor-parse`组件对通过`ueditor`编辑的内容进行展示\n\n\n## 组件&参数\n\n### # ueditor\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | -----\nname | 当前Ueditor名称，用于使用`UF()`获取组件 | string | |\nstyle | Ueditor样式 | object | |\ndata | 输入框内的默认内容 | string |  |\nsimple | 使用简洁版本，省略大量默认按钮 | boolen | true |\nonChange | 内容变动时的回调函数 | function(value) {} |  |\nserverUrl | 服务器统一请求接口路径 | string | URL + \"php/controller.php\" |\ntoolbars | 工具栏上的所有的功能按钮和下拉框，可以在new编辑器的实例时选择自己需要的从新定义 | {2d Array} |  |\nzIndex | 编辑器在页面上的z-index层级的基数 | number | 900 |\nautoHeightEnabled | 是否自动长高 | boolean | true |\n\n其他参数见：[Ueditor 官方配置](http://fex.baidu.com/ueditor/#start-config)\n\n\n#### 组件 API\n\n函数名 | 说明 | 参数\n---- | ---- | -----\nsetContent | 设置/追加编辑器内容 | ue.setContent('text'[, true])\ngetContent | 获取编辑器内容 | ue.getContent()\ngetContentTxt | 获取纯文本 | ue.getContentTxt()\nfocus | 让编辑器获得焦点 | ue.focus()\nsetDisabled | 设置编辑区域不可编辑 | ue.setDisabled()\nsetEnabled | 设置编辑区域可编辑 | ue.setEnabled()\nselection.getText | 获得当前选中的文本 | ue.selection.getText()\n\n其他参见：[Ueditor 官方API](http://fex.baidu.com/ueditor/#api-common)\n\n### 注意\n\n与其他组件不同的是，使用`UF('name')`获取到的是ueditor的实例，所以可以使用ueditor官网给出的API，但是不能使用类似于其它组件用的`set`、`hide`函数等\n\n### # ueditor-parse\n\n用于对通过Ueditor编辑的内容进行展示，见顶部实例。\n\n相比于直接使用`html`组件，此组件会额外增加一些ueditor自己的样式，为官方推荐用法。"
 
 /***/ }),
 /* 332 */
@@ -35565,6 +35662,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
+	_src2.default.message.config({ duration: 10 });
+
 	var demo1 = {
 	    title: '各种提示类型',
 	    description: '包括成功、失败、警告、信息。',
@@ -36866,6 +36965,245 @@
 	}(_BaseDoc3.default);
 
 	exports.default = StandardApp;
+
+/***/ }),
+/* 384 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(108);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _dom = __webpack_require__(117);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Ueditor内容解析器，对ueditor编辑的内容进行展示
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var UeditorParse = function (_Html) {
+	    _inherits(UeditorParse, _Html);
+
+	    function UeditorParse(props) {
+	        _classCallCheck(this, UeditorParse);
+
+	        var _this = _possibleConstructorReturn(this, (UeditorParse.__proto__ || Object.getPrototypeOf(UeditorParse)).call(this, props));
+
+	        _this.type = 'div';
+	        return _this;
+	    }
+	    // 解析
+
+
+	    _createClass(UeditorParse, [{
+	        key: 'parse',
+	        value: function parse() {
+	            window.uParse('#' + this.ueditorId, {
+	                rootPath: window.UEDITOR_HOME_URL
+	            });
+	        }
+	    }, {
+	        key: '_beforeInit',
+	        value: function _beforeInit() {
+	            // 保证每次实例化都有一个唯一的id
+	            this.ueditorId = (this._getTransmitName() || 'editor_parse') + '_' + Date.now();
+	            this.__props.id = this.ueditorId;
+	        }
+	        // 加载ueditor相关文件
+
+	    }, {
+	        key: '_componentDidMount',
+	        value: function _componentDidMount() {
+	            var _this2 = this;
+
+	            _get(UeditorParse.prototype.__proto__ || Object.getPrototypeOf(UeditorParse.prototype), '_componentDidMount', this).call(this);
+	            this._factory.$requirejs(['ueditor'], function (UE) {
+	                _this2.parse();
+	            });
+	        }
+	    }, {
+	        key: '_componentDidUpdate',
+	        value: function _componentDidUpdate(prevProps, prevState) {
+	            _get(UeditorParse.prototype.__proto__ || Object.getPrototypeOf(UeditorParse.prototype), '_componentDidUpdate', this).call(this);
+	            this.parse();
+	        }
+	    }]);
+
+	    return UeditorParse;
+	}(_dom.Html);
+
+	exports.default = UeditorParse;
+
+/***/ }),
+/* 385 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(108);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(226);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _utils = __webpack_require__(121);
+
+	var _src = __webpack_require__(114);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 按钮
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var treeData = [{
+	    label: 'Node1',
+	    value: '0-0',
+	    children: [{
+	        label: 'Child Node1',
+	        value: '0-0-0'
+	    }]
+	}, {
+	    label: 'Node2',
+	    value: '0-1',
+	    children: [{
+	        label: 'Child Node3',
+	        value: '0-1-0'
+	    }, {
+	        label: 'Child Node4',
+	        value: '0-1-1'
+	    }, {
+	        label: 'Child Node5',
+	        value: '0-1-2'
+	    }]
+	}];
+
+	var demo1 = {
+	    title: '基本使用',
+	    description: '基本使用。',
+	    config: {
+	        type: 'tree-select',
+	        style: { width: '100%' },
+	        showSearch: true,
+	        treeDefaultExpandAll: true,
+	        treeData: treeData
+	    }
+	};
+
+	var demo2 = {
+	    title: '异步加载',
+	    description: '通过`source`加载树形列表，接口返回数据格式见底部。',
+	    config: {
+	        type: 'tree-select',
+	        style: { width: '100%' },
+	        multiple: true,
+	        treeCheckable: true,
+	        source: 'docs/php/tree-data.php?all=true'
+	    }
+	};
+
+	var demo3 = {
+	    title: '多选',
+	    description: '多选和勾选框功能。',
+	    config: [{
+	        type: 'tree-select',
+	        style: { width: '100%' },
+	        multiple: true,
+	        source: 'docs/php/tree-data.php?all=true'
+	    }, {
+	        type: 'tree-select',
+	        style: { width: '100%', marginTop: 10 },
+	        multiple: true,
+	        treeCheckable: true,
+	        showCheckedStrategy: 'SHOW_PARENT',
+	        source: 'docs/php/tree-data.php?all=true'
+	    }]
+	};
+
+	var demo4 = {
+	    title: '搜索功能',
+	    description: '在下拉中显示搜索框(仅在单选模式下生效)',
+	    config: {
+	        type: 'tree-select',
+	        style: { width: '100%' },
+	        showSearch: true,
+	        treeNodeFilterProp: 'title',
+	        source: 'docs/php/tree-data.php?all=true',
+	        onChange: function onChange() {
+	            console.log(1);
+	        }
+	    }
+	};
+
+	var TreeSelect = function (_BaseDoc) {
+	    _inherits(TreeSelect, _BaseDoc);
+
+	    function TreeSelect(props) {
+	        _classCallCheck(this, TreeSelect);
+
+	        var _this = _possibleConstructorReturn(this, (TreeSelect.__proto__ || Object.getPrototypeOf(TreeSelect)).call(this, props));
+
+	        _this.doc = 'antd-tree-select.md';
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(TreeSelect, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getDemo(demo1, demo2, demo3, demo4);
+	        }
+	    }]);
+
+	    return TreeSelect;
+	}(_BaseDoc3.default);
+
+	exports.default = TreeSelect;
+
+/***/ }),
+/* 386 */
+/***/ (function(module, exports) {
+
+	module.exports = "\n树型选择控件。\n\n## 何时使用\n\n- 类似 Select 的选择控件，可选择的数据结构是一个树形结构时，可以使用 TreeSelect，例如公司层级、学科系统、分类目录等等。\n\n## 组件&配置\n\n### # tree-select\n\n| 参数     | 说明           | 类型     | 默认值       |\n|----------|----------------|----------|--------------|\n| value    | 指定当前选中的条目 | string/string[] |  -  |\n| defaultValue | 指定默认选中的条目 | string/string[]   |  -  |\n| multiple   | 支持多选（当设置 treeCheckable 时自动变为true） | boolean | false |\n| treeCheckable | 显示 checkbox | boolean | false |\n| onSelect | 被选中时调用 | function(value, node, extra) | -   |\n| onChange | 选中树节点时调用此函数 | function(value, label, extra) | - |\n| allowClear | 显示清除按钮 | boolean | false |\n| onSearch | 文本框值变化时回调 | function(value: string) | - |\n| placeholder | 选择框默认文字 | string | - |\n| searchPlaceholder | 搜索框默认文字 | string | - |\n| dropdownStyle | 下拉菜单的样式 | object | - |\n| dropdownMatchSelectWidth | 下拉菜单和选择器同宽 | boolean | true |\n| size    | 选择框大小，可选 `large` `small`  | string      | 'default' |\n| showSearch | 在下拉中显示搜索框(仅在单选模式下生效) | boolean | false |\n| disabled | 是否禁用 | boolean | false |\n| showCheckedStrategy | `SHOW_CHILD`: 默认只显示子节点; `SHOW_ALL`: 显示所有选中节点(包括父节点); `SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时). | string | 'SHOW_CHILD' |\n| labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 `{key: string, label: ReactNode, halfChecked(treeCheckStrictly 时有效): string[] }` 的格式 | boolean | false |\n| treeDefaultExpandAll | 默认展开所有树节点 | boolean | false |\n| treeDefaultExpandedKeys | 默认展开的树节点 | string[] | - |\n| treeCheckStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联）| boolean | false |\n| filterTreeNode | 是否根据输入项进行筛选，默认用 treeNodeFilterProp 的值作为要筛选的 TreeNode 的属性值 | boolean&#124;Function(inputValue: string, treeNode: TreeNode) (函数需要返回bool值) | Function |\n| treeNodeFilterProp | 输入项过滤对应的 treeNode 属性 | string | 'value' |\n| treeNodeLabelProp | 作为显示的 prop 设置 | string | 'title' |\n| source | 异步加载数据 | object | - |\n| treeData | 树形列表数据 | array<{value, label, children, [disabled, selectable]}> （value 在整个树范围内唯一） | [] |\n| treeDataSimpleMode | 使用简单格式的 treeData，具体设置参考可设置的类型 (此时 treeData 数据拉平，不再有children，变为这样的数据结构: [{id:1, pId:0, value:'1', label:\"test1\",...},...], `pId` 是父节点的 id) | false&#124;Array<{ id: string, pId: string, rootPId: null }> | false |\n| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。 | Function(triggerNode) | () => document.body |\n\n\n### 函数调用\n参数       | 说明           | 参数    \n-----------|----------------|-----------\ngetValue  | 获取当前选中的值 |  getValue() \n\n\n### # 节点的数据格式\n```json\n    [\n        {\n            label: 'Node 1',            // 必须\n            value: '1-1',               // 必须\n            isLeaf: false,              // 非必须\n            disabled: false,            // 非必须，用于指定此节点时候可点\n            children: [                 // 子节点格式相同\n                ...\n            ]\n        },\n        ...\n    ]\n```\n"
 
 /***/ })
 /******/ ]);

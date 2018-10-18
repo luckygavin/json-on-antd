@@ -253,6 +253,15 @@ const create = ({name})=>{
 
             // 处理 precondition 参数, 执行阻塞页面加载的函数
             this._handlePreconditionConf(conf);
+
+            // message组件设置
+            if (config.components.message) {
+                uf.message.config(config.components.message);
+            }
+            // notification组件设置
+            if (config.components.notification) {
+                uf.notification.config(config.components.notification);
+            }
         },
         // 获取全部实例，可以和其他实例做交互
         getIns(name) {

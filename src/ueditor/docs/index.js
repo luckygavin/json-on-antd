@@ -15,14 +15,15 @@ let demo1 = {
             type: 'ueditor',
             name: 'my-editor',
             style: {marginBottom: '10px'},
-            simple: true
+            data: '123',
+            simple: false
         },
         {
             type: 'button',
             content: '获取内容',
             onClick() {
                 let result = UF('my-editor').getContent();
-                UF.message.info(result, 3);
+                UF('u-parse').set({content: result});
             }
         },
         {
@@ -37,6 +38,16 @@ let demo1 = {
             content: '追加内容',
             onClick() {
                 UF('my-editor').setContent('追加内容', true);
+            }
+        },
+        {
+            type: 'card',
+            title: 'Ueditor内容展示：',
+            style: {marginTop: 10},
+            content: {
+                type: 'ueditor-parse',
+                name: 'u-parse',
+                content: '<p>123</p>'
             }
         }
     ]

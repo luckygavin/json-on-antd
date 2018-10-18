@@ -18915,6 +18915,12 @@ tr.ant-table-expanded-row:hover {
 .ant-collapse.uf-collapse-fixed > .ant-collapse-item > .ant-collapse-header > i {
   display: none;
 }
+.ant-message .move-up-leave + .move-up-enter {
+  display: none;
+}
+.ant-notification-notice .ant-notification-fade-leave + .ant-notification-fade-enter {
+  display: none;
+}
 .uf-table {
   background-color: #3e536e;
 }

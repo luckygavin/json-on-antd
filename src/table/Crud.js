@@ -371,7 +371,7 @@ export default class Crud extends BaseComponent {
                 }
             }
             str += tmp.join(',') + '\n';
-        })
+        });
         return str;
     }
     // 根据字符串转换成要提交的数据对象

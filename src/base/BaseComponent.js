@@ -642,7 +642,7 @@ export default class BaseComponent extends Component {
 
     // api、source、control 系列参数初始化，处理成对象
     _varietyPropsFormat(key, value) {
-        switch(key) {
+        switch (key) {
             case 'api':
                 value = Utils.varietyFormat(value, 'url');
                 break;

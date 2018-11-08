@@ -75,7 +75,7 @@ export default generate(['Config'], Config=>{
         // 从 localStorage 中获取缓存数据
         getLocalStorageData(key) {
             if (key) {
-                return Utils.getCache(key);;
+                return Utils.getCache(key);
             }
             return null;
         }

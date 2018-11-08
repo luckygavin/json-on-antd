@@ -772,7 +772,6 @@ export default class NewTable extends BaseComponent {
                         cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
                     />;
                 };
-                
             }
             // 处理 cellColSpan 和 cellRowSpan 参数
             defaultColumn = this.colSpanHandler(defaultColumn, item);

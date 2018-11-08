@@ -321,7 +321,7 @@ export class TreeSelect extends DataEntry {
         const value = this.getValue();
         let result = value;
         let options = this.__props.options || [];
-        
+
         for (let i in options) {
             if (options[i].value === value || options[i].value === (value + '')) {
                 result = options[i].label;

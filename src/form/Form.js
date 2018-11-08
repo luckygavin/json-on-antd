@@ -53,12 +53,18 @@ export class OriginForm extends BaseComponent {
             nextProps && this.initValues();
         }
         // 如果items改变了，则把变化更新到 this.itemsCache 中
-        // update at 2018-08-21 by liuzechun
-        // TODO: 待观察是否会有无效覆盖
         if (nextProps && nextProps.items && !Utils.equals(this.props.items, nextProps.items)) {
+            let oldItems = {};
+            this.props.items && this.props.items.forEach(item => {
+                (item && item.name) && (oldItems[item.name] = item);
+            });
+            // 分别对每一项进行对比，仅更新需要更新的选项
             nextProps.items.forEach(item => {
-                if (item && item.name && this.itemsCache[item.name]) {
-                    Utils.merge(this.itemsCache[item.name], item);
+                if (item && item.name && this.itemsCache[item.name] && !Utils.isChange(item, oldItems[item.name])) {
+                    let changedConf = Utils.getChange(item, oldItems[item.name]);
+                    // 如果有type，需要重新处理type
+                    changedConf.type && (changedConf = this.__getConf(changedConf));
+                    Utils.merge(this.itemsCache[item.name], changedConf);
                 }
             });
         }

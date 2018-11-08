@@ -4,7 +4,6 @@
 import React from 'react';
 import DataEntry from 'src/antd/base/DataEntry.js';
 import {Utils} from 'src/utils';
-import {AutoComplete, Spin} from 'antd';
 import {Select} from 'src/antd/dataentry.js';
 
 /**
@@ -25,9 +24,9 @@ const LimitedProps = {
 };
 
 // 本地自动补全
-class LocalAutoComplete extends Select {
+export class LocalComplete extends Select {
     constructor(props) {
-        super(props);
+        super(props, {preventInit: true});
         // _onSearch 中的逻辑会注入到 onSearch 事件中，见 BaseComponent
         this._injectEvent = ['onSearch'];
         this.__init();
@@ -77,10 +76,9 @@ class LocalAutoComplete extends Select {
 }
 
 // 自动补全远程数据
-// 复用Select的构造函数/render等逻辑，覆盖部分原函数。所以无需再写render
-class SourceAutoComplete extends Select {
+export default class NewAutoComplete extends Select {
     constructor(props) {
-        super(props);
+        super(props, {preventInit: true});
         this.class.push('select');
         this._injectEvent = ['onSearch', 'onChange'];
         // 延迟150ms执行
@@ -88,12 +86,6 @@ class SourceAutoComplete extends Select {
         this.requestIndex = 0;
 
         this.__init();
-    }
-    triggerLoading(status) {
-        this.loading(status, 'simple');
-    }
-    _onSourceSuccess() {
-        this.triggerLoading(false);
     }
     _afterInitProps() {
         super._afterInitProps();
@@ -105,16 +97,41 @@ class SourceAutoComplete extends Select {
             cache: true
         });
     }
+    _afterSetProps(...params) {
+        super._afterSetProps(...params);
+        // 当设置为 select-only 时，输入框仅可选补全的内容，不可任意输入
+        if (this.__props.mode === 'select-only') {
+            delete this.__props.mode;
+        }
+    }
+    // 处理 startSign 属性，判断是否进行搜索
+    // 2、当为字符串时，表示当字符串中出现设置的字符串时，进行查询补全功能
+    // 3、当为函数时，表示每次输入后，会把输入的字符串传递给函数进行判断，当函数返回true时，进行查询补全功能
+    _isSearch(value) {
+        // 1、当为数字时，表示当输入字符串长度满足设置长度时会发起请求，进行查询补全功能
+        let sign = this.__props.startSign;
+        switch (Utils.getType(sign)) {
+            case 'number':
+                return value && value.length >= sign;
+            case 'string':
+                return value && value.indexOf(sign) > -1;
+            case 'function':
+                return sign(value);
+        }
+        return true;
+    }
     // 多选时，输入完触发onSearch，选中选项后触发onChange
     _onSearch(value) {
+        if (!this._isSearch(value)) {
+            return;
+        }
         if (value === '') {
             ++this.requestIndex;
-            this.triggerLoading(false);
+            this.loading(false, 'simple');
             this.__setProps({
                 options: []
             });
         } else {
-            this.triggerLoading(true);
             this.set({
                 options: [],
                 source: {
@@ -124,7 +141,7 @@ class SourceAutoComplete extends Select {
         }
     }
     _onChange(value) {
-        this.triggerLoading(false);
+        this.loading(false, 'simple');
         if (Utils.typeof(value, 'array') && value.length === 0) {
             this.__setProps({options: []});
         }
@@ -139,16 +156,5 @@ class SourceAutoComplete extends Select {
             return data;
         };
         super.__getSourceData(config);
-    }
-}
-
-export default class NewAutoComplete extends DataEntry {
-    render() {
-        let className = {className: 'uf-autocomplete ' + (this.props.className || '')};
-        return this.props.children
-            ? <AutoComplete {...this.props} {...className}/>
-            : this.props.source
-                ? <SourceAutoComplete {...this.props} {...className}/>
-                : <LocalAutoComplete {...this.props} {...className}/>;
     }
 }

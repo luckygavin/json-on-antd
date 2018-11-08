@@ -235,7 +235,7 @@ export default class BaseComponent extends Component {
     _afterInitProps() {}
 
     // 执行完 __setProps 后附加的逻辑，由子类自行实现
-    _afterSetProps() {}
+    _afterSetProps(newProps) {}
 
     // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
     setState(...params) {
@@ -531,7 +531,7 @@ export default class BaseComponent extends Component {
         let {url, params, _paramsHandler, paramsHandler, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
         if (url) {
             // 额外增加对参数预处理逻辑，不暴露给用户使用
-            if (false === (_paramsHandler && (params = _paramsHandler(params)))) {
+            if (_paramsHandler && (false === (params = _paramsHandler(params)))) {
                 return false;
             }
             if (paramsHandler) {
@@ -565,7 +565,8 @@ export default class BaseComponent extends Component {
                         // 如果用户定义了数据处理函数，先对数据进行处理
                         handler && (data = handler(data, res, this));
                         // 两个handler都可以通过return false 阻止后续逻辑
-                        if (data === false) {
+                        // 注意，存在返回数据本身为data的情况。所以需要确认当data为handler处理结果时，再阻止
+                        if (data === false && (_handler || handler)) {
                             return;
                         }
                         // 实际的调用处传入的成功处理逻辑
@@ -609,6 +610,9 @@ export default class BaseComponent extends Component {
         if (props.className) {
             result.className = props.className + ' ' + (result.className || '');
         }
+        if (props.style) {
+            result.style = Object.assign(props.style, result.style);
+        }
         return result;
     }
 
@@ -617,7 +621,6 @@ export default class BaseComponent extends Component {
     // 过滤 props，生成 __props 和 __filtered
     _filterHandler(props) {
         let newProps = {};
-        let haveFiltered = false;
         for (let i in props) {
             if (props.hasOwnProperty(i)) {
                 if (this._filter.indexOf(i) === -1) {
@@ -625,16 +628,38 @@ export default class BaseComponent extends Component {
                 } else {
                     // 使用merge，保证增量合并。使进入到__filtered中的属性，也能增量的set
                     // this.__filtered[i] = this.__mergeProps({}, this.__filtered[i], props[i]);
-                    this.__filtered[i] = Utils.merge(this.__filtered[i] || {}, props[i]);
-                    haveFiltered = true;
+                    let value = props[i];
+                    // 格式化 api、source、control 系列参数
+                    if (['api', 'source', 'control'].indexOf(i) > -1) {
+                        value = this._varietyPropsFormat(i, value);
+                    }
+                    this.__filtered[i] = Utils.merge(this.__filtered[i] || {}, value);
                 }
             }
         }
-        // 格式化 api、source、control 系列参数
-        if (haveFiltered) {
-            this._filteredPropsFormat();
-        }
         return newProps;
+    }
+
+    // api、source、control 系列参数初始化，处理成对象
+    _varietyPropsFormat(key, value) {
+        switch(key) {
+            case 'api':
+                value = Utils.varietyFormat(value, 'url');
+                break;
+            case 'source':
+                value = Utils.varietyFormat(value, 'url');
+                break;
+            case 'control':
+                value = Utils.varietyFormat(value, 'target');
+                break;
+            default:
+                return value;
+        }
+        // 检查默认配置中是否有配置，如果有进行合并
+        if (!Utils.empty(value) && this.__defaultProps[key]) {
+            value = this.__mergeProps({}, this.__defaultProps[key], value);
+        }
+        return value;
     }
 
     // 后面传入组件的参数用 __props 代替 props
@@ -725,12 +750,12 @@ export default class BaseComponent extends Component {
     // 把开发时定义的需注入到组件事件中的逻辑注入到对应的事件函数中，可见 AutoComplete 组件中的 'onSearch' 函数
     // _injectEvent 中定义的事件，会被过滤到__filtered中，并在此处加上额外自定义的逻辑重新创建函数
     _injectEventFunction() {
-        for (let v of this._injectEvent) {
+        for (let v of Utils.distinct(this._injectEvent)) {
             this.__props[v] = (...p) => {
                 let result = this[`_${v}`] && this[`_${v}`](...p);
                 // 返回false会阻止事件
                 if (result === false) {
-                    return;
+                    return false;
                 }
                 let oResult = this.__filtered[v] && this.__filtered[v](...p);
                 // 当函数返回结果为空时，尝试获取用户定义的函数的结果
@@ -760,7 +785,9 @@ export default class BaseComponent extends Component {
             if (inject) {
                 for (let v of ForUserApi[f].split(',')) {
                     this._inject(this, v, () => {
-                        let result = inject.call(this, this.__props, this);
+                        // __filtered 需覆盖 __props，以在 _filterHandler 时还原回去
+                        let props = Object.assign({}, this.__props, this.__filtered);
+                        let result = inject.call(this, props, this);
                         // 组件渲染/刷新前可以让用户有机会改参数
                         if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
                             // 防止用户设置过滤属性
@@ -784,14 +811,17 @@ export default class BaseComponent extends Component {
     // 组件 control 系列参数相关处理
     // 使用 injectEvent 的处理方式实现
     _handleControlProps() {
-        // 还未进行initProps，control参数还在__props上
-        let control = Utils.varietyFormat(this.__props.control, 'target');
-        if (this.__defaultProps.control) {
-            control = this.__mergeProps({}, this.__defaultProps.control, control);
-        }
-        if (control && control.trigger) {
-            this._injectEvent.push(control.trigger);
-            this._inject(this, `_${control.trigger}`, this._controlHandler.bind(this), true);
+        // 还未进行initProps，api参数 props 上，init之后才在 __filtered 上
+        let control = Utils.varietyFormat(this.props.control, 'target');
+        // 只有用户进行了设置才做处理
+        if (!Utils.empty(control)) {
+            if (this.__defaultProps.control) {
+                control = this.__mergeProps({}, this.__defaultProps.control, control);
+            }
+            if (control.trigger) {
+                this._injectEvent.push(control.trigger);
+                this._inject(this, `_${control.trigger}`, this._controlHandler.bind(this), true);
+            }
         }
     }
     _controlHandler(...para) {
@@ -859,28 +889,6 @@ export default class BaseComponent extends Component {
         }
     }
 
-    // api、source 系列参数初始化
-    _filteredPropsFormat() {
-        // 把 api 处理成对象
-        let api = Utils.varietyFormat(this.__filtered.api, 'url');
-        let source = Utils.varietyFormat(this.__filtered.source, 'url');
-        let control = Utils.varietyFormat(this.__filtered.control, 'target');
-        // 检查默认配置中是否有配置，如果有进行合并
-        if (this.__defaultProps.api) {
-            api = this.__mergeProps({}, this.__defaultProps.api, api);
-        }
-        if (this.__defaultProps.source) {
-            source = this.__mergeProps({}, this.__defaultProps.source, source);
-        }
-        if (this.__defaultProps.control) {
-            control = this.__mergeProps({}, this.__defaultProps.control, control);
-        }
-        // 重新设置 __filtered 属性
-        this.__filtered.api = api;
-        this.__filtered.source = source;
-        this.__filtered.control = control;
-    }
-
     // 自动异步获取数据
     _handleAsyncData() {
         let {url, target} = this.__filtered.source;
@@ -901,15 +909,18 @@ export default class BaseComponent extends Component {
     // 组件 api 系列参数相关处理
     // 使用 injectEvent 的处理方式实现
     _handleApiProps() {
-        // 还未进行initProps，api参数还在__props上
-        let api = Utils.varietyFormat(this.__props.api, 'url');
-        if (this.__defaultProps.api) {
-            api = this.__mergeProps({}, this.__defaultProps.api, api);
-        }
-        if (api && api.trigger) {
-            this._injectEvent.push(api.trigger);
-            // TODO: 有待观察，目前看代码之间的相互限制有点多
-            this._inject(this, `_${api.trigger}`, this._apiHandler.bind(this), true);
+        // 还未进行initProps，api参数 props 上，init之后才在 __filtered 上
+        let api = Utils.varietyFormat(this.props.api, 'url');
+        // 只有用户进行了设置才做处理
+        if (!Utils.empty(api)) {
+            if (this.__defaultProps.api) {
+                api = this.__mergeProps({}, this.__defaultProps.api, api);
+            }
+            if (api.trigger) {
+                this._injectEvent.push(api.trigger);
+                // TODO: 有待观察，目前看代码之间的相互限制有点多
+                this._inject(this, `_${api.trigger}`, this._apiHandler.bind(this), true);
+            }
         }
     }
 

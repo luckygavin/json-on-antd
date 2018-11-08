@@ -13,6 +13,7 @@ export default class Html extends Dom {
         this.type = 'section';
     }
     _afterSetProps() {
+        super._afterSetProps();
         if (this.__props.children) {
             this.__props.dangerouslySetInnerHTML = {__html: this.__props.children};
             delete this.__props.children;

@@ -248,10 +248,12 @@ export class Radio extends OptionsDataEntry {
 /************* Select 下拉菜单 ************************************************************************** */
 
 export class Select extends OptionsDataEntry {
-    constructor(props) {
+    constructor(props, options = {}) {
         super(props);
         this._openApi.push('selectAll');
-        this.__init();
+        if (!options.preventInit) {
+            this.__init();
+        }
     }
     _afterInitProps() {
         super._afterInitProps();
@@ -313,6 +315,20 @@ export class TreeSelect extends DataEntry {
     constructor(props) {
         super(props);
         this.__init();
+    }
+    // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
+    getDisplayValue() {
+        const value = this.getValue();
+        let result = value;
+        let options = this.__props.options || [];
+        
+        for (let i in options) {
+            if (options[i].value === value || options[i].value === (value + '')) {
+                result = options[i].label;
+                break;
+            }
+        }
+        return result;
     }
     render() {
         return <Antd.TreeSelect {...this.__props}/>;

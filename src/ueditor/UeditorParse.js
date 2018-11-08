@@ -17,6 +17,7 @@ export default class UeditorParse extends Html {
         });
     }
     _beforeInit() {
+        super._beforeInit();
         // 保证每次实例化都有一个唯一的id
         this.ueditorId = (this._getTransmitName() || 'editor_parse') + '_' + Date.now();
         this.__props.id = this.ueditorId;

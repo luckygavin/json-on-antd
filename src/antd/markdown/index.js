@@ -1,6 +1,7 @@
 module.exports = {
     'antd-button.md': require('./antd-button.md'),
     'antd-icon.md': require('./antd-icon.md'),
+    'antd-icon-plus.md': require('./antd-icon-plus.md'),
     'antd-grid.md': require('./antd-grid.md'),
     'antd-layout.md': require('./antd-layout.md'),
 

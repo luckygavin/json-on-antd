@@ -8,6 +8,24 @@
 .test-menu-dark-sider {
     background: @menu-dark-bg;
 }
+.ant-menu-item a {
+    color: initial;
+}
+
+.ant-layout-header.header-dark-theme,
+.ant-layout-sider.sider-dark-theme {
+    background-color: @menu-dark-bg;
+    .ant-layout-sider-trigger {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        background: @menu-dark-bg;
+    }
+}
+
+// 如果有menu是套在sider中使用，则不再设置折叠宽度（随sider变化）
+.ant-layout-sider-collapsed .ant-menu-inline-collapsed {
+    width: auto;
+}
+
 // 折叠面板，固定模式
 .ant-collapse.uf-collapse-fixed>.ant-collapse-item {
     &>.ant-collapse-header {

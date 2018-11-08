@@ -16,7 +16,7 @@ export default class DataEntry extends Antd {
     constructor(props) {
         super(props);
         this.class.push('data-entry');
-        this._openApi.push('getValue', 'getDisplayValue');
+        this._openApi.push('getValue');
         this.__controlled = {
             key: 'value',
             event: 'onChange',
@@ -103,25 +103,16 @@ export default class DataEntry extends Antd {
         return this.__props[key];
     }
 
-    // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
-    getDisplayValue() {
-        const value = this.getValue();
-        let result = value;
-        let options = this.__props.options || [];
-        for (let i in options) {
-            if (options[i].value === value || options[i].value === (value + '')) {
-                result = options[i].label;
-                break;
-            }
-        }
-        return result;
-    }
 }
 
 
 /************* 附带options属性的基类（包含多选逻辑） ***************************************************** */
 
 DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
+    constructor(props) {
+        super(props);
+        this._openApi.push('getDisplayValue', 'getSelectedOption');
+    }
     _afterSetProps(nextProps) {
         super._afterSetProps();
         // 把 options 格式化为统一固定格式
@@ -171,6 +162,34 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
             this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
         }
     }
+
+    // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
+    getDisplayValue() {
+        const value = this.getValue();
+        let result = value;
+        let options = this.__props.options || [];
+        for (let i in options) {
+            if (options[i].value === value || options[i].value === (value + '')) {
+                result = options[i].label;
+                break;
+            }
+        }
+        return result;
+    }
+    // 获取选中的option，针对select等类型的具备可选值的组件
+    getSelectedOption() {
+        const value = this.getValue();
+        let result;
+        let options = this.__props.options || [];
+        for (let i in options) {
+            if (options[i].value === value || options[i].value === (value + '')) {
+                result = options[i];
+                break;
+            }
+        }
+        return result;
+    }
+
 };
 
 /************* DatePicker日期选择框系列基类 ************************************************************** */

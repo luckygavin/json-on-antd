@@ -7340,7 +7340,7 @@ li.ant-calendar-time-picker-select-option-disabled:hover {
 }
 .ant-dropdown-menu-dark,
 .ant-dropdown-menu-dark .ant-dropdown-menu {
-  background: #19233C;
+  background: #333744;
 }
 .ant-dropdown-menu-dark .ant-dropdown-menu-item,
 .ant-dropdown-menu-dark .ant-dropdown-menu-submenu-title,
@@ -12381,17 +12381,17 @@ textarea.ant-mention-wrapper .ant-mention-editor {
 .ant-menu-dark,
 .ant-menu-dark .ant-menu-sub {
   color: rgba(255, 255, 255, 0.67);
-  background: #19233C;
+  background: #333744;
 }
 .ant-menu-dark .ant-menu-inline.ant-menu-sub {
-  background: #19233C;
+  background: #333744;
 }
 .ant-menu-dark.ant-menu-horizontal {
-  border-bottom-color: #19233C;
+  border-bottom-color: #333744;
 }
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-item,
 .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
-  border-color: #19233C;
+  border-color: #333744;
   border-bottom: 0;
 }
 .ant-menu-dark .ant-menu-item,
@@ -18700,12 +18700,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-radio-inner:after {
   border-radius: 50%;
 }
-.ant-menu-vertical .ant-menu-item,
-.ant-menu-sub.ant-menu-inline > .ant-menu-item,
-.ant-menu-sub.ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title {
-  line-height: 35px;
-  height: 35px;
-}
 .ant-input {
   height: 28px;
 }
@@ -18718,7 +18712,6 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-menu-light .ant-menu-submenu-inline .ant-menu-submenu-title {
   background: #f4f5f9;
 }
-.ant-menu-light.ant-menu-inline .ant-menu-item,
 .ant-menu-light.ant-menu-inline .ant-menu-submenu-title {
   background: #f4f5f9;
 }
@@ -18729,22 +18722,42 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected > a:hover {
   color: #108ee9;
 }
+/************************* dark theme 参照阿里云 ************************************************************************/
+/************************* dark theme 参照阿里云 ************************************************************************/
+/************************* dark theme 参照阿里云 ************************************************************************/
 .ant-menu-dark {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
 }
 .ant-menu-dark .ant-menu-item,
 .ant-menu-dark .ant-menu-item-group-title,
 .ant-menu-dark .ant-menu-item > a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.95);
+}
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-item-active,
+.ant-menu-dark .ant-menu-submenu-active,
+.ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  background: #4a5064;
 }
 .ant-menu-dark .ant-menu-vertical .ant-menu-submenu-title,
 .ant-menu-dark .ant-menu-submenu-inline .ant-menu-submenu-title {
-  background: #232e48;
+  background: #424856;
 }
 .ant-menu-dark:not(.ant-menu-inline) .ant-menu-submenu-selected {
   color: #fff;
-  background: #108ee9;
+  background: #00c1de;
 }
+.ant-menu.ant-menu-dark .ant-menu-item-selected {
+  background: #00c1de;
+  color: #fff;
+}
+.ant-menu.ant-menu-dark .ant-menu-item-selected a {
+  color: #fff;
+}
+/************************* dark theme 另一种样式 ************************************************************************/
+/************************* dark theme 另一种样式 ************************************************************************/
+/************************* dark theme 另一种样式 ************************************************************************/
 .ant-breadcrumb {
   background: #f3f3f3;
 }
@@ -18765,7 +18778,22 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
  * Created Date: 2018-08-08 08:54:52
  */
 .test-menu-dark-sider {
-  background: #19233C;
+  background: #333744;
+}
+.ant-menu-item a {
+  color: initial;
+}
+.ant-layout-header.header-dark-theme,
+.ant-layout-sider.sider-dark-theme {
+  background-color: #333744;
+}
+.ant-layout-header.header-dark-theme .ant-layout-sider-trigger,
+.ant-layout-sider.sider-dark-theme .ant-layout-sider-trigger {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: #333744;
+}
+.ant-layout-sider-collapsed .ant-menu-inline-collapsed {
+  width: auto;
 }
 .ant-collapse.uf-collapse-fixed > .ant-collapse-item > .ant-collapse-header {
   padding: 0 0 0 12px;
@@ -19151,7 +19179,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .uf-modal .ant-modal-content,
 .uf-table-modal .ant-modal-content {
-  border-radius: 3px;
+  border-radius: 2px;
 }
 .uf-modal .ant-modal-content .ant-modal-close-x,
 .uf-table-modal .ant-modal-content .ant-modal-close-x {
@@ -19203,6 +19231,121 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-content > .ant-collapse-content-box {
   padding-top: 0;
   padding-bottom: 0;
+}
+/* 抽屉组件样式 **********************************************************************/
+.uf-drawer {
+  position: absolute;
+  padding-bottom: 0;
+  top: unset;
+  margin: unset;
+}
+.uf-drawer.right {
+  right: 0px;
+  height: 100% !important;
+}
+.uf-drawer.right .ant-modal-close {
+  left: -40px;
+  right: unset;
+  color: #fff;
+}
+.uf-drawer.right.zoom-enter.zoom-enter-active,
+.uf-drawer.right.zoom-appear.zoom-appear-active {
+  -webkit-animation-name: antMoveRightIn;
+          animation-name: antMoveRightIn;
+}
+.uf-drawer.right.zoom-leave.zoom-leave-active {
+  -webkit-animation-name: antMoveRightOut;
+          animation-name: antMoveRightOut;
+}
+.uf-drawer.left {
+  left: 0px;
+  height: 100% !important;
+}
+.uf-drawer.left .ant-modal-close {
+  right: -40px;
+  left: unset;
+  color: #fff;
+}
+.uf-drawer.left.zoom-enter.zoom-enter-active,
+.uf-drawer.left.zoom-appear.zoom-appear-active {
+  -webkit-animation-name: antMoveLeftIn;
+          animation-name: antMoveLeftIn;
+}
+.uf-drawer.left.zoom-leave.zoom-leave-active {
+  -webkit-animation-name: antMoveLeftOut;
+          animation-name: antMoveLeftOut;
+}
+.uf-drawer.top {
+  top: 0px;
+  width: 100% !important;
+}
+.uf-drawer.top .ant-modal-close {
+  bottom: -40px;
+  top: unset;
+  left: 0;
+  color: #fff;
+}
+.uf-drawer.top.zoom-enter.zoom-enter-active,
+.uf-drawer.top.zoom-appear.zoom-appear-active {
+  -webkit-animation-name: antMoveUpIn;
+          animation-name: antMoveUpIn;
+}
+.uf-drawer.top.zoom-leave.zoom-leave-active {
+  -webkit-animation-name: antMoveUpOut;
+          animation-name: antMoveUpOut;
+}
+.uf-drawer.bottom {
+  bottom: 0px;
+  width: 100% !important;
+}
+.uf-drawer.bottom .ant-modal-close {
+  top: -40px;
+  bottom: unset;
+  left: 0;
+  color: #fff;
+}
+.uf-drawer.bottom.zoom-enter.zoom-enter-active,
+.uf-drawer.bottom.zoom-appear.zoom-appear-active {
+  -webkit-animation-name: antMoveDownIn;
+          animation-name: antMoveDownIn;
+}
+.uf-drawer.bottom.zoom-leave.zoom-leave-active {
+  -webkit-animation-name: antMoveDownOut;
+          animation-name: antMoveDownOut;
+}
+.uf-drawer.has-tl .ant-modal-content {
+  padding-top: 40px;
+}
+.uf-drawer.has-ft .ant-modal-content {
+  padding-bottom: 49px;
+}
+.uf-drawer .ant-modal-content {
+  position: relative;
+  border-radius: 0;
+  height: 100%;
+}
+.uf-drawer .ant-modal-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.uf-drawer .ant-modal-body {
+  overflow: scroll;
+  height: 100%;
+}
+.uf-drawer .ant-modal-footer {
+  border-top: 1px solid #e9e9e9;
+  padding: 10px 16px 10px 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.uf-drawer .ant-modal-close {
+  position: absolute;
+  font-weight: 100;
+}
+.uf-drawer .ant-modal-close .ant-modal-close-x {
+  font-size: 24px;
 }
 .uf-form.uf-form-inline {
   margin: 15px 0 5px 0;
@@ -19496,5 +19639,5 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   box-shadow: none !important;
 }
 .test-menu-dark-sider {
-  background: #19233C;
+  background: #333744;
 }

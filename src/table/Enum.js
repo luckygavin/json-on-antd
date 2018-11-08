@@ -29,7 +29,7 @@ export default class Enum {
                     this.save(item.dataIndex, item.enum);
                 // 实时翻译
                 } else if (Utils.typeof(item.enum, 'object') && item.enum.realtime) {
-                    let others = others = {
+                    let others = {
                         // 参数属性
                         key: 'ids',
                         // 是否逗号分隔
@@ -42,10 +42,12 @@ export default class Enum {
                     let conf = Utils.clone(item.enum);
                     if (!conf.paramsHandler) {
                         conf.paramsHandler = (params) => {
-                            let values = params.map(v => v[item.dataIndex]);
-                            return {
-                                [others.key]: others.comma ? values.join(',') : values
-                            };
+                            if (params.list) {
+                                let values = params.list.map(v => v[item.dataIndex]);
+                                params[others.key] = others.comma ? values.join(',') : values;
+                                delete params.list;
+                            }
+                            return params;
                         };
                     }
                     this.realtimeConfs[item.dataIndex] = conf;
@@ -86,32 +88,25 @@ export default class Enum {
         }
     }
     // 把数组格式化成键值对并存储
-    save(dataIndex, list) {
+    save(dataIndex, list, saveReverse = true) {
         // 如果原来有值，则再原列表上追加
         let result = this.data[dataIndex] || {};
-        let reverseResult = this.dataReverse[dataIndex] || {};
-        // 如果数据格式为 [{id:'',name:'',key:'',value:''}]
-        if (Utils.typeof(list, 'array')) {
-            for (let v of list) {
-                let key = v.id || v.key;
-                let value = v.name || v.value;
-                result[key] = value;
-                if (Utils.typeof(value, ['string', 'number'])) {
-                    reverseResult[value] = key;
-                }
-            }
-        // 数据格式为 {key:value, key:value}
-        } else if (Utils.typeof(list, 'object')) {
-            for (let i in list) {
-                result[i] = list[i];
-                if (Utils.typeof(list[i], ['string', 'number'])) {
-                    reverseResult[list[i]] = i;
-                }
-            }
+        // 不管数据格式怎样，通过toOptions转换为一种格式
+        list = Utils.toOptions(list);
+        for (let v of list) {
+            result[v.value] = v.label;
         }
-
         this.data[dataIndex] = result;
-        this.dataReverse[dataIndex] = reverseResult;
+        // 是否存储逆向翻译数据。实时翻译的接口数据，saveReverse === false
+        if (saveReverse) {
+            let reverseResult = this.dataReverse[dataIndex] || {};
+            for (let v of list) {
+                if (Utils.typeof(v.label, ['string', 'number', 'boolean'])) {
+                    reverseResult[v.label] = v.value;
+                }
+            }
+            this.dataReverse[dataIndex] = reverseResult;
+        }
     }
 
     /*** Table.js 中的功能 ******************************************************************* */
@@ -151,13 +146,16 @@ export default class Enum {
             };
             for (let i in this.realtimeConfs) {
                 count++;
+                let conf = this.realtimeConfs[i];
                 this.tools.execAjax({
                     // 默认开启缓存
                     cache: true,
-                    ...this.realtimeConfs[i],
-                    params: list,
+                    ...conf,
+                    params: Object.assign(conf.params || {}, {
+                        list: list
+                    }),
                     success: data => {
-                        this.save(i, data);
+                        this.save(i, data, false);
                         finish();
                     },
                     error: finish
@@ -186,16 +184,20 @@ export default class Enum {
         });
     }
     // 把一个数据列表中的枚举字段的id转换为枚举的值，key => value
-    encodeEnum(list) {
+    // 如果没有传 keys 字段，则处理全部字段
+    encodeEnum(list, keys) {
         let error = [];
         let result = (list || []).map((item, index)=>{
-            return Utils.each(item, (v, i) => {
-                if (this.data[i]) {
+            if (!keys) {
+                keys = Object.keys(item);
+            }
+            return Utils.each(Utils.pick(item, keys), (v, i) => {
+                if (v !== '' && this.data[i]) {
                     if (this.data[i][v] !== undefined) {
                         return this.data[i][v];
                     } else {
-                        error.push(`第【${index + 1}】行数据【${v}】解析时出现错误，已展示源数据，请注意！`);
-                        return v;
+                        error.push(`第【${index + 1}】行字段【${i}】的数据【${v}】解析时出现错误，已留空，如有需要请进行更新！`);
+                        return '';
                     }
                 }
                 return v;
@@ -221,7 +223,7 @@ export default class Enum {
                     if (this.dataReverse[i][v] !== undefined) {
                         return this.dataReverse[i][v];
                     } else {
-                        error.push(`第【${index + 1}】行数据的值【${v}】无效，请检查！`);
+                        error.push(`第【${index + 1}】行第【${i}】个字段数据的值【${v}】无效，请检查！`);
                         return '';
                     }
                 }

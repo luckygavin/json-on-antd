@@ -2,9 +2,9 @@
 
 ## 何时使用
 
-需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
-
-另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。
+- 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。  
+- 另外当需要一个简洁的确认框询问用户时，可以使用精心封装好的 `UF.Modal.confirm()` 等方法。  
+- 需要侧拉展示信息时，可使用 `Drawer` 组件进行展示。
 
 ## 组件&配置
 
@@ -14,24 +14,36 @@
 visible    | 对话框是否可见 | boolean          | 无          
 content | 弹框中间的内容 | string&#124;`config`  | 无          
 confirmLoading | 确定按钮 loading | boolean    | 无          
-title      | 标题           | string&#124;`config` | 无          
+title      | 标题  | string&#124;`config` | 无          
 closable   | 是否显示右上角的关闭按钮 | boolean    | true       
-onSubmit       | 点击确定回调       | function(e)     | 无          
-onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        
+maskClosable | 点击蒙层是否允许关闭 | boolean   | false      
 width      | 宽度           | string&#124;number | 520          
-footer     | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | `config`&#124;`config[]` | 确定取消按钮
+footer     | 底部内容，当不需要默认底部按钮时，可以设为`footer: null` | `config`&#124;`config[]` | 确定取消按钮
 okText     | 确认按钮文字    | string           | 确定      
 okType     | 确认按钮类型    | string           | primary      
 cancelText | 取消按钮文字    | string           | 取消      
 cancelType | 取消按钮类型    | string           | default      
-maskClosable | 点击蒙层是否允许关闭 | boolean   | false      
 style | 可用于设置浮层的样式，调整浮层位置等 | object   | -
 wrapClassName | 对话框外层容器的类名 | string   | -
 afterClose | Modal 完全关闭后的回调 | function | 无
-getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body
 zIndex | 设置弹出层的 `z-index` 值，即层叠高度 | number | 1000
+getContainer | 指定 Modal 挂载的 HTML 节点 | (instance): HTMLElement | () => document.body
+onCancel   | 点击遮罩层或右上角叉或取消按钮的回调  | function(e)  | 无        
+onSubmit   | 点击确定回调       | function(e)     | 无          
+
 
 > tips: `footer`属性一般为一个配置或配置数组，其中没项可以有一个额外的`action`属性，指定按钮的特定功能，可选值有'submit'、'cancel'，分别对应提交功能（onSubmit）和取消功能（onCancel）
+
+### # drawer
+
+抽屉组件，属性及功能和弹框一致，但是展示效果不同，为从侧边拉出。可见demo6
+
+参数       | 说明           | 类型             | 默认值      
+-----------|----------------|------------------|-------------
+placement  | 弹出位置，可选 `left` `right` `top` `bottom` | boolean | 'right'     
+width      | 宽度，可使用百分比或数字   | string&#124;number | '40%'
+height      | 高度，可使用百分比或数字  | string&#124;number | '40'
+
 
 #### modal 高级功能 (额外参数)
 

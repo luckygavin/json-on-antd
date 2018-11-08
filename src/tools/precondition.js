@@ -16,9 +16,7 @@ export default generate(function (insName) {
         delay: 60000,
         timer: null,
         success() {
-            --this.count;
-            if (this.count <= 0) {
-                this.count = 0;
+            if (this.count > 0 && --this.count === 0) {
                 clearTimeout(this.timer);
                 // 全部执行完成后执行再执行init初始化页面
                 getInstance(insName)._reInit();
@@ -27,7 +25,7 @@ export default generate(function (insName) {
         error(err) {
             notification.error({
                 top: 24,
-                message: '执行出错，已中断页面载入',
+                message: '页面载入时出错，请联系平台管理员',
                 duration: 0,
                 description: JSON.stringify(err)
             });

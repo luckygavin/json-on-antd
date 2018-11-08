@@ -127,7 +127,8 @@ export class Menu extends Navigation {
         this.__init();
     }
     // __setProps 后，增加附加处理逻辑
-    _afterSetProps() {
+    _afterSetProps(...p) {
+        super._afterSetProps(...p);
         if (this.__props.items) {
             this.__props.children = this.handleItems(this.__props.items);
             delete this.__props.items;
@@ -169,12 +170,18 @@ export class Menu extends Navigation {
             if (v.icon) {
                 v.title = <span><Antd.Icon type={v.icon}/>{v.title}</span>
             }
-            if (v.link) {
+            // 当没有子菜单时，才增加链接
+            if (v.link && !v.childItems) {
+                let otherProps = {};
+                if (v.onClick) {
+                    otherProps.onClick = e => v.onClick(e, v);
+                }
                 // 如果是http链接，则改用 a 标签
-                if (v.link.indexOf('http') === 0) {
-                    v.title = <a href={v.link} target={v._target}>{v.title}</a>;
+                // to 可以是函数
+                if (!Utils.typeof(v.link, 'function') && v.link.indexOf('http') === 0) {
+                    v.title = <a href={v.link} target={v._target} {...otherProps}>{v.title}</a>;
                 } else {
-                    v.title = <Link to={v.link}>{v.title}</Link>;
+                    v.title = <Link to={v.link} {...otherProps}>{v.title}</Link>;
                 }
             }
             // 菜单项类型，默认为单个 菜单项组件

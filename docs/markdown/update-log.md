@@ -15,6 +15,35 @@
 
 ### 0.3.0
 
+`2018-11-07`
+
+* 🐞 修复批量编辑弹框报错是，弹框直接关闭无法继续编辑问题
+* 🎨 `Table`针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能
+* 🌟 `Table`新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并
+* 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)
+* 🌟 `Table`新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)
+* 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标(http://www.iconfont.cn)，[传送门](#/General/IconPlus)
+
+
+`2018-11-02`
+
+* 🌟 `Select`组件增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性
+* 🎨 修改`Menu`及`Sider`主题样式
+
+
+`2018-10-31`
+
+* 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机
+* 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）
+* 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用
+
+
+`2018-10-22`
+
+* 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)
+* 🐞 修复使用`beforeRender`,`beforeRender`处理并返回参数时，时间函数会被覆盖的问题
+
+
 `2018-10-15`
 
 * ⚙ 调整内部实现，支持事件函数更新

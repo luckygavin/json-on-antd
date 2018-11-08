@@ -3,8 +3,8 @@
  * @author liuzechun@baidu.com
  * **/
 
-import {notification} from 'antd';
 import Utils from './utils.js';
+import UF from 'src';
 
 // Ajajx队列，用于缓存待执行的 ajax 回调函数相关内容
 const ajaxQueue = {};
@@ -39,7 +39,7 @@ function getErrorMsg(error) {
 // 请求出错的提示信息函数
 export function errorMessage(error) {
     let message = getErrorMsg(error);
-    notification.error(Object.assign({}, errorMsg, !message ? null : {
+    UF.notification.error(Object.assign({}, errorMsg, !message ? null : {
         description: message
     }));
     return false;
@@ -49,6 +49,7 @@ export function errorMessage(error) {
  * 检查是否有缓存
  *
  * @param {Object} config ajax的配置
+ * @param {Class} AjaxCache 工具类
  * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
  */
 export function checkCache(config, AjaxCache) {
@@ -65,6 +66,32 @@ export function checkCache(config, AjaxCache) {
         // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
         Utils.inject(config, 'success', (...params)=>{
             AjaxCache.setCacheData(key, params);
+        });
+    }
+    return false;
+}
+
+/**
+ * 第一次调用接口时，检查是否有本地缓存
+ * 如果有，则先执行一次config.success，使页面先执行一次成功逻辑，以不阻塞后续逻辑执行；
+ * 当请求真正获取到数据后，重新再调用一次
+ *
+ * @param {Objcet} config ajax的配置
+ * @param {Class} AjaxCache 工具类
+ * @return {boolean} 如果需继续往下执行，返回true，否则返回false
+ */
+export function checkLocalStorage(config, AjaxCache) {
+    // 如果需要做永久缓存，key不为空
+    let key = AjaxCache.getLocalStorageKey(config);
+    if (key) {
+        // 不管能不能，中断真正的ajax调用
+        let storageData = AjaxCache.getLocalStorageData(key);
+        if (storageData) {
+            Utils.defer(config.success, ...storageData);
+        }
+        // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
+        Utils.inject(config, 'success', (...params) => {
+            AjaxCache.setLocalStorageData(key, params);
         });
     }
     return false;
@@ -131,7 +158,7 @@ export function checkMock(config, mockMap = {}) {
 
 /**
  * 检查是否中断请求
- * > 可以通过返回数据中断请求，从而使用钩子返回的数据；
+ * > 可以通过返回数据，中断请求，从而使用钩子返回的数据；
  * > 如果钩子未返回任何内容，或返回true，则请求继续；
  * > 如果钩子返回false，则仅中断请求，不做任何处理
  *
@@ -140,7 +167,7 @@ export function checkMock(config, mockMap = {}) {
  */
 export function checkInterrupt(config) {
     if (config.interrupt) {
-        let data = config.interrupt.call(null, config);
+        let data = config.interrupt(config);
         // 如果钩子未返回任何内容，或返回true，则请求继续
         if (data === undefined || data === true) {
             return false;

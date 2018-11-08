@@ -142,7 +142,7 @@ export default class Factory extends PureComponent {
     // 拆分多个config，分离成组件的配置
     generateElement(config) {
         // 如果是字符串直接返回
-        if (Utils.typeof(config, 'string')) {
+        if (Utils.typeof(config, ['string', 'number'])) {
             return config;
         }
         let result;

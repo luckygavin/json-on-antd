@@ -28,7 +28,7 @@ export default generate(['Config'], Config=>{
             }
             return null;
         }
-    
+
         // 向缓存池中设置缓存数据
         setCacheData(key, res) {
             // key 通过调用处传入，保证一致性
@@ -47,6 +47,40 @@ export default generate(['Config'], Config=>{
             }
             return null;
         }
+
+        /******* 永久缓存 *******************************************/
+        /******* 永久缓存 *******************************************/
+        /******* 永久缓存 *******************************************/
+
+        // 获取 localstorage 存储时所需的key
+        getLocalStorageKey(config) {
+            if (config.localStorage) {
+                // 如果config.localStorage为一个字符串，则给key增加后缀再进行存储
+                let salt = Utils.typeof(config.localStorage, 'string') ? config.localStorage : '';
+                return Utils.hash(
+                    Utils.pass(config, this.paramList),
+                    32
+                ) + `-${salt}`;
+            }
+            return null;
+        }
+
+        // 向 localStorage 中设置缓存数据
+        setLocalStorageData(key, res) {
+            if (key) {
+                Utils.setCache(key, res);
+            }
+        }
+
+        // 从 localStorage 中获取缓存数据
+        getLocalStorageData(key) {
+            if (key) {
+                return Utils.getCache(key);;
+            }
+            return null;
+        }
+
+
     }
 
     return new AjaxCache();

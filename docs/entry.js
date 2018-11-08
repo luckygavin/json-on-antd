@@ -56,6 +56,7 @@ const ComponentList = [
     {path: 'General', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('src/antd/docs/antd-button').default},
         {path: 'Icon', name: 'Icon 图标', component: require('src/antd/docs/antd-icon').default},
+        {path: 'IconPlus', name: 'IconPlus 扩展图标', component: require('src/antd/docs/antd-icon-plus').default},
         {path: 'Grid', name: 'Grid 栅格', component: require('src/antd/docs/antd-grid').default},
         {path: 'Layout', name: 'Layout 布局', component: require('src/antd/docs/antd-layout').default},
         {path: 'Router', name: 'Router 路由', component: require('src/router/docs').default}

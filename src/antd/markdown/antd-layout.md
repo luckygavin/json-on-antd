@@ -67,6 +67,7 @@
 
 | 参数      | 说明                                     | 类型       | 默认值 |
 |----------|-----------------------------------------|------------|-------|
+| theme | 主题颜色，可以和`Menu`组件的dark主题配合使用 | string: `light` `dark` | `light`  |
 | collapsible | 是否可收起 | boolean | false  |
 | defaultCollapsed | 是否默认收起 | boolean | false  |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false  |
@@ -96,6 +97,12 @@ toggleCollapsed | 切换收起/展开状态 | 无
 ----------|-----------------------------------------|------------|-------
 target | 关联`sider`组件的名称 | boolean | false
 reverse | 反转方向 | boolean | false
+
+### # header
+
+| 参数      | 说明                                     | 类型       | 默认值 |
+|----------|-----------------------------------------|------------|-------|
+| theme | 主题颜色，可以和`Menu`组件的dark主题配合使用 | string: `light` `dark` | `light`  |
 
 
 ### # header、content、footer

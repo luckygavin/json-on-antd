@@ -68,11 +68,11 @@
 
 	var map = {
 		"./baidu-theme/index.less": 2,
-		"./dark/index.less": 5,
-		"./default/index.less": 6,
-		"./green/index.less": 7,
-		"./large/index.less": 8,
-		"./we-theme/index.less": 9
+		"./dark/index.less": 3,
+		"./default/index.less": 4,
+		"./green/index.less": 5,
+		"./large/index.less": 6,
+		"./we-theme/index.less": 7
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -92,21 +92,31 @@
 /* 2 */
 /***/ (function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	(function() { module.exports = global["./baidu-theme/index.less"]; }());
 
 /***/ }),
-/* 3 */,
-/* 4 */,
+/* 3 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./dark/index.less"]; }());
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	(function() { module.exports = global["./default/index.less"]; }());
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	(function() { module.exports = global["./green/index.less"]; }());
 
 /***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
-	// removed by extract-text-webpack-plugin
+	(function() { module.exports = global["./large/index.less"]; }());
 
 /***/ }),
 /* 7 */
@@ -115,18 +125,8 @@
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
-
-/***/ }),
+/* 8 */,
+/* 9 */,
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.12","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.14","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -180,7 +180,7 @@
 
 	var _lib2 = _interopRequireDefault(_lib);
 
-	var _moment = __webpack_require__(26);
+	var _moment = __webpack_require__(25);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -200,7 +200,7 @@
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(62);
+	var _whitelist = __webpack_require__(61);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -208,7 +208,7 @@
 
 	var _init2 = _interopRequireDefault(_init);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -600,21 +600,23 @@
 
 	module.exports = Object.assign(__webpack_require__(17),
 	// antd 组件统一迁移，见 src/antd/index.js
-	__webpack_require__(65),
+	__webpack_require__(64),
 	// 路由组件
-	__webpack_require__(76),
+	__webpack_require__(75),
 	// 其他自己实现/封装的组件
 	{
-	    Iframe: __webpack_require__(82),
+	    Iframe: __webpack_require__(81),
 
-	    AutoComplete: __webpack_require__(84),
-	    Export: __webpack_require__(86),
-	    Tree: __webpack_require__(88),
-	    Table: __webpack_require__(90),
-	    Form: __webpack_require__(97).Form,
-	    Forms: __webpack_require__(97).Forms,
-	    Modal: __webpack_require__(100).Modal,
-	    Dashboard: __webpack_require__(100).Dashboard,
+	    AutoComplete: __webpack_require__(83).AutoComplete,
+	    LocalComplete: __webpack_require__(83).LocalComplete,
+	    Export: __webpack_require__(85),
+	    Tree: __webpack_require__(87),
+	    Table: __webpack_require__(89),
+	    Form: __webpack_require__(96).Form,
+	    Forms: __webpack_require__(96).Forms,
+	    Modal: __webpack_require__(99).Modal,
+	    Dashboard: __webpack_require__(99).Dashboard,
+	    Drawer: __webpack_require__(99).Drawer,
 	    Ueditor: __webpack_require__(103).Ueditor,
 	    UeditorParse: __webpack_require__(103).UeditorParse,
 	    Echarts: __webpack_require__(106),
@@ -630,7 +632,7 @@
 
 	module.exports = {
 	    Dom: __webpack_require__(18).default,
-	    Html: __webpack_require__(64).default
+	    Html: __webpack_require__(63).default
 	};
 
 /***/ }),
@@ -738,7 +740,7 @@
 	module.exports = {
 	    BaseComponent: __webpack_require__(20).default,
 	    BaseConf: __webpack_require__(20),
-	    ExtendComponent: __webpack_require__(63)
+	    ExtendComponent: __webpack_require__(62)
 	};
 
 /***/ }),
@@ -766,11 +768,11 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _authority = __webpack_require__(61);
+	var _authority = __webpack_require__(60);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(62);
+	var _whitelist = __webpack_require__(61);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -1079,7 +1081,7 @@
 
 	    }, {
 	        key: '_afterSetProps',
-	        value: function _afterSetProps() {}
+	        value: function _afterSetProps(newProps) {}
 
 	        // 覆盖原生的setState方法。如果组件已销毁，则不再执行setState。用于异步操作中调用setState时的通用状态检测
 
@@ -1518,7 +1520,7 @@
 
 	            if (url) {
 	                // 额外增加对参数预处理逻辑，不暴露给用户使用
-	                if (false === (_paramsHandler && (params = _paramsHandler(params)))) {
+	                if (_paramsHandler && false === (params = _paramsHandler(params))) {
 	                    return false;
 	                }
 	                if (paramsHandler) {
@@ -1550,7 +1552,8 @@
 	                            // 如果用户定义了数据处理函数，先对数据进行处理
 	                            handler && (data = handler(data, res, _this6));
 	                            // 两个handler都可以通过return false 阻止后续逻辑
-	                            if (data === false) {
+	                            // 注意，存在返回数据本身为data的情况。所以需要确认当data为handler处理结果时，再阻止
+	                            if (data === false && (_handler || handler)) {
 	                                return;
 	                            }
 	                            // 实际的调用处传入的成功处理逻辑
@@ -1602,6 +1605,9 @@
 	            if (props.className) {
 	                result.className = props.className + ' ' + (result.className || '');
 	            }
+	            if (props.style) {
+	                result.style = Object.assign(props.style, result.style);
+	            }
 	            return result;
 	        }
 
@@ -1613,7 +1619,6 @@
 	        key: '_filterHandler',
 	        value: function _filterHandler(props) {
 	            var newProps = {};
-	            var haveFiltered = false;
 	            for (var i in props) {
 	                if (props.hasOwnProperty(i)) {
 	                    if (this._filter.indexOf(i) === -1) {
@@ -1621,16 +1626,41 @@
 	                    } else {
 	                        // 使用merge，保证增量合并。使进入到__filtered中的属性，也能增量的set
 	                        // this.__filtered[i] = this.__mergeProps({}, this.__filtered[i], props[i]);
-	                        this.__filtered[i] = _utils.Utils.merge(this.__filtered[i] || {}, props[i]);
-	                        haveFiltered = true;
+	                        var value = props[i];
+	                        // 格式化 api、source、control 系列参数
+	                        if (['api', 'source', 'control'].indexOf(i) > -1) {
+	                            value = this._varietyPropsFormat(i, value);
+	                        }
+	                        this.__filtered[i] = _utils.Utils.merge(this.__filtered[i] || {}, value);
 	                    }
 	                }
 	            }
-	            // 格式化 api、source、control 系列参数
-	            if (haveFiltered) {
-	                this._filteredPropsFormat();
-	            }
 	            return newProps;
+	        }
+
+	        // api、source、control 系列参数初始化，处理成对象
+
+	    }, {
+	        key: '_varietyPropsFormat',
+	        value: function _varietyPropsFormat(key, value) {
+	            switch (key) {
+	                case 'api':
+	                    value = _utils.Utils.varietyFormat(value, 'url');
+	                    break;
+	                case 'source':
+	                    value = _utils.Utils.varietyFormat(value, 'url');
+	                    break;
+	                case 'control':
+	                    value = _utils.Utils.varietyFormat(value, 'target');
+	                    break;
+	                default:
+	                    return value;
+	            }
+	            // 检查默认配置中是否有配置，如果有进行合并
+	            if (!_utils.Utils.empty(value) && this.__defaultProps[key]) {
+	                value = this.__mergeProps({}, this.__defaultProps[key], value);
+	            }
+	            return value;
 	        }
 
 	        // 后面传入组件的参数用 __props 代替 props
@@ -1831,7 +1861,7 @@
 	                        var result = _this8['_' + v] && _this8['_' + v].apply(_this8, arguments);
 	                        // 返回false会阻止事件
 	                        if (result === false) {
-	                            return;
+	                            return false;
 	                        }
 	                        var oResult = _this8.__filtered[v] && (_filtered = _this8.__filtered)[v].apply(_filtered, arguments);
 	                        // 当函数返回结果为空时，尝试获取用户定义的函数的结果
@@ -1840,7 +1870,7 @@
 	                    };
 	                };
 
-	                for (var _iterator6 = this._injectEvent[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	                for (var _iterator6 = _utils.Utils.distinct(this._injectEvent)[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
 	                    _loop();
 	                }
 	            } catch (err) {
@@ -1919,7 +1949,9 @@
 	                            var _v3 = _step9.value;
 
 	                            _this10._inject(_this10, _v3, function () {
-	                                var result = inject.call(_this10, _this10.__props, _this10);
+	                                // __filtered 需覆盖 __props，以在 _filterHandler 时还原回去
+	                                var props = Object.assign({}, _this10.__props, _this10.__filtered);
+	                                var result = inject.call(_this10, props, _this10);
 	                                // 组件渲染/刷新前可以让用户有机会改参数
 	                                if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
 	                                    // 防止用户设置过滤属性
@@ -1985,14 +2017,17 @@
 	    }, {
 	        key: '_handleControlProps',
 	        value: function _handleControlProps() {
-	            // 还未进行initProps，control参数还在__props上
-	            var control = _utils.Utils.varietyFormat(this.__props.control, 'target');
-	            if (this.__defaultProps.control) {
-	                control = this.__mergeProps({}, this.__defaultProps.control, control);
-	            }
-	            if (control && control.trigger) {
-	                this._injectEvent.push(control.trigger);
-	                this._inject(this, '_' + control.trigger, this._controlHandler.bind(this), true);
+	            // 还未进行initProps，api参数 props 上，init之后才在 __filtered 上
+	            var control = _utils.Utils.varietyFormat(this.props.control, 'target');
+	            // 只有用户进行了设置才做处理
+	            if (!_utils.Utils.empty(control)) {
+	                if (this.__defaultProps.control) {
+	                    control = this.__mergeProps({}, this.__defaultProps.control, control);
+	                }
+	                if (control.trigger) {
+	                    this._injectEvent.push(control.trigger);
+	                    this._inject(this, '_' + control.trigger, this._controlHandler.bind(this), true);
+	                }
 	            }
 	        }
 	    }, {
@@ -2104,31 +2139,6 @@
 	            }
 	        }
 
-	        // api、source 系列参数初始化
-
-	    }, {
-	        key: '_filteredPropsFormat',
-	        value: function _filteredPropsFormat() {
-	            // 把 api 处理成对象
-	            var api = _utils.Utils.varietyFormat(this.__filtered.api, 'url');
-	            var source = _utils.Utils.varietyFormat(this.__filtered.source, 'url');
-	            var control = _utils.Utils.varietyFormat(this.__filtered.control, 'target');
-	            // 检查默认配置中是否有配置，如果有进行合并
-	            if (this.__defaultProps.api) {
-	                api = this.__mergeProps({}, this.__defaultProps.api, api);
-	            }
-	            if (this.__defaultProps.source) {
-	                source = this.__mergeProps({}, this.__defaultProps.source, source);
-	            }
-	            if (this.__defaultProps.control) {
-	                control = this.__mergeProps({}, this.__defaultProps.control, control);
-	            }
-	            // 重新设置 __filtered 属性
-	            this.__filtered.api = api;
-	            this.__filtered.source = source;
-	            this.__filtered.control = control;
-	        }
-
 	        // 自动异步获取数据
 
 	    }, {
@@ -2160,15 +2170,18 @@
 	    }, {
 	        key: '_handleApiProps',
 	        value: function _handleApiProps() {
-	            // 还未进行initProps，api参数还在__props上
-	            var api = _utils.Utils.varietyFormat(this.__props.api, 'url');
-	            if (this.__defaultProps.api) {
-	                api = this.__mergeProps({}, this.__defaultProps.api, api);
-	            }
-	            if (api && api.trigger) {
-	                this._injectEvent.push(api.trigger);
-	                // TODO: 有待观察，目前看代码之间的相互限制有点多
-	                this._inject(this, '_' + api.trigger, this._apiHandler.bind(this), true);
+	            // 还未进行initProps，api参数 props 上，init之后才在 __filtered 上
+	            var api = _utils.Utils.varietyFormat(this.props.api, 'url');
+	            // 只有用户进行了设置才做处理
+	            if (!_utils.Utils.empty(api)) {
+	                if (this.__defaultProps.api) {
+	                    api = this.__mergeProps({}, this.__defaultProps.api, api);
+	                }
+	                if (api.trigger) {
+	                    this._injectEvent.push(api.trigger);
+	                    // TODO: 有待观察，目前看代码之间的相互限制有点多
+	                    this._inject(this, '_' + api.trigger, this._apiHandler.bind(this), true);
+	                }
 	            }
 	        }
 
@@ -2296,7 +2309,7 @@
 
 	module.exports = {
 	    Utils: __webpack_require__(23).default,
-	    Ajax: __webpack_require__(27).default
+	    Ajax: __webpack_require__(26).default
 	};
 
 /***/ }),
@@ -2309,24 +2322,39 @@
 	    value: true
 	});
 
-	var _utils2 = __webpack_require__(24);
+	var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var _utils3 = _interopRequireDefault(_utils2);
-
-	var _underscore = __webpack_require__(25);
+	var _underscore = __webpack_require__(24);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _moment2 = __webpack_require__(26);
+	var _moment2 = __webpack_require__(25);
 
 	var _moment3 = _interopRequireDefault(_moment2);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } } /**
+	                                                                                                                                                                                                     * @file 一些常用的函数工具
+	                                                                                                                                                                                                     * @author liuzechun
+	                                                                                                                                                                                                     **/
+
+	var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
+	var s4 = function s4() {
+	    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+	};
+
 	// 引入了underscore的功能，并在其上增加了自定义的一些函数
-	var utils = Object.assign({}, _underscore2.default, _utils3.default, {
+	var utils = Object.assign({}, _underscore2.default, {
 	    // 如果要使用原生的功能，可通过 _ 来访问
 	    _: _underscore2.default,
+
+	    /*********************************************************************************/
+	    /* 原函数改造 **********************************************************************/
+	    /*********************************************************************************/
+
 	    // 如果数据合法，返回moment数据；否则返回null
 	    moment: function moment() {
 	        var result = _moment3.default.apply(undefined, arguments);
@@ -2340,43 +2368,45 @@
 	    isIntersection: function isIntersection() {
 	        return _underscore2.default.intersection.apply(_underscore2.default, arguments).length > 0;
 	    },
+
+	    // ES6 对象合并
 	    assign: function assign() {
 	        return Object.assign.apply(Object, arguments);
-	    }
-	}); /**
-	     * @file 一些常用的函数工具
-	     * @author liuzechun
-	     **/
+	    },
 
-	exports.default = utils;
+	    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
+	    stringify: function stringify(data) {
+	        var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
 
-/***/ }),
-/* 24 */
-/***/ (function(module, exports) {
+	        if (level <= 0) {
+	            return '_$leaf';
+	        }
+	        if (utils.typeof(data, ['object', 'array', 'symbol'])) {
+	            if (utils.directInstanceof(data, [Object, Array])) {
+	                data = utils.each(data, function (v) {
+	                    return utils.stringify(v, level - 1);
+	                });
+	                data = JSON.stringify(data);
+	            } else {
+	                // Symbol(react.element)
+	                data = '_$Symbol';
+	            }
+	        } else if (utils.typeof(data, 'function')) {
+	            data = '_$function';
+	        }
+	        return '' + data;
+	    },
 
-	'use strict';
+	    // 数组去重
+	    distinct: function distinct(arr) {
+	        return [].concat(_toConsumableArray(new Set(arr)));
+	    },
 
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
 
-	var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	    /*********************************************************************************/
+	    /* 自定义工具函数 ******************************************************************/
+	    /*********************************************************************************/
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-	/**
-	 * @file 一些常用的函数工具
-	 * @author liuzechun
-	 **/
-
-	var I64BIT_TABLE = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-'.split('');
-	var s4 = function s4() {
-	    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
-	};
-
-	var utils = {
 	    // 数字前面补充0
 	    padNum: function padNum(num, n) {
 	        var len = ('' + num).length;
@@ -2419,29 +2449,6 @@
 	        return retValue;
 	    },
 
-	    // JSON.stringify 的改造版，跳过复杂属性、不忽略正则等变量等，用于把一个对象转换成一个字符串
-	    stringify: function stringify(data) {
-	        var level = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 5;
-
-	        if (level <= 0) {
-	            return '_$leaf';
-	        }
-	        if (utils.typeof(data, ['object', 'array', 'symbol'])) {
-	            if (utils.directInstanceof(data, [Object, Array])) {
-	                data = utils.each(data, function (v) {
-	                    return utils.stringify(v, level - 1);
-	                });
-	                data = JSON.stringify(data);
-	            } else {
-	                // Symbol(react.element)
-	                data = '_$Symbol';
-	            }
-	        } else if (utils.typeof(data, 'function')) {
-	            data = '_$function';
-	        }
-	        return '' + data;
-	    },
-
 	    // 数据格式转换
 	    format: function format(value, type) {
 	        switch (type) {
@@ -2469,11 +2476,6 @@
 	                ;
 	        }
 	        return value;
-	    },
-
-	    // 数组去重
-	    distinct: function distinct(arr) {
-	        return [].concat(_toConsumableArray(new Set(arr)));
 	    },
 
 	    // 判断数组或对象是否为空
@@ -2505,7 +2507,7 @@
 	        var newData = void 0;
 	        if (utils.typeof(data, 'array')) {
 	            newData = [];
-	        } else if (utils.typeof(data, 'object')) {
+	        } else if (utils.typeof(data, 'object') && utils.directInstanceof(data, Object) && !Object.isFrozen(data)) {
 	            newData = {};
 	        } else {
 	            return data;
@@ -2565,13 +2567,16 @@
 	                        if (filter.indexOf(i) === -1) {
 	                            result[i] = utils.merge(level - 1, result[i], obj[i]);
 	                        } else {
-	                            result[i] = obj[i];
+	                            result[i] = utils.clone(obj[i]);
 	                        }
 	                    }
 	                } else {
 	                    // update at 2018/01/19，undefined的值也要覆盖，否则影响form中select的清空功能
 	                    // result = obj === undefined ? target : obj;
-	                    result = obj;
+	                    // update at 2018/10/24，使用clone，防止多个对象merge时，深层的对象的源数据会被改变。例如：utils.merge({}, a, b); a 对象的 a.b.c 的值会被 b.b.c 改变
+	                    //  但是多出来的大量clone需要考虑是否会有性能问题
+	                    // result = obj;
+	                    result = utils.clone(obj);
 	                }
 	            }
 	        } catch (err) {
@@ -2650,7 +2655,8 @@
 	                        if (utils.toString(value1[i]) !== utils.toString(value2[i])) {
 	                            return false;
 	                        }
-	                    } else if (!Object.is(value1[i], value2[i])) {
+	                        // } else if (!Object.is(value1[i], value2[i])) {
+	                    } else if (!Object.is(value1[i], value2[i]) && !_underscore2.default.isEqual(value1[i], value2[i])) {
 	                        return false;
 	                    }
 	                }
@@ -3150,7 +3156,7 @@
 	            //  好像还不能随便return，比如可能会得到预期之外的结果
 	            // return result || newResult;
 	            return result;
-	        } : newFunc.bind(utilsObj);
+	        } : utilsObj ? newFunc.bind(utilsObj) : newFunc;
 	        // 被替换函数标记
 	        parent[target].replaced = true;
 	        return parent;
@@ -3210,6 +3216,26 @@
 	        return value;
 	    },
 
+	    // 重试功能
+	    // 间隔 interval 的时间，重试 time 次，直到 func 执行成功
+	    // 如果func返回false，则继续重试。否则终止重试
+	    retry: function retry(func) {
+	        var interval = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 200;
+	        var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 5;
+
+	        var count = 1;
+	        var handler = function handler() {
+	            var result = func();
+	            if (result !== false || count > time) {
+	                return result;
+	            } else {
+	                setTimeout(handler, interval);
+	            }
+	            count++;
+	        };
+	        handler();
+	    },
+
 
 	    /************************************************************************/
 	    // 私有方法
@@ -3244,12 +3270,12 @@
 	            return '<span class="' + cls + '">' + match + '</span>';
 	        });
 	    }
-	};
+	});
 
 	exports.default = utils;
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;//     Underscore.js 1.8.3
@@ -4803,13 +4829,13 @@
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment;
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -4818,7 +4844,7 @@
 	    value: true
 	});
 
-	var _reqwest = __webpack_require__(28);
+	var _reqwest = __webpack_require__(27);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
@@ -4826,13 +4852,13 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _axios = __webpack_require__(30);
+	var _axios = __webpack_require__(29);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _ajaxPlugin = __webpack_require__(58);
+	var _ajaxPlugin = __webpack_require__(57);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4853,6 +4879,11 @@
 	        if ((0, _ajaxPlugin.checkInterrupt)(config)) {
 	            return;
 	        }
+	        // 第一次调用接口时，检查是否有本地缓存
+	        // remind,必须放在checkCache之前，保证success调用是不会受缓存的影响
+	        if ((0, _ajaxPlugin.checkLocalStorage)(config, AjaxCache)) {
+	            return;
+	        }
 	        // TODO: 两种情况下都不会触发onchange
 	        // 检查是否有缓存，如果有，则直接中断后续逻辑
 	        if ((0, _ajaxPlugin.checkCache)(config, AjaxCache)) {
@@ -4867,9 +4898,17 @@
 	        var onchange = config.onchange || function () {};
 	        // successHandler
 	        var tmpSuccess = config.success || function () {};
-	        var successHandler = function successHandler() {
+	        var successHandler = function successHandler(data, res) {
+	            for (var _len = arguments.length, p = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	                p[_key - 2] = arguments[_key];
+	            }
+
 	            onchange(false, 'success');
-	            return tmpSuccess.apply(undefined, arguments);
+	            // 全局数据处理函数，若进行了配置，则全部数据都会先经过此函数处理
+	            if (globalAjax.handler) {
+	                data = globalAjax.handler(data, res, config);
+	            }
+	            return tmpSuccess.apply(undefined, [data, res].concat(p));
 	        };
 	        // errorHandler
 	        // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
@@ -4916,8 +4955,10 @@
 	                // 与 globalAjax.error 的处理逻辑稍微有点区别，error执行完之后还有默认处理逻辑，所以根据返回结果进行判断
 	                // 而 globalAjax.success 的处理是直接截断，并传入调用处定义的成功与失败的回调
 	                if (globalAjax.success) {
-	                    globalAjax.success(res, successHandler, errorHandler, config);
-	                    return;
+	                    var result = globalAjax.success(res, successHandler, errorHandler, config);
+	                    if (result !== true) {
+	                        return;
+	                    }
 	                }
 	                // 默认成功处理逻辑
 	                // 如果接口无返回值，则res为http实例
@@ -4988,7 +5029,7 @@
 	        if (final.useAxios) {
 	            return (0, _axios2.default)(final);
 	        }
-
+	        // console.log(final);
 	        return (0, _reqwest2.default)(final);
 	    }
 
@@ -5035,7 +5076,7 @@
 	 * **/
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -5059,7 +5100,7 @@
 	  } else {
 	    var XHR2
 	    try {
-	      XHR2 = __webpack_require__(29)
+	      XHR2 = __webpack_require__(28)
 	    } catch (ex) {
 	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
 	    }
@@ -5671,13 +5712,13 @@
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5696,7 +5737,7 @@
 	    });
 	};
 
-	var _axios = __webpack_require__(31);
+	var _axios = __webpack_require__(30);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -5707,21 +5748,21 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(32);
+	module.exports = __webpack_require__(31);
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
-	var bind = __webpack_require__(34);
-	var Axios = __webpack_require__(36);
-	var defaults = __webpack_require__(37);
+	var utils = __webpack_require__(32);
+	var bind = __webpack_require__(33);
+	var Axios = __webpack_require__(35);
+	var defaults = __webpack_require__(36);
 
 	/**
 	 * Create an instance of Axios
@@ -5754,15 +5795,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(55);
-	axios.CancelToken = __webpack_require__(56);
-	axios.isCancel = __webpack_require__(52);
+	axios.Cancel = __webpack_require__(54);
+	axios.CancelToken = __webpack_require__(55);
+	axios.isCancel = __webpack_require__(51);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(57);
+	axios.spread = __webpack_require__(56);
 
 	module.exports = axios;
 
@@ -5771,13 +5812,13 @@
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(34);
-	var isBuffer = __webpack_require__(35);
+	var bind = __webpack_require__(33);
+	var isBuffer = __webpack_require__(34);
 
 	/*global toString:true*/
 
@@ -6080,7 +6121,7 @@
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6097,7 +6138,7 @@
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -6124,15 +6165,15 @@
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(37);
-	var utils = __webpack_require__(33);
-	var InterceptorManager = __webpack_require__(49);
-	var dispatchRequest = __webpack_require__(50);
+	var defaults = __webpack_require__(36);
+	var utils = __webpack_require__(32);
+	var InterceptorManager = __webpack_require__(48);
+	var dispatchRequest = __webpack_require__(49);
 
 	/**
 	 * Create a new instance of Axios
@@ -6209,13 +6250,13 @@
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(33);
-	var normalizeHeaderName = __webpack_require__(39);
+	var utils = __webpack_require__(32);
+	var normalizeHeaderName = __webpack_require__(38);
 
 	var DEFAULT_CONTENT_TYPE = {
 	  'Content-Type': 'application/x-www-form-urlencoded'
@@ -6231,10 +6272,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(40);
+	    adapter = __webpack_require__(39);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(40);
+	    adapter = __webpack_require__(39);
 	  }
 	  return adapter;
 	}
@@ -6309,10 +6350,10 @@
 
 	module.exports = defaults;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports) {
 
 	// shim for using process in browser
@@ -6502,12 +6543,12 @@
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -6520,18 +6561,18 @@
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(33);
-	var settle = __webpack_require__(41);
-	var buildURL = __webpack_require__(44);
-	var parseHeaders = __webpack_require__(45);
-	var isURLSameOrigin = __webpack_require__(46);
-	var createError = __webpack_require__(42);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(47);
+	var utils = __webpack_require__(32);
+	var settle = __webpack_require__(40);
+	var buildURL = __webpack_require__(43);
+	var parseHeaders = __webpack_require__(44);
+	var isURLSameOrigin = __webpack_require__(45);
+	var createError = __webpack_require__(41);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(46);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -6628,7 +6669,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(48);
+	      var cookies = __webpack_require__(47);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -6704,15 +6745,15 @@
 	  });
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(38)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(37)))
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(42);
+	var createError = __webpack_require__(41);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -6739,12 +6780,12 @@
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(43);
+	var enhanceError = __webpack_require__(42);
 
 	/**
 	 * Create an Error with the specified message, config, error code, request and response.
@@ -6763,7 +6804,7 @@
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6790,12 +6831,12 @@
 
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -6862,12 +6903,12 @@
 
 
 /***/ }),
-/* 45 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	// Headers whose duplicates are ignored by node
 	// c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -6921,12 +6962,12 @@
 
 
 /***/ }),
-/* 46 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -6995,7 +7036,7 @@
 
 
 /***/ }),
-/* 47 */
+/* 46 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7037,12 +7078,12 @@
 
 
 /***/ }),
-/* 48 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -7096,12 +7137,12 @@
 
 
 /***/ }),
-/* 49 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -7154,17 +7195,17 @@
 
 
 /***/ }),
-/* 50 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
-	var transformData = __webpack_require__(51);
-	var isCancel = __webpack_require__(52);
-	var defaults = __webpack_require__(37);
-	var isAbsoluteURL = __webpack_require__(53);
-	var combineURLs = __webpack_require__(54);
+	var utils = __webpack_require__(32);
+	var transformData = __webpack_require__(50);
+	var isCancel = __webpack_require__(51);
+	var defaults = __webpack_require__(36);
+	var isAbsoluteURL = __webpack_require__(52);
+	var combineURLs = __webpack_require__(53);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -7246,12 +7287,12 @@
 
 
 /***/ }),
-/* 51 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(33);
+	var utils = __webpack_require__(32);
 
 	/**
 	 * Transform the data for a request or a response
@@ -7272,7 +7313,7 @@
 
 
 /***/ }),
-/* 52 */
+/* 51 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7283,7 +7324,7 @@
 
 
 /***/ }),
-/* 53 */
+/* 52 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7303,7 +7344,7 @@
 
 
 /***/ }),
-/* 54 */
+/* 53 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7323,7 +7364,7 @@
 
 
 /***/ }),
-/* 55 */
+/* 54 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7348,12 +7389,12 @@
 
 
 /***/ }),
-/* 56 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(55);
+	var Cancel = __webpack_require__(54);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -7411,7 +7452,7 @@
 
 
 /***/ }),
-/* 57 */
+/* 56 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7444,7 +7485,7 @@
 
 
 /***/ }),
-/* 58 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7454,15 +7495,18 @@
 	});
 	exports.errorMessage = errorMessage;
 	exports.checkCache = checkCache;
+	exports.checkLocalStorage = checkLocalStorage;
 	exports.checkQueue = checkQueue;
 	exports.checkMock = checkMock;
 	exports.checkInterrupt = checkInterrupt;
 
-	var _antd = __webpack_require__(21);
-
 	var _utils = __webpack_require__(23);
 
 	var _utils2 = _interopRequireDefault(_utils);
+
+	var _src = __webpack_require__(12);
+
+	var _src2 = _interopRequireDefault(_src);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7504,7 +7548,7 @@
 	// 请求出错的提示信息函数
 	function errorMessage(error) {
 	    var message = getErrorMsg(error);
-	    _antd.notification.error(Object.assign({}, errorMsg, !message ? null : {
+	    _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
 	        description: message
 	    }));
 	    return false;
@@ -7514,6 +7558,7 @@
 	 * 检查是否有缓存
 	 *
 	 * @param {Object} config ajax的配置
+	 * @param {Class} AjaxCache 工具类
 	 * @return {boolean} 如果有直接调用缓存数据，返回true，否则返回false
 	 */
 	function checkCache(config, AjaxCache) {
@@ -7540,6 +7585,36 @@
 	}
 
 	/**
+	 * 第一次调用接口时，检查是否有本地缓存
+	 * 如果有，则先执行一次config.success，使页面先执行一次成功逻辑，以不阻塞后续逻辑执行；
+	 * 当请求真正获取到数据后，重新再调用一次
+	 *
+	 * @param {Objcet} config ajax的配置
+	 * @param {Class} AjaxCache 工具类
+	 * @return {boolean} 如果需继续往下执行，返回true，否则返回false
+	 */
+	function checkLocalStorage(config, AjaxCache) {
+	    // 如果需要做永久缓存，key不为空
+	    var key = AjaxCache.getLocalStorageKey(config);
+	    if (key) {
+	        // 不管能不能，中断真正的ajax调用
+	        var storageData = AjaxCache.getLocalStorageData(key);
+	        if (storageData) {
+	            _utils2.default.defer.apply(_utils2.default, [config.success].concat(_toConsumableArray(storageData)));
+	        }
+	        // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
+	        _utils2.default.inject(config, 'success', function () {
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
+	            }
+
+	            AjaxCache.setLocalStorageData(key, params);
+	        });
+	    }
+	    return false;
+	}
+
+	/**
 	 * 执行队列中缓存的待执行逻辑
 	 *
 	 * @param {string} key 调用处传入，保证一致性
@@ -7548,8 +7623,8 @@
 	 */
 	function executeQueue(key, result) {
 	    if (ajaxQueue[key] && ajaxQueue[key].length > 0) {
-	        for (var _len2 = arguments.length, params = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-	            params[_key2 - 2] = arguments[_key2];
+	        for (var _len3 = arguments.length, params = Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+	            params[_key3 - 2] = arguments[_key3];
 	        }
 
 	        var _iteratorNormalCompletion = true;
@@ -7597,15 +7672,15 @@
 	        ajaxQueue[key] = [];
 	        // 给 success、error 函数插入逻辑：ajax完成后调用队列中全部待执行逻辑，并依次执行
 	        _utils2.default.inject(config, 'success', function () {
-	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                params[_key3] = arguments[_key3];
+	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                params[_key4] = arguments[_key4];
 	            }
 
 	            executeQueue.apply(undefined, [key, 'success'].concat(params));
 	        }, true);
 	        _utils2.default.inject(config, 'error', function () {
-	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                params[_key4] = arguments[_key4];
+	            for (var _len5 = arguments.length, params = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                params[_key5] = arguments[_key5];
 	            }
 
 	            executeQueue.apply(undefined, [key, 'error'].concat(params));
@@ -7635,7 +7710,7 @@
 
 	/**
 	 * 检查是否中断请求
-	 * > 可以通过返回数据中断请求，从而使用钩子返回的数据；
+	 * > 可以通过返回数据，中断请求，从而使用钩子返回的数据；
 	 * > 如果钩子未返回任何内容，或返回true，则请求继续；
 	 * > 如果钩子返回false，则仅中断请求，不做任何处理
 	 *
@@ -7644,7 +7719,7 @@
 	 */
 	function checkInterrupt(config) {
 	    if (config.interrupt) {
-	        var data = config.interrupt.call(null, config);
+	        var data = config.interrupt(config);
 	        // 如果钩子未返回任何内容，或返回true，则请求继续
 	        if (data === undefined || data === true) {
 	            return false;
@@ -7658,12 +7733,12 @@
 	}
 
 /***/ }),
-/* 59 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _BaseCache = __webpack_require__(60);
+	var _BaseCache = __webpack_require__(59);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
@@ -7797,7 +7872,7 @@
 	module.exports = ins;
 
 /***/ }),
-/* 60 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7864,7 +7939,7 @@
 	;
 
 /***/ }),
-/* 61 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7875,7 +7950,7 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	/**
 	 * @file 权限控制模块
@@ -7896,7 +7971,7 @@
 	};
 
 /***/ }),
-/* 62 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7983,7 +8058,7 @@
 	};
 
 /***/ }),
-/* 63 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8097,7 +8172,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 64 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8107,6 +8182,8 @@
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 	var _Dom2 = __webpack_require__(18);
 
@@ -8141,6 +8218,7 @@
 	    _createClass(Html, [{
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
+	            _get(Html.prototype.__proto__ || Object.getPrototypeOf(Html.prototype), '_afterSetProps', this).call(this);
 	            if (this.__props.children) {
 	                this.__props.dangerouslySetInnerHTML = { __html: this.__props.children };
 	                delete this.__props.children;
@@ -8157,32 +8235,32 @@
 	exports.default = Html;
 
 /***/ }),
-/* 65 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _dataentry = __webpack_require__(66);
+	var _dataentry = __webpack_require__(65);
 
 	var DataEntry = _interopRequireWildcard(_dataentry);
 
-	var _datadisplay = __webpack_require__(69);
+	var _datadisplay = __webpack_require__(68);
 
 	var DataDisplay = _interopRequireWildcard(_datadisplay);
 
-	var _genaral = __webpack_require__(71);
+	var _genaral = __webpack_require__(70);
 
 	var Genaral = _interopRequireWildcard(_genaral);
 
-	var _navigation = __webpack_require__(73);
+	var _navigation = __webpack_require__(72);
 
 	var Navigation = _interopRequireWildcard(_navigation);
 
-	var _feedback = __webpack_require__(78);
+	var _feedback = __webpack_require__(77);
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
-	var _layout = __webpack_require__(80);
+	var _layout = __webpack_require__(79);
 
 	var Layout = _interopRequireWildcard(_layout);
 
@@ -8198,7 +8276,7 @@
 	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
 
 /***/ }),
-/* 66 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8220,7 +8298,7 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _DataEntry10 = __webpack_require__(67);
+	var _DataEntry10 = __webpack_require__(66);
 
 	var _DataEntry11 = _interopRequireDefault(_DataEntry10);
 
@@ -8692,12 +8770,16 @@
 	    _inherits(Select, _OptionsDataEntry4);
 
 	    function Select(props) {
+	        var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
 	        _classCallCheck(this, Select);
 
 	        var _this15 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
 	        _this15._openApi.push('selectAll');
-	        _this15.__init();
+	        if (!options.preventInit) {
+	            _this15.__init();
+	        }
 	        return _this15;
 	    }
 
@@ -8793,8 +8875,25 @@
 	        _this16.__init();
 	        return _this16;
 	    }
+	    // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
+
 
 	    _createClass(TreeSelect, [{
+	        key: 'getDisplayValue',
+	        value: function getDisplayValue() {
+	            var value = this.getValue();
+	            var result = value;
+	            var options = this.__props.options || [];
+
+	            for (var i in options) {
+	                if (options[i].value === value || options[i].value === value + '') {
+	                    result = options[i].label;
+	                    break;
+	                }
+	            }
+	            return result;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.TreeSelect, this.__props);
@@ -8912,7 +9011,7 @@
 	}(Upload);
 
 /***/ }),
-/* 67 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8929,13 +9028,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
 	var _utils = __webpack_require__(22);
 
-	var _moment = __webpack_require__(26);
+	var _moment = __webpack_require__(25);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -8963,7 +9062,7 @@
 	        var _this = _possibleConstructorReturn(this, (DataEntry.__proto__ || Object.getPrototypeOf(DataEntry)).call(this, props));
 
 	        _this.class.push('data-entry');
-	        _this._openApi.push('getValue', 'getDisplayValue');
+	        _this._openApi.push('getValue');
 	        _this.__controlled = {
 	            key: 'value',
 	            event: 'onChange',
@@ -9087,23 +9186,6 @@
 	            var key = this.__controlled.key;
 	            return this.__props[key];
 	        }
-
-	        // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
-
-	    }, {
-	        key: 'getDisplayValue',
-	        value: function getDisplayValue() {
-	            var value = this.getValue();
-	            var result = value;
-	            var options = this.__props.options || [];
-	            for (var i in options) {
-	                if (options[i].value === value || options[i].value === value + '') {
-	                    result = options[i].label;
-	                    break;
-	                }
-	            }
-	            return result;
-	        }
 	    }]);
 
 	    return DataEntry;
@@ -9115,10 +9197,13 @@
 	DataEntry.OptionsDataEntry = function (_DataEntry) {
 	    _inherits(OptionsDataEntry, _DataEntry);
 
-	    function OptionsDataEntry() {
+	    function OptionsDataEntry(props) {
 	        _classCallCheck(this, OptionsDataEntry);
 
-	        return _possibleConstructorReturn(this, (OptionsDataEntry.__proto__ || Object.getPrototypeOf(OptionsDataEntry)).apply(this, arguments));
+	        var _this3 = _possibleConstructorReturn(this, (OptionsDataEntry.__proto__ || Object.getPrototypeOf(OptionsDataEntry)).call(this, props));
+
+	        _this3._openApi.push('getDisplayValue', 'getSelectedOption');
+	        return _this3;
 	    }
 
 	    _createClass(OptionsDataEntry, [{
@@ -9185,6 +9270,39 @@
 	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
 	            }
 	        }
+
+	        // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
+
+	    }, {
+	        key: 'getDisplayValue',
+	        value: function getDisplayValue() {
+	            var value = this.getValue();
+	            var result = value;
+	            var options = this.__props.options || [];
+	            for (var i in options) {
+	                if (options[i].value === value || options[i].value === value + '') {
+	                    result = options[i].label;
+	                    break;
+	                }
+	            }
+	            return result;
+	        }
+	        // 获取选中的option，针对select等类型的具备可选值的组件
+
+	    }, {
+	        key: 'getSelectedOption',
+	        value: function getSelectedOption() {
+	            var value = this.getValue();
+	            var result = void 0;
+	            var options = this.__props.options || [];
+	            for (var i in options) {
+	                if (options[i].value === value || options[i].value === value + '') {
+	                    result = options[i];
+	                    break;
+	                }
+	            }
+	            return result;
+	        }
 	    }]);
 
 	    return OptionsDataEntry;
@@ -9246,7 +9364,7 @@
 	}(DataEntry);
 
 /***/ }),
-/* 68 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9431,7 +9549,7 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 69 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9455,7 +9573,7 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _DataDisplay16 = __webpack_require__(70);
+	var _DataDisplay16 = __webpack_require__(69);
 
 	var _DataDisplay17 = _interopRequireDefault(_DataDisplay16);
 
@@ -9784,6 +9902,10 @@
 	        _this10.tabRefs = {};
 	        return _this10;
 	    }
+	    // _onChange(key) {
+	    //     window.history.pushState(null, null, key);
+	    // }
+
 
 	    _createClass(Tabs, [{
 	        key: '_onTabClick',
@@ -9949,7 +10071,7 @@
 	}(_DataDisplay17.default);
 
 /***/ }),
-/* 70 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9966,7 +10088,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10000,7 +10122,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 71 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10008,7 +10130,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.Content = exports.Sider = exports.Footer = exports.Header = exports.Layout = exports.Col = exports.Row = exports.Icon = exports.Backtop = exports.ButtonGroup = exports.Button = exports.AnchorLink = exports.Anchor = undefined;
+	exports.Content = exports.Sider = exports.Footer = exports.Header = exports.Layout = exports.Col = exports.Row = exports.IconPlus = exports.Icon = exports.Backtop = exports.ButtonGroup = exports.Button = exports.AnchorLink = exports.Anchor = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -10024,9 +10146,9 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _Genaral14 = __webpack_require__(72);
+	var _Genaral15 = __webpack_require__(71);
 
-	var _Genaral15 = _interopRequireDefault(_Genaral14);
+	var _Genaral16 = _interopRequireDefault(_Genaral15);
 
 	var _antd = __webpack_require__(21);
 
@@ -10068,7 +10190,7 @@
 	    }]);
 
 	    return Anchor;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	var AnchorLink = exports.AnchorLink = function (_Genaral2) {
 	    _inherits(AnchorLink, _Genaral2);
@@ -10090,7 +10212,7 @@
 	    }]);
 
 	    return AnchorLink;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	/************* Button 按钮 ************************************************************************** */
 
@@ -10186,7 +10308,7 @@
 	    }]);
 
 	    return Button;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 	// 按钮组
 
 
@@ -10210,7 +10332,7 @@
 	    }]);
 
 	    return ButtonGroup;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	/************* Backtop 返回顶部 ************************************************************************** */
 
@@ -10234,7 +10356,7 @@
 	    }]);
 
 	    return Backtop;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	/************* Icon 图标 ************************************************************************** */
 
@@ -10258,22 +10380,45 @@
 	    }]);
 
 	    return Icon;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
+
+	var IconPlus = exports.IconPlus = function (_Genaral7) {
+	    _inherits(IconPlus, _Genaral7);
+
+	    function IconPlus(props) {
+	        _classCallCheck(this, IconPlus);
+
+	        var _this8 = _possibleConstructorReturn(this, (IconPlus.__proto__ || Object.getPrototypeOf(IconPlus)).call(this, props));
+
+	        _this8.__init();
+	        return _this8;
+	    }
+
+	    _createClass(IconPlus, [{
+	        key: 'render',
+	        value: function render() {
+	            var type = (this.__props.type || '').replace('icon-', '');
+	            return _react2.default.createElement('i', _extends({}, this.__props, this.__getCommonProps({ className: 'iconfont icon-' + type })));
+	        }
+	    }]);
+
+	    return IconPlus;
+	}(_Genaral16.default);
 
 	/************* Grid 栅格 ************************************************************************** */
-	// Row
+	// Row 
 
 
-	var Row = exports.Row = function (_Genaral7) {
-	    _inherits(Row, _Genaral7);
+	var Row = exports.Row = function (_Genaral8) {
+	    _inherits(Row, _Genaral8);
 
 	    function Row(props) {
 	        _classCallCheck(this, Row);
 
-	        var _this8 = _possibleConstructorReturn(this, (Row.__proto__ || Object.getPrototypeOf(Row)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Row.__proto__ || Object.getPrototypeOf(Row)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Row, [{
@@ -10284,20 +10429,20 @@
 	    }]);
 
 	    return Row;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 	// Col
 
 
-	var Col = exports.Col = function (_Genaral8) {
-	    _inherits(Col, _Genaral8);
+	var Col = exports.Col = function (_Genaral9) {
+	    _inherits(Col, _Genaral9);
 
 	    function Col(props) {
 	        _classCallCheck(this, Col);
 
-	        var _this9 = _possibleConstructorReturn(this, (Col.__proto__ || Object.getPrototypeOf(Col)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Col.__proto__ || Object.getPrototypeOf(Col)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Col, [{
@@ -10308,23 +10453,23 @@
 	    }]);
 
 	    return Col;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	/************* Layout 布局 ************************************************************************** */
 
 	// Layout 组件
 
 
-	var Layout = exports.Layout = function (_Genaral9) {
-	    _inherits(Layout, _Genaral9);
+	var Layout = exports.Layout = function (_Genaral10) {
+	    _inherits(Layout, _Genaral10);
 
 	    function Layout(props) {
 	        _classCallCheck(this, Layout);
 
-	        var _this10 = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(Layout, [{
@@ -10335,21 +10480,21 @@
 	    }]);
 
 	    return Layout;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	// Layout 组件
 
 
-	var Header = exports.Header = function (_Genaral10) {
-	    _inherits(Header, _Genaral10);
+	var Header = exports.Header = function (_Genaral11) {
+	    _inherits(Header, _Genaral11);
 
 	    function Header(props) {
 	        _classCallCheck(this, Header);
 
-	        var _this11 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(Header, [{
@@ -10360,21 +10505,21 @@
 	    }]);
 
 	    return Header;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	// Layout 组件
 
 
-	var Footer = exports.Footer = function (_Genaral11) {
-	    _inherits(Footer, _Genaral11);
+	var Footer = exports.Footer = function (_Genaral12) {
+	    _inherits(Footer, _Genaral12);
 
 	    function Footer(props) {
 	        _classCallCheck(this, Footer);
 
-	        var _this12 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(Footer, [{
@@ -10385,21 +10530,21 @@
 	    }]);
 
 	    return Footer;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	// Layout 组件
 
 
-	var Sider = exports.Sider = function (_Genaral12) {
-	    _inherits(Sider, _Genaral12);
+	var Sider = exports.Sider = function (_Genaral13) {
+	    _inherits(Sider, _Genaral13);
 
 	    function Sider(props) {
 	        _classCallCheck(this, Sider);
 
-	        var _this13 = _possibleConstructorReturn(this, (Sider.__proto__ || Object.getPrototypeOf(Sider)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (Sider.__proto__ || Object.getPrototypeOf(Sider)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(Sider, [{
@@ -10410,21 +10555,21 @@
 	    }]);
 
 	    return Sider;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 	// Layout 组件
 
 
-	var Content = exports.Content = function (_Genaral13) {
-	    _inherits(Content, _Genaral13);
+	var Content = exports.Content = function (_Genaral14) {
+	    _inherits(Content, _Genaral14);
 
 	    function Content(props) {
 	        _classCallCheck(this, Content);
 
-	        var _this14 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
 
-	        _this14.__init();
-	        return _this14;
+	        _this15.__init();
+	        return _this15;
 	    }
 
 	    _createClass(Content, [{
@@ -10435,10 +10580,10 @@
 	    }]);
 
 	    return Content;
-	}(_Genaral15.default);
+	}(_Genaral16.default);
 
 /***/ }),
-/* 72 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10455,7 +10600,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10489,7 +10634,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 73 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10498,6 +10643,8 @@
 	    value: true
 	});
 	exports.Step = exports.Steps = exports.Pagination = exports.Menu = exports.DropdownButton = exports.Dropdown = exports.Breadcrumb = exports.Affix = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
@@ -10511,11 +10658,11 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(74);
+	var _reactRouter = __webpack_require__(73);
 
 	var _utils = __webpack_require__(22);
 
-	var _Navigation9 = __webpack_require__(75);
+	var _Navigation9 = __webpack_require__(74);
 
 	var _Navigation10 = _interopRequireDefault(_Navigation9);
 
@@ -10523,7 +10670,7 @@
 
 	var Antd = _interopRequireWildcard(_antd);
 
-	var _router = __webpack_require__(76);
+	var _router = __webpack_require__(75);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -10754,6 +10901,13 @@
 	    _createClass(Menu, [{
 	        key: '_afterSetProps',
 	        value: function _afterSetProps() {
+	            var _get2;
+
+	            for (var _len2 = arguments.length, p = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                p[_key2] = arguments[_key2];
+	            }
+
+	            (_get2 = _get(Menu.prototype.__proto__ || Object.getPrototypeOf(Menu.prototype), '_afterSetProps', this)).call.apply(_get2, [this].concat(p));
 	            if (this.__props.items) {
 	                this.__props.children = this.handleItems(this.__props.items);
 	                delete this.__props.items;
@@ -10786,6 +10940,8 @@
 	    }, {
 	        key: 'handleItems',
 	        value: function handleItems(items, parentKey) {
+	            var _this7 = this;
+
 	            var arr = items;
 	            if (!_utils.Utils.typeof(items, 'array')) {
 	                arr = [items];
@@ -10796,13 +10952,13 @@
 	            var _iteratorError2 = undefined;
 
 	            try {
-	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var _loop = function _loop() {
 	                    var item = _step2.value;
 
 	                    var v = _utils.Utils.copy(item);
 	                    // 判断是否有权限
-	                    if (!this.__authority(v)) {
-	                        continue;
+	                    if (!_this7.__authority(v)) {
+	                        return 'continue';
 	                    }
 	                    // 首先处理所有类型的菜单项公共属性
 	                    if (!v.key && v.link) {
@@ -10812,7 +10968,7 @@
 	                        v.title = _react2.default.createElement(
 	                            'span',
 	                            null,
-	                            this.__analysis(v.title)
+	                            _this7.__analysis(v.title)
 	                        );
 	                    }
 	                    if (v.icon) {
@@ -10823,18 +10979,26 @@
 	                            v.title
 	                        );
 	                    }
-	                    if (v.link) {
+	                    // 当没有子菜单时，才增加链接
+	                    if (v.link && !v.childItems) {
+	                        var otherProps = {};
+	                        if (v.onClick) {
+	                            otherProps.onClick = function (e) {
+	                                return v.onClick(e, v);
+	                            };
+	                        }
 	                        // 如果是http链接，则改用 a 标签
-	                        if (v.link.indexOf('http') === 0) {
+	                        // to 可以是函数
+	                        if (!_utils.Utils.typeof(v.link, 'function') && v.link.indexOf('http') === 0) {
 	                            v.title = _react2.default.createElement(
 	                                'a',
-	                                { href: v.link, target: v._target },
+	                                _extends({ href: v.link, target: v._target }, otherProps),
 	                                v.title
 	                            );
 	                        } else {
 	                            v.title = _react2.default.createElement(
 	                                _reactRouter.Link,
-	                                { to: v.link },
+	                                _extends({ to: v.link }, otherProps),
 	                                v.title
 	                            );
 	                        }
@@ -10854,7 +11018,7 @@
 	                        if (!_utils.Utils.typeof(v.children, 'array')) {
 	                            v.children = [v.children];
 	                        }
-	                        v.children.push(this.handleItems(v.childItems, parentKey || v.key));
+	                        v.children.push(_this7.handleItems(v.childItems, parentKey || v.key));
 	                        delete v.childItems;
 	                    }
 	                    // 指定为group类型，则使用 菜单分组组件
@@ -10872,8 +11036,14 @@
 	                    // 保存key值
 	                    if (v.key && !v.disabled) {
 	                        // 存储的是顶层导航的 key
-	                        this.allKeys[v.key] = parentKey || v.key;
+	                        _this7.allKeys[v.key] = parentKey || v.key;
 	                    }
+	                };
+
+	                for (var _iterator2 = arr[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var _ret = _loop();
+
+	                    if (_ret === 'continue') continue;
 	                }
 	            } catch (err) {
 	                _didIteratorError2 = true;
@@ -10955,13 +11125,13 @@
 
 	        // current为受控属性，父类中统一实现属性的绑定和变更（BaseComponent）
 	        // event: onChange / paramsIndex: 0
-	        var _this7 = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (Pagination.__proto__ || Object.getPrototypeOf(Pagination)).call(this, props));
 
-	        _this7.__controlled = {
+	        _this8.__controlled = {
 	            key: 'current'
 	        };
-	        _this7.__init();
-	        return _this7;
+	        _this8.__init();
+	        return _this8;
 	    }
 	    // reset() {
 	    //     this.__setProps({
@@ -10988,10 +11158,10 @@
 	    function Steps(props) {
 	        _classCallCheck(this, Steps);
 
-	        var _this8 = _possibleConstructorReturn(this, (Steps.__proto__ || Object.getPrototypeOf(Steps)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (Steps.__proto__ || Object.getPrototypeOf(Steps)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(Steps, [{
@@ -11012,10 +11182,10 @@
 	    function Step(props) {
 	        _classCallCheck(this, Step);
 
-	        var _this9 = _possibleConstructorReturn(this, (Step.__proto__ || Object.getPrototypeOf(Step)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Step.__proto__ || Object.getPrototypeOf(Step)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Step, [{
@@ -11029,13 +11199,13 @@
 	}(_Navigation10.default);
 
 /***/ }),
-/* 74 */
+/* 73 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
 
 /***/ }),
-/* 75 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11052,7 +11222,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11086,12 +11256,12 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 76 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(77);
+	var _Router = __webpack_require__(76);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -11102,7 +11272,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 77 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11124,7 +11294,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _reactRouter = __webpack_require__(74);
+	var _reactRouter = __webpack_require__(73);
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
@@ -11134,7 +11304,7 @@
 
 	var _src = __webpack_require__(12);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -11416,7 +11586,7 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 78 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11438,7 +11608,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Feedback4 = __webpack_require__(79);
+	var _Feedback4 = __webpack_require__(78);
 
 	var _Feedback5 = _interopRequireDefault(_Feedback4);
 
@@ -11663,7 +11833,7 @@
 	});
 
 /***/ }),
-/* 79 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11680,7 +11850,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11714,7 +11884,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 80 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11734,7 +11904,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(81);
+	var _Layout = __webpack_require__(80);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
@@ -11773,15 +11943,15 @@
 	        var _this = _possibleConstructorReturn(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this, props));
 
 	        _this.__init();
-	        _this.hasSiderClass = _this._handler();
+	        _this.hasSiderClass = _this.siderHandler();
 	        return _this;
 	    }
 	    // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
 
 
 	    _createClass(Layout, [{
-	        key: '_handler',
-	        value: function _handler() {
+	        key: 'siderHandler',
+	        value: function siderHandler() {
 	            if (this.__props.children) {
 	                var children = this.__props.children;
 	                if (!_utils.Utils.typeof(children, 'array')) {
@@ -11845,7 +12015,9 @@
 	    _createClass(Header, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(Antd.Layout.Header, this.__props);
+	            return _react2.default.createElement(Antd.Layout.Header, _extends({}, this.__props, this.__getCommonProps({
+	                className: this.__props.theme === 'dark' ? 'header-dark-theme' : ''
+	            })));
 	        }
 	    }]);
 
@@ -11904,7 +12076,7 @@
 	        key: '_afterInit',
 	        value: function _afterInit() {
 	            _get(Sider.prototype.__proto__ || Object.getPrototypeOf(Sider.prototype), '_afterInit', this).call(this);
-	            this.handleCollapsed();
+	            this.findConnectMenuKey();
 	        }
 	        // __setProps 后，增加附加处理逻辑
 
@@ -11927,16 +12099,38 @@
 	            this.__setProps({ collapsed: collapsed });
 	            this.__props.onCollapse(collapsed);
 	        }
-	        // Sider 组件自动和其子组件 Menu 做关联，收起时同时收起 Menu
-	        // TODO: 代码耦合严重，需要剥离关联逻辑
+	    }, {
+	        key: '_onCollapse',
+	        value: function _onCollapse(collapsed) {
+	            var _get2;
+
+	            for (var _len = arguments.length, p = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+	                p[_key - 1] = arguments[_key];
+	            }
+
+	            _get(Sider.prototype.__proto__ || Object.getPrototypeOf(Sider.prototype), '_onCollapse', this) && (_get2 = _get(Sider.prototype.__proto__ || Object.getPrototypeOf(Sider.prototype), '_onCollapse', this)).call.apply(_get2, [this, collapsed].concat(p));
+
+	            // Sider 组件自动和其子组件 Menu 做关联，收起时同时收起 Menu
+	            // TODO: 代码耦合严重，需要剥离关联逻辑
+	            var menu = this.connectMenuKey && this.__getComponent(this.connectMenuKey);
+	            if (menu) {
+	                var defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
+	                // 从缓存中获取 Menu 组件，并更改组件状态
+	                menu.set({
+	                    inlineCollapsed: collapsed,
+	                    // 保存原 defaultOpenKeys 的值
+	                    _defaultOpenKeys: defaultOpenKeys,
+	                    defaultOpenKeys: collapsed ? [] : defaultOpenKeys
+	                });
+	            }
+	        }
+	        // 查找其下的菜单组件的key名称，并存储在connectMenuKey上
 
 	    }, {
-	        key: 'handleCollapsed',
-	        value: function handleCollapsed() {
-	            var _this5 = this;
-
+	        key: 'findConnectMenuKey',
+	        value: function findConnectMenuKey(children) {
 	            if (this.__props.collapsible) {
-	                var children = this.__props.children;
+	                children = children || this.__props.children;
 	                if (children) {
 	                    if (!_utils.Utils.typeof(children, 'array')) {
 	                        children = [children];
@@ -11950,26 +12144,14 @@
 	                        for (var _iterator2 = children[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                            var v = _step2.value;
 
-	                            if (v.props.__type === 'menu') {
-	                                (function () {
+	                            if (_utils.Utils.typeof(v, 'object') && v.props) {
+	                                if (v.props.__type === 'menu') {
 	                                    var key = v.props.__cache || v.props.__key;
-	                                    var inject = function inject(collapsed) {
-	                                        var menu = _this5.__getComponent(key);
-	                                        if (menu) {
-	                                            var defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
-	                                            // 从缓存中获取 Menu 组件，并更改组件状态
-	                                            menu.set({
-	                                                inlineCollapsed: collapsed,
-	                                                // 保存原 defaultOpenKeys 的值
-	                                                _defaultOpenKeys: defaultOpenKeys,
-	                                                defaultOpenKeys: collapsed ? [] : defaultOpenKeys
-	                                            });
-	                                        }
-	                                    };
-	                                    // 注入到 onCollapse 函数中
-	                                    // 此处往this.__props注入没有问题，__controlled中已经使用了onCollapse，已经做过一次注入，处理后的结果在__props上
-	                                    _this5._inject(_this5.__props, 'onCollapse', inject);
-	                                })();
+	                                    this.connectMenuKey = key;
+	                                    return;
+	                                } else if (v.props.children) {
+	                                    this.findConnectMenuKey(v.props.children);
+	                                }
 	                            }
 	                        }
 	                    } catch (err) {
@@ -11996,7 +12178,10 @@
 	            if (trigger === undefined) {
 	                trigger = _react2.default.createElement(Antd.Icon, { className: 'trigger', type: this.__props.collapsed ? 'menu-unfold' : 'menu-fold' });
 	            }
-	            return _react2.default.createElement(Antd.Layout.Sider, _extends({}, this.__props, { trigger: trigger }));
+	            return _react2.default.createElement(Antd.Layout.Sider, _extends({}, this.__props, { trigger: trigger
+	            }, this.__getCommonProps({
+	                className: this.__props.theme === 'dark' ? 'sider-dark-theme' : ''
+	            })));
 	        }
 	    }]);
 
@@ -12013,12 +12198,12 @@
 	    function SiderTrigger(props) {
 	        _classCallCheck(this, SiderTrigger);
 
-	        var _this6 = _possibleConstructorReturn(this, (SiderTrigger.__proto__ || Object.getPrototypeOf(SiderTrigger)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (SiderTrigger.__proto__ || Object.getPrototypeOf(SiderTrigger)).call(this, props));
 
-	        _this6._filter.push('reverse');
-	        _this6.__init();
-	        _this6.target = null;
-	        return _this6;
+	        _this5._filter.push('reverse');
+	        _this5.__init();
+	        _this5.target = null;
+	        return _this5;
 	    }
 
 	    _createClass(SiderTrigger, [{
@@ -12057,10 +12242,10 @@
 	    function Content(props) {
 	        _classCallCheck(this, Content);
 
-	        var _this7 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (Content.__proto__ || Object.getPrototypeOf(Content)).call(this, props));
 
-	        _this7.__init();
-	        return _this7;
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(Content, [{
@@ -12074,7 +12259,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 81 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12091,7 +12276,7 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(68);
+	var _Antd2 = __webpack_require__(67);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -12125,15 +12310,15 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 82 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(83).default;
+	module.exports = __webpack_require__(82).default;
 
 /***/ }),
-/* 83 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12190,7 +12375,14 @@
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
 	            // 重新获取页面时重新展示loading
-	            if (nextProps.src !== this.__prevProps.src) {
+	            // if (nextProps.src !== this.__prevProps.src) {
+	            if (nextProps.src !== this.props.src) {
+	                var hashIndex = nextProps.src.indexOf('#');
+	                var srcHashIndex = this.props.src.indexOf('#');
+	                // 如果只是变更hash值，则不需要再展示loading
+	                if (hashIndex > -1 && nextProps.src.slice(0, hashIndex) === this.props.src.slice(0, srcHashIndex)) {
+	                    return;
+	                }
 	                this.setState({ loading: true });
 	            }
 	        }
@@ -12213,16 +12405,17 @@
 	        value: function render() {
 	            var _this2 = this;
 
+	            var style = { height: this.__props.height, width: this.__props.width };
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'uf-iframe', ref: function ref(ele) {
+	                _extends({}, this.__getCommonProps({ className: 'uf-iframe', style: style }), { ref: function ref(ele) {
 	                        return _this2.root = ele;
 	                    },
-	                    'data-src': new URL(this.__props.src, window.location.href).href },
+	                    'data-src': new URL(this.__props.src, window.location.href).href }),
 	                _react2.default.createElement(
 	                    _antd.Spin,
 	                    { spinning: this.state.loading && this.__props.showLoading },
-	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, ['showLoading', 'delay']), {
+	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, ['showLoading', 'delay', 'className', 'style', 'height', 'width']), {
 	                        ref: function ref(ele) {
 	                            return _this2.ifr = ele;
 	                        },
@@ -12287,7 +12480,7 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 84 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12296,10 +12489,13 @@
 	 * @file Fieldset组件入口
 	 * **/
 
-	module.exports = __webpack_require__(85).default;
+	module.exports = {
+	  AutoComplete: __webpack_require__(84).default,
+	  LocalComplete: __webpack_require__(84).LocalComplete
+	};
 
 /***/ }),
-/* 85 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12307,8 +12503,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	exports.LocalComplete = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -12318,15 +12513,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _DataEntry2 = __webpack_require__(67);
+	var _DataEntry = __webpack_require__(66);
 
-	var _DataEntry3 = _interopRequireDefault(_DataEntry2);
+	var _DataEntry2 = _interopRequireDefault(_DataEntry);
 
 	var _utils = __webpack_require__(22);
 
-	var _antd = __webpack_require__(21);
-
-	var _dataentry = __webpack_require__(66);
+	var _dataentry = __webpack_require__(65);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12358,24 +12551,24 @@
 
 	// 本地自动补全
 
-	var LocalAutoComplete = function (_Select) {
-	    _inherits(LocalAutoComplete, _Select);
+	var LocalComplete = exports.LocalComplete = function (_Select) {
+	    _inherits(LocalComplete, _Select);
 
-	    function LocalAutoComplete(props) {
-	        _classCallCheck(this, LocalAutoComplete);
+	    function LocalComplete(props) {
+	        _classCallCheck(this, LocalComplete);
 
 	        // _onSearch 中的逻辑会注入到 onSearch 事件中，见 BaseComponent
-	        var _this = _possibleConstructorReturn(this, (LocalAutoComplete.__proto__ || Object.getPrototypeOf(LocalAutoComplete)).call(this, props));
+	        var _this = _possibleConstructorReturn(this, (LocalComplete.__proto__ || Object.getPrototypeOf(LocalComplete)).call(this, props, { preventInit: true }));
 
 	        _this._injectEvent = ['onSearch'];
 	        _this.__init();
 	        return _this;
 	    }
 
-	    _createClass(LocalAutoComplete, [{
+	    _createClass(LocalComplete, [{
 	        key: '_afterInitProps',
 	        value: function _afterInitProps() {
-	            _get(LocalAutoComplete.prototype.__proto__ || Object.getPrototypeOf(LocalAutoComplete.prototype), '_afterInitProps', this).call(this);
+	            _get(LocalComplete.prototype.__proto__ || Object.getPrototypeOf(LocalComplete.prototype), '_afterInitProps', this).call(this);
 	            Object.assign(this.__props, LimitedProps);
 	        }
 	        // 注入到 onSearch 事件中
@@ -12407,14 +12600,14 @@
 	            if (this.isMultiple) {
 	                var _get2;
 
-	                (_get2 = _get(LocalAutoComplete.prototype.__proto__ || Object.getPrototypeOf(LocalAutoComplete.prototype), '_onControlEvent', this)).call.apply(_get2, [this].concat(params));
+	                (_get2 = _get(LocalComplete.prototype.__proto__ || Object.getPrototypeOf(LocalComplete.prototype), '_onControlEvent', this)).call.apply(_get2, [this].concat(params));
 	                this.__setProps({ options: [] });
 	            } else {
 	                var _get3;
 
 	                // 对change前后的数据进行对比
 	                var oldValue = this.__props.value;
-	                (_get3 = _get(LocalAutoComplete.prototype.__proto__ || Object.getPrototypeOf(LocalAutoComplete.prototype), '_onControlEvent', this)).call.apply(_get3, [this].concat(params));
+	                (_get3 = _get(LocalComplete.prototype.__proto__ || Object.getPrototypeOf(LocalComplete.prototype), '_onControlEvent', this)).call.apply(_get3, [this].concat(params));
 	                var newValue = this.__props.value;
 	                // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
 	                if (oldValue && newValue && oldValue.length > newValue.length) {
@@ -12455,20 +12648,19 @@
 	        }
 	    }]);
 
-	    return LocalAutoComplete;
+	    return LocalComplete;
 	}(_dataentry.Select);
 
 	// 自动补全远程数据
-	// 复用Select的构造函数/render等逻辑，覆盖部分原函数。所以无需再写render
 
 
-	var SourceAutoComplete = function (_Select2) {
-	    _inherits(SourceAutoComplete, _Select2);
+	var NewAutoComplete = function (_Select2) {
+	    _inherits(NewAutoComplete, _Select2);
 
-	    function SourceAutoComplete(props) {
-	        _classCallCheck(this, SourceAutoComplete);
+	    function NewAutoComplete(props) {
+	        _classCallCheck(this, NewAutoComplete);
 
-	        var _this2 = _possibleConstructorReturn(this, (SourceAutoComplete.__proto__ || Object.getPrototypeOf(SourceAutoComplete)).call(this, props));
+	        var _this2 = _possibleConstructorReturn(this, (NewAutoComplete.__proto__ || Object.getPrototypeOf(NewAutoComplete)).call(this, props, { preventInit: true }));
 
 	        _this2.class.push('select');
 	        _this2._injectEvent = ['onSearch', 'onChange'];
@@ -12480,20 +12672,10 @@
 	        return _this2;
 	    }
 
-	    _createClass(SourceAutoComplete, [{
-	        key: 'triggerLoading',
-	        value: function triggerLoading(status) {
-	            this.loading(status, 'simple');
-	        }
-	    }, {
-	        key: '_onSourceSuccess',
-	        value: function _onSourceSuccess() {
-	            this.triggerLoading(false);
-	        }
-	    }, {
+	    _createClass(NewAutoComplete, [{
 	        key: '_afterInitProps',
 	        value: function _afterInitProps() {
-	            _get(SourceAutoComplete.prototype.__proto__ || Object.getPrototypeOf(SourceAutoComplete.prototype), '_afterInitProps', this).call(this);
+	            _get(NewAutoComplete.prototype.__proto__ || Object.getPrototypeOf(NewAutoComplete.prototype), '_afterInitProps', this).call(this);
 	            Object.assign(this.__props, LimitedProps);
 	            Object.assign(this.__filtered.source, {
 	                autoLoad: false,
@@ -12502,19 +12684,55 @@
 	                cache: true
 	            });
 	        }
+	    }, {
+	        key: '_afterSetProps',
+	        value: function _afterSetProps() {
+	            var _get4;
+
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
+	            }
+
+	            (_get4 = _get(NewAutoComplete.prototype.__proto__ || Object.getPrototypeOf(NewAutoComplete.prototype), '_afterSetProps', this)).call.apply(_get4, [this].concat(params));
+	            // 当设置为 select-only 时，输入框仅可选补全的内容，不可任意输入
+	            if (this.__props.mode === 'select-only') {
+	                delete this.__props.mode;
+	            }
+	        }
+	        // 处理 startSign 属性，判断是否进行搜索
+	        // 2、当为字符串时，表示当字符串中出现设置的字符串时，进行查询补全功能
+	        // 3、当为函数时，表示每次输入后，会把输入的字符串传递给函数进行判断，当函数返回true时，进行查询补全功能
+
+	    }, {
+	        key: '_isSearch',
+	        value: function _isSearch(value) {
+	            // 1、当为数字时，表示当输入字符串长度满足设置长度时会发起请求，进行查询补全功能
+	            var sign = this.__props.startSign;
+	            switch (_utils.Utils.getType(sign)) {
+	                case 'number':
+	                    return value && value.length >= sign;
+	                case 'string':
+	                    return value && value.indexOf(sign) > -1;
+	                case 'function':
+	                    return sign(value);
+	            }
+	            return true;
+	        }
 	        // 多选时，输入完触发onSearch，选中选项后触发onChange
 
 	    }, {
 	        key: '_onSearch',
 	        value: function _onSearch(value) {
+	            if (!this._isSearch(value)) {
+	                return;
+	            }
 	            if (value === '') {
 	                ++this.requestIndex;
-	                this.triggerLoading(false);
+	                this.loading(false, 'simple');
 	                this.__setProps({
 	                    options: []
 	                });
 	            } else {
-	                this.triggerLoading(true);
 	                this.set({
 	                    options: [],
 	                    source: {
@@ -12526,7 +12744,7 @@
 	    }, {
 	        key: '_onChange',
 	        value: function _onChange(value) {
-	            this.triggerLoading(false);
+	            this.loading(false, 'simple');
 	            if (_utils.Utils.typeof(value, 'array') && value.length === 0) {
 	                this.__setProps({ options: [] });
 	            }
@@ -12545,37 +12763,17 @@
 	                }
 	                return data;
 	            };
-	            _get(SourceAutoComplete.prototype.__proto__ || Object.getPrototypeOf(SourceAutoComplete.prototype), '__getSourceData', this).call(this, config);
-	        }
-	    }]);
-
-	    return SourceAutoComplete;
-	}(_dataentry.Select);
-
-	var NewAutoComplete = function (_DataEntry) {
-	    _inherits(NewAutoComplete, _DataEntry);
-
-	    function NewAutoComplete() {
-	        _classCallCheck(this, NewAutoComplete);
-
-	        return _possibleConstructorReturn(this, (NewAutoComplete.__proto__ || Object.getPrototypeOf(NewAutoComplete)).apply(this, arguments));
-	    }
-
-	    _createClass(NewAutoComplete, [{
-	        key: 'render',
-	        value: function render() {
-	            var className = { className: 'uf-autocomplete ' + (this.props.className || '') };
-	            return this.props.children ? _react2.default.createElement(_antd.AutoComplete, _extends({}, this.props, className)) : this.props.source ? _react2.default.createElement(SourceAutoComplete, _extends({}, this.props, className)) : _react2.default.createElement(LocalAutoComplete, _extends({}, this.props, className));
+	            _get(NewAutoComplete.prototype.__proto__ || Object.getPrototypeOf(NewAutoComplete.prototype), '__getSourceData', this).call(this, config);
 	        }
 	    }]);
 
 	    return NewAutoComplete;
-	}(_DataEntry3.default);
+	}(_dataentry.Select);
 
 	exports.default = NewAutoComplete;
 
 /***/ }),
-/* 86 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12583,10 +12781,10 @@
 	/**
 	*   @file Export导出组件的引入文件
 	*/
-	module.exports = __webpack_require__(87).default;
+	module.exports = __webpack_require__(86).default;
 
 /***/ }),
-/* 87 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13305,7 +13503,7 @@
 	exports.default = Export;
 
 /***/ }),
-/* 88 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13313,10 +13511,10 @@
 	/**
 	*   @file Tree组件的引入文件
 	*/
-	module.exports = __webpack_require__(89).default;
+	module.exports = __webpack_require__(88).default;
 
 /***/ }),
-/* 89 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13960,7 +14158,7 @@
 	exports.default = OriginTree;
 
 /***/ }),
-/* 90 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13968,10 +14166,10 @@
 	/**
 	 * @file table组件默认访问文件
 	 */
-	module.exports = __webpack_require__(91).default;
+	module.exports = __webpack_require__(90).default;
 
 /***/ }),
-/* 91 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -14002,27 +14200,27 @@
 
 	var _antd = __webpack_require__(21);
 
-	var _export2 = __webpack_require__(86);
+	var _export2 = __webpack_require__(85);
 
 	var _export3 = _interopRequireDefault(_export2);
 
-	var _Crud = __webpack_require__(92);
+	var _Crud = __webpack_require__(91);
 
 	var _Crud2 = _interopRequireDefault(_Crud);
 
-	var _Title = __webpack_require__(93);
+	var _Title = __webpack_require__(92);
 
 	var _Title2 = _interopRequireDefault(_Title);
 
-	var _Edit = __webpack_require__(95);
+	var _Edit = __webpack_require__(94);
 
 	var _Edit2 = _interopRequireDefault(_Edit);
 
-	var _Enum = __webpack_require__(96);
+	var _Enum = __webpack_require__(95);
 
 	var _Enum2 = _interopRequireDefault(_Enum);
 
-	var _Filters = __webpack_require__(94);
+	var _Filters = __webpack_require__(93);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14871,7 +15069,7 @@
 	                        }
 
 	                        if (_utils.Utils.typeof(style, 'function')) {
-	                            style = style();
+	                            style = style(v, row);
 	                        }
 	                        if (item.minWidth) {
 	                            Object.assign(style, { minWidth: item.minWidth });
@@ -14997,6 +15195,8 @@
 	                        });
 	                    };
 	                }
+	                // 处理 cellColSpan 和 cellRowSpan 参数
+	                defaultColumn = _this11.colSpanHandler(defaultColumn, item);
 	                antdColumnConfig.push(defaultColumn);
 	            };
 
@@ -15031,6 +15231,32 @@
 	                });
 	            }
 	            return antdColumnConfig;
+	        }
+	        // 处理 cellColSpan 和 cellRowSpan 参数
+
+	    }, {
+	        key: 'colSpanHandler',
+	        value: function colSpanHandler(defaultColumn, _ref) {
+	            var cellColSpan = _ref.cellColSpan,
+	                cellRowSpan = _ref.cellRowSpan;
+
+	            if (cellColSpan || cellRowSpan) {
+	                var origin = defaultColumn.render;
+	                defaultColumn.render = function (text, row, index) {
+	                    var obj = {
+	                        children: origin ? origin(text, row, index) : text,
+	                        props: {}
+	                    };
+	                    if (_utils.Utils.typeof(cellColSpan, 'function')) {
+	                        obj.props.colSpan = cellColSpan(text, row, index);
+	                    }
+	                    if (_utils.Utils.typeof(cellRowSpan, 'function')) {
+	                        obj.props.rowSpan = cellRowSpan(text, row, index);
+	                    }
+	                    return obj;
+	                };
+	            }
+	            return defaultColumn;
 	        }
 	    }, {
 	        key: 'renderRowSelection',
@@ -15196,7 +15422,7 @@
 	exports.default = NewTable;
 
 /***/ }),
-/* 92 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15377,8 +15603,8 @@
 	                                    delete v.required;
 	                                });
 	                            }
-	                            break;
 	                        }
+	                        break;
 	                    // 删除确认框的配置
 	                    case 'delete':
 	                        // 默认把参数处理为：只返回 id（rowKey对应的字段）
@@ -15702,70 +15928,52 @@
 
 	    }, {
 	        key: '_getStrByList',
-	        value: function _getStrByList(key, list) {
-	            var keys = this.oConfig[key].keys.split(',');
+	        value: function _getStrByList(key, datas) {
+	            var conf = this.oConfig[key];
+	            var keys = conf.keys.split(',');
+	            // 源数据转换成字符串展示到页面的批量编辑框时，对每个字段的处理逻辑
+	            var handler = conf.keysHandler && conf.keysHandler.stringify;
+	            var list = this.enum.encodeEnum(datas, keys);
 	            var str = '';
-	            var _iteratorNormalCompletion4 = true;
-	            var _didIteratorError4 = false;
-	            var _iteratorError4 = undefined;
+	            list.forEach(function (row, index) {
+	                var tmp = [];
+	                var _iteratorNormalCompletion4 = true;
+	                var _didIteratorError4 = false;
+	                var _iteratorError4 = undefined;
 
-	            try {
-	                for (var _iterator4 = list[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	                    var row = _step4.value;
-
-	                    var tmp = '';
-	                    var _iteratorNormalCompletion5 = true;
-	                    var _didIteratorError5 = false;
-	                    var _iteratorError5 = undefined;
-
-	                    try {
-	                        for (var _iterator5 = keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-	                            var v = _step5.value;
-
-	                            var value = row[v];
-	                            // tmp += ((value !== undefined || value !== null) ? value : '') + ',';
-	                            // 当数据为对象或数组时，格式化成字符串
-	                            if (_utils.Utils.typeof(value, ['object', 'array'])) {
-	                                tmp += JSON.stringify(value);
-	                            } else if (value === undefined || value === null) {
-	                                tmp += '';
-	                            } else {
-	                                tmp += value;
-	                            }
-	                            tmp += ',';
-	                        }
-	                    } catch (err) {
-	                        _didIteratorError5 = true;
-	                        _iteratorError5 = err;
-	                    } finally {
-	                        try {
-	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-	                                _iterator5.return();
-	                            }
-	                        } finally {
-	                            if (_didIteratorError5) {
-	                                throw _iteratorError5;
-	                            }
-	                        }
-	                    }
-
-	                    str += tmp.slice(0, -1) + '\n';
-	                }
-	            } catch (err) {
-	                _didIteratorError4 = true;
-	                _iteratorError4 = err;
-	            } finally {
 	                try {
-	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	                        _iterator4.return();
+	                    for (var _iterator4 = keys[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                        var v = _step4.value;
+
+	                        var value = row[v];
+	                        // 留有口子，可分别对每个字段进行自定义处理
+	                        handler && (value = handler(v, value, datas[index]));
+	                        // 当数据为对象或数组时，格式化成字符串
+	                        if (_utils.Utils.typeof(value, ['object', 'array'])) {
+	                            tmp.push(JSON.stringify(value));
+	                        } else if (value === undefined || value === null) {
+	                            tmp.push('');
+	                        } else {
+	                            tmp.push(value);
+	                        }
 	                    }
+	                } catch (err) {
+	                    _didIteratorError4 = true;
+	                    _iteratorError4 = err;
 	                } finally {
-	                    if (_didIteratorError4) {
-	                        throw _iteratorError4;
+	                    try {
+	                        if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                            _iterator4.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError4) {
+	                            throw _iteratorError4;
+	                        }
 	                    }
 	                }
-	            }
 
+	                str += tmp.join(',') + '\n';
+	            });
 	            return str;
 	        }
 	        // 根据字符串转换成要提交的数据对象
@@ -15773,7 +15981,10 @@
 	    }, {
 	        key: '_getListByStr',
 	        value: function _getListByStr(key, str) {
-	            var keys = this.oConfig[key].keys.split(',');
+	            var conf = this.oConfig[key];
+	            var keys = conf.keys.split(',');
+	            // 对用户输入的数据进行解析转换，将每个字段转换成提交给后端的数据
+	            var handler = conf.keysHandler && conf.keysHandler.parse;
 	            var strArr = str.split('\n');
 	            var result = [];
 	            var error = [];
@@ -15790,41 +16001,46 @@
 	                        jsonHolder[tmpName] = str;
 	                        return tmpName;
 	                    });
-	                    // 分离后再把占位符复原
-	                    var values = row.split(',').map(function (v) {
-	                        if (v.indexOf('$jsonHolder') > -1) {
-	                            // 并把json转换为原数据格式
-	                            return JSON.parse(jsonHolder[v]);
-	                        }
-	                        return v;
-	                    });
-
-	                    if (values.length !== keys.length) {
-	                        var gap = values.length - keys.length;
+	                    var _strArr = row.split(',');
+	                    if (_strArr.length !== keys.length) {
+	                        var gap = _strArr.length - keys.length;
 	                        error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u5B57\u6BB5\u4F4D\u6570\u4E0D\u6B63\u786E(' + ((gap > 0 ? '多出' : '缺失') + gap) + '\u4E2A\u5B57\u6BB5)\uFF0C\u8BF7\u68C0\u67E5\uFF01');
 	                    }
+	                    // 分离后再把占位符复原
+	                    var values = _strArr.map(function (text, index) {
+	                        if (text.indexOf('$jsonHolder') > -1) {
+	                            // 并把json转换为原数据格式
+	                            text = jsonHolder[text];
+	                            // 如果有处理函数则只需处理函数，否则执行默认的json解析
+	                            // 因为没法和原数据行对齐，所以不传递原数据
+	                            text = handler ? handler(keys[index], text) : JSON.parse(text);
+	                        } else {
+	                            handler && (text = handler(keys[index], text));
+	                        }
+	                        return text;
+	                    });
 	                    var _item = {};
-	                    var _iteratorNormalCompletion6 = true;
-	                    var _didIteratorError6 = false;
-	                    var _iteratorError6 = undefined;
+	                    var _iteratorNormalCompletion5 = true;
+	                    var _didIteratorError5 = false;
+	                    var _iteratorError5 = undefined;
 
 	                    try {
-	                        for (var _iterator6 = keys[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	                            var v = _step6.value;
+	                        for (var _iterator5 = keys[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	                            var v = _step5.value;
 
 	                            _item[v] = values.shift();
 	                        }
 	                    } catch (err) {
-	                        _didIteratorError6 = true;
-	                        _iteratorError6 = err;
+	                        _didIteratorError5 = true;
+	                        _iteratorError5 = err;
 	                    } finally {
 	                        try {
-	                            if (!_iteratorNormalCompletion6 && _iterator6.return) {
-	                                _iterator6.return();
+	                            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	                                _iterator5.return();
 	                            }
 	                        } finally {
-	                            if (_didIteratorError6) {
-	                                throw _iteratorError6;
+	                            if (_didIteratorError5) {
+	                                throw _iteratorError5;
 	                            }
 	                        }
 	                    }
@@ -15845,17 +16061,22 @@
 
 	    }, {
 	        key: '_showBatchEdit',
-	        value: function _showBatchEdit(key, visible) {
+	        value: function _showBatchEdit(key) {
+	            var visible = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
 	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
 	                return;
 	            }
 	            if (this.oConfig[key] && this.oConfig[key].keys) {
-	                datas = this.enum.encodeEnum(datas);
 	                var str = this._getStrByList(key, datas);
 	                var modal = this.__getComponent(this._getModalName(key));
-	                modal && modal.show({ data: str }, visible);
+	                if (modal) {
+	                    // 在modal上存储一份源数据
+	                    modal.set({ oriData: visible ? datas : '' });
+	                    modal.show({ data: str }, visible);
+	                }
 	            } else {
 	                console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
 	            }
@@ -15872,8 +16093,13 @@
 	                if (!datas) {
 	                    return false;
 	                }
+	                var result = _this3.enum.decodeEnum(datas);
+	                if (!result) {
+	                    return false;
+	                }
+	                console.log(result);
 	                // 数据格式为 {data: 'json'}
-	                return { data: JSON.stringify(_this3.enum.decodeEnum(datas)) };
+	                return { data: JSON.stringify(result) };
 	            };
 	        }
 	        // 展示批量删除框
@@ -15929,7 +16155,7 @@
 	exports.default = Crud;
 
 /***/ }),
-/* 93 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15956,7 +16182,7 @@
 
 	var _antd = __webpack_require__(21);
 
-	var _Filters = __webpack_require__(94);
+	var _Filters = __webpack_require__(93);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16671,7 +16897,7 @@
 	exports.default = Title;
 
 /***/ }),
-/* 94 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17232,7 +17458,7 @@
 	}(_react.Component);
 
 /***/ }),
-/* 95 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17465,7 +17691,7 @@
 	exports.default = TableEdit;
 
 /***/ }),
-/* 96 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17484,8 +17710,6 @@
 	var _utils = __webpack_require__(22);
 
 	var _antd = __webpack_require__(21);
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -17527,7 +17751,7 @@
 	                            _this.save(item.dataIndex, item.enum);
 	                            // 实时翻译
 	                        } else if (_utils.Utils.typeof(item.enum, 'object') && item.enum.realtime) {
-	                            var others = others = {
+	                            var others = {
 	                                // 参数属性
 	                                key: 'ids',
 	                                // 是否逗号分隔
@@ -17540,10 +17764,14 @@
 	                            var conf = _utils.Utils.clone(item.enum);
 	                            if (!conf.paramsHandler) {
 	                                conf.paramsHandler = function (params) {
-	                                    var values = params.map(function (v) {
-	                                        return v[item.dataIndex];
-	                                    });
-	                                    return _defineProperty({}, others.key, others.comma ? values.join(',') : values);
+	                                    if (params.list) {
+	                                        var values = params.list.map(function (v) {
+	                                            return v[item.dataIndex];
+	                                        });
+	                                        params[others.key] = others.comma ? values.join(',') : values;
+	                                        delete params.list;
+	                                    }
+	                                    return params;
 	                                };
 	                            }
 	                            _this.realtimeConfs[item.dataIndex] = conf;
@@ -17613,52 +17841,70 @@
 	    }, {
 	        key: 'save',
 	        value: function save(dataIndex, list) {
+	            var saveReverse = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+
 	            // 如果原来有值，则再原列表上追加
 	            var result = this.data[dataIndex] || {};
-	            var reverseResult = this.dataReverse[dataIndex] || {};
-	            // 如果数据格式为 [{id:'',name:'',key:'',value:''}]
-	            if (_utils.Utils.typeof(list, 'array')) {
-	                var _iteratorNormalCompletion2 = true;
-	                var _didIteratorError2 = false;
-	                var _iteratorError2 = undefined;
+	            // 不管数据格式怎样，通过toOptions转换为一种格式
+	            list = _utils.Utils.toOptions(list);
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
 
-	                try {
-	                    for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                        var v = _step2.value;
+	            try {
+	                for (var _iterator2 = list[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var _v = _step2.value;
 
-	                        var key = v.id || v.key;
-	                        var value = v.name || v.value;
-	                        result[key] = value;
-	                        if (_utils.Utils.typeof(value, ['string', 'number'])) {
-	                            reverseResult[value] = key;
-	                        }
-	                    }
-	                    // 数据格式为 {key:value, key:value}
-	                } catch (err) {
-	                    _didIteratorError2 = true;
-	                    _iteratorError2 = err;
-	                } finally {
-	                    try {
-	                        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                            _iterator2.return();
-	                        }
-	                    } finally {
-	                        if (_didIteratorError2) {
-	                            throw _iteratorError2;
-	                        }
-	                    }
+	                    result[_v.value] = _v.label;
 	                }
-	            } else if (_utils.Utils.typeof(list, 'object')) {
-	                for (var i in list) {
-	                    result[i] = list[i];
-	                    if (_utils.Utils.typeof(list[i], ['string', 'number'])) {
-	                        reverseResult[list[i]] = i;
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
 	                    }
 	                }
 	            }
 
 	            this.data[dataIndex] = result;
-	            this.dataReverse[dataIndex] = reverseResult;
+	            // 是否存储逆向翻译数据。实时翻译的接口数据，saveReverse === false
+	            if (saveReverse) {
+	                var reverseResult = this.dataReverse[dataIndex] || {};
+	                var _iteratorNormalCompletion3 = true;
+	                var _didIteratorError3 = false;
+	                var _iteratorError3 = undefined;
+
+	                try {
+	                    for (var _iterator3 = list[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	                        var v = _step3.value;
+
+	                        if (_utils.Utils.typeof(v.label, ['string', 'number', 'boolean'])) {
+	                            reverseResult[v.label] = v.value;
+	                        }
+	                    }
+	                } catch (err) {
+	                    _didIteratorError3 = true;
+	                    _iteratorError3 = err;
+	                } finally {
+	                    try {
+	                        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	                            _iterator3.return();
+	                        }
+	                    } finally {
+	                        if (_didIteratorError3) {
+	                            throw _iteratorError3;
+	                        }
+	                    }
+	                }
+
+	                this.dataReverse[dataIndex] = reverseResult;
+	            }
 	        }
 
 	        /*** Table.js 中的功能 ******************************************************************* */
@@ -17713,13 +17959,16 @@
 
 	                var _loop2 = function _loop2(i) {
 	                    count++;
+	                    var conf = _this3.realtimeConfs[i];
 	                    _this3.tools.execAjax(_extends({
 	                        // 默认开启缓存
 	                        cache: true
-	                    }, _this3.realtimeConfs[i], {
-	                        params: list,
+	                    }, conf, {
+	                        params: Object.assign(conf.params || {}, {
+	                            list: list
+	                        }),
 	                        success: function success(data) {
-	                            _this3.save(i, data);
+	                            _this3.save(i, data, false);
 	                            finish();
 	                        },
 	                        error: finish
@@ -17759,21 +18008,25 @@
 	            });
 	        }
 	        // 把一个数据列表中的枚举字段的id转换为枚举的值，key => value
+	        // 如果没有传 keys 字段，则处理全部字段
 
 	    }, {
 	        key: 'encodeEnum',
-	        value: function encodeEnum(list) {
+	        value: function encodeEnum(list, keys) {
 	            var _this5 = this;
 
 	            var error = [];
 	            var result = (list || []).map(function (item, index) {
-	                return _utils.Utils.each(item, function (v, i) {
-	                    if (_this5.data[i]) {
+	                if (!keys) {
+	                    keys = Object.keys(item);
+	                }
+	                return _utils.Utils.each(_utils.Utils.pick(item, keys), function (v, i) {
+	                    if (v !== '' && _this5.data[i]) {
 	                        if (_this5.data[i][v] !== undefined) {
 	                            return _this5.data[i][v];
 	                        } else {
-	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u3010' + v + '\u3011\u89E3\u6790\u65F6\u51FA\u73B0\u9519\u8BEF\uFF0C\u5DF2\u5C55\u793A\u6E90\u6570\u636E\uFF0C\u8BF7\u6CE8\u610F\uFF01');
-	                            return v;
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u5B57\u6BB5\u3010' + i + '\u3011\u7684\u6570\u636E\u3010' + v + '\u3011\u89E3\u6790\u65F6\u51FA\u73B0\u9519\u8BEF\uFF0C\u5DF2\u7559\u7A7A\uFF0C\u5982\u6709\u9700\u8981\u8BF7\u8FDB\u884C\u66F4\u65B0\uFF01');
+	                            return '';
 	                        }
 	                    }
 	                    return v;
@@ -17804,7 +18057,7 @@
 	                        if (_this6.dataReverse[i][v] !== undefined) {
 	                            return _this6.dataReverse[i][v];
 	                        } else {
-	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u6570\u636E\u7684\u503C\u3010' + v + '\u3011\u65E0\u6548\uFF0C\u8BF7\u68C0\u67E5\uFF01');
+	                            error.push('\u7B2C\u3010' + (index + 1) + '\u3011\u884C\u7B2C\u3010' + i + '\u3011\u4E2A\u5B57\u6BB5\u6570\u636E\u7684\u503C\u3010' + v + '\u3011\u65E0\u6548\uFF0C\u8BF7\u68C0\u67E5\uFF01');
 	                            return '';
 	                        }
 	                    }
@@ -17828,7 +18081,7 @@
 	exports.default = Enum;
 
 /***/ }),
-/* 97 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17840,8 +18093,8 @@
 	// module.exports = require('./Form.js').default;
 	// module.exports = require('./Forms.js').default;
 	module.exports = {
-	  Form: __webpack_require__(98).default,
-	  Forms: __webpack_require__(99).default
+	  Form: __webpack_require__(97).default,
+	  Forms: __webpack_require__(98).default
 	};
 	// const Form = require('./Form.js');
 	// const Forms = require('./Forms.js');
@@ -17849,7 +18102,7 @@
 	// module.exports = {Form, Forms};
 
 /***/ }),
-/* 98 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17871,13 +18124,13 @@
 
 	var _base = __webpack_require__(19);
 
-	var _DataEntry = __webpack_require__(67);
+	var _DataEntry = __webpack_require__(66);
 
 	var _DataEntry2 = _interopRequireDefault(_DataEntry);
 
 	var _utils = __webpack_require__(22);
 
-	var _moment = __webpack_require__(26);
+	var _moment = __webpack_require__(25);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -17952,12 +18205,18 @@
 	                nextProps && this.initValues();
 	            }
 	            // 如果items改变了，则把变化更新到 this.itemsCache 中
-	            // update at 2018-08-21 by liuzechun
-	            // TODO: 待观察是否会有无效覆盖
 	            if (nextProps && nextProps.items && !_utils.Utils.equals(this.props.items, nextProps.items)) {
+	                var oldItems = {};
+	                this.props.items && this.props.items.forEach(function (item) {
+	                    item && item.name && (oldItems[item.name] = item);
+	                });
+	                // 分别对每一项进行对比，仅更新需要更新的选项
 	                nextProps.items.forEach(function (item) {
-	                    if (item && item.name && _this2.itemsCache[item.name]) {
-	                        _utils.Utils.merge(_this2.itemsCache[item.name], item);
+	                    if (item && item.name && _this2.itemsCache[item.name] && !_utils.Utils.isChange(item, oldItems[item.name])) {
+	                        var changedConf = _utils.Utils.getChange(item, oldItems[item.name]);
+	                        // 如果有type，需要重新处理type
+	                        changedConf.type && (changedConf = _this2.__getConf(changedConf));
+	                        _utils.Utils.merge(_this2.itemsCache[item.name], changedConf);
 	                    }
 	                });
 	            }
@@ -19002,7 +19261,7 @@
 	exports.default = NewForm;
 
 /***/ }),
-/* 99 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19023,7 +19282,7 @@
 
 	var _antd = __webpack_require__(21);
 
-	var _Form = __webpack_require__(98);
+	var _Form = __webpack_require__(97);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19360,19 +19619,20 @@
 	exports.default = Forms;
 
 /***/ }),
-/* 100 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	// module.exports = require('./Modal.js').default;
 	module.exports = {
-	    Modal: __webpack_require__(101).default,
-	    Dashboard: __webpack_require__(102).default
+	    Modal: __webpack_require__(100).default,
+	    Dashboard: __webpack_require__(101).default,
+	    Drawer: __webpack_require__(102).default
 	};
 
 /***/ }),
-/* 101 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19459,7 +19719,6 @@
 	                        formConf.key = _utils.Utils.uniqueId();
 	                    }
 	                } else {
-	                    // 如果是
 	                    delete this.__props.form;
 	                }
 	                // form配置
@@ -19506,7 +19765,6 @@
 	            var _this4 = this;
 
 	            this.__setProps({ visible: false }, function () {
-	                console.log(_this4.formRef);
 	                if (_this4.formRef && !_this4.formRef.unmounted) {
 	                    // 如果是form弹框，重置form内容
 	                    _this4.formRef.clearValues();
@@ -19675,21 +19933,27 @@
 	                return map[v];
 	            });
 	        }
+	        // 可供子组件继承/重写
+
 	    }, {
-	        key: 'render',
-	        value: function render() {
+	        key: 'handleSelfProps',
+	        value: function handleSelfProps() {
 	            // footer是在组件中解析的，解析后放置在footerContent中
-	            var selfProps = {
-	                onOk: this._submitHandler.bind(this)
-	            };
+	            var selfProps = this.__getCommonProps({ className: 'uf-modal' });
+	            selfProps.onOk = this._submitHandler.bind(this);
 	            if (this.__props.footerContent) {
 	                selfProps.footer = this.__props.footerContent;
 	            }
+	            return selfProps;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
 	            // 获取排序后的结果
 	            var children = this.getChildrenRank();
 	            return _react2.default.createElement(
 	                _antd.Modal,
-	                _extends({}, _utils.Utils.filter(this.__props, 'children'), selfProps, this.__getCommonProps({ className: 'uf-modal' })),
+	                _extends({}, _utils.Utils.filter(this.__props, 'children'), this.handleSelfProps()),
 	                children[0],
 	                children[1],
 	                children[2]
@@ -19737,7 +20001,7 @@
 	exports.default = NewModal;
 
 /***/ }),
-/* 102 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -19758,7 +20022,7 @@
 
 	var _antd = __webpack_require__(21);
 
-	var _Modal = __webpack_require__(101);
+	var _Modal = __webpack_require__(100);
 
 	var _Modal2 = _interopRequireDefault(_Modal);
 
@@ -19769,12 +20033,10 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file ReactModal 适用于弹出层快速提交表单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Dashboard 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
 
-
-	/**** 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件 *************************************/
 
 	var Dashboard = function (_NewModal) {
 	    _inherits(Dashboard, _NewModal);
@@ -19863,6 +20125,90 @@
 	exports.default = Dashboard;
 
 /***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+	var _react = __webpack_require__(13);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Modal = __webpack_require__(100);
+
+	var _Modal2 = _interopRequireDefault(_Modal);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Drawer 抽屉组件，属性及功能和Modal一致，展示效果为侧拉展示
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @author liuzechun@baidu.com
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
+
+
+	var Drawer = function (_NewModal) {
+	    _inherits(Drawer, _NewModal);
+
+	    function Drawer(props) {
+	        _classCallCheck(this, Drawer);
+
+	        return _possibleConstructorReturn(this, (Drawer.__proto__ || Object.getPrototypeOf(Drawer)).call(this, props));
+	        // this.containerId = 'uf-drawer-container';
+	        // this.containerEle = document.body;
+	    }
+	    // componentWillMount() {
+	    //     // 创建一个元素承载所有的抽屉弹框，方便控制样式
+	    //     if (!document.getElementById(this.containerId)) {
+	    //         let container = document.createElement('div');
+	    //         container.setAttribute('id', this.containerId);
+	    //         container.setAttribute('class', this.containerId);
+	    //         document.body.append(container);
+	    //         this.containerEle = container;
+	    //     }
+	    // }
+	    // 继承父组件
+
+
+	    _createClass(Drawer, [{
+	        key: 'handleSelfProps',
+	        value: function handleSelfProps() {
+	            var selfProps = _get(Drawer.prototype.__proto__ || Object.getPrototypeOf(Drawer.prototype), 'handleSelfProps', this).call(this);
+	            // 处理抽屉组件的样式
+	            var className = ' uf-drawer';
+	            if (this.__props.placement) {
+	                className += ' ' + this.__props.placement;
+	            }
+	            if (this.__props.footer === undefined || !!this.__props.footer) {
+	                className += ' has-ft';
+	            }
+	            if (!!this.__props.title) {
+	                className += ' has-tl';
+	            }
+	            selfProps.className += className;
+	            // 增加盛放抽屉的容器
+	            // selfProps.getContainer = () => this.containerEle;
+	            return selfProps;
+	        }
+	    }]);
+
+	    return Drawer;
+	}(_Modal2.default);
+
+	exports.default = Drawer;
+
+/***/ }),
 /* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19945,16 +20291,12 @@
 
 	            // 临时解决方案。ueditor内不是用iframe实现，iframe加载需要时间，所以直接调用setContent会报错
 	            // 这里重试5次，间隔300ms
-	            var count = 1;
-	            var setData = function setData() {
-	                if (_this2.ue.body || count > 5) {
-	                    _this2.ue.setContent(value);
-	                } else {
-	                    setTimeout(setData, 300);
+	            _utils.Utils.retry(function () {
+	                if (!_this2.ue.body) {
+	                    return false;
 	                }
-	                count++;
-	            };
-	            setData();
+	                _this2.ue.setContent(value);
+	            }, 300, 5);
 	        }
 	    }, {
 	        key: 'componentDidMount',
@@ -19979,6 +20321,7 @@
 	                autoFloatEnabled: true,
 	                elementPathEnabled: false,
 	                wordCount: false,
+	                zIndex: 0,
 	                fontsize: [12, 14, 16, 18, 20, 24],
 	                toolbars: [['source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'paragraph', 'fontfamily', 'fontsize', '|', 'superscript', 'subscript', '|', 'forecolor', 'backcolor', '|', 'removeformat', '|', 'insertorderedlist', 'insertunorderedlist', 'inserttable', '|', 'selectall', 'cleardoc', '|', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'link', 'unlink', '|', 'map', '|', 'horizontal', 'print', 'preview', 'fullscreen', 'drafts', 'formula', '|', 'cusUpload']]
 	            };
@@ -20104,6 +20447,7 @@
 	    }, {
 	        key: '_beforeInit',
 	        value: function _beforeInit() {
+	            _get(UeditorParse.prototype.__proto__ || Object.getPrototypeOf(UeditorParse.prototype), '_beforeInit', this).call(this);
 	            // 保证每次实例化都有一个唯一的id
 	            this.ueditorId = (this._getTransmitName() || 'editor_parse') + '_' + Date.now();
 	            this.__props.id = this.ueditorId;
@@ -20531,7 +20875,7 @@
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20571,7 +20915,7 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(60);
+	var _BaseCache2 = __webpack_require__(59);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
@@ -20583,7 +20927,7 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20703,11 +21047,6 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-
-	var _baseComponent$antd$;
-
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 	/**
 	 * @file 组件默认参数定义
 	 * @author liuzechun
@@ -20717,7 +21056,7 @@
 	 * Modified By: liuzechun
 	 */
 
-	exports.default = (_baseComponent$antd$ = {
+	exports.default = {
 	    /****************************************************************************************/
 	    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
 	    /****************************************************************************************/
@@ -20762,8 +21101,13 @@
 	    /******* 普通组件默认配置 ******************************************************************/
 	    /****************************************************************************************/
 	    'auto-complete': {
-	        style: { width: 160 },
-	        options: []
+	        style: { minWidth: 160 },
+	        mode: 'combobox',
+	        options: [],
+	        startSign: 1,
+	        source: {
+	            showLoading: 'simple'
+	        }
 	    },
 	    'breadcrumb': {
 	        style: { padding: '12px 24px', lineHeight: '18px' }
@@ -20821,105 +21165,129 @@
 	        filterOption: function filterOption(v, opt) {
 	            return opt.props.children !== undefined && opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1;
 	        }
-	    }
-	}, _defineProperty(_baseComponent$antd$, 'auto-complete', {
-	    mode: 'combobox'
-	}), _defineProperty(_baseComponent$antd$, 'switch', {
-	    source: {
-	        target: 'checked'
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'date-picker', {
-	    format: 'YYYY-MM-DD'
-	}), _defineProperty(_baseComponent$antd$, 'range-picker', {
-	    format: 'YYYY-MM-DD'
-	}), _defineProperty(_baseComponent$antd$, 'month-picker', {
-	    format: 'YYYY-MM'
-	}), _defineProperty(_baseComponent$antd$, 'time-picker', {
-	    format: 'HH:mm:ss'
-	}), _defineProperty(_baseComponent$antd$, 'menu', {
-	    // 默认高亮随路由一起变换
-	    followRoute: true
-	}), _defineProperty(_baseComponent$antd$, 'upload', {
-	    source: {
-	        target: 'fileList'
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'form', {
-	    items: [],
-	    buttons: null,
-	    layout: {
-	        type: 'horizontal',
-	        labelCol: 6,
-	        wrapperCol: 14
 	    },
-	    source: {
-	        target: 'formData'
+	    'switch': {
+	        source: {
+	            target: 'checked'
+	        }
 	    },
-	    api: {
-	        trigger: 'onSubmit'
+	    'date-picker': {
+	        format: 'YYYY-MM-DD'
 	    },
-	    control: {
-	        trigger: 'onSubmit',
-	        handler: function handler(v) {
-	            return v;
+	    'range-picker': {
+	        format: 'YYYY-MM-DD'
+	    },
+	    'month-picker': {
+	        format: 'YYYY-MM'
+	    },
+	    'time-picker': {
+	        format: 'HH:mm:ss'
+	    },
+	    'menu': {
+	        // 默认高亮随路由一起变换
+	        followRoute: true
+	    },
+	    'upload': {
+	        source: {
+	            target: 'fileList'
+	        }
+	    },
+
+	    /****************************************************************************************/
+	    /***** 自定义组件默认配置 ******************************************************************/
+	    /****************************************************************************************/
+	    'form': {
+	        items: [],
+	        buttons: null,
+	        layout: {
+	            type: 'horizontal',
+	            labelCol: 6,
+	            wrapperCol: 14
+	        },
+	        source: {
+	            target: 'formData'
+	        },
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    },
+	    'forms': {
+	        addType: 'copy'
+	    },
+	    'table': {
+	        rowKey: 'id',
+	        pagination: {
+	            current: 1,
+	            pageSize: 10,
+	            pageType: 'client',
+	            total: 0
+	        },
+	        source: {
+	            // 自动加载数据
+	            autoLoad: true,
+	            autoReload: true
+	        },
+	        data: []
+	    },
+	    // table 的编辑插件
+	    'table-edit': {
+	        api: {
+	            trigger: 'onSubmit'
+	        }
+	    },
+	    'modal': {
+	        visible: false,
+	        maskClosable: false,
+	        closable: true,
+	        api: {
+	            trigger: 'onSubmit'
+	        },
+	        control: {
+	            trigger: 'onSubmit',
+	            handler: function handler(v) {
+	                return v;
+	            }
+	        }
+	    },
+	    'dashboard': {
+	        closable: false
+	    },
+	    'drawer': {
+	        placement: 'right',
+	        width: '40%',
+	        height: '40%'
+	    },
+	    'tree': {
+	        source: {
+	            autoLoad: true,
+	            autoReload: false,
+	            target: 'data'
+	        }
+	    },
+	    'tree-select': {
+	        source: {
+	            autoLoad: true,
+	            autoReload: false,
+	            target: 'treeData'
+	        }
+	    },
+	    'list': {
+	        interleave: true,
+	        bordered: true,
+	        layout: {
+	            labelCol: 6,
+	            labelStyle: {},
+	            valueCol: 18,
+	            valueStyle: {}
 	        }
 	    }
-	}), _defineProperty(_baseComponent$antd$, 'forms', {
-	    addType: 'copy'
-	}), _defineProperty(_baseComponent$antd$, 'table', {
-	    rowKey: 'id',
-	    pagination: {
-	        current: 1,
-	        pageSize: 10,
-	        pageType: 'client',
-	        total: 0
-	    },
-	    source: {
-	        // 自动加载数据
-	        autoLoad: true,
-	        autoReload: true
-	    },
-	    data: []
-	}), _defineProperty(_baseComponent$antd$, 'table-edit', {
-	    api: {
-	        trigger: 'onSubmit'
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'modal', {
-	    visible: false,
-	    maskClosable: false,
-	    closable: true,
-	    api: {
-	        trigger: 'onSubmit'
-	    },
-	    control: {
-	        trigger: 'onSubmit',
-	        handler: function handler(v) {
-	            return v;
-	        }
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'dashboard', {
-	    closable: false
-	}), _defineProperty(_baseComponent$antd$, 'tree', {
-	    source: {
-	        autoLoad: true,
-	        autoReload: false,
-	        target: 'data'
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'tree-select', {
-	    source: {
-	        autoLoad: true,
-	        autoReload: false,
-	        target: 'treeData'
-	    }
-	}), _defineProperty(_baseComponent$antd$, 'list', {
-	    interleave: true,
-	    bordered: true,
-	    layout: {
-	        labelCol: 6,
-	        labelStyle: {},
-	        valueCol: 18,
-	        valueStyle: {}
-	    }
-	}), _baseComponent$antd$);
+	};
 
 /***/ }),
 /* 117 */
@@ -20935,11 +21303,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(60);
+	var _BaseCache2 = __webpack_require__(59);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21005,11 +21373,11 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _BaseCache = __webpack_require__(60);
+	var _BaseCache = __webpack_require__(59);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21035,7 +21403,7 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _BaseCache2 = __webpack_require__(60);
+	var _BaseCache2 = __webpack_require__(59);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
@@ -21043,7 +21411,7 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21108,6 +21476,44 @@
 	                }
 	                return null;
 	            }
+
+	            /******* 永久缓存 *******************************************/
+	            /******* 永久缓存 *******************************************/
+	            /******* 永久缓存 *******************************************/
+
+	            // 获取 localstorage 存储时所需的key
+
+	        }, {
+	            key: 'getLocalStorageKey',
+	            value: function getLocalStorageKey(config) {
+	                if (config.localStorage) {
+	                    // 如果config.localStorage为一个字符串，则给key增加后缀再进行存储
+	                    var salt = _utils2.default.typeof(config.localStorage, 'string') ? config.localStorage : '';
+	                    return _utils2.default.hash(_utils2.default.pass(config, this.paramList), 32) + ('-' + salt);
+	                }
+	                return null;
+	            }
+
+	            // 向 localStorage 中设置缓存数据
+
+	        }, {
+	            key: 'setLocalStorageData',
+	            value: function setLocalStorageData(key, res) {
+	                if (key) {
+	                    _utils2.default.setCache(key, res);
+	                }
+	            }
+
+	            // 从 localStorage 中获取缓存数据
+
+	        }, {
+	            key: 'getLocalStorageData',
+	            value: function getLocalStorageData(key) {
+	                if (key) {
+	                    return _utils2.default.getCache(key);;
+	                }
+	                return null;
+	            }
 	        }]);
 
 	        return AjaxCache;
@@ -21142,7 +21548,7 @@
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(61);
+	var _authority = __webpack_require__(60);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
@@ -21150,11 +21556,11 @@
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(62);
+	var _whitelist = __webpack_require__(61);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21329,7 +21735,7 @@
 	        key: 'generateElement',
 	        value: function generateElement(config) {
 	            // 如果是字符串直接返回
-	            if (_utils.Utils.typeof(config, 'string')) {
+	            if (_utils.Utils.typeof(config, ['string', 'number'])) {
 	                return config;
 	            }
 	            var result = void 0;
@@ -21483,7 +21889,7 @@
 
 	var UF = _interopRequireWildcard(_lib);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -21509,6 +21915,10 @@
 	        var name = _utils.Utils.toPascal(type);
 	        // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
 	        var result = this.component[name] || this.component[type];
+	        // 支持动态组件，即组件仅为一个函数，函数根据参数不同返回不同的组件类
+	        // if (!Utils.isExtendsOf(result, BaseComponent) && Utils.typeof(result, 'function')) {
+	        //     result = result(item);
+	        // }
 	        if (!result) {
 	            // 通过使用 o-table 来强制使用原生标签
 	            if (type.indexOf('o-') === 0) {
@@ -21592,7 +22002,7 @@
 
 	var _utils = __webpack_require__(22);
 
-	var _Antd = __webpack_require__(68);
+	var _Antd = __webpack_require__(67);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
@@ -21600,7 +22010,7 @@
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(62);
+	var _whitelist = __webpack_require__(61);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -21622,8 +22032,11 @@
 	        // 把 content 转化成 children。
 	        // update at 2017/10/25,如果没有content,则使用原来的children
 	        // update at 2018/01/11,如果只有原来有值，才执行赋值操作
-	        if (item.content || props.children) {
-	            props.children = item.content || props.children;
+	        // if (item.content || props.children) {
+	        //     props.children = item.content || props.children;
+	        // }
+	        if (item.content !== undefined) {
+	            props.children = item.content;
 	        }
 	        // 格式化 class 和 style
 	        props = this.formatCS(props);
@@ -21878,7 +22291,7 @@
 
 	'use strict';
 
-	var _ajax = __webpack_require__(27);
+	var _ajax = __webpack_require__(26);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
@@ -21890,7 +22303,7 @@
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21940,7 +22353,7 @@
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24164,7 +24577,7 @@
 
 	var _antd = __webpack_require__(21);
 
-	var _instance = __webpack_require__(59);
+	var _instance = __webpack_require__(58);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24181,9 +24594,7 @@
 	        delay: 60000,
 	        timer: null,
 	        success: function success() {
-	            --this.count;
-	            if (this.count <= 0) {
-	                this.count = 0;
+	            if (this.count > 0 && --this.count === 0) {
 	                clearTimeout(this.timer);
 	                // 全部执行完成后执行再执行init初始化页面
 	                (0, _instance.getInstance)(insName)._reInit();
@@ -24192,7 +24603,7 @@
 	        error: function error(err) {
 	            _antd.notification.error({
 	                top: 24,
-	                message: '执行出错，已中断页面载入',
+	                message: '页面载入时出错，请联系平台管理员',
 	                duration: 0,
 	                description: JSON.stringify(err)
 	            });

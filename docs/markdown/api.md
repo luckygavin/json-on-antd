@@ -131,19 +131,22 @@ console.log(UF.get('test.list'));
 
 Ajax 获取数据。`params` 为一个对象，属性列表如下：
 
-参数 | 说明 | 类型 | 默认值 | 是否必填
----- | ---- | ----- | ----- | ----
-url | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  | 必填
-method | 默认数据请求方式 | string | `GET` | 
-cache | 开启缓存，重复请求再次获取时会直接从缓存读取 | boolean | false |
-requestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true |
-params | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | | 
-type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | 
-useAxios | 改为使用`axios`库进行ajax请求 | boolean | false | 
-success | 成功时的处理逻辑 | function(data, res){} |  | 
-error | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 | 
-complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
-onchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | | 
+参数 | 说明 | 类型 | 默认值 
+---- | ---- | ----- | -----
+url | ajax接口地址。（支持包含动态参数，如：`/update/:id`，详见下面介绍） | string |  
+method | 默认数据请求方式 | string | `GET` 
+cache | 开启缓存（刷新页面失效），重复请求再次获取时会直接从缓存读取 | boolean | false 
+localStorage | 开启永久缓存（localStorage），当再次访问接口时，优先查找缓存内容。详见下面介绍 | boolean &#124; string | false 
+requestMerge | 开启请求合并，多个重复请求先后同时触发时，会合并成一个请求。可见下面[例子](#/Api/requestmerge-) | boolean | true 
+params | 发送的参数体，可以是一个 JOSN对象 或一个 query串 | object &#124; string | 
+paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} |
+interrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} |
+type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` 
+useAxios | 改为使用`axios`库进行ajax请求 | boolean | false 
+success | 成功时的处理逻辑 | function(data, res){} |  
+error | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 
+complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | 
+onchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | function | 
 
 更多参数可见 [全局配置](#/Develop/Config/-global-ajax-) 的`global.ajax`部分中的属性参数
 
@@ -160,6 +163,16 @@ onchange | 请求开始/结束时执行。可以用于绑定 loading 状态 | fu
 * **`onchange`**: 请求开始/结束时执行。可以用于绑定 loading 状态：  
 > * 开始执行请求时执行 onchange 参数为 (true, 'sending')
 > * 请求完成时执行 onchange 参数为 (false, 'success'/'error')
+
+* **`interrupt`**: 中断请求的钩子函数。可以当符合某些条件时中断请求，执行自定义处理：
+> * 可以通过返回数据，中断请求，从而使用钩子返回的数据；
+> * 如果钩子未返回任何内容，或返回true，则请求继续；
+> * 如果钩子返回false，则仅中断请求，不做任何处理；
+
+* **`localStorage`**: 开启永久缓存（localStorage）：
+> * 当再次访问接口时，优先查找缓存内容，并执行一次success，同时发起ajax请求；当ajax请求的数据获取回来后，会再次执行success逻辑，并更新缓存。  
+> * 当参数为一个字符串时，会对缓存的key进行加盐处理，使当传入不同字符串时缓存失效
+
 
 **接口返回值格式为：**
 ```json

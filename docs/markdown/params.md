@@ -117,6 +117,7 @@ requestMerge | 开启请求合并（默认），多个重复请求先后同时�
 method    | ajax方式：`post`、`get`等 | string | 'get'
 params | 请求数据时携带的参数 | object | 
 paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | 
+interrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} | 
 removeEmptyParams | 自动移除为空的属性 | boolean | true
 target | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性） | string |
 handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |
@@ -134,6 +135,10 @@ showLoading | 拉取数据时展示loading效果。也可以是一个`loading`�
 > > *  2、'set': source参数变动、自身set source参数都会更新
 > > *  3、false: 只有params或者source变化时才会更新
 > > *  4、'never': 则永远不更新，除非手动调用 reload 函数
+> * `interrupt`属性：中断请求的钩子函数。可以当符合某些条件时中断请求，执行自定义处理：
+> > *  1、可以通过返回数据，中断请求，从而使用钩子返回的数据；
+> > *  2、如果钩子未返回任何内容，或返回true，则请求继续；
+> > *  3、如果钩子返回false，则仅中断请求，不做任何处理；
 
 
 下面为一个使用场景较复杂的`下拉框`实现。
@@ -187,6 +192,7 @@ method    | ajax方式 | string | 'post'
 showLoading  | 展示loading效果 | boolean | `true`
 params | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |
 paramsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |
+removeEmptyParams | 自动移除为空的属性 | boolean | true
 trigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同
 onSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |
 onError | 提交数据后，失败的回调函数 | function(data, res) {} |

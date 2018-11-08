@@ -22,7 +22,14 @@ export default class Iframe extends BaseComponent {
     }
     componentWillReceiveProps(nextProps) {
         // 重新获取页面时重新展示loading
-        if (nextProps.src !== this.__prevProps.src) {
+        // if (nextProps.src !== this.__prevProps.src) {
+        if (nextProps.src !== this.props.src) {
+            let hashIndex = nextProps.src.indexOf('#');
+            let srcHashIndex = this.props.src.indexOf('#');
+            // 如果只是变更hash值，则不需要再展示loading
+            if (hashIndex > -1 && nextProps.src.slice(0, hashIndex) === this.props.src.slice(0, srcHashIndex)) {
+                return;
+            }
             this.setState({loading: true});
         }
     }
@@ -37,11 +44,12 @@ export default class Iframe extends BaseComponent {
         return parent.offsetHeight  + 'px';
     }
     render() {
+        let style = {height: this.__props.height, width: this.__props.width};
         return (
-            <div className="uf-iframe" ref={ele=>this.root = ele}
+            <div {...this.__getCommonProps({className: 'uf-iframe', style})} ref={ele => this.root = ele}
                 data-src={(new URL(this.__props.src, window.location.href)).href}>
                 <Spin spinning={this.state.loading && this.__props.showLoading}>
-                    <iframe {...Utils.filter(this.__props, ['showLoading', 'delay'])}
+                    <iframe {...Utils.filter(this.__props, ['showLoading', 'delay', 'className', 'style', 'height', 'width'])}
                         ref={ele=>this.ifr = ele}
                         onLoad={even => {
                             try {

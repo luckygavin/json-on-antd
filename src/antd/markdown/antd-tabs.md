@@ -27,8 +27,8 @@ Ant Design 依次提供了三级选项卡，分别用于不同的场景。
 | tabPosition | 页签位置，可选值有 `top` `right` `bottom` `left`  | string   | 'top'      |
 | animated | 是否使用动画切换 Tabs，在 `tabPosition=top\bottom` 时有效 | boolean &#124; {inkBar:boolean, tabPane:boolean} | true, 当 mode="card" 时为 false |
 | forceRefresh | 是否点击Tab标签时，强制刷新内容 | boolean | false |
-| onChange         | 切换面板的回调                               | Function | 无            |
-| onTabClick       | tab 被点击的回调                             | Function | 无            |
+| onChange         | 切换面板的回调                               | function (tabKey) {} | 无            |
+| onTabClick       | tab 被点击的回调                             | function (tabKey) {} | 无            |
 
 
 #### *item*

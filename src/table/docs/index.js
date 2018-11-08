@@ -33,13 +33,32 @@ const demo1 = {
                     dataIndex: 'region',
                     key: 'region',
                     width: 60,
+                    cellRowSpan: (v, row) => {
+                        if (v === '华北') {
+                            return row.id === 1 ? 4 : 0;
+                        } else {
+                            return 1;
+                        }
+                    },
                     filter: {
                         type: 'radio',
                         options: ['华北', '华南', '华东']
                     }
                 },
-                {title: '数组', dataIndex: 'arr'},
-                {title: '描述', dataIndex: 'description'}
+                {title: '数组', dataIndex: 'arr', render(v) {
+                    return {
+                        type: 'span',
+                        content: v,
+                        colSpan: 2
+                    }
+                }},
+                {title: '描述', dataIndex: 'description', render(v) {
+                    return {
+                        type: 'span',
+                        content: v,
+                        colSpan: 2
+                    };
+                }}
             ],
             title: {
                 // text: 'Table后端分页表格',

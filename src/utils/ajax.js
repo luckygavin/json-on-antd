@@ -17,7 +17,7 @@
 import reqwest from 'reqwest';
 import Utils from './utils.js';
 import axios from './axios.js';
-import {errorMessage, checkCache, checkQueue, checkMock, checkInterrupt} from './ajaxPlugin.js';
+import {errorMessage, checkCache, checkLocalStorage, checkQueue, checkMock, checkInterrupt} from './ajaxPlugin.js';
 import {generate} from 'src/tools/instance.js';
 
 // 依赖 Config, AjaxCache 两个实例，通过generete获取
@@ -37,6 +37,11 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         if (checkInterrupt(config)) {
             return;
         }
+        // 第一次调用接口时，检查是否有本地缓存
+        // remind,必须放在checkCache之前，保证success调用是不会受缓存的影响
+        if (checkLocalStorage(config, AjaxCache)) {
+            return;
+        }
         // TODO: 两种情况下都不会触发onchange
         // 检查是否有缓存，如果有，则直接中断后续逻辑
         if (checkCache(config, AjaxCache)) {
@@ -51,9 +56,13 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         let onchange = config.onchange || (()=>{});
         // successHandler
         let tmpSuccess = config.success || (()=>{});
-        let successHandler = (...p) => {
+        let successHandler = (data, res, ...p) => {
             onchange(false, 'success');
-            return tmpSuccess(...p);
+            // 全局数据处理函数，若进行了配置，则全部数据都会先经过此函数处理
+            if (globalAjax.handler) {
+                data = globalAjax.handler(data, res, config);
+            }
+            return tmpSuccess(data, res, ...p);
         };
         // errorHandler
         // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
@@ -105,8 +114,10 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
                     // 与 globalAjax.error 的处理逻辑稍微有点区别，error执行完之后还有默认处理逻辑，所以根据返回结果进行判断
                     // 而 globalAjax.success 的处理是直接截断，并传入调用处定义的成功与失败的回调
                     if (globalAjax.success) {
-                        globalAjax.success(res, successHandler, errorHandler, config);
-                        return;
+                        let result = globalAjax.success(res, successHandler, errorHandler, config);
+                        if (result !== true) {
+                            return;
+                        }
                     }
                     // 默认成功处理逻辑
                     // 如果接口无返回值，则res为http实例
@@ -181,7 +192,7 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         if (final.useAxios) {
             return axios(final);
         }
-
+        // console.log(final);
         return reqwest(final);
     }
 

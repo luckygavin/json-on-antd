@@ -26,8 +26,11 @@ export default {
         // 把 content 转化成 children。
         // update at 2017/10/25,如果没有content,则使用原来的children
         // update at 2018/01/11,如果只有原来有值，才执行赋值操作
-        if (item.content || props.children) {
-            props.children = item.content || props.children;
+        // if (item.content || props.children) {
+        //     props.children = item.content || props.children;
+        // }
+        if (item.content !== undefined) {
+            props.children = item.content;
         }
         // 格式化 class 和 style
         props = this.formatCS(props);

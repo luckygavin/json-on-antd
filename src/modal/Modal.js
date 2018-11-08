@@ -41,7 +41,6 @@ class NewModal extends BaseComponent {
                     formConf.key = Utils.uniqueId();
                 }
             } else {
-                // 如果是
                 delete this.__props.form;
             }
             // form配置
@@ -78,7 +77,6 @@ class NewModal extends BaseComponent {
     // 关闭弹框
     close() {
         this.__setProps({visible: false}, ()=>{
-            console.log(this.formRef);
             if (this.formRef && !this.formRef.unmounted) {
                 // 如果是form弹框，重置form内容
                 this.formRef.clearValues();
@@ -194,18 +192,20 @@ class NewModal extends BaseComponent {
         }
         return rank.map(v=>map[v]);
     }
-    render() {
+    // 可供子组件继承/重写
+    handleSelfProps() {
         // footer是在组件中解析的，解析后放置在footerContent中
-        let selfProps = {
-            onOk: this._submitHandler.bind(this)
-        };
+        let selfProps = this.__getCommonProps({className: 'uf-modal'});
+        selfProps.onOk = this._submitHandler.bind(this);
         if (this.__props.footerContent) {
             selfProps.footer = this.__props.footerContent;
         }
+        return selfProps;
+    }
+    render() {
         // 获取排序后的结果
         let children = this.getChildrenRank();
-        return <Modal {...Utils.filter(this.__props, 'children')} {...selfProps}
-            {...this.__getCommonProps({className: 'uf-modal'})}>
+        return <Modal {...Utils.filter(this.__props, 'children')} {...this.handleSelfProps()}>
             {children[0]}
             {children[1]}
             {children[2]}

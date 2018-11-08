@@ -30,16 +30,12 @@ export default class Ueditor extends BaseComponent {
     ueSetData(value) {
         // 临时解决方案。ueditor内不是用iframe实现，iframe加载需要时间，所以直接调用setContent会报错
         // 这里重试5次，间隔300ms
-        let count = 1;
-        let setData = ()=>{
-            if (this.ue.body || count > 5) {
-                this.ue.setContent(value);
-            } else {
-                setTimeout(setData, 300);
+        Utils.retry(()=>{
+            if (!this.ue.body) {
+                return false;
             }
-            count++;
-        };
-        setData();
+            this.ue.setContent(value);
+        }, 300, 5);
     }
     componentDidMount() {
         this._factory.$requirejs(['ueditor'], UE=>{
@@ -56,6 +52,7 @@ export default class Ueditor extends BaseComponent {
             autoFloatEnabled: true,
             elementPathEnabled: false,
             wordCount: false,
+            zIndex: 0,
             fontsize: [12, 14, 16, 18, 20, 24],
             toolbars: [[
                 'source', '|', 'undo', 'redo', '|', 'bold', 'italic', 'underline', 'strikethrough', '|', 'paragraph', 'fontfamily', 'fontsize',

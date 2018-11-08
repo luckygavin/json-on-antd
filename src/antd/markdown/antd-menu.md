@@ -40,10 +40,11 @@
 | title  | 菜单项在页面显示的内容 | string&#124;`config` |    |
 | icon | 图标，显示在`title`内容之前。当需要使用折叠侧边栏功能时，建议设置图标。图标类型可选值见[Icon](#/General/Icon)的`mode`属性 |  string |  |
 | key | 唯一标志。和`link`属性配合时可以不填。如果设置`followRoute: true`，建议不设置 key 或者 key 值和对应的路由保持一致 |  string | 必须 |
-| link | 点击菜单项时跳转的链接（路由）。默认作为一个路由处理，如果想使用真正的链接，可在链接前加上 http/https。如果是 subMenu 或 group 类型，则建议留空 | string | |
+| link | 点击菜单项时跳转的链接（路由）。默认作为一个路由处理，如果想使用真正的链接，可在链接前加上 http/https。 | string | subMenu 或 group 类型时，此属性无效 |
 | childItems | 子菜单项列表。一旦设置 childItems，则认为当前菜单项为一个 subMenu 类型或者是 group 类型 | items[] | |
 | mode | 菜单项类型。当为非普通菜单项时，可以定义两种菜单项类型：`subMenu`、`group` | string | `subMenu` |
 | onTitleClick | 点击子菜单标题 | function({ key, domEvent }) | - |
+| onClick | 点击导航项时的事件 | function(e, item) | - |
 
 ***以上参数自由组合可以产生三种类型的菜单项：item、subMenu、group。***
 

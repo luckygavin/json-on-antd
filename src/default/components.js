@@ -46,8 +46,13 @@ export default {
     /******* 普通组件默认配置 ******************************************************************/
     /****************************************************************************************/
     'auto-complete': {
-        style: {width: 160},
-        options: []
+        style: {minWidth: 160},
+        mode: 'combobox',
+        options: [],
+        startSign: 1,
+        source: {
+            showLoading: 'simple'
+        }
     },
     'breadcrumb': {
         style: {padding: '12px 24px', lineHeight: '18px'}
@@ -104,9 +109,6 @@ export default {
         // 搜索时忽略大小写
         filterOption: (v, opt) => (opt.props.children !== undefined)
             && opt.props.children.toLowerCase().indexOf(v.toLowerCase()) > -1
-    },
-    'auto-complete': {
-        mode: 'combobox'
     },
     'switch': {
         source: {
@@ -195,6 +197,11 @@ export default {
     },
     'dashboard': {
         closable: false
+    },
+    'drawer': {
+        placement: 'right',
+        width: '40%',
+        height: '40%'
     },
     'tree': {
         source: {

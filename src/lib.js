@@ -13,7 +13,8 @@ module.exports = Object.assign(
     {
         Iframe: require('./iframe'),
 
-        AutoComplete: require('./auto-complete'),
+        AutoComplete: require('./auto-complete').AutoComplete,
+        LocalComplete: require('./auto-complete').LocalComplete,
         Export: require('./export'),
         Tree: require('./tree'),
         Table: require('./table'),
@@ -21,6 +22,7 @@ module.exports = Object.assign(
         Forms: require('./form').Forms,
         Modal: require('./modal').Modal,
         Dashboard: require('./modal').Dashboard,
+        Drawer: require('./modal').Drawer,
         Ueditor: require('./ueditor').Ueditor,
         UeditorParse: require('./ueditor').UeditorParse,
         Echarts: require('./echarts'),

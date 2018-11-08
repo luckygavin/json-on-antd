@@ -139,8 +139,19 @@ export class Icon extends Genaral {
     }
 }
 
+export class IconPlus extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        let type = (this.__props.type || '').replace('icon-', '');
+        return <i {...this.__props} {...this.__getCommonProps({className: `iconfont icon-${type}`})} />;
+    }
+}
+
 /************* Grid 栅格 ************************************************************************** */
-// Row
+// Row 
 export class Row extends Genaral {
     constructor(props) {
         super(props);

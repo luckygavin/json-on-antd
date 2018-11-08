@@ -183,6 +183,115 @@ const demo5 = {
     ]
 };
 
+const demo6 = {
+    title: '抽屉组件',
+    description: '侧拉弹出，可以自己控制弹出宽度等',
+    config: [
+        {
+            type: 'drawer',
+            name: 'my-drawer6',
+            title: '抽屉组件弹框',
+            placement: 'right',
+            content: {
+                type: 'html',
+                content: '<p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p>'
+            }
+        },
+        {
+            type: 'drawer',
+            name: 'my-drawer7',
+            title: null,
+            footer: null,
+            width: 200,
+            height: 120,
+            placement: 'right',
+            closable: false,
+            maskClosable: true,
+            content: {
+                type: 'html',
+                content: '<p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p><p>Some contents...</p>'
+            }
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '右侧弹框',
+            onClick: () => UF('my-drawer6').set({
+                visible: true,
+                placement: 'right'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '左侧弹框',
+            onClick: () => UF('my-drawer6').set({
+                visible: true,
+                placement: 'left'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '顶部弹框',
+            onClick: () => UF('my-drawer6').set({
+                visible: true,
+                placement: 'top'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '底部弹框',
+            onClick: () => UF('my-drawer6').set({
+                visible: true,
+                placement: 'bottom'
+            })
+        },
+        {
+            type: 'div',
+            style: {padding: '16px 0 10px 0'},
+            content: '自定义抽屉宽/高:'
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '右小弹框',
+            onClick: () => UF('my-drawer7').set({
+                visible: true,
+                placement: 'right'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '左小弹框',
+            onClick: () => UF('my-drawer7').set({
+                visible: true,
+                placement: 'left'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '顶小弹框',
+            onClick: () => UF('my-drawer7').set({
+                visible: true,
+                placement: 'top'
+            })
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '底小弹框',
+            onClick: () => UF('my-drawer7').set({
+                visible: true,
+                placement: 'bottom'
+            })
+        }
+    ]
+};
+
 export default class ModalApp extends BaseDoc {
     constructor(props) {
         super(props);
@@ -190,6 +299,6 @@ export default class ModalApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemo(demo1, demo2, demo3, demo4, demo5);
+        return this.__getDemo(demo1, demo2, demo3, demo4, demo5, demo6);
     }
 }

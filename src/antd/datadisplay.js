@@ -187,6 +187,9 @@ export class Tabs extends DataDisplay {
         // 标签页的引用
         this.tabRefs = {};
     }
+    // _onChange(key) {
+    //     window.history.pushState(null, null, key);
+    // }
     _onTabClick(activeKey) {
         if (this.__filtered.forceRefresh) {
             // 如果通过items生成的子tab页，则可以使用refresh；否则刷新整个Tabs

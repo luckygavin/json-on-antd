@@ -148,9 +148,9 @@ UF.config({
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | ----
 domain | 设置文档域 document.domain，默认为当前页面域名 | string |  | 
-ajax | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置。具体参数见下表：[`ajax`](#/Develop/Config/-global-ajax-) | object |  | 
-cacheApis | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
-mock | Mock数据功能配置 | Object[] |  | 
+[ajax](#/Develop/Config/-global-ajax-) | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置 | object |  | 
+[cacheApis](#/Develop/Config/-global-cacheapis-) | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
+[mock](#/Develop/Config/-global-mock-) | Mock数据功能配置 | Object[] |  | 
 
 
 #### # *global.ajax*
@@ -168,8 +168,9 @@ type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` 
 contentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |
 crossOrigin | 设置`cross-origin`请求 | boolean | | 
 beforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | 
-success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | 
-error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler){} | | 
+handler | 全局数据预处理函数（同通用属性[`source.handler`](#/Params/-source-)的用法），全部请求的返回数据都会先经过此函数处理 | function(data, res, conf){return data;} | | 
+success | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler, config){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | 
+error | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler, config){} | | 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | 
 jsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | 
 

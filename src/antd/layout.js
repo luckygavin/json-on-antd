@@ -19,10 +19,10 @@ export class Layout extends BaseLayout {
     constructor(props) {
         super(props);
         this.__init();
-        this.hasSiderClass = this._handler();
+        this.hasSiderClass = this.siderHandler();
     }
     // 如果content里面包含有sider，则className中增加 ant-layout-has-sider。ps：没想清antd的官方是怎么做到适配的
-    _handler() {
+    siderHandler() {
         if (this.__props.children) {
             let children = this.__props.children;
             if (!Utils.typeof(children, 'array')) {
@@ -49,7 +49,11 @@ export class Header extends BaseLayout {
         this.__init();
     }
     render() {
-        return <Antd.Layout.Header {...this.__props}/>;
+        return <Antd.Layout.Header {...this.__props}
+            {...this.__getCommonProps({
+                className: this.__props.theme === 'dark' ? 'header-dark-theme' : ''
+            })}
+        />;
     }
 }
 
@@ -80,7 +84,7 @@ export class Sider extends BaseLayout {
     }
     _afterInit() {
         super._afterInit();
-        this.handleCollapsed();
+        this.findConnectMenuKey();
     }
     // __setProps 后，增加附加处理逻辑
     _afterSetProps() {
@@ -97,35 +101,41 @@ export class Sider extends BaseLayout {
         this.__setProps({collapsed});
         this.__props.onCollapse(collapsed);
     }
-    // Sider 组件自动和其子组件 Menu 做关联，收起时同时收起 Menu
-    // TODO: 代码耦合严重，需要剥离关联逻辑
-    handleCollapsed() {
+    _onCollapse(collapsed, ...p) {
+        super._onCollapse && super._onCollapse(collapsed, ...p);
+
+        // Sider 组件自动和其子组件 Menu 做关联，收起时同时收起 Menu
+        // TODO: 代码耦合严重，需要剥离关联逻辑
+        let menu = this.connectMenuKey && this.__getComponent(this.connectMenuKey);
+        if (menu) {
+            let defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
+            // 从缓存中获取 Menu 组件，并更改组件状态
+            menu.set({
+                inlineCollapsed: collapsed,
+                // 保存原 defaultOpenKeys 的值
+                _defaultOpenKeys: defaultOpenKeys,
+                defaultOpenKeys: collapsed ? [] : defaultOpenKeys
+            });
+        }
+    }
+    // 查找其下的菜单组件的key名称，并存储在connectMenuKey上
+    findConnectMenuKey(children) {
         if (this.__props.collapsible) {
-            let children = this.__props.children;
+            children = children || this.__props.children;
             if (children) {
                 if (!Utils.typeof(children, 'array')) {
                     children = [children];
                 }
                 // 查找 Menu 组件
                 for (let v of children) {
-                    if (v.props.__type === 'menu') {
-                        let key = v.props.__cache || v.props.__key;
-                        let inject = collapsed=>{
-                            let menu = this.__getComponent(key);
-                            if (menu) {
-                                let defaultOpenKeys = menu.get('_defaultOpenKeys', 'defaultOpenKeys');
-                                // 从缓存中获取 Menu 组件，并更改组件状态
-                                menu.set({
-                                    inlineCollapsed: collapsed,
-                                    // 保存原 defaultOpenKeys 的值
-                                    _defaultOpenKeys: defaultOpenKeys,
-                                    defaultOpenKeys: collapsed ? [] : defaultOpenKeys
-                                });
-                            }
-                        };
-                        // 注入到 onCollapse 函数中
-                        // 此处往this.__props注入没有问题，__controlled中已经使用了onCollapse，已经做过一次注入，处理后的结果在__props上
-                        this._inject(this.__props, 'onCollapse', inject);
+                    if (Utils.typeof(v, 'object') && v.props) {
+                        if (v.props.__type === 'menu') {
+                            let key = v.props.__cache || v.props.__key;
+                            this.connectMenuKey = key;
+                            return;
+                        } else if (v.props.children) {
+                            this.findConnectMenuKey(v.props.children);
+                        }
                     }
                 }
             }
@@ -136,7 +146,11 @@ export class Sider extends BaseLayout {
         if (trigger === undefined) {
             trigger = <Antd.Icon className="trigger" type={this.__props.collapsed ? 'menu-unfold' : 'menu-fold'}/>;
         }
-        return <Antd.Layout.Sider {...this.__props} trigger={trigger}/>;
+        return <Antd.Layout.Sider {...this.__props} trigger={trigger}
+            {...this.__getCommonProps({
+                className: this.__props.theme === 'dark' ? 'sider-dark-theme' : ''
+            })}
+        />;
     }
 }
 

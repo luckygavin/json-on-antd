@@ -1,6 +1,7 @@
-.uf-modal, .uf-table-modal {
+.uf-modal,
+.uf-table-modal {
     .ant-modal-content {
-        border-radius: 3px;
+        border-radius: @border-radius-base;
         .ant-modal-close-x {
             width: 40px;
             height: 40px;
@@ -27,7 +28,6 @@
     }
     .ant-modal-footer {
         border-top: 0px;
-        // padding: 10px 16px 16px 10px;
         padding: 6px 16px 18px 10px;
     }
 }
@@ -55,3 +55,116 @@
         }
     }
 }
+
+
+/* 抽屉组件样式 **********************************************************************/
+
+// 修改弹框样式，增加侧边拉出的弹框效果
+.uf-drawer {
+    position: absolute;
+    padding-bottom: 0;
+    top: unset;
+    margin: unset;
+    &.right {
+        right: 0px;
+        height: 100% !important;
+        .ant-modal-close {
+            left: -40px;
+            right: unset;
+            color: #fff;
+        }
+        &.zoom-enter.zoom-enter-active,
+        &.zoom-appear.zoom-appear-active {
+            animation-name: antMoveRightIn;
+        }
+        &.zoom-leave.zoom-leave-active {
+            animation-name: antMoveRightOut;
+        }
+    }
+    &.left {
+        left: 0px;
+        height: 100% !important;
+        .ant-modal-close {
+            right: -40px;
+            left: unset;
+            color: #fff;
+        }
+        &.zoom-enter.zoom-enter-active,
+        &.zoom-appear.zoom-appear-active {
+            animation-name: antMoveLeftIn;
+        }
+        &.zoom-leave.zoom-leave-active {
+            animation-name: antMoveLeftOut;
+        }
+    }
+    &.top {
+        top: 0px;
+        width: 100% !important;
+        .ant-modal-close {
+            bottom: -40px;
+            top: unset;
+            left: 0;
+            color: #fff;
+        }
+        &.zoom-enter.zoom-enter-active,
+        &.zoom-appear.zoom-appear-active {
+            animation-name: antMoveUpIn;
+        }
+        &.zoom-leave.zoom-leave-active {
+            animation-name: antMoveUpOut;
+        }
+    }
+    &.bottom {
+        bottom: 0px;
+        width: 100% !important;
+        .ant-modal-close {
+            top: -40px;
+            bottom: unset;
+            left: 0;
+            color: #fff;
+        }
+        &.zoom-enter.zoom-enter-active,
+        &.zoom-appear.zoom-appear-active {
+            animation-name: antMoveDownIn;
+        }
+        &.zoom-leave.zoom-leave-active {
+            animation-name: antMoveDownOut;
+        }
+    }
+    &.has-tl .ant-modal-content {
+        padding-top: 40px;
+    }
+    &.has-ft .ant-modal-content {
+        padding-bottom: 49px;
+    }
+    .ant-modal-content {
+        position: relative;
+        border-radius: 0;
+        height: 100%;
+    }
+    .ant-modal-header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .ant-modal-body {
+        overflow: scroll;
+        height: 100%;
+    }
+    .ant-modal-footer {
+        border-top: 1px solid @border-color-split;;
+        padding: 10px 16px 10px 10px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+    }
+    .ant-modal-close {
+        position: absolute;
+        font-weight: 100;
+        .ant-modal-close-x {
+            font-size: 24px;
+        }
+    }
+}
+// .uf-drawer-container {
+// }

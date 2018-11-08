@@ -4,7 +4,7 @@
  * @author liuzechun@baidu.com
  */
 import React from 'react';
-import {BaseConf} from 'src/base';
+import {BaseConf, BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Dom} from 'src/dom';
 import * as UF from 'src/lib.js';
@@ -25,6 +25,10 @@ export default {
         let name = Utils.toPascal(type);
         // 如果按照name查找不到则尝试使用转换前的type进行匹配（plugins加载过来的组件）
         let result = this.component[name] || this.component[type];
+        // 支持动态组件，即组件仅为一个函数，函数根据参数不同返回不同的组件类
+        // if (!Utils.isExtendsOf(result, BaseComponent) && Utils.typeof(result, 'function')) {
+        //     result = result(item);
+        // }
         if (!result) {
             // 通过使用 o-table 来强制使用原生标签
             if (type.indexOf('o-') === 0) {

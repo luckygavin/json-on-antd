@@ -24,19 +24,22 @@ crud属性值为一对象，其中键为当前配置的`"引用名称"`，用于
 
 ## 配置属性列表
 
-参数           | 说明                     | 类型             | 默认值 | 是否必填
---------------|--------------------------|-----------------|-------|-------
-title      | 弹框头部显示内容               | string &#124; `config` | - |
-mode  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为mode和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | |
-position  | 显示位置，可以选择：`modal`以弹框显示、`beforeHeader`展示在表格头部以上、`afterHeader`展示在表格头部以下   | string | 'modal' |
-api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,handler等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object | 
-form   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | |
-params | form会填充params中的值为默认值。会覆盖api中的params | object | |
-render | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} | 
-forbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） | |
-remove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） | |
-autoReload | 点击提交时自动刷新表格 | boolean | true |
-
+参数           | 说明                     | 类型             | 默认值 
+--------------|--------------------------|-----------------|-------
+title      | 弹框头部显示内容               | string &#124; `config` | 
+mode  | 功能的具体分类。不同分类具有不同默认功能，如不填，则认为mode和引用名称相同。可选值有：'show'、'add'、'edit'、'delete'、'batchAdd'、'batchEdit'、'batchDelete'，可见上面的功能分类 | string  | 
+position  | 显示位置，可以选择：`modal`以弹框显示、`beforeHeader`展示在表格头部以上、`afterHeader`展示在表格头部以下   | string | 'modal' 
+api    | 提交数据的接口。可以为接口字符串或者对象，当为对象时具有(url,method,params,handler等参数)，具体可见[通用参数](#/Params)#api 系列 | string|object 
+form   | 弹框中的表单配置。会做一些联动处理（如点击确认按钮时自动提交数据），常用于弹出层快速提交表单。注意：form 的配置中无需再写form的 type 和 name 属性 | `config` | 
+params | form会填充params中的值为默认值。会覆盖api中的params | object | 
+render | 弹框中的动态内容。content为静态内容，render为一个函数，会传入params参数，函数返回一个组件配置。常用于确认框，提示内容为和数据相关的动态信息。 | |function(params) {return `config`;} 
+autoReload | 点击提交时自动刷新表格 | boolean | true 
+forbidden | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段置为不可操作状态。比如编辑弹框复用新增的form配置时，id置为不可操作 | string（逗号分隔的字段名称字符串） |  仅`add`、`edit`可用
+remove | 多个弹框复用form配置时，可以用此属性声明复用过来的哪些字段移除 | string（逗号分隔的字段名称字符串） |  仅`add`、`edit`可用
+keys | 批量操作弹框中，声明待操作的字段列表。点击批量编辑时，会将表格中的数据取出，置于输入框内 | string（逗号分隔的字段名称字符串） |  仅`批量操作`可用
+keysHandler | 批量操作弹框中，对置于输入框中以及从输入框中获取到的数据的格式化函数 | object |  仅`批量操作`可用
+keysHandler.stringify | 自定义将表格的数据格式化后置于输入框中的各个字段的内容，返回结果需为字符串 | function(key, text, record) {} |  仅`批量操作`可用
+keysHandler.parse | 自定义将输入框中的数据格取出后，提交前对各个字段的内容进行处理 | function(key, text) {} |  仅`批量操作`可用
 
 常用参数如上，其他参数可参考：[Modal 弹框](#/Custom/Modal)
 

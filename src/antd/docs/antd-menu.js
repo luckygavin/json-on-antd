@@ -12,6 +12,18 @@ const demo1 = {
     config: {
         type: 'menu',
         mode: 'horizontal',
+        defaultSelectedKeys: ['mail'],
+        // source: {
+        //     url: 'docs/php/data.php?sleep=3',
+        //     target: 'items',
+        //     handler: data => ([
+        //         {
+        //             key: 'mail2',
+        //             icon: 'mail',
+        //             title: 'Navigation TEST'
+        //         }
+        //     ])
+        // },
         items: [
             {
                 key: 'mail',

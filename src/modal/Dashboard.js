@@ -1,12 +1,10 @@
 /**
- * @file ReactModal 适用于弹出层快速提交表单
+ * @file Dashboard 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件
  * @author liuzechun@baidu.com
  * */
 import React from 'react';
 import {Collapse, Button} from 'antd';
 import NewModal from './Modal.js';
-
-/**** 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件 *************************************/
 
 export default class Dashboard extends NewModal {
     // 当传入visible时，根据visible控制是否展示

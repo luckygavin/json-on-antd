@@ -64,11 +64,13 @@
 | style      | 自定义样式。当为函数时，函数参数同render，函数返回一个样式对象 | object&#124;function | -  |
 | className  | 列的 className | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
-| render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | Function(text, record) {} | - |
+| render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据，@return里面可以设置表格 行/列合并, 返回值必须是一个UF组建配置Object格式 | function(text, record, index) {} | - |
 | filter     | 表头的筛选设置，详见下方[`columns.filter`](#/Custom/Table/-column-filter-)      | Object           | - |
 | sorter     | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)，需要服务端排序可设为 true | Function&#124;boolean | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `'ascend'` `'descend'` `false` | boolean&#124;string | - |
 | colSpan    | 表头列合并,设置为 0 时，不渲染 | number      |         |
+| cellColSpan | 单元格列合并，需要单元格上下配合，避免单元格冗余或缺失。函数返回结果即为合并列数 | function(text, record, index)      |      
+| cellRowSpan | 单元格行合并，需要单元格左右配合，避免单元格冗余或缺失。函数返回结果即为合并行数 | function(text, record, index)      |      
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |

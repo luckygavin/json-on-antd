@@ -111,8 +111,8 @@ export default class Crud extends BaseComponent {
                                 delete v.required;
                             });
                         }
-                        break;
                     }
+                    break;
                 // 删除确认框的配置
                 case 'delete':
                     // 默认把参数处理为：只返回 id（rowKey对应的字段）
@@ -348,31 +348,38 @@ export default class Crud extends BaseComponent {
         return `__${this.parent.key}-${key}`;
     }
     // 生成批量编辑的字符串
-    _getStrByList(key, list) {
-        let keys = this.oConfig[key].keys.split(',');
+    _getStrByList(key, datas) {
+        let conf = this.oConfig[key];
+        let keys = conf.keys.split(',');
+        // 源数据转换成字符串展示到页面的批量编辑框时，对每个字段的处理逻辑
+        let handler = conf.keysHandler && conf.keysHandler.stringify;
+        let list = this.enum.encodeEnum(datas, keys);
         let str = '';
-        for (let row of list) {
-            let tmp = '';
+        list.forEach((row, index)=>{
+            let tmp = [];
             for (let v of keys) {
                 let value = row[v];
-                // tmp += ((value !== undefined || value !== null) ? value : '') + ',';
+                // 留有口子，可分别对每个字段进行自定义处理
+                handler && (value = handler(v, value, datas[index]));
                 // 当数据为对象或数组时，格式化成字符串
                 if (Utils.typeof(value, ['object', 'array'])) {
-                    tmp += JSON.stringify(value);
+                    tmp.push(JSON.stringify(value));
                 } else if (value === undefined || value === null) {
-                    tmp += '';
+                    tmp.push('');
                 } else {
-                    tmp += value;
+                    tmp.push(value);
                 }
-                tmp += ',';
             }
-            str += tmp.slice(0, -1) + '\n';
-        }
+            str += tmp.join(',') + '\n';
+        })
         return str;
     }
     // 根据字符串转换成要提交的数据对象
     _getListByStr(key, str) {
-        let keys = this.oConfig[key].keys.split(',');
+        let conf = this.oConfig[key];
+        let keys = conf.keys.split(',');
+        // 对用户输入的数据进行解析转换，将每个字段转换成提交给后端的数据
+        let handler = conf.keysHandler && conf.keysHandler.parse;
         let strArr = str.split('\n');
         let result = [];
         let error = [];
@@ -389,19 +396,24 @@ export default class Crud extends BaseComponent {
                     jsonHolder[tmpName] = str;
                     return tmpName;
                 });
-                // 分离后再把占位符复原
-                let values = row.split(',').map(v => {
-                    if (v.indexOf('$jsonHolder') > -1) {
-                        // 并把json转换为原数据格式
-                        return JSON.parse(jsonHolder[v]);
-                    }
-                    return v;
-                });
-
-                if (values.length !== keys.length) {
-                    let gap = values.length - keys.length;
+                let strArr = row.split(',');
+                if (strArr.length !== keys.length) {
+                    let gap = strArr.length - keys.length;
                     error.push(`第【${index + 1}】行数据字段位数不正确(${(gap > 0 ? '多出' : '缺失') + gap}个字段)，请检查！`);
                 }
+                // 分离后再把占位符复原
+                let values = strArr.map((text, index) => {
+                    if (text.indexOf('$jsonHolder') > -1) {
+                        // 并把json转换为原数据格式
+                        text = jsonHolder[text];
+                        // 如果有处理函数则只需处理函数，否则执行默认的json解析
+                        // 因为没法和原数据行对齐，所以不传递原数据
+                        text = handler ? handler(keys[index], text) : JSON.parse(text);
+                    } else {
+                        handler && (text = handler(keys[index], text));
+                    }
+                    return text;
+                });
                 let item = {};
                 for (let v of keys) {
                     item[v] = values.shift();
@@ -419,17 +431,20 @@ export default class Crud extends BaseComponent {
         return result;
     }
     // 展示批量编辑框
-    _showBatchEdit(key, visible) {
+    _showBatchEdit(key, visible = true) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
             message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
             return;
         }
         if (this.oConfig[key] && this.oConfig[key].keys) {
-            datas = this.enum.encodeEnum(datas);
             let str = this._getStrByList(key, datas);
             let modal = this.__getComponent(this._getModalName(key));
-            modal && modal.show({data: str}, visible);
+            if (modal) {
+                // 在modal上存储一份源数据
+                modal.set({oriData: visible ? datas : ''});
+                modal.show({data: str}, visible);
+            }
         } else {
             console.error('there is no property "batchEdit" or "batchEdit.keys" in table config');
         }
@@ -441,8 +456,13 @@ export default class Crud extends BaseComponent {
             if (!datas) {
                 return false;
             }
+            let result = this.enum.decodeEnum(datas);
+            if (!result) {
+                return false;
+            }
+            console.log(result);
             // 数据格式为 {data: 'json'}
-            return {data: JSON.stringify(this.enum.decodeEnum(datas))};
+            return {data: JSON.stringify(result)};
         };
     }
     // 展示批量删除框

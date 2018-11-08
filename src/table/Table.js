@@ -648,7 +648,7 @@ export default class NewTable extends BaseComponent {
                 let orender = item.render;
                 item.render = (v, row, ...params) => {
                     if (Utils.typeof(style, 'function')) {
-                        style = style();
+                        style = style(v, row);
                     }
                     if (item.minWidth) {
                         Object.assign(style, {minWidth: item.minWidth});
@@ -772,7 +772,10 @@ export default class NewTable extends BaseComponent {
                         cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
                     />;
                 };
+                
             }
+            // 处理 cellColSpan 和 cellRowSpan 参数
+            defaultColumn = this.colSpanHandler(defaultColumn, item);
             antdColumnConfig.push(defaultColumn);
         }
         // 提示信息，主要用于行不可选是勾选框那里的提示
@@ -795,6 +798,26 @@ export default class NewTable extends BaseComponent {
             });
         }
         return antdColumnConfig;
+    }
+    // 处理 cellColSpan 和 cellRowSpan 参数
+    colSpanHandler(defaultColumn, {cellColSpan, cellRowSpan}) {
+        if (cellColSpan || cellRowSpan) {
+            let origin = defaultColumn.render;
+            defaultColumn.render = (text, row, index) => {
+                let obj = {
+                    children: origin ? origin(text, row, index) : text,
+                    props: {}
+                };
+                if (Utils.typeof(cellColSpan, 'function')) {
+                    obj.props.colSpan = cellColSpan(text, row, index);
+                }
+                if (Utils.typeof(cellRowSpan, 'function')) {
+                    obj.props.rowSpan = cellRowSpan(text, row, index);
+                }
+                return obj;
+            };
+        }
+        return defaultColumn;
     }
     renderRowSelection() {
         if (!this.rowSelection) {

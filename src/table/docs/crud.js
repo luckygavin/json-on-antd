@@ -157,8 +157,24 @@ const demo1 = {
                     },
                     method: 'post',
                     keys: 'name,idcId,region,description',
+                    keysHandler: {
+                        // 源数据转换成字符串展示到页面的批量编辑框时，对每个字段的处理逻辑
+                        stringify: function (key, text, record) {
+                            if (key === 'description') {
+                                return '就是这么任性';
+                            }
+                            return text;
+                        },
+                        // 对用户输入的数据进行解析转换，将每个字段转换成提交给后端的数据
+                        parse: function (key, text) {
+                            if (key === 'description') {
+                                return '这里可以格式化用户输入的内容';
+                            }
+                            return text;
+                        },
+                    },
                     okText: '更新',
-                    content: 'aaa'
+                    content: '提示信息：xxx'
                 },
                 batchDelete: {
                     title: '批量删除:',

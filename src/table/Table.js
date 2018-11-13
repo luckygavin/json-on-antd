@@ -87,7 +87,7 @@ export default class NewTable extends BaseComponent {
     // 需使用params的地方，直接调用此函数
     // 参数逻辑为，params为直接覆盖，source.params为增量更新；params > source.params
     getSourceParams() {
-        return Utils.merge({}, this.__filtered.source.params, this.__props.params)
+        return Utils.merge({}, this.__filtered.source.params, this.__props.params);
     }
     initTable(isFirst) {
         let objProps = this.__props;
@@ -609,6 +609,171 @@ export default class NewTable extends BaseComponent {
         }
         return config;
     }
+    // 对用户传入数据进行处理
+    processColumnConfig(item) {
+        let defaultColumn = {
+            title: '',
+            key: '',
+            dataIndex: '',
+            // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
+            render: null,
+            sorter: null,
+            colSpan: null,
+            width: null,
+            className: '',
+            fixed: false,
+            // 当配置了sorter时，默认自动设置sortOrder为正序
+            sortOrder: !!item.sorter ? 'ascend' : false,
+            onCellClick: null,
+            children: null
+        };
+
+        getNeedObject(defaultColumn, item);
+        if (defaultColumn.dataIndex === '_operation') {
+            defaultColumn.className += ' uf-operation';
+        }
+        // 自定义样式参数
+        if (item.minWidth || item.style) {
+            let style = item.style || {};
+            let orender = item.render;
+            item.render = (v, row, ...params) => {
+                if (Utils.typeof(style, 'function')) {
+                    style = style(v, row);
+                }
+                if (item.minWidth) {
+                    Object.assign(style, {minWidth: item.minWidth});
+                }
+                return {
+                    type: 'div',
+                    style: style,
+                    content: orender ? orender(v, row, ...params) : v
+                };
+            };
+        }
+        // 用户配置的render是一个uf组件配置，在此转为dom
+        if (!!item.render) {
+            defaultColumn.render = (text, record, index) => {
+                // 配置中的render返回的是配置，配置再解析后才是真正的元素
+                let config = item.render(text, record, index);
+                // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
+                if (defaultColumn.dataIndex === '_operation') {
+                    config = this.handleAction(config, record);
+                }
+                // 根据是否可编辑状态来判断是否包裹编辑组件
+                return this.__analysis(config);
+            };
+        }
+        // 将用户配置的单列筛选选项转换成antd的配置
+        if (!!item.filter) {
+            let filterConf = this.filter.handleFilterConf(item.filter, item.dataIndex);
+            if (filterConf) {
+                defaultColumn = Object.assign({}, defaultColumn, filterConf);
+            }
+        }
+        // 文字过长，鼠标移入时进行气泡展示
+        if (!!item.ellipsis) {
+            defaultColumn.render = (text, record, index) => {
+                let newText = item.render
+                    ? this.__analysis(item.render(text, record, index))
+                    : text;
+                let returnText = (
+                    <Popover content={newText}>
+                        <span className="uf-table-td-ellipsis">{newText}</span>
+                    </Popover>
+                );
+                // 根据是否可编辑状态来判断是否包裹编辑组件
+                return returnText;
+            };
+        }
+        // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
+        if (item.textType) {
+            let textType = item.textType.toString().toLowerCase();
+            // let elliClass = v['ellipsis'] ? ' ellipsis' : '';
+            // style.className += elliClass;
+            defaultColumn.render = (text, record, index) => {
+                let newText = text;
+                switch (textType) {
+                    case 'duration': {
+                        const timeDiff = ((+new Date()) - (+new Date(Date.parse(text.replace(/-/g, '/'))))) / 1000;
+                        const dayTime = Math.floor(timeDiff / (24 * 3600));
+                        const hourTime = Math.floor((timeDiff % (24 * 3600)) / 3600);
+                        const minuteTime = Math.floor((timeDiff % (24 * 3600) % 3600) / 60);
+                        const secTime = Math.floor(timeDiff % (24 * 3600) % 3600 % 60);
+                        let timeArr = [];
+                        dayTime > 0 && timeArr.push(dayTime + '天');
+                        hourTime > 0 && timeArr.push(hourTime + '时');
+                        minuteTime > 0 && timeArr.push(minuteTime + '分');
+                        (dayTime === 0 && hourTime === 0 && minuteTime === 0)
+                            && secTime > 0 && timeArr.push(secTime + '秒');
+                        let tdData = timeArr.join('');
+                        // 若用户配置了render，则将转换之后的数据给用户的render
+                        newText = item.render
+                            ? this.__analysis(item.render(tdData, record, index))
+                            : tdData;
+                        break;
+                    }
+                    case 'json': {
+                        // 会出现重复json字符串编码现象,加入类型判断
+                        let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
+                        if (text && json !== '""') {
+                            let html = this._syntaxHighlight(json);
+                            newText = <Popover content={<pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>}>
+                                <pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>
+                            </Popover>;
+                        }
+                        break;
+                    }
+                    case 'html':
+                        newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
+                        break;
+                    case 'array':
+                        break;
+                    // 默认将格式进行一下转换然后输出
+                    default:
+                        text = this._getKeyDataOfObject(text);
+                        newText = item.render
+                            ? this.__analysis(item.render(text, record, index))
+                            : text;
+                        break;
+                }
+                return newText;
+            };
+        }
+        // 根据是否可编辑状态来判断是否包裹编辑组件
+        if (item.editable) {
+            // 声明获取前面设置过的配置
+            let oRender = defaultColumn.render;
+            defaultColumn.render = (text, record, index) => {
+                let displayStr = !oRender ? text : oRender(text, record, index);
+                let editableConf = item.editable;
+                // 支持配置为一个函数
+                if (Utils.typeof(editableConf, 'function')) {
+                    editableConf = editableConf(text, record, index);
+                }
+                // 如果editableConf返回为false，则直接返回原render
+                if (!editableConf) {
+                    return displayStr;
+                }
+                return <Edit parent={this} _factory={this._factory}
+                    value={text}
+                    columnChild={displayStr}
+                    editConf={editableConf}
+                    api={editableConf.api}
+                    cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
+                />;
+            };
+        }
+        // 处理 cellColSpan 和 cellRowSpan 参数
+        defaultColumn = this.colSpanHandler(defaultColumn, item);
+        // 处理表头合并,如果有children字段，则进行递归处理
+        if (!!item.children) {
+            defaultColumn.children = [];
+            for (let k in item.children) {
+                defaultColumn.children.push(this.processColumnConfig(item.children[k]));
+            }
+        }
+        return defaultColumn;
+    }
     renderColumns() {
         // 列功能相关
         let antdColumnConfig = [];
@@ -622,160 +787,7 @@ export default class NewTable extends BaseComponent {
                 // 在展示部分字段下过滤掉不展示的列数据
                 continue;
             }
-            let defaultColumn = {
-                title: '',
-                key: '',
-                dataIndex: '',
-                // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
-                render: null,
-                sorter: null,
-                colSpan: null,
-                width: null,
-                className: '',
-                fixed: false,
-                // 当配置了sorter时，默认自动设置sortOrder为正序
-                sortOrder: !!item.sorter ? 'ascend' : false,
-                onCellClick: null
-            };
-
-            getNeedObject(defaultColumn, item);
-            if (defaultColumn.dataIndex === '_operation') {
-                defaultColumn.className += ' uf-operation';
-            }
-            // 自定义样式参数
-            if (item.minWidth || item.style) {
-                let style = item.style || {};
-                let orender = item.render;
-                item.render = (v, row, ...params) => {
-                    if (Utils.typeof(style, 'function')) {
-                        style = style(v, row);
-                    }
-                    if (item.minWidth) {
-                        Object.assign(style, {minWidth: item.minWidth});
-                    }
-                    return {
-                        type: 'div',
-                        style: style,
-                        content: orender ? orender(v, row, ...params) : v
-                    };
-                };
-            }
-            // 用户配置的render是一个uf组件配置，在此转为dom
-            if (!!item.render) {
-                defaultColumn.render = (text, record, index) => {
-                    // 配置中的render返回的是配置，配置再解析后才是真正的元素
-                    let config = item.render(text, record, index);
-                    // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
-                    if (defaultColumn.dataIndex === '_operation') {
-                        config = this.handleAction(config, record);
-                    }
-                    // 根据是否可编辑状态来判断是否包裹编辑组件
-                    return this.__analysis(config);
-                };
-            }
-            // 将用户配置的单列筛选选项转换成antd的配置
-            if (!!item.filter) {
-                let filterConf = this.filter.handleFilterConf(item.filter, item.dataIndex);
-                if (filterConf) {
-                    defaultColumn = Object.assign({}, defaultColumn, filterConf);
-                }
-            }
-            // 文字过长，鼠标移入时进行气泡展示
-            if (!!item.ellipsis) {
-                defaultColumn.render = (text, record, index) => {
-                    let newText = item.render
-                        ? this.__analysis(item.render(text, record, index))
-                        : text;
-                    let returnText = (
-                        <Popover content={newText}>
-                            <span className="uf-table-td-ellipsis">{newText}</span>
-                        </Popover>
-                    );
-                    // 根据是否可编辑状态来判断是否包裹编辑组件
-                    return returnText;
-                };
-            }
-            // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
-            if (item.textType) {
-                let textType = item.textType.toString().toLowerCase();
-                // let elliClass = v['ellipsis'] ? ' ellipsis' : '';
-                // style.className += elliClass;
-                defaultColumn.render = (text, record, index) => {
-                    let newText = text;
-                    switch (textType) {
-                        case 'duration': {
-                            const timeDiff = ((+new Date()) - (+new Date(Date.parse(text.replace(/-/g, '/'))))) / 1000;
-                            const dayTime = Math.floor(timeDiff / (24 * 3600));
-                            const hourTime = Math.floor((timeDiff % (24 * 3600)) / 3600);
-                            const minuteTime = Math.floor((timeDiff % (24 * 3600) % 3600) / 60);
-                            const secTime = Math.floor(timeDiff % (24 * 3600) % 3600 % 60);
-                            let timeArr = [];
-                            dayTime > 0 && timeArr.push(dayTime + '天');
-                            hourTime > 0 && timeArr.push(hourTime + '时');
-                            minuteTime > 0 && timeArr.push(minuteTime + '分');
-                            (dayTime === 0 && hourTime === 0 && minuteTime === 0)
-                                && secTime > 0 && timeArr.push(secTime + '秒');
-                            let tdData = timeArr.join('');
-                            // 若用户配置了render，则将转换之后的数据给用户的render
-                            newText = item.render
-                                ? this.__analysis(item.render(tdData, record, index))
-                                : tdData;
-                            break;
-                        }
-                        case 'json': {
-                            // 会出现重复json字符串编码现象,加入类型判断
-                            let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
-                            if (text && json !== '""') {
-                                let html = this._syntaxHighlight(json);
-                                newText = <Popover content={<pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>}>
-                                    <pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>
-                                </Popover>;
-                            }
-                            break;
-                        }
-                        case 'html':
-                            newText = <span dangerouslySetInnerHTML={{__html: text}}></span>;
-                            break;
-                        case 'array':
-                            break;
-                        // 默认将格式进行一下转换然后输出
-                        default:
-                            text = this._getKeyDataOfObject(text);
-                            newText = item.render
-                                ? this.__analysis(item.render(text, record, index))
-                                : text;
-                            break;
-                    }
-                    return newText;
-                };
-            }
-            // 根据是否可编辑状态来判断是否包裹编辑组件
-            if (item.editable) {
-                // 声明获取前面设置过的配置
-                let oRender = defaultColumn.render;
-                defaultColumn.render = (text, record, index) => {
-                    let displayStr = !oRender ? text : oRender(text, record, index);
-                    let editableConf = item.editable;
-                    // 支持配置为一个函数
-                    if (Utils.typeof(editableConf, 'function')) {
-                        editableConf = editableConf(text, record, index);
-                    }
-                    // 如果editableConf返回为false，则直接返回原render
-                    if (!editableConf) {
-                        return displayStr;
-                    }
-                    return <Edit parent={this} _factory={this._factory}
-                        value={text}
-                        columnChild={displayStr}
-                        editConf={editableConf}
-                        api={editableConf.api}
-                        cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
-                    />;
-                };
-            }
-            // 处理 cellColSpan 和 cellRowSpan 参数
-            defaultColumn = this.colSpanHandler(defaultColumn, item);
-            antdColumnConfig.push(defaultColumn);
+            antdColumnConfig.push(this.processColumnConfig(item));
         }
         // 提示信息，主要用于行不可选是勾选框那里的提示
         if (this.__props.rowTooltips) {

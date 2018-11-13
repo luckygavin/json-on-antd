@@ -45,20 +45,22 @@ const demo1 = {
                         options: ['华北', '华南', '华东']
                     }
                 },
-                {title: '数组', dataIndex: 'arr', render(v) {
-                    return {
-                        type: 'span',
-                        content: v,
-                        colSpan: 2
-                    }
-                }},
-                {title: '描述', dataIndex: 'description', render(v) {
-                    return {
-                        type: 'span',
-                        content: v,
-                        colSpan: 2
-                    };
-                }}
+                {title: '合并表头', children: [
+                    {title: '数组', dataIndex: 'arr', render(v) {
+                        return {
+                            type: 'span',
+                            content: v,
+                            colSpan: 2
+                        }
+                    }},
+                    {title: '描述', dataIndex: 'description', render(v) {
+                        return {
+                            type: 'span',
+                            content: v,
+                            colSpan: 2
+                        };
+                    }}
+                ]}
             ],
             title: {
                 // text: 'Table后端分页表格',

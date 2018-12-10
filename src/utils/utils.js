@@ -105,6 +105,9 @@ const utils = Object.assign({}, underscore, {
     },
     // 数据格式转换
     format(value, type) {
+        if (value === undefined) {
+            return undefined;
+        }
         switch (type) {
             case 'number':
                 value = +value || 0;
@@ -564,6 +567,7 @@ const utils = Object.assign({}, underscore, {
         }
         let matched = '';
         for (let i in params) {
+            // 匹配一个最长的
             if (url.indexOf(`:${i}`) > -1 && matched.length < i.length) {
                 matched = i;
             }
@@ -571,6 +575,7 @@ const utils = Object.assign({}, underscore, {
         if (matched) {
             url = url.replace(`:${matched}`, params[matched]);
             delParams && (delete params[matched]);
+            url = utils.urlAnalysis(url, params, delParams);
         }
         return url;
     },

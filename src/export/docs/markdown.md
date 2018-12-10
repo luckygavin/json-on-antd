@@ -28,7 +28,7 @@ fileFormat | 选择导出的文件扩展名，目前支持`.xls`格式和`.csv`�
 
 参数 | 说明 | 参数
 ---- | ---- | ---- 
-export | 开始导出 | export()
+export | 开始导出。可以传入数据，直接将传入的数据导出来 | export(?data)
 
 
 ```javascript

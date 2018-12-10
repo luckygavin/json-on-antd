@@ -15,15 +15,40 @@
 
 ### 0.3.0
 
+`2018-12-07`
+
+* 🌟 `Forms`组件新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件
+
+
+`2018-11-30`
+
+* 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl
+* 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl
+
+
+`2018-11-22`
+
+* 🐞 修复`ajax.url`中只能使用一个变量的问题
+
+
+`2018-11-13`
+
+* 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性
+* 🌟 `Table`新增支持表头合并功能
+* 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题
+* 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用
+* 🐞 修复`Export`组件同步导出不可用bug
+
 `2018-11-07`
 
-* 🐞 修复批量编辑弹框报错是，弹框直接关闭无法继续编辑问题
+* 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题
 * 🎨 `Table`针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能
 * 🌟 `Table`新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并
 * 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)
 * 🌟 `Table`新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)
-* 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标(http://www.iconfont.cn)，[传送门](#/General/IconPlus)
-
+* 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)
+* 🎨 `Ajax.mock`模拟数据功能升级，支持带动态参数的url
+* 🎨 `Iframe`修改loading效果，改为右上角小菊花转动
 
 `2018-11-02`
 
@@ -41,7 +66,7 @@
 `2018-10-22`
 
 * 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)
-* 🐞 修复使用`beforeRender`,`beforeRender`处理并返回参数时，时间函数会被覆盖的问题
+* 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题
 
 
 `2018-10-15`

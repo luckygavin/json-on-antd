@@ -18715,6 +18715,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   background: #404040;
 }
+.ant-layout-sider-collapsed .ant-menu-inline-collapsed {
+  width: auto;
+}
 .ant-collapse.uf-collapse-fixed > .ant-collapse-item > .ant-collapse-header {
   padding: 0 0 0 12px;
   cursor: default;
@@ -19350,6 +19353,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-forms .table-forms .tbody-div > * > *:first-child {
   border-left: 1px solid #e9e9e9;
 }
+.uf-forms .table-forms .tbody-div > * > * .ant-form-item {
+  margin-bottom: 0px;
+}
 .uf-forms .table-forms .tbody-div .ant-form-item-label {
   display: none;
 }
@@ -19403,6 +19409,22 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   font-size: 14px;
   padding-left: 5px;
   padding-right: 5px;
+}
+.uf-iframe {
+  position: relative;
+}
+.uf-iframe .uf-iframe-loading {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+.uf-iframe .uf-iframe-loading .ant-spin-dot {
+  width: 30px;
+  height: 30px;
+}
+.uf-iframe .uf-iframe-loading .ant-spin-dot i {
+  width: 20px;
+  height: 20px;
 }
 .uf-iframe iframe {
   margin: 0;
@@ -19546,6 +19568,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-autocomplete.ant-select-sm.is-validating.has-feedback:after {
   height: 22px;
   line-height: 22px;
+}
+.uf-autocomplete .ant-select-arrow {
+  display: none;
 }
 .edui-editor {
   border: 1px solid #d9d9d9;

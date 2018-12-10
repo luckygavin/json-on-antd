@@ -59,9 +59,12 @@ export default {
         let conf = getConfig(insName).get(`components.${oType}`);
         if (conf) {
             if (Utils.typeof(conf, 'function')) {
-                conf = conf(item.params);
+                conf = conf(item);
+                // 函数配置完全使用函数返回的内容，如果需要其他参数，在函数中自行合并
+                item = Utils.merge({}, conf, {type: conf.type || oType});
+            } else {
+                item = Utils.merge({}, conf, item, {type: conf.type || oType});
             }
-            item = Utils.merge({}, conf, item, {type: conf.type || oType});
         }
         // 如果type进行了变换，则再次进行配置获取
         if (oType !== item.type) {

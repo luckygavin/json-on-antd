@@ -46,12 +46,14 @@ export class Layout extends BaseLayout {
 export class Header extends BaseLayout {
     constructor(props) {
         super(props);
+        // 属性组件本身不支持，需要过滤掉。使用时在 __filtered 上获取
+        this._filter.push('theme');
         this.__init();
     }
     render() {
         return <Antd.Layout.Header {...this.__props}
             {...this.__getCommonProps({
-                className: this.__props.theme === 'dark' ? 'header-dark-theme' : ''
+                className: this.__filtered.theme === 'dark' ? 'header-dark-theme' : ''
             })}
         />;
     }
@@ -78,7 +80,7 @@ export class Sider extends BaseLayout {
             defaultVal: false
         };
         // 属性组件本身不支持，需要过滤掉。使用时在 __filtered 上获取
-        this._filter.push('triggerPosition');
+        this._filter.push('triggerPosition', 'theme');
         this._openApi.push('toggleCollapsed');
         this.__init();
     }
@@ -148,7 +150,7 @@ export class Sider extends BaseLayout {
         }
         return <Antd.Layout.Sider {...this.__props} trigger={trigger}
             {...this.__getCommonProps({
-                className: this.__props.theme === 'dark' ? 'sider-dark-theme' : ''
+                className: this.__filtered.theme === 'dark' ? 'sider-dark-theme' : ''
             })}
         />;
     }

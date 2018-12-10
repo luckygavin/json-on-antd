@@ -4,7 +4,6 @@
  * **/
 
 import React from 'react';
-import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Icon, Button, Row, Col} from 'antd';
 import {OriginForm} from './Form.js';
@@ -18,6 +17,10 @@ export default class Forms extends OriginForm {
         // this.__init();
         this.setDefaultValues();
         this.formRef = {}; // 用于存储子Form的引用（因为无法直接拿到refs）
+    }
+    _beforeInit(...p) {
+        super._beforeInit && super._beforeInit(...p);
+        this._filter.push('operation');
     }
     // 覆盖原Form初始化逻辑
     init() {}
@@ -152,22 +155,33 @@ export default class Forms extends OriginForm {
                 return <div key={this.key + '-' + index} className="uf-forms-item">
                     {this.__analysis(formConfig)}
                     {this.__props.addType !== false && (
-                        <div key="operate" className="forms-icons">
-                            <Button type="dashed" className="add-form-icon"
-                                icon="plus-circle-o"
-                                onClick={this.__props.addType === 'add'
-                                    ? this.addForm.bind(this, index)
-                                    : this.copyForm.bind(this, index)
+                        this.__analysis({
+                            type: 'div',
+                            className: 'forms-icons',
+                            content: this.operationHandler(v, index, [
+                                {
+                                    type: 'button',
+                                    key: 'add',
+                                    mode: 'dashed',
+                                    icon: 'plus-circle-o',
+                                    className: 'add-form-icon',
+                                    action: this.__props.addType === 'add' ? 'add' : 'copy'
+                                },
+                                {
+                                    type: 'button',
+                                    key: 'delete',
+                                    mode: 'dashed',
+                                    icon: 'minus-circle-o',
+                                    className: 'delete-form-icon',
+                                    action: 'delete'
                                 }
-                            />
-                            <Button type="dashed" className="delete-form-icon"
-                                icon="minus-circle-o"
-                                onClick={this.deleteForm.bind(this, index)}/>
-                        </div>
+                            ])
+                        })
                     )}
                 </div>;
             });
     }
+
     // 使用表格的方式展示
     renderTableForms() {
         let formData = this.__props.formData;
@@ -185,8 +199,11 @@ export default class Forms extends OriginForm {
                 {this.__props.addType !== false && (
                     <div key="operate" className="th-div">
                         操作
-                        <Icon type="plus-square-o" className="operate-add"
-                            onClick={this.addForm.bind(this, null)}/>
+                        {/* 当存在operation属性时，隐藏掉顶部的公共新增按钮 */}
+                        {this.__filtered.operation === undefined && (
+                            <Icon type="plus-square-o" className="operate-add"
+                                onClick={this.addForm.bind(this, null)}/>
+                        )}
                     </div>
                 )}
             </div>
@@ -202,33 +219,76 @@ export default class Forms extends OriginForm {
                         onChange: this.handleChange.bind(this, index),
                         formData: v,
                         // 增加操作列
-                        items: formConfig.items.concat(
-                            this.__props.addType === false
-                                ? []
-                                : {
-                                    type: 'div',
-                                    key: key,
-                                    className: 'operate',
-                                    content: [
-                                        {
-                                            type: 'icon',
-                                            key: 'add',
-                                            mode: 'plus-circle',
-                                            onClick: this.copyForm.bind(this, index)
-                                        },
-                                        {
-                                            type: 'icon',
-                                            key: 'delete',
-                                            mode: 'minus-circle',
-                                            onClick: this.deleteForm.bind(this, index)
-                                        }
-                                    ]
-                                }
+                        items: formConfig.items.concat(this.__props.addType === false
+                            ? []
+                            : {
+                                type: 'div',
+                                key: this.key + '-' + index,
+                                className: 'operate',
+                                content: this.operationHandler(v, index, [
+                                    {
+                                        type: 'icon',
+                                        key: 'add',
+                                        mode: 'plus-circle',
+                                        action: this.__props.addType === 'add' ? 'add' : 'copy'
+                                    },
+                                    {
+                                        type: 'icon',
+                                        key: 'delete',
+                                        mode: 'minus-circle',
+                                        action: 'delete'
+                                    }
+                                ])
+                            }
                         )
                     }));
                 })}
             </div>
         </div>;
+    }
+    // 处理自定义的操作按钮参数
+    operationHandler(row, index, defaultBtns) {
+        if (this.__props.addType === false) {
+            return [];
+        }
+        // operation属性为一个函数，如果函数返回false，则不展示操作按钮，否则展示返回的结果
+        let operateBtns = this.__filtered.operation && this.__filtered.operation(row, index);
+        if (operateBtns === false) {
+            operateBtns = [];
+        }
+        // 如果没有operateBtns，则使用默认的
+        if (!Utils.typeof(operateBtns, 'array')) {
+            operateBtns = defaultBtns;
+        }
+        return operateBtns.map(v => {
+            let item = Utils.clone(v);
+            switch (v.action) {
+                case 'add':
+                    item.onClick = e => {
+                        this.addForm(index);
+                        v.onClick && v.onClick(e, row, index);
+                    }
+                    break;
+                case 'copy':
+                    item.onClick = e => {
+                        this.copyForm(index);
+                        v.onClick && v.onClick(e, row, index);
+                    }
+                    break;
+                case 'delete':
+                    item.onClick = e => {
+                        this.deleteForm(index);
+                        v.onClick && v.onClick(e, row, index);
+                    }
+                    break;
+                default:
+                    item.onClick = e => {
+                        v.onClick && v.onClick(e, row, index);
+                    }
+                    break;
+            }
+            return item
+        });
     }
     render() {
         return <div {...this.__getCommonProps({className: 'uf-forms'})}>

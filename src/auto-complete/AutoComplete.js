@@ -20,7 +20,8 @@ const LimitedProps = {
     showSearch: true,
     notFoundContent: null,
     // defaultActiveFirstOption: false,
-    filterOption: false
+    filterOption: false,
+    className: 'uf-autocomplete'
 };
 
 // 本地自动补全
@@ -82,7 +83,7 @@ export default class NewAutoComplete extends Select {
         this.class.push('select');
         this._injectEvent = ['onSearch', 'onChange'];
         // 延迟150ms执行
-        this._onSearch = Utils.debounce(this._onSearch, 150);
+        this._onSearch = Utils.debounce(this._onSearch, props.delay || 150);
         this.requestIndex = 0;
 
         this.__init();

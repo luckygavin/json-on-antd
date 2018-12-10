@@ -74,7 +74,7 @@
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
-| editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object | - |
+| editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object&#124;function | - |
 
 #### *column.enum*
 
@@ -128,7 +128,7 @@ enum为对象时，除[`source`](#/Params/-source-)系列参数外，还需要�
 
 #### *column.editable*
 
-主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置
+主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置。
 
 | 参数       | 说明                       | 类型            |  默认值  | 是否必须 |
 |-----------|----------------------------|-----------------|---------|--------|
@@ -137,6 +137,8 @@ enum为对象时，除[`source`](#/Params/-source-)系列参数外，还需要�
 | rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |
 | icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能. 当直接把icon设置为null时，则editIcon为默认值，其余两个设置为null | Object &#124; null | 默认图标样式 |  |
 | api | 待定 | string | - | 必须 |
+
+> `editable`也可以为一个函数，函数的参数和render的参数一致，返回结果为以上的配置对象。以此可以动态设置 editable 的配置
 
 #### *column._operation*
 
@@ -298,3 +300,5 @@ getDisplayValues | 获取Table当前的全部数据（包含展示数据） | ge
 具体方法有两种：
 * 一种是配置`source.cache`参数，把`cache`设置为true，可见 [通用参数](#/Params/-source-) `source`的用法
 * 另一种是`UF.config`中配置，具体使用方法可查看 [全局配置](#/Develop/Config/-global-cacheapis-) `global.cacheApis`
+
+#### 

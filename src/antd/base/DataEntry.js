@@ -132,6 +132,11 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
             this.__props.onChange && this.__props.onChange(all);
             return;
         }
+        // 默认选中第一个的处理逻辑
+        if (this.__props.defaultFirst && Utils.empty(this.__props.value)) {
+            let first = Utils.getFirstOption(this.__props.options);
+            this.__props.onChange && this.__props.onChange([first]);
+        }
         // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
         let matchVal = this.__props.options.filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
         if (matchVal.length === current.length) {
@@ -140,7 +145,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         this.__props.onChange && this.__props.onChange(matchVal);
     }
     // 处理默认选中
-    _handleDefaultSelect() {
+    _handleDefaultSelect(allClear = true) {
         let current = this.__props.value;
         // 如果当前值再列表中，则不做任何处理
         let alldata = this.__props.options;
@@ -155,7 +160,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(this.__props.options);
             this.__props.onChange && this.__props.onChange(first);
-        } else if (this.__props.value !== undefined
+        } else if (allClear && this.__props.value !== undefined
             && !Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
             // 为实现刷新组件时，清空原数据
             // 同时会带来问题，不能为空的字段会导致出现提示（已解决）

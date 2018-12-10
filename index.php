@@ -10,7 +10,7 @@ $suffix = '';
         <title>UF 2.0 - 配置化框架</title>
         <meta name="viewporti" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable">
         <meta charset = "utf-8">
-        <link rel="icon" href="public/img/logo.svg" type="image/x-icon" rel="bookmark" />
+        <link rel="shortcut icon" href="public/img/favicon.ico"/>
         <link rel="stylesheet" href="http://uf.baidu.com/fonts/css/font-awesome.min.css">
         <link rel="stylesheet" href="public/css/markdown.css" />
         <link rel="stylesheet" href="public/highlight/prism.css" />

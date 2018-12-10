@@ -36,6 +36,15 @@ export default class Title extends BaseComponent {
     componentWillReceiveProps(nextProps) {
         this.init(nextProps);
     }
+    // title为crud的子组件，但是crud存阻止刷新的逻辑，所以需要title刷新时，手动调用此函数
+    refreshTitleConf(conf) {
+        let confStr = JSON.stringify(conf);
+        if (confStr !== this.currentConfStr) {
+            this.currentConfStr = confStr;
+            this.title = conf;
+            this.forceUpdate();
+        }
+    }
     init(props) {
         this.parent = props.parent;
         this.title = props.config;

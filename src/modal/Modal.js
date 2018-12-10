@@ -6,6 +6,7 @@ import React from 'react';
 import {Modal} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
+import {getInstance} from 'src/tools/instance.js';
 import UF from 'src';
 
 class NewModal extends BaseComponent {
@@ -216,11 +217,11 @@ class NewModal extends BaseComponent {
 /**** Modal静态类调用函数 *************************************************************************/
 
 // 可随时随地用来创建新的弹框，且创建完成后返回destroy函数用于销毁弹框
-NewModal.create = function (config) {
+NewModal.create = function (insName, config) {
     config.type = 'modal';
     config.visible = config.visible || true;
     // 增加关闭弹窗删除dom节点逻辑
-    return UF._append(config, null, 'onCancel');
+    return (getInstance(insName) || UF)._append(config, null, 'onCancel');
 };
 
 
@@ -228,10 +229,10 @@ NewModal.create = function (config) {
 /**** Modal自带快捷调用函数 *************************************************************************/
 
 // 统一处理config（某些属性需要二次解析）
-function showMessage(type, config) {
+function showMessage(type, insName, config) {
     for (let v of ['title', 'content']) {
         if (config[v] && !Utils.typeof(config[v], 'string')) {
-            config[v] = UF.render(config[v]);
+            config[v] = (getInstance(insName) || UF).render(config[v]);
         }
     }
     config.className = 'uf-modal ' + (config.className ? config.className : '');

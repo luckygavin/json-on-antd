@@ -163,6 +163,8 @@ export default class NewTable extends BaseComponent {
             }
             titleConfig.showText = titleConfig.showText !== undefined ? titleConfig.showText : true;
             this.title = titleConfig;
+            // 手动刷新title组件
+            this.titleRef && this.titleRef.refreshTitleConf(this.title);
         } else {
             this.title = null;
         }
@@ -294,11 +296,12 @@ export default class NewTable extends BaseComponent {
         // 如果为后端分页，则传递 source 配置
         if (this.serverPaging) {
             return {
-                mode: 'asyn',
+                type: 'asyn',
                 headers: headers,
                 source: {
                     ...this.__filtered.source,
-                    params: this.getSourceParams()
+                    params: this.getSourceParams(),
+                    paramIndex: this.pagination.paramIndex
                 },
                 total: this.pagination.total || 0
             };
@@ -306,7 +309,7 @@ export default class NewTable extends BaseComponent {
         // 否则传递 data
         let data = this.__props.data || [];
         return {
-            mode: 'sync',
+            type: 'sync',
             headers: headers,
             data: data,
             total: data.length
@@ -629,6 +632,9 @@ export default class NewTable extends BaseComponent {
         };
 
         getNeedObject(defaultColumn, item);
+        if (Utils.typeof(defaultColumn.title, 'object')) {
+            defaultColumn.title = this.__analysis(defaultColumn.title);
+        }
         if (defaultColumn.dataIndex === '_operation') {
             defaultColumn.className += ' uf-operation';
         }
@@ -739,6 +745,14 @@ export default class NewTable extends BaseComponent {
                 return newText;
             };
         }
+        // 支持传入type，自定义数据展示组件
+        // if (item.type) {
+        //     let oriRender = defaultColumn.render;
+        //     defaultColumn.render = (text, record, index) => {
+        //         let oriResult = oriRender ? oriRender(text, record, index) : text;
+        //         return this.__analysis(Object.assign({content: oriResult}, item.type));
+        //     }
+        // }
         // 根据是否可编辑状态来判断是否包裹编辑组件
         if (item.editable) {
             // 声明获取前面设置过的配置

@@ -272,19 +272,19 @@ export class Select extends OptionsDataEntry {
     // 改为每次set值时检查，如果更新了options，则进行是否清空或者重置为默认值的处理
     _afterSetProps(newProps) {
         super._afterSetProps(newProps);
-        // combobox 模式下，由于可以任意输入，所以不再对当前数据进行处理
         if (newProps.options) {
             this.__props.options = this.__props.options.map(item => {
                 item.value += '';
                 return item;
             });
-            if (this.__props.type !== 'combobox') {
-                // 根据是否多选做区别处理
-                if (this.isMultiple) {
-                    this._handleMultipleSelect();
-                } else {
-                    this._handleDefaultSelect();
-                }
+            // 根据是否多选做区别处理
+            if (this.isMultiple) {
+                this._handleMultipleSelect();
+            } else if (this.__props.type === 'combobox') {
+                // combobox 模式下，由于可以任意输入，所以及时取不到也不清空数据
+                this._handleDefaultSelect(false);
+            } else {
+                this._handleDefaultSelect();
             }
         }
     }

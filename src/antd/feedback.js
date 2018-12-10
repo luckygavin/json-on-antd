@@ -8,6 +8,7 @@ import Feedback from './base/Feedback.js';
 import {Utils} from 'src/utils';
 import UF from 'src';
 import {WhiteList} from 'src';
+import {getInstance} from 'src/tools/instance.js';
 import * as Antd from 'antd';
 
 /************* Alert 警告提示 ************************************************************************** */
@@ -59,7 +60,7 @@ export class Loading extends Feedback {
 let currentMessageHandle = {};
 let messageAutoMerge = true;
 // 统一处理config（某些属性需要二次解析）
-function messageHandler(type, config, duration, onClose, ...params) {
+function messageHandler(type, insName, config, duration, onClose, ...params) {
     // key 相同的提示信息只展示一个
     let key = Utils.hash({type, config});
     if (messageAutoMerge && currentMessageHandle[key]) {
@@ -72,7 +73,7 @@ function messageHandler(type, config, duration, onClose, ...params) {
         onClose && onClose(...p);
     }
     if (Utils.typeof(config, ['object', 'array'])) {
-        config = UF.render(config);
+        config = (getInstance(insName) || UF).render(config);
     }
     // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
     let distroy = Antd.message[type](config, duration, close, ...params);
@@ -80,7 +81,7 @@ function messageHandler(type, config, duration, onClose, ...params) {
     return distroy;
 }
 // 拦截 message.config ，加入自定义参数处理
-function messageConfHandler(conf) {
+function messageConfHandler(insName, conf) {
     if (conf.autoMerge !== undefined) {
         messageAutoMerge = conf.autoMerge;
     }
@@ -94,7 +95,7 @@ export const message = Object.assign({}, Antd.message, {
     warning: messageHandler.bind(null, 'warning'),
     warn: messageHandler.bind(null, 'warn'),
     loading: messageHandler.bind(null, 'loading'),
-    config: messageConfHandler
+    config: messageConfHandler.bind(null)
 });
 
 
@@ -103,7 +104,7 @@ export const message = Object.assign({}, Antd.message, {
 let currentNotificationHandle = {};
 let notificationAutoMerge = true;
 // 统一处理config（某些属性需要二次解析）
-function notificationHandler(type, config) {
+function notificationHandler(type, insName, config) {
     if (notificationAutoMerge) {
         // key 相同的提示信息只展示一个
         if (config.key) {
@@ -119,12 +120,12 @@ function notificationHandler(type, config) {
     }
     let list = WhiteList.get(config, 'notification');
     for (let v of list) {
-        config[v] = UF.render(config[v]);
+        config[v] = (getInstance(insName) || UF).render(config[v]);
     }
     return Antd.notification[type](config);
 }
 // 拦截 notification.config ，加入自定义参数处理
-function notificationConfHandler(conf) {
+function notificationConfHandler(insName, conf) {
     if (conf.autoMerge !== undefined) {
         notificationAutoMerge = conf.autoMerge;
     }
@@ -138,5 +139,5 @@ export const notification = Object.assign({}, Antd.notification, {
     warning: notificationHandler.bind(null, 'warning'),
     warn: notificationHandler.bind(null, 'warn'),
     open: notificationHandler.bind(null, 'open'),
-    config: notificationConfHandler
+    config: notificationConfHandler.bind(null)
 });

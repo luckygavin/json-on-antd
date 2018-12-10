@@ -137,11 +137,24 @@ const demo2 = {
     config: {
         type: 'forms',
         mode: 'table',
+        operation: (row, index) => {
+            if (index === 0) {
+                return [
+                    {type: 'icon', key: 'add', mode: 'plus-circle', action: 'add'}
+                ];
+            } else {
+                return [
+                    {type: 'icon', key: 'copy', mode: 'plus-circle', action: 'copy'},
+                    {type: 'icon', key: 'delete', mode: 'minus-circle', action: 'delete'}
+                ];
+            }
+        },
         form: {
             items: [
                 {
                     type: 'date-picker',
                     label: '盘点时间',
+                    style: {width: 60},
                     name: 'inventory-time',
                     format: 'YYYYMMDD',
                 },
@@ -152,27 +165,34 @@ const demo2 = {
                     rules: [{required: true, message: '请输入sn名称'}]
                 },
                 {
-                    type: 'select',
-                    label: '机房',
-                    name: 'idc_id',
-                    showSearch: true,
-                    allowClear: true,
-                    options: [
-                        {value: 's',label: 'YQ01'},
-                        {value: 'd',label: 'BJYZ'},
-                        {value: 'f',label: 'BB'}
-                    ]
-                },
-                {
-                    type: 'select',
-                    label: '盘点方式',
-                    name: 'inventory-method',
-                    showSearch: true,
-                    allowClear: true,
-                    options: [
-                        {value: '1',label: '全部'},
-                        {value: '2',label: 'HAS'},
-                        {value: '3',label: 'ILO'}
+                    type: 'div',
+                    label: '合并测试',
+                    key: 'merge',
+                    content: [
+                        {
+                            type: 'radio',
+                            label: '机房',
+                            name: 'idc_id',
+                            showSearch: true,
+                            allowClear: true,
+                            options: [
+                                {value: 's',label: 'YQ01'},
+                                {value: 'd',label: 'BJYZ'},
+                                {value: 'f',label: 'BB'}
+                            ]
+                        },
+                        {
+                            type: 'select',
+                            label: '盘点方式',
+                            name: 'inventory-method',
+                            showSearch: true,
+                            allowClear: true,
+                            options: [
+                                {value: '1',label: '全部'},
+                                {value: '2',label: 'HAS'},
+                                {value: '3',label: 'ILO'}
+                            ]
+                        }
                     ]
                 }
             ]

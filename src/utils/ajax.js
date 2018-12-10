@@ -100,6 +100,8 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         const params = Object.assign({}, config.params, config.data);
         const final = Object.assign({}, config,
             {
+                // 原始配置,mock中使用
+                originConf: config,
                 // url中可以使用来自 params 或 uf.config.data 中的动态参数
                 // params中的数据取完会从params中移除，uf.config.data 会保留原数据
                 url: Utils.urlAnalysis(

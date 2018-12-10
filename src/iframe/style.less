@@ -1,7 +1,26 @@
-.uf-iframe iframe {
-    margin: 0;
-    border: 0;
-    // iframe不知为何下面多出来5像素，导致页面出现了滚动条
-    margin-bottom: -5px;
-    width: 100%;
+.uf-iframe {
+    position: relative;
+    .uf-iframe-loading {
+        // font-size: 18px;
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        .ant-spin-dot {
+            width: 30px;
+            height: 30px;
+            i {
+                width: 20px;
+                height: 20px;
+                // width: 18px;
+                // height: 18px;
+            }
+        }
+    }
+    iframe {
+        margin: 0;
+        border: 0;
+        // iframe不知为何下面多出来5像素，导致页面出现了滚动条
+        margin-bottom: -5px;
+        width: 100%;
+    }
 }

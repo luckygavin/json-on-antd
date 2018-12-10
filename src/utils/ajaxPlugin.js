@@ -147,9 +147,10 @@ export function checkQueue(config) {
  * @return {boolean} 如果有则返回true，否则返回false
  */
 export function checkMock(config, mockMap = {}) {
-    if (config.url && mockMap[config.url]) {
+    let conf = config.originConf;
+    if (conf.url && mockMap[conf.url]) {
         Utils.defer(()=>{
-            mockMap[config.url].call(null, config, config.success, config.error);
+            mockMap[conf.url](config, config.success, config.error);
         });
         return true;
     }

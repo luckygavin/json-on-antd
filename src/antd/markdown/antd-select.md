@@ -38,8 +38,8 @@
 | dropdownClassName | 下拉菜单的 className 属性 | string | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |
 | tokenSeparators | 在 tags 和 multiple 模式下自动分词的分隔符 | string[] |  |
-| defaultFirst | 默认选中第一个，仅使用source时可用 | string[] |  |
-| defaultSelectAll | 默认全选，仅使用source时可用 | string[] |  |
+| defaultFirst | 默认选中第一个，仅使用source时可用 | boolean |  |
+| defaultSelectAll | 默认全选，仅使用source时可用 | boolean |  |
 
 
 ### 函数调用

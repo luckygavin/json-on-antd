@@ -116,6 +116,11 @@ const create = ({name})=>{
         moment: moment,
         // underscore工具函数
         _: Utils._,
+        // Modal直接调用函数，传入insName
+        Modal: Utils.each(uf.Modal, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
+        // message、notification 直接调用函数，传入insName
+        message: Utils.each(uf.message, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
+        notification: Utils.each(uf.notification, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
         // model 数据绑定页面
         // model: Model,
         // 全局数据
@@ -256,23 +261,27 @@ const create = ({name})=>{
 
             // message组件设置
             if (config.components.message) {
-                uf.message.config(config.components.message);
+                func.message.config(config.components.message);
             }
             // notification组件设置
             if (config.components.notification) {
-                uf.notification.config(config.components.notification);
+                func.notification.config(config.components.notification);
             }
         },
-        // 获取全部实例，可以和其他实例做交互
+        // 获取实例，可以和其他实例做交互
         getIns(name) {
+            return getInstance(name);
+        },
+        getAllIns(name) {
             const allIns = getAll();
-            return allIns;
+            return name ? allIns[name] : allIns;
         }
     };
     
     // 绑定获取组件的函数
     const UF = func._get;
-    Object.assign(UF, uf, func);
+    // Object.assign(UF, uf, func);
+    Object.assign(UF, func);
     
     // 存储新产生的uf实例
     setInstance(name, UF);

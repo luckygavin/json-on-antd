@@ -54,8 +54,8 @@ export default class Header extends Component {
         return (
             <div id="header">
                 <div className="logo">
-                    {/* <img alt="logo" src="./public/img/UF.svg" /> */}
-                    <img alt="logo" src="./public/img/logo.svg" />
+                    <img alt="logo" src="./public/img/uf.png" />
+                    {/* <img alt="logo" src="./public/img/logo.svg" /> */}
                     <span className="version">UF 2.0</span>
                 </div>
                 <div className="nav">

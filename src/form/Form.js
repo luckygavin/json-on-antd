@@ -144,6 +144,10 @@ export class OriginForm extends BaseComponent {
         }
         return values;
     }
+    // 设置表单的值
+    setValues(data) {
+        this.form.setFieldsValue(data);
+    }
     resetValues(o) {
         // 如果传入的值为空或者未设置的字段，则使用组件配置的default的值对组件进行初始化
         let resetVal = Object.assign({}, this.oriDefaultValues, o);
@@ -719,10 +723,7 @@ export class OriginForm extends BaseComponent {
             icon: icon,
             style: {marginLeft: '8px'}
         }, item, {
-            onClick: (...params) => {
-                handleClick && handleClick(...params);
-                oriOnClick && oriOnClick(...params);
-            }
+            onClick: handleClick
         });
         return this.__analysis(props);
     }

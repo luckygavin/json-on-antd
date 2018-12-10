@@ -24,7 +24,7 @@ export default class Export extends BaseComponent {
             // 数据导出方式 异步/同步[asyn/sync]
             // 异步 - 通过source获取要导出的数据
             // 同步 - 实例化组件是直接传入data
-            mode: 'asyn',
+            type: null,
             // 记录参数中有没有message传入,如果没有传入,导出完成时进度条不隐藏
             noMessage: true,
             // 异步数据导出时的提示信息
@@ -41,7 +41,7 @@ export default class Export extends BaseComponent {
         this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
         this.data = [];
         if (objProps.data === undefined) {
-            this.config.mode = this.config.mode || 'asyn';
+            this.config.type = this.config.type || 'asyn';
             let state = {
                 visible: false,
                 pageSize: 200,
@@ -65,7 +65,7 @@ export default class Export extends BaseComponent {
                 this.state = state;
             }
         } else {
-            this.config.mode = this.config.mode || 'sync';
+            this.config.type = this.config.type || 'sync';
             // 用于存储导出的数据，为避免合并数据时出错，请求过来的数据没有合并到一个数组
             // data里面的数据是这样的：[[{...},{...},...],[],[]]
             this.data = [objProps.data];
@@ -76,7 +76,7 @@ export default class Export extends BaseComponent {
             this.initExport(nextProps);
         }
         // if (nextProps.data) {
-        //     this.config.mode = 'sync';
+        //     this.config.type = 'sync';
         //     this.data = [nextProps.data];
         // }
         // this.config = this.__mergeProps(this.config, nextProps);
@@ -117,11 +117,17 @@ export default class Export extends BaseComponent {
             }
         }, 1000);
     }
-    export() {
-        if (this.config.mode === 'asyn') {
+    // 支持直接传入待导出的数据直接导出
+    export(data) {
+        if (!data && this.config.type === 'asyn') {
             this.showModal();
         } else {
-            this.aRef && this.aRef.click();
+            this.data = [data];
+            this.config.type = 'sync';
+            this.forceUpdate();
+            Utils.defer(()=>{
+                this.aRef && this.aRef.click();
+            });
         }
     }
     showModal() {
@@ -143,12 +149,18 @@ export default class Export extends BaseComponent {
     // 覆盖原生获取异步数据的函数
     _handleAsyncData() {}
     // 导出进程
-    getData(page) {
+    getData(pageNum) {
         let params = this.__filtered.source.params;
         params = Object.assign({}, params, {
-            page: page,
-            size: this.state.pageSize,
             total: this.state.total
+        });
+        // TODO: 可改造，paramIndex为Table传入
+        // 可以通过 paramIndex 属性更改默认传递的page和size参数
+        let paramIndex = this.__filtered.source.paramIndex || {};
+        let {page = 'page', size = 'size'} = paramIndex;
+        params = Object.assign({}, params, {
+            [page]: pageNum,
+            [size]: this.state.pageSize
         });
         // 调用通用source获取数据逻辑
         this.__getSourceData({
@@ -157,7 +169,7 @@ export default class Export extends BaseComponent {
                 if (this.state.exporting && !this.state.error) {
                     // 存储数据
                     this.saveData(res);
-                    let size = this.state.pageSize;
+                    let pageSize = this.state.pageSize;
                     let total = this.state.total;
                     // 计算剩余时间
                     let fatchedData = this.state.fatchedData;
@@ -174,8 +186,8 @@ export default class Export extends BaseComponent {
                         this.setState({lastTime: newLastTime});
                     }
                     // 判断是否已经取得全部数据
-                    if (page * size < total) {
-                        this.getData(page + 1);
+                    if (pageNum * pageSize < total) {
+                        this.getData(pageNum + 1);
                     } else {
                         this.finish();
                     }
@@ -479,7 +491,7 @@ export default class Export extends BaseComponent {
         }
     }
     render() {
-        if (this.config.mode === 'asyn') {
+        if (this.config.type === 'asyn') {
             return this.asynExportRender();
         } else {
             return this.syncExportRender();

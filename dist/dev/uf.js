@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.14","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.18","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.8.3","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -336,6 +336,17 @@
 	        moment: _moment2.default,
 	        // underscore工具函数
 	        _: _utils.Utils._,
+	        // Modal直接调用函数，传入insName
+	        Modal: _utils.Utils.each(_lib2.default.Modal, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, name) : item;
+	        }),
+	        // message、notification 直接调用函数，传入insName
+	        message: _utils.Utils.each(_lib2.default.message, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, name) : item;
+	        }),
+	        notification: _utils.Utils.each(_lib2.default.notification, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, name) : item;
+	        }),
 	        // model 数据绑定页面
 	        // model: Model,
 	        // 全局数据
@@ -483,24 +494,28 @@
 
 	            // message组件设置
 	            if (config.components.message) {
-	                _lib2.default.message.config(config.components.message);
+	                func.message.config(config.components.message);
 	            }
 	            // notification组件设置
 	            if (config.components.notification) {
-	                _lib2.default.notification.config(config.components.notification);
+	                func.notification.config(config.components.notification);
 	            }
 	        },
 
-	        // 获取全部实例，可以和其他实例做交互
+	        // 获取实例，可以和其他实例做交互
 	        getIns: function getIns(name) {
+	            return (0, _instance.getInstance)(name);
+	        },
+	        getAllIns: function getAllIns(name) {
 	            var allIns = (0, _instance.getAll)();
-	            return allIns;
+	            return name ? allIns[name] : allIns;
 	        }
 	    };
 
 	    // 绑定获取组件的函数
 	    var UF = func._get;
-	    Object.assign(UF, _lib2.default, func);
+	    // Object.assign(UF, uf, func);
+	    Object.assign(UF, func);
 
 	    // 存储新产生的uf实例
 	    (0, _instance.setInstance)(name, UF);
@@ -2451,6 +2466,9 @@
 
 	    // 数据格式转换
 	    format: function format(value, type) {
+	        if (value === undefined) {
+	            return undefined;
+	        }
 	        switch (type) {
 	            case 'number':
 	                value = +value || 0;
@@ -3117,6 +3135,7 @@
 	        }
 	        var matched = '';
 	        for (var i in params) {
+	            // 匹配一个最长的
 	            if (url.indexOf(':' + i) > -1 && matched.length < i.length) {
 	                matched = i;
 	            }
@@ -3124,6 +3143,7 @@
 	        if (matched) {
 	            url = url.replace(':' + matched, params[matched]);
 	            delParams && delete params[matched];
+	            url = utils.urlAnalysis(url, params, delParams);
 	        }
 	        return url;
 	    },
@@ -4945,6 +4965,8 @@
 	        // 复制一份，防止url解析时更改原数据
 	        var params = Object.assign({}, config.params, config.data);
 	        var final = Object.assign({}, config, {
+	            // 原始配置,mock中使用
+	            originConf: config,
 	            // url中可以使用来自 params 或 uf.config.data 中的动态参数
 	            // params中的数据取完会从params中移除，uf.config.data 会保留原数据
 	            url: _utils2.default.urlAnalysis(_utils2.default.urlAnalysis(config.url, params), ModelCache.get(), false),
@@ -7699,9 +7721,10 @@
 	function checkMock(config) {
 	    var mockMap = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-	    if (config.url && mockMap[config.url]) {
+	    var conf = config.originConf;
+	    if (conf.url && mockMap[conf.url]) {
 	        _utils2.default.defer(function () {
-	            mockMap[config.url].call(null, config, config.success, config.error);
+	            mockMap[conf.url](config, config.success, config.error);
 	        });
 	        return true;
 	    }
@@ -8811,19 +8834,19 @@
 	        key: '_afterSetProps',
 	        value: function _afterSetProps(newProps) {
 	            _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_afterSetProps', this).call(this, newProps);
-	            // combobox 模式下，由于可以任意输入，所以不再对当前数据进行处理
 	            if (newProps.options) {
 	                this.__props.options = this.__props.options.map(function (item) {
 	                    item.value += '';
 	                    return item;
 	                });
-	                if (this.__props.type !== 'combobox') {
-	                    // 根据是否多选做区别处理
-	                    if (this.isMultiple) {
-	                        this._handleMultipleSelect();
-	                    } else {
-	                        this._handleDefaultSelect();
-	                    }
+	                // 根据是否多选做区别处理
+	                if (this.isMultiple) {
+	                    this._handleMultipleSelect();
+	                } else if (this.__props.type === 'combobox') {
+	                    // combobox 模式下，由于可以任意输入，所以及时取不到也不清空数据
+	                    this._handleDefaultSelect(false);
+	                } else {
+	                    this._handleDefaultSelect();
 	                }
 	            }
 	        }
@@ -9232,6 +9255,11 @@
 	                this.__props.onChange && this.__props.onChange(all);
 	                return;
 	            }
+	            // 默认选中第一个的处理逻辑
+	            if (this.__props.defaultFirst && _utils.Utils.empty(this.__props.value)) {
+	                var first = _utils.Utils.getFirstOption(this.__props.options);
+	                this.__props.onChange && this.__props.onChange([first]);
+	            }
 	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
 	            var matchVal = this.__props.options.filter(function (v) {
 	                return current.indexOf(v.value) > -1;
@@ -9248,6 +9276,8 @@
 	    }, {
 	        key: '_handleDefaultSelect',
 	        value: function _handleDefaultSelect() {
+	            var allClear = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
 	            var current = this.__props.value;
 	            // 如果当前值再列表中，则不做任何处理
 	            var alldata = this.__props.options;
@@ -9264,7 +9294,7 @@
 	            if (this.__props.defaultFirst) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
 	                this.__props.onChange && this.__props.onChange(first);
-	            } else if (this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
+	            } else if (allClear && this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
 	                // 为实现刷新组件时，清空原数据
 	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
 	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
@@ -11618,6 +11648,8 @@
 
 	var _src2 = _interopRequireDefault(_src);
 
+	var _instance = __webpack_require__(58);
+
 	var _antd = __webpack_require__(21);
 
 	var Antd = _interopRequireWildcard(_antd);
@@ -11722,7 +11754,7 @@
 	var currentMessageHandle = {};
 	var messageAutoMerge = true;
 	// 统一处理config（某些属性需要二次解析）
-	function messageHandler(type, config, duration, onClose) {
+	function messageHandler(type, insName, config, duration, onClose) {
 	    var _Antd$message;
 
 	    // key 相同的提示信息只展示一个
@@ -11737,12 +11769,12 @@
 	        onClose && onClose.apply(undefined, arguments);
 	    };
 	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = _src2.default.render(config);
+	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
 	    }
 	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
 
-	    for (var _len = arguments.length, params = Array(_len > 4 ? _len - 4 : 0), _key = 4; _key < _len; _key++) {
-	        params[_key - 4] = arguments[_key];
+	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
+	        params[_key - 5] = arguments[_key];
 	    }
 
 	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
@@ -11750,7 +11782,7 @@
 	    return distroy;
 	}
 	// 拦截 message.config ，加入自定义参数处理
-	function messageConfHandler(conf) {
+	function messageConfHandler(insName, conf) {
 	    if (conf.autoMerge !== undefined) {
 	        messageAutoMerge = conf.autoMerge;
 	    }
@@ -11764,7 +11796,7 @@
 	    warning: messageHandler.bind(null, 'warning'),
 	    warn: messageHandler.bind(null, 'warn'),
 	    loading: messageHandler.bind(null, 'loading'),
-	    config: messageConfHandler
+	    config: messageConfHandler.bind(null)
 	});
 
 	/************* notification 提示 ************************************************************************** */
@@ -11772,7 +11804,7 @@
 	var currentNotificationHandle = {};
 	var notificationAutoMerge = true;
 	// 统一处理config（某些属性需要二次解析）
-	function notificationHandler(type, config) {
+	function notificationHandler(type, insName, config) {
 	    if (notificationAutoMerge) {
 	        // key 相同的提示信息只展示一个
 	        if (config.key) {
@@ -11795,7 +11827,7 @@
 	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	            var v = _step.value;
 
-	            config[v] = _src2.default.render(config[v]);
+	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
 	        }
 	    } catch (err) {
 	        _didIteratorError = true;
@@ -11815,7 +11847,7 @@
 	    return Antd.notification[type](config);
 	}
 	// 拦截 notification.config ，加入自定义参数处理
-	function notificationConfHandler(conf) {
+	function notificationConfHandler(insName, conf) {
 	    if (conf.autoMerge !== undefined) {
 	        notificationAutoMerge = conf.autoMerge;
 	    }
@@ -11829,7 +11861,7 @@
 	    warning: notificationHandler.bind(null, 'warning'),
 	    warn: notificationHandler.bind(null, 'warn'),
 	    open: notificationHandler.bind(null, 'open'),
-	    config: notificationConfHandler
+	    config: notificationConfHandler.bind(null)
 	});
 
 /***/ }),
@@ -12006,8 +12038,10 @@
 	    function Header(props) {
 	        _classCallCheck(this, Header);
 
+	        // 属性组件本身不支持，需要过滤掉。使用时在 __filtered 上获取
 	        var _this2 = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
+	        _this2._filter.push('theme');
 	        _this2.__init();
 	        return _this2;
 	    }
@@ -12016,7 +12050,7 @@
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.Layout.Header, _extends({}, this.__props, this.__getCommonProps({
-	                className: this.__props.theme === 'dark' ? 'header-dark-theme' : ''
+	                className: this.__filtered.theme === 'dark' ? 'header-dark-theme' : ''
 	            })));
 	        }
 	    }]);
@@ -12066,7 +12100,7 @@
 	            defaultVal: false
 	        };
 	        // 属性组件本身不支持，需要过滤掉。使用时在 __filtered 上获取
-	        _this4._filter.push('triggerPosition');
+	        _this4._filter.push('triggerPosition', 'theme');
 	        _this4._openApi.push('toggleCollapsed');
 	        _this4.__init();
 	        return _this4;
@@ -12180,7 +12214,7 @@
 	            }
 	            return _react2.default.createElement(Antd.Layout.Sider, _extends({}, this.__props, { trigger: trigger
 	            }, this.__getCommonProps({
-	                className: this.__props.theme === 'dark' ? 'sider-dark-theme' : ''
+	                className: this.__filtered.theme === 'dark' ? 'sider-dark-theme' : ''
 	            })));
 	        }
 	    }]);
@@ -12412,64 +12446,61 @@
 	                        return _this2.root = ele;
 	                    },
 	                    'data-src': new URL(this.__props.src, window.location.href).href }),
-	                _react2.default.createElement(
-	                    _antd.Spin,
-	                    { spinning: this.state.loading && this.__props.showLoading },
-	                    _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, ['showLoading', 'delay', 'className', 'style', 'height', 'width']), {
-	                        ref: function ref(ele) {
-	                            return _this2.ifr = ele;
-	                        },
-	                        onLoad: function onLoad(even) {
-	                            try {
-	                                _this2.setState({ loading: false });
-	                                var ifr = even.target;
-	                                var iDoc = ifr.contentWindow.document;
-	                                var iWindow = ifr.contentWindow;
-	                                // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
-	                                var mode = _this2.__props.mode;
-	                                if (mode !== 'fixed') {
-	                                    var setIfrHeight = function setIfrHeight() {
-	                                        var iDocHight = void 0;
-	                                        // 这里分别从 documentElement 和 body 上取值，即可达到 max/auto 的效果
-	                                        if (mode === 'max') {
-	                                            iDocHight = iDoc.documentElement.scrollHeight;
-	                                            // mode === 'auto'
-	                                        } else {
-	                                            // 注意：如果iframe的页面body/html设置了height: 100%，则auto失效，展示效果和max相同
-	                                            iDocHight = iDoc.body.scrollHeight;
-	                                        }
-	                                        ifr.height = iDocHight + 'px';
-	                                    };
-	                                    setIfrHeight();
-	                                    // iframe文档做监听，如果发生变化则重新设置高度
-	                                    // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
-	                                    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-	                                    var timer = void 0;
-	                                    var observer = new MutationObserver(function (m) {
-	                                        // 延迟重新设定iframe高度，可防止高度闪烁
-	                                        timer && clearTimeout(timer);
-	                                        timer = setTimeout(function () {
-	                                            setIfrHeight();
-	                                            timer = null;
-	                                        }, _this2.__props.delay);
-	                                    });
-	                                    observer.observe(iDoc, {
-	                                        childList: true,
-	                                        attributes: true,
-	                                        subtree: true
-	                                    });
-	                                }
-	                                // 监听页面跳转
-	                                iWindow.addEventListener('popstate', function (e) {
-	                                    _this2.root.setAttribute('data-src', e.currentTarget.location);
+	                this.__props.showLoading && this.state.loading && _react2.default.createElement(_antd.Spin, { spinning: true, className: 'uf-iframe-loading' }),
+	                _react2.default.createElement('iframe', _extends({}, _utils.Utils.filter(this.__props, ['showLoading', 'delay', 'className', 'style', 'height', 'width']), {
+	                    ref: function ref(ele) {
+	                        return _this2.ifr = ele;
+	                    },
+	                    onLoad: function onLoad(even) {
+	                        try {
+	                            _this2.setState({ loading: false });
+	                            var ifr = even.target;
+	                            var iDoc = ifr.contentWindow.document;
+	                            var iWindow = ifr.contentWindow;
+	                            // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
+	                            var mode = _this2.__props.mode;
+	                            if (mode !== 'fixed') {
+	                                var setIfrHeight = function setIfrHeight() {
+	                                    var iDocHight = void 0;
+	                                    // 这里分别从 documentElement 和 body 上取值，即可达到 max/auto 的效果
+	                                    if (mode === 'max') {
+	                                        iDocHight = iDoc.documentElement.scrollHeight;
+	                                        // mode === 'auto'
+	                                    } else {
+	                                        // 注意：如果iframe的页面body/html设置了height: 100%，则auto失效，展示效果和max相同
+	                                        iDocHight = iDoc.body.scrollHeight;
+	                                    }
+	                                    ifr.height = iDocHight + 'px';
+	                                };
+	                                setIfrHeight();
+	                                // iframe文档做监听，如果发生变化则重新设置高度
+	                                // 注意观察是否会有性能问题（监听了整个页面的元素和属性变化）
+	                                var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
+	                                var timer = void 0;
+	                                var observer = new MutationObserver(function (m) {
+	                                    // 延迟重新设定iframe高度，可防止高度闪烁
+	                                    timer && clearTimeout(timer);
+	                                    timer = setTimeout(function () {
+	                                        setIfrHeight();
+	                                        timer = null;
+	                                    }, _this2.__props.delay);
 	                                });
-
-	                                _this2.__props.onLoad && _this2.__props.onLoad(even);
-	                            } catch (e) {
-	                                console.warn(e);
+	                                observer.observe(iDoc, {
+	                                    childList: true,
+	                                    attributes: true,
+	                                    subtree: true
+	                                });
 	                            }
-	                        } }))
-	                )
+	                            // 监听页面跳转
+	                            iWindow.addEventListener('popstate', function (e) {
+	                                _this2.root.setAttribute('data-src', e.currentTarget.location);
+	                            });
+
+	                            _this2.__props.onLoad && _this2.__props.onLoad(even);
+	                        } catch (e) {
+	                            console.warn(e);
+	                        }
+	                    } }))
 	            );
 	        }
 	    }]);
@@ -12546,7 +12577,8 @@
 	    showSearch: true,
 	    notFoundContent: null,
 	    // defaultActiveFirstOption: false,
-	    filterOption: false
+	    filterOption: false,
+	    className: 'uf-autocomplete'
 	};
 
 	// 本地自动补全
@@ -12665,7 +12697,7 @@
 	        _this2.class.push('select');
 	        _this2._injectEvent = ['onSearch', 'onChange'];
 	        // 延迟150ms执行
-	        _this2._onSearch = _utils.Utils.debounce(_this2._onSearch, 150);
+	        _this2._onSearch = _utils.Utils.debounce(_this2._onSearch, props.delay || 150);
 	        _this2.requestIndex = 0;
 
 	        _this2.__init();
@@ -12813,6 +12845,8 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -12844,7 +12878,7 @@
 	            // 数据导出方式 异步/同步[asyn/sync]
 	            // 异步 - 通过source获取要导出的数据
 	            // 同步 - 实例化组件是直接传入data
-	            mode: 'asyn',
+	            type: null,
 	            // 记录参数中有没有message传入,如果没有传入,导出完成时进度条不隐藏
 	            noMessage: true,
 	            // 异步数据导出时的提示信息
@@ -12865,7 +12899,7 @@
 	            this.config = this.__mergeProps(this.config, this.__filterProps(objProps, 'data'));
 	            this.data = [];
 	            if (objProps.data === undefined) {
-	                this.config.mode = this.config.mode || 'asyn';
+	                this.config.type = this.config.type || 'asyn';
 	                var state = {
 	                    visible: false,
 	                    pageSize: 200,
@@ -12889,7 +12923,7 @@
 	                    this.state = state;
 	                }
 	            } else {
-	                this.config.mode = this.config.mode || 'sync';
+	                this.config.type = this.config.type || 'sync';
 	                // 用于存储导出的数据，为避免合并数据时出错，请求过来的数据没有合并到一个数组
 	                // data里面的数据是这样的：[[{...},{...},...],[],[]]
 	                this.data = [objProps.data];
@@ -12902,7 +12936,7 @@
 	                this.initExport(nextProps);
 	            }
 	            // if (nextProps.data) {
-	            //     this.config.mode = 'sync';
+	            //     this.config.type = 'sync';
 	            //     this.data = [nextProps.data];
 	            // }
 	            // this.config = this.__mergeProps(this.config, nextProps);
@@ -12950,13 +12984,22 @@
 	                }
 	            }, 1000);
 	        }
+	        // 支持直接传入待导出的数据直接导出
+
 	    }, {
 	        key: 'export',
-	        value: function _export() {
-	            if (this.config.mode === 'asyn') {
+	        value: function _export(data) {
+	            var _this3 = this;
+
+	            if (!data && this.config.type === 'asyn') {
 	                this.showModal();
 	            } else {
-	                this.aRef && this.aRef.click();
+	                this.data = [data];
+	                this.config.type = 'sync';
+	                this.forceUpdate();
+	                _utils.Utils.defer(function () {
+	                    _this3.aRef && _this3.aRef.click();
+	                });
 	            }
 	        }
 	    }, {
@@ -12993,28 +13036,36 @@
 
 	    }, {
 	        key: 'getData',
-	        value: function getData(page) {
-	            var _this3 = this;
+	        value: function getData(pageNum) {
+	            var _Object$assign,
+	                _this4 = this;
 
 	            var params = this.__filtered.source.params;
 	            params = Object.assign({}, params, {
-	                page: page,
-	                size: this.state.pageSize,
 	                total: this.state.total
 	            });
+	            // TODO: 可改造，paramIndex为Table传入
+	            // 可以通过 paramIndex 属性更改默认传递的page和size参数
+	            var paramIndex = this.__filtered.source.paramIndex || {};
+	            var _paramIndex$page = paramIndex.page,
+	                page = _paramIndex$page === undefined ? 'page' : _paramIndex$page,
+	                _paramIndex$size = paramIndex.size,
+	                size = _paramIndex$size === undefined ? 'size' : _paramIndex$size;
+
+	            params = Object.assign({}, params, (_Object$assign = {}, _defineProperty(_Object$assign, page, pageNum), _defineProperty(_Object$assign, size, this.state.pageSize), _Object$assign));
 	            // 调用通用source获取数据逻辑
 	            this.__getSourceData({
 	                params: params,
 	                success: function success(data, res) {
-	                    if (_this3.state.exporting && !_this3.state.error) {
+	                    if (_this4.state.exporting && !_this4.state.error) {
 	                        // 存储数据
-	                        _this3.saveData(res);
-	                        var size = _this3.state.pageSize;
-	                        var total = _this3.state.total;
+	                        _this4.saveData(res);
+	                        var pageSize = _this4.state.pageSize;
+	                        var total = _this4.state.total;
 	                        // 计算剩余时间
-	                        var fatchedData = _this3.state.fatchedData;
-	                        var usedTime = _this3.state.usedTime;
-	                        var lastTime = _this3.state.lastTime;
+	                        var fatchedData = _this4.state.fatchedData;
+	                        var usedTime = _this4.state.usedTime;
+	                        var lastTime = _this4.state.lastTime;
 	                        var newLastTime = 0;
 	                        if (usedTime !== 0 && fatchedData !== 0) {
 	                            newLastTime = usedTime * (total - fatchedData) / fatchedData;
@@ -13023,18 +13074,18 @@
 	                        // 防止剩余时间一直波动，如果波动区间在5秒之内就用原来的值
 	                        var range = Math.abs(newLastTime - lastTime);
 	                        if (range > 5 || newLastTime < 10 && range > 1) {
-	                            _this3.setState({ lastTime: newLastTime });
+	                            _this4.setState({ lastTime: newLastTime });
 	                        }
 	                        // 判断是否已经取得全部数据
-	                        if (page * size < total) {
-	                            _this3.getData(page + 1);
+	                        if (pageNum * pageSize < total) {
+	                            _this4.getData(pageNum + 1);
 	                        } else {
-	                            _this3.finish();
+	                            _this4.finish();
 	                        }
 	                    }
 	                },
 	                error: function error(err) {
-	                    _this3.error(err);
+	                    _this4.error(err);
 	                }
 	            });
 	        }
@@ -13141,7 +13192,7 @@
 	    }, {
 	        key: 'packageDataToXLS',
 	        value: function packageDataToXLS(data, headers) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            var thead = '<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>';
 	            // headers的格式为[{key: '', title: ''}, ...]
@@ -13156,7 +13207,7 @@
 	                        var key = headers[_i].key;
 	                        var val = item[key];
 	                        if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
-	                            val = _this4.getKeyDataOfObject(val);
+	                            val = _this5.getKeyDataOfObject(val);
 	                        }
 	                        val = typeof val === 'undefined' ? '' : val;
 	                        tbody += '<td>' + val + '</td>';
@@ -13178,7 +13229,7 @@
 	    }, {
 	        key: 'packageDataToCSV',
 	        value: function packageDataToCSV(data, headers) {
-	            var _this5 = this;
+	            var _this6 = this;
 
 	            var thead = '';
 	            // headers的格式为[{key: '', title: ''}, ...]
@@ -13193,7 +13244,7 @@
 	                        var key = headers[_i2].key;
 	                        var val = item[key];
 	                        if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
-	                            val = _this5.getKeyDataOfObject(val);
+	                            val = _this6.getKeyDataOfObject(val);
 	                        }
 	                        val = typeof val === 'undefined' ? '' : val;
 	                        tbody += _i2 === headers.length - 1 ? val : val + ',';
@@ -13244,7 +13295,7 @@
 	    }, {
 	        key: 'syncExportRender',
 	        value: function syncExportRender() {
-	            var _this6 = this;
+	            var _this7 = this;
 
 	            var data = this.data;
 	            var headers = this.config.headers;
@@ -13261,7 +13312,7 @@
 	                _react2.default.createElement(
 	                    'a',
 	                    { ref: function ref(ele) {
-	                            return _this6.aRef = ele;
+	                            return _this7.aRef = ele;
 	                        }, href: link, download: name },
 	                    this.props.children
 	                )
@@ -13489,7 +13540,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            if (this.config.mode === 'asyn') {
+	            if (this.config.type === 'asyn') {
 	                return this.asynExportRender();
 	            } else {
 	                return this.syncExportRender();
@@ -14403,6 +14454,8 @@
 	                }
 	                titleConfig.showText = titleConfig.showText !== undefined ? titleConfig.showText : true;
 	                this.title = titleConfig;
+	                // 手动刷新title组件
+	                this.titleRef && this.titleRef.refreshTitleConf(this.title);
 	            } else {
 	                this.title = null;
 	            }
@@ -14581,10 +14634,11 @@
 	            // 如果为后端分页，则传递 source 配置
 	            if (this.serverPaging) {
 	                return {
-	                    mode: 'asyn',
+	                    type: 'asyn',
 	                    headers: headers,
 	                    source: _extends({}, this.__filtered.source, {
-	                        params: this.getSourceParams()
+	                        params: this.getSourceParams(),
+	                        paramIndex: this.pagination.paramIndex
 	                    }),
 	                    total: this.pagination.total || 0
 	                };
@@ -14592,7 +14646,7 @@
 	            // 否则传递 data
 	            var data = this.__props.data || [];
 	            return {
-	                mode: 'sync',
+	                type: 'sync',
 	                headers: headers,
 	                data: data,
 	                total: data.length
@@ -15021,189 +15075,210 @@
 
 	            return config;
 	        }
+	        // 对用户传入数据进行处理
+
+	    }, {
+	        key: 'processColumnConfig',
+	        value: function processColumnConfig(item) {
+	            var _this11 = this;
+
+	            var defaultColumn = {
+	                title: '',
+	                key: '',
+	                dataIndex: '',
+	                // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
+	                render: null,
+	                sorter: null,
+	                colSpan: null,
+	                width: null,
+	                className: '',
+	                fixed: false,
+	                // 当配置了sorter时，默认自动设置sortOrder为正序
+	                sortOrder: !!item.sorter ? 'ascend' : false,
+	                onCellClick: null,
+	                children: null
+	            };
+
+	            getNeedObject(defaultColumn, item);
+	            if (_utils.Utils.typeof(defaultColumn.title, 'object')) {
+	                defaultColumn.title = this.__analysis(defaultColumn.title);
+	            }
+	            if (defaultColumn.dataIndex === '_operation') {
+	                defaultColumn.className += ' uf-operation';
+	            }
+	            // 自定义样式参数
+	            if (item.minWidth || item.style) {
+	                var style = item.style || {};
+	                var orender = item.render;
+	                item.render = function (v, row) {
+	                    for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+	                        params[_key - 2] = arguments[_key];
+	                    }
+
+	                    if (_utils.Utils.typeof(style, 'function')) {
+	                        style = style(v, row);
+	                    }
+	                    if (item.minWidth) {
+	                        Object.assign(style, { minWidth: item.minWidth });
+	                    }
+	                    return {
+	                        type: 'div',
+	                        style: style,
+	                        content: orender ? orender.apply(undefined, [v, row].concat(params)) : v
+	                    };
+	                };
+	            }
+	            // 用户配置的render是一个uf组件配置，在此转为dom
+	            if (!!item.render) {
+	                defaultColumn.render = function (text, record, index) {
+	                    // 配置中的render返回的是配置，配置再解析后才是真正的元素
+	                    var config = item.render(text, record, index);
+	                    // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
+	                    if (defaultColumn.dataIndex === '_operation') {
+	                        config = _this11.handleAction(config, record);
+	                    }
+	                    // 根据是否可编辑状态来判断是否包裹编辑组件
+	                    return _this11.__analysis(config);
+	                };
+	            }
+	            // 将用户配置的单列筛选选项转换成antd的配置
+	            if (!!item.filter) {
+	                var filterConf = this.filter.handleFilterConf(item.filter, item.dataIndex);
+	                if (filterConf) {
+	                    defaultColumn = Object.assign({}, defaultColumn, filterConf);
+	                }
+	            }
+	            // 文字过长，鼠标移入时进行气泡展示
+	            if (!!item.ellipsis) {
+	                defaultColumn.render = function (text, record, index) {
+	                    var newText = item.render ? _this11.__analysis(item.render(text, record, index)) : text;
+	                    var returnText = _react2.default.createElement(
+	                        _antd.Popover,
+	                        { content: newText },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'uf-table-td-ellipsis' },
+	                            newText
+	                        )
+	                    );
+	                    // 根据是否可编辑状态来判断是否包裹编辑组件
+	                    return returnText;
+	                };
+	            }
+	            // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
+	            if (item.textType) {
+	                var textType = item.textType.toString().toLowerCase();
+	                // let elliClass = v['ellipsis'] ? ' ellipsis' : '';
+	                // style.className += elliClass;
+	                defaultColumn.render = function (text, record, index) {
+	                    var newText = text;
+	                    switch (textType) {
+	                        case 'duration':
+	                            {
+	                                var timeDiff = (+new Date() - +new Date(Date.parse(text.replace(/-/g, '/')))) / 1000;
+	                                var dayTime = Math.floor(timeDiff / (24 * 3600));
+	                                var hourTime = Math.floor(timeDiff % (24 * 3600) / 3600);
+	                                var minuteTime = Math.floor(timeDiff % (24 * 3600) % 3600 / 60);
+	                                var secTime = Math.floor(timeDiff % (24 * 3600) % 3600 % 60);
+	                                var timeArr = [];
+	                                dayTime > 0 && timeArr.push(dayTime + '天');
+	                                hourTime > 0 && timeArr.push(hourTime + '时');
+	                                minuteTime > 0 && timeArr.push(minuteTime + '分');
+	                                dayTime === 0 && hourTime === 0 && minuteTime === 0 && secTime > 0 && timeArr.push(secTime + '秒');
+	                                var tdData = timeArr.join('');
+	                                // 若用户配置了render，则将转换之后的数据给用户的render
+	                                newText = item.render ? _this11.__analysis(item.render(tdData, record, index)) : tdData;
+	                                break;
+	                            }
+	                        case 'json':
+	                            {
+	                                // 会出现重复json字符串编码现象,加入类型判断
+	                                var json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
+	                                if (text && json !== '""') {
+	                                    var html = _this11._syntaxHighlight(json);
+	                                    newText = _react2.default.createElement(
+	                                        _antd.Popover,
+	                                        { content: _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } }) },
+	                                        _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } })
+	                                    );
+	                                }
+	                                break;
+	                            }
+	                        case 'html':
+	                            newText = _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: text } });
+	                            break;
+	                        case 'array':
+	                            break;
+	                        // 默认将格式进行一下转换然后输出
+	                        default:
+	                            text = _this11._getKeyDataOfObject(text);
+	                            newText = item.render ? _this11.__analysis(item.render(text, record, index)) : text;
+	                            break;
+	                    }
+	                    return newText;
+	                };
+	            }
+	            // 支持传入type，自定义数据展示组件
+	            // if (item.type) {
+	            //     let oriRender = defaultColumn.render;
+	            //     defaultColumn.render = (text, record, index) => {
+	            //         let oriResult = oriRender ? oriRender(text, record, index) : text;
+	            //         return this.__analysis(Object.assign({content: oriResult}, item.type));
+	            //     }
+	            // }
+	            // 根据是否可编辑状态来判断是否包裹编辑组件
+	            if (item.editable) {
+	                // 声明获取前面设置过的配置
+	                var oRender = defaultColumn.render;
+	                defaultColumn.render = function (text, record, index) {
+	                    var displayStr = !oRender ? text : oRender(text, record, index);
+	                    var editableConf = item.editable;
+	                    // 支持配置为一个函数
+	                    if (_utils.Utils.typeof(editableConf, 'function')) {
+	                        editableConf = editableConf(text, record, index);
+	                    }
+	                    // 如果editableConf返回为false，则直接返回原render
+	                    if (!editableConf) {
+	                        return displayStr;
+	                    }
+	                    return _react2.default.createElement(_Edit2.default, { parent: _this11, _factory: _this11._factory,
+	                        value: text,
+	                        columnChild: displayStr,
+	                        editConf: editableConf,
+	                        api: editableConf.api,
+	                        cellSubmit: _this11._cellSubmit.bind(_this11, record[_this11.rowKey], defaultColumn.dataIndex)
+	                    });
+	                };
+	            }
+	            // 处理 cellColSpan 和 cellRowSpan 参数
+	            defaultColumn = this.colSpanHandler(defaultColumn, item);
+	            // 处理表头合并,如果有children字段，则进行递归处理
+	            if (!!item.children) {
+	                defaultColumn.children = [];
+	                for (var k in item.children) {
+	                    defaultColumn.children.push(this.processColumnConfig(item.children[k]));
+	                }
+	            }
+	            return defaultColumn;
+	        }
 	    }, {
 	        key: 'renderColumns',
 	        value: function renderColumns() {
-	            var _this11 = this;
+	            var _this12 = this;
 
 	            // 列功能相关
 	            var antdColumnConfig = [];
-
-	            var _loop = function _loop(i) {
-	                var item = _this11.columns[i];
+	            for (var i in this.columns) {
+	                var item = this.columns[i];
 	                // 如果列为枚举类型，则进行枚举转换
 	                if (item.enum) {
-	                    item = _this11.enum.handleColumn(item);
+	                    item = this.enum.handleColumn(item);
 	                }
-	                if (!_this11.state.showAllTags && item.display === false) {
+	                if (!this.state.showAllTags && item.display === false) {
 	                    // 在展示部分字段下过滤掉不展示的列数据
-	                    return 'continue';
+	                    continue;
 	                }
-	                var defaultColumn = {
-	                    title: '',
-	                    key: '',
-	                    dataIndex: '',
-	                    // 默认是从用户配置中获取此字段，对于特殊的格式再做处理
-	                    render: null,
-	                    sorter: null,
-	                    colSpan: null,
-	                    width: null,
-	                    className: '',
-	                    fixed: false,
-	                    // 当配置了sorter时，默认自动设置sortOrder为正序
-	                    sortOrder: !!item.sorter ? 'ascend' : false,
-	                    onCellClick: null
-	                };
-
-	                getNeedObject(defaultColumn, item);
-	                if (defaultColumn.dataIndex === '_operation') {
-	                    defaultColumn.className += ' uf-operation';
-	                }
-	                // 自定义样式参数
-	                if (item.minWidth || item.style) {
-	                    var style = item.style || {};
-	                    var orender = item.render;
-	                    item.render = function (v, row) {
-	                        for (var _len = arguments.length, params = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-	                            params[_key - 2] = arguments[_key];
-	                        }
-
-	                        if (_utils.Utils.typeof(style, 'function')) {
-	                            style = style(v, row);
-	                        }
-	                        if (item.minWidth) {
-	                            Object.assign(style, { minWidth: item.minWidth });
-	                        }
-	                        return {
-	                            type: 'div',
-	                            style: style,
-	                            content: orender ? orender.apply(undefined, [v, row].concat(params)) : v
-	                        };
-	                    };
-	                }
-	                // 用户配置的render是一个uf组件配置，在此转为dom
-	                if (!!item.render) {
-	                    defaultColumn.render = function (text, record, index) {
-	                        // 配置中的render返回的是配置，配置再解析后才是真正的元素
-	                        var config = item.render(text, record, index);
-	                        // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
-	                        if (defaultColumn.dataIndex === '_operation') {
-	                            config = _this11.handleAction(config, record);
-	                        }
-	                        // 根据是否可编辑状态来判断是否包裹编辑组件
-	                        return _this11.__analysis(config);
-	                    };
-	                }
-	                // 将用户配置的单列筛选选项转换成antd的配置
-	                if (!!item.filter) {
-	                    var filterConf = _this11.filter.handleFilterConf(item.filter, item.dataIndex);
-	                    if (filterConf) {
-	                        defaultColumn = Object.assign({}, defaultColumn, filterConf);
-	                    }
-	                }
-	                // 文字过长，鼠标移入时进行气泡展示
-	                if (!!item.ellipsis) {
-	                    defaultColumn.render = function (text, record, index) {
-	                        var newText = item.render ? _this11.__analysis(item.render(text, record, index)) : text;
-	                        var returnText = _react2.default.createElement(
-	                            _antd.Popover,
-	                            { content: newText },
-	                            _react2.default.createElement(
-	                                'span',
-	                                { className: 'uf-table-td-ellipsis' },
-	                                newText
-	                            )
-	                        );
-	                        // 根据是否可编辑状态来判断是否包裹编辑组件
-	                        return returnText;
-	                    };
-	                }
-	                // 对特殊格式进行展示处理，包括html格式，json格式，duration格式
-	                if (item.textType) {
-	                    var textType = item.textType.toString().toLowerCase();
-	                    // let elliClass = v['ellipsis'] ? ' ellipsis' : '';
-	                    // style.className += elliClass;
-	                    defaultColumn.render = function (text, record, index) {
-	                        var newText = text;
-	                        switch (textType) {
-	                            case 'duration':
-	                                {
-	                                    var timeDiff = (+new Date() - +new Date(Date.parse(text.replace(/-/g, '/')))) / 1000;
-	                                    var dayTime = Math.floor(timeDiff / (24 * 3600));
-	                                    var hourTime = Math.floor(timeDiff % (24 * 3600) / 3600);
-	                                    var minuteTime = Math.floor(timeDiff % (24 * 3600) % 3600 / 60);
-	                                    var secTime = Math.floor(timeDiff % (24 * 3600) % 3600 % 60);
-	                                    var timeArr = [];
-	                                    dayTime > 0 && timeArr.push(dayTime + '天');
-	                                    hourTime > 0 && timeArr.push(hourTime + '时');
-	                                    minuteTime > 0 && timeArr.push(minuteTime + '分');
-	                                    dayTime === 0 && hourTime === 0 && minuteTime === 0 && secTime > 0 && timeArr.push(secTime + '秒');
-	                                    var tdData = timeArr.join('');
-	                                    // 若用户配置了render，则将转换之后的数据给用户的render
-	                                    newText = item.render ? _this11.__analysis(item.render(tdData, record, index)) : tdData;
-	                                    break;
-	                                }
-	                            case 'json':
-	                                {
-	                                    // 会出现重复json字符串编码现象,加入类型判断
-	                                    var json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
-	                                    if (text && json !== '""') {
-	                                        var html = _this11._syntaxHighlight(json);
-	                                        newText = _react2.default.createElement(
-	                                            _antd.Popover,
-	                                            { content: _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } }) },
-	                                            _react2.default.createElement('pre', { className: 'json', dangerouslySetInnerHTML: { __html: html } })
-	                                        );
-	                                    }
-	                                    break;
-	                                }
-	                            case 'html':
-	                                newText = _react2.default.createElement('span', { dangerouslySetInnerHTML: { __html: text } });
-	                                break;
-	                            case 'array':
-	                                break;
-	                            // 默认将格式进行一下转换然后输出
-	                            default:
-	                                text = _this11._getKeyDataOfObject(text);
-	                                newText = item.render ? _this11.__analysis(item.render(text, record, index)) : text;
-	                                break;
-	                        }
-	                        return newText;
-	                    };
-	                }
-	                // 根据是否可编辑状态来判断是否包裹编辑组件
-	                if (item.editable) {
-	                    // 声明获取前面设置过的配置
-	                    var oRender = defaultColumn.render;
-	                    defaultColumn.render = function (text, record, index) {
-	                        var displayStr = !oRender ? text : oRender(text, record, index);
-	                        var editableConf = item.editable;
-	                        // 支持配置为一个函数
-	                        if (_utils.Utils.typeof(editableConf, 'function')) {
-	                            editableConf = editableConf(text, record, index);
-	                        }
-	                        // 如果editableConf返回为false，则直接返回原render
-	                        if (!editableConf) {
-	                            return displayStr;
-	                        }
-	                        return _react2.default.createElement(_Edit2.default, { parent: _this11, _factory: _this11._factory,
-	                            value: text,
-	                            columnChild: displayStr,
-	                            editConf: editableConf,
-	                            api: editableConf.api,
-	                            cellSubmit: _this11._cellSubmit.bind(_this11, record[_this11.rowKey], defaultColumn.dataIndex)
-	                        });
-	                    };
-	                }
-	                // 处理 cellColSpan 和 cellRowSpan 参数
-	                defaultColumn = _this11.colSpanHandler(defaultColumn, item);
-	                antdColumnConfig.push(defaultColumn);
-	            };
-
-	            for (var i in this.columns) {
-	                var _ret = _loop(i);
-
-	                if (_ret === 'continue') continue;
+	                antdColumnConfig.push(this.processColumnConfig(item));
 	            }
 	            // 提示信息，主要用于行不可选是勾选框那里的提示
 	            if (this.__props.rowTooltips) {
@@ -15214,7 +15289,7 @@
 	                    render: function render() {
 	                        var _props;
 
-	                        var content = (_props = _this11.__props).rowTooltips.apply(_props, arguments);
+	                        var content = (_props = _this12.__props).rowTooltips.apply(_props, arguments);
 	                        if (content) {
 	                            return _react2.default.createElement(
 	                                'div',
@@ -15222,7 +15297,7 @@
 	                                _react2.default.createElement(
 	                                    _antd.Tooltip,
 	                                    { title: content, placement: 'right' },
-	                                    _react2.default.createElement(_antd.Icon, { type: _this11.__props.rowTooltipsIcon || 'question-circle' })
+	                                    _react2.default.createElement(_antd.Icon, { type: _this12.__props.rowTooltipsIcon || 'question-circle' })
 	                                )
 	                            );
 	                        }
@@ -15261,7 +15336,7 @@
 	    }, {
 	        key: 'renderRowSelection',
 	        value: function renderRowSelection() {
-	            var _this12 = this;
+	            var _this13 = this;
 
 	            if (!this.rowSelection) {
 	                return null;
@@ -15275,7 +15350,7 @@
 	            rowSelection.selectedRowKeys = this.state.selectedRowKeys;
 	            if (this.rowSelection.disabledRow) {
 	                rowSelection.getCheckboxProps = function (record) {
-	                    return { disabled: _this12.rowSelection.disabledRow(record) };
+	                    return { disabled: _this13.rowSelection.disabledRow(record) };
 	                };
 	            }
 	            // 任何一行的选择与否都会触发改方法
@@ -15330,7 +15405,7 @@
 	    }, {
 	        key: 'renderTitle',
 	        value: function renderTitle() {
-	            var _this13 = this;
+	            var _this14 = this;
 
 	            return [
 	            // 增删改查
@@ -15338,18 +15413,18 @@
 	                _Crud2.default,
 	                { key: 'crud', _factory: this._factory, parent: this, 'enum': this.enum,
 	                    ref: function ref(ele) {
-	                        return _this13.crudRef = ele;
+	                        return _this14.crudRef = ele;
 	                    },
 	                    config: this.__props.crud || {} },
 	                _react2.default.createElement(_Title2.default, { key: 'title', _factory: this._factory, parent: this, config: this.title,
 	                    ref: function ref(ele) {
-	                        return _this13.titleRef = ele;
+	                        return _this14.titleRef = ele;
 	                    } })
 	            ),
 	            // 导出功能
 	            _react2.default.createElement(_export3.default, _extends({ key: 'export', _factory: this._factory, style: { display: 'none' },
 	                ref: function ref(ele) {
-	                    return _this13.exportRef = ele;
+	                    return _this14.exportRef = ele;
 	                }
 	            }, this._getExportConfig()))];
 	        }
@@ -15382,7 +15457,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var _this14 = this;
+	            var _this15 = this;
 
 	            // 额外加一个mini类型的size和一个crowd类型的size
 	            var size = this.state.antdConfig.size;
@@ -15397,15 +15472,15 @@
 	                this.__getCommonProps({ className: this.getClassName() }),
 	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
 	                    title: function title() {
-	                        return _this14.renderTitle();
+	                        return _this15.renderTitle();
 	                    },
 	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender && { expandedRowRender: function expandedRowRender(row) {
-	                        return _this14.__analysis(_expandedRowRender(row));
+	                        return _this15.__analysis(_expandedRowRender(row));
 	                    } }, expandedRowKeys && { expandedRowKeys: expandedRowKeys }, _footer && (_utils.Utils.typeof(_footer, 'function') ? { footer: function footer(currentPageData) {
-	                        return _this14.__analysis(_footer(currentPageData));
+	                        return _this15.__analysis(_footer(currentPageData));
 	                    } } : { footer: function footer(v) {
-	                        return _this14.__analysis(_footer);
+	                        return _this15.__analysis(_footer);
 	                    } }), {
 	                    dataSource: this.__props.data,
 	                    columns: this.renderColumns(),
@@ -16227,6 +16302,18 @@
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(nextProps) {
 	            this.init(nextProps);
+	        }
+	        // title为crud的子组件，但是crud存阻止刷新的逻辑，所以需要title刷新时，手动调用此函数
+
+	    }, {
+	        key: 'refreshTitleConf',
+	        value: function refreshTitleConf(conf) {
+	            var confStr = JSON.stringify(conf);
+	            if (confStr !== this.currentConfStr) {
+	                this.currentConfStr = confStr;
+	                this.title = conf;
+	                this.forceUpdate();
+	            }
 	        }
 	    }, {
 	        key: 'init',
@@ -18312,6 +18399,13 @@
 	            }
 	            return values;
 	        }
+	        // 设置表单的值
+
+	    }, {
+	        key: 'setValues',
+	        value: function setValues(data) {
+	            this.form.setFieldsValue(data);
+	        }
 	    }, {
 	        key: 'resetValues',
 	        value: function resetValues(o) {
@@ -18951,10 +19045,7 @@
 	                icon: icon,
 	                style: { marginLeft: '8px' }
 	            }, item, {
-	                onClick: function onClick() {
-	                    handleClick && handleClick.apply(undefined, arguments);
-	                    oriOnClick && oriOnClick.apply(undefined, arguments);
-	                }
+	                onClick: handleClick
 	            });
 	            return this.__analysis(props);
 	        }
@@ -19272,11 +19363,11 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
 	var _react = __webpack_require__(13);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(19);
 
 	var _utils = __webpack_require__(22);
 
@@ -19311,10 +19402,22 @@
 	        _this.formRef = {}; // 用于存储子Form的引用（因为无法直接拿到refs）
 	        return _this;
 	    }
-	    // 覆盖原Form初始化逻辑
-
 
 	    _createClass(Forms, [{
+	        key: '_beforeInit',
+	        value: function _beforeInit() {
+	            var _get2;
+
+	            for (var _len = arguments.length, p = Array(_len), _key = 0; _key < _len; _key++) {
+	                p[_key] = arguments[_key];
+	            }
+
+	            _get(Forms.prototype.__proto__ || Object.getPrototypeOf(Forms.prototype), '_beforeInit', this) && (_get2 = _get(Forms.prototype.__proto__ || Object.getPrototypeOf(Forms.prototype), '_beforeInit', this)).call.apply(_get2, [this].concat(p));
+	            this._filter.push('operation');
+	        }
+	        // 覆盖原Form初始化逻辑
+
+	    }, {
 	        key: 'init',
 	        value: function init() {}
 	    }, {
@@ -19355,8 +19458,8 @@
 	    }, {
 	        key: 'getValues',
 	        value: function getValues() {
-	            for (var _len = arguments.length, params = Array(_len), _key = 0; _key < _len; _key++) {
-	                params[_key] = arguments[_key];
+	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+	                params[_key2] = arguments[_key2];
 	            }
 
 	            return _utils.Utils.map(this.formRef, function (item) {
@@ -19381,8 +19484,8 @@
 	    }, {
 	        key: 'clearValues',
 	        value: function clearValues() {
-	            for (var _len2 = arguments.length, params = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-	                params[_key2] = arguments[_key2];
+	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+	                params[_key3] = arguments[_key3];
 	            }
 
 	            return _utils.Utils.map(this.formRef, function (item) {
@@ -19392,8 +19495,8 @@
 	    }, {
 	        key: 'resetItem',
 	        value: function resetItem() {
-	            for (var _len3 = arguments.length, params = Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
-	                params[_key3] = arguments[_key3];
+	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+	                params[_key4] = arguments[_key4];
 	            }
 
 	            return _utils.Utils.map(this.formRef, function (item) {
@@ -19403,8 +19506,8 @@
 	    }, {
 	        key: 'getDisplayValues',
 	        value: function getDisplayValues() {
-	            for (var _len4 = arguments.length, params = Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
-	                params[_key4] = arguments[_key4];
+	            for (var _len5 = arguments.length, params = Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+	                params[_key5] = arguments[_key5];
 	            }
 
 	            return _utils.Utils.map(this.formRef, function (item) {
@@ -19516,20 +19619,29 @@
 	                    'div',
 	                    { key: _this2.key + '-' + index, className: 'uf-forms-item' },
 	                    _this2.__analysis(formConfig),
-	                    _this2.__props.addType !== false && _react2.default.createElement(
-	                        'div',
-	                        { key: 'operate', className: 'forms-icons' },
-	                        _react2.default.createElement(_antd.Button, { type: 'dashed', className: 'add-form-icon',
+	                    _this2.__props.addType !== false && _this2.__analysis({
+	                        type: 'div',
+	                        className: 'forms-icons',
+	                        content: _this2.operationHandler(v, index, [{
+	                            type: 'button',
+	                            key: 'add',
+	                            mode: 'dashed',
 	                            icon: 'plus-circle-o',
-	                            onClick: _this2.__props.addType === 'add' ? _this2.addForm.bind(_this2, index) : _this2.copyForm.bind(_this2, index)
-	                        }),
-	                        _react2.default.createElement(_antd.Button, { type: 'dashed', className: 'delete-form-icon',
+	                            className: 'add-form-icon',
+	                            action: _this2.__props.addType === 'add' ? 'add' : 'copy'
+	                        }, {
+	                            type: 'button',
+	                            key: 'delete',
+	                            mode: 'dashed',
 	                            icon: 'minus-circle-o',
-	                            onClick: _this2.deleteForm.bind(_this2, index) })
-	                    )
+	                            className: 'delete-form-icon',
+	                            action: 'delete'
+	                        }])
+	                    })
 	                );
 	            });
 	        }
+
 	        // 使用表格的方式展示
 
 	    }, {
@@ -19561,7 +19673,7 @@
 	                        'div',
 	                        { key: 'operate', className: 'th-div' },
 	                        '\u64CD\u4F5C',
-	                        _react2.default.createElement(_antd.Icon, { type: 'plus-square-o', className: 'operate-add',
+	                        this.__filtered.operation === undefined && _react2.default.createElement(_antd.Icon, { type: 'plus-square-o', className: 'operate-add',
 	                            onClick: this.addForm.bind(this, null) })
 	                    )
 	                ),
@@ -19582,24 +19694,73 @@
 	                            // 增加操作列
 	                            items: formConfig.items.concat(_this3.__props.addType === false ? [] : {
 	                                type: 'div',
-	                                key: key,
+	                                key: _this3.key + '-' + index,
 	                                className: 'operate',
-	                                content: [{
+	                                content: _this3.operationHandler(v, index, [{
 	                                    type: 'icon',
 	                                    key: 'add',
 	                                    mode: 'plus-circle',
-	                                    onClick: _this3.copyForm.bind(_this3, index)
+	                                    action: _this3.__props.addType === 'add' ? 'add' : 'copy'
 	                                }, {
 	                                    type: 'icon',
 	                                    key: 'delete',
 	                                    mode: 'minus-circle',
-	                                    onClick: _this3.deleteForm.bind(_this3, index)
-	                                }]
+	                                    action: 'delete'
+	                                }])
 	                            })
 	                        }));
 	                    })
 	                )
 	            );
+	        }
+	        // 处理自定义的操作按钮参数
+
+	    }, {
+	        key: 'operationHandler',
+	        value: function operationHandler(row, index, defaultBtns) {
+	            var _this4 = this;
+
+	            if (this.__props.addType === false) {
+	                return [];
+	            }
+	            // operation属性为一个函数，如果函数返回false，则不展示操作按钮，否则展示返回的结果
+	            var operateBtns = this.__filtered.operation && this.__filtered.operation(row, index);
+	            if (operateBtns === false) {
+	                operateBtns = [];
+	            }
+	            // 如果没有operateBtns，则使用默认的
+	            if (!_utils.Utils.typeof(operateBtns, 'array')) {
+	                operateBtns = defaultBtns;
+	            }
+	            return operateBtns.map(function (v) {
+	                var item = _utils.Utils.clone(v);
+	                switch (v.action) {
+	                    case 'add':
+	                        item.onClick = function (e) {
+	                            _this4.addForm(index);
+	                            v.onClick && v.onClick(e, row, index);
+	                        };
+	                        break;
+	                    case 'copy':
+	                        item.onClick = function (e) {
+	                            _this4.copyForm(index);
+	                            v.onClick && v.onClick(e, row, index);
+	                        };
+	                        break;
+	                    case 'delete':
+	                        item.onClick = function (e) {
+	                            _this4.deleteForm(index);
+	                            v.onClick && v.onClick(e, row, index);
+	                        };
+	                        break;
+	                    default:
+	                        item.onClick = function (e) {
+	                            v.onClick && v.onClick(e, row, index);
+	                        };
+	                        break;
+	                }
+	                return item;
+	            });
 	        }
 	    }, {
 	        key: 'render',
@@ -19656,6 +19817,8 @@
 	var _base = __webpack_require__(19);
 
 	var _utils = __webpack_require__(22);
+
+	var _instance = __webpack_require__(58);
 
 	var _src = __webpack_require__(12);
 
@@ -19969,23 +20132,23 @@
 	// 可随时随地用来创建新的弹框，且创建完成后返回destroy函数用于销毁弹框
 
 
-	NewModal.create = function (config) {
+	NewModal.create = function (insName, config) {
 	    config.type = 'modal';
 	    config.visible = config.visible || true;
 	    // 增加关闭弹窗删除dom节点逻辑
-	    return _src2.default._append(config, null, 'onCancel');
+	    return ((0, _instance.getInstance)(insName) || _src2.default)._append(config, null, 'onCancel');
 	};
 
 	/**** Modal自带快捷调用函数 *************************************************************************/
 
 	// 统一处理config（某些属性需要二次解析）
-	function showMessage(type, config) {
+	function showMessage(type, insName, config) {
 	    var _arr = ['title', 'content'];
 
 	    for (var _i = 0; _i < _arr.length; _i++) {
 	        var v = _arr[_i];
 	        if (config[v] && !_utils.Utils.typeof(config[v], 'string')) {
-	            config[v] = _src2.default.render(config[v]);
+	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
 	        }
 	    }
 	    config.className = 'uf-modal ' + (config.className ? config.className : '');
@@ -21510,7 +21673,7 @@
 	            key: 'getLocalStorageData',
 	            value: function getLocalStorageData(key) {
 	                if (key) {
-	                    return _utils2.default.getCache(key);;
+	                    return _utils2.default.getCache(key);
 	                }
 	                return null;
 	            }
@@ -21952,9 +22115,12 @@
 	        var conf = (0, _instance.getConfig)(insName).get('components.' + oType);
 	        if (conf) {
 	            if (_utils.Utils.typeof(conf, 'function')) {
-	                conf = conf(item.params);
+	                conf = conf(item);
+	                // 函数配置完全使用函数返回的内容，如果需要其他参数，在函数中自行合并
+	                item = _utils.Utils.merge({}, conf, { type: conf.type || oType });
+	            } else {
+	                item = _utils.Utils.merge({}, conf, item, { type: conf.type || oType });
 	            }
-	            item = _utils.Utils.merge({}, conf, item, { type: conf.type || oType });
 	        }
 	        // 如果type进行了变换，则再次进行配置获取
 	        if (oType !== item.type) {

@@ -21,7 +21,7 @@ Flex 布局是基于 24 栅格来定义每一个『盒子』的宽度，但排�
 | 成员       | 说明             | 类型               | 默认值       |
 |-----------|-----------------|--------------------|-------------|
 | mode      | 布局模式，可选 `flex`，[现代浏览器](http://caniuse.com/#search=flex) 下有效 | string |         |
-| gutter    | 栅格间隔   | number | 0        |
+| gutter    | 栅格间隔，单位`px`   | number | 0        |
 | align     | flex 布局下的垂直对齐方式：`top` `middle` `bottom`  | string | `top`      |
 | justify   | flex 布局下的水平排列方式：`start` `end` `center` `space-around` `space-between`   | string | `start`        |
 

@@ -18,10 +18,10 @@ const demo1 = {
                 {
                     title: 'ID',
                     dataIndex: 'id',
-                    width: 40,
+                    minWidth: 40,
                 },
-                {title: '机房', dataIndex: 'name', key: 'name', width: 60, filter: {type: 'input'}},
-                {title: '名称（实时翻译）', dataIndex: 'idcId', width: 120, enum: {
+                {title: '机房', dataIndex: 'name', key: 'name', minWidth: 60, filter: {type: 'input'}},
+                {title: '名称（实时翻译）', dataIndex: 'idcId', minWidth: 120, enum: {
                     url: 'docs/php/data.php',
                     realtime: {
                         key: 'idcIds',
@@ -32,7 +32,7 @@ const demo1 = {
                     title: '地区',
                     dataIndex: 'region',
                     key: 'region',
-                    width: 60,
+                    minWidth: 60,
                     cellRowSpan: (v, row) => {
                         if (v === '华北') {
                             return row.id === 1 ? 4 : 0;
@@ -121,7 +121,8 @@ const demo1 = {
             // },
             rowTooltips: v => v.description,
             expanded: {
-                expandedRowRender: v => v.description
+                expandedRowRender: v => v.description,
+                // defaultExpandAllRows: true
             }
         }
     ]
@@ -243,8 +244,8 @@ const demo2 = {
                 text: 'Table前端分页表格测试',
                 basicWidget: [
                     {
-                        name: 'filter',
-                        blacklist: ['json']
+                        name: 'filter'
+                        // blacklist: ['json']
                     },
                     'setPageSize',
                     'export',

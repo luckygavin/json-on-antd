@@ -226,5 +226,11 @@ export default {
             valueCol: 18,
             valueStyle: {}
         }
+    },
+    'echarts': {
+        style: {
+            width: '100%',
+            height: 400
+        }
     }
 };

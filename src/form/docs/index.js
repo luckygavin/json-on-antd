@@ -24,6 +24,9 @@ const Step1 = [{
     formData: {
         address: 123
     },
+    onChange(params) {
+        console.log(params);
+    },
     items: [
         [
             /* {
@@ -211,7 +214,7 @@ const Step1 = [{
                 type: 'input',
                 label: '地址',
                 name: 'address',
-                rules: {required: true, message: '地址不能为空'},
+                rules: {required: true, message: '地址不能为空', type: 'number'},
                 default: ''
             }
         ],
@@ -243,7 +246,12 @@ const Step1 = [{
             {
                 type: 'upload',
                 label: '上传测试',
-                name: 'upload'
+                name: 'upload',
+                content: {
+                    type: 'button',
+                    // mode: 'primary',
+                    content: '上传文件'
+                }
             },
             {
                 type: 'date-picker',

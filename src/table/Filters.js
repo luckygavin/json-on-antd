@@ -264,7 +264,7 @@ export class FuzzyFilter extends Component {
                     let value = oRow[i];
                     if (Utils.typeof(value, 'string')) {
                         data.push(this.handleString(value));
-                    } else if (Utils.typeof(value, 'object')) {
+                    } else if (Utils.typeof(value, ['object', 'array'])) {
                         data.push(this.parent._getKeyDataOfObject(value));
                     } else if (value) {
                         data.push(value.toString ? value.toString() : value);

@@ -577,6 +577,17 @@ export class OriginForm extends BaseComponent {
             case 'range-picker':
                 // range-picker 组件的value为一个数组
                 item.rules['type'] = item.rules['type'] || 'array';
+                // current转换为当前时间
+                if (!Utils.empty(item.default) && Utils.typeof(item.default, 'array')) {
+                    item.default = item.default.map(val => {
+                        // current转换为当前时间
+                        if (val === 'current') {
+                            return Utils.moment({}).format(item.format || 'YYYY-MM-DD HH:mm:ss');
+                        } else {
+                            return val;
+                        }
+                    });
+                }
             case 'date-picker':
             case 'month-picker':
             case 'time-picker':
@@ -922,12 +933,16 @@ export class OriginForm extends BaseComponent {
 const ReactForm = Form.create({
     onValuesChange(props, values) {
         // Should provide an event to pass values to Form.
-        if (typeof props.formData === 'object') {
-            if (Utils.isChange(values, props.formData)) {
-                props.onChange && props.onChange(Object.assign({}, props.formData, values));
+        if (props.onChange) {
+            if (typeof props.formData === 'object') {
+                if (Utils.isChange(values, props.formData) || props.onChange.valuesStr !== JSON.stringify(values)) {
+                    // 缓存上传传入的结果
+                    props.onChange.valuesStr = JSON.stringify(values);
+                    props.onChange(Object.assign({}, props.formData, values));
+                }
+            } else {
+                props.onChange(values);
             }
-        } else {
-            props.onChange && props.onChange(values);
         }
     }
 })(OriginForm);

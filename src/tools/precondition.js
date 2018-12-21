@@ -15,6 +15,9 @@ export default generate(function (insName) {
         // 设置预处理超时时间 30s
         delay: 60000,
         timer: null,
+        reduce() {
+            
+        },
         success() {
             if (this.count > 0 && --this.count === 0) {
                 clearTimeout(this.timer);

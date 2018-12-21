@@ -57,6 +57,8 @@ export default class NewTable extends BaseComponent {
         this.selectedRows = [];
         // 请求序号，当执行新请求时，之前的未返回数据的请求则废弃，通过index值是否相等判断
         this.requestIndex = null;
+        this.rowKeyFunc = null;
+        this.rowSelection = null;
         this.filter = new Filter(this);
         this.enum = new Enum({
             execAjax: this.__execAjax.bind(this),
@@ -99,7 +101,6 @@ export default class NewTable extends BaseComponent {
         let state = {};
         // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
-        this.rowKeyFunc = null;
         // 如果rowKey为一个函数，则把函数转存到rowKeyFunc中，rowKey置为_uniqueRowKey
         if (Utils.typeof(this.rowKey, 'function')) {
             this.rowKeyFunc = this.rowKey;
@@ -116,16 +117,11 @@ export default class NewTable extends BaseComponent {
         let propsData = objProps.data;
         propsData = this.handleRowKeyFunc(propsData);
         // 行配置
-        this.rowSelection = null;
         if (!!objProps.rowSelection) {
             this.rowSelection = objProps.rowSelection;
             if (this.rowSelection.selectedRowKeys) {
                 state.selectedRowKeys = this.rowSelection.selectedRowKeys;
             }
-        }
-        // 展开相关
-        if (!!objProps.expandedRowKeys) {
-            state.expandedRowKeys = objProps.expandedRowKeys;
         }
         let defaultCif = {
             size: 'default',
@@ -133,7 +129,7 @@ export default class NewTable extends BaseComponent {
             rowClassName: () => {},
             expandedRowRender: null,
             defaultExpandedRowKeys: [],
-            // expandedRowKeys: [], // 配置之后会变为受控组件
+            expandedRowKeys: [], // 配置之后会变为受控组件
             defaultExpandAllRows: false,
             locale: {filterTitle: '筛选', filterConfirm: '确定', filterReset: '重置', emptyText: '暂无数据'},
             indentSize: 15,
@@ -176,6 +172,11 @@ export default class NewTable extends BaseComponent {
             // 如果传入新的data，则需刷新total
             if (!this.__prevProps.data || this.__prevProps.data.length !== propsData.length) {
                 this.pagination.total = propsData.length;
+            }
+            // 如果默认展开全部扩展内容
+            if (defaultCif.defaultExpandAllRows) {
+                let obj = this.getAllCanSelectRows(true, propsData);
+                state.expandedRowKeys = obj.rowKeys;
             }
         }
         // 关于行样式与不可选相关联，不可选时至为灰色
@@ -284,13 +285,17 @@ export default class NewTable extends BaseComponent {
     _getExportConfig() {
         let columns = this.columns;
         let headers = [];
-        for (let i in columns) {
+        let renders = {};
+        for (let column of columns) {
             // 只导出展示的字段
-            if (columns[i].display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
+            if (column.display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
                 headers.push({
-                    key: columns[i].dataIndex || columns[i].key,
-                    title: columns[i].title
+                    key: column.dataIndex || column.key,
+                    title: column.title
                 });
+                if (column.exportRender) {
+                    renders[column.dataIndex] = column.exportRender;
+                }
             }
         }
         // 如果为后端分页，则传递 source 配置
@@ -303,6 +308,7 @@ export default class NewTable extends BaseComponent {
                     params: this.getSourceParams(),
                     paramIndex: this.pagination.paramIndex
                 },
+                renders: renders,
                 total: this.pagination.total || 0
             };
         }
@@ -312,6 +318,7 @@ export default class NewTable extends BaseComponent {
             type: 'sync',
             headers: headers,
             data: data,
+            renders: renders,
             total: data.length
         };
     }
@@ -450,6 +457,11 @@ export default class NewTable extends BaseComponent {
     }
     // 数据刷新
     onRefreshData() {
+        // 默认展开全部逻辑
+        if (this.antdConfig.defaultExpandAllRows) {
+            let obj = this.getAllCanSelectRows();
+            this.onExpandedRowsChange(obj.rowKeys);
+        }
         this.forceUpdate();
     }
     // 刷新表格
@@ -493,8 +505,8 @@ export default class NewTable extends BaseComponent {
             this.pagination.onShowSizeChange(current, size);
         }
     }
-    getAllCanSelectRows(isAllPage = false) {
-        let displayData = isAllPage ? this.state.completeData : this.__props.data;
+    getAllCanSelectRows(isAllPage = false, displayData) {
+        displayData = displayData || (isAllPage ? this.state.completeData : this.__props.data);
         let rowKey = this.rowKey;
         let selectedRowKeys = [];
         let selectedRows = [];
@@ -539,21 +551,18 @@ export default class NewTable extends BaseComponent {
     _getKeyDataOfObject(obj) {
         let val = '';
         // 如果传入的是一个数组，则递归的遍历这个数组，拿出数组中各个对象的关键字
-        if (obj instanceof Array) {
+        if (Utils.typeof(obj, 'array')) {
             let tArr = [];
             for (let t of obj) {
                 tArr.push(this._getKeyDataOfObject(t));
             }
             val = tArr.join('\n');
-        } else if (obj instanceof Object) {
+        } else if (Utils.typeof(obj, 'object')) {
             // 如果字段是个对象，则优先获取Title字段，否则获取该对象的第一个字段
             if ('title' in obj) {
                 val = obj['title'];
             } else {
-                for (let i in obj) {
-                    val = obj[i];
-                    break;
-                }
+                val = JSON.stringify(obj);
             }
         } else if (obj) {
             val = obj.toString ? obj.toString() : obj;
@@ -613,7 +622,7 @@ export default class NewTable extends BaseComponent {
         return config;
     }
     // 对用户传入数据进行处理
-    processColumnConfig(item) {
+    getColumnConfig(item) {
         let defaultColumn = {
             title: '',
             key: '',
@@ -783,7 +792,7 @@ export default class NewTable extends BaseComponent {
         if (!!item.children) {
             defaultColumn.children = [];
             for (let k in item.children) {
-                defaultColumn.children.push(this.processColumnConfig(item.children[k]));
+                defaultColumn.children.push(this.getColumnConfig(item.children[k]));
             }
         }
         return defaultColumn;
@@ -801,7 +810,7 @@ export default class NewTable extends BaseComponent {
                 // 在展示部分字段下过滤掉不展示的列数据
                 continue;
             }
-            antdColumnConfig.push(this.processColumnConfig(item));
+            antdColumnConfig.push(this.getColumnConfig(item));
         }
         // 提示信息，主要用于行不可选是勾选框那里的提示
         if (this.__props.rowTooltips) {
@@ -812,11 +821,11 @@ export default class NewTable extends BaseComponent {
                 render: (...params) => {
                     let content = this.__props.rowTooltips(...params);
                     if (content) {
-                        return <div className="uf-row-tooltips-content">
+                        return <span className="uf-row-tooltips-content">
                             <Tooltip title={content} placement="right">
                                 <Icon type={this.__props.rowTooltipsIcon || 'question-circle'} />
                             </Tooltip>
-                        </div>;
+                        </span>;
                     }
                     return '';
                 }

@@ -169,6 +169,8 @@ export default class Crud extends BaseComponent {
                 // 详情框的配置
                 case 'details':
                     item = this.handleDetails(item);
+                    // 详情页以右侧抽屉形式展示
+                    item.type = item.type || 'drawer';
                     if (item.list) {
                         const list = item.list;
                         item.render = row => {
@@ -190,7 +192,7 @@ export default class Crud extends BaseComponent {
                     }];
                     break;
             }
-            if (item.position && item.position !== 'modal') {
+            if (item.position && item.type !== 'modal') {
                 item.type = item.type || 'dashboard';
             }
             item.type = item.type || 'modal';

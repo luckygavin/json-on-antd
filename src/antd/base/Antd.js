@@ -100,10 +100,12 @@ export default class Antd extends BaseComponent {
     // ** 可直接被子类覆盖重写 **
     // **     如果有其他需求可以直接覆盖重写，注意函数内要调用下 callback（如：DataEntry中用法）
     _onControlEvent(...params) {
-        const {key, paramsIndex} = this.__controlled;
-        if (key) {
-            this.__props[key] = params[paramsIndex];
-            this.forceUpdate();
+        if (this.__controlled) {
+            const {key, paramsIndex} = this.__controlled;
+            if (key) {
+                this.__props[key] = params[paramsIndex];
+                this.forceUpdate();
+            }
         }
     }
 

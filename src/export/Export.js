@@ -119,15 +119,17 @@ export default class Export extends BaseComponent {
     }
     // 支持直接传入待导出的数据直接导出
     export(data) {
-        if (!data && this.config.type === 'asyn') {
-            this.showModal();
-        } else {
+        if (data) {
             this.data = [data];
             this.config.type = 'sync';
             this.forceUpdate();
             Utils.defer(()=>{
                 this.aRef && this.aRef.click();
             });
+        } else if (this.config.type === 'asyn') {
+            this.showModal();
+        } else {
+            this.aRef && this.aRef.click();
         }
     }
     showModal() {
@@ -276,11 +278,7 @@ export default class Export extends BaseComponent {
                 tbody += '<tr>';
                 for (let i = 0; i < headers.length; i++) {
                     let key = headers[i].key;
-                    let val = item[key];
-                    if (typeof(val) === 'object') {
-                        val = this.getKeyDataOfObject(val);
-                    }
-                    val = typeof(val) === 'undefined' ? '' : val;
+                    let val = this.columnHander(key, item);
                     tbody += ('<td>' + val + '</td>');
                 }
                 tbody += '</tr>';
@@ -295,6 +293,17 @@ export default class Export extends BaseComponent {
         this.url = link;
         return link;
     }
+    columnHander(key, row) {
+        let val = row[key];
+        if (this.config.renders && this.config.renders[key]) {
+            val = this.config.renders[key](val, row);
+        }
+        if (Utils.typeof(val, 'object')) {
+            val = this.getKeyDataOfObject(val);
+        }
+        val = (val === undefined || val === null) ? '' : val;
+        return val;
+    }
     // 把数据打包成csv文件，返回文件链接
     packageDataToCSV(data, headers) {
         let thead = '';
@@ -308,11 +317,7 @@ export default class Export extends BaseComponent {
             list.forEach(item=>{
                 for (let i = 0; i < headers.length; i++) {
                     let key = headers[i].key;
-                    let val = item[key];
-                    if (typeof(val) === 'object') {
-                        val = this.getKeyDataOfObject(val);
-                    }
-                    val = typeof(val) === 'undefined' ? '' : val;
+                    let val = this.columnHander(key, item);
                     tbody += i === headers.length - 1 ? val : (val + ',');
                 }
                 tbody += '\n';

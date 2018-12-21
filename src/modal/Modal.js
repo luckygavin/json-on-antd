@@ -66,6 +66,10 @@ class NewModal extends BaseComponent {
         if (data) {
             newProps.params = data;
         }
+        // title当为函数时，为跟随show传入的数据动态配置
+        if (Utils.typeof(this.__props.title, 'function')) {
+            newProps.titleContent = this.__analysis(this.__props.title(data));
+        }
         // 重新执行 render 函数
         if (Utils.typeof(this.__props.render, 'function')) {
             newProps.renderContent = this.__analysis(this.__props.render(data));
@@ -206,7 +210,12 @@ class NewModal extends BaseComponent {
     render() {
         // 获取排序后的结果
         let children = this.getChildrenRank();
-        return <Modal {...Utils.filter(this.__props, 'children')} {...this.handleSelfProps()}>
+        return <Modal {...Utils.filter(this.__props, ['children', 'title'])} {...this.handleSelfProps()}
+            title={
+                Utils.typeof(this.__props.title, 'function')
+                ? this.__props.titleContent
+                : this.__props.title
+            }>
             {children[0]}
             {children[1]}
             {children[2]}

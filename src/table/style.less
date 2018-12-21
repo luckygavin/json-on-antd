@@ -382,7 +382,10 @@
     .ant-table-footer {
         overflow: hidden;
     }
-
+    // expand 内容左侧多余border删除
+    .ant-table-expanded-row>td:first-child {
+        border-right: 0;
+    }
     // 有边框时，对多个框进行合并处理
     // 展开扩展内容列宽度调整
     .ant-table-expand-icon-th,

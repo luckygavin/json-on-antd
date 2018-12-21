@@ -43,9 +43,15 @@ export default class Enum {
                     if (!conf.paramsHandler) {
                         conf.paramsHandler = (params) => {
                             if (params.list) {
-                                let values = params.list.map(v => v[item.dataIndex]);
+                                let values = params.list.map(v => v[item.dataIndex]).filter(v => !!v);
+                                // 去重
+                                values = Utils.distinct(values);
                                 params[others.key] = others.comma ? values.join(',') : values;
                                 delete params.list;
+                                // 如果没需要翻译的key值，则不再调用接口
+                                if (params[others.key] === '') {
+                                    return false;
+                                }
                             }
                             return params;
                         };
@@ -151,6 +157,14 @@ export default class Enum {
                     // 默认开启缓存
                     cache: true,
                     ...conf,
+                    paramsHandler: function (params) {
+                        // 不调用实时翻译，也需要调用一下finish
+                        conf.paramsHandler && (params = conf.paramsHandler(params));
+                        if (params === false) {
+                            finish();
+                        }
+                        return params;
+                    },
                     params: Object.assign(conf.params || {}, {
                         list: list
                     }),

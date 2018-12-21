@@ -154,6 +154,28 @@ const create = ({name})=>{
         load(components) {
             Loader.add(components);
         },
+        // mockFiles 参数处理，加载
+        _handleMockFilesConf(conf) {
+            let mockFiles = (conf.global && conf.global.mockFiles) || [];
+            // 如果有异步components，将加载逻辑加入到precondition中
+            if (!Utils.empty(mockFiles)) {
+                conf.precondition = (conf.precondition || []).concat(
+                    mockFiles.map(path => {
+                        return resovle => {
+                            Requirejs([path], foo=>{
+                                foo && this.config({
+                                    global: {
+                                        mock: foo
+                                    }
+                                });
+                                resovle();
+                            });
+                        };
+                    })
+                );
+            }
+            return conf;
+        },
         // components 配置处理，components有两种情况
         //  1、直接为一个对象，即一系列配置对象列表
         //  2、还有一种为一个数组，数组中每一项即可以为1中的配置对象列表，又可以为一个url（异步加载其余地方的公用配置）
@@ -245,6 +267,8 @@ const create = ({name})=>{
                 ModelCache.set(conf.data);
             }
 
+            // 处理 mockFiles 参数
+            conf = this._handleMockFilesConf(conf);
             // 处理 components 参数
             conf = this._handleComponentsConf(conf);
             // 处理 plugins 参数

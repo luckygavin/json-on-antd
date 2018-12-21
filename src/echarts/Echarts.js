@@ -14,6 +14,7 @@ export default class Echarts extends BaseComponent {
         this.chartId = (props.__key || 'create_echarts') + '_' + Utils.uniqueId();
         this.echarts;
         this.chart;
+        this.chartOptionsQueue = [];
         this.__init();
     }
     _afterSetProps() {
@@ -24,11 +25,50 @@ export default class Echarts extends BaseComponent {
             delete this.__filtered.afterCreate;
         }
     }
+    setOption(nextProps) {
+        if (this.chart) {
+            this.chart.setOption(this.__filterProps(nextProps));
+            this.__setProps(this.chart.getOption());
+        } else {
+            // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
+            this.chartOptionsQueue.push(nextProps);
+            this.startTry();
+        }
+    }
+    // 尝试获取this.chart，直到获取到
+    startTry() {
+        // 这里重试10次，间隔200ms
+        Utils.retry(()=>{
+            if (!this.chart) {
+                return false;
+            }
+            // 将队列里的值依次set一遍
+            this.chartOptionsQueue.forEach(props => {
+                this.setOption(props);
+            });
+            // 清空队列
+            this.chartOptionsQueue = [];
+        }, 200, 10);
+    }
     componentWillReceiveProps(nextProps) {
         // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
         //     this.chart.setOption(this.__filterProps(nextProps));
         // }
-        this.chart && this.chart.setOption(this.__filterProps(nextProps));
+        this.setOption(nextProps);
+    }
+    // 修改获取数据的时机，初始化时不进行数据获取，等chart初始化完成后
+    _handleAsyncData() {
+        if (this.chart) {
+            this.waitToGetData = false;
+            super._handleAsyncData();
+        } else {
+            this.waitToGetData = true;
+        }
+    }
+    _trueHandleAsyncData() {
+        if (this.waitToGetData) {
+            this._handleAsyncData();
+        }
     }
     shouldComponentUpdate(nextProps, nextState) {
         // 只有className/style变，才刷新当前组件，否则只进行setOption处理就行了
@@ -64,6 +104,8 @@ export default class Echarts extends BaseComponent {
             this._agencyFunction(chart);
             this._agencyFunction(Object.getPrototypeOf(chart));
 
+            // 真正创建完echarts时再异步获取数据
+            this._trueHandleAsyncData();
             // 真正创建完echarts时再执行用户配置的afterCreate逻辑
             this.__filtered.oriAfterCreate && this.__filtered.oriAfterCreate();
         } else {

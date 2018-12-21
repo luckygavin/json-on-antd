@@ -10,7 +10,7 @@
 |---------------|----------------------------------|------------|---------|
 | value    | 指定当前选中的条目 | string  |  无  |
 | defaultValue | 指定默认选中的条目 | string&#124;string[] |  -  |
-| mode | 设置多选`multiple`、或单选`combobox`、或仅可选择（不可任意输入）`select-only` | 'multiple' &#124; 'combobox' | 'combobox' |
+| mode | 设置多选`multiple`、或单选`combobox`、或仅可选择（不可任意输入）`select-only` | 'multiple' &#124; 'combobox' | 'combobox' &#124; 'select-only' |
 | allowClear   | 支持清除, 单选模式有效 | boolean | false |
 | onChange | 选中 option，或 input 的 value 变化时，调用此函数 | function(value) | 无 |
 | onSelect | 被选中时调用，参数为选中项的 value 值	| function(value, option)	| 无 |

@@ -13,7 +13,7 @@ Echarts 用法。
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | -----
 name | 当前Echarts组件名称，用于使用`UF()`获取组件 | string | |
-style | Echarts所占用元素的样式。一般用来设置宽高等 | object | |
+style | Echarts所占用元素的样式。一般用来设置宽高等 | object | `{width: '100%', height: 400}` |
 
 其他参数见：[Echarts 官方配置](http://echarts.baidu.com/option.html)
 

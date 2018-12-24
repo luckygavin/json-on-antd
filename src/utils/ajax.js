@@ -42,7 +42,6 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         if (checkLocalStorage(config, AjaxCache)) {
             return;
         }
-        // TODO: 两种情况下都不会触发onchange
         // 检查是否有缓存，如果有，则直接中断后续逻辑
         if (checkCache(config, AjaxCache)) {
             return;

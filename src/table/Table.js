@@ -99,7 +99,6 @@ export default class NewTable extends BaseComponent {
         //     this.__filtered.source.params = Object.assign({}, this.oriSourceParams, objProps.params);
         // }
         let state = {};
-        // TODO: rowKey 为函数时，下面很多地方不适用
         this.rowKey = objProps.rowKey || 'id';
         // 如果rowKey为一个函数，则把函数转存到rowKeyFunc中，rowKey置为_uniqueRowKey
         if (Utils.typeof(this.rowKey, 'function')) {
@@ -108,6 +107,10 @@ export default class NewTable extends BaseComponent {
         }
         // 注意：引用类型，this.pagination 和 this.__props.pagination 基本上是同一个东西
         this.pagination = objProps.pagination || {};
+        // COMPAT: 将 pagination.paramIndex 转移到 source.paramIndex 上
+        if (this.pagination.paramIndex) {
+            this.__filtered.source.paramIndex = this.pagination.paramIndex;
+        }
         // 是否为后端分页
         this.serverPaging = this.__filtered.source.url && this.pagination.pageType === 'server';
         // 列配置
@@ -305,8 +308,7 @@ export default class NewTable extends BaseComponent {
                 headers: headers,
                 source: {
                     ...this.__filtered.source,
-                    params: this.getSourceParams(),
-                    paramIndex: this.pagination.paramIndex
+                    params: this.getSourceParams()
                 },
                 renders: renders,
                 total: this.pagination.total || 0
@@ -407,13 +409,10 @@ export default class NewTable extends BaseComponent {
         } else {
             pageNum = this.pagination.current || 1;
         }
-        // 可以通过 paramIndex 属性更改默认传递的page和size参数
-        let paramIndex = this.pagination.paramIndex || {};
-        let {page = 'page', size = 'size'} = paramIndex;
         if (this.pagination.pageType === 'server') {
             params = Object.assign({}, params, {
-                [page]: pageNum,
-                [size]: this.pagination.pageSize
+                page: pageNum,
+                size: this.pagination.pageSize
             });
         }
         // 当前请求的标号
@@ -806,7 +805,8 @@ export default class NewTable extends BaseComponent {
             if (item.enum) {
                 item = this.enum.handleColumn(item);
             }
-            if (!this.state.showAllTags && item.display === false) {
+            // 2018-12-24，增加权限控制，可以直接给表格每一列绑定权限点
+            if ((!this.state.showAllTags && item.display === false) || !this.__authority(item)) {
                 // 在展示部分字段下过滤掉不展示的列数据
                 continue;
             }

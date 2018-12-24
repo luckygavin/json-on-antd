@@ -57,6 +57,7 @@
 |-----------|----------------------------|-----------------|---------|
 | title      | 列头显示文字               | string &#124; `config` | - |
 | display    | 默认是否展示列当前列             | boolean | true |
+| authority  | 关联权限点，可根据权限点控制是否展示列，详见[`全局配置.authority`](#/Develop/Config/-authority)   | string |  |
 | dataIndex  | 列数据在数据项中对应的 key，支持 `a.b.c` 的嵌套写法。其中`_operation`为一特殊值，可见[`column._operation`](#/Custom/Table/-column-_operation-) | string | - |
 | enum      | 字段内容翻译，详见下方[`columns.enum`](#/Custom/Table/-column-enum-) | array&#124;`source` | -  |
 | width      | 列宽度 | string&#124;number | -  |
@@ -205,7 +206,7 @@ columns: [
 | total            | 数据总数      | number        |                       |
 | showTotal        | 用于显示数据总量和当前数据顺序     | Function(total, range) |            |
 | layout           | 设置分页布局，可以设置在左侧展示还是在右侧。可选值：`left`、`right`    | string        | 'right'  |
-| paramIndex       | 更改请求中的分页参数名称  | object        | {page: 'page', size: 'size'} |
+| paramIndex       | 更改请求中的分页参数名称，推荐使用`source.paramIndex`参数进行修改  | object        | {page: 'page', size: 'size'} |
 
 
 #### *title*

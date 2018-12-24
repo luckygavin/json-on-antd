@@ -588,15 +588,9 @@ const utils = Object.assign({}, underscore, {
                 // return原函数执行结果
                 let result;
                 oldAhead ? (result = origin.call(utilsObj, ...params)) : null;
-                // 如果注入的逻辑返回false，可组织原函数的继续执行（前提是原函数后执行）
+                // 如果注入的逻辑返回false，可阻止原函数的继续执行（前提是原函数后执行）
                 let newResult = newFunc.call(utilsObj, ...params);
                 !oldAhead && newResult !== false ? (result = origin.call(utilsObj, ...params)) : null;
-                // let oResult;
-                // oldAhead ? (oResult = origin.call(utilsObj, ...params)) : null;
-                // // 如果返回false，可阻止注入函数的继续执行
-                // let newResult = oResult !== false ? newFunc.call(utilsObj, ...params) : oResult;
-                // // 如果注入的逻辑返回false，可阻止原函数的继续执行
-                // let result = !oldAhead && newResult !== false ? origin.call(utilsObj, ...params) : oResult;
                 // TODO: 返回哪个结果有待斟酌，目前代码之间的相互限制有点多
                 //  好像还不能随便return，比如可能会得到预期之外的结果
                 // return result || newResult;
@@ -668,6 +662,18 @@ const utils = Object.assign({}, underscore, {
             count++;
         };
         handler();
+    },
+    // 批量绑定对象中函数的执行环境
+    batchBind(obj, target) {
+        let result = {};
+        for (let i in obj) {
+            if (obj.hasOwnProperty(i) && utils.typeof(obj[i], 'function')) {
+                result[i] = obj[i].bind(target);
+            } else {
+                result[i] = obj[i];
+            }
+        }
+        return result;
     },
 
     /************************************************************************/

@@ -11,11 +11,9 @@ export default {
     check(item, insName = item.insName) {
         let conf = getConfig(insName);
         let result = true;
-        if (conf) {
-            let authorityList = getConfig(insName).get('authority');
-            if (!Utils.typeof(item.authority, 'undefined')) {
-                result = !!authorityList[item.authority];
-            }
+        if (conf && !Utils.typeof(item.authority, 'undefined')) {
+            let authorityList = conf.get('authority');
+            result = !!authorityList && !!authorityList[item.authority];
         }
         return result;
     }

@@ -42,7 +42,6 @@ export default class Factory extends PureComponent {
 
     // 解析组件配置，生成组件
     generateItem(item) {
-        // TODO:
         // 如果模块是一个函数，先执行函数得到返回的配置
         if (Utils.typeof(item, 'function')) {
             // 如果组件想要获取到路由等信息，则可以返回一个函数，函数的参数即为路由相关信息

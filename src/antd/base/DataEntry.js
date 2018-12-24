@@ -35,7 +35,7 @@ export default class DataEntry extends Antd {
                 this.__setProps({className: this.__filtered.__className});
             }
         } else {
-            super.loading.call(this, status);
+            super.loading(status);
         }
     }
     _afterInitProps() {

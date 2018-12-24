@@ -23,6 +23,8 @@ export default {
 
         let Item = Loader.get(item);
         let props = Utils.filter(item, KeyWord);
+        // 将用户传入的函数的执行环境固定成item本身，待观察
+        props = Utils.batchBind(props, item);
         // 把 content 转化成 children。
         // update at 2017/10/25,如果没有content,则使用原来的children
         // update at 2018/01/11,如果只有原来有值，才执行赋值操作

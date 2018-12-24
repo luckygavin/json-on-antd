@@ -117,6 +117,7 @@ requestMerge | 开启请求合并（默认），多个重复请求先后同时�
 method    | ajax方式：`post`、`get`等 | string | 'get'
 params | 请求数据时携带的参数 | object | 
 paramsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | 
+paramIndex  | 更改请求中的参数键名，处理顺序在执行`paramsHandler`之前，例如：`{page: 'pageNum', size: 'pageSize'}`  | object    |  |
 interrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} | 
 removeEmptyParams | 自动移除为空的属性 | boolean | true
 target | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）。当为空时，结果直接作为set的参数设置个组件（同时设置多个属性） | string | 不同组件的默认属性不同，可视情况主动声明

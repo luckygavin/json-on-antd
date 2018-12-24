@@ -154,15 +154,9 @@ export default class Export extends BaseComponent {
     getData(pageNum) {
         let params = this.__filtered.source.params;
         params = Object.assign({}, params, {
-            total: this.state.total
-        });
-        // TODO: 可改造，paramIndex为Table传入
-        // 可以通过 paramIndex 属性更改默认传递的page和size参数
-        let paramIndex = this.__filtered.source.paramIndex || {};
-        let {page = 'page', size = 'size'} = paramIndex;
-        params = Object.assign({}, params, {
-            [page]: pageNum,
-            [size]: this.state.pageSize
+            total: this.state.total,
+            page: pageNum,
+            size: this.state.pageSize
         });
         // 调用通用source获取数据逻辑
         this.__getSourceData({

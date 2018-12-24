@@ -28,7 +28,7 @@ export default class Dom extends BaseComponent {
         if (this._component && this._component[event]) {
             this._component[event](params);
         } else {
-            super.trigger.call(this, event, ...params);
+            super.trigger(event, ...params);
         }
     }
     render() {

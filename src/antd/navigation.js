@@ -41,7 +41,7 @@ export class Breadcrumb extends Navigation {
         if (this.__props.itemRender) {
             let origin = this.__props.itemRender;
             this.__props.itemRender = (...params)=>{
-                let result = origin.call(this, ...params);
+                let result = origin(...params);
                 return this.__analysis(result);
             };
         } else {

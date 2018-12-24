@@ -26,7 +26,10 @@ export default class BaseCache {
             return component;
         }
     }
-    del(key) {
+    delete(key) {
         delete this._cache[key];
+    }
+    del(key) {
+        this.delete(key);
     }
 };

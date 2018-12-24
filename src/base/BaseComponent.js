@@ -242,14 +242,14 @@ export default class BaseComponent extends Component {
         if (this.unmounted) {
             return;
         }
-        super.setState.call(this, ...params);
+        super.setState(...params);
     }
     // 覆盖原生的forceUpdate方法。如果组件已销毁，则不再执行forceUpdate。用于异步操作中调用forceUpdate时的通用状态检测
     forceUpdate(...params) {
         if (this.unmounted) {
             return;
         }
-        super.forceUpdate.call(this, ...params);
+        super.forceUpdate(...params);
     }
 
     /* 暴露给用户的方法 ***********************************************************************/
@@ -528,11 +528,20 @@ export default class BaseComponent extends Component {
     }
     // 处理source系列接口参数的通用逻辑（例如handler处理）
     __execAjax(conf, usePromise = false) {
-        let {url, params, _paramsHandler, paramsHandler, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
+        let {url, params, _paramsHandler, paramsHandler, paramIndex = {}, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
         if (url) {
             // 额外增加对参数预处理逻辑，不暴露给用户使用
             if (_paramsHandler && (false === (params = _paramsHandler(params)))) {
                 return false;
+            }
+            // 可以通过 paramIndex 属性更改默认传递的page和size参数
+            if (params && Utils.typeof(paramIndex, 'object') && !Utils.empty(paramIndex)) {
+                for (let i in params) {
+                    if (paramIndex[i]) {
+                        params[paramIndex[i]] = params[i];
+                        delete params[i];
+                    }
+                }
             }
             if (paramsHandler) {
                 // 如果paramsHandler返回结果为false，则阻止ajax请求
@@ -787,7 +796,7 @@ export default class BaseComponent extends Component {
                     this._inject(this, v, () => {
                         // __filtered 需覆盖 __props，以在 _filterHandler 时还原回去
                         let props = Object.assign({}, this.__props, this.__filtered);
-                        let result = inject.call(this, props, this);
+                        let result = inject(props, this);
                         // 组件渲染/刷新前可以让用户有机会改参数
                         if (result && ['beforeCreate', 'beforeRender'].indexOf(f) !== -1) {
                             // 防止用户设置过滤属性

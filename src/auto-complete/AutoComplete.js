@@ -51,12 +51,12 @@ export class LocalComplete extends Select {
     // 默认对应的是 onChange
     _onControlEvent(...params) {
         if (this.isMultiple) {
-            super._onControlEvent.call(this, ...params);
+            super._onControlEvent(...params);
             this.__setProps({options: []});
         } else {
             // 对change前后的数据进行对比
             let oldValue = this.__props.value;
-            super._onControlEvent.call(this, ...params);
+            super._onControlEvent(...params);
             let newValue = this.__props.value;
             // 如果长度变短，说明是在删除，如果和后缀能匹配上，直接把后缀删除
             if (oldValue && newValue && oldValue.length > newValue.length) {

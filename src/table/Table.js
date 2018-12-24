@@ -292,10 +292,15 @@ export default class NewTable extends BaseComponent {
         for (let column of columns) {
             // 只导出展示的字段
             if (column.display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
-                headers.push({
-                    key: column.dataIndex || column.key,
-                    title: column.title
-                });
+                // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
+                if (!!column.children) {
+                    headers = headers.concat(this.getExportHeader(column.children, column.title));
+                } else {
+                    headers.push({
+                        key: column.dataIndex || column.key,
+                        title: column.title
+                    });
+                }
                 if (column.exportRender) {
                     renders[column.dataIndex] = column.exportRender;
                 }
@@ -316,13 +321,42 @@ export default class NewTable extends BaseComponent {
         }
         // 否则传递 data
         let data = this.__props.data || [];
+        // 考虑数据有树形关系，在此进行关系打平，将子节点与父节点放在同一级
+        let newData = this.generateExportSyncData(data);
         return {
             type: 'sync',
             headers: headers,
-            data: data,
+            data: newData,
             renders: renders,
             total: data.length
         };
+    }
+    // 取出数据中children部分
+    generateExportSyncData(nowData) {
+        let exportData = [];
+        for (let i in nowData) {
+            exportData.push(nowData[i]);
+            if (!!nowData[i].children && nowData[i].children.length > 0) {
+                exportData = exportData.concat(this.generateExportSyncData(nowData[i].children));
+            }
+        }
+        return exportData;
+    }
+    // 取出columns中配置的表头，用作导出headers
+    getExportHeader(columnChildren, preTitle) {
+        let exportHeader = [];
+        for (let item of columnChildren) {
+            if (!!item.children) {
+                let childrenRes = this.getExportHeader(item.children, preTitle + '-' + item['title']);
+                exportHeader = exportHeader.concat(childrenRes);
+            } else {
+                exportHeader.push({
+                    title: preTitle + '-' + item['title'],
+                    key: item['dataIndex'] || item['key']
+                });
+            }
+        }
+        return exportHeader;
     }
     // 执行用户自定义的 rowKey 函数，生成唯一key
     handleRowKeyFunc(data) {

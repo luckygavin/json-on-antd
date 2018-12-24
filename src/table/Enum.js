@@ -157,7 +157,7 @@ export default class Enum {
                     // 默认开启缓存
                     cache: true,
                     ...conf,
-                    paramsHandler: function (params) {
+                    paramsHandler: params => {
                         // 不调用实时翻译，也需要调用一下finish
                         conf.paramsHandler && (params = conf.paramsHandler(params));
                         if (params === false) {

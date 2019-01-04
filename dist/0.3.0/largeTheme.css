@@ -19151,6 +19151,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table .ant-table-footer {
   overflow: hidden;
 }
+.uf-table .ant-table-expanded-row > td:first-child {
+  border-right: 0;
+}
 .uf-table .ant-table-expand-icon-th,
 .uf-table .ant-table-row-expand-icon-cell {
   min-width: 0;
@@ -19595,6 +19598,7 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   width: auto;
   border: 1px solid #DFEFFC;
   border-radius: 4px;
+  margin-bottom: -1px;
 }
 .uf-fieldset legend {
   font-weight: bold;

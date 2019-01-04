@@ -367,7 +367,9 @@ export default class Title extends BaseComponent {
         // 缓存配置
         Utils.setCache(this.cacheName, showColumns);
         this.setState({showSetTagsModal: false});
-        this.parent.forceUpdate();
+        // 需更新 __props，否则表格刷新时会被重置
+        // this.parent.forceUpdate();
+        this.parent.__setProps({columns: allColumns});
     }
     onSetColumnsCheckboxChange(checkedValues) {
         this.columnsCheckedValues = checkedValues;
@@ -416,6 +418,7 @@ export default class Title extends BaseComponent {
             pageSize = 10;
         }
         this.parent.pagination.pageSize = pageSize;
+        this.parent.__setProps({pagination: {pageSize: pageSize}});
         this.parent.refreshTable();
         this.setState({showTableMenu: false});
     }

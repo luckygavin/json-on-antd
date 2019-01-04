@@ -87,6 +87,13 @@ UF.init(config, '#demo');
 作用和`UF.init`函数类似，也是渲染某个配置到页面上，不过不受config中配置的一些延迟因素影响，会直接渲染组件。
 
 
+## # UF.unrender()
+
+`UF.unrender(target/targetSelector)`
+
+用于主动销毁通过`UF.render`或`UF.init`渲染到页面上的组件，直接移除页面上的dom元素不会触发页面上的组件销毁
+
+
 ## # UF.append()
 
 `UF.append(config, target/targetSelector)`

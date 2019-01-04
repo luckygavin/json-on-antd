@@ -35,10 +35,6 @@ if (isset($type) && $type == 'pendding') {
     $datas = json_encode($datas);
 }
 
-$sleep = $_REQUEST['sleep'];
-// 默认延迟 150ms
-isset($sleep) ? sleep($sleep) : usleep(150000);
-
 $originData = json_decode($datas);
 $result = $originData;
 $search = $_REQUEST['search'];

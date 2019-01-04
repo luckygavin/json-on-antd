@@ -19,7 +19,7 @@ let config1 = {
     type: 'export',
     // 导出数据接口的url（一般可直接使用分页接口）
     source: {
-        url: 'docs/php/download.php',
+        url: 'docs/php/download.php?sleep=1',
         params: {
             isExport: true,
             container_id: 484,
@@ -42,7 +42,7 @@ let config1 = {
 let config2 = {
     type: 'export',
     source: {
-        url: 'docs/php/download.php',
+        url: 'docs/php/download.php?sleep=1',
         params: {
             isExport: true,
             container_id: 484,
@@ -82,7 +82,9 @@ let config3 = {
 
 let demo1 = {
     title: '三种常用用法',
-    description: '**默认导出：**比较简洁的导出界面，通过接口获取数据。**提示导出：**可以定义一些提示信息，比如说明导出内容，也是异步的数据。**同步导出：**直接把前端已有数据导出成文件，多用于前端分页的表格中。',
+    description: '**默认导出：**比较简洁的导出界面，通过接口获取数据。  \n'
+        + '**提示导出：**可以定义一些提示信息，比如说明导出内容，也是异步的数据。  \n'
+        + '**同步导出：**直接把前端已有数据导出成文件，多用于前端分页的表格中。',
     config: [
         config1,
         config2,

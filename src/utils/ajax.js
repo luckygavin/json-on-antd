@@ -24,7 +24,8 @@ import {generate} from 'src/tools/instance.js';
 export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCache, ModelCache) => {
 
     // 通用ajax函数，参数为一个对象
-    function request (config) {
+    function request (conf) {
+        let config = Utils.clone(conf);
         // 兼容，合并两个参数
         if (config.data) {
             config.params = Object.assign({}, config.params, config.data);

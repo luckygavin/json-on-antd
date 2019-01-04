@@ -15,6 +15,105 @@
 
 ### 0.3.0
 
+`2018-12-21`
+
+* 🌟 `Table`组件增加`column.authority`属性，支持根据权限点控制是否展示列
+* 🎨 `Export`组件优化剩余时间展示效果
+* 🐞 修复`Table`组件修改展示列后刷新表格，展示列还原问题，[uf-233](http://newicafe.baidu.com:80/issue/uf-233/show?from=page)
+* 🐞 修复`Table`组件设置完分页后再次进行搜索，分页pageSize会自动重置的问题，[uf-232](http://newicafe.baidu.com:80/issue/uf-232/show?from=page)
+
+`2018-12-21`
+
+* ⚙ 内部逻辑调整：将用户配置的全部函数的执行环境固定bind到配置本身承载函数的对象上，以支持函数可以使用`this`获取和自己同级的其他参数
+* ⚙ 内部逻辑优化：移除部分无效`call(this)`函数
+* 🎨 调整检查是否更新的策略，解决仅更新函数时不生效问题
+* 🌟 新增属性`source.paramIndex`，用于更改发送请求前更改传给后端的参数名称，例如修改默认传递的分页参数的键名
+
+
+`2018-12-19`
+
+* 🐞 修复`Table`组件模糊搜索对某些复杂的数据结构的字段不支持的问题
+* 🐞 修复`Export`组件不支持set data 的问题
+* 🐞 修复`Form`组件中的`range-picker`表单项defaut置为current未转换问题
+
+
+`2018-12-10`
+
+* 🎨 `Table`组件实时翻译功能，增加对翻译字段值进行去重处理
+* 🌟 `Table`组件增加`column.exportRender`属性，用于处理导出数据时的数据处理
+* 🌟 `Export`组件增加`renders`属性，用于处理导出数据时的数据处理
+
+
+`2018-12-07`
+
+* 🌟 `Forms`组件新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件
+
+
+`2018-11-30`
+
+* 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl
+* 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl
+
+
+`2018-11-22`
+
+* 🐞 修复`ajax.url`中只能使用一个变量的问题
+
+
+`2018-11-13`
+
+* 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性
+* 🌟 `Table`新增支持表头合并功能
+* 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题
+* 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用
+* 🐞 修复`Export`组件同步导出不可用bug
+
+`2018-11-07`
+
+* 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题
+* 🎨 `Table`针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能
+* 🌟 `Table`新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并
+* 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)
+* 🌟 `Table`新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)
+* 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)
+* 🎨 `Ajax.mock`模拟数据功能升级，支持带动态参数的url
+* 🎨 `Iframe`修改loading效果，改为右上角小菊花转动
+
+`2018-11-02`
+
+* 🌟 `Select`组件增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性
+* 🎨 修改`Menu`及`Sider`主题样式
+
+
+`2018-10-31`
+
+* 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机
+* 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）
+* 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用
+
+
+`2018-10-22`
+
+* 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)
+* 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题
+
+
+`2018-10-15`
+
+* ⚙ 调整内部实现，支持事件函数更新
+* 🌟 文档平台，增加新功能提示功能
+* 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示
+* 🎨 `Ueditor`默认字号改为12px
+* 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息
+* 🌟 新增`TreeSelect`组件，树形选择框
+* ⚙ `Table`组件调整params参数和source.params的合并逻辑
+
+
+`2018-10-09`
+
+* 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)
+* 🎨 `Form`组件修改join参数为函数时的参数列表
+
 
 
 `2018-09-28`

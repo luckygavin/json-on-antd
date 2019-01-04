@@ -39,7 +39,12 @@ const ins = {
     setInstance(insName, obj) {
         return cache.set(`${insName}._$uf`, obj);
     },
-    
+    delInstance(insName) {
+        cache.delete(`${insName}._$uf`);
+        cache.delete(`${insName}._$cache`);
+        cache.delete(`${insName}._$tools`);
+        return true;
+    },
     // Cache相关获取/设置函数
     getCache(insName) {
         return cache.get(`${insName}._$cache`);

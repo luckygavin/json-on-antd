@@ -179,7 +179,10 @@ export default class Export extends BaseComponent {
                     // 防止剩余时间一直波动，如果波动区间在5秒之内就用原来的值
                     let range = Math.abs(newLastTime - lastTime);
                     if (range > 5 || (newLastTime < 10 && range > 1)) {
-                        this.setState({lastTime: newLastTime});
+                        this.setState({
+                            lastTime: newLastTime,
+                            currentPage: pageNum
+                        });
                     }
                     // 判断是否已经取得全部数据
                     if (pageNum * pageSize < total) {
@@ -272,7 +275,7 @@ export default class Export extends BaseComponent {
                 tbody += '<tr>';
                 for (let i = 0; i < headers.length; i++) {
                     let key = headers[i].key;
-                    let val = this.columnHander(key, item);
+                    let val = this.columnHander(key, item, headers[i]);
                     tbody += ('<td>' + val + '</td>');
                 }
                 tbody += '</tr>';
@@ -287,10 +290,10 @@ export default class Export extends BaseComponent {
         this.url = link;
         return link;
     }
-    columnHander(key, row) {
+    columnHander(key, row, columnConf) {
         let val = row[key];
-        if (this.config.renders && this.config.renders[key]) {
-            val = this.config.renders[key](val, row);
+        if (columnConf.render && columnConf.render) {
+            val = columnConf.render(val, row);
         }
         if (Utils.typeof(val, 'object')) {
             val = this.getKeyDataOfObject(val);
@@ -311,7 +314,7 @@ export default class Export extends BaseComponent {
             list.forEach(item=>{
                 for (let i = 0; i < headers.length; i++) {
                     let key = headers[i].key;
-                    let val = this.columnHander(key, item);
+                    let val = this.columnHander(key, item, headers[i]);
                     tbody += i === headers.length - 1 ? val : (val + ',');
                 }
                 tbody += '\n';
@@ -403,11 +406,15 @@ export default class Export extends BaseComponent {
             </div>
         );
     }
+    getRequestTimes() {
+        let pageSize = this.state.pageSize;
+        let total = this.state.total;
+        return Math.ceil(total / pageSize);
+    }
     // 导出前的设置界面
     renderSetting() {
         let pageSize = this.state.pageSize;
         let total = this.state.total;
-        let requestNum = Math.ceil(total / pageSize);
         return (
             <div>
                 <div className="export_info">
@@ -418,9 +425,12 @@ export default class Export extends BaseComponent {
                         }
                     </div>
                     <div>每次服务器请求的大小为 <InputNumber
-                                size="small" min={15} max={1000} step={100}
+                                size="small" min={10} max={1000} step={100}
                                 defaultValue={pageSize} onChange={this.pageSizeChange.bind(this)} /> 条
-                        {total === 0 ? '' : <span>，本次导出共需 <span className="fw700">{requestNum}</span> 次服务器请求</span>}
+                        {total === 0 ? '' : <span>，本次导出共需 <span className="fw700">
+                                {this.getRequestTimes()}
+                            </span> 次服务器请求
+                        </span>}
                     </div>
                 </div>
                 {this.renderMessage(1)}
@@ -441,7 +451,9 @@ export default class Export extends BaseComponent {
                         <span hidden={this.state.finish || this.state.error}><Icon type="loading" />正在导出，</span>
                         已完成 {progress}%...
                     </span>
-                    <span className="ex_time">已用时 {usedTime} 秒，预计剩余 { this.state.lastTime } 秒</span>
+                    <span className="ex_time">已用时 {Utils.timeFormatter(usedTime)}，预计剩余
+                        {' ' + Utils.timeFormatter(this.state.lastTime)}
+                    </span>
                     <Progress percent={Math.floor(progress)}
                             status={ this.state.finish ? 'success'
                                     : (this.state.error ? 'exception' : 'active') }
@@ -462,7 +474,8 @@ export default class Export extends BaseComponent {
                     {/* <Button type="primary"><a ref="download">下载文件</a></Button> */}
                     <a ref="download" style={{color: '#fff'}}><Button type="primary">下载文件</Button></a>
                     <p className="mt8">
-                        <Icon type="check-circle" className="success-icon" /> 数据导出完毕，合计{fatchedData}条数据，用时{usedTime}秒
+                        <Icon type="check-circle" className="success-icon" />
+                        数据导出完毕，合计{fatchedData}条数据，用时 {Utils.timeFormatter(usedTime)}
                     </p>
                 </div>
             </div>

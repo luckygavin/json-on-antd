@@ -13,6 +13,7 @@ import Crud from './Crud.js';
 import Title from './Title.js';
 import Edit from './Edit.js';
 import Enum from './Enum.js';
+import TableExport from './Export.js';
 import {Filter} from './Filters.js';
 
 // 从obg2中获取obj1所需要的一些属性
@@ -283,46 +284,6 @@ export default class NewTable extends BaseComponent {
     /* 内部函数 ****************************************************************************/
     _handleExport() {
         this.export();
-    }
-    // 获取要下载导出数据的配置
-    _getExportConfig() {
-        let columns = this.columns;
-        let headers = [];
-        let renders = {};
-        for (let column of columns) {
-            // 只导出展示的字段
-            if (column.display !== false || (this.titleRef && this.titleRef.state.showAllTags)) {
-                headers.push({
-                    key: column.dataIndex || column.key,
-                    title: column.title
-                });
-                if (column.exportRender) {
-                    renders[column.dataIndex] = column.exportRender;
-                }
-            }
-        }
-        // 如果为后端分页，则传递 source 配置
-        if (this.serverPaging) {
-            return {
-                type: 'asyn',
-                headers: headers,
-                source: {
-                    ...this.__filtered.source,
-                    params: this.getSourceParams()
-                },
-                renders: renders,
-                total: this.pagination.total || 0
-            };
-        }
-        // 否则传递 data
-        let data = this.__props.data || [];
-        return {
-            type: 'sync',
-            headers: headers,
-            data: data,
-            renders: renders,
-            total: data.length
-        };
     }
     // 执行用户自定义的 rowKey 函数，生成唯一key
     handleRowKeyFunc(data) {
@@ -633,8 +594,6 @@ export default class NewTable extends BaseComponent {
             width: null,
             className: '',
             fixed: false,
-            // 当配置了sorter时，默认自动设置sortOrder为正序
-            sortOrder: !!item.sorter ? 'ascend' : false,
             onCellClick: null,
             children: null
         };
@@ -925,9 +884,7 @@ export default class NewTable extends BaseComponent {
                     ref={ele => (this.titleRef = ele)} />
             </Crud>,
             // 导出功能
-            <Export key="export" _factory={this._factory} style={{display: 'none'}}
-                ref={ele => (this.exportRef = ele)}
-                {...this._getExportConfig()} />
+            <TableExport key="export" parent={this} wrappedComponentRef={ele => (this.exportRef = ele)}/>
         ];
     }
     getClassName() {

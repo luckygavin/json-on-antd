@@ -18,8 +18,15 @@ message | 如上面示例的'提示导出'组件，可自定义下面的提示�
 fileName | 自定义导出的文件名 | String | 格式：20180524-导出文件 |
 fileFormat | 选择导出的文件扩展名，目前支持`.xls`格式和`.csv`格式 | String | `.xls` | 
 
-#### *headers*
-> 数组的每个元素都为一个对象，每个对象具有两个属性`key`，`title`，`key`属性的属性值为数据中的字段名，`title`属性的属性值为表头的列名
+#### *header*
+
+`headers`为一个数组，数组的每个元素都为一个对象，每个对象具有以下属性：
+
+参数 | 说明 | 类型 | 默认值 | 是否必填
+---- | ---- | ----- | ----- | -----
+key | 数据中的字段名 | string |  | 必填
+title | 表头的列名 | string |  | 必填
+render | 数据处理函数，用法同表格的render | function (text, record) {return '';} |  | 
 
 
 ### 函数调用

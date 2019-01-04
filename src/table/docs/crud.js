@@ -45,7 +45,7 @@ const demo1 = {
             ],
             title: {
                 text: null,
-                basicWidget: [{name: 'filter', text: '快捷查询'}],
+                basicWidget: [{name: 'filter', text: '快捷查询'}, 'switchTags'],
                 extra: [
                     {type: 'button', mode: 'primary', content: '新增', action: 'add'},
                     {type: 'button', mode: 'primary', content: '批量编辑', action: 'batchEdit'},
@@ -72,7 +72,7 @@ const demo1 = {
             crud: {
                 add: {
                     title: '新增机房:',
-                    api: 'docs/php/submit.php',
+                    api: 'docs/php/submit.php?sleep=1',
                     method: 'post',
                     form: {
                         items: [
@@ -85,7 +85,7 @@ const demo1 = {
                 },
                 edit: {
                     title: '编辑机房信息:',
-                    api: 'docs/php/submit.php',
+                    api: 'docs/php/submit.php?sleep=1',
                     forbidden: 'id'
                 },
                 details: {
@@ -134,7 +134,7 @@ const demo1 = {
                 },
                 delete: {
                     title: '删除机房:',
-                    api: 'docs/php/submit.php',
+                    api: 'docs/php/submit.php?sleep=1',
                     render: row=>{
                         return {
                             type: 'html',
@@ -147,7 +147,7 @@ const demo1 = {
                     title: '批量更新:',
                     width: 800,
                     api: {
-                        url: 'docs/php/submit.php',
+                        url: 'docs/php/submit.php?sleep=1',
                         method: 'put',
                         contentType: 'application/json',
                         paramsHandler(params) {

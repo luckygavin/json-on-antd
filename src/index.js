@@ -14,7 +14,7 @@ import WhiteList from 'src/tools/whitelist.js';
 // import Precondition from 'src/tools/precondition.js';
 
 import Tools from 'src/tools/init.js';
-import {setInstance, getInstance, setAjax, getAll} from 'src/tools/instance.js';
+import {setInstance, getInstance, delInstance, setAjax, getAll} from 'src/tools/instance.js';
 
 // 设置 moment 的 locale
 moment.locale('zh-cn');
@@ -126,6 +126,8 @@ const create = ({name})=>{
         // 全局数据
         get: ModelCache.get.bind(ModelCache),
         set: ModelCache.set.bind(ModelCache),
+        del: ModelCache.delete.bind(ModelCache),
+        delete: ModelCache.delete.bind(ModelCache),
         // 获取当前页面路由信息
         getRouter: uf.Router.getRouter,
         // 根据组件配置 生成&渲染组件实例
@@ -145,6 +147,10 @@ const create = ({name})=>{
                 return result;
             }
             return ReactDOM.render(result, this._getTarget(selector));
+        },
+        // 主动销毁render到页面上的组件
+        unrender(selector) {
+            return ReactDOM.unmountComponentAtNode(this._getTarget(selector));
         },
         // 向selector中插入新的组件
         append(config, selector) {
@@ -299,6 +305,9 @@ const create = ({name})=>{
         getAllIns(name) {
             const allIns = getAll();
             return name ? allIns[name] : allIns;
+        },
+        delIns(name) {
+            return delInstance(name);
         }
     };
     

@@ -9,3 +9,11 @@ header("Content-Type: application/json; charset=utf-8");
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     return;
 }
+
+$sleep = $_REQUEST['sleep'];
+// 默认延迟 300ms
+if (isset($sleep)) {
+    sleep($sleep);
+} else {
+    usleep(300000);
+}

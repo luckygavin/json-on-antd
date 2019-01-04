@@ -128,7 +128,7 @@ export default class BaseComponent extends Component {
 
         let reGetData = false;
         // 更新 __props
-        if (this.__shouldUpdate(currentProps, nextProps)) {
+        if (this.__shouldUpdate(currentProps, nextProps, false)) {
             // 如果参数变化，则重新获取数据。要在变更 __props 之前判断。
             reGetData = nextProps.source
                 && Utils.isChange(Utils.varietyFormat(nextProps.source, 'url'), this.__filtered.source)
@@ -454,10 +454,11 @@ export default class BaseComponent extends Component {
     //   如果是set导致的，则两次的props肯定会有不同，需刷新
     // 还有：需要把_filter中定义的属性全部过滤掉，这些属性是额外定义的，对判断结果会有影响
     // update at 2018/08/06, 如果是set的source等过滤属性，要保证这里也能通过，所以仅仅过滤`_`开头的属性
-    __shouldUpdate(props, nextProps) {
+    __shouldUpdate(props, nextProps, disposeFunc) {
         return !Utils.equals(
             Utils.filter(props, this._innerFilter),
-            Utils.filter(nextProps, this._innerFilter)
+            Utils.filter(nextProps, this._innerFilter),
+            disposeFunc
         );
     }
 

@@ -21,7 +21,7 @@ for($i=0;$i<$length;$i++){
     $data[$i] = $pis;
 }
 $result = array('status'=>0, 'data'=>$data, 'total'=>$total);
-sleep(1.5);
+
 echo json_encode($result);
 
 ?>

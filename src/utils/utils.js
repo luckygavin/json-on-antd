@@ -255,7 +255,17 @@ const utils = Object.assign({}, underscore, {
     },
     // 对比两个值是否相等
     // 注意：不要随意切换其余的对比函数，例如underscore的isEqual
-    equals(value1, value2) {
+    // TODO: 太ugly了。。。
+    equals(value1, value2, disposeFunc = true) {
+        if (disposeFunc) {
+            return utils.equals1(value1, value2);
+        } else {
+            return utils.equals2(value1, value2);
+        }
+    },
+    // 转成字符串再做对比，会对函数进行处理
+    // 注意：不要随意切换其余的对比函数，例如underscore的isEqual
+    equals1(value1, value2) {
         // 检测类型，类型一致才继续后续的对比
         if (utils.getType(value1) !== utils.getType(value2)) {
             return false;
@@ -273,7 +283,6 @@ const utils = Object.assign({}, underscore, {
                     if (utils.toString(value1[i]) !== utils.toString(value2[i])) {
                         return false;
                     }
-                    // } else if (!Object.is(value1[i], value2[i])) {
                 } else if (!Object.is(value1[i], value2[i]) && !underscore.isEqual(value1[i], value2[i])) {
                     return false;
                 }
@@ -282,6 +291,40 @@ const utils = Object.assign({}, underscore, {
         }
         // 包括：function、null、undefined、regexp、number、string、boolean、date ...
         if (utils.toString(value1) === utils.toString(value2)) {
+            return true;
+        }
+        return false;
+    },
+    // 函数也进行对比
+    equals2(value1, value2) {
+        // 检测类型，类型一致才继续后续的对比
+        if (utils.getType(value1) !== utils.getType(value2)) {
+            return false;
+        }
+        // 普通类型校验
+        if (value1 === value2) {
+            return true;
+        }
+        // 对象或数组的话，只检查了一层
+        if (utils.typeof(value1, ['object', 'array'])) {
+            let keys = Object.keys(Object.assign({}, value1, value2));
+            for (let i of keys) {
+                // 如果是函数，把函数转换成字符串再做比较。否则如果函数声明两次，用is比较返回的是false
+                // update at 2018-12-26，当传入新定义的函数时，支持函数更新（原逻辑当传入函数结构一置，但是重新生成并绑定的参数不同时，无法检测出来）
+                // if (utils.typeof(value1[i], 'function') && utils.typeof(value2[i], 'function')) {
+                //     if (utils.toString(value1[i]) !== utils.toString(value2[i])) {
+                //         return false;
+                //     }
+                // } else
+                if (!Object.is(value1[i], value2[i]) && !underscore.isEqual(value1[i], value2[i])) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        // 包括：function、null、undefined、regexp、number、string、boolean、date ...
+        // if (utils.toString(value1) === utils.toString(value2)) {
+        if (underscore.isEqual(value1, value2)) {
             return true;
         }
         return false;
@@ -309,7 +352,7 @@ const utils = Object.assign({}, underscore, {
     getChange(newVal, oldVal) {
         let result = {};
         for (let i of Object.keys(newVal)) {
-            if (!utils.equals(newVal[i], oldVal[i])) {
+            if (!utils.equals(newVal[i], oldVal[i], false)) {
                 result[i] = newVal[i];
             }
         }
@@ -560,6 +603,19 @@ const utils = Object.assign({}, underscore, {
         let level = strc.split('.').length;
         utils.merge(level, origin, tData);
     },
+    // 根据一个字符串，把数据从一个深层的对象中删除
+    delFromObject(strc, obj) {
+        let lastKey = strc;
+        let target = obj;
+        // 如果 strc 为空字符串，则返回 obj 本身
+        if (strc && strc.lastIndexOf('.') > -1) {
+            lastKey = strc.slice(strc.lastIndexOf('.') + 1);
+            let prestrc = strc.slice(0, strc.lastIndexOf('.'));
+            target = utils.fromObject(prestrc, obj);
+        }
+        target && (delete target[lastKey]);
+        return obj;
+    },
     // url中如果有类似于`:id`这种形式的动态参数，则替换成对应的参数值
     urlAnalysis(url, params, delParams = true) {
         if (!url || url.indexOf(':') === -1 || !utils.typeof(params, 'object')) {
@@ -673,6 +729,22 @@ const utils = Object.assign({}, underscore, {
                 result[i] = obj[i];
             }
         }
+        return result;
+    },
+    // 时间格式化，将秒转换成时/分/秒
+    timeFormatter(seconds = 0) {
+        let result = '';
+        let hours = Math.floor(seconds / (60 * 60));
+        if (hours > 0) {
+            result += hours + '小时';
+            seconds = seconds % (60 * 60);
+        }
+        let minutes = Math.floor(seconds / 60);
+        if (hours > 0 || minutes > 0) {
+            result += minutes + '分';
+            seconds = seconds % 60;
+        }
+        result += seconds + '秒';
         return result;
     },
 

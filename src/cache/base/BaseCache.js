@@ -27,7 +27,7 @@ export default class BaseCache {
         }
     }
     delete(key) {
-        delete this._cache[key];
+        Utils.delFromObject(key, this._cache);
     }
     del(key) {
         this.delete(key);

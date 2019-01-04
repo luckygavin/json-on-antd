@@ -54,7 +54,7 @@ export default generate(['Config'], Config=>{
 
         // 获取 localstorage 存储时所需的key
         getLocalStorageKey(config) {
-            if (config.localStorage) {
+            if (config.localStorage !== undefined && config.localStorage !== false) {
                 // 如果config.localStorage为一个字符串，则给key增加后缀再进行存储
                 let salt = Utils.typeof(config.localStorage, 'string') ? config.localStorage : '';
                 return Utils.hash(

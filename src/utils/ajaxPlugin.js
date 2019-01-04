@@ -86,13 +86,24 @@ export function checkLocalStorage(config, AjaxCache) {
     if (key) {
         // 不管能不能，中断真正的ajax调用
         let storageData = AjaxCache.getLocalStorageData(key);
+        let storageDataStr;
         if (storageData) {
-            Utils.defer(config.success, ...storageData);
+            storageDataStr = JSON.stringify(storageData);
+            Utils.defer(config.success, storageData.data, storageData);
         }
         // 给success函数插入缓存逻辑，数据返回后先对数据进行缓存
-        Utils.inject(config, 'success', (...params) => {
-            AjaxCache.setLocalStorageData(key, params);
-        });
+        // Utils.inject(config, 'success', (...params) => {
+        //     AjaxCache.setLocalStorageData(key, params);
+        // });
+        let oriSuccess = config.success;
+        config.success = (data, res) => {
+            // 如果数据未更新，则不再进行任何处理
+            if (storageDataStr && storageDataStr === JSON.stringify(res)) {
+                return;
+            }
+            AjaxCache.setLocalStorageData(key, res);
+            oriSuccess(data, res);
+        };
     }
     return false;
 }

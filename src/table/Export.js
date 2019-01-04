@@ -52,15 +52,20 @@ export default class TableExport extends Component {
         for (let column of columns) {
             // 只导出展示的字段，如果配置了exportAll，则导出时导出全部
             if (exportAll || column.display !== false || (this.parent.titleRef && this.parent.titleRef.state.showAllTags)) {
-                let item = {
-                    key: column.dataIndex || column.key,
-                    title: column.title
-                };
-                // 导出专用render函数
-                if (column.exportRender) {
-                    item.render = column.exportRender;
+                // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
+                if (!!column.children) {
+                    headers = headers.concat(this.getExportHeader(column.children, column.title));
+                } else {
+                    let item = {
+                        key: column.dataIndex || column.key,
+                        title: column.title
+                    };
+                    // 导出专用render函数
+                    if (column.exportRender) {
+                        item.render = column.exportRender;
+                    }
+                    headers.push(item);
                 }
-                headers.push(item);
             }
         }
         // 如果为后端分页，则传递 source 配置
@@ -76,12 +81,48 @@ export default class TableExport extends Component {
             };
         }
         // 否则传递 data
+        let data = this.parent.__props.data || [];
+        // 考虑数据有树形关系，在此进行关系打平，将子节点与父节点放在同一级
+        let newData = this.generateExportSyncData(data);
         return {
             type: 'sync',
             headers: headers,
-            data: this.parent.__props.data || [],
-            total: (this.parent.__props.data || []).length
+            data: newData,
+            total: data.length
         };
+    }
+
+    // 取出数据中children部分
+    generateExportSyncData(nowData) {
+        let exportData = [];
+        for (let i in nowData) {
+            exportData.push(nowData[i]);
+            if (!!nowData[i].children && nowData[i].children.length > 0) {
+                exportData = exportData.concat(this.generateExportSyncData(nowData[i].children));
+            }
+        }
+        return exportData;
+    }
+    // 取出columns中配置的表头，用作导出headers
+    getExportHeader(columnChildren, preTitle) {
+        let exportHeader = [];
+        for (let item of columnChildren) {
+            if (!!item.children) {
+                let childrenRes = this.getExportHeader(item.children, preTitle + '-' + item['title']);
+                exportHeader = exportHeader.concat(childrenRes);
+            } else {
+                let itemConf = {
+                    title: preTitle + '-' + item['title'],
+                    key: item['dataIndex'] || item['key']
+                };
+                // 导出专用render函数
+                if (item.exportRender) {
+                    itemConf.render = item.exportRender;
+                }
+                exportHeader.push(itemConf);
+            }
+        }
+        return exportHeader;
     }
     render() {
         return <Export key="export" _factory={this.parent._factory} style={{display: 'none'}}

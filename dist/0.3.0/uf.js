@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.19","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.3.0","fixedVersion":"0.3.0.21","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -1404,8 +1404,12 @@
 	            // 因为初始化的时候对函数有额外处理，所以暂时不能随意更改函数属性，需全部过滤
 	            // 但是初始化时，需把this.props上的全部赋值给__props，所以是否过滤函数需要增加判断
 	            var __props = this._filterHandler(nextProps);
-	            this.__prevProps = this.__props;
-	            this.__props = this.__mergeProps({}, this.__props, __props);
+	            // this.__prevProps = this.__props;
+	            // this.__props = this.__mergeProps({}, this.__props, __props);
+	            // __props一直是用同一个对象，__prevProps为复制来的，这样方便程序里使用深层对象的引用
+	            // TODO: 待观察是否有问题
+	            this.__prevProps = _utils.Utils.clone(this.__props);
+	            this.__props = this.__mergeProps(this.__props, __props);
 	            // 执行附加逻辑
 	            this._afterSetProps(nextProps);
 	            if (follow !== false) {
@@ -18673,15 +18677,20 @@
 
 	                    // 只导出展示的字段，如果配置了exportAll，则导出时导出全部
 	                    if (exportAll || column.display !== false || this.parent.titleRef && this.parent.titleRef.state.showAllTags) {
-	                        var item = {
-	                            key: column.dataIndex || column.key,
-	                            title: column.title
-	                        };
-	                        // 导出专用render函数
-	                        if (column.exportRender) {
-	                            item.render = column.exportRender;
+	                        // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
+	                        if (!!column.children) {
+	                            headers = headers.concat(this.getExportHeader(column.children, column.title));
+	                        } else {
+	                            var item = {
+	                                key: column.dataIndex || column.key,
+	                                title: column.title
+	                            };
+	                            // 导出专用render函数
+	                            if (column.exportRender) {
+	                                item.render = column.exportRender;
+	                            }
+	                            headers.push(item);
 	                        }
-	                        headers.push(item);
 	                    }
 	                }
 	                // 如果为后端分页，则传递 source 配置
@@ -18711,12 +18720,76 @@
 	                };
 	            }
 	            // 否则传递 data
+	            var data = this.parent.__props.data || [];
+	            // 考虑数据有树形关系，在此进行关系打平，将子节点与父节点放在同一级
+	            var newData = this.generateExportSyncData(data);
 	            return {
 	                type: 'sync',
 	                headers: headers,
-	                data: this.parent.__props.data || [],
-	                total: (this.parent.__props.data || []).length
+	                data: newData,
+	                total: data.length
 	            };
+	        }
+
+	        // 取出数据中children部分
+
+	    }, {
+	        key: 'generateExportSyncData',
+	        value: function generateExportSyncData(nowData) {
+	            var exportData = [];
+	            for (var i in nowData) {
+	                exportData.push(nowData[i]);
+	                if (!!nowData[i].children && nowData[i].children.length > 0) {
+	                    exportData = exportData.concat(this.generateExportSyncData(nowData[i].children));
+	                }
+	            }
+	            return exportData;
+	        }
+	        // 取出columns中配置的表头，用作导出headers
+
+	    }, {
+	        key: 'getExportHeader',
+	        value: function getExportHeader(columnChildren, preTitle) {
+	            var exportHeader = [];
+	            var _iteratorNormalCompletion4 = true;
+	            var _didIteratorError4 = false;
+	            var _iteratorError4 = undefined;
+
+	            try {
+	                for (var _iterator4 = columnChildren[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                    var item = _step4.value;
+
+	                    if (!!item.children) {
+	                        var childrenRes = this.getExportHeader(item.children, preTitle + '-' + item['title']);
+	                        exportHeader = exportHeader.concat(childrenRes);
+	                    } else {
+	                        var itemConf = {
+	                            title: preTitle + '-' + item['title'],
+	                            key: item['dataIndex'] || item['key']
+	                        };
+	                        // 导出专用render函数
+	                        if (item.exportRender) {
+	                            itemConf.render = item.exportRender;
+	                        }
+	                        exportHeader.push(itemConf);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError4 = true;
+	                _iteratorError4 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                        _iterator4.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError4) {
+	                        throw _iteratorError4;
+	                    }
+	                }
+	            }
+
+	            return exportHeader;
 	        }
 	    }, {
 	        key: 'render',

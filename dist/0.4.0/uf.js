@@ -18677,15 +18677,20 @@
 
 	                    // 只导出展示的字段，如果配置了exportAll，则导出时导出全部
 	                    if (exportAll || column.display !== false || this.parent.titleRef && this.parent.titleRef.state.showAllTags) {
-	                        var item = {
-	                            key: column.dataIndex || column.key,
-	                            title: column.title
-	                        };
-	                        // 导出专用render函数
-	                        if (column.exportRender) {
-	                            item.render = column.exportRender;
+	                        // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
+	                        if (!!column.children) {
+	                            headers = headers.concat(this.getExportHeader(column.children, column.title));
+	                        } else {
+	                            var item = {
+	                                key: column.dataIndex || column.key,
+	                                title: column.title
+	                            };
+	                            // 导出专用render函数
+	                            if (column.exportRender) {
+	                                item.render = column.exportRender;
+	                            }
+	                            headers.push(item);
 	                        }
-	                        headers.push(item);
 	                    }
 	                }
 	                // 如果为后端分页，则传递 source 配置
@@ -18715,12 +18720,76 @@
 	                };
 	            }
 	            // 否则传递 data
+	            var data = this.parent.__props.data || [];
+	            // 考虑数据有树形关系，在此进行关系打平，将子节点与父节点放在同一级
+	            var newData = this.generateExportSyncData(data);
 	            return {
 	                type: 'sync',
 	                headers: headers,
-	                data: this.parent.__props.data || [],
-	                total: (this.parent.__props.data || []).length
+	                data: newData,
+	                total: data.length
 	            };
+	        }
+
+	        // 取出数据中children部分
+
+	    }, {
+	        key: 'generateExportSyncData',
+	        value: function generateExportSyncData(nowData) {
+	            var exportData = [];
+	            for (var i in nowData) {
+	                exportData.push(nowData[i]);
+	                if (!!nowData[i].children && nowData[i].children.length > 0) {
+	                    exportData = exportData.concat(this.generateExportSyncData(nowData[i].children));
+	                }
+	            }
+	            return exportData;
+	        }
+	        // 取出columns中配置的表头，用作导出headers
+
+	    }, {
+	        key: 'getExportHeader',
+	        value: function getExportHeader(columnChildren, preTitle) {
+	            var exportHeader = [];
+	            var _iteratorNormalCompletion4 = true;
+	            var _didIteratorError4 = false;
+	            var _iteratorError4 = undefined;
+
+	            try {
+	                for (var _iterator4 = columnChildren[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	                    var item = _step4.value;
+
+	                    if (!!item.children) {
+	                        var childrenRes = this.getExportHeader(item.children, preTitle + '-' + item['title']);
+	                        exportHeader = exportHeader.concat(childrenRes);
+	                    } else {
+	                        var itemConf = {
+	                            title: preTitle + '-' + item['title'],
+	                            key: item['dataIndex'] || item['key']
+	                        };
+	                        // 导出专用render函数
+	                        if (item.exportRender) {
+	                            itemConf.render = item.exportRender;
+	                        }
+	                        exportHeader.push(itemConf);
+	                    }
+	                }
+	            } catch (err) {
+	                _didIteratorError4 = true;
+	                _iteratorError4 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	                        _iterator4.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError4) {
+	                        throw _iteratorError4;
+	                    }
+	                }
+	            }
+
+	            return exportHeader;
 	        }
 	    }, {
 	        key: 'render',

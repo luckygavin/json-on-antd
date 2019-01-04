@@ -421,8 +421,12 @@ export default class BaseComponent extends Component {
         // 因为初始化的时候对函数有额外处理，所以暂时不能随意更改函数属性，需全部过滤
         // 但是初始化时，需把this.props上的全部赋值给__props，所以是否过滤函数需要增加判断
         let __props = this._filterHandler(nextProps);
-        this.__prevProps = this.__props;
-        this.__props = this.__mergeProps({}, this.__props, __props);
+        // this.__prevProps = this.__props;
+        // this.__props = this.__mergeProps({}, this.__props, __props);
+        // __props一直是用同一个对象，__prevProps为复制来的，这样方便程序里使用深层对象的引用
+        // TODO: 待观察是否有问题
+        this.__prevProps = Utils.clone(this.__props);
+        this.__props = this.__mergeProps(this.__props, __props);
         // 执行附加逻辑
         this._afterSetProps(nextProps);
         if (follow !== false) {

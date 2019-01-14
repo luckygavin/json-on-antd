@@ -4,8 +4,6 @@
  * Created Date: 2017-12-18 07:48:32
  */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
 import {notification} from 'antd';
 import {generate, getInstance} from './instance.js';
 

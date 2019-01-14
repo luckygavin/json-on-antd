@@ -26,7 +26,7 @@ $suffix = '';
             <?php if (in_array($_VERSION, ['0.2.2', '0.2.1', '0.2'])) { ?>
                 <link rel="stylesheet" href="css/theme.min.css?v=<?php echo $_VERSION;?>" />
             <?php } ?>
-            <script src="v/<?php echo $_VERSION;?>/dll.js<?php echo $_FIXED;?>"></script>
+            <script src="v/<?php echo $_VERSION;?>/dll.min.js<?php echo $_FIXED;?>"></script>
             <script src="v/<?php echo $_VERSION;?>/antd.js<?php echo $_FIXED;?>"></script>
         <?php }?>
         <link rel="stylesheet" href="public/<?php echo $_VERSION; ?>/doc.min.css<?php echo $_FIXED;?>" />
@@ -35,7 +35,8 @@ $suffix = '';
     <body>
         <div id="container"></div>
         <script src="http://uf.baidu.com/third_party/jquery/jquery-3.2.1.min.js"></script>
-        
+        <script src="public/js/qrcode.min.js"></script>
+
         <script src="public/<?php echo $_VERSION; ?>/doc.js<?php echo $_FIXED;?>"></script>
         <script type="text/javascript">
             // makdown代码收/放

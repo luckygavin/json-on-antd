@@ -8,7 +8,6 @@ import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Table, Popover, Tooltip, Icon} from 'antd';
 // 扩展功能 - 增删改查等
-import Export from 'src/export';
 import Crud from './Crud.js';
 import Title from './Title.js';
 import Edit from './Edit.js';

@@ -31,8 +31,8 @@ if (production) {
 
 module.exports = {
     entry: {
-        doc: './docs/entry.js'
-        // home: './docs/home/index.jsx'
+        doc: './docs/entry.js',
+        demo: './docs/entry-demo.js'
     },
     output: {
         path: 'public/',
@@ -82,7 +82,10 @@ module.exports = {
             'src': __dirname + '/src',
             'theme': __dirname + '/theme',
             'root': __dirname,
-            'uf': __dirname
+            'uf': __dirname,
+            'mobile': __dirname + '/mobile',
+            // 动态基准目录，例如 config目录、lib.js之类的使用
+            'variety': __dirname + '/src'
         }
     },
     externals: {

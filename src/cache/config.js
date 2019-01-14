@@ -10,7 +10,7 @@
  */
 
 import BaseCache from './base/BaseCache.js';
-import Default from 'src/default';
+import Default from 'src/config/default';
 import Utils from 'src/utils/utils.js';
 import {generate} from 'src/tools/instance.js';
 

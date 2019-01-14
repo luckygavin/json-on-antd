@@ -1,8 +1,6 @@
 /**
  * @file Ueditor内容解析器，对ueditor编辑的内容进行展示
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
 import {Html} from 'src/dom';
 
 export default class UeditorParse extends Html {

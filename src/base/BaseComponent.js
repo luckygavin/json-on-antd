@@ -11,7 +11,7 @@ import {message, Spin} from 'antd';
 import {Utils} from 'src/utils';
 // import Model from 'src/tools/model.js';
 import Authority from 'src/tools/authority.js';
-import WhiteList from 'src/tools/whitelist.js';
+import WhiteList from 'src/config/whitelist';
 
 // // 提供给用户的和生命周期相关的函数，命名更加语义化
 export const ForUserApi = {
@@ -70,15 +70,15 @@ export default class BaseComponent extends Component {
         this.insName = this._factory.insName;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
-        // 需要先执行函数得到组件配置并需要重新解析配置的属性
-        this._analysis = [];
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
         this._injectEvent = [];
         this._filter = (Utils.copy(FilterProps)).concat(
             // 一些隐藏的属性
             ['__cache', '__type', '__key', '_factory', '_selfCalling'],
             // 二次解析白名单里的属性的原值存储在 _${v} 中
-            WhiteList.getall(this.type).map(v => `_${v}`)
+            WhiteList.getall(this.type).map(v => `_${v}`),
+            // 需要先执行函数得到组件配置并需要重新解析配置的属性
+            WhiteList.getallFuncs(this.type)
         );
         this._innerFilter = this._filter.filter(v => v.indexOf('_') === 0);
         // 不复杂的属性，即无需merge处理直接覆盖的属性
@@ -781,9 +781,9 @@ export default class BaseComponent extends Component {
 
     // 针对一些需要先执行函数得到组件配置并需要重新解析配置的属性进行处理
     _analysisProps() {
-        for (let v of this._analysis) {
-            if (this.__props[v]) {
-                let func = this.__props[v];
+        for (let v of WhiteList.getallFuncs(this.type)) {
+            if (this.__filtered[v]) {
+                let func = this.__filtered[v];
                 this.__props[v] = (...params) => {
                     return this.__analysis(func(...params));
                 };

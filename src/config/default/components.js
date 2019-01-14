@@ -1,5 +1,5 @@
 /**
- * @file 组件默认参数定义
+ * @file 普通组件默认配置
  * @author liuzechun
  * Created Date: 2017-10-12 03:23:12
  *
@@ -8,43 +8,6 @@
  */
 
 export default {
-    /****************************************************************************************/
-    /******* 基类默认配置，即一类组件通用配置 ****************************************************/
-    /****************************************************************************************/
-    'base-component': {
-        control: {
-            trigger: 'onClick'
-        },
-        source: {
-            // 如果组件没有设置target，则
-            // target: 'content',
-            // 默认自动移除空参数
-            removeEmptyParams: true
-        },
-        api: {
-            showLoading: true,
-            trigger: 'onClick',
-            method: 'post'
-        }
-    },
-    'antd': {},
-    'data-entry': {
-        api: {
-            trigger: 'onChange'
-        },
-        source: {
-            // 获取数据时展示loading
-            showLoading: false,
-            target: 'value'
-        },
-        control: {
-            trigger: 'onChange',
-            handler: (...p)=>p[p.length - 1].getValue()
-        }
-    },
-    /****************************************************************************************/
-    /******* 普通组件默认配置 ******************************************************************/
-    /****************************************************************************************/
     'auto-complete': {
         style: {minWidth: 160},
         mode: 'combobox',
@@ -88,16 +51,8 @@ export default {
             target: 'options'
         }
     },
-    'router': {
-        history: 'hashHistory'
-    },
     'loading': {
         delay: 150
-    },
-    'iframe': {
-        mode: 'auto',
-        delay: 0,
-        showLoading: true
     },
     'select': {
         optionFilterProp: 'children',
@@ -225,12 +180,6 @@ export default {
             labelStyle: {},
             valueCol: 18,
             valueStyle: {}
-        }
-    },
-    'echarts': {
-        style: {
-            width: '100%',
-            height: 400
         }
     }
 };

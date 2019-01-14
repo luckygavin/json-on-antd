@@ -59,6 +59,8 @@ h6 {
     background-color: #fff;
     height: 80px;
     font-size: 14px;
+    -webkit-box-shadow: 0 2px 8px #f0f1f2;
+    box-shadow: 0 2px 8px #f0f1f2;
     .logo {
         display: inline-block;
         line-height: 80px;
@@ -172,7 +174,7 @@ section {
 // demo
 .demo {
     .show {
-        padding: 42px 24px 50px;
+        padding: 24px 24px 40px;
         margin: -24px -24px 20px;
         border-bottom: 1px solid #e9e9e9;
     }
@@ -180,7 +182,7 @@ section {
         border-radius: 4px;
         margin-bottom: 16px;
         &>.ant-card-body {
-            padding: 24px 24px 0 24px;
+            padding: 34px 24px 0px 24px;
             .source-code {
                 background: #f7f7f7;
                 pre[class*="language-"] {
@@ -210,15 +212,13 @@ section {
             min-height: 18px;
             font-size: 12px;
         }
-        .collapse {
+        .viewcode {
             position: absolute;
-            right: -8px;
-            bottom: 0px;
             cursor: pointer;
-            width: 16px;
-            height: 16px;
-            font-size: 16px;
-            line-height: 16px;
+            width: 18px;
+            height: 18px;
+            font-size: 18px;
+            line-height: 18px;
             opacity: 0.5;
             text-align: center;
             -webkit-transition: all 0.3s;
@@ -232,7 +232,14 @@ section {
             user-select: none;
             border-radius: 100%;
         }
-
+        .collapse {
+            right: -8px;
+            bottom: -2px;
+        }
+        .bymodal {
+            right: 20px;
+            bottom: -2px;
+        }
     }
     .source-code {
         margin: 0 -24px;
@@ -323,3 +330,72 @@ ul.anticons-list li {
     }
 }
 
+// 代码查看弹框
+.codeviewer {
+    margin: -6px -8px;
+    .ant-card-body {
+        padding: 0 !important;
+        .source-code {
+            margin: 0 !important;
+            border: 0 !important;
+        }
+    }
+    .demo-card {
+        margin: 0 !important;
+    }
+}
+
+.mobile {
+    .mobile-header {
+        border-radius: 4px 4px 0 0;
+        background: -webkit-gradient(linear,left top,left bottom,from(rgba(55,55,55,.98)),to(#545456));
+        background: -webkit-linear-gradient(rgba(55,55,55,.98),#545456);
+        background: linear-gradient(rgba(55,55,55,.98),#545456);
+        text-align: center;
+        .statbar {
+            height: 20px;
+            margin-bottom: 4px;
+            img {
+                margin: 0 2px;
+                vertical-align: middle;
+                border-style: none;
+            }
+        }
+        .nav-bar {
+            height: 40px;
+            .url-box {
+                width: 350px;
+                height: 28px;
+                line-height: 28px;
+                color: #fff;
+                background-color: #a2a2a2;
+                margin: 0 auto;
+                border-radius: 4px;
+                white-space: nowrap;
+                overflow-x: scroll;
+                padding: 0 4px;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+    }
+    .mobile-content {
+        iframe {
+            width: 375px;
+            height: 548px;
+            border-top: none;
+            border-right: 1px solid rgb(247, 247, 247);
+            border-bottom: 1px solid rgb(247, 247, 247);
+            border-left: 1px solid rgb(247, 247, 247);
+            border-image: initial;
+            box-shadow: rgb(235, 235, 235) 0px 2px 4px;
+        }
+    }
+}
+
+.qrcode-icon {
+    font-size: 22px;
+    color: #bbb;
+    margin-left: 8px;
+}

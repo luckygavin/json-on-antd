@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Lib from 'variety/lib.js';
+
 import env from './env.js';
-import uf from './lib.js';
 import moment from 'moment';
 import 'moment/locale/zh-cn';
 import {Utils} from 'src/utils';
@@ -9,7 +10,7 @@ import Cache from 'src/cache';
 
 import Factory from 'src/tools/factory.js';
 import Loader from 'src/tools/loader.js';
-import WhiteList from 'src/tools/whitelist.js';
+import WhiteList from 'src/config/whitelist';
 // import Model from 'src/tools/model.js';
 // import Precondition from 'src/tools/precondition.js';
 
@@ -117,10 +118,10 @@ const create = ({name})=>{
         // underscore工具函数
         _: Utils._,
         // Modal直接调用函数，传入insName
-        Modal: Utils.each(uf.Modal, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
+        Modal: Utils.each(Lib.Modal, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
         // message、notification 直接调用函数，传入insName
-        message: Utils.each(uf.message, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
-        notification: Utils.each(uf.notification, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
+        message: Utils.each(Lib.message, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
+        notification: Utils.each(Lib.notification, item => Utils.typeof(item, 'function') ? item.bind(null, name) : item),
         // model 数据绑定页面
         // model: Model,
         // 全局数据
@@ -129,7 +130,7 @@ const create = ({name})=>{
         del: ModelCache.delete.bind(ModelCache),
         delete: ModelCache.delete.bind(ModelCache),
         // 获取当前页面路由信息
-        getRouter: uf.Router.getRouter,
+        getRouter: Lib.Router.getRouter,
         // 根据组件配置 生成&渲染组件实例
         init(config, selector) {
             if (!this.waiting) {
@@ -310,12 +311,11 @@ const create = ({name})=>{
             return delInstance(name);
         }
     };
-    
+
     // 绑定获取组件的函数
     const UF = func._get;
-    // Object.assign(UF, uf, func);
     Object.assign(UF, func);
-    
+
     // 存储新产生的uf实例
     setInstance(name, UF);
 

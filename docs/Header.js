@@ -14,6 +14,7 @@ const NavList = [
     {key: 'Index', name: '首页', path: '#/Index'},
     {key: 'Docs', name: '文档', path: '#/Docs'},
     {key: 'Component', name: '组件', path: '#/Component'},
+    {key: 'Mobile', name: 'Mobile版', path: '#/Mobile'},
     {key: 'Other', name: '其他', path: '#/Other', children: [
         {key: 'Standard', name: '开发规范', path: '#/Standard'},
         {key: 'ThirdParty', name: '第三方组件', path: '#/ThirdParty'},

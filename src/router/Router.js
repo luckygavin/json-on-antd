@@ -3,7 +3,6 @@
  * @author liuzechun
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import * as OriRouter from 'react-router';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';

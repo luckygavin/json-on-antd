@@ -77,7 +77,9 @@ module.exports = {
             'src': __root + '/src',
             'root': __root,
             'uf': __root,
-            'theme': __root + '/theme'
+            'theme': __root + '/theme',
+            // 动态基准目录，例如 config目录、lib.js之类的使用
+            'variety': __root + '/src'
         }
     },
     externals: [

@@ -7,7 +7,7 @@ import {Utils} from 'src/utils';
 import Antd from 'src/antd/base/Antd.js';
 import Loader from './loader.js';
 // import Model from './model.js';
-import WhiteList from './whitelist.js';
+import WhiteList from 'src/config/whitelist';
 
 // 不属于config的参数，适配用户配置的参数时使用
 const KeyWord = ['name', 'type', 'content', 'childrenHolder'];

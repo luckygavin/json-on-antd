@@ -151,7 +151,7 @@ export class IconPlus extends Genaral {
 }
 
 /************* Grid 栅格 ************************************************************************** */
-// Row 
+// Row
 export class Row extends Genaral {
     constructor(props) {
         super(props);
@@ -169,62 +169,5 @@ export class Col extends Genaral {
     }
     render() {
         return <Antd.Col {...this.__props}/>;
-    }
-}
-
-/************* Layout 布局 ************************************************************************** */
-
-// Layout 组件
-export class Layout extends Genaral {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Layout {...this.__props}/>;
-    }
-}
-
-// Layout 组件
-export class Header extends Genaral {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Layout.Header {...this.__props}/>;
-    }
-}
-
-// Layout 组件
-export class Footer extends Genaral {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Layout.Footer {...this.__props}/>;
-    }
-}
-
-// Layout 组件
-export class Sider extends Genaral {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Layout.Sider {...this.__props}/>;
-    }
-}
-
-// Layout 组件
-export class Content extends Genaral {
-    constructor(props) {
-        super(props);
-        this.__init();
-    }
-    render() {
-        return <Antd.Layout.Content {...this.__props}/>;
     }
 }

@@ -8,7 +8,7 @@
  */
 
 import React from 'react';
-import {Spin, Icon} from 'antd';
+import {Spin} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 

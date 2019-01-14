@@ -4,8 +4,10 @@
  * Created Date: 2018-01-30 10:55:45
  */
 
-import components from './components.js';
 import env from 'src/env.js';
+import baseComponents from './base-components.js';
+
+import components from 'variety/config/default/components.js';
 
 // 指定ueditor资源路径，否则css等加载路径不对
 window.UEDITOR_HOME_URL = `${env.basePath}/third_party/ueditor/`;
@@ -38,7 +40,7 @@ export default {
         }
     },
     // 组件默认配置
-    components,
+    components: Object.assign(baseComponents, components),
     // 权限点，用户有权限的权限点列表
     // key（权限点） => value（boolen/object）
     authority: {}

@@ -10,7 +10,7 @@ import Loader from './loader.js';
 import Adaptor from './adaptor.js';
 import Authority from './authority.js';
 import Validator from './validator.js';
-import WhiteList from './whitelist.js';
+import WhiteList from 'src/config/whitelist';
 
 import {getAjax, getComponentsCache, getConfig, getRequirejs} from 'src/tools/instance.js';
 

@@ -22,6 +22,7 @@
   "main": "index.js",
   "dependencies": {
     "antd": "^2.13.7",
+    "antd-mobile": "^2.2.8",
     "immutable": "^3.8.1",
     "moment": "^2.17.1",
     "react": "^15.6.2",
@@ -61,7 +62,14 @@
     "antd": "webpack --config dist/config/webpack.antd.js",
     "dll": "webpack --config dist/config/webpack.dll.js",
     "react": "webpack --config dist/config/webpack.react.js",
-    "all": "npm run dll & npm run antd & npm run build",
+    "all": "npm run dll & npm run antd & npm run build && npm run all-mobile",
+
+    "build-mobile-watch": "webpack --config mobile/build/webpack.build.js --watch",
+    "build-mobile": "webpack --config mobile/build/webpack.build.js",
+    "antd-mobile": "webpack --config mobile/build/webpack.antd.js",
+    "dll-mobile": "webpack --config mobile/build/webpack.dll.js",
+    "all-mobile": "npm run dll-mobile & npm run antd-mobile & npm run build-mobile",
+
     "start": "webpack --watch"
   }
 }

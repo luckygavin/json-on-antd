@@ -359,7 +359,8 @@ export class OriginForm extends BaseComponent {
     // 生成单个表单项
     // key 为表单name后缀，表单项循环时需要使用
     getFormItem(oitem, okey = null) {
-        if (!oitem || !oitem.type || oitem.type === 'empty') {
+        // 增加权限过滤
+        if (!oitem || !oitem.type || oitem.type === 'empty' || !this.__authority(oitem)) {
             return;
         }
         if (!oitem.name) {

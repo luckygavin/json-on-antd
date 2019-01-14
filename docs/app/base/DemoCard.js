@@ -2,9 +2,8 @@
  * @file Demo展示
  * **/
 import React from 'react';
-import ReactDOM from 'react-dom';
 import marked from 'marked';
-import {Modal, Card, Row, Col, Icon} from 'antd';
+import {Card, Icon} from 'antd';
 import UF from 'src';
 import {Utils} from 'src/utils';
 
@@ -41,7 +40,7 @@ export function switchCode(config) {
     return cfgStr;
 }
 
-export default class Demo extends React.Component {
+export default class DemoCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -67,6 +66,26 @@ export default class Demo extends React.Component {
     toggle(i) {
         this.setState({show: !this.state.show});
     }
+    viewcode() {
+        UF.Modal.create({
+            title: this.props.title,
+            width: 850,
+            footer: null,
+            maskClosable: true,
+            afterCreate() {
+                Prism && Prism.highlightAll();
+            },
+            content: {type: 'div', className: 'demo codeviewer', content: {
+                type: 'div', className: 'demo-card', content: {
+                    type: 'div', className: 'ant-card-body', content: {
+                        type: 'div',
+                        className: 'source-code',
+                        content: this.sourceCode
+                    }
+                }
+            }}
+        });
+    }
     getSourceCode(config) {
         let code = `var config = ${switchCode(config)};\n${ufName}.init(config, \'#demo\');`;
         return (
@@ -82,10 +101,32 @@ export default class Demo extends React.Component {
                 <div className="description">
                     <div className="title">{this.props.title}</div>
                     <div className="content markdown" dangerouslySetInnerHTML={{__html: marked(this.props.description || '')}}></div>
-                    <Icon className="collapse" type={this.state.show ? 'up-circle-o' : 'down-circle-o'}
+                    <Icon className="viewcode collapse" type={this.state.show ? 'up-circle-o' : 'down-circle-o'}
                         onClick={this.toggle.bind(this)} />
                 </div>
                 <div className="source-code" style={{display: this.state.show ? 'block' : 'none'}}>
+                    {this.sourceCode}
+                </div>
+            </Card>
+        );
+    }
+}
+
+// 仅展示代码的卡片（不有代码的实现效果）
+export class DemoCodeCard extends DemoCard {
+    componentDidMount() {}
+    render() {
+        return (
+            <Card className="demo-card" {...this.props.card}>
+                {/* <div className="show" id={this.id}></div> */}
+                <div className="description">
+                    <div className="title">{this.props.title}</div>
+                    <div className="content markdown" dangerouslySetInnerHTML={{__html: marked(this.props.description || '')}}></div>
+                    <Icon className="viewcode bymodal" type="code-o" onClick={this.viewcode.bind(this)} />
+                    <Icon className="viewcode collapse" type={this.state.show ? 'up-circle-o' : 'down-circle-o'}
+                        onClick={this.toggle.bind(this)} />
+                </div>
+                <div className="source-code" style={this.state.show ? {} : {maxHeight: '240px', overflow: 'scroll'}}>
                     {this.sourceCode}
                 </div>
             </Card>

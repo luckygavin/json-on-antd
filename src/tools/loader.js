@@ -4,15 +4,16 @@
  * @author liuzechun@baidu.com
  */
 import React from 'react';
+import Lib from 'variety/lib.js';
+
 import {BaseConf, BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Dom} from 'src/dom';
-import * as UF from 'src/lib.js';
 
 import {getConfig} from './instance.js';
 
 export default {
-    component: Object.assign(UF),
+    component: Object.assign(Lib),
 
     // 添加组件
     add(components) {

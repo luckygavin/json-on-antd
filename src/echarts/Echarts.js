@@ -2,7 +2,6 @@
  * @file Echarts封装
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 
@@ -85,7 +84,7 @@ export default class Echarts extends BaseComponent {
             this.initEcharts();
         } else {
             // 惰性加载
-            // echarts 的路径见 src/default/index.js 中的配置
+            // echarts 的路径见 src/config/default/index.js 中的配置
             this._factory.$requirejs(['echarts'], echarts=>{
                 this.echarts = echarts;
                 this.initEcharts();

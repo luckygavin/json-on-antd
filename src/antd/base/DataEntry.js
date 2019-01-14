@@ -202,7 +202,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
 DataEntry.BasePicker = class BasePicker extends DataEntry {
     constructor(props) {
         super(props);
-        this._analysis.push('renderExtraFooter');
+        this.class.push('basic-picker');
         this._filter.push('current');
         this._injectEvent.push('onOk');
         // this.__init();

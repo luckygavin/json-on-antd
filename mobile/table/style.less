@@ -1,0 +1,29 @@
+.uf-mobile-table {
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        text-align: left;
+        // border-radius: 4px 4px 0 0;
+        overflow: hidden;
+        thead > tr > th,
+        tbody > tr > td {
+            padding: 16px 8px;
+            word-break: break-all;
+        }
+        thead > tr > th {
+            background: #f3f3f3;
+            font-weight: 500;
+            transition: background .3s ease;
+            text-align: left;
+            background: #2e94fe;
+            color: #fff;
+        }
+        tbody > tr:nth-of-type(odd) {
+            background-color: #d6eafd;
+        }
+        tbody > tr:nth-of-type(even) {
+            background-color: #f7fbff;
+        }
+    }
+}

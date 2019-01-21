@@ -57,6 +57,38 @@ $suffix = '';
             $(document).on('dblclick', 'h3', copyFunc);
             $(document).on('dblclick', 'h4', copyFunc);
             $(document).on('dblclick', 'h5', copyFunc);
+            // 捕获tab事件，在输入框中，tab表示4个空格
+            document.onkeydown = function(e) {
+                var key = e.which;
+                var text = '    ';
+                if(key == 9 && e.target.tagName === 'CODE' && e.target.contentEditable === 'true'){
+                    e.preventDefault();
+                    var sel = window.getSelection();
+                    if (sel.getRangeAt && sel.rangeCount) {
+                        var range = sel.getRangeAt(0);
+                        range.deleteContents();
+                        // Range.createContextualFragment() would be useful here but is
+                        // non-standard and not supported in all browsers (IE9, for one)
+                        var divNode = document.createElement("div");
+                        divNode.innerHTML = text;
+                        var frag = document.createDocumentFragment();
+                        var node;
+                        var lastNode;
+                        while ((node = divNode.firstChild)) {
+                            lastNode = frag.appendChild(node);
+                        }
+                        range.insertNode(frag);
+                        // Preserve the selection
+                        if (lastNode) {
+                            range = range.cloneRange();
+                            range.setStartAfter(lastNode);
+                            range.collapse(true);
+                            sel.removeAllRanges();
+                            sel.addRange(range);
+                        }
+                    }
+                }
+            };
         </script>
         <?php if (ENV == 'dev') { ?>
             <script src="dist/<?php echo $_VERSION;?>/uf.js<?php echo $_FIXED;?>"></script>

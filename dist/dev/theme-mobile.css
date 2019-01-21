@@ -5655,3 +5655,34 @@ a {
  *  Author: liuzechun (liuzechun@baidu.com)
  *  Created: 2019-01-09 15:39:10
  */
+.am-list-body {
+  background-color: transparent;
+  border-top: none;
+  border-bottom: none;
+}
+.uf-mobile-table table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  text-align: left;
+  overflow: hidden;
+}
+.uf-mobile-table table thead > tr > th,
+.uf-mobile-table table tbody > tr > td {
+  padding: 16px 8px;
+  word-break: break-all;
+}
+.uf-mobile-table table thead > tr > th {
+  background: #f3f3f3;
+  font-weight: 500;
+  transition: background .3s ease;
+  text-align: left;
+  background: #2e94fe;
+  color: #fff;
+}
+.uf-mobile-table table tbody > tr:nth-of-type(odd) {
+  background-color: #d6eafd;
+}
+.uf-mobile-table table tbody > tr:nth-of-type(even) {
+  background-color: #f7fbff;
+}

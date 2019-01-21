@@ -7,7 +7,7 @@
  *  
  */
 import React, {Component, PureComponent} from 'react';
-import {message, Spin} from 'antd';
+import {Spin} from 'antd';
 import {Utils} from 'src/utils';
 // import Model from 'src/tools/model.js';
 import Authority from 'src/tools/authority.js';
@@ -68,6 +68,8 @@ export default class BaseComponent extends Component {
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
         this.insName = this._factory.insName;
+        // 信息提示
+        this.__message = this._factory.$message;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -952,32 +954,36 @@ export default class BaseComponent extends Component {
         return this.__execAjax({
             ...others,
             params,
-            success(data, res) {
+            success: (data, res) => {
                 // 改变了onSuccess在__execAjax中的执行顺序，所以取出后不再传入给__execAjax
                 let result = onSuccess && onSuccess(data, res);
                 // onSuccess有返回值，则执行默认提示
                 if (result === undefined || result === true) {
-                    message.success('执行成功' + (
+                    this.__message.success('执行成功' + (
                         res.msg ? '：' + res.msg : (
                             Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'
                         )), 2);
                 }
             },
-            error(res) {
+            error: res => {
                 let result = onError && onError(res);
                 // onError有返回值，则执行默认提示
                 if (result === undefined || result === true) {
-                    message.error(res.msg ? res.msg : '执行失败!', 3);
+                    this.__message.error(res.msg ? res.msg : '执行失败!', 3);
                 }
                 return result || false;
             },
-            onchange(status) {
-                if (status) {
-                    if (showLoading) {
-                        hideLoading = message.loading('提交中，请等待~', 0);
+            onchange: status => {
+                if (showLoading) {
+                    if (showLoading === 'simple') {
+                        this.loading(status, showLoading);
+                    } else {
+                        if (status) {
+                            hideLoading = this.__message.loading('提交中，请等待~', 0);
+                        } else {
+                            hideLoading && hideLoading();
+                        }
                     }
-                } else {
-                    hideLoading && hideLoading();
                 }
             }
         }, true);

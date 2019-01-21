@@ -3,7 +3,6 @@
  * @author liuzechun@baidu.com
  * */
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {message, Modal} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
@@ -436,7 +435,7 @@ export default class Crud extends BaseComponent {
     _showBatchEdit(key, visible = true) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
-            message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+            this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
             return;
         }
         if (this.oConfig[key] && this.oConfig[key].keys) {
@@ -471,7 +470,7 @@ export default class Crud extends BaseComponent {
     _showBatchDelete(key, visible) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
-            message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+            this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
             return;
         }
         let modal = this.__getComponent(this._getModalName(key));
@@ -481,7 +480,7 @@ export default class Crud extends BaseComponent {
     _showBatchShow(key, visible) {
         let datas = this.parent.getSelected();
         if (!(datas && datas.length > 0)) {
-            message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+            this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
             return;
         }
         let modal = this.__getComponent(this._getModalName(key));

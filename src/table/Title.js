@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {Icon, Dropdown, Menu, Modal, Popconfirm} from 'antd';
-import {Input, Checkbox} from 'antd';
+import {Input, Checkbox, Button} from 'antd';
 
 import {FuzzyFilter} from './Filters.js';
 
@@ -54,8 +54,7 @@ export default class Title extends BaseComponent {
             // 当有缓存时，使用缓存的选中列
             let cache = Utils.getCache(this.cacheName);
             if (cache) {
-                this.columnsCheckedValues = cache;
-                this.setTableColumns();
+                this.setTableColumns(cache);
             }
         }
     }
@@ -353,9 +352,9 @@ export default class Title extends BaseComponent {
         this.setState({showSetTagsModal: true});
     }
     // 自定义展示某些列
-    setTableColumns() {
+    setTableColumns(defaultValues) {
         // 根据this.columnsCheckedValues中存储的用户的选择进行展示
-        let showColumns = this.columnsCheckedValues;
+        let showColumns = defaultValues || this.columnsCheckbox.getValue();
         let allColumns = this.parent.columns;
         for (let i in allColumns) {
             if (showColumns.some(v => allColumns[i].dataIndex === v)) {
@@ -371,8 +370,8 @@ export default class Title extends BaseComponent {
         // this.parent.forceUpdate();
         this.parent.__setProps({columns: allColumns});
     }
-    onSetColumnsCheckboxChange(checkedValues) {
-        this.columnsCheckedValues = checkedValues;
+    onSelectAll() {
+        this.columnsCheckbox.selectAll();
     }
     cancleSetTableColumns() {
         this.setState({showSetTagsModal: false});
@@ -392,12 +391,8 @@ export default class Title extends BaseComponent {
                 defaultValue.push(allColumns[item].dataIndex);
             }
         }
-        this.columnsCheckedValues = defaultValue;
-        if (options.length > 0) {
-            return <CheckboxGroup options={options}
-                defaultValue={defaultValue}
-                onChange={this.onSetColumnsCheckboxChange.bind(this)} />;
-        }
+        return <ColumnsCheckbox ref={ele => (this.columnsCheckbox = ele)}
+                options={options} value={defaultValue}/>;
     }
 
     /* 设置分页条数 **********************************************************************/
@@ -445,16 +440,46 @@ export default class Title extends BaseComponent {
     hideMenuDropdown() {
         this.setState({showTableMenu: false});
     }
-
     render() {
         return <div className="uf-table-title">
             {this.titleGenerate()}
             <Modal title="展示字段" className="uf-table-modal" key="uf-table-modal"
                 visible={this.state.showSetTagsModal}
-                onOk={this.setTableColumns.bind(this)}
-                onCancel={this.cancleSetTableColumns.bind(this)}>
+                onOk={this.setTableColumns.bind(this, null)}
+                onCancel={this.cancleSetTableColumns.bind(this)}
+                footer={[
+                    <Checkbox onChange={this.onSelectAll.bind(this)} style={{marginRight: '8px'}}>全选</Checkbox>,
+                    <Button type="primary" size="large" onClick={this.setTableColumns.bind(this, null)}>确定</Button>,
+                    <Button size="large" onClick={this.cancleSetTableColumns.bind(this)}>取消</Button>
+                ]}>
                 {this.generateColumnsCheckboxGroup()}
             </Modal>
         </div>;
+    }
+}
+
+class ColumnsCheckbox extends React.Component {
+    constructor(props) {
+        super(props);
+        this.checkedValues = props.value;
+    }
+    componentWillReceiveProps(nextProps) {
+        this.checkedValues = nextProps.value;
+    }
+    selectAll() {
+        this.onChange(this.props.options.map(v=>v.value));
+    }
+    getValue() {
+        return this.checkedValues;
+    }
+    onChange(checkedValues) {
+        console.log(checkedValues);
+        this.checkedValues = checkedValues;
+        this.forceUpdate();
+    }
+    render() {
+        return <CheckboxGroup options={this.props.options}
+            value={this.checkedValues}
+            onChange={this.onChange.bind(this)} />
     }
 }

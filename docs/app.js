@@ -115,6 +115,9 @@ export const ComponentList = [
 // 组件文档列表
 export const MobileComponent = [
     {path: 'Mobile/Guide', name: '写在最前面', component: require('./app/mobile/guide').default},
+    {path: 'Mobile/Custom', name: '定制组件', children: [
+        {path: 'Table', name: 'Table 表格', component: require('mobile/table/docs').default},
+    ]},
     {path: 'Mobile/Global', name: '综合组件', children: [
         {path: 'Button', name: 'Button 按钮', component: require('mobile/antd/docs/button').default},
         {path: 'Flex', name: 'Flex 布局', component: require('mobile/antd/docs/flex').default},
@@ -154,6 +157,7 @@ export const MobileComponent = [
         {path: 'Carousel', name: 'Carousel 走马灯', component: require('mobile/antd/docs/carousel').default},
         {path: 'Card', name: 'Card 卡片', component: require('mobile/antd/docs/card').default},
         {path: 'List', name: 'List 列表', component: require('mobile/antd/docs/list').default},
+        {path: 'ListView', name: 'ListView 长列表', component: require('mobile/antd/docs/list-view').default},
         {path: 'Popover', name: 'Popover 气泡', component: require('mobile/antd/docs/popover').default},
         {path: 'NoticeBar', name: 'NoticeBar 通告栏', component: require('mobile/antd/docs/notice-bar').default},
         {path: 'Tag', name: 'Tag 标签', component: require('mobile/antd/docs/tag').default},

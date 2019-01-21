@@ -64,7 +64,7 @@ module.exports = {
             'uf': __root,
             'mobile': __root + '/mobile',
             // 伪装的antd，某些基础组件中使用的组件，使用移动版组件进行实现以进行欺骗
-            'antd': __root + '/mobile/compat',
+            'antd': __root + '/mobile/mock',
             // 动态基准目录，例如 config目录、lib.js之类的使用
             'variety': __root + '/mobile'
         }

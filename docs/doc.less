@@ -187,8 +187,14 @@ section {
                 background: #f7f7f7;
                 pre[class*="language-"] {
                     margin: 0;
+                    code:focus {
+                        outline: none;
+                    }
                 }
             }
+        }
+        .source-code {
+            overflow: auto;
         }
     }
     .description {
@@ -338,6 +344,10 @@ ul.anticons-list li {
         .source-code {
             margin: 0 !important;
             border: 0 !important;
+        }
+        .ant-alert {
+            border-radius: 0;
+            font-weight: 700;
         }
     }
     .demo-card {

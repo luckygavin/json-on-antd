@@ -7,5 +7,6 @@
 
 module.exports = {
     message: require('./message.js').default,
+    notification: require('./notification.js').default,
     Spin: require('./Spin.js').default
 };

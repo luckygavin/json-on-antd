@@ -19,6 +19,15 @@ export default {
     List: {basic: ['renderHeader', 'renderFooter']},
     Item: {basic: ['thumb', 'extra']},
     ListViewIndex: {basic: ['delayActivityIndicator']},
+    ListView: {
+        funcs: [
+            // 'renderHeader', 'renderFooter',
+            // 'renderScrollComponent', 'renderSectionHeader',
+            // 'renderSeparator', 'renderBodyComponent',
+            // 'renderSectionWrapper', 'renderSectionBodyWrapper',
+            // 'renderRow',
+        ]
+    },
     Modal: {basic: ['title']},
     NavBar: {basic: ['icon', 'leftContent', 'rightContent']},
     NoticeBar: {basic: ['icon', 'action']},

@@ -17,6 +17,14 @@ export default {
             showLoading: 'simple'
         }
     },
+    button: {
+        source: {
+            showLoading: 'simple'
+        },
+        api: {
+            showLoading: 'simple'
+        }
+    },
     'breadcrumb': {
         style: {padding: '12px 24px', lineHeight: '18px'}
     },

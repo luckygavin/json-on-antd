@@ -6,6 +6,9 @@
  */
 
 module.exports = Object.assign(
+    {
+        _env: 'uf-mobile'
+    },
     require('src/dom'),
     // 路由组件
     require('src/router'),
@@ -19,6 +22,8 @@ module.exports = Object.assign(
         Iframe: require('src/iframe'),
         Ueditor: require('src/ueditor').Ueditor,
         UeditorParse: require('src/ueditor').UeditorParse,
-        Echarts: require('src/echarts')
+        Echarts: require('src/echarts'),
+
+        Table: require('./table')
     }
 );

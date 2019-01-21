@@ -366,9 +366,18 @@
         }
     }
     // 原始title没有内容时的样式
-    &.uf-table-no-title .ant-table-title{
+    &.uf-table-no-title .ant-table-title {
         padding: 0px;
         margin-bottom: -1px;
+    }
+    // 将头部内容提取出来，修改默认头部样式
+    &:not(.uf-table-no-title) {
+        .ant-table {
+            border-radius: 0;
+            table {
+                border-radius: 0;
+            }
+        }
     }
     // 选择框样式
     .ant-table-thead > tr > th,

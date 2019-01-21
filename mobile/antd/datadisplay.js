@@ -80,13 +80,24 @@ export class Card extends DataDisplay {
 export class List extends DataDisplay {
     constructor(props) {
         super(props);
+        this._filter.push('header', 'footer');
         this.__init();
+    }
+    _afterInitProps() {
+        super._afterInitProps();
+        // 改造原组件的 renderHeader、renderFooter 接口
+        this.__props.renderHeader = ()=>{
+            return this.__analysis(this.__filtered.header);
+        };
+        this.__props.renderFooter = ()=>{
+            return this.__analysis(this.__filtered.footer);
+        };
     }
     render() {
         return <Antd.List {...this.__props}/>;
     }
 }
-export class Item extends DataDisplay {
+export class ListItem extends DataDisplay {
     constructor(props) {
         super(props);
         this.__init();
@@ -95,14 +106,100 @@ export class Item extends DataDisplay {
         return <Antd.List.Item {...this.__props}/>;
     }
 }
-// ListView 长列表
-export class ListView extends DataDisplay {
+// list-item-brief
+export class ListItemBrief extends DataDisplay {
     constructor(props) {
         super(props);
         this.__init();
     }
     render() {
-        return <Antd.ListView {...this.__props}/>;
+        return <Antd.List.Item.Brief {...this.__props}/>;
+    }
+}
+// ListView 长列表
+export class ListView extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this._injectEvent = ['onEndReached'];
+        this._filter.push('data', 'header', 'footer', 'separator', 'renderRow');
+        this.__init();
+        this.pageNum = 1;
+        this.state = {
+            data: props.data || []
+        };
+        // 原组件中shi一样的代码
+        this.dataSource = new Antd.ListView.DataSource({
+            rowHasChanged: (row1, row2) => row1 !== row2,
+            sectionHeaderHasChanged: (s1, s2) => s1 !== s2
+        });
+    }
+    _afterInitProps() {
+        super._afterInitProps();
+        // 改造原组件的 renderHeader、renderFooter、renderSeparator、renderRow 接口
+        // 头部
+        if (this.__filtered.header) {
+            this.__props.renderHeader = ()=>{
+                return this.__analysis(this.__filtered.header);
+            };
+        }
+        // 尾部
+        if (this.__filtered.footer) {
+            this.__props.renderFooter = ()=>{
+                return this.__analysis(this.__filtered.footer);
+            };
+        }
+        // 行渲染组件
+        if (this.__filtered.renderRow) {
+            this.__props.renderRow = (row, sectionId, rowId)=>{
+                return this.__analysis(
+                    this.__filtered.renderRow(row, +rowId)
+                );
+            };
+        }
+        // 分隔器
+        if (this.__filtered.separator) {
+            this.__props.renderSeparator = (sectionId, rowId)=>{
+                let result = this.__filtered.separator;
+                if (Utils.typeof(result, 'function')) {
+                    result = result(rowId);
+                } else {
+                    result = Utils.clone(result);
+                }
+                result.key = result.key || rowId;
+                return this.__analysis(result);
+            }
+        }
+    }
+    // 首次加载数据
+    _handleAsyncData() {
+        this._onEndReached();
+    }
+    // 滑动到底部时触发拉取数据的逻辑
+    _onEndReached() {
+        let params = this.__filtered.source.params;
+        params = Object.assign({}, params, {
+            page: this.pageNum++,
+            size: this.__props.pageSize
+        });
+        // 调用通用source获取数据逻辑
+        this.__getSourceData({
+            params: params,
+            success: data => {
+                this.setState({
+                    data: this.state.data.concat(data)
+                });
+            }
+        });
+    }
+    render() {
+        console.log(this.__props);
+        return <Antd.ListView {...this.__props}
+            onEndReachedThreshold={this.__props.endReachedThreshold}
+            renderFooter={this.__props.renderFooter || (() => (<div style={{padding: 30, textAlign: 'center'}}>
+                {this.state.isLoading ? 'Loading...' : 'Loaded'}
+            </div>))}
+            dataSource={this.dataSource.cloneWithRows(this.state.data)}
+        />;
     }
 }
 

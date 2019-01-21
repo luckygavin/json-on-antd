@@ -35,7 +35,7 @@ export class DemoCode extends React.Component {
                 : <Layout style={{background: '#fff'}}>
                     <Content>
                         {(this.props.list || []).map((item, i)=>{
-                            return <DemoCodeCard key={i} {...item}/>;
+                            return <DemoCodeCard key={i} id={i} {...item} getDemoIframe={() => this.iframe}/>;
                         })}
                     </Content>
                     <Sider width={395} style={{background: '#fff', paddingLeft: '20px', height: 620}}>
@@ -52,7 +52,7 @@ export class DemoCode extends React.Component {
                             </div>
                         </div>
                         <div className="mobile-content">
-                            <iframe src={demoUrl}></iframe>
+                            <iframe ref={ele => (this.iframe = ele)} src={demoUrl}></iframe>
                         </div>
                     </Sider>
                 </Layout>

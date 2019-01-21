@@ -3,7 +3,7 @@
  * @author liuzechun@baidu.com
  * */
 import React from 'react';
-import {Modal} from 'antd';
+import {Modal, Button} from 'antd';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
 import {getInstance} from 'src/tools/instance.js';
@@ -204,6 +204,9 @@ class NewModal extends BaseComponent {
         selfProps.onOk = this._submitHandler.bind(this);
         if (this.__props.footerContent) {
             selfProps.footer = this.__props.footerContent;
+        }
+        if (!selfProps.footer) {
+            selfProps.className += 'uf-modal-default-footer';
         }
         return selfProps;
     }

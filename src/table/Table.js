@@ -920,8 +920,13 @@ export default class NewTable extends BaseComponent {
         let expandedRowKeys = this.state.expandedRowKeys;
         let footer = this.state.antdConfig.footer;
         return <div {...this.__getCommonProps({className: this.getClassName()})}>
+            <div className={'ant-table ' + (this.state.antdConfig.bordered ? 'ant-table-bordered' : '')}>
+                <div className="ant-table-title">
+                    {this.renderTitle()}
+                </div>
+            </div>
             <Table {...this.state.antdConfig} size={size}
-                title={() => this.renderTitle()}
+                // title={() => this.renderTitle()}
                 onExpandedRowsChange={this.onExpandedRowsChange.bind(this)}
                 {...(expandedRowRender && ({expandedRowRender: row => this.__analysis(expandedRowRender(row))}))}
                 {...(expandedRowKeys && ({expandedRowKeys: expandedRowKeys}))}

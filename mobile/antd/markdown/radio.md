@@ -13,19 +13,19 @@ disabled      |  禁用  | Boolean |  false
 onChange    | change 事件触发的回调函数 | (e: Object): void |   无 
 
 
-### radio-item
+### # radio-item
 
 基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和`List.Item`一致。
 其他 API 和 Radio 相同。
 
 
-### # radio-button
+### # radio-buttons
 
 按钮形式的radio
 
 属性 | 说明 | 类型 | 默认值
 ----|-----|------|------
-items  | 选项数组,值是字符串        | array |  []  
+options  | 选项数组,值是字符串        | array |  []  
 value  |  当前选中的值  | string |   
 prefixCls  | 样式前缀        | String |  `am-segment`  
 tintColor  | 组件主色调      | String |  `#2DB7F5`  

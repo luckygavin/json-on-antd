@@ -246,6 +246,7 @@
 
 
 	    var func = {
+	        _env: _lib2.default._env,
 	        /*******************************************************/
 	        /******** 私有属性/方法 *********************************/
 	        /*****************************************************/
@@ -624,7 +625,9 @@
 	 * @author liuzechun@baidu.com
 	 */
 
-	module.exports = Object.assign(__webpack_require__(16),
+	module.exports = Object.assign({
+	    _env: 'uf'
+	}, __webpack_require__(16),
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(65),
 	// 路由组件
@@ -884,6 +887,8 @@
 	        // _factory 是最初 Factory 的 this
 	        _this._factory = _this.props._factory;
 	        _this.insName = _this._factory.insName;
+	        // 信息提示
+	        _this.__message = _this._factory.$message;
 	        // 供用户使用，例如获取路由信息/参数等
 	        _this._root = _this._factory;
 	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -2231,6 +2236,8 @@
 	    }, {
 	        key: '_apiHandler',
 	        value: function _apiHandler(oParams) {
+	            var _this12 = this;
+
 	            var _filtered$api = this.__filtered.api,
 	                _filtered$api$params = _filtered$api.params,
 	                params = _filtered$api$params === undefined ? oParams : _filtered$api$params,
@@ -2254,24 +2261,28 @@
 	                    var result = onSuccess && onSuccess(data, res);
 	                    // onSuccess有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
-	                        _antd.message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
+	                        _this12.__message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
 	                    }
 	                },
 	                error: function error(res) {
 	                    var result = onError && onError(res);
 	                    // onError有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
-	                        _antd.message.error(res.msg ? res.msg : '执行失败!', 3);
+	                        _this12.__message.error(res.msg ? res.msg : '执行失败!', 3);
 	                    }
 	                    return result || false;
 	                },
 	                onchange: function onchange(status) {
-	                    if (status) {
-	                        if (showLoading) {
-	                            hideLoading = _antd.message.loading('提交中，请等待~', 0);
+	                    if (showLoading) {
+	                        if (showLoading === 'simple') {
+	                            _this12.loading(status, showLoading);
+	                        } else {
+	                            if (status) {
+	                                hideLoading = _this12.__message.loading('提交中，请等待~', 0);
+	                            } else {
+	                                hideLoading && hideLoading();
+	                            }
 	                        }
-	                    } else {
-	                        hideLoading && hideLoading();
 	                    }
 	                }
 	            }), true);
@@ -8719,6 +8730,10 @@
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
+	var _message = __webpack_require__(131);
+
+	var Message = _interopRequireWildcard(_message);
+
 	var _layout = __webpack_require__(80);
 
 	var Layout = _interopRequireWildcard(_layout);
@@ -8728,11 +8743,10 @@
 	// 感觉 ES6 的方式用起来不灵活啊。。。
 	// export default Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);
 
-	/**
-	 * @file antd组件统一封装，实现几个基础抽象类做继承
-	 * @author liuzechun@baidu.com
-	 */
-	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
+	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Message, Layout); /**
+	                                                                                                             * @file antd组件统一封装，实现几个基础抽象类做继承
+	                                                                                                             * @author liuzechun@baidu.com
+	                                                                                                             */
 
 /***/ }),
 /* 66 */
@@ -11927,7 +11941,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.notification = exports.message = exports.Loading = exports.Progress = exports.Alert = undefined;
+	exports.Loading = exports.Progress = exports.Alert = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -11936,10 +11950,6 @@
 	var _react = __webpack_require__(13);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(14);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _Feedback4 = __webpack_require__(79);
 
@@ -12048,124 +12058,6 @@
 
 	    return Loading;
 	}(_Feedback5.default);
-
-	/************* message 提示 ************************************************************************** */
-
-	// 保存当前未销毁的提示信息的销毁函数
-
-
-	var currentMessageHandle = {};
-	var messageAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function messageHandler(type, insName, config, duration, onClose) {
-	    var _Antd$message;
-
-	    // key 相同的提示信息只展示一个
-	    var key = _utils.Utils.hash({ type: type, config: config });
-	    if (messageAutoMerge && currentMessageHandle[key]) {
-	        // 先创建，再销毁
-	        _utils.Utils.defer(currentMessageHandle[key]);
-	    }
-	    // 重写onClose函数
-	    close = function close() {
-	        delete currentMessageHandle[key];
-	        onClose && onClose.apply(undefined, arguments);
-	    };
-	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
-	    }
-	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
-
-	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
-	        params[_key - 5] = arguments[_key];
-	    }
-
-	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
-	    currentMessageHandle[key] = distroy;
-	    return distroy;
-	}
-	// 拦截 message.config ，加入自定义参数处理
-	function messageConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        messageAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var message = exports.message = Object.assign({}, Antd.message, {
-	    success: messageHandler.bind(null, 'success'),
-	    error: messageHandler.bind(null, 'error'),
-	    info: messageHandler.bind(null, 'info'),
-	    warning: messageHandler.bind(null, 'warning'),
-	    warn: messageHandler.bind(null, 'warn'),
-	    loading: messageHandler.bind(null, 'loading'),
-	    config: messageConfHandler.bind(null)
-	});
-
-	/************* notification 提示 ************************************************************************** */
-	// 保存当前未销毁的提示信息的销毁函数
-	var currentNotificationHandle = {};
-	var notificationAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function notificationHandler(type, insName, config) {
-	    if (notificationAutoMerge) {
-	        // key 相同的提示信息只展示一个
-	        if (config.key) {
-	            Antd.notification.close(config.key);
-	        } else {
-	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
-	            var hashKey = _utils.Utils.hash({ type: type, config: config });
-	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
-	            var key = _utils.Utils.uniqueId();
-	            currentNotificationHandle[hashKey] = key;
-	            config.key = key;
-	        }
-	    }
-	    var list = _src.WhiteList.get(config, 'notification');
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-
-	    try {
-	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var v = _step.value;
-
-	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
-	        }
-	    } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	            }
-	        } finally {
-	            if (_didIteratorError) {
-	                throw _iteratorError;
-	            }
-	        }
-	    }
-
-	    return Antd.notification[type](config);
-	}
-	// 拦截 notification.config ，加入自定义参数处理
-	function notificationConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        notificationAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var notification = exports.notification = Object.assign({}, Antd.notification, {
-	    success: notificationHandler.bind(null, 'success'),
-	    error: notificationHandler.bind(null, 'error'),
-	    info: notificationHandler.bind(null, 'info'),
-	    warning: notificationHandler.bind(null, 'warning'),
-	    warn: notificationHandler.bind(null, 'warn'),
-	    open: notificationHandler.bind(null, 'open'),
-	    config: notificationConfHandler.bind(null)
-	});
 
 /***/ }),
 /* 79 */
@@ -15734,11 +15626,18 @@
 	            return _react2.default.createElement(
 	                'div',
 	                this.__getCommonProps({ className: this.getClassName() }),
-	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
-	                    title: function title() {
-	                        return _this15.renderTitle();
-	                    },
-	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'ant-table ' + (this.state.antdConfig.bordered ? 'ant-table-bordered' : '') },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'ant-table-title' },
+	                        this.renderTitle()
+	                    )
+	                ),
+	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size
+	                    // title={() => this.renderTitle()}
+	                    , onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender && { expandedRowRender: function expandedRowRender(row) {
 	                        return _this15.__analysis(_expandedRowRender(row));
 	                    } }, expandedRowKeys && { expandedRowKeys: expandedRowKeys }, _footer && (_utils.Utils.typeof(_footer, 'function') ? { footer: function footer(currentPageData) {
@@ -15775,10 +15674,6 @@
 	var _react = __webpack_require__(13);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(14);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _antd = __webpack_require__(20);
 
@@ -16407,7 +16302,7 @@
 
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
 	                return;
 	            }
 	            if (this.oConfig[key] && this.oConfig[key].keys) {
@@ -16450,7 +16345,7 @@
 	        value: function _showBatchDelete(key, visible) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
@@ -16463,7 +16358,7 @@
 	        value: function _showBatchShow(key, visible) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
@@ -16594,8 +16489,7 @@
 	                // 当有缓存时，使用缓存的选中列
 	                var cache = _utils.Utils.getCache(this.cacheName);
 	                if (cache) {
-	                    this.columnsCheckedValues = cache;
-	                    this.setTableColumns();
+	                    this.setTableColumns(cache);
 	                }
 	            }
 	        }
@@ -17104,9 +16998,9 @@
 
 	    }, {
 	        key: 'setTableColumns',
-	        value: function setTableColumns() {
+	        value: function setTableColumns(defaultValues) {
 	            // 根据this.columnsCheckedValues中存储的用户的选择进行展示
-	            var showColumns = this.columnsCheckedValues;
+	            var showColumns = defaultValues || this.columnsCheckbox.getValue();
 	            var allColumns = this.parent.columns;
 
 	            var _loop3 = function _loop3(i) {
@@ -17130,9 +17024,9 @@
 	            this.parent.__setProps({ columns: allColumns });
 	        }
 	    }, {
-	        key: 'onSetColumnsCheckboxChange',
-	        value: function onSetColumnsCheckboxChange(checkedValues) {
-	            this.columnsCheckedValues = checkedValues;
+	        key: 'onSelectAll',
+	        value: function onSelectAll() {
+	            this.columnsCheckbox.selectAll();
 	        }
 	    }, {
 	        key: 'cancleSetTableColumns',
@@ -17144,6 +17038,8 @@
 	    }, {
 	        key: 'generateColumnsCheckboxGroup',
 	        value: function generateColumnsCheckboxGroup() {
+	            var _this4 = this;
+
 	            var options = [];
 	            var defaultValue = [];
 	            var allColumns = this.parent.columns;
@@ -17157,12 +17053,10 @@
 	                    defaultValue.push(allColumns[item].dataIndex);
 	                }
 	            }
-	            this.columnsCheckedValues = defaultValue;
-	            if (options.length > 0) {
-	                return _react2.default.createElement(CheckboxGroup, { options: options,
-	                    defaultValue: defaultValue,
-	                    onChange: this.onSetColumnsCheckboxChange.bind(this) });
-	            }
+	            return _react2.default.createElement(ColumnsCheckbox, { ref: function ref(ele) {
+	                    return _this4.columnsCheckbox = ele;
+	                },
+	                options: options, value: defaultValue });
 	        }
 
 	        /* 设置分页条数 **********************************************************************/
@@ -17197,12 +17091,12 @@
 	    }, {
 	        key: 'showSetPageSize',
 	        value: function showSetPageSize(name) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            // 设定延迟的原因，this[`pageSizeInput${name}`]以提示框的形式渲染到页面
 	            // 而此函数触发时还未渲染完毕，输入框无法获得焦点，输入框手动获取焦点会引起menu下拉列表关闭
 	            setTimeout(function () {
-	                var obj = _this4['pageSizeInput' + name];
+	                var obj = _this5['pageSizeInput' + name];
 	                obj && obj.focus();
 	            }, 10);
 	        }
@@ -17239,8 +17133,21 @@
 	                    _antd.Modal,
 	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal', key: 'uf-table-modal',
 	                        visible: this.state.showSetTagsModal,
-	                        onOk: this.setTableColumns.bind(this),
-	                        onCancel: this.cancleSetTableColumns.bind(this) },
+	                        onOk: this.setTableColumns.bind(this, null),
+	                        onCancel: this.cancleSetTableColumns.bind(this),
+	                        footer: [_react2.default.createElement(
+	                            _antd.Checkbox,
+	                            { onChange: this.onSelectAll.bind(this), style: { marginRight: '8px' } },
+	                            '\u5168\u9009'
+	                        ), _react2.default.createElement(
+	                            _antd.Button,
+	                            { type: 'primary', size: 'large', onClick: this.setTableColumns.bind(this, null) },
+	                            '\u786E\u5B9A'
+	                        ), _react2.default.createElement(
+	                            _antd.Button,
+	                            { size: 'large', onClick: this.cancleSetTableColumns.bind(this) },
+	                            '\u53D6\u6D88'
+	                        )] },
 	                    this.generateColumnsCheckboxGroup()
 	                )
 	            );
@@ -17251,6 +17158,54 @@
 	}(_base.BaseComponent);
 
 	exports.default = Title;
+
+	var ColumnsCheckbox = function (_React$Component) {
+	    _inherits(ColumnsCheckbox, _React$Component);
+
+	    function ColumnsCheckbox(props) {
+	        _classCallCheck(this, ColumnsCheckbox);
+
+	        var _this6 = _possibleConstructorReturn(this, (ColumnsCheckbox.__proto__ || Object.getPrototypeOf(ColumnsCheckbox)).call(this, props));
+
+	        _this6.checkedValues = props.value;
+	        return _this6;
+	    }
+
+	    _createClass(ColumnsCheckbox, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.checkedValues = nextProps.value;
+	        }
+	    }, {
+	        key: 'selectAll',
+	        value: function selectAll() {
+	            this.onChange(this.props.options.map(function (v) {
+	                return v.value;
+	            }));
+	        }
+	    }, {
+	        key: 'getValue',
+	        value: function getValue() {
+	            return this.checkedValues;
+	        }
+	    }, {
+	        key: 'onChange',
+	        value: function onChange(checkedValues) {
+	            console.log(checkedValues);
+	            this.checkedValues = checkedValues;
+	            this.forceUpdate();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(CheckboxGroup, { options: this.props.options,
+	                value: this.checkedValues,
+	                onChange: this.onChange.bind(this) });
+	        }
+	    }]);
+
+	    return ColumnsCheckbox;
+	}(_react2.default.Component);
 
 /***/ }),
 /* 94 */
@@ -20693,6 +20648,9 @@
 	            if (this.__props.footerContent) {
 	                selfProps.footer = this.__props.footerContent;
 	            }
+	            if (!selfProps.footer) {
+	                selfProps.className += 'uf-modal-default-footer';
+	            }
 	            return selfProps;
 	        }
 	    }, {
@@ -21953,6 +21911,14 @@
 	            showLoading: 'simple'
 	        }
 	    },
+	    button: {
+	        source: {
+	            showLoading: 'simple'
+	        },
+	        api: {
+	            showLoading: 'simple'
+	        }
+	    },
 	    'breadcrumb': {
 	        style: { padding: '12px 24px', lineHeight: '18px' }
 	    },
@@ -22376,6 +22342,8 @@
 
 	var _utils = __webpack_require__(21);
 
+	var _message = __webpack_require__(131);
+
 	var _loader = __webpack_require__(125);
 
 	var _loader2 = _interopRequireDefault(_loader);
@@ -22431,6 +22399,8 @@
 	        _this.$config = (0, _instance.getConfig)(_this.insName);
 	        _this.$components = (0, _instance.getComponentsCache)(_this.insName);
 	        _this.$requirejs = (0, _instance.getRequirejs)(_this.insName);
+	        // 其他自定义需绑定实例的工具
+	        _this.$message = _message.message.init(_this.insName);
 
 	        _this.state = {};
 	        // 解析结果缓存
@@ -25475,6 +25445,169 @@
 	        }
 	    };
 	});
+
+/***/ }),
+/* 131 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.notification = exports.message = undefined;
+
+	var _utils = __webpack_require__(21);
+
+	var _src = __webpack_require__(12);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	var _whitelist = __webpack_require__(61);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	var _instance = __webpack_require__(58);
+
+	var _antd = __webpack_require__(20);
+
+	var Antd = _interopRequireWildcard(_antd);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/************* message 提示 ************************************************************************** */
+
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentMessageHandle = {}; /**
+	                                * @file Layout 类组件
+	                                * @author liuzechun
+	                                */
+
+	var messageAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function messageHandler(type, insName, config, duration, onClose) {
+	    var _Antd$message;
+
+	    // key 相同的提示信息只展示一个
+	    var key = _utils.Utils.hash({ type: type, config: config });
+	    if (messageAutoMerge && currentMessageHandle[key]) {
+	        // 先创建，再销毁
+	        _utils.Utils.defer(currentMessageHandle[key]);
+	    }
+	    // 重写onClose函数
+	    close = function close() {
+	        delete currentMessageHandle[key];
+	        onClose && onClose.apply(undefined, arguments);
+	    };
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
+	    }
+	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
+
+	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
+	        params[_key - 5] = arguments[_key];
+	    }
+
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    currentMessageHandle[key] = distroy;
+	    return distroy;
+	}
+	// 拦截 message.config ，加入自定义参数处理
+	function messageConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        messageAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading'),
+	    config: messageConfHandler.bind(null)
+	});
+	// 用于生成已绑定实例的组件
+	function factory(comp) {
+	    return function (insName) {
+	        return _utils.Utils.each(comp, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, insName) : item;
+	        });
+	    };
+	}
+	message.init = factory(message);
+
+	/************* notification 提示 ************************************************************************** */
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentNotificationHandle = {};
+	var notificationAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function notificationHandler(type, insName, config) {
+	    if (notificationAutoMerge) {
+	        // key 相同的提示信息只展示一个
+	        if (config.key) {
+	            Antd.notification.close(config.key);
+	        } else {
+	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
+	            var hashKey = _utils.Utils.hash({ type: type, config: config });
+	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
+	            var key = _utils.Utils.uniqueId();
+	            currentNotificationHandle[hashKey] = key;
+	            config.key = key;
+	        }
+	    }
+	    var list = _whitelist2.default.get(config, 'notification');
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var v = _step.value;
+
+	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+
+	    return Antd.notification[type](config);
+	}
+	// 拦截 notification.config ，加入自定义参数处理
+	function notificationConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        notificationAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var notification = exports.notification = Object.assign({}, Antd.notification, {
+	    success: notificationHandler.bind(null, 'success'),
+	    error: notificationHandler.bind(null, 'error'),
+	    info: notificationHandler.bind(null, 'info'),
+	    warning: notificationHandler.bind(null, 'warning'),
+	    warn: notificationHandler.bind(null, 'warn'),
+	    open: notificationHandler.bind(null, 'open'),
+	    config: notificationConfHandler.bind(null)
+	});
+
+	// 用于生成已绑定实例的组件
+	notification.init = factory(notification);
 
 /***/ })
 /******/ ]);

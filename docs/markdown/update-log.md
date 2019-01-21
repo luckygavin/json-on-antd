@@ -15,6 +15,18 @@
 
 ### 0.4.0
 
+`2019-01-19`
+
+* 🌟 `Button`组件上通过`api`参数数据请求时，自动进行loading效果切换
+* 🎨 改造`Table`组件，将title提出来，使其不受loading效果的影响
+* 🎨 改造`Modal`组件，将弹框的默认按钮交换位置
+
+
+`2019-01-14`
+
+* 🌟 `Table`组件`展示字段`控件增加全选功能，可一键勾选全部列
+
+
 `2019-01-10`
 
 * 🐞 修复`Form`组件中表单项使用`authority`属性时报错问题
@@ -139,6 +151,7 @@
     * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)
     * 🌟 全局配置项`components`功能增强，支持异步加载组件配置
     * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)
+    * 🌟 新增全局配置项`global.mockFiles`，提供文件Mock数据功能，[传送门](#/Develop/Config/-global-mockFiles-)
     * 🎨 `global.mock`模拟数据功能升级，支持带动态参数的url
     * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持
     * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)

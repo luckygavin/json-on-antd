@@ -151,7 +151,7 @@ domain | 设置文档域 document.domain，默认为当前页面域名 | string 
 [ajax](#/Develop/Config/-global-ajax-) | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置 | object |  | 
 [cacheApis](#/Develop/Config/-global-cacheapis-) | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | 
 [mock](#/Develop/Config/-global-mock-) | Mock数据功能配置 | Object[] |  | 
-
+[mockFiles](#/Develop/Config/-global-mockfiles-) | 使用文件进行 Mock数据功能 | String[] |  | 
 
 #### # *global.ajax*
 
@@ -277,6 +277,37 @@ UF.config({
         ]
     }
 });
+```
+
+#### # *global.mockFiles*
+
+使用mock文件提供Mock数据功能，好处是方便对mock数据进行统一管理，并且方便对mock数据的切换（直接注释不需要的mock文件即可）
+
+参数参考上面的`mock`属性。用法如下：
+```javascript
+// ./entry.js
+UF.config({
+    global: {
+        mockFiles: [
+            'mock/common.js'
+        ]
+    }
+});
+
+// ./mock/common.js
+define([
+    {
+        url: '/mock/test',
+        handler: function (config, success, error) {
+            setTimeout(()=>{
+                success({
+                    status: 0,
+                    data: 'Mock数据测试'
+                });
+            }, 1000);
+        }
+    }
+]);
 ```
 
 

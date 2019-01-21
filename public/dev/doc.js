@@ -245,10 +245,10 @@
 	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(373).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(374).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(375).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(376).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(377).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(378).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(379).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(380).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(381).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(382).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(383).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(384).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(385).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(386).default }] }, { path: 'Other', name: '其他组件', children: [{ path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(387).default }, { path: 'Anchor', name: 'Anchor 锚点', component: __webpack_require__(388).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(389).default }, { path: 'Fieldset', name: 'Fieldset 文字块', component: __webpack_require__(391).default }] }];
 
 	// 组件文档列表
-	var MobileComponent = exports.MobileComponent = [{ path: 'Mobile/Guide', name: '写在最前面', component: __webpack_require__(393).default }, { path: 'Mobile/Global', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(394).default }, { path: 'Flex', name: 'Flex 布局', component: __webpack_require__(396).default }, { path: 'Grid', name: 'Grid 宫格', component: __webpack_require__(398).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(400).default }, { path: 'IconPlus', name: 'IconPlus 扩展图标', component: __webpack_require__(347).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(402).default }, { path: 'WhiteSpace', name: 'WhiteSpace 上下留白', component: __webpack_require__(403).default }, { path: 'WingBlank', name: 'WingBlank 两翼留白', component: __webpack_require__(405).default }] }, { path: 'Mobile/Navigation', name: '导航', children: [{ path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(407).default }, { path: 'Drawer', name: 'Drawer 抽屉', component: __webpack_require__(409).default }, { path: 'Menu', name: 'Menu 菜单', component: __webpack_require__(411).default }, { path: 'NavBar', name: 'NavBar 导航栏', component: __webpack_require__(413).default }, { path: 'Pagination', name: 'Pagination 分页器', component: __webpack_require__(415).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(417).default }, { path: 'TabBar', name: 'TabBar 标签栏', component: __webpack_require__(419).default }] }, { path: 'Mobile/DataEntry', name: '数据录入', children: [{ path: 'Checkbox', name: 'Checkbox 复选框', component: __webpack_require__(421).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(423).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(425).default }, { path: 'Calendar', name: 'Calendar 日历选择', component: __webpack_require__(427).default }, { path: 'Radio', name: 'Radio 单选', component: __webpack_require__(429).default }, { path: 'DatePicker', name: 'DatePicker 日期选择器', component: __webpack_require__(431).default }, { path: 'Slider', name: 'Slider 滑动输入条', component: __webpack_require__(433).default }, { path: 'Textarea', name: 'Textarea 多行输入', component: __webpack_require__(435).default }, { path: 'ImagePicker', name: 'ImagePicker 图片选择', component: __webpack_require__(437).default }, { path: 'Switch', name: 'Switch 滑动开关', component: __webpack_require__(439).default }, { path: 'Stepper', name: 'Stepper 步进器', component: __webpack_require__(441).default }, { path: 'SearchBar', name: 'SearchBar 搜索栏', component: __webpack_require__(443).default }] }, { path: 'Mobile/DataDisplay', name: '数据展示', children: [{ path: 'Collapse', name: 'Collapse 手风琴', component: __webpack_require__(445).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(447).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(449).default }, { path: 'Card', name: 'Card 卡片', component: __webpack_require__(451).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(453).default }, { path: 'Popover', name: 'Popover 气泡', component: __webpack_require__(455).default }, { path: 'NoticeBar', name: 'NoticeBar 通告栏', component: __webpack_require__(457).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(459).default }, { path: 'Result', name: 'Result 结果页', component: __webpack_require__(461).default }] }, { path: 'Mobile/Feedback', name: '反馈', children: [{ path: 'Modal', name: 'Modal 对话框', component: __webpack_require__(463).default }, { path: 'ActionSheet', name: 'ActionSheet 动作面板', component: __webpack_require__(465).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(467).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(469).default }, { path: 'Message', name: 'Message 提示', component: __webpack_require__(471).default }] }, { path: 'Mobile/Other', name: '其他组件', children: [{ path: 'PullRefresh', name: 'PullRefresh 拉动刷新', component: __webpack_require__(473).default }, { path: 'SwipeAction', name: 'SwipeAction 滑动操作', component: __webpack_require__(475).default }] }];
+	var MobileComponent = exports.MobileComponent = [{ path: 'Mobile/Guide', name: '写在最前面', component: __webpack_require__(393).default }, { path: 'Mobile/Custom', name: '定制组件', children: [{ path: 'Table', name: 'Table 表格', component: __webpack_require__(485).default }] }, { path: 'Mobile/Global', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(394).default }, { path: 'Flex', name: 'Flex 布局', component: __webpack_require__(396).default }, { path: 'Grid', name: 'Grid 宫格', component: __webpack_require__(398).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(400).default }, { path: 'IconPlus', name: 'IconPlus 扩展图标', component: __webpack_require__(347).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(402).default }, { path: 'WhiteSpace', name: 'WhiteSpace 上下留白', component: __webpack_require__(403).default }, { path: 'WingBlank', name: 'WingBlank 两翼留白', component: __webpack_require__(405).default }] }, { path: 'Mobile/Navigation', name: '导航', children: [{ path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(407).default }, { path: 'Drawer', name: 'Drawer 抽屉', component: __webpack_require__(409).default }, { path: 'Menu', name: 'Menu 菜单', component: __webpack_require__(411).default }, { path: 'NavBar', name: 'NavBar 导航栏', component: __webpack_require__(413).default }, { path: 'Pagination', name: 'Pagination 分页器', component: __webpack_require__(415).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(417).default }, { path: 'TabBar', name: 'TabBar 标签栏', component: __webpack_require__(419).default }] }, { path: 'Mobile/DataEntry', name: '数据录入', children: [{ path: 'Checkbox', name: 'Checkbox 复选框', component: __webpack_require__(421).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(423).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(425).default }, { path: 'Calendar', name: 'Calendar 日历选择', component: __webpack_require__(427).default }, { path: 'Radio', name: 'Radio 单选', component: __webpack_require__(429).default }, { path: 'DatePicker', name: 'DatePicker 日期选择器', component: __webpack_require__(431).default }, { path: 'Slider', name: 'Slider 滑动输入条', component: __webpack_require__(433).default }, { path: 'Textarea', name: 'Textarea 多行输入', component: __webpack_require__(435).default }, { path: 'ImagePicker', name: 'ImagePicker 图片选择', component: __webpack_require__(437).default }, { path: 'Switch', name: 'Switch 滑动开关', component: __webpack_require__(439).default }, { path: 'Stepper', name: 'Stepper 步进器', component: __webpack_require__(441).default }, { path: 'SearchBar', name: 'SearchBar 搜索栏', component: __webpack_require__(443).default }] }, { path: 'Mobile/DataDisplay', name: '数据展示', children: [{ path: 'Collapse', name: 'Collapse 手风琴', component: __webpack_require__(445).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(447).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(449).default }, { path: 'Card', name: 'Card 卡片', component: __webpack_require__(451).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(453).default }, { path: 'ListView', name: 'ListView 长列表', component: __webpack_require__(455).default }, { path: 'Popover', name: 'Popover 气泡', component: __webpack_require__(457).default }, { path: 'NoticeBar', name: 'NoticeBar 通告栏', component: __webpack_require__(459).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(461).default }, { path: 'Result', name: 'Result 结果页', component: __webpack_require__(463).default }] }, { path: 'Mobile/Feedback', name: '反馈', children: [{ path: 'Modal', name: 'Modal 对话框', component: __webpack_require__(465).default }, { path: 'ActionSheet', name: 'ActionSheet 动作面板', component: __webpack_require__(467).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(469).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(471).default }, { path: 'Message', name: 'Message 提示', component: __webpack_require__(473).default }] }, { path: 'Mobile/Other', name: '其他组件', children: [{ path: 'PullRefresh', name: 'PullRefresh 拉动刷新', component: __webpack_require__(475).default }, { path: 'SwipeAction', name: 'SwipeAction 滑动操作', component: __webpack_require__(477).default }] }];
 
 	// 全部路由列表
-	var RouteList = [{ path: 'Index', name: '首页', component: __webpack_require__(477).default }, { path: 'Standard', name: '规范', component: __webpack_require__(478).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(479).default }].concat(DocsList, ComponentList, MobileComponent);
+	var RouteList = [{ path: 'Index', name: '首页', component: __webpack_require__(479).default }, { path: 'Standard', name: '规范', component: __webpack_require__(480).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(481).default }].concat(DocsList, ComponentList, MobileComponent);
 
 	var App = function (_React$Component) {
 	    _inherits(App, _React$Component);
@@ -540,6 +540,8 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
+	var $uf = _src2.default;
+	var uf = _src2.default;
 	var ufName = '$uf';
 
 	// 把配置转换成字符串
@@ -600,7 +602,7 @@
 	            smartLists: true,
 	            smartypants: false
 	        });
-	        _this.sourceCode = _this.getSourceCode(_this.props.config);
+	        _this.setSourceCode(_this.props.config);
 	        return _this;
 	    }
 
@@ -612,41 +614,94 @@
 	            _src2.default.init(conf, '#' + this.id);
 	        }
 	    }, {
+	        key: 'componentDidUpdate',
+	        value: function componentDidUpdate(prevProps, prevState) {
+	            Prism && Prism.highlightAll();
+	        }
+	    }, {
 	        key: 'toggle',
 	        value: function toggle(i) {
 	            this.setState({ show: !this.state.show });
 	        }
+	        // 获取UF接口
+
+	    }, {
+	        key: 'getufIns',
+	        value: function getufIns() {
+	            return _src2.default;
+	        }
 	    }, {
 	        key: 'viewcode',
 	        value: function viewcode() {
+	            var _this2 = this;
+
 	            _src2.default.Modal.create({
 	                title: this.props.title,
-	                width: 850,
-	                footer: null,
 	                maskClosable: true,
+	                width: 850,
+	                // footer: null,
+	                okText: '保存',
+	                cancelText: '关闭',
+	                onSubmit: function onSubmit() {
+	                    if (_this2.codeContainer) {
+	                        var content = _this2.codeContainer.innerText;
+	                        var confCode = content.replace(/^var\s+?config\s+?=\s+?/g, '').replace(/\n\$uf\.init.*$/g, '');
+	                        try {
+	                            var config = eval(confCode);
+	                            var _uf = _this2.getufIns();
+	                            if (_uf) {
+	                                var conf = _utils.Utils.clone(config);
+	                                _uf.init(conf, '#' + _this2.id);
+	                                _this2.setSourceCode(config);
+	                                _this2.forceUpdate();
+	                            }
+	                        } catch (e) {
+	                            console.warn(e);
+	                        }
+	                    }
+	                },
 	                afterCreate: function afterCreate() {
 	                    Prism && Prism.highlightAll();
 	                },
 
 	                content: { type: 'div', className: 'demo codeviewer', content: {
 	                        type: 'div', className: 'demo-card', content: {
-	                            type: 'div', className: 'ant-card-body', content: {
+	                            type: 'div', className: 'ant-card-body', content: [{
+	                                type: 'alert', mode: 'warning', showIcon: true, className: 'tips',
+	                                message: '可以直接编辑下面的配置，点击底部的保存按钮会自动刷新Demo展示'
+	                            }, {
 	                                type: 'div',
 	                                className: 'source-code',
-	                                content: this.sourceCode
-	                            }
+	                                content: this.renderSourceCode(true)
+	                            }]
 	                        }
 	                    } }
 	            });
 	        }
 	    }, {
-	        key: 'getSourceCode',
-	        value: function getSourceCode(config) {
-	            var code = 'var config = ' + switchCode(config) + ';\n' + ufName + '.init(config, \'#demo\');';
+	        key: 'setSourceCode',
+	        value: function setSourceCode(config) {
+	            this.sourceCode = 'var config = ' + switchCode(config) + ';\n' + ufName + '.init(config, \'#demo\');';
+	        }
+	    }, {
+	        key: 'renderSourceCode',
+	        value: function renderSourceCode(editable) {
+	            var _this3 = this;
+
+	            var props = {};
+	            if (editable) {
+	                props = {
+	                    contentEditable: true,
+	                    ref: function ref(ele) {
+	                        return _this3.codeContainer = ele;
+	                    }
+	                };
+	            }
 	            return _react2.default.createElement(
 	                'pre',
 	                { className: 'language-javascript', style: { background: 'transparent' } },
-	                _react2.default.createElement('code', { className: 'language-javascript', dangerouslySetInnerHTML: { __html: code } })
+	                _react2.default.createElement('code', _extends({ className: 'language-javascript' }, props, {
+	                    dangerouslySetInnerHTML: { __html: this.sourceCode } }))
 	            );
 	        }
 	    }, {
@@ -665,13 +720,14 @@
 	                        this.props.title
 	                    ),
 	                    _react2.default.createElement('div', { className: 'content markdown', dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.description || '') } }),
+	                    _react2.default.createElement(_antd.Icon, { className: 'viewcode bymodal', type: 'scan', onClick: this.viewcode.bind(this) }),
 	                    _react2.default.createElement(_antd.Icon, { className: 'viewcode collapse', type: this.state.show ? 'up-circle-o' : 'down-circle-o',
 	                        onClick: this.toggle.bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'source-code', style: { display: this.state.show ? 'block' : 'none' } },
-	                    this.sourceCode
+	                    this.renderSourceCode()
 	                )
 	            );
 	        }
@@ -698,6 +754,12 @@
 	        key: 'componentDidMount',
 	        value: function componentDidMount() {}
 	    }, {
+	        key: 'getufIns',
+	        value: function getufIns() {
+	            var iframe = this.props.getDemoIframe();
+	            return iframe && iframe.contentWindow && iframe.contentWindow.UF;
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -712,14 +774,14 @@
 	                        this.props.title
 	                    ),
 	                    _react2.default.createElement('div', { className: 'content markdown', dangerouslySetInnerHTML: { __html: (0, _marked2.default)(this.props.description || '') } }),
-	                    _react2.default.createElement(_antd.Icon, { className: 'viewcode bymodal', type: 'code-o', onClick: this.viewcode.bind(this) }),
+	                    _react2.default.createElement(_antd.Icon, { className: 'viewcode bymodal', type: 'scan', onClick: this.viewcode.bind(this) }),
 	                    _react2.default.createElement(_antd.Icon, { className: 'viewcode collapse', type: this.state.show ? 'up-circle-o' : 'down-circle-o',
 	                        onClick: this.toggle.bind(this) })
 	                ),
 	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'source-code', style: this.state.show ? {} : { maxHeight: '240px', overflow: 'scroll' } },
-	                    this.sourceCode
+	                    { className: 'source-code', style: this.state.show ? {} : { maxHeight: '240px' } },
+	                    this.renderSourceCode()
 	                )
 	            );
 	        }
@@ -2114,6 +2176,7 @@
 
 
 	    var func = {
+	        _env: _lib2.default._env,
 	        /*******************************************************/
 	        /******** 私有属性/方法 *********************************/
 	        /*****************************************************/
@@ -2480,7 +2543,9 @@
 	 * @author liuzechun@baidu.com
 	 */
 
-	module.exports = Object.assign(__webpack_require__(117),
+	module.exports = Object.assign({
+	    _env: 'uf'
+	}, __webpack_require__(117),
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(165),
 	// 路由组件
@@ -2740,6 +2805,8 @@
 	        // _factory 是最初 Factory 的 this
 	        _this._factory = _this.props._factory;
 	        _this.insName = _this._factory.insName;
+	        // 信息提示
+	        _this.__message = _this._factory.$message;
 	        // 供用户使用，例如获取路由信息/参数等
 	        _this._root = _this._factory;
 	        // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
@@ -4087,6 +4154,8 @@
 	    }, {
 	        key: '_apiHandler',
 	        value: function _apiHandler(oParams) {
+	            var _this12 = this;
+
 	            var _filtered$api = this.__filtered.api,
 	                _filtered$api$params = _filtered$api.params,
 	                params = _filtered$api$params === undefined ? oParams : _filtered$api$params,
@@ -4110,24 +4179,28 @@
 	                    var result = onSuccess && onSuccess(data, res);
 	                    // onSuccess有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
-	                        _antd.message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
+	                        _this12.__message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
 	                    }
 	                },
 	                error: function error(res) {
 	                    var result = onError && onError(res);
 	                    // onError有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
-	                        _antd.message.error(res.msg ? res.msg : '执行失败!', 3);
+	                        _this12.__message.error(res.msg ? res.msg : '执行失败!', 3);
 	                    }
 	                    return result || false;
 	                },
 	                onchange: function onchange(status) {
-	                    if (status) {
-	                        if (showLoading) {
-	                            hideLoading = _antd.message.loading('提交中，请等待~', 0);
+	                    if (showLoading) {
+	                        if (showLoading === 'simple') {
+	                            _this12.loading(status, showLoading);
+	                        } else {
+	                            if (status) {
+	                                hideLoading = _this12.__message.loading('提交中，请等待~', 0);
+	                            } else {
+	                                hideLoading && hideLoading();
+	                            }
 	                        }
-	                    } else {
-	                        hideLoading && hideLoading();
 	                    }
 	                }
 	            }), true);
@@ -10569,6 +10642,10 @@
 
 	var Feedback = _interopRequireWildcard(_feedback);
 
+	var _message = __webpack_require__(482);
+
+	var Message = _interopRequireWildcard(_message);
+
 	var _layout = __webpack_require__(179);
 
 	var Layout = _interopRequireWildcard(_layout);
@@ -10578,11 +10655,10 @@
 	// 感觉 ES6 的方式用起来不灵活啊。。。
 	// export default Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback);
 
-	/**
-	 * @file antd组件统一封装，实现几个基础抽象类做继承
-	 * @author liuzechun@baidu.com
-	 */
-	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Layout);
+	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Message, Layout); /**
+	                                                                                                             * @file antd组件统一封装，实现几个基础抽象类做继承
+	                                                                                                             * @author liuzechun@baidu.com
+	                                                                                                             */
 
 /***/ }),
 /* 166 */
@@ -13771,7 +13847,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.notification = exports.message = exports.Loading = exports.Progress = exports.Alert = undefined;
+	exports.Loading = exports.Progress = exports.Alert = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -13780,10 +13856,6 @@
 	var _react = __webpack_require__(107);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(108);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _Feedback4 = __webpack_require__(178);
 
@@ -13892,124 +13964,6 @@
 
 	    return Loading;
 	}(_Feedback5.default);
-
-	/************* message 提示 ************************************************************************** */
-
-	// 保存当前未销毁的提示信息的销毁函数
-
-
-	var currentMessageHandle = {};
-	var messageAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function messageHandler(type, insName, config, duration, onClose) {
-	    var _Antd$message;
-
-	    // key 相同的提示信息只展示一个
-	    var key = _utils.Utils.hash({ type: type, config: config });
-	    if (messageAutoMerge && currentMessageHandle[key]) {
-	        // 先创建，再销毁
-	        _utils.Utils.defer(currentMessageHandle[key]);
-	    }
-	    // 重写onClose函数
-	    close = function close() {
-	        delete currentMessageHandle[key];
-	        onClose && onClose.apply(undefined, arguments);
-	    };
-	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
-	    }
-	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
-
-	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
-	        params[_key - 5] = arguments[_key];
-	    }
-
-	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
-	    currentMessageHandle[key] = distroy;
-	    return distroy;
-	}
-	// 拦截 message.config ，加入自定义参数处理
-	function messageConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        messageAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var message = exports.message = Object.assign({}, Antd.message, {
-	    success: messageHandler.bind(null, 'success'),
-	    error: messageHandler.bind(null, 'error'),
-	    info: messageHandler.bind(null, 'info'),
-	    warning: messageHandler.bind(null, 'warning'),
-	    warn: messageHandler.bind(null, 'warn'),
-	    loading: messageHandler.bind(null, 'loading'),
-	    config: messageConfHandler.bind(null)
-	});
-
-	/************* notification 提示 ************************************************************************** */
-	// 保存当前未销毁的提示信息的销毁函数
-	var currentNotificationHandle = {};
-	var notificationAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function notificationHandler(type, insName, config) {
-	    if (notificationAutoMerge) {
-	        // key 相同的提示信息只展示一个
-	        if (config.key) {
-	            Antd.notification.close(config.key);
-	        } else {
-	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
-	            var hashKey = _utils.Utils.hash({ type: type, config: config });
-	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
-	            var key = _utils.Utils.uniqueId();
-	            currentNotificationHandle[hashKey] = key;
-	            config.key = key;
-	        }
-	    }
-	    var list = _src.WhiteList.get(config, 'notification');
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-
-	    try {
-	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var v = _step.value;
-
-	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
-	        }
-	    } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	            }
-	        } finally {
-	            if (_didIteratorError) {
-	                throw _iteratorError;
-	            }
-	        }
-	    }
-
-	    return Antd.notification[type](config);
-	}
-	// 拦截 notification.config ，加入自定义参数处理
-	function notificationConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        notificationAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var notification = exports.notification = Object.assign({}, Antd.notification, {
-	    success: notificationHandler.bind(null, 'success'),
-	    error: notificationHandler.bind(null, 'error'),
-	    info: notificationHandler.bind(null, 'info'),
-	    warning: notificationHandler.bind(null, 'warning'),
-	    warn: notificationHandler.bind(null, 'warn'),
-	    open: notificationHandler.bind(null, 'open'),
-	    config: notificationConfHandler.bind(null)
-	});
 
 /***/ }),
 /* 178 */
@@ -17578,11 +17532,18 @@
 	            return _react2.default.createElement(
 	                'div',
 	                this.__getCommonProps({ className: this.getClassName() }),
-	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size,
-	                    title: function title() {
-	                        return _this15.renderTitle();
-	                    },
-	                    onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'ant-table ' + (this.state.antdConfig.bordered ? 'ant-table-bordered' : '') },
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'ant-table-title' },
+	                        this.renderTitle()
+	                    )
+	                ),
+	                _react2.default.createElement(_antd.Table, _extends({}, this.state.antdConfig, { size: size
+	                    // title={() => this.renderTitle()}
+	                    , onExpandedRowsChange: this.onExpandedRowsChange.bind(this)
 	                }, _expandedRowRender && { expandedRowRender: function expandedRowRender(row) {
 	                        return _this15.__analysis(_expandedRowRender(row));
 	                    } }, expandedRowKeys && { expandedRowKeys: expandedRowKeys }, _footer && (_utils.Utils.typeof(_footer, 'function') ? { footer: function footer(currentPageData) {
@@ -17619,10 +17580,6 @@
 	var _react = __webpack_require__(107);
 
 	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(108);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
 
 	var _antd = __webpack_require__(111);
 
@@ -18251,7 +18208,7 @@
 
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
 	                return;
 	            }
 	            if (this.oConfig[key] && this.oConfig[key].keys) {
@@ -18294,7 +18251,7 @@
 	        value: function _showBatchDelete(key, visible) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
@@ -18307,7 +18264,7 @@
 	        value: function _showBatchShow(key, visible) {
 	            var datas = this.parent.getSelected();
 	            if (!(datas && datas.length > 0)) {
-	                _antd.message.warning('请先在表格中选择至少一条数据，再执行操作。', 3.5);
+	                this.__message.warning('请先在表格中选择至少一条数据，再执行操作。', 3);
 	                return;
 	            }
 	            var modal = this.__getComponent(this._getModalName(key));
@@ -18438,8 +18395,7 @@
 	                // 当有缓存时，使用缓存的选中列
 	                var cache = _utils.Utils.getCache(this.cacheName);
 	                if (cache) {
-	                    this.columnsCheckedValues = cache;
-	                    this.setTableColumns();
+	                    this.setTableColumns(cache);
 	                }
 	            }
 	        }
@@ -18948,9 +18904,9 @@
 
 	    }, {
 	        key: 'setTableColumns',
-	        value: function setTableColumns() {
+	        value: function setTableColumns(defaultValues) {
 	            // 根据this.columnsCheckedValues中存储的用户的选择进行展示
-	            var showColumns = this.columnsCheckedValues;
+	            var showColumns = defaultValues || this.columnsCheckbox.getValue();
 	            var allColumns = this.parent.columns;
 
 	            var _loop3 = function _loop3(i) {
@@ -18974,9 +18930,9 @@
 	            this.parent.__setProps({ columns: allColumns });
 	        }
 	    }, {
-	        key: 'onSetColumnsCheckboxChange',
-	        value: function onSetColumnsCheckboxChange(checkedValues) {
-	            this.columnsCheckedValues = checkedValues;
+	        key: 'onSelectAll',
+	        value: function onSelectAll() {
+	            this.columnsCheckbox.selectAll();
 	        }
 	    }, {
 	        key: 'cancleSetTableColumns',
@@ -18988,6 +18944,8 @@
 	    }, {
 	        key: 'generateColumnsCheckboxGroup',
 	        value: function generateColumnsCheckboxGroup() {
+	            var _this4 = this;
+
 	            var options = [];
 	            var defaultValue = [];
 	            var allColumns = this.parent.columns;
@@ -19001,12 +18959,10 @@
 	                    defaultValue.push(allColumns[item].dataIndex);
 	                }
 	            }
-	            this.columnsCheckedValues = defaultValue;
-	            if (options.length > 0) {
-	                return _react2.default.createElement(CheckboxGroup, { options: options,
-	                    defaultValue: defaultValue,
-	                    onChange: this.onSetColumnsCheckboxChange.bind(this) });
-	            }
+	            return _react2.default.createElement(ColumnsCheckbox, { ref: function ref(ele) {
+	                    return _this4.columnsCheckbox = ele;
+	                },
+	                options: options, value: defaultValue });
 	        }
 
 	        /* 设置分页条数 **********************************************************************/
@@ -19041,12 +18997,12 @@
 	    }, {
 	        key: 'showSetPageSize',
 	        value: function showSetPageSize(name) {
-	            var _this4 = this;
+	            var _this5 = this;
 
 	            // 设定延迟的原因，this[`pageSizeInput${name}`]以提示框的形式渲染到页面
 	            // 而此函数触发时还未渲染完毕，输入框无法获得焦点，输入框手动获取焦点会引起menu下拉列表关闭
 	            setTimeout(function () {
-	                var obj = _this4['pageSizeInput' + name];
+	                var obj = _this5['pageSizeInput' + name];
 	                obj && obj.focus();
 	            }, 10);
 	        }
@@ -19083,8 +19039,21 @@
 	                    _antd.Modal,
 	                    { title: '\u5C55\u793A\u5B57\u6BB5', className: 'uf-table-modal', key: 'uf-table-modal',
 	                        visible: this.state.showSetTagsModal,
-	                        onOk: this.setTableColumns.bind(this),
-	                        onCancel: this.cancleSetTableColumns.bind(this) },
+	                        onOk: this.setTableColumns.bind(this, null),
+	                        onCancel: this.cancleSetTableColumns.bind(this),
+	                        footer: [_react2.default.createElement(
+	                            _antd.Checkbox,
+	                            { onChange: this.onSelectAll.bind(this), style: { marginRight: '8px' } },
+	                            '\u5168\u9009'
+	                        ), _react2.default.createElement(
+	                            _antd.Button,
+	                            { type: 'primary', size: 'large', onClick: this.setTableColumns.bind(this, null) },
+	                            '\u786E\u5B9A'
+	                        ), _react2.default.createElement(
+	                            _antd.Button,
+	                            { size: 'large', onClick: this.cancleSetTableColumns.bind(this) },
+	                            '\u53D6\u6D88'
+	                        )] },
 	                    this.generateColumnsCheckboxGroup()
 	                )
 	            );
@@ -19095,6 +19064,54 @@
 	}(_base.BaseComponent);
 
 	exports.default = Title;
+
+	var ColumnsCheckbox = function (_React$Component) {
+	    _inherits(ColumnsCheckbox, _React$Component);
+
+	    function ColumnsCheckbox(props) {
+	        _classCallCheck(this, ColumnsCheckbox);
+
+	        var _this6 = _possibleConstructorReturn(this, (ColumnsCheckbox.__proto__ || Object.getPrototypeOf(ColumnsCheckbox)).call(this, props));
+
+	        _this6.checkedValues = props.value;
+	        return _this6;
+	    }
+
+	    _createClass(ColumnsCheckbox, [{
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            this.checkedValues = nextProps.value;
+	        }
+	    }, {
+	        key: 'selectAll',
+	        value: function selectAll() {
+	            this.onChange(this.props.options.map(function (v) {
+	                return v.value;
+	            }));
+	        }
+	    }, {
+	        key: 'getValue',
+	        value: function getValue() {
+	            return this.checkedValues;
+	        }
+	    }, {
+	        key: 'onChange',
+	        value: function onChange(checkedValues) {
+	            console.log(checkedValues);
+	            this.checkedValues = checkedValues;
+	            this.forceUpdate();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(CheckboxGroup, { options: this.props.options,
+	                value: this.checkedValues,
+	                onChange: this.onChange.bind(this) });
+	        }
+	    }]);
+
+	    return ColumnsCheckbox;
+	}(_react2.default.Component);
 
 /***/ }),
 /* 193 */
@@ -22537,6 +22554,9 @@
 	            if (this.__props.footerContent) {
 	                selfProps.footer = this.__props.footerContent;
 	            }
+	            if (!selfProps.footer) {
+	                selfProps.className += 'uf-modal-default-footer';
+	            }
 	            return selfProps;
 	        }
 	    }, {
@@ -23797,6 +23817,14 @@
 	            showLoading: 'simple'
 	        }
 	    },
+	    button: {
+	        source: {
+	            showLoading: 'simple'
+	        },
+	        api: {
+	            showLoading: 'simple'
+	        }
+	    },
 	    'breadcrumb': {
 	        style: { padding: '12px 24px', lineHeight: '18px' }
 	    },
@@ -24220,6 +24248,8 @@
 
 	var _utils = __webpack_require__(121);
 
+	var _message = __webpack_require__(482);
+
 	var _loader = __webpack_require__(224);
 
 	var _loader2 = _interopRequireDefault(_loader);
@@ -24275,6 +24305,8 @@
 	        _this.$config = (0, _instance.getConfig)(_this.insName);
 	        _this.$components = (0, _instance.getComponentsCache)(_this.insName);
 	        _this.$requirejs = (0, _instance.getRequirejs)(_this.insName);
+	        // 其他自定义需绑定实例的工具
+	        _this.$message = _message.message.init(_this.insName);
 
 	        _this.state = {};
 	        // 解析结果缓存
@@ -28054,7 +28086,7 @@
 /* 245 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nname | 实例名称，根据不同的名称产生不同的实例 | String | default | \n[modules](#/Develop/Config/-modules) | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \n[components](#/Develop/Config/-components) | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \n[plugins](#/Develop/Config/-plugins) | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | \n[global](#/Develop/Config/-global) | 其他一些全局配置。见：`global`表 | Object |  | \n[data](#/Develop/Config/-data) | 用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** | Object |  | \n[authority](#/Develop/Config/-authority) | 权限控制。见：`authority`表 | Object |  | \n[precondition](#/Develop/Config/-precondition) | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义配置作为自定义组件，以在开发时按照真正的组件使用。用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'my-datepicker', \n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'的自定义组件配置。当在下面使用type为'my-datepicker'的组件时，最终会找到config.components中定义的自定义组件，并将其配置加以复用，并可在组件中覆盖自定义组件中定义的默认属性。\n\n\n### # plugins\n`插件系统`\n\n一些使用频率较低的组件，为了防止UF过于膨胀，从UF库中剥离了出来，想要使用的时候需要在config中指定加载。同时用户也可以在此处载入自己开发的React模块，只要模块为用AMD的方式打包的匿名模块即可。\n\n`plugins`参数为一个数组，其每一项的参数有两种形式，对应以上两种用法：\n\n* 第一种为一个字符串，直接引用UF官方提供的插件名称即可；  \n* 第二种为一个对象，引入用户自己开发的插件，对象包含如下属性：\n\n参数 | 说明 | 类型 | 是否必填\n---- | ---- | ----- | ----\nname | 载入之后的模块名称，和使用组件时的`type`一致。当不配置name时，认为通过path加载到的为多个组件，各个组件名称和包内定义的值保持一致 | string | \npath | 模块完整路径 | string | 必填\n\n```javascript\nUF.config({\n    plugins: [\n        'example',\n        {\n            name: 'mycomponent',\n            path: 'http://..to/path/mycomponent.js'\n        }\n    ]\n});\n```\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \n[ajax](#/Develop/Config/-global-ajax-) | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置 | object |  | \n[cacheApis](#/Develop/Config/-global-cacheapis-) | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n[mock](#/Develop/Config/-global-mock-) | Mock数据功能配置 | Object[] |  | \n\n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | \nhandler | 全局数据预处理函数（同通用属性[`source.handler`](#/Params/-source-)的用法），全部请求的返回数据都会先经过此函数处理 | function(data, res, conf){return data;} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler, config){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler, config){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n#### # *global.mock*\n\nMock数据功能。\n\n参数为一个数组，数组的每一项代表一个接口，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | 接口地址 | string |  | 必填\nhandler | 接口对应的处理逻辑。handler中调用success并传入数据，则接口处理成功并返回了数据；调用error，则接口返回处理失败 | function (conf, success, error) {} |  | 必填\n\n```javascript\nUF.config({\n    global: {\n        mock: [\n            // 示例1：可延迟调用success，模拟数据加载中效果\n            {\n                url: '/mock/test',\n                handler: function (config, success, error) {\n                    setTimeout(()=>{\n                        success({\n                            status: 0,\n                            data: 'Mock数据测试'\n                        });\n                    }, 1000);\n                }\n            },\n            // 示例2：高端用法，可以使用mock功能简化交互。\n            // 比如多级级联，后端接口一次性返回全部数据，前端缓存起来。按以往思路，级联需不断获取数据并set给下一级，逻辑不够顺畅。此时即可以使用mock+source，定义几个mock接口，每个级联框绑定一个，各个mock接口分别取数据并返回\n            {\n                url: '/mock/test2',\n                handler: function (config, success, error) {\n                    success({\n                        status: 0,\n                        data: UF.get('cacheData');\n                    });\n                }\n            }\n        ]\n    }\n});\n```\n\n\n#### # data\n\n用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** \n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n同时，data中的数据还有一个常见用法，即在url中作为动态参数使用。从而可以在全局初始化一个变量作为某些ajax的前缀（或参数），在设置url时可以便捷的使用此变量，例如：\n\n```javascript\n// 在入口配置变量\nvar $uf = window.UF({\n    ...\n    data: {\n        // 使用 ms-common 的接口所需配置\n        'ms-common': window.location.origin + '/api/ms-common/'\n    }\n    ...\n});\n\n// 在组件中使用\n{\n    type: 'select',\n    name: 'room-list',\n    // 注意 :ms-common，会转化成入口处设置的变量的值\n    source: ':ms-common/idc/list/map'\n}\n```\n\n\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
+	module.exports = "\n全局配置主要用于页面初始化之前，对页面整体进行一些设置、渲染页面之前的请求或处理等等，全部就绪后才会进行页面初始化。\n\n此处主要讲解**`UF.config()`**函数的作用以及其参数的详细用法。\n\n## 使用场景\n\n* 项目开发时，用于给各个模块命名，类似于给模块路径一个别名，其他一些 [requirejs](http://requirejs.org/docs/api.html#config) 的高级用法不做赘述\n* 给组件配置一些全局的、通用的默认参数，减少开发时多次书写重复的配置\n* 配置ajax处理逻辑，可以把后端返回数据统一格式化成一样的格式\n* 配置声明对接口数据进行缓存，防止重复请求\n* 执行异步逻辑（例如通过ajax获取页面初始化时需要用到的数据，如用户名等），阻塞页面初始化\n* 进行页面权限控制相关配置\n\n\n## 具体用法\n\n一般在页面初始化之前调用`UF({})`产生一个uf实例时，或者调用`UF.config({})`初始化uf实例时，做一些全局的配置。其参数为一个对象，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nname | 实例名称，根据不同的名称产生不同的实例 | String | default | \n[modules](#/Develop/Config/-modules) | 模块相关的各种配置，具体见下表：`modules`表 | Object |  | \n[components](#/Develop/Config/-components) | 用于给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。 | Object |  | \n[plugins](#/Develop/Config/-plugins) | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | \n[global](#/Develop/Config/-global) | 其他一些全局配置。见：`global`表 | Object |  | \n[data](#/Develop/Config/-data) | 用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** | Object |  | \n[authority](#/Develop/Config/-authority) | 权限控制。见：`authority`表 | Object |  | \n[precondition](#/Develop/Config/-precondition) | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | \n\n\n### # modules\n\n一般用于配置模块路径映射。例如 快速上手 中的如下配置：\n\n```javascript\nUF.config({\n    modules: {\n        baseUrl: './',\n        paths: {\n            Router: 'router',\n            App: 'app',\n            Page1: 'page1',\n            Page2: 'page2'\n        }\n    }\n});\n```\n全部参数说明如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 用于所有模块查找的根路径 | string |  | \npaths | 模块名称的路径映射。路径设置被假定为相对于baseUrl，除非路径设置从“/”开始，或者在其中有一个URL协议(“如http:”)。 | Object |  | \nwaitSeconds | 单个模块加载超时时间（单位：s）。将其设置为 0 将禁用超时。默认值是 7 秒。 | string | 7 | \nurlArgs | 模块加载时的后缀。可以通过增加时间戳来防止模块文件缓存：`urlArgs: 'suffix=' + Date.now()` | string &#124; function |  | \nshowLoading | 使用懒加载的方式加载模块时是否展示Loading。一般加载模块速度很快，无需展示Loading。如有特殊情况，可以设置为`true`全部模块都有loading；或者设置为一个模块名数组，当加载到数组中的模块时才会展示loading（推荐） | boolean &#124; Array | false | \n\n\n其他更多配置可见：[这里](http://requirejs.org/docs/api.html#config)\n\n> 只有`modules`有内容或者为`true`时，才会加载requirejs（即使用define等函数定义模块）。 当需要引入第三方库时（可能会出问题）： \n> * 如果项目中使用了requirejs的加载方式，则需同样是用requirejs的方式来加载三方模块，不能直接script标签引入。  \n> * 如果项目中没有使用requirejs的加载方式，则可以把`modules`属性置为`false`或者不填，禁用掉requirejs\n\n\n### # components\n\n用于提前给组件声明一些全局的、通用的默认参数，减少开发时多次书写重复的配置。例如：\n\n```javascript\nUF.config({\n    components: {\n        'loading': {\n            delay: 200,\n            size: 'small'\n        },\n        'date-picker': {\n            format: 'YYYY/MM/DD'\n        }\n    }\n});\n```\n\n示例中配置了全部`Loading组件`默认全部使用小号的图标，且全部延迟200ms展示loading状态；全部`日期选择组件`默认格式化成 2017/10/11 的格式。  \n`loading`、`'date-picker'`即为相应组件的`type`  \n此外，比如也可以给`Table组件`设置一组配置（比如具有过滤/导出/全屏功能，分页大小为8条/页，不展示复选框），再使用Table时就无需再配置这些属性。  \n全部组件的全部属性都可以这样预设置，从而达到通用配置的高度复用。  \n\n> 这里的配置会深度合并，无需担心被覆盖。比如`Table组件`的参数`rowSelection`是对象，对象里还有一堆值，此时只想要设置其中一两项，也可以正常使用: `table: {rowSelection: {type: 'radio'}}`\n\n##### 另一种用法：\n\n除了上面给通用组件声明全局配置，还可以定义配置作为自定义组件，以在开发时按照真正的组件使用。用法如下：\n\n```javascript\nUF.config({\n    components: {\n        'my-datepicker': {\n            format: 'YYYY 年 MM 月 DD 日',\n            size: 'small',\n            allowClear: true\n        }\n    }\n});\nUF.init({\n    name: 'test-picker',\n    type: 'my-datepicker', \n    allowClear: false\n}, '#demo');\n```\n\n如上面示例，首先在config中定义了一个名为'my-datepicker'的自定义组件配置。当在下面使用type为'my-datepicker'的组件时，最终会找到config.components中定义的自定义组件，并将其配置加以复用，并可在组件中覆盖自定义组件中定义的默认属性。\n\n\n### # plugins\n`插件系统`\n\n一些使用频率较低的组件，为了防止UF过于膨胀，从UF库中剥离了出来，想要使用的时候需要在config中指定加载。同时用户也可以在此处载入自己开发的React模块，只要模块为用AMD的方式打包的匿名模块即可。\n\n`plugins`参数为一个数组，其每一项的参数有两种形式，对应以上两种用法：\n\n* 第一种为一个字符串，直接引用UF官方提供的插件名称即可；  \n* 第二种为一个对象，引入用户自己开发的插件，对象包含如下属性：\n\n参数 | 说明 | 类型 | 是否必填\n---- | ---- | ----- | ----\nname | 载入之后的模块名称，和使用组件时的`type`一致。当不配置name时，认为通过path加载到的为多个组件，各个组件名称和包内定义的值保持一致 | string | \npath | 模块完整路径 | string | 必填\n\n```javascript\nUF.config({\n    plugins: [\n        'example',\n        {\n            name: 'mycomponent',\n            path: 'http://..to/path/mycomponent.js'\n        }\n    ]\n});\n```\n\n\n### # global\n\n其他一些全局配置。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\ndomain | 设置文档域 document.domain，默认为当前页面域名 | string |  | \n[ajax](#/Develop/Config/-global-ajax-) | 覆盖`UF.ajax`默认的配置。当项目中API规范和当前框架定义的API规范不相符时，需要更改 success 或 error 等的处理逻辑；亦或需使用 jsonp 的方式请求数据，皆可在此配置 | object |  | \n[cacheApis](#/Develop/Config/-global-cacheapis-) | 配置声明对接口数据进行缓存，重复调用（url及参数无变化时）直接从缓存中取得。加快获取速度，减小服务器压力。 | string[] |  | \n[mock](#/Develop/Config/-global-mock-) | Mock数据功能配置 | Object[] |  | \n[mockFiles](#/Develop/Config/-global-mockfiles-) | 使用文件进行 Mock数据功能 | String[] |  | \n\n#### # *global.ajax*\n\n定义 Ajax 全局通用属性/行为。\n\n可更改ajax的默认处理逻辑，例如在发送请求前对参数进行通过处理，返回数据后对数据进行统一格式化。当后端返回数据格式不一时，可以在这里做兼容处理，已适应组件内部使用的统一格式。\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nbaseUrl | 如果请求没有加域名端口等前缀，会自动给请求的 url 之前追加 baseUrl | string |  | \nheaders | 设置http请求的headers | object | {} | \ndata | 请求数据时携带的**`额外参数`**，这里指的是一些和内部逻辑无关的参数，全部请求都会携带。例如`token` | object | \ntype | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` | \ncontentType | 设置请求的`Content-Type`属性，例如 `contentType: 'application/json'` | string |  |\ncrossOrigin | 设置`cross-origin`请求 | boolean | | \nbeforeSend | 发送数据之前，对请求参数进行通用处理。为一个函数，函数返回处理后的ajax参数。函数参数`conf`为当前请求的全部配置参数，例如包含请求的类型等。 | function(conf){return conf;} | | \nhandler | 全局数据预处理函数（同通用属性[`source.handler`](#/Params/-source-)的用法），全部请求的返回数据都会先经过此函数处理 | function(data, res, conf){return data;} | | \nsuccess | 请求成功时的回调函数。这里的成功失败不是代码逻辑中的成功还是失败，而是**状态码是否为200**。参数中的`successHandler`和`errorHandler`为代码逻辑中的成功和失败的处理函数，用户可在此根据后端返回数据自定义调用成功还是失败处理逻辑 | function(res, successHandler, errorHandler, config){} | 默认处理逻辑，见 [交互API](#/Api/-uf-ajax-params-) 的 `UF.ajax` 部分 | \nerror | 请求失败时的回调函数。同上，为状态码非 200 时的回调函数。见下面示例 | function(res, errorHandler, config){} | | \ncomplete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | | \njsonpCallback | 为 JSONP 请求指定回调函数名。这个值将被使用，而不是由reqwest自动生成的随机(但推荐的)名称。 | function | | \n\n*默认`successHandler`和`errorHandler`调用条件：*\n\n- `successHandler`: 不是指请求成功执行的函数，而是请求的数据符合预期，可以正常使用的处理函数(即 'HTTP Status Code' === 200 && data.status === 0)\n\n- `errorHandler`: 除了请求出错，还有请求不符合预期都会触发error (即 'HTTP Status Code' !== 200 || data.status !== 0)。error有默认的处理逻辑，默认会在右上角展示错误提示信息。如果传入函数，则按照传入的函数执行错误处理\n\n\n覆盖默认 ajax 处理逻辑的示例：\n\n```javascript\nUF.config({\n    global: {\n        ajax: {\n            success(res, successHandler, errorHandler) {\n                // 接口定义：code === '0000' 为请求处理成功，数据放在 data 字段中\n                // 非 0000 的全部为失败，其中失败原因在 msg 字段中\n                if (res.code === '0000') {\n                    successHandler(data, res);\n                } else if (res.code === '8001') {\n                    // 错误提示逻辑\n                    UF.notification.error({\n                        message: '请求失败：',\n                        description: res.msg\n                    });\n                    // 业务逻辑中使用 UF.ajax 系列函数时传入的错误处理逻辑\n                    errorHandler(res);\n                }\n                \n            },\n            error(res, errorHandler) {\n                errorHandler(res);\n            }\n        }\n    }\n});\n```\n\n#### # *global.cacheApis*\n\n配置声明对接口数据进行缓存，防止重复请求。重复调用接口（*url及参数无变化时*）时直接从缓存中取得数据。加快获取速度，减小服务器压力。\n\n此功能对用户来说是无感的。用户只需在config中声明进行数据缓存的api列表，在业务中正常调用接口即可。`UF.ajax`和`source`系列属性获取数据均适用。\n\n```javascript\nUF.config({\n    global: {\n        cacheApis: [\n            'http://uf.baidu.com/docs/php/data.php'\n        ]\n    }\n});\nUF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n    console.log('第一次调接口取得数据：', data);\n    UF.ajax.get('http://uf.baidu.com/docs/php/data.php', null, data=>{\n        console.log('第二次调接口取得数据：', data);\n    });\n});\n```\n如示例中，虽然先后调用了两次ajax，但是network中查看只会看到一次请求记录。\n\n> Tips: 如`Table`组件中使用后端分页，如果数据不是实时更新的，也可以开启此功能，查看原来分页的数据即可无需再次请求\n\n#### # *global.mock*\n\nMock数据功能。\n\n参数为一个数组，数组的每一项代表一个接口，参数如下：\n\n参数 | 说明 | 类型 | 默认值 | 是否必填\n---- | ---- | ----- | ----- | ----\nurl | 接口地址 | string |  | 必填\nhandler | 接口对应的处理逻辑。handler中调用success并传入数据，则接口处理成功并返回了数据；调用error，则接口返回处理失败 | function (conf, success, error) {} |  | 必填\n\n```javascript\nUF.config({\n    global: {\n        mock: [\n            // 示例1：可延迟调用success，模拟数据加载中效果\n            {\n                url: '/mock/test',\n                handler: function (config, success, error) {\n                    setTimeout(()=>{\n                        success({\n                            status: 0,\n                            data: 'Mock数据测试'\n                        });\n                    }, 1000);\n                }\n            },\n            // 示例2：高端用法，可以使用mock功能简化交互。\n            // 比如多级级联，后端接口一次性返回全部数据，前端缓存起来。按以往思路，级联需不断获取数据并set给下一级，逻辑不够顺畅。此时即可以使用mock+source，定义几个mock接口，每个级联框绑定一个，各个mock接口分别取数据并返回\n            {\n                url: '/mock/test2',\n                handler: function (config, success, error) {\n                    success({\n                        status: 0,\n                        data: UF.get('cacheData');\n                    });\n                }\n            }\n        ]\n    }\n});\n```\n\n#### # *global.mockFiles*\n\n使用mock文件提供Mock数据功能，好处是方便对mock数据进行统一管理，并且方便对mock数据的切换（直接注释不需要的mock文件即可）\n\n参数参考上面的`mock`属性。用法如下：\n```javascript\n// ./entry.js\nUF.config({\n    global: {\n        mockFiles: [\n            'mock/common.js'\n        ]\n    }\n});\n\n// ./mock/common.js\ndefine([\n    {\n        url: '/mock/test',\n        handler: function (config, success, error) {\n            setTimeout(()=>{\n                success({\n                    status: 0,\n                    data: 'Mock数据测试'\n                });\n            }, 1000);\n        }\n    }\n]);\n```\n\n\n#### # data\n\n用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** \n\n和`UF.set('xxx', data.xxx)`效果相同，data里面的数据可以通过`UF.get('xxx')`获取到。\n\n同时，data中的数据还有一个常见用法，即在url中作为动态参数使用。从而可以在全局初始化一个变量作为某些ajax的前缀（或参数），在设置url时可以便捷的使用此变量，例如：\n\n```javascript\n// 在入口配置变量\nvar $uf = window.UF({\n    ...\n    data: {\n        // 使用 ms-common 的接口所需配置\n        'ms-common': window.location.origin + '/api/ms-common/'\n    }\n    ...\n});\n\n// 在组件中使用\n{\n    type: 'select',\n    name: 'room-list',\n    // 注意 :ms-common，会转化成入口处设置的变量的值\n    source: ':ms-common/idc/list/map'\n}\n```\n\n\n\n### # authority\n\n权限点列表。在这里配置了权限点之后，即可在组件配置中使用`authority`属性关联此权限点来控制组件是否渲染。例如只有管理员才会展示的按钮等。\n\n目前因为还没有和PMS对接，所以动态的权限需要后端接口提供。所以，最常用的用法为：在`precondition`中配置一个ajax来获取用户的权限点，然后再次调用`UF.config`更新`authority`属性，如下示例：\n\n```javascript\nUF.config({\n    authority: {\n        admin: false\n    },\n    precondition: [\n        (resolve, reject)=>{\n            UF.ajax.get('?api=xxx', null, data=>{\n                // data的值为: {admin: true}\n                UF.config({\n                    authority: data\n                });\n                resolve();\n            });\n        }\n    ]\n});\nUF.init({\n    type: 'button',\n    authority: 'admin',\n    content: '审批通过'\n}, '#demo');\n```\n\n如上示例，admin默认是false，当调用后端接口返回了当前用户的权限点后，重新调用`UF.config`函数更新配置中的权限点。因为是在`precondition`中定义的ajax逻辑，所以获取并更新权限点之前，页面不会进行初始化。\n\n页面初始化时，按钮的`authority`属性关联了全局配置中的名为'admin'的权限点，只有当 admin 为 true 时，审批通过的按钮才会显示出来。\n\n不仅仅初始化时，项目中的任何地方都可以使用权限点做关联，页面渲染之前会进行权限判断，没有权限的节点不会再进行解析和渲染。此功能同样适用与路由组件\n\n\n### # precondition\n\n`precondition`为预加载函数列表，函数的执行会阻塞页面初始化（`UF.init`函数执行之前执行的异步逻辑），等列表中的函数全部执行完成（调用resolve函数）后才会执行页面初始化。多为调用api获取页面所需的基础数据。\n\n```javascript\nprecondition: [\n    (resolve, reject)=>{\n        UF.ajax.get('?api=xxx', null, data=>{\n            UF.set('optionSource', data);\n            resolve();\n        }, error=>{\n            reject();\n            return true;\n        });\n    }\n]\n```"
 
 /***/ }),
 /* 246 */
@@ -28108,7 +28140,7 @@
 /* 254 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.4.0\n\n`2019-01-10`\n\n* 🐞 修复`Form`组件中表单项使用`authority`属性时报错问题\n\n\n`2019-01-04`\n\n* 🌟 UF上增加函数`UF.unrender`，用于主动销毁通过`UF.render`或`UF.init`渲染到页面上的组件，详见[交互API](#/Api)\n\n\n#### # 重要变化\n\n* `@ 2019-01-01`新年新气象，`UF 0.4.0` 版本上线啦~\n* `React`由版本`15.6.0`升级到了`16.7.0`\n* 发布了新组件库 `uf-mobile`，用于手机端的开发，详见 [文档](/mobile)\n\n\n---\n\n\n### 0.3.0\n\n`2018-12-31`\n\n* ##### 新增组件\n    * 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)\n    * 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)\n    * 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示\n    * 🌟 新增`TreeSelect`组件，树形选择框\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 增加`column.authority`属性，支持根据权限点控制是否展示列\n    * 🌟 增加`column.exportRender`属性，用于处理导出数据时的数据处理\n    * 🌟 新增支持表头合并功能\n    * 🌟 新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并\n    * 🌟 新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 实时翻译功能，增加对翻译字段值进行去重处理\n    * 🎨 针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能\n    * 🎨 调整params参数和source.params的合并逻辑\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复`Table`组件中的`column.sorter`属性不可用问题\n    * 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题\n    * 🐞 修复模糊搜索对某些复杂的数据结构的字段不支持的问题\n    * 🐞 修复修改展示列后刷新表格，展示列还原问题，[uf-233](http://newicafe.baidu.com:80/issue/uf-233/show?from=page)\n    * 🐞 修复设置完分页后再次进行搜索，分页pageSize会自动重置的问题，[uf-232](http://newicafe.baidu.com:80/issue/uf-232/show?from=page)\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 `Form`组件修改join参数为函数时的参数列表\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题\n    * 🐞 修复组件中的`range-picker`表单项defaut置为current未转换问题\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Export`组件相关\n    * 🌟 增加`renders`属性，用于处理导出数据时的数据处理\n    * 🎨 优化剩余时间展示效果\n    * 🐞 修复不支持set data 的问题\n    * 🐞 修复同步导出不可用问题\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性\n    * 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性\n    * 🌟 新增属性`source.paramIndex`，用于更改发送请求前更改传给后端的参数名称，例如修改默认传递的分页参数的键名\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🎨 `global.mock`模拟数据功能升级，支持带动态参数的url\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用\n    * 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机\n    * 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）\n    * 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Ueditor`默认字号改为12px\n    * 🎨 修改`Menu`及`Sider`主题样式\n    * 🎨 `Iframe`修改loading效果，改为右上角小菊花转动\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题\n    * 🐞 修复`ajax.url`中只能使用一个变量的问题\n    * 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl\n    * 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n    * ⚙ 内部逻辑调整：将用户配置的全部函数的执行环境固定bind到配置本身承载函数的对象上，以支持函数可以使用`this`获取和自己同级的其他参数\n    * ⚙ 内部逻辑优化：移除部分无效`call(this)`函数\n    * ⚙ 调整检查是否更新的策略，解决仅更新函数时不生效问题\n    * ⚙ 调整内部实现，支持事件函数更新\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)\n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table`\n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.4.0\n\n`2019-01-19`\n\n* 🌟 `Button`组件上通过`api`参数数据请求时，自动进行loading效果切换\n* 🎨 改造`Table`组件，将title提出来，使其不受loading效果的影响\n* 🎨 改造`Modal`组件，将弹框的默认按钮交换位置\n\n\n`2019-01-14`\n\n* 🌟 `Table`组件`展示字段`控件增加全选功能，可一键勾选全部列\n\n\n`2019-01-10`\n\n* 🐞 修复`Form`组件中表单项使用`authority`属性时报错问题\n\n\n`2019-01-04`\n\n* 🌟 UF上增加函数`UF.unrender`，用于主动销毁通过`UF.render`或`UF.init`渲染到页面上的组件，详见[交互API](#/Api)\n\n\n#### # 重要变化\n\n* `@ 2019-01-01`新年新气象，`UF 0.4.0` 版本上线啦~\n* 发布了新组件库 `uf-mobile`，用于手机端的开发，详见 [文档](#/Mobile)\n\n\n---\n\n\n### 0.3.0\n\n`2018-12-31`\n\n* ##### 新增组件\n    * 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)\n    * 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)\n    * 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示\n    * 🌟 新增`TreeSelect`组件，树形选择框\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 增加`column.authority`属性，支持根据权限点控制是否展示列\n    * 🌟 增加`column.exportRender`属性，用于处理导出数据时的数据处理\n    * 🌟 新增支持表头合并功能\n    * 🌟 新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并\n    * 🌟 新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 实时翻译功能，增加对翻译字段值进行去重处理\n    * 🎨 针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能\n    * 🎨 调整params参数和source.params的合并逻辑\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复`Table`组件中的`column.sorter`属性不可用问题\n    * 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题\n    * 🐞 修复模糊搜索对某些复杂的数据结构的字段不支持的问题\n    * 🐞 修复修改展示列后刷新表格，展示列还原问题，[uf-233](http://newicafe.baidu.com:80/issue/uf-233/show?from=page)\n    * 🐞 修复设置完分页后再次进行搜索，分页pageSize会自动重置的问题，[uf-232](http://newicafe.baidu.com:80/issue/uf-232/show?from=page)\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 `Form`组件修改join参数为函数时的参数列表\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题\n    * 🐞 修复组件中的`range-picker`表单项defaut置为current未转换问题\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Export`组件相关\n    * 🌟 增加`renders`属性，用于处理导出数据时的数据处理\n    * 🎨 优化剩余时间展示效果\n    * 🐞 修复不支持set data 的问题\n    * 🐞 修复同步导出不可用问题\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性\n    * 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性\n    * 🌟 新增属性`source.paramIndex`，用于更改发送请求前更改传给后端的参数名称，例如修改默认传递的分页参数的键名\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🌟 新增全局配置项`global.mockFiles`，提供文件Mock数据功能，[传送门](#/Develop/Config/-global-mockFiles-)\n    * 🎨 `global.mock`模拟数据功能升级，支持带动态参数的url\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用\n    * 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机\n    * 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）\n    * 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Ueditor`默认字号改为12px\n    * 🎨 修改`Menu`及`Sider`主题样式\n    * 🎨 `Iframe`修改loading效果，改为右上角小菊花转动\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题\n    * 🐞 修复`ajax.url`中只能使用一个变量的问题\n    * 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl\n    * 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n    * ⚙ 内部逻辑调整：将用户配置的全部函数的执行环境固定bind到配置本身承载函数的对象上，以支持函数可以使用`this`获取和自己同级的其他参数\n    * ⚙ 内部逻辑优化：移除部分无效`call(this)`函数\n    * ⚙ 调整检查是否更新的策略，解决仅更新函数时不生效问题\n    * ⚙ 调整内部实现，支持事件函数更新\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)\n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table`\n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 255 */
@@ -28421,7 +28453,7 @@
 /* 298 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
 
 /***/ }),
 /* 299 */
@@ -28608,6 +28640,8 @@
 	    _createClass(DemoCode, [{
 	        key: 'render',
 	        value: function render() {
+	            var _this3 = this;
+
 	            var demoUrl = getDemoUrl();
 	            return _react2.default.createElement(
 	                'div',
@@ -28619,7 +28653,9 @@
 	                        Content,
 	                        null,
 	                        (this.props.list || []).map(function (item, i) {
-	                            return _react2.default.createElement(_DemoCard.DemoCodeCard, _extends({ key: i }, item));
+	                            return _react2.default.createElement(_DemoCard.DemoCodeCard, _extends({ key: i, id: i }, item, { getDemoIframe: function getDemoIframe() {
+	                                    return _this3.iframe;
+	                                } }));
 	                        })
 	                    ),
 	                    _react2.default.createElement(
@@ -28648,7 +28684,9 @@
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'mobile-content' },
-	                            _react2.default.createElement('iframe', { src: demoUrl })
+	                            _react2.default.createElement('iframe', { ref: function ref(ele) {
+	                                    return _this3.iframe = ele;
+	                                }, src: demoUrl })
 	                        )
 	                    )
 	                )
@@ -40264,6 +40302,18 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
+	var demo1 = {
+	    title: 'RadioButtons',
+	    description: '按钮形式的Radio，也可以当`button-group`使用',
+	    config: {
+	        type: 'radio-buttons',
+	        options: ['按钮0', '按钮1', '按钮2'],
+	        onValueChange: function onValueChange(val) {
+	            console.log(val);
+	        }
+	    }
+	};
+
 	var Radio = function (_BaseDoc) {
 	    _inherits(Radio, _BaseDoc);
 
@@ -40280,7 +40330,7 @@
 	    _createClass(Radio, [{
 	        key: 'render',
 	        value: function render() {
-	            return this.__getMobileDemo();
+	            return this.__getMobileDemo(demo1);
 	        }
 	    }]);
 
@@ -40293,7 +40343,7 @@
 /* 430 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n单选框\n\n## 组件&配置\n\n### # radio\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\ndefaultChecked |   初始是否选中   | Boolean  | 无 \nchecked    |   指定当前是否选中  | Boolean  | 无 \ndisabled      |  禁用  | Boolean |  false \nonChange    | change 事件触发的回调函数 | (e: Object): void |   无 \n\n\n### radio-item\n\n基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和`List.Item`一致。\n其他 API 和 Radio 相同。\n\n\n### # radio-button\n\n按钮形式的radio\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nitems  | 选项数组,值是字符串        | array |  []  \nvalue  |  当前选中的值  | string |   \nprefixCls  | 样式前缀        | String |  `am-segment`  \ntintColor  | 组件主色调      | String |  `#2DB7F5`  \ndisabled  | 是否启用         | Boolean |  false  \nonChange    | 回调函数, 其中`e.nativeEvent.selectedSegmentIndex`是选中项索引,`e.nativeEvent.value`是选中的值. | (e): void | \nonValueChange    |    回调函数   | (val): void | \n"
+	module.exports = "\n单选框\n\n## 组件&配置\n\n### # radio\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\ndefaultChecked |   初始是否选中   | Boolean  | 无 \nchecked    |   指定当前是否选中  | Boolean  | 无 \ndisabled      |  禁用  | Boolean |  false \nonChange    | change 事件触发的回调函数 | (e: Object): void |   无 \n\n\n### # radio-item\n\n基于`List.Item`对`Radio`进行封装,`List.Item`的`extra`属性固定传入`Radio`,其他属性和`List.Item`一致。\n其他 API 和 Radio 相同。\n\n\n### # radio-buttons\n\n按钮形式的radio\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\noptions  | 选项数组,值是字符串        | array |  []  \nvalue  |  当前选中的值  | string |   \nprefixCls  | 样式前缀        | String |  `am-segment`  \ntintColor  | 组件主色调      | String |  `#2DB7F5`  \ndisabled  | 是否启用         | Boolean |  false  \nonChange    | 回调函数, 其中`e.nativeEvent.selectedSegmentIndex`是选中项索引,`e.nativeEvent.value`是选中的值. | (e): void | \nonValueChange    |    回调函数   | (val): void | \n"
 
 /***/ }),
 /* 431 */
@@ -41008,6 +41058,14 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
+	var demo1 = {
+	    title: '基本用法',
+	    description: '主要针对`List`组件',
+	    config: [{
+	        type: 'list'
+	    }]
+	};
+
 	var List = function (_BaseDoc) {
 	    _inherits(List, _BaseDoc);
 
@@ -41024,7 +41082,7 @@
 	    _createClass(List, [{
 	        key: 'render',
 	        value: function render() {
-	            return this.__getMobileDemo();
+	            return this.__getMobileDemo(demo1);
 	        }
 	    }]);
 
@@ -41037,7 +41095,7 @@
 /* 454 */
 /***/ (function(module, exports) {
 
-	module.exports = "连续模块垂直排列。\n\n## 何时使用\n- 一般由主要信息、主要操作、次要信息、次要操作组成。\n- 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。\n- 单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。\n- 当你需要一个 infinite scroll 列表时，请使用 ListView\n\n## 组件&配置\n\n### # list\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nrenderHeader  | 渲染List头部额外信息  | () => `config` |\nrenderFooter  | 渲染List底部额外信息  | () => `config` |\n\n### # item\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nthumb   | 缩略图(当为 string 类型时作为 img src)  | string&#124;`config` | \nextra   | 右边内容        | string&#124;`config` | \narrow   | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String | \nalign    |  子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle`\nonClick    | 点击事件的回调函数 | (): void | \nerror    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`\nmultipleLine    | 多行 | Boolean  | `false`\nwrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`\nactiveStyle    | 自定义active的样式 | Object  | \nplatform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`\n\n### item-brief\n\n辅助说明\n\n\n---\n\n\n适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果。\n\n### list-view\n\n| 属性 | 说明 | 类型 | 默认值 |\n|----|-----|------|------|\n| dataSource |  | ListViewDataSource | - |\n| initialListSize | 指定在组件刚挂载的时候渲染多少行数据，用这个属性来确保首屏显示合适数量的数据 | number | - |\n| onEndReached | 当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足`onEndReachedThreshold`个像素的距离时调用 | (event?) => {} | - |\n| onEndReachedThreshold | 调用`onEndReached`之前的临界值，单位是像素 | number | 1000 |\n| pageSize | 每次事件循环（每帧）渲染的行数 | number | 1 |\n| renderHeader / renderFooter | 页头与页脚（如果提供）会在每次渲染过程中都重新渲染。如果它们重绘的性能开销很大，把他们包装到一个StaticContainer或者其它恰当的结构中。页脚在列表的最底部，而页头会在最顶部 | () => renderable | - |\n| renderRow | 从数据源(data source)中接受一条数据，以及它和它所在section的ID。返回一个可渲染的组件来为这行数据进行渲染。默认情况下参数中的数据就是放进数据源中的数据本身，不过也可以提供一些转换器。如果某一行正在被高亮（通过调用highlightRow函数），ListView会得到相应的通知。 | (rowData, sectionID, rowID, highlightRow) => renderable | - |\n| renderScrollComponent | 指定一个函数，在其中返回一个可以滚动的组件，ListView将会在该组件内部进行渲染。默认情况下会返回一个包含指定属性的ScrollView。 | (props) => renderable | - |\n| renderSectionHeader | 如果提供了此函数，会为每个小节(section)渲染一个标题 | (sectionData, sectionID) => renderable | - |\n| renderSeparator | 如果提供了此属性，一个可渲染的组件会被渲染在每一行下面，除了小节标题的前面的最后一行。在其上方的小节ID和行ID，以及邻近的行是否被高亮会作为参数传递进来。 | (sectionID, rowID, adjacentRowHighlighted) => renderable | - |\n| scrollRenderAheadDistance | 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行 | number | 1000 |\n| contentContainerStyle | 这些样式会应用到一个内层的内容容器上，所有的子视图都会包裹在内容容器内 | Object | - |\n| horizontal | 当此属性为true的时候，所有的的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列 | bool | false |\n| onContentSizeChange | 此函数会在 ScrollView 内部可滚动内容的视图发生变化时调用。 | (contentWidth, contentHeight) => {} | - |\n| onScroll | 在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用`scrollEventThrottle`属性来控制。| e => {} | - |\n| scrollEventThrottle | 控制在滚动过程中，scroll事件被调用的频率 | number | 50 |\n| onLayout | 当组件挂载或者布局变化的时候调用 | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |\n| ---- |\n| renderBodyComponent  | 自定义 body 的包裹组件 | () => renderable | - |\n| renderSectionWrapper  | 渲染自定义的区块包裹组件 | (sectionID) => renderable | - |\n| renderSectionBodyWrapper  | 渲染自定义的区块 body 包裹组件 | (sectionID) => renderable | - |\n| useBodyScroll  | 使用 html 的 `body` 作为滚动容器 | bool | false |\n| pullToRefresh  | 使用 pullToRefresh， 你需要和 `PullToRefresh` 组件一起使用 | bool | false |\n\n### 方法\n\n- getMetrics() - 导出一些用于性能分析的数据。\n- scrollTo(...args) - 滚动到指定的x, y偏移处(暂不支持过渡动画)。\n\n## list-view-index\n\n此组件常用于 “通讯录”/“城市列表” 等场景中，支持索引导航功能。\n\n> 你可以使用 ListView 上的几乎所有 APIs。\n\n> 注意：由于索引列表可以点击任一项索引来定位其内容、即内容需要直接滚动到任意位置，这样就难以做到像 ListView 一样能在滚动时自动懒渲染。目前实现上只支持分两步渲染，能借此达到首屏优先显示目的，但如果列表数据量过大时、整体性能仍会有影响。\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\n| quickSearchBarTop | 快捷导航栏最顶部按钮、常用于回到顶部 | object{value:string, label:string} | `{ value: '#', label: '#' }` |\n| quickSearchBarStyle | quickSearchBar 的 style | object | - |\n| onQuickSearch | 快捷导航切换时调用 | (sectionID: any, topId?:any) => void | - |\n| showQuickSearchIndicator | whether show quick search indicator | bool | false |\n| delayTime | 延迟渲染时间设置（用于首屏优化，一开始渲染`initialListSize`数量的数据，在此时间后、延迟渲染剩余的数据项、即`totalRowCount - initialListSize`） | number |`100ms` |\n| delayActivityIndicator | 延迟渲染的 loading 指示器 | `config` | - |\n\n\n## 提示\n\nListView 有两种类型的滚动容器：\n\n1. 局部 div 容器\n    - 默认，注意：**需要手动给 ListView 设置高度**\n2. html 的 body 容器\n    - 设置`useBodyScroll`后生效 (不需要设置高度)\n\n<br />\n\n对 dataSource 对象变化时的处理方式是什么？何时调用 onEndReached 方法？\n\nListView 在 componentWillReceiveProps 里会监听 dataSource 对象的变化，并做一次\n[`this._renderMoreRowsIfNeeded()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L156) ，\n由于此时[`this.state.curRenderedRowsCount === this.props.dataSource.getRowCount()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L348)\n即已经渲染的数据与 dataSource 里已有的数据项个数相同，所以 ListView 认为应该再调用 onEndReached 方法。\n\nonEndReached 为什么会不停调用？[520#issuecomment-263510596](https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596)\n\n<br />\n\n其他问题：[#633](https://github.com/ant-design/ant-design-mobile/issues/633) [#573](https://github.com/ant-design/ant-design-mobile/issues/573) [#541](https://github.com/ant-design/ant-design-mobile/issues/541)\n"
+	module.exports = "连续模块垂直排列。\n\n## 何时使用\n- 一般由主要信息、主要操作、次要信息、次要操作组成。\n- 主要信息和主要操作放在列表的左边，次要信息和次要操作放在列表的右边。\n- 单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。\n- 当你需要一个 infinite scroll 列表时，请使用 ListView\n\n## 组件&配置\n\n### # list\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nheader  | 渲染List头部额外信息  | `config` |\nfooter  | 渲染List底部额外信息  | `config` |\n\n### # list-item\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nthumb   | 缩略图(当为 string 类型时作为 img src)  | string&#124;`config` | \nextra   | 右边内容        | string&#124;`config` | \narrow   | 箭头方向(右,上,下), 可选`horizontal`,`up`,`down`,`empty`，如果是`empty`则存在对应的dom,但是不显示   | String | \nalign    |  子元素垂直对齐，可选`top`,`middle`,`bottom`  | String   | `middle`\nonClick    | 点击事件的回调函数 | (): void | \nerror    | 报错样式,右侧文字颜色变成橙色 | Boolean  | `false`\nmultipleLine    | 多行 | Boolean  | `false`\nwrap    | 是否换行，默认情况下，文字超长会被隐藏， | Boolean  | `false`\nactiveStyle    | 自定义active的样式 | Object  | \nplatform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`， 默认为 `cross`， 即组件会自动检测设备 UA 应用不同平台的样式    | String | `'cross'`\n\n### list-item-brief\n\n辅助说明\n"
 
 /***/ }),
 /* 455 */
@@ -41055,7 +41113,103 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _popover = __webpack_require__(456);
+	var _listView = __webpack_require__(456);
+
+	var _listView2 = _interopRequireDefault(_listView);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 列表
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var demo1 = {
+	    title: 'ListView 基本用法',
+	    description: '主要针对`ListView`组件使用`source`属性来不断加载数据',
+	    config: {
+	        type: 'list-view',
+	        header: { type: 'span', content: 'Header' },
+	        footer: { type: 'span', content: 'Footer.' },
+	        separator: {
+	            type: 'div', style: {
+	                backgroundColor: '#F5F5F9',
+	                height: 8,
+	                borderTop: '1px solid #ECECED',
+	                borderBottom: '1px solid #ECECED'
+	            }
+	        },
+	        renderRow: function renderRow(row, index) {
+	            console.log(row, index);
+	            return { type: 'div', style: { padding: '20px 10px', marginBottom: '10px' }, content: 'Row.' + index };
+	        },
+	        source: '../php/download.php?sleep=0.2',
+	        // data: [],
+	        pageSize: 7,
+	        onScroll: function onScroll() {
+	            console.log('scroll');
+	        },
+	        scrollRenderAheadDistance: 500,
+	        endReachedThreshold: 1000,
+	        onEndReached: function onEndReached() {
+	            console.log('onEndReached');
+	        },
+	        useBodyScroll: true
+	    }
+	};
+
+	var ListView = function (_BaseDoc) {
+	    _inherits(ListView, _BaseDoc);
+
+	    function ListView(props) {
+	        _classCallCheck(this, ListView);
+
+	        var _this = _possibleConstructorReturn(this, (ListView.__proto__ || Object.getPrototypeOf(ListView)).call(this, props));
+
+	        _this.doc = _listView2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(ListView, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getMobileDemo(demo1);
+	        }
+	    }]);
+
+	    return ListView;
+	}(_BaseDoc3.default);
+
+	exports.default = ListView;
+
+/***/ }),
+/* 456 */
+/***/ (function(module, exports) {
+
+	module.exports = "适用于显示同类的长列表数据类型，对渲染性能有一定的优化效果。\n\n## 何时使用\n- 常用于下滑自动加载分页数据\n\n## 组件&配置\n\n### list-view\n\n| 属性 | 说明 | 类型 | 默认值 |\n|----|-----|------|------|\n| data | 默认展示的行数据 | array | [] |\n| source | 滑动到底部时自动获取数据的接口配置。同通用的`source`属性 | object&#124;string |  |\n| header | 页头。（如果提供，会在每次渲染过程中都重新渲染，需注意性能开销） | `config` | - |\n| footer | 页脚。在列表的最底部 | `config` | - |\n| pageSize | 每次事件循环（每帧）渲染的行数 | number | 1 |\n| separator | 如果提供了此属性，一个可渲染的组件会被渲染在每一行下面，除了小节标题的前面的最后一行。在其上方的小节ID和行ID，以及邻近的行是否被高亮会作为参数传递进来。 | `config` | - |\n| renderRow | 对数据源`data`中每一条数据进行处理。 | (row, index) => `config` | - |\n| initialListSize | 指定在组件刚挂载的时候渲染多少行数据，用这个属性来确保首屏显示合适数量的数据 | number | - |\n| endReachedThreshold | 调用`onEndReached`之前的临界值，单位是像素 | number | 1000 |\n| scrollRenderAheadDistance | 当一个行接近屏幕范围多少像素之内的时候，就开始渲染这一行 | number | 1000 |\n| contentContainerStyle | 这些样式会应用到一个内层的内容容器上，所有的子视图都会包裹在内容容器内 | Object | - |\n| horizontal | 当此属性为true的时候，所有的的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列 | bool | false |\n| scrollEventThrottle | 控制在滚动过程中，scroll事件被调用的频率 | number | 50 |\n| useBodyScroll  | 使用 html 的 `body` 作为滚动容器 | bool | false |\n| pullToRefresh  | 使用 pullToRefresh， 你需要和 `PullToRefresh` 组件一起使用 | bool | false |\n| onEndReached | 当所有的数据都已经渲染过，并且列表被滚动到距离最底部不足`endReachedThreshold`个像素的距离时调用 | (event?) => {} | - |\n| onScroll | 在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用`scrollEventThrottle`属性来控制。| e => {} | - |\n| onLayout | 当组件挂载或者布局变化的时候调用 | ({nativeEvent:{ layout:{ width, height }}}) => {} | - |\n| onContentSizeChange | 此函数会在 ScrollView 内部可滚动内容的视图发生变化时调用。 | (contentWidth, contentHeight) => {} | - |\n\n\n### 方法\n\n- getMetrics() - 导出一些用于性能分析的数据。\n- scrollTo(...args) - 滚动到指定的x, y偏移处(暂不支持过渡动画)。\n\n## list-view-index\n\n此组件常用于 “通讯录”/“城市列表” 等场景中，支持索引导航功能。\n\n> 你可以使用 ListView 上的几乎所有 APIs。\n\n> 注意：由于索引列表可以点击任一项索引来定位其内容、即内容需要直接滚动到任意位置，这样就难以做到像 ListView 一样能在滚动时自动懒渲染。目前实现上只支持分两步渲染，能借此达到首屏优先显示目的，但如果列表数据量过大时、整体性能仍会有影响。\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nquickSearchBarTop | 快捷导航栏最顶部按钮、常用于回到顶部 | object{value:string, label:string} | `{ value: '#', label: '#' }` \nquickSearchBarStyle | quickSearchBar 的 style | object | - \nonQuickSearch | 快捷导航切换时调用 | (sectionID: any, topId?:any) => void | - \nshowQuickSearchIndicator | whether show quick search indicator | bool | false \ndelayTime | 延迟渲染时间设置（用于首屏优化，一开始渲染`initialListSize`数量的数据，在此时间后、延迟渲染剩余的数据项、即`totalRowCount - initialListSize`） | number |`100ms` \ndelayActivityIndicator | 延迟渲染的 loading 指示器 | `config` | - \n\n\n## 提示\n\nListView 有两种类型的滚动容器：\n\n1. 局部 div 容器\n    - 默认，注意：**需要手动给 ListView 设置高度**\n2. html 的 body 容器\n    - 设置`useBodyScroll`后生效 (不需要设置高度)\n\n<br />\n\n对 dataSource 对象变化时的处理方式是什么？何时调用 onEndReached 方法？\n\nListView 在 componentWillReceiveProps 里会监听 dataSource 对象的变化，并做一次\n[`this._renderMoreRowsIfNeeded()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L156) ，\n由于此时[`this.state.curRenderedRowsCount === this.props.dataSource.getRowCount()`](https://github.com/react-component/m-list-view/blob/90badfdb6e94093136c86e5874ce6054eae88a0d/src/ListView.js#L348)\n即已经渲染的数据与 dataSource 里已有的数据项个数相同，所以 ListView 认为应该再调用 onEndReached 方法。\n\nonEndReached 为什么会不停调用？[520#issuecomment-263510596](https://github.com/ant-design/ant-design-mobile/issues/520#issuecomment-263510596)\n\n<br />\n\n其他问题：[#633](https://github.com/ant-design/ant-design-mobile/issues/633) [#573](https://github.com/ant-design/ant-design-mobile/issues/573) [#541](https://github.com/ant-design/ant-design-mobile/issues/541)\n"
+
+/***/ }),
+/* 457 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _BaseDoc2 = __webpack_require__(232);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _popover = __webpack_require__(458);
 
 	var _popover2 = _interopRequireDefault(_popover);
 
@@ -41096,13 +41250,13 @@
 	exports.default = Popover;
 
 /***/ }),
-/* 456 */
+/* 458 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。\n如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。\n\n## 组件&配置\n\n### # popover\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nvisible    | 当前显隐状态    | Boolean |  false \nonVisibleChange    | 当显隐状态变化时回调函数    | (visible: bool): void |  - \nplacement    | enum{'left','right','top','bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight'} | String |  'bottomRight' \nmask    | 是否显示遮罩背景层    | Boolean |  false\noverlay   | 弹出层内容    | `config` |  - \nonSelect   | 选中某选项时的回调函数    | (node: any, index?: number): void |  - \n\n更多 API 可查看 [rmc-tooltip](https://github.com/react-component/m-tooltip#api)\n\n### popover-item\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\ndisabled   | 是否禁用    | Boolean |  false \nstyle  | item 样式    | Object |  - \nicon   | icon   | `config` |  - \n"
 
 /***/ }),
-/* 457 */
+/* 459 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41117,7 +41271,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _noticeBar = __webpack_require__(458);
+	var _noticeBar = __webpack_require__(460);
 
 	var _noticeBar2 = _interopRequireDefault(_noticeBar);
 
@@ -41158,13 +41312,13 @@
 	exports.default = NoticeBar;
 
 /***/ }),
-/* 458 */
+/* 460 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n在导航栏下方，一般用作系统提醒、活动提醒等通知。\n\n### 规则\n- 需要引起用户关注时使用，重要级别低于 Modal ，高于 Toast。\n\n## 组件&配置\n\n### # notice-bar\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nmode    | 提示类型，可选 `closable`,`link`   | String |  ''  \nicon    | 在开始位置设置图标  |  `config` | \nonClick | 点击关闭或者操作区域的回调函数        | (): void |   \nmarqueeProps | marquee 参数  | Object | `{loop: false, leading: 500, trailing: 800, fps: 40, style: {}}`  \naction | 用于替换操作 icon 的文案 | `config` | \n"
 
 /***/ }),
-/* 459 */
+/* 461 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41179,7 +41333,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _tag = __webpack_require__(460);
+	var _tag = __webpack_require__(462);
 
 	var _tag2 = _interopRequireDefault(_tag);
 
@@ -41220,13 +41374,13 @@
 	exports.default = Tag;
 
 /***/ }),
-/* 460 */
+/* 462 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n进行标记和分类的小标签，用于标记事物的属性和维度，以及进行分类。\n\n### 规则\n- 标签文字必须显示完全。\n\n\n## 组件&配置\n\n### # tag\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nsmall   |  小号标签  |   Boolean    |  `false`  \ndisabled   | 是否不可用      | Boolean |    `false`  \nclosable   | 是否关闭（非 disabled small 状态） | Boolean | `false` \nselected   | 是否默认选中      | Boolean |    `false`  \nonChange   | 切换选中回调函数 | (selected: bool): void |   无  \nonClose   | 点关闭时的回调函数 | (): void |   无  \nafterClose   | 关闭后的回调 | (): void |   无  \n"
 
 /***/ }),
-/* 461 */
+/* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41241,7 +41395,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _result = __webpack_require__(462);
+	var _result = __webpack_require__(464);
 
 	var _result2 = _interopRequireDefault(_result);
 
@@ -41282,13 +41436,13 @@
 	exports.default = Result;
 
 /***/ }),
-/* 462 */
+/* 464 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。\n\n### 规则\n\n- 用作非常重要的操作反馈，如支付成功，无网络状态。\n- 个性化且优美的插画，可以提升品牌形象。\n- 对于错误类型的结果页，页面中需要提供明确的行动点，eg：重新加载。\n\n## 组件&配置\n\n### # result\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nimgUrl | 插图 url | string  | -\nimg | 插图配置，为一个`img`组件或者`icon`组件, 会覆盖 imgUrl 设置  | `config` | -\ntitle | title 文案 | string&#124;`config` | -\nmessage | message 文案 | string&#124;`config` | -\nbuttonText | 按钮文案 | string | -\nbuttonType | 请参考 button 的配置 | string | -\nonButtonClick | 按钮回调函数 | (e: Object): void | -\n"
 
 /***/ }),
-/* 463 */
+/* 465 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41303,7 +41457,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _modal = __webpack_require__(464);
+	var _modal = __webpack_require__(466);
 
 	var _modal2 = _interopRequireDefault(_modal);
 
@@ -41344,13 +41498,13 @@
 	exports.default = Modal;
 
 /***/ }),
-/* 464 */
+/* 466 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。\n\n### 规则\n- 尽可能少用。Modal 会打断用户操作，只用在重要的时候。\n- 标题应该简明，不能超过 1 行；描述内容应该简明、完整，一般不多于 2 行。\n- 操作按钮最多到 3 个（竖排），一般为 1-2 个（横排）；3 个以上建议使用组件 ActionSheet 来完成。\n- 一般将用户最可能点击的按钮，放在右侧。另外，取消按钮应当始终放在左侧。\n\n## 组件&配置\n\n### # modal\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nafterClose | Modal 完全关闭后的回调 | function | 无 \nvisible | 对话框是否可见 | Boolean | false \nclosable | 是否显示关闭按钮 | Boolean | false \nmaskClosable | 点击蒙层是否允许关闭 | Boolean | true \nonClose | 点击 x 或 mask 回调 | (): void | 无 \ntransparent | 是否背景透明 | Boolean | false \npopup | 是否弹窗模式 | Boolean | false \nanimationType | 可选: 'slide-down / up' / 'fade' / 'slide' | String | fade \ntitle | 标题 | string&#124;`config` | 无 \nfooter | 底部内容 | Array [{text, onPress}] | [] \nplatform  | 设定组件的平台特有样式, 可选值为 `android`, `ios` | String | `ios'`\ntransitionName  | Modal 主内容动画 className | String | \nmaskTransitionName  | mask 动画 className | String | \nclassName  | 手动设置 Modal 的 className | String | \nwrapClassName  | 手动设置 Modal wrap 的 className | String | \n\n#### Modal.alert(config)\n\n属性 | 说明 | 类型 | 默认值 | 是否必填\n----|-----|------|------ | -----\ntitle | 标题  | string&#124;`config` | | 是\nmessage  | 提示信息  | string&#124;`config`  | | 是\nactions | 按钮组, [{text, onPress, style}] | Array | |\nplatform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`  | String | `'ios'`|\n\n`Modal.alert(config).close()` 可以在外部关闭 Alert\n\n#### Modal.prompt(config)\n\n属性 | 说明 | 类型 | 默认值| 是否必填\n----|-----|------|------| -----\ntitle | 标题  | string&#124;`config` | 无 | 是 \nmessage  | 提示信息  | string&#124;`config`  | 无 | 是\ncallbackOrActions  | 按钮组 [{text, onPress}] 或回调函数  | Array or Function | 无 |\nmode | prompt 的样式 | String (`default`, `secure-text`, `login-password`)|  `default` |\ndefaultValue | 默认值(input 为 password 类型不支持) | String |  |\nplaceholders | ['', '']  | String[] |  |\nplatform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`  | String | `'ios'`|\n\n> `Modal.prompt(config).close()` 可以在外部关闭 prompt`\n\n### Modal.operation(config)\n\n属性 | 说明 | 类型 | 默认值| 是否必填\n----|-----|------|------|-----\nactions | 按钮组, [{text, onPress, style}] | Array | 无 |\nplatform  |  设定组件的平台特有样式, 可选值为 `android`, `ios`  | String | `'ios'`|\n\n> `Modal.operation(config).close()` 可以在外部关闭 operation`\n"
 
 /***/ }),
-/* 465 */
+/* 467 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41365,7 +41519,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _actionSheet = __webpack_require__(466);
+	var _actionSheet = __webpack_require__(468);
 
 	var _actionSheet2 = _interopRequireDefault(_actionSheet);
 
@@ -41412,13 +41566,13 @@
 	exports.default = ActionSheet;
 
 /***/ }),
-/* 466 */
+/* 468 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n从底部弹出的模态框，提供和当前场景相关的 2 个以上的操作动作，也支持提供标题和描述。内置固定的展示样式、不支持特别灵活的修改。\n\n## 何时使用\n\n- 提供清晰的退出按钮。\n- 可高亮破坏性操作，e.g. 将『删除』处理成红色文本。\n- 不要放置过多内容，避免面板纵向滚动。\n\n\n## 组件&配置\n\n#### ActionSheet.showActionSheetWithOptions(options, callback)\n\n显示 action sheet，`options`为对象必须包含以下的一个或者多个。`callback`函数支持返回 Promise。\n\n属性 | 说明 | 类型 | 默认值 | 是否必填\n----|-----|------|------ | -----\noptions | 选项按钮列表 | string[] | | 是\nbadges |  徽标数列表，为一个数组，数组每一项包含两个属性：index、text | [{index, text}...] | | \ncancelButtonIndex |  按钮列表中取消按钮的索引位置 | Number  | | \ndestructiveButtonIndex |  按钮列表中破坏性按钮（一般为删除）的索引位置 | Number | | \ntitle |  顶部标题 | string | | \nmessage |  顶部标题下的简要消息 | string&#124;`config` | | \nmaskClosable |  点击蒙层是否允许关闭，默认允许 | boolean | true | \n\n\n#### ActionSheet.showShareActionSheetWithOptions(options, callback)\n\n显示分享 action sheet，`options`为对象必须包含以下的一个或者多个。`callback`函数支持返回 Promise。\n\n属性 | 说明 | 类型 | 默认值 | 是否必填\n----|-----|------|------ | -----\noptions | 分享按钮列表，具体见下方说明 | [{icon: `config`, title: string}...] | | 是\ntitle | 顶部标题 | string |  | \ncancelButtonText | 取消按钮文案 | string | 取消 | \nmessage | 顶部标题下的简要消息 | string&#124;`config` |  | \nmaskClosable |  点击蒙层是否允许关闭，默认允许 | boolean | true | \n\n- options (array of \\`{icon: `config`, title: string}\\`)\n    - 可以是二维数组，能显示多行按钮，例如`[[{icon,title},...],...]`表示两行两列。当为二维数组时`callback`有两个参数，第一个为`列`序列、第二个为`行`序列。\n\n#### ActionSheet.close()\n\n关闭弹窗。\n"
 
 /***/ }),
-/* 467 */
+/* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41433,7 +41587,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _progress = __webpack_require__(468);
+	var _progress = __webpack_require__(470);
 
 	var _progress2 = _interopRequireDefault(_progress);
 
@@ -41474,13 +41628,13 @@
 	exports.default = Progress;
 
 /***/ }),
-/* 468 */
+/* 470 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n表明某个任务的当前进度。\n\n### 规则\n\n- 需要准确告知当前进度，否则应该使用组件 ActivityIndicator。\n- 和 NavBar 一起搭配使用时，可以隐藏 Progress 未填充部分的轨道，提升整体感。\n\n## 组件&配置\n\n### # progress\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\npercent | 进度百分比 | number | 0\nposition | 进度条的位置，fixed 将浮出固定在最顶层，可选: `fixed` `normal` | string | `fixed`\nunfilled | 是否显示未填充的轨道 | boolean | true\nstyle | 进度条样式 | object | {}\nbarStyle | 进度样式 | object | {}\n"
 
 /***/ }),
-/* 469 */
+/* 471 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41495,7 +41649,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _loading = __webpack_require__(470);
+	var _loading = __webpack_require__(472);
 
 	var _loading2 = _interopRequireDefault(_loading);
 
@@ -41536,13 +41690,13 @@
 	exports.default = Loading;
 
 /***/ }),
-/* 470 */
+/* 472 */
 /***/ (function(module, exports) {
 
 	module.exports = "\nLoading效果，表明某个任务正在进行中。\n\n## 何时使用\n- 不要让活动指示器静止，用户会以为该任务停滞了。\n- 在某些特定场景下，提供有意义的文案，帮助用户明白哪个任务正在进行中，eg：正在上传照片。\n- 如果能知道用户的等待时间，可以使用组件 Progress 来替代。\n\n\n## 组件&配置\n\n### # loading\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nloading  | 显隐状态 | boolean  | true  \nsize  | spinner大小，可选`small`/`large` | string  | small  \ntoast  | loading样式类型 | boolean  | false  \ntext  | loading文本 | string |  -   \n"
 
 /***/ }),
-/* 471 */
+/* 473 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41557,7 +41711,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _message = __webpack_require__(472);
+	var _message = __webpack_require__(474);
 
 	var _message2 = _interopRequireDefault(_message);
 
@@ -41598,13 +41752,13 @@
 	exports.default = Message;
 
 /***/ }),
-/* 472 */
+/* 474 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。\n\n## 何时使用\n- 一次只显示一个 message\n- 有 Icon 的 Message，字数为 4-6 个；没有 Icon 的 Message，字数不宜超过 14 个。\n\n## 组件&配置\n\n- `UF.message.success(content, duration, onClose, mask)`\n- `UF.message.fail(content, duration, onClose, mask)`\n- `UF.message.info(content, duration, onClose, mask)`\n- `UF.message.loading(content, duration, onClose, mask)`\n- `UF.message.offline(content, duration, onClose, mask)`\n\n组件提供了五个静态方法，参数如下：\n\n| 属性 | 说明 | 类型 | 默认值 |\n| ----|-----|------|------ |\n| content    | 提示内容       | string&#124;`config`    | 无           |\n| duration   | 自动关闭的延时，单位秒 | number                 | 3          |\n| onClose    | 关闭后回调 |  Function                 | 无          |\n| mask    | 是否显示透明蒙层，防止触摸穿透 |  Boolean  | true          |\n\n> **注：**  duration = 0 时，onClose 无效，message 不会消失；隐藏 message 需要手动调用 hide\n\n还提供了全局配置和全局销毁方法：\n\n- `UF.message.hide()`\n"
 
 /***/ }),
-/* 473 */
+/* 475 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41619,7 +41773,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _pullRefresh = __webpack_require__(474);
+	var _pullRefresh = __webpack_require__(476);
 
 	var _pullRefresh2 = _interopRequireDefault(_pullRefresh);
 
@@ -41660,13 +41814,13 @@
 	exports.default = PullRefresh;
 
 /***/ }),
-/* 474 */
+/* 476 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n通过触发，立刻重新加载内容。\n\n### 规则\n- 可以和 `ListView` 结合使用，也可以单独使用。\n- 可考虑定期自动刷新, e.g. 登录 APP 后，自动刷新首页 List。\n\n## 组件&配置\n\n### # pull-refresh\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\ndirection  | 拉动方向，可以是 `up` 或 `down` | String | `down` \ndistanceToRefresh | 刷新距离 | number | 25 \nrefreshing | 是否显示刷新状态 | bool | false \nonRefresh | 必选, 刷新回调函数 | () => void | - \nindicator  | 指示器配置，为一对象，具体属性见下表`indicator` | Object | - \ndamping | 拉动距离限制, 建议小于 200 | number | 100 \n\n> 如果页面使用了对 viewport 进行缩放的高清适配方案，请自行对 distanceToRefresh 进行调整, 例如对 antd-mobile@1.x 高清方案，可设置 `distanceToRefresh = window.devicePixelRatio * 25`\n\n#### *indicator*\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nactivate  | 下拉是的提示 | `config` | \ndeactivate  | 无效提示 | `config` | \nrelease  | 释放时的提示 | `config` | \nfinish  | 完成后的提示 | `config` | \n"
 
 /***/ }),
-/* 475 */
+/* 477 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41681,7 +41835,7 @@
 
 	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
 
-	var _swipeAction = __webpack_require__(476);
+	var _swipeAction = __webpack_require__(478);
 
 	var _swipeAction2 = _interopRequireDefault(_swipeAction);
 
@@ -41722,13 +41876,13 @@
 	exports.default = SwipeAction;
 
 /***/ }),
-/* 476 */
+/* 478 */
 /***/ (function(module, exports) {
 
 	module.exports = "\n滑动操作组件。结合手势操作，从屏幕一侧唤出操作。\n\n## 何时使用\n- 一次只可滑动一行列表\n- 点击任意按钮之外处或往回滑动该列表可隐藏操作。\n\n## 组件&配置\n\n### # swipe-action\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\nstyle      | `swipeout` 样式      | Object |    \nleft       | 左侧按钮组      | Array | `null` \nright       | 右侧按钮组      | Array | `null` \nautoClose   | 点击按钮后自动隐藏按钮   | Boolean | \ndisabled    |   禁用 `swipeout`    | Boolean | `false` \nonOpen      |    打开时回调函数   | (): void | \nonClose  |  关闭时回调函数    | (): void | \n"
 
 /***/ }),
-/* 477 */
+/* 479 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41840,7 +41994,7 @@
 	exports.default = Home;
 
 /***/ }),
-/* 478 */
+/* 480 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41891,7 +42045,7 @@
 	exports.default = StandardApp;
 
 /***/ }),
-/* 479 */
+/* 481 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41940,6 +42094,260 @@
 	}(_BaseDoc3.default);
 
 	exports.default = StandardApp;
+
+/***/ }),
+/* 482 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.notification = exports.message = undefined;
+
+	var _utils = __webpack_require__(121);
+
+	var _src = __webpack_require__(115);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	var _whitelist = __webpack_require__(161);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	var _instance = __webpack_require__(158);
+
+	var _antd = __webpack_require__(111);
+
+	var Antd = _interopRequireWildcard(_antd);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/************* message 提示 ************************************************************************** */
+
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentMessageHandle = {}; /**
+	                                * @file Layout 类组件
+	                                * @author liuzechun
+	                                */
+
+	var messageAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function messageHandler(type, insName, config, duration, onClose) {
+	    var _Antd$message;
+
+	    // key 相同的提示信息只展示一个
+	    var key = _utils.Utils.hash({ type: type, config: config });
+	    if (messageAutoMerge && currentMessageHandle[key]) {
+	        // 先创建，再销毁
+	        _utils.Utils.defer(currentMessageHandle[key]);
+	    }
+	    // 重写onClose函数
+	    close = function close() {
+	        delete currentMessageHandle[key];
+	        onClose && onClose.apply(undefined, arguments);
+	    };
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
+	    }
+	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
+
+	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
+	        params[_key - 5] = arguments[_key];
+	    }
+
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    currentMessageHandle[key] = distroy;
+	    return distroy;
+	}
+	// 拦截 message.config ，加入自定义参数处理
+	function messageConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        messageAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading'),
+	    config: messageConfHandler.bind(null)
+	});
+	// 用于生成已绑定实例的组件
+	function factory(comp) {
+	    return function (insName) {
+	        return _utils.Utils.each(comp, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, insName) : item;
+	        });
+	    };
+	}
+	message.init = factory(message);
+
+	/************* notification 提示 ************************************************************************** */
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentNotificationHandle = {};
+	var notificationAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function notificationHandler(type, insName, config) {
+	    if (notificationAutoMerge) {
+	        // key 相同的提示信息只展示一个
+	        if (config.key) {
+	            Antd.notification.close(config.key);
+	        } else {
+	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
+	            var hashKey = _utils.Utils.hash({ type: type, config: config });
+	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
+	            var key = _utils.Utils.uniqueId();
+	            currentNotificationHandle[hashKey] = key;
+	            config.key = key;
+	        }
+	    }
+	    var list = _whitelist2.default.get(config, 'notification');
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var v = _step.value;
+
+	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+
+	    return Antd.notification[type](config);
+	}
+	// 拦截 notification.config ，加入自定义参数处理
+	function notificationConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        notificationAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var notification = exports.notification = Object.assign({}, Antd.notification, {
+	    success: notificationHandler.bind(null, 'success'),
+	    error: notificationHandler.bind(null, 'error'),
+	    info: notificationHandler.bind(null, 'info'),
+	    warning: notificationHandler.bind(null, 'warning'),
+	    warn: notificationHandler.bind(null, 'warn'),
+	    open: notificationHandler.bind(null, 'open'),
+	    config: notificationConfHandler.bind(null)
+	});
+
+	// 用于生成已绑定实例的组件
+	notification.init = factory(notification);
+
+/***/ }),
+/* 483 */,
+/* 484 */,
+/* 485 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(108);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(232);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _src = __webpack_require__(115);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	var _markdown = __webpack_require__(486);
+
+	var _markdown2 = _interopRequireDefault(_markdown);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Demo及文档说明
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var dataSource = [{ area: '北京', stock: 622, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 6232, futureSuply: '23123', totalSuply: '13243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }];
+
+	var demo1 = {
+	    title: '基本用法',
+	    description: '',
+	    config: {
+	        type: 'table',
+	        name: 'newtable',
+	        rowKey: 'key',
+	        columns: [{ title: '区域', dataIndex: 'area' }, { title: '存量', dataIndex: 'stock' }, { title: '未来12月', dataIndex: 'futureSuply' }, { title: '总资源供给', dataIndex: 'totalSuply' }, { title: '总资源需求', dataIndex: 'totalRequied' }, { title: '区域冗余', dataIndex: 'areaStock' }],
+	        data: dataSource
+	    }
+	};
+
+	var TableApp = function (_BaseDoc) {
+	    _inherits(TableApp, _BaseDoc);
+
+	    function TableApp(props) {
+	        _classCallCheck(this, TableApp);
+
+	        var _this = _possibleConstructorReturn(this, (TableApp.__proto__ || Object.getPrototypeOf(TableApp)).call(this, props));
+
+	        _this.state = {};
+	        _this.doc = _markdown2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(TableApp, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getMobileDemo(demo1);
+	        }
+	    }]);
+
+	    return TableApp;
+	}(_BaseDoc3.default);
+
+	exports.default = TableApp;
+
+/***/ }),
+/* 486 */
+/***/ (function(module, exports) {
+
+	module.exports = "自定义表格组件。\n\n## 组件&参数\n\n### # table\n\n参数 | 说明 | 类型 | 默认值 \n---- | ---- | ----- | -----\ndata    | 数据数组，见示例 | any[] |\ncolumns | 表格列的配置描述，具体项见下表 | object[] | -\nrowKey  | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id'\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| dataIndex  | 列数据在数据项中对应的 key | string | - |\n| render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据 | function(text, record) {} | - |\n"
 
 /***/ })
 /******/ ]);

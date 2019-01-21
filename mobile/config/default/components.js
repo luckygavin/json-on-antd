@@ -7,5 +7,21 @@
 
 export default {
     'button': {
+    },
+    'list-view': {
+        pageSize: 1,
+        source: {
+            target: 'data'
+        }
+    },
+    'table': {
+        rowKey: 'id',
+        source: {
+            target: 'data',
+            // 自动加载数据
+            autoLoad: true,
+            autoReload: true
+        },
+        data: []
     }
 };

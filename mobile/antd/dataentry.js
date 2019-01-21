@@ -161,26 +161,26 @@ export class RadioItem extends DataEntry {
     }
 }
 // 按钮形式的Radio
-export class RadioButton extends DataEntry {
+export class RadioButtons extends DataEntry {
     constructor(props) {
         super(props);
-        this.__init();
-        this.__controlled.defaultVal = props.items && props.items[0];
+        this.__controlled.defaultVal = props.options && props.options[0];
         this.__controlled.event = 'onValueChange';
+        this.__init();
     }
     // 计算原组件需要的index
     getSelectedIndex() {
-        if (this.__props.items) {
+        if (this.__props.options) {
             if (this.__props.value) {
-                return this.__props.items.indexOf(this.__props.value);
+                return this.__props.options.indexOf(this.__props.value);
             } else {
                 return 0;
             }
         }
     }
     render() {
-        return <Antd.SegmentedControl {...Utils.filter(this.__props, ['items', 'value'])}
-            values={this.__props.items}
+        return <Antd.SegmentedControl {...Utils.filter(this.__props, ['options', 'value'])}
+            values={this.__props.options}
             selectedIndex={this.getSelectedIndex()}
         />;
     }

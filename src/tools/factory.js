@@ -5,6 +5,7 @@
  */
 import React, {Component, PureComponent} from 'react';
 import {Utils} from 'src/utils';
+import {message} from 'src/antd/message.js';
 
 import Loader from './loader.js';
 import Adaptor from './adaptor.js';
@@ -27,6 +28,8 @@ export default class Factory extends PureComponent {
         this.$config = getConfig(this.insName);
         this.$components = getComponentsCache(this.insName);
         this.$requirejs = getRequirejs(this.insName);
+        // 其他自定义需绑定实例的工具
+        this.$message = message.init(this.insName);
 
         this.state = {};
         // 解析结果缓存

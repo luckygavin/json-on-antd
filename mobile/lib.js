@@ -7,7 +7,7 @@
 
 module.exports = Object.assign(
     {
-        _env: 'uf-mobile'
+        '_env': 'uf-mobile'
     },
     require('src/dom'),
     // 路由组件

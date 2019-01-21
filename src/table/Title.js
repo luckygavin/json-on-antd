@@ -480,6 +480,6 @@ class ColumnsCheckbox extends React.Component {
     render() {
         return <CheckboxGroup options={this.props.options}
             value={this.checkedValues}
-            onChange={this.onChange.bind(this)} />
+            onChange={this.onChange.bind(this)} />;
     }
 }

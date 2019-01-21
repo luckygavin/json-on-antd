@@ -5,7 +5,7 @@
 
 module.exports = Object.assign(
     {
-        _env: 'uf'
+        '_env': 'uf'
     },
     require('./dom'),
     // antd 组件统一迁移，见 src/antd/index.js

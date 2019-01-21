@@ -22,15 +22,15 @@ function messageHandler(type, insName, config, duration, onClose, ...params) {
         Utils.defer(currentMessageHandle[key]);
     }
     // 重写onClose函数
-    close = (...p) => {
+    let closeHandler = (...p) => {
         delete currentMessageHandle[key];
         onClose && onClose(...p);
-    }
+    };
     if (Utils.typeof(config, ['object', 'array'])) {
         config = (getInstance(insName) || UF).render(config);
     }
     // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
-    let distroy = Antd.message[type](config, duration, close, ...params);
+    let distroy = Antd.message[type](config, duration, closeHandler, ...params);
     currentMessageHandle[key] = distroy;
     return distroy;
 }

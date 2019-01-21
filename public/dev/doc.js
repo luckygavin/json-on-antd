@@ -2176,7 +2176,7 @@
 
 
 	    var func = {
-	        _env: _lib2.default._env,
+	        '_env': _lib2.default._env,
 	        /*******************************************************/
 	        /******** 私有属性/方法 *********************************/
 	        /*****************************************************/
@@ -2544,7 +2544,7 @@
 	 */
 
 	module.exports = Object.assign({
-	    _env: 'uf'
+	    '_env': 'uf'
 	}, __webpack_require__(117),
 	// antd 组件统一迁移，见 src/antd/index.js
 	__webpack_require__(165),
@@ -42146,7 +42146,7 @@
 	        _utils.Utils.defer(currentMessageHandle[key]);
 	    }
 	    // 重写onClose函数
-	    close = function close() {
+	    var closeHandler = function closeHandler() {
 	        delete currentMessageHandle[key];
 	        onClose && onClose.apply(undefined, arguments);
 	    };
@@ -42159,7 +42159,7 @@
 	        params[_key - 5] = arguments[_key];
 	    }
 
-	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, closeHandler].concat(params));
 	    currentMessageHandle[key] = distroy;
 	    return distroy;
 	}

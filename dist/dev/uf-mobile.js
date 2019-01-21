@@ -252,7 +252,7 @@
 
 
 	    var func = {
-	        _env: _lib2.default._env,
+	        '_env': _lib2.default._env,
 	        /*******************************************************/
 	        /******** 私有属性/方法 *********************************/
 	        /*****************************************************/
@@ -634,7 +634,7 @@
 	 */
 
 	module.exports = Object.assign({
-	    _env: 'uf-mobile'
+	    '_env': 'uf-mobile'
 	}, __webpack_require__(76),
 	// 路由组件
 	__webpack_require__(129),
@@ -13314,7 +13314,7 @@
 	        _utils.Utils.defer(currentMessageHandle[key]);
 	    }
 	    // 重写onClose函数
-	    close = function close() {
+	    var closeHandler = function closeHandler() {
 	        delete currentMessageHandle[key];
 	        onClose && onClose.apply(undefined, arguments);
 	    };
@@ -13327,7 +13327,7 @@
 	        params[_key - 5] = arguments[_key];
 	    }
 
-	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, close].concat(params));
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, closeHandler].concat(params));
 	    currentMessageHandle[key] = distroy;
 	    return distroy;
 	}

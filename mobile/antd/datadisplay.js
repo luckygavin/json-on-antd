@@ -167,7 +167,7 @@ export class ListView extends DataDisplay {
                 }
                 result.key = result.key || rowId;
                 return this.__analysis(result);
-            }
+            };
         }
     }
     // 首次加载数据

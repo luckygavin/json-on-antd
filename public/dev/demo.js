@@ -242,10 +242,10 @@
 	// 组件文档列表
 	var ComponentList = exports.ComponentList = [{ path: 'Custom', name: '定制组件', children: [{ path: 'Export', name: 'Export 导出', component: __webpack_require__(326).default }, { path: 'Form', name: 'Form 表单', component: __webpack_require__(328).default }, { path: 'Forms', name: 'Forms 复制新增表单', component: __webpack_require__(330).default }, { path: 'Modal', name: 'Modal 弹框', component: __webpack_require__(332).default }, { path: 'Table', name: 'Table 表格', component: __webpack_require__(334).default }, { path: 'TableCrud', name: 'Table Crud 表格扩展', component: __webpack_require__(336).default }, { path: 'Tree', name: 'Tree 树形控件', component: __webpack_require__(338).default }, { path: 'Ueditor', name: 'Ueditor 富文本', component: __webpack_require__(340).default }, { path: 'Echarts', name: 'Echarts 图表', component: __webpack_require__(342).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(344).default }] }, { path: 'General', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(231).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(346).default }, { path: 'IconPlus', name: 'IconPlus 扩展图标', component: __webpack_require__(347).default }, { path: 'Grid', name: 'Grid 栅格', component: __webpack_require__(348).default }, { path: 'Layout', name: 'Layout 布局', component: __webpack_require__(349).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(350).default }] }, { path: 'Navigation', name: '导航', children: [{ path: 'Affix', name: 'Affix 固钉', component: __webpack_require__(352).default }, { path: 'Breadcrumb', name: 'Breadcrumb 面包屑', component: __webpack_require__(353).default }, { path: 'Dropdown', name: 'Dropdown 下拉菜单', component: __webpack_require__(354).default }, { path: 'Menu', name: 'Menu 导航菜单', component: __webpack_require__(355).default }, { path: 'Pagination', name: 'Pagination 分页', component: __webpack_require__(356).default }, { path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(357).default }] }, { path: 'DataEntry', name: '数据录入', children: [{ path: 'AutoComplete', name: 'AutoComplete 自动完成', component: __webpack_require__(358).default }, { path: 'Cascader', name: 'Cascader 级联选择', component: __webpack_require__(360).default }, { path: 'Checkbox', name: 'Checkbox 多选框', component: __webpack_require__(361).default }, { path: 'DatePicker', name: 'DatePicker 日期选择框', component: __webpack_require__(362).default }, { path: 'InputNumber', name: 'InputNumber 数字输入框', component: __webpack_require__(363).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(364).default }, { path: 'Radio', name: 'Radio 单选框', component: __webpack_require__(365).default }, { path: 'Rate', name: 'Rate 评分', component: __webpack_require__(366).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(367).default }, { path: 'TreeSelect', name: 'TreeSelect 树选择', component: __webpack_require__(368).default }, { path: 'Switch', name: 'Switch 开关', component: __webpack_require__(369).default }, { path: 'Upload', name: 'Upload 上传', component: __webpack_require__(370).default }] }, { path: 'DataDisplay', name: '数据展示', children: [{ path: 'Avatar', name: 'Avatar 头像', component: __webpack_require__(371).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(372).default },
 	    // {path: 'Calendar', name: 'Calendar 日历', component: require('src/antd/docs/antd-calendar').default},
-	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(373).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(374).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(375).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(376).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(377).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(378).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(379).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(380).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(381).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(382).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(383).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(384).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(385).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(386).default }] }, { path: 'Other', name: '其他组件', children: [{ path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(387).default }, { path: 'Anchor', name: 'Anchor 锚点', component: __webpack_require__(388).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(389).default }, { path: 'Fieldset', name: 'Fieldset 文字块', component: __webpack_require__(391).default }] }];
+	    { path: 'Card', name: 'Card 卡片', component: __webpack_require__(373).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(374).default }, { path: 'Collapse', name: 'Collapse 折叠面板', component: __webpack_require__(375).default }, { path: 'Popover', name: 'Popover 气泡卡片', component: __webpack_require__(376).default }, { path: 'Tooltip', name: 'Tooltip 文字提示', component: __webpack_require__(377).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(378).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(379).default }, { paht: 'Timeline', name: 'Timeline 时间轴', component: __webpack_require__(380).default }] }, { path: 'Feedback', name: '反馈', children: [{ path: 'Alert', name: 'Alert 警告提示', component: __webpack_require__(381).default }, { path: 'Message', name: 'Message 全局提示', component: __webpack_require__(382).default }, { path: 'Notification', name: 'Notification 通知提醒框', component: __webpack_require__(383).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(384).default }, { path: 'Popconfirm', name: 'Popconfirm 气泡确认框', component: __webpack_require__(385).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(386).default }] }, { path: 'Other', name: '其他组件', children: [{ path: 'Backtop', name: 'Backtop 回到顶部', component: __webpack_require__(387).default }, { path: 'Anchor', name: 'Anchor 锚点', component: __webpack_require__(388).default }, { path: 'Iframe', name: 'Iframe 子页面', component: __webpack_require__(389).default }, { path: 'Fieldset', name: 'Fieldset 文字块', component: __webpack_require__(391).default }, { path: 'Markdown', name: 'Markdown 解析', component: __webpack_require__(493).default }] }];
 
 	// 组件文档列表
-	var MobileComponent = exports.MobileComponent = [{ path: 'Mobile/Guide', name: '写在最前面', component: __webpack_require__(393).default }, { path: 'Mobile/Custom', name: '定制组件', children: [{ path: 'Table', name: 'Table 表格', component: __webpack_require__(485).default }] }, { path: 'Mobile/Global', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(394).default }, { path: 'Flex', name: 'Flex 布局', component: __webpack_require__(396).default }, { path: 'Grid', name: 'Grid 宫格', component: __webpack_require__(398).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(400).default }, { path: 'IconPlus', name: 'IconPlus 扩展图标', component: __webpack_require__(347).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(402).default }, { path: 'WhiteSpace', name: 'WhiteSpace 上下留白', component: __webpack_require__(403).default }, { path: 'WingBlank', name: 'WingBlank 两翼留白', component: __webpack_require__(405).default }] }, { path: 'Mobile/Navigation', name: '导航', children: [{ path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(407).default }, { path: 'Drawer', name: 'Drawer 抽屉', component: __webpack_require__(409).default }, { path: 'Menu', name: 'Menu 菜单', component: __webpack_require__(411).default }, { path: 'NavBar', name: 'NavBar 导航栏', component: __webpack_require__(413).default }, { path: 'Pagination', name: 'Pagination 分页器', component: __webpack_require__(415).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(417).default }, { path: 'TabBar', name: 'TabBar 标签栏', component: __webpack_require__(419).default }] }, { path: 'Mobile/DataEntry', name: '数据录入', children: [{ path: 'Checkbox', name: 'Checkbox 复选框', component: __webpack_require__(421).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(423).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(425).default }, { path: 'Calendar', name: 'Calendar 日历选择', component: __webpack_require__(427).default }, { path: 'Radio', name: 'Radio 单选', component: __webpack_require__(429).default }, { path: 'DatePicker', name: 'DatePicker 日期选择器', component: __webpack_require__(431).default }, { path: 'Slider', name: 'Slider 滑动输入条', component: __webpack_require__(433).default }, { path: 'Textarea', name: 'Textarea 多行输入', component: __webpack_require__(435).default }, { path: 'ImagePicker', name: 'ImagePicker 图片选择', component: __webpack_require__(437).default }, { path: 'Switch', name: 'Switch 滑动开关', component: __webpack_require__(439).default }, { path: 'Stepper', name: 'Stepper 步进器', component: __webpack_require__(441).default }, { path: 'SearchBar', name: 'SearchBar 搜索栏', component: __webpack_require__(443).default }] }, { path: 'Mobile/DataDisplay', name: '数据展示', children: [{ path: 'Collapse', name: 'Collapse 手风琴', component: __webpack_require__(445).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(447).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(449).default }, { path: 'Card', name: 'Card 卡片', component: __webpack_require__(451).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(453).default }, { path: 'ListView', name: 'ListView 长列表', component: __webpack_require__(455).default }, { path: 'Popover', name: 'Popover 气泡', component: __webpack_require__(457).default }, { path: 'NoticeBar', name: 'NoticeBar 通告栏', component: __webpack_require__(459).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(461).default }, { path: 'Result', name: 'Result 结果页', component: __webpack_require__(463).default }] }, { path: 'Mobile/Feedback', name: '反馈', children: [{ path: 'Modal', name: 'Modal 对话框', component: __webpack_require__(465).default }, { path: 'ActionSheet', name: 'ActionSheet 动作面板', component: __webpack_require__(467).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(469).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(471).default }, { path: 'Message', name: 'Message 提示', component: __webpack_require__(473).default }] }, { path: 'Mobile/Other', name: '其他组件', children: [{ path: 'PullRefresh', name: 'PullRefresh 拉动刷新', component: __webpack_require__(475).default }, { path: 'SwipeAction', name: 'SwipeAction 滑动操作', component: __webpack_require__(477).default }] }];
+	var MobileComponent = exports.MobileComponent = [{ path: 'Mobile/Guide', name: '写在最前面', component: __webpack_require__(393).default }, { path: 'Mobile/UpdateLog', name: '更新日志', component: __webpack_require__(489).default }, { path: 'Mobile/Custom', name: '定制组件', children: [{ path: 'Table', name: 'Table 表格', component: __webpack_require__(485).default }] }, { path: 'Mobile/Global', name: '综合组件', children: [{ path: 'Button', name: 'Button 按钮', component: __webpack_require__(394).default }, { path: 'Flex', name: 'Flex 布局', component: __webpack_require__(396).default }, { path: 'Grid', name: 'Grid 宫格', component: __webpack_require__(398).default }, { path: 'Icon', name: 'Icon 图标', component: __webpack_require__(400).default }, { path: 'IconPlus', name: 'IconPlus 扩展图标', component: __webpack_require__(347).default }, { path: 'Router', name: 'Router 路由', component: __webpack_require__(402).default }, { path: 'WhiteSpace', name: 'WhiteSpace 上下留白', component: __webpack_require__(403).default }, { path: 'WingBlank', name: 'WingBlank 两翼留白', component: __webpack_require__(405).default }] }, { path: 'Mobile/Navigation', name: '导航', children: [{ path: 'Steps', name: 'Steps 步骤条', component: __webpack_require__(407).default }, { path: 'Drawer', name: 'Drawer 抽屉', component: __webpack_require__(409).default }, { path: 'Menu', name: 'Menu 菜单', component: __webpack_require__(411).default }, { path: 'NavBar', name: 'NavBar 导航栏', component: __webpack_require__(413).default }, { path: 'Pagination', name: 'Pagination 分页器', component: __webpack_require__(415).default }, { path: 'Tabs', name: 'Tabs 标签页', component: __webpack_require__(417).default }, { path: 'TabBar', name: 'TabBar 标签栏', component: __webpack_require__(419).default }] }, { path: 'Mobile/DataEntry', name: '数据录入', children: [{ path: 'Checkbox', name: 'Checkbox 复选框', component: __webpack_require__(421).default }, { path: 'Input', name: 'Input 输入框', component: __webpack_require__(423).default }, { path: 'Select', name: 'Select 选择器', component: __webpack_require__(425).default }, { path: 'Picker', name: 'Picker 选择器', component: __webpack_require__(487).default }, { path: 'Calendar', name: 'Calendar 日历选择', component: __webpack_require__(427).default }, { path: 'Radio', name: 'Radio 单选', component: __webpack_require__(429).default }, { path: 'DatePicker', name: 'DatePicker 日期选择器', component: __webpack_require__(431).default }, { path: 'Slider', name: 'Slider 滑动输入条', component: __webpack_require__(433).default }, { path: 'Textarea', name: 'Textarea 多行输入', component: __webpack_require__(435).default }, { path: 'ImagePicker', name: 'ImagePicker 图片选择', component: __webpack_require__(437).default }, { path: 'Switch', name: 'Switch 滑动开关', component: __webpack_require__(439).default }, { path: 'Stepper', name: 'Stepper 步进器', component: __webpack_require__(441).default }, { path: 'SearchBar', name: 'SearchBar 搜索栏', component: __webpack_require__(443).default }] }, { path: 'Mobile/DataDisplay', name: '数据展示', children: [{ path: 'Collapse', name: 'Collapse 手风琴', component: __webpack_require__(445).default }, { path: 'Badge', name: 'Badge 徽标数', component: __webpack_require__(447).default }, { path: 'Carousel', name: 'Carousel 走马灯', component: __webpack_require__(449).default }, { path: 'Card', name: 'Card 卡片', component: __webpack_require__(451).default }, { path: 'List', name: 'List 列表', component: __webpack_require__(453).default }, { path: 'ListView', name: 'ListView 长列表', component: __webpack_require__(455).default }, { path: 'Popover', name: 'Popover 气泡', component: __webpack_require__(457).default }, { path: 'NoticeBar', name: 'NoticeBar 通告栏', component: __webpack_require__(459).default }, { path: 'Tag', name: 'Tag 标签', component: __webpack_require__(461).default }, { path: 'Result', name: 'Result 结果页', component: __webpack_require__(463).default }] }, { path: 'Mobile/Feedback', name: '反馈', children: [{ path: 'Modal', name: 'Modal 对话框', component: __webpack_require__(465).default }, { path: 'ActionSheet', name: 'ActionSheet 动作面板', component: __webpack_require__(467).default }, { path: 'Progress', name: 'Progress 进度条', component: __webpack_require__(469).default }, { path: 'Loading', name: 'Loading 加载中', component: __webpack_require__(471).default }, { path: 'Message', name: 'Message 提示', component: __webpack_require__(473).default }] }, { path: 'Mobile/Other', name: '其他组件', children: [{ path: 'PullRefresh', name: 'PullRefresh 拉动刷新', component: __webpack_require__(475).default }, { path: 'SwipeAction', name: 'SwipeAction 滑动操作', component: __webpack_require__(477).default }] }];
 
 	// 全部路由列表
 	var RouteList = [{ path: 'Index', name: '首页', component: __webpack_require__(479).default }, { path: 'Standard', name: '规范', component: __webpack_require__(480).default }, { path: 'ThirdParty', name: '第三方组件', component: __webpack_require__(481).default }].concat(DocsList, ComponentList, MobileComponent);
@@ -2553,6 +2553,7 @@
 	// 其他自己实现/封装的组件
 	{
 	    Iframe: __webpack_require__(181),
+	    Fieldset: __webpack_require__(209),
 
 	    AutoComplete: __webpack_require__(183).AutoComplete,
 	    LocalComplete: __webpack_require__(183).LocalComplete,
@@ -2564,11 +2565,12 @@
 	    Modal: __webpack_require__(200).Modal,
 	    Dashboard: __webpack_require__(200).Dashboard,
 	    Drawer: __webpack_require__(200).Drawer,
+	    List: __webpack_require__(211),
+
 	    Ueditor: __webpack_require__(204).Ueditor,
 	    UeditorParse: __webpack_require__(204).UeditorParse,
 	    Echarts: __webpack_require__(207),
-	    Fieldset: __webpack_require__(209),
-	    List: __webpack_require__(211)
+	    Markdown: __webpack_require__(491)
 	});
 
 /***/ }),
@@ -4162,7 +4164,8 @@
 	                onSuccess = _filtered$api.onSuccess,
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
-	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
+	                singleUse = _filtered$api.singleUse,
+	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading', 'singleUse']);
 
 	            if (!others.url) {
 	                return;
@@ -4181,12 +4184,21 @@
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
 	                    }
+	                    // 当 singleUse === true 或者 singleUse === 'success'
+	                    // 将组件的api属性置为一次性，触发一次后会将当期组件置为 disabled 而不会二次触发，比如 button 按钮
+	                    if (singleUse) {
+	                        _this12.__setProps({ disabled: true });
+	                    }
 	                },
 	                error: function error(res) {
 	                    var result = onError && onError(res);
 	                    // onError有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.error(res.msg ? res.msg : '执行失败!', 3);
+	                    }
+	                    // 仅当 singleUse === true时
+	                    if (singleUse === true) {
+	                        _this12.__setProps({ disabled: true });
 	                    }
 	                    return result || false;
 	                },
@@ -4413,14 +4425,16 @@
 	        return retValue;
 	    },
 
-	    // 数据格式转换
+	    // 尝试进行数据格式转换
+	    // 如果无法处理，则不进行处理
 	    format: function format(value, type) {
 	        if (value === undefined) {
 	            return undefined;
 	        }
 	        switch (type) {
 	            case 'number':
-	                value = +value || 0;
+	                // 如果转换数字失败，则返回原值
+	                value = isNaN(+value) || value === '' ? value : +value;
 	                break;
 	            case 'string':
 	                value = '' + value;
@@ -4429,7 +4443,7 @@
 	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
-	                if (utils.typeof(value, 'undefined')) {
+	                if (utils.typeof(value, 'undefined') || value === '') {
 	                    value = [];
 	                }
 	                if (!utils.typeof(value, 'array')) {
@@ -4890,7 +4904,7 @@
 	        var forceUpdate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
 	        // 如果path不是已#/开头，且不是/开头，则加上#/
-	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 ? '#/' + path : path : path;
+	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 && path.indexOf('http') ? '#/' + path : path : path;
 	        var nowPath = window.location.hash;
 	        if (path !== nowPath && path !== '' || forceUpdate) {
 	            // 之所以不用hashHistory.push()是因为会自动执行两次push
@@ -4998,7 +5012,9 @@
 
 
 	    // 把数组、对象转换成select等需要的options标准格式
-	    toOptions: function toOptions(data) {
+	    // level 为向下遍历的层级，默认最多遍历5层
+	    toOptions: function toOptions(data, level) {
+	        level = level || 5;
 	        var result = [];
 	        if (utils.typeof(data, 'array')) {
 	            // ['value', 'value2']
@@ -5015,7 +5031,7 @@
 	                // {id: 1, name: 'a'}
 	            } else {
 	                result = data.map(function (v) {
-	                    return v.key !== undefined && v.value !== undefined ? v.children ? { label: v.value, value: v.key, children: utils.toOptions(v.children) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children ? { label: v.name, value: v.id, children: utils.toOptions(v.children) } : { label: v.name, value: v.id } : v;
+	                    return v.key !== undefined && v.value !== undefined ? v.children && level - 1 > 0 ? { label: v.value, value: v.key, children: utils.toOptions(v.children, level - 1) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children && level - 1 > 0 ? { label: v.name, value: v.id, children: utils.toOptions(v.children, level - 1) } : { label: v.name, value: v.id } : v;
 	                });
 	            }
 	        } else if (utils.typeof(data, 'object')) {
@@ -5054,6 +5070,58 @@
 	        }
 	    },
 
+	    // 从 options 中获取到 value 对应的 label 值
+	    transFromOptions: function transFromOptions(value, options) {
+	        var result = void 0;
+	        // 当value为数组时，依次翻译每一个（适用于级联框）
+	        if (utils.typeof(value, 'array')) {
+	            result = [];
+	            var list = options;
+	            var _iteratorNormalCompletion8 = true;
+	            var _didIteratorError8 = false;
+	            var _iteratorError8 = undefined;
+
+	            try {
+	                for (var _iterator8 = value[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+	                    var v = _step8.value;
+
+	                    var label = '';
+	                    if (list !== undefined) {
+	                        for (var i in list) {
+	                            if (list[i].value === v || list[i].value === v + '') {
+	                                label = list[i].label;
+	                                list = list[i]['children'];
+	                                break;
+	                            }
+	                        }
+	                    }
+	                    result.push(label);
+	                }
+	            } catch (err) {
+	                _didIteratorError8 = true;
+	                _iteratorError8 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+	                        _iterator8.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError8) {
+	                        throw _iteratorError8;
+	                    }
+	                }
+	            }
+	        } else {
+	            for (var _i in options) {
+	                if (options[_i].value === value || options[_i].value === value + '') {
+	                    result = options[_i].label;
+	                    break;
+	                }
+	            }
+	        }
+	        return result;
+	    },
+
 	    // 把数据格式化成json展示
 	    prettyJson: function prettyJson(data, origin) {
 	        if (origin) {
@@ -5072,52 +5140,15 @@
 	        var tData = value;
 	        // 如果 strc 为空，则返回 value 本身
 	        if (strc) {
-	            var _iteratorNormalCompletion8 = true;
-	            var _didIteratorError8 = false;
-	            var _iteratorError8 = undefined;
-
-	            try {
-	                for (var _iterator8 = strc.split('.').reverse()[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	                    var v = _step8.value;
-
-	                    tData = _defineProperty({}, v, tData);
-	                }
-	            } catch (err) {
-	                _didIteratorError8 = true;
-	                _iteratorError8 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
-	                        _iterator8.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError8) {
-	                        throw _iteratorError8;
-	                    }
-	                }
-	            }
-	        }
-	        return tData;
-	    },
-
-	    // 根据一个字符串，从一个深层的对象中取数据
-	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
-	    fromObject: function fromObject(strc, obj) {
-	        var target = obj;
-	        // 如果 strc 为空字符串，则返回 obj 本身
-	        if (strc) {
 	            var _iteratorNormalCompletion9 = true;
 	            var _didIteratorError9 = false;
 	            var _iteratorError9 = undefined;
 
 	            try {
-	                for (var _iterator9 = strc.split('.')[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+	                for (var _iterator9 = ('' + strc).split('.').reverse()[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
 	                    var v = _step9.value;
 
-	                    if (!target || !utils.typeof(target, 'object')) {
-	                        return undefined;
-	                    }
-	                    target = target[v];
+	                    tData = _defineProperty({}, v, tData);
 	                }
 	            } catch (err) {
 	                _didIteratorError9 = true;
@@ -5134,13 +5165,50 @@
 	                }
 	            }
 	        }
+	        return tData;
+	    },
+
+	    // 根据一个字符串，从一个深层的对象中取数据
+	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
+	    fromObject: function fromObject(strc, obj) {
+	        var target = obj;
+	        // 如果 strc 为空字符串，则返回 obj 本身
+	        if (strc) {
+	            var _iteratorNormalCompletion10 = true;
+	            var _didIteratorError10 = false;
+	            var _iteratorError10 = undefined;
+
+	            try {
+	                for (var _iterator10 = strc.split('.')[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+	                    var v = _step10.value;
+
+	                    if (!target || !utils.typeof(target, 'object')) {
+	                        return undefined;
+	                    }
+	                    target = target[v];
+	                }
+	            } catch (err) {
+	                _didIteratorError10 = true;
+	                _iteratorError10 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion10 && _iterator10.return) {
+	                        _iterator10.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError10) {
+	                        throw _iteratorError10;
+	                    }
+	                }
+	            }
+	        }
 	        return target;
 	    },
 
 	    // 根据一个字符串，把数据塞入一个深层的对象中
 	    toObject: function toObject(origin, strc, value) {
 	        var tData = utils.generateObject(strc, value);
-	        var level = strc.split('.').length;
+	        var level = ('' + strc).split('.').length;
 	        utils.merge(level, origin, tData);
 	    },
 
@@ -9762,7 +9830,7 @@
 	var errorMsg = {
 	    top: 24,
 	    message: '请求出错',
-	    description: '请求数据时出错，请稍后重试。',
+	    description: '获取数据时出现错误，请稍后重试。',
 	    duration: 3.5
 	};
 
@@ -9778,7 +9846,7 @@
 	                message = message.join('; ');
 	            }
 	        } else {
-	            message = JSON.stringify(error);
+	            message = error ? JSON.stringify(error) : '';
 	        }
 	    } catch (e) {
 	        _utils2.default.defer(console.error, 'Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
@@ -9786,12 +9854,38 @@
 	    return message;
 	}
 
+	function showErrorMsg(error) {
+	    _src2.default.Modal.create({
+	        title: [{ type: 'icon', mode: 'frown-o' }, ' 错误详情'],
+	        maskClosable: true,
+	        footer: null,
+	        content: JSON.stringify(error)
+	        // content: {
+	        //     type: 'markdown',
+	        //     docs: '```' + JSON.stringify(error) + '```'
+	        // }
+	    });
+	}
+
 	// 请求出错的提示信息函数
 	function errorMessage(error) {
 	    var message = getErrorMsg(error);
-	    _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
-	        description: message
-	    }));
+	    // 非200的错误信息处理
+	    if (error.status && error.status !== 200) {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, {
+	            description: ['服务器内部出错啦，', {
+	                type: 'a',
+	                content: '查看详情',
+	                onClick: function onClick() {
+	                    showErrorMsg(error);
+	                }
+	            }]
+	        }));
+	    } else {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
+	            description: message
+	        }));
+	    }
 	    return false;
 	}
 
@@ -11585,8 +11679,11 @@
 	    function OptionsDataEntry(props) {
 	        _classCallCheck(this, OptionsDataEntry);
 
+	        // level 指定options中children最多的层级为几层（更多层级会被过滤掉）
 	        var _this3 = _possibleConstructorReturn(this, (OptionsDataEntry.__proto__ || Object.getPrototypeOf(OptionsDataEntry)).call(this, props));
 
+	        _this3._filter.push('level');
+	        _this3.class.push('options-data-entry');
 	        _this3._openApi.push('getDisplayValue', 'getSelectedOption');
 	        return _this3;
 	    }
@@ -11597,11 +11694,24 @@
 	            _get(OptionsDataEntry.prototype.__proto__ || Object.getPrototypeOf(OptionsDataEntry.prototype), '_afterSetProps', this).call(this);
 	            // 把 options 格式化为统一固定格式
 	            if (nextProps.options) {
-	                this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	                this.__props.options = _utils.Utils.toOptions(this.__props.options, this.__filtered.level);
 	            }
 	            if (!this.__props.options) {
 	                this.__props.options = [];
 	            }
+	            // if (this.__props.notFoundContent !== null && this.__props.options.length === 0) {
+	            //     this.__props.options = [{
+	            //         disabled: true,
+	            //         label: this.__props.notFoundContent || 'Not Found',
+	            //         value: ''
+	            //     }]
+	            // }
+	        }
+	    }, {
+	        key: '_updateValue',
+	        value: function _updateValue(val) {
+	            this.__props[this.__controlled.key] = val;
+	            this.__props.onChange && this.__props.onChange(val);
 	        }
 	        // 处理多选情况
 
@@ -11614,13 +11724,13 @@
 	                var all = this.__props.options.map(function (v) {
 	                    return v.value;
 	                });
-	                this.__props.onChange && this.__props.onChange(all);
+	                this._updateValue(all);
 	                return;
 	            }
 	            // 默认选中第一个的处理逻辑
 	            if (this.__props.defaultFirst && _utils.Utils.empty(this.__props.value)) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange([first]);
+	                this._updateValue([first]);
 	            }
 	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
 	            var matchVal = this.__props.options.filter(function (v) {
@@ -11631,7 +11741,7 @@
 	            if (matchVal.length === current.length) {
 	                return;
 	            }
-	            this.__props.onChange && this.__props.onChange(matchVal);
+	            this._updateValue(matchVal);
 	        }
 	        // 处理默认选中
 
@@ -11655,11 +11765,11 @@
 	            // 否则把值设置为第一个或者清空
 	            if (this.__props.defaultFirst) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange(first);
+	                this._updateValue(first);
 	            } else if (allClear && this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
 	                // 为实现刷新组件时，清空原数据
 	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+	                this._updateValue(this.__controlled.defaultVal);
 	            }
 	        }
 
@@ -11669,15 +11779,10 @@
 	        key: 'getDisplayValue',
 	        value: function getDisplayValue() {
 	            var value = this.getValue();
-	            var result = value;
 	            var options = this.__props.options || [];
-	            for (var i in options) {
-	                if (options[i].value === value || options[i].value === value + '') {
-	                    result = options[i].label;
-	                    break;
-	                }
-	            }
-	            return result;
+	            var label = _utils.Utils.transFromOptions(value, options);
+	            // 如果能查到label，则返回label，否则返回value
+	            return label !== undefined ? label : value;
 	        }
 	        // 获取选中的option，针对select等类型的具备可选值的组件
 
@@ -12047,6 +12152,7 @@
 
 	        var _this3 = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
 
+	        _this3._filter.push('size');
 	        _this3.__init();
 	        return _this3;
 	    }
@@ -12054,7 +12160,11 @@
 	    _createClass(Card, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(Antd.Card, this.__props);
+	            var className = 'uf-card';
+	            if (this.__filtered.size === 'small') {
+	                className += ' uf-card-small';
+	            }
+	            return _react2.default.createElement(Antd.Card, _extends({}, this.__props, this.__getCommonProps({ className: className })));
 	        }
 	    }]);
 
@@ -12692,11 +12802,34 @@
 	                className += ' uf-btn-mini';
 	                size = 'small';
 	            }
+	            // 增加几个额外的 type
+	            var type = this.__props.type;
+	            if (type) {
+	                switch (type) {
+	                    case 'finish':
+	                        type = 'primary';
+	                        className += ' uf-btn-finish';
+	                        break;
+	                    case 'waiting':
+	                        type = 'primary';
+	                        className += ' uf-btn-waiting';
+	                        break;
+	                    case 'active':
+	                        type = 'primary';
+	                        className += ' uf-btn-active';
+	                        break;
+	                    case 'failure':
+	                        type = 'primary';
+	                        className += ' uf-btn-failure';
+	                        break;
+	                }
+	            }
 	            if (this.__filtered.active && !this.__filtered.activedChildren) {
 	                className += ' active';
 	            }
 	            return _react2.default.createElement(Antd.Button, _extends({}, this.__props, this.handlerOtherProps(), this.__getCommonProps({ className: className }), {
-	                size: size
+	                size: size,
+	                type: type
 	            }));
 	        }
 	    }]);
@@ -16246,7 +16379,7 @@
 	                return _react2.default.createElement(
 	                    TreeNode,
 	                    {
-	                        key: item.key,
+	                        key: item.key || item.value || item.id,
 	                        title: title,
 	                        value: item.value || item.key,
 	                        data: item,
@@ -17734,9 +17867,10 @@
 	                            // 处理复用相关参数
 	                            item.title = item.title || '高级查询：';
 	                            item.okText = item.okText || '查询';
+	                            var hasSelfForm = !!item.form;
 	                            item = _this2.handleReuse(item, tempConf['add']);
 	                            // 移除必填限制以及校验规则
-	                            if (item.form) {
+	                            if (!hasSelfForm && item.form) {
 	                                item.form.items.forEach(function (v) {
 	                                    delete v.disabled;
 	                                    delete v.rules;
@@ -20163,6 +20297,18 @@
 	                    row[item.dataIndex + '.fyi'] = display;
 	                    return orender ? orender.apply(undefined, [display, row].concat(params)) : display;
 	                };
+	                item.exportRender = function (v, row) {
+	                    var display = _this2.data[item.dataIndex][v];
+	                    // 无法翻译是是否允许为空，默认无法翻译是展示空
+	                    if (display === undefined) {
+	                        if (_utils.Utils.typeof(item.enum, 'object') && item.enum.allowEmpty === false) {
+	                            display = v;
+	                        } else {
+	                            display = '';
+	                        }
+	                    }
+	                    return display;
+	                };
 	            }
 	            return item;
 	        }
@@ -20797,8 +20943,8 @@
 	                        values[i] = values[i].format(this.itemsCache[i].format);
 	                    }
 	                    // 用 format 把数据格式化成 rules.type 要求的格式
-	                } else if (item.rules && item.rules.type) {
-	                    values[i] = _utils.Utils.format(values[i], item.rules.type);
+	                } else if (item.valueType) {
+	                    values[i] = _utils.Utils.format(values[i], item.valueType);
 	                }
 	                if (item && item.type !== 'button') {
 	                    result[i] = values[i];
@@ -21110,7 +21256,6 @@
 	                }
 	            }
 	            okey = okey !== null ? '-' + okey : '';
-	            var name = oitem.name;
 	            var key = oitem.name + okey;
 	            // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
 	            if (this.itemsCache[key]) {
@@ -21133,14 +21278,12 @@
 	            } else {
 	                itemLayout = this.__props.layout.type === 'horizontal' ? this.formItemLayout : null;
 	            }
-	            var item = Object.assign({ rules: {} }, oitem);
-	            if (_utils.Utils.typeof(item.rules, 'array')) {
-	                item.rules = item.rules[0] || {};
-	            }
+	            var item = Object.assign({}, oitem);
+	            var itemRules = {};
 	            delete item.layout;
 	            // 如果rules外单独设置了required属性，则以此值为准
 	            if (item.required !== undefined) {
-	                item.rules['required'] = item.required;
+	                itemRules['required'] = item.required;
 	            }
 	            // form中不允许表单域使用value，所以如果有value值，把值转换到default上
 	            item.default = item.value || item.default;
@@ -21148,7 +21291,7 @@
 	                this.oriDefaultValues[item.name] = item.default;
 	            }
 	            // 过滤掉一些字段后，剩余的就是组件本身需要的参数
-	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig']);
+	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig', 'valueType']);
 	            // 额外配置的禁止更改的字段，设置disabled
 	            if ((this.__props.forbidden || []).indexOf(itemProps.name) > -1) {
 	                itemProps.disabled = true;
@@ -21174,7 +21317,7 @@
 	                        itemLayout = { labelCol: { span: 0 }, wrapperCol: { span: 24 } };
 	                    } else if (item.type === 'forms') {
 	                        // forms组件的formData为一个数组
-	                        item.rules['type'] = item.rules['type'] || 'array';
+	                        itemRules['type'] = 'array';
 	                        item.default = item.default || item.formData || [{}];
 	                    }
 	                    // 三种组件的通用个逻辑
@@ -21187,7 +21330,7 @@
 	                    };
 	                    item.default = item.default || item.formData || {};
 	                    delete itemProps.formData;
-	                    item.rules['type'] = item.rules['type'] || 'object';
+	                    itemRules['type'] = itemRules['type'] || 'object';
 	                    break;
 	                case 'input':
 	                    // 输入框增加回车事件监听
@@ -21195,33 +21338,33 @@
 	                        itemProps.onPressEnter = this.handleSubmit.bind(this);
 	                    }
 	                    // 收集值的时机改为onBlur
-	                    otherOptions.trigger = 'onBlur';
-	                    otherOptions.validateTrigger = 'onBlur';
+	                    // otherOptions.trigger = 'onBlur';
+	                    // otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'input-number':
 	                    // 数字输入框
-	                    item.rules['type'] = item.rules['type'] || 'number';
+	                    itemRules['type'] = 'number';
 	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
-	                    otherOptions.trigger = 'onBlur';
+	                    // otherOptions.trigger = 'onBlur';
 	                    // 可减少一些输入过程中的报错信息
-	                    otherOptions.validateTrigger = 'onBlur';
+	                    // otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'select':
 	                case 'radio':
 	                    if (item.type === 'select') {
 	                        if (item.mode && item.mode !== 'combobox') {
-	                            item.rules['type'] = item.rules['type'] || 'array';
+	                            itemRules['type'] = 'array';
 	                        }
 	                        // 当有required时，再加message，否则会产生默认type为string
-	                        if (item.rules['required']) {
-	                            item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        if (itemRules['required']) {
+	                            itemRules['requiredMsg'] = '\u8BF7\u9009\u62E9' + (item.label || '');
 	                        }
 	                        // 默认选中第一个
 	                        if (!item.default && item.defaultFirst) {
 	                            item.default = _utils.Utils.getFirstOption(item.options);
 	                        }
 	                        // 限制使用clear按钮
-	                        if (item.rules['required']) {
+	                        if (itemRules['required']) {
 	                            itemProps.allowClear = false;
 	                        }
 	                    }
@@ -21233,25 +21376,10 @@
 	                                return value;
 	                            }
 	                            // 如果没有设置类型，则根据default定义类型做转换
-	                            var type = item.rules.type || (item.default !== undefined ? _utils.Utils.getType(item.default) : null);
+	                            var type = itemRules.type || (item.default !== undefined ? _utils.Utils.getType(item.default) : null);
 	                            return type ? _utils.Utils.format(value, type) : value;
 	                        }
 	                    };
-	                    // update at 2018/10/10 需避免无故增加的验证
-	                    // 两种组件的通用逻辑
-	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
-	                    // otherOptions = {
-	                    //     getValueFromEvent(e, value) {
-	                    //         return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
-	                    //     }
-	                    // };
-	                    // 如果没有设置类型，则根据default定义类型
-	                    // if (!item.rules['type'] && item.default !== null) {
-	                    //     let type = Utils.getType(item.default);
-	                    //     if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
-	                    //         item.rules['type'] = type;
-	                    //     }
-	                    // }
 	                    break;
 	                case 'checkbox':
 	                case 'switch':
@@ -21259,11 +21387,11 @@
 	                    otherOptions = {
 	                        valuePropName: 'checked'
 	                    };
-	                    item.rules['type'] = item.rules['type'] || 'boolean';
+	                    itemRules['type'] = 'boolean';
 	                    break;
 	                case 'checkbox-group':
 	                    // 复选框组
-	                    item.rules['type'] = item.rules['type'] || 'array';
+	                    itemRules['type'] = 'array';
 	                    break;
 	                case 'ueditor':
 	                    // ueditor 输入框
@@ -21276,10 +21404,10 @@
 	                    itemProps = Object.assign({
 	                        showSearch: true
 	                    }, itemProps);
-	                    item.rules['type'] = item.rules['type'] || 'array';
-	                    item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                    itemRules['type'] = 'array';
+	                    itemRules['typeMsg'] = '\u8BF7\u9009\u62E9' + (item.label || '');
 	                    // 限制使用clear按钮
-	                    if (item.rules['required']) {
+	                    if (itemRules['required']) {
 	                        itemProps.allowClear = false;
 	                    }
 	                    break;
@@ -21301,7 +21429,7 @@
 	                    }
 	                case 'range-picker':
 	                    // range-picker 组件的value为一个数组
-	                    item.rules['type'] = item.rules['type'] || 'array';
+	                    itemRules['type'] = 'array';
 	                    // current转换为当前时间
 	                    if (!_utils.Utils.empty(item.default) && _utils.Utils.typeof(item.default, 'array')) {
 	                        item.default = item.default.map(function (val) {
@@ -21328,7 +21456,7 @@
 	                        item.default = _utils.Utils.moment({}).format(item.format || 'YYYY-MM-DD HH:mm:ss');
 	                    }
 	                    // 限制使用clear按钮
-	                    if (item.rules['required']) {
+	                    if (itemRules['required']) {
 	                        itemProps.allowClear = false;
 	                    }
 	                    break;
@@ -21346,21 +21474,53 @@
 	                    break;
 	            }
 	            // 通用的默认错误提示信息
-	            if (item.rules['required']) {
-	                item.rules['message'] = item.rules['message'] || (item.label || '') + '\u4E0D\u80FD\u4E3A\u7A7A';
+	            if (itemRules['required']) {
+	                itemRules['requiredMsg'] = itemRules['requiredMsg'] || (item.label || '') + '\u4E0D\u80FD\u4E3A\u7A7A';
 	            }
+	            if (itemRules['type']) {
+	                itemRules['typeMsg'] = itemRules['typeMsg'] || (item.label || '') + '\u6570\u636E\u683C\u5F0F\u6709\u8BEF';
+	                if (itemRules['type'] === 'array') {
+	                    itemRules['typeMsg'] += '，应为一个数组';
+	                }
+	                if (itemRules['type'] === 'number') {
+	                    itemRules['typeMsg'] += '，应为一个数字';
+	                }
+	            }
+	            // 处理rules
+	            var rules = item.rules;
+	            if (_utils.Utils.typeof(rules, 'object')) {
+	                rules = [rules];
+	            }
+	            var valueType = null;
+	            rules = (rules || []).map(function (rule) {
+	                if (rule.type) {
+	                    valueType = rule.type;
+	                }
+	                return rule;
+	            });
+	            // required放在验证最前面
+	            if (itemRules['required']) {
+	                rules.unshift({ required: true, message: itemRules['requiredMsg'] });
+	            }
+	            // 只有当用户未指定type时，默认type验证才有效
+	            if (!valueType && itemRules['type']) {
+	                valueType = itemRules['type'];
+	                rules.push({ type: itemRules['type'], message: itemRules['typeMsg'] });
+	            }
+	            // 对数据格式进行存储
+	            valueType && (item.valueType = valueType);
+
 	            // 进行类型进行强制转换
 	            // 只有 trigger 为 onChange/onBlur 有效
-	            var type = item.rules['type'];
 	            var trigger = item.regionConfig && item.regionConfig.trigger || otherOptions.trigger;
-	            if (['number', 'string', 'boolean'].indexOf(type) > -1 && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
+	            if (['number', 'string', 'boolean'].indexOf(valueType) > -1 && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
 	                otherOptions.getValueFromEvent = function (e, value) {
-	                    return _utils.Utils.format(value, type);
+	                    return _utils.Utils.format(value, valueType);
 	                };
 	            }
 	            // 保存默认值，以form渲染完成后执行initValues
 	            if (item.default !== undefined) {
-	                item.default = _utils.Utils.format(item.default, type);
+	                item.default = _utils.Utils.format(item.default, valueType);
 	                // this.oriDefaultValues[item.name] = item.default;
 	                if (this.defaultValues[item.name] === undefined) {
 	                    this.defaultValues[item.name] = item.default;
@@ -21386,7 +21546,7 @@
 	                _extends({}, fieldProps, itemLayout),
 	                getFieldDecorator(key, Object.assign({
 	                    initialValue: item.default,
-	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined
+	                    rules: rules
 	                    // 更改收集数据/验证触发事件为失去焦点时
 	                    // onBlur在radio，datepicker中不好用
 	                    // trigger: 'onBlur',
@@ -22696,21 +22856,25 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            // 获取排序后的结果
 	            var children = this.getChildrenRank();
-	            var body = _react2.default.createElement(
-	                'div',
-	                this.__getCommonProps(),
-	                children[0],
-	                children[1],
-	                children[2],
-	                _react2.default.createElement(
+	            var getBody = function getBody(handleStyle) {
+	                return _react2.default.createElement(
 	                    'div',
-	                    { style: { overflow: 'hidden' } },
-	                    this.__props.footerContent
-	                )
-	            );
-	            return !this.__props.visible ? null : !this.__props.title && !this.__props.closable ? body : _react2.default.createElement(
+	                    handleStyle ? _this2.__getCommonProps() : {},
+	                    children[0],
+	                    children[1],
+	                    children[2],
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: { overflow: 'hidden' } },
+	                        _this2.__props.footerContent
+	                    )
+	                );
+	            };
+	            return !this.__props.visible ? null : !this.__props.title && !this.__props.closable ? getBody(true) : _react2.default.createElement(
 	                _antd.Collapse,
 	                _extends({ activeKey: 'active', bordered: !!this.__props.bordered
 	                }, this.__getCommonProps({ className: 'uf-dashboard' })),
@@ -22727,7 +22891,7 @@
 	                                '\u5173\u95ED'
 	                            )
 	                        ) },
-	                    body
+	                    getBody(false)
 	                )
 	            );
 	        }
@@ -23158,7 +23322,7 @@
 	                this.__setProps(this.chart.getOption());
 	            } else {
 	                // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
-	                this.chartOptionsQueue.push(nextProps);
+	                this.chartOptionsQueue.push(this.__filterProps(nextProps));
 	                this.startTry();
 	            }
 	        }
@@ -23262,27 +23426,17 @@
 	    }, {
 	        key: '_agencyFunction',
 	        value: function _agencyFunction(origin) {
-	            var _this4 = this;
-
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var i = _step.value;
 
-	                    if (_utils.Utils.typeof(origin[i], 'function')) {
-	                        _this4._inject(_this4, i, function () {
-	                            var _chart;
-
-	                            return (_chart = _this4.chart)[i].apply(_chart, arguments);
-	                        });
+	                    if (_utils.Utils.typeof(origin[i], 'function') && !this[i]) {
+	                        this[i] = this.chart[i];
 	                    }
-	                };
-
-	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -23309,7 +23463,9 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement('div', { id: this.chartId, className: this.props.className, style: this.props.style });
+	            var className = 'uf-echarts';
+	            className += this.props.className ? ' ' + this.props.className : '';
+	            return _react2.default.createElement('div', { id: this.chartId, className: className, style: this.props.style });
 	        }
 	    }]);
 
@@ -23767,6 +23923,11 @@
 	            }
 	        }
 	    },
+	    'options-data-entry': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
 
 	    /*************************************************************************************/
 	    /*********************** 其他PC、移动端共用组件  ****************************************/
@@ -23939,7 +24100,7 @@
 	        source: {
 	            // 自动加载数据
 	            autoLoad: true,
-	            autoReload: true
+	            autoReload: 'set'
 	        },
 	        data: []
 	    },
@@ -23964,6 +24125,7 @@
 	        }
 	    },
 	    'dashboard': {
+	        visible: true,
 	        closable: false
 	    },
 	    'drawer': {
@@ -23994,6 +24156,15 @@
 	            valueCol: 18,
 	            valueStyle: {}
 	        }
+	    },
+	    'markdown': {
+	        gfm: true,
+	        tables: true,
+	        sanitize: true,
+	        smartLists: true,
+	        breaks: false,
+	        pedantic: false,
+	        smartypants: false
 	    }
 	};
 
@@ -27452,6 +27623,25 @@
 	        mode: 'danger',
 	        content: 'Danger',
 	        api: 'docs/php/submit.php'
+	    }, {
+	        type: 'div',
+	        style: { marginTop: 10 }
+	    }, {
+	        type: 'button',
+	        mode: 'finish',
+	        content: 'Finish'
+	    }, {
+	        type: 'button',
+	        mode: 'waiting',
+	        content: 'Waiting'
+	    }, {
+	        type: 'button',
+	        mode: 'active',
+	        content: 'Active'
+	    }, {
+	        type: 'button',
+	        mode: 'failure',
+	        content: 'Failure'
 	    }]
 	};
 	var demo2 = {
@@ -28116,7 +28306,7 @@
 /* 250 */
 /***/ (function(module, exports) {
 
-	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 简介\n\n属性|说明|类型\n----|----|----\n[type](#/Params/-type) |  组件类型  | string\n[content](#/Params/-content) |  子组件内容  | string&#124;config\n[name](#/Params/-name)  |  组件名称，唯一  | string\n[style](#/Params/-style)  |  组件样式  | object\n[hidden](#/Params/-hidden)  |  隐藏组件  | boolean\n[className](#/Params/-classname-class)  |  样式类名称  | string\n[childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true\n[authority](#/Params/-authority)  |  权限绑定  | string\n[controlled](#/Params/-controlled)  |  声明组件为完全受控组件  | boolean\n[source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object\n[api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object\n[control](#/Params/-control-)  |  组件交互  | target[string]&#124;object\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # hidden \n`boolean`\n\n设置组件为默认隐藏，可以通过对组件调用`show()`函数使组件重新展示\n\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # authority\n\n给组件绑定权限点，当有权限点相关权限的时候组件才会展示\n\n\n#### # controlled\n\n声明组件为完全受控组件，比如`Popconfirm`等组件的visible属性，或者输入框的value等，这些可变值皆为受控属性。\n\n拿`Popconfirm`组件举例，除了手动控制visible可展示出提示信息外，当点击组件时提示信息也会展示；当点击确认或取消时，提示信息会隐藏。但当设置`controlled`为true时，不会再有默认行为，提示信息的显示隐藏完全由用户手动设置`visible`属性来控制。\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | **开启缓存**，重复请求再次获取时会直接从缓存读取 | boolean | false\nlocalStorage | **开启永久缓存**（刷新页面缓存不会消失），从而加快组件首次渲染速度，常用于加快首屏速度。注意控制数据量，防止localstorage超出限定。具体原理见表格下面说明 | boolean&#124;string | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \nparamIndex  | 更改请求中的参数键名，处理顺序在执行`paramsHandler`之前，例如：`{page: 'pageNum', size: 'pageSize'}`  | object    |  |\ninterrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} | \nremoveEmptyParams | 自动移除为空的属性 | boolean | true\ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）。当为空时，结果直接作为set的参数设置个组件（同时设置多个属性） | string | 不同组件的默认属性不同，可视情况主动声明\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据，仅创建组件时有效。组件创建完成后，通过 autoReload 属性控制 | boolean | true\nautoReload | 自动重新获取数据。不同取值时，自动获取数据的时机不同，详见表格下面说明 | boolean&#124;`'never'`&#124;`'set'` | false\nshowLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false\n\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n> * `autoReload`属性：自动重新加载有几种不同的等级，对应参数值依次为（从上到下，刷新频率依次降低）：\n> > *  1、true: 范围最宽，source参数变动、自身set source参数、父组件刷新都会触发\n> > *  2、'set': source参数变动、自身set source参数都会更新\n> > *  3、false: 只有params或者source变化时才会更新\n> > *  4、'never': 则永远不更新，除非手动调用 reload 函数\n> * `interrupt`属性：中断请求的钩子函数。可以当符合某些条件时中断请求，执行自定义处理：\n> > *  1、可以通过返回数据，中断请求，从而使用钩子返回的数据；\n> > *  2、如果钩子未返回任何内容，或返回true，则请求继续；\n> > *  3、如果钩子返回false，则仅中断请求，不做任何处理；\n> * `localStorage`属性：开启永久缓存\n> > 数据获取后，会进行持久化存储。当下次再需要此数据时，会先读取缓存内容并返回给组件使用；同时发起请求尝试进行数据获取，获取回数据后，如果数据进行了更新，会再次调用success函数将新数据传递给组件，并更新缓存，否则不再进行处理。藉此可以使得组件首次加载时无需等待接口返回数据即可渲染出内容供用户使用，并在接口返回数据更新时自动对页面内容进行更新。多用于加速首屏渲染速度\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\nremoveEmptyParams | 自动移除为空的属性 | boolean | true\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
+	module.exports = "每个组件都具有的参数，以及具有特殊功能的参数，没有在各个组件中详细说明，统一在此列出。\n\n## 几个 \"通用参数\" 简介\n\n属性|说明|类型\n----|----|----\n[type](#/Params/-type) |  组件类型  | string\n[content](#/Params/-content) |  子组件内容  | string&#124;config\n[name](#/Params/-name)  |  组件名称，唯一  | string\n[style](#/Params/-style)  |  组件样式  | object\n[hidden](#/Params/-hidden)  |  隐藏组件  | boolean\n[className](#/Params/-classname-class)  |  样式类名称  | string\n[childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true\n[authority](#/Params/-authority)  |  权限绑定  | string\n[controlled](#/Params/-controlled)  |  声明组件为完全受控组件  | boolean\n[source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object\n[api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object\n[control](#/Params/-control-)  |  组件交互  | target[string]&#124;object\n\n#### # type \n`string`\n\n每个组件都有一个type属性，声明是什么类型的组件，type的格式为中横线连接的小写字母，每个组件文档中的属性列表之前都以组件type命名\n\n例如：[Input 输入框](#/DataEntry/Input)中，共包含四个可用组件，type分别为：input、textarea、input-search、input-group\n\n> 有些组件是和其他组件嵌套组合使用的，例如`input-group`，要以多个`input`组件作为子组件使用，本身只有一个可用属性\n\n#### # content \n`string` | `config`\n\n子组件配置。\n\n会嵌套在当前组件的相应位置（需要组件本身支持嵌套子组件，大部分组件支持）\n\n#### # name \n`string`\n\n每个组件都可以有一个`name`属性，用于作为组件的“唯一标识”，可以通过`UF()`来获取并操作此组件。\n\n> 注意，name不能重复，如重复了后生成的组件会覆盖先生成的组件，导致不能再获取到\n\n#### # hidden \n`boolean`\n\n设置组件为默认隐藏，可以通过对组件调用`show()`函数使组件重新展示\n\n\n#### # style \n`object` | `string`\n\n因为底层使用的是React，所以此处建议遵照React的用法：style为一个对象，对象的属性名称使用驼峰命名法\n```javascrpit\nstyle: {\n    marginTop: '16px',\n    fontSize: '12px'\n}\n```\n\n当然，为了兼容使用习惯，style也可以按照html里的内联样式写法来写，此时style为一个字符\n```javascript\nstyle: 'margin-top: 16px; font-size: 12px;'\n```\n\n#### # className \n`string`\n\n和上面的`style`属性类似，className为React中对于元素的类名的推荐用法，这里推荐使用`className`定义元素的类名\n```javascript\n{\n    type: 'div',\n    className: 'my-div'\n}\n```\n为了兼容使用习惯，也可以按照写html时的使用习惯使用class来定义元素类名\n```javascript\n{\n    type: 'div',\n    class: 'my-div'\n}\n```\n\n#### # childrenHolder \n`[boolean] true`\n\n配合路由使用，声明模块所在路由中 子路由对应的组件 会渲染到当前模块的 childrenHolder 所处位置。具体用法可见 [项目开发](#/Develop/Install) 中`app.js`模块的用法\n\n\n#### # authority\n\n给组件绑定权限点，当有权限点相关权限的时候组件才会展示\n\n\n#### # controlled\n\n声明组件为完全受控组件，比如`Popconfirm`等组件的visible属性，或者输入框的value等，这些可变值皆为受控属性。\n\n拿`Popconfirm`组件举例，除了手动控制visible可展示出提示信息外，当点击组件时提示信息也会展示；当点击确认或取消时，提示信息会隐藏。但当设置`controlled`为true时，不会再有默认行为，提示信息的显示隐藏完全由用户手动设置`visible`属性来控制。\n\n\n#### # source 系列参数\n\n`string` | `object`\n\n开发时经常会有一些是需要**`异步获取数据`**再展示的，框架提供了一套自动获取数据、处理数据、赋值给某个属性的整套机制。\n\n目前，全部组件都具备获取数据的能力。只需配置 source 参数即可，无需显示的写ajax逻辑，框架自动组件渲染时触发ajax请求。\n\nsource 参数可以是字符串，直接声明获取数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 异步获取数据的接口 | string |  必填\ncache    | **开启缓存**，重复请求再次获取时会直接从缓存读取 | boolean | false\nlocalStorage | **开启永久缓存**（刷新页面缓存不会消失），从而加快组件首次渲染速度，常用于加快首屏速度。注意控制数据量，防止localstorage超出限定。具体原理见表格下面说明 | boolean&#124;string | false\nrequestMerge | 开启请求合并（默认），多个重复请求先后同时触发时，会合并成一个请求。具体效果同[UF.ajax](#/Api/requestmerge-)中的示例 | boolean | true\nmethod    | ajax方式：`post`、`get`等 | string | 'get'\nparams | 请求数据时携带的参数 | object | \nparamsHandler | 请求数据前，对全部参数进行处理。应用场景如：组件自带的 page/size 等参数不符合接口规则，需要格式化 | function(params) {} | \nparamIndex  | 更改请求中的参数键名，处理顺序在执行`paramsHandler`之前，例如：`{page: 'pageNum', size: 'pageSize'}`  | object    |  |\ninterrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} | \nremoveEmptyParams | 自动移除为空的属性 | boolean | true\ntarget | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）。当为空时，结果直接作为set的参数设置个组件（同时设置多个属性） | string | 不同组件的默认属性不同，可视情况主动声明\nhandler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |\nonSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |\nonError | 请求数据失败的回调函数 | function(res) {} |\nautoLoad | 组件首次渲染时自动获取数据，仅创建组件时有效。组件创建完成后，通过 autoReload 属性控制 | boolean | true\nautoReload | 自动重新获取数据。不同取值时，自动获取数据的时机不同，详见表格下面说明 | boolean&#124;`'never'`&#124;`'set'` | false\nshowLoading | 拉取数据时展示loading效果。也可以是一个`loading`组件的配置，对loading效果进行定制。部分输入型组件也可以配置为'simple'，会有更简单的loading效果 | boolean&#124;`config`&#124;'simple' | false\n\n\n> * `hanlder`函数的参数：`data`参数为接口返回数据，`res`参数为接口返回的全部内容（按照ajax的[固定规则](#/Api)）。  \n> * `target`属性：一些数据录入型组件做了定制(见文档)，例如`select`的target为`options`、`input`等的target为`value`，其他组件默认为`children`/`content`（可以先看是否符合预期在确定是否需定制）\n> * `autoReload`属性：自动重新加载有几种不同的等级，对应参数值依次为（从上到下，刷新频率依次降低）：\n> > *  1、true: 范围最宽，source参数变动、自身set source参数、父组件刷新都会触发\n> > *  2、'set': source参数变动、自身set source参数都会更新\n> > *  3、false: 只有params或者source变化时才会更新\n> > *  4、'never': 则永远不更新，除非手动调用 reload 函数\n> * `interrupt`属性：中断请求的钩子函数。可以当符合某些条件时中断请求，执行自定义处理：\n> > *  1、可以通过返回数据，中断请求，从而使用钩子返回的数据；\n> > *  2、如果钩子未返回任何内容，或返回true，则请求继续；\n> > *  3、如果钩子返回false，则仅中断请求，不做任何处理；\n> * `localStorage`属性：开启永久缓存\n> > 数据获取后，会进行持久化存储。当下次再需要此数据时，会先读取缓存内容并返回给组件使用；同时发起请求尝试进行数据获取，获取回数据后，如果数据进行了更新，会再次调用success函数将新数据传递给组件，并更新缓存，否则不再进行处理。藉此可以使得组件首次加载时无需等待接口返回数据即可渲染出内容供用户使用，并在接口返回数据更新时自动对页面内容进行更新。多用于加速首屏渲染速度\n\n\n下面为一个使用场景较复杂的`下拉框`实现。\n\n首先`下拉框`的数据为异步获取，其次接口需要的参数不是固定值（从路由处获取到的id），返回数据不符合标准需要额外处理，可以配置如下：\n\n```javascript\n// 示例1：\n{\n    type: 'select',\n    source: '/uf/docs/php/data.php',\n}\n// 示例2：\n{\n    type: 'select',\n    source: {\n        url: '/uf/docs/php/data.php',\n        params: {},\n        hanlder: function (data, res) {\n            return data.map(function (v) {\n                return {value: v.name, label: v.name};\n            }\n        },\n        onError: null\n    },\n    beforeCreate: function (props, self) {\n        props.source.params = {id: self._root.props.params.id};\n        return props;\n    }\n}\n```\n\n组件渲染之前会先执行`beforeCreate`函数（见下面【组件生命周期】），从路由参数中获取 id 赋给 params 属性，配置中的 params 由`{}`变为`{id: 1}`；然后组件渲染完成后，开始异步获取数据；获取数据完成后会先调用`hanlder`对返回的数据进行处理，最后数据会填充到`target`属性定义的组件的`options`上去，就完成了下列框数据异步加载的功能。\n\n\n#### # api 系列参数\n\n`string` | `object`\n\n日常项目中，难免遇到各种和后端交互的情况：简单到点击某个按钮，会向后端发送一个请求；复杂点的情况，弹框表单用于录入数据，录入完成后把数据提交到后端。\n\n目前，全部组件都具备**`提交数据`**的能力。只需配置 api 参数即可，无需显示的写ajax逻辑，框架自动再某些条件满足时触发ajax请求。\n\napi 参数可以是字符串，直接声明提交数据的地址，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\nurl    | 提交数据的接口 | string | 必填\nmethod    | ajax方式 | string | 'post'\nshowLoading  | 展示loading效果 | boolean | `true`\nsingleUse  | 一次性请求，发送完成后，组件会更新状态。只要组件不销毁，就不会再次触发请求（有些组件还会有`disable`效果，例如`Button`组件） | boolean | false\nparams | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |\nparamsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |\nremoveEmptyParams | 自动移除为空的属性 | boolean | true\ntrigger | 触发条件。即什么事件触发时，进行api逻辑的执行。例如：`onClick`、`onSubmit` | string | 各个组件默认不同\nonSuccess | 提交数据后，成功的回调函数。用法和`ajax`的回调函数一致 | function(data, res) {} |\nonError | 提交数据后，失败的回调函数 | function(data, res) {} |\n\n以下为一个具备提交数据功能的简单表单，点击提交时，组件会把表单里的内容全部发送到api指定的接口：\n```javascript\n// 示例1：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: 'http://uf.baidu.com/docs/php/submit.php'\n}\n// 示例2：\n{\n    type: 'form',\n    layout: {type: 'inline'},\n    items: [\n        {type: 'input', name: 'name', label: '姓名：'},\n        {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '提交'}\n    ],\n    api: {\n        url: 'http://uf.baidu.com/docs/php/submit.php',\n        paramsHandler: function (params) {\n            return {newName: params.name, age: 18};\n        },\n        onSuccess: function () {\n            UF.message.success('保存成功');\n            return false;\n        }\n    }\n}\n```\n更多使用例子可见 [Modal组件](#/Custom/Modal) 带提交功能的弹框表单\n\n\n#### # `control` 系列参数\n\n`string` | `object` | `array`\n\n日常应用中，经常会用到一个组件事件触发时，调用另一个组件的函数或者改变另一个组件的值的情况。例如带有高级查询功能的一个表格展示页面，当点击高级查询的查询按钮时，把表单里的数据传递给表格并使其刷新。\n\n全部组件都具备**`控制其他组件`**的能力。通过配置 `control` 参数，声明交互方式、操作目标等，无需再显示的写获取组件、操作组件等逻辑，在某些指定的条件下会自动触发指定的操作。\n\ncontrol 参数可以是字符串，直接声明要操作的目标，其余参数全部为默认值。  \n也可以为一个对象，对象中的各个参数如下：\n\n参数       | 说明           | 类型             | 默认值      \n-----------|----------------|------------------|------\ntype    | 声明交互方式。可选值为：`call`-函数调用、`assign`-组件赋值 | string | 默认根据`target`属性为函数还是属性动态变化\ntrigger    | 触发条件（事件名称）。例如：onClick、onSubmit（Form） | string | 普通组件:`onClick`; 输入型组件:`onChange`; Input为`onPressEnter`; Form、Modal为`onSubmit`\ntarget    | 操作目标。可以为组件暴露的API，或者组件的配置属性 | string&#124;Array | 必填\nparams    | 第一种使用场景：为函数调用时传递的参数，`array`类型 | array | \nparams    | 第二种使用场景：为组件赋值时额外赋值参数，`object`类型； | object | \nhandler    | 绑定到事件上的处理逻辑，函数返回的内容作为赋值结果赋值到`target`指定的组件配置上。*（仅`赋值`类型可用）*  | function(...params, target) {} | 普通组件:无返回值; 输入型组件:`组件的当前值`\n\n> target 可以为一个数组，指定同时操作多个组件\n\n以上面提到的使用场景为例——带有高级查询功能的一个表格场景：\n\n```javascript\n[\n    {\n        type: 'form',\n        layout: {type: 'inline'},\n        items: [\n            {type: 'input', name: 'name', label: '机房名称：'},\n            {type: 'button', mode: 'primary', name: 'submit', action: 'submit', content: '查询'}\n        ],\n        // control: 'newtable.params' // 最简用法\n        control: {\n            type: 'assign',\n            trigger: 'onSubmit',\n            // 同时修改 newtable 的 source 等参数\n            params: {\n                source: 'http://uf.baidu.com/docs/php/data.php?type=1'\n            },\n            target: 'newtable.params'\n        }\n    },\n    {\n        type: 'table',\n        name: 'newtable',\n        columns: [\n            {title: 'ID', dataIndex: 'id'},\n            {title: '机房', dataIndex: 'name'},\n            {title: '地区', dataIndex: 'region'},\n            {title: '描述', dataIndex: 'description'}\n        ],\n        source: 'http://uf.baidu.com/docs/php/data.php',\n        params: {}\n    }\n]\n```\n示例中，首先配置了两个独立的组件：form、table，然后给form组件额外配置了一个`control`属性，属性值指向了 name 为'newtable'的组件的'params'属性。组件判断目标是一个组件配置属性，所以默认type为`assign`，即进行赋值操作。table的params更新后，会自动触发自己的刷新功能，重新拉取数据，并携带上刚刚设置好的params参数。\n\n示例2，`call`的用法：\n\n```javascript\n\n```"
 
 /***/ }),
 /* 251 */
@@ -28140,7 +28330,7 @@
 /* 254 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.4.0\n\n`2019-01-19`\n\n* 🌟 `Button`组件上通过`api`参数数据请求时，自动进行loading效果切换\n* 🎨 改造`Table`组件，将title提出来，使其不受loading效果的影响\n* 🎨 改造`Modal`组件，将弹框的默认按钮交换位置\n\n\n`2019-01-14`\n\n* 🌟 `Table`组件`展示字段`控件增加全选功能，可一键勾选全部列\n\n\n`2019-01-10`\n\n* 🐞 修复`Form`组件中表单项使用`authority`属性时报错问题\n\n\n`2019-01-04`\n\n* 🌟 UF上增加函数`UF.unrender`，用于主动销毁通过`UF.render`或`UF.init`渲染到页面上的组件，详见[交互API](#/Api)\n\n\n#### # 重要变化\n\n* `@ 2019-01-01`新年新气象，`UF 0.4.0` 版本上线啦~\n* 发布了新组件库 `uf-mobile`，用于手机端的开发，详见 [文档](#/Mobile)\n\n\n---\n\n\n### 0.3.0\n\n`2018-12-31`\n\n* ##### 新增组件\n    * 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)\n    * 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)\n    * 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示\n    * 🌟 新增`TreeSelect`组件，树形选择框\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 增加`column.authority`属性，支持根据权限点控制是否展示列\n    * 🌟 增加`column.exportRender`属性，用于处理导出数据时的数据处理\n    * 🌟 新增支持表头合并功能\n    * 🌟 新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并\n    * 🌟 新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 实时翻译功能，增加对翻译字段值进行去重处理\n    * 🎨 针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能\n    * 🎨 调整params参数和source.params的合并逻辑\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复`Table`组件中的`column.sorter`属性不可用问题\n    * 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题\n    * 🐞 修复模糊搜索对某些复杂的数据结构的字段不支持的问题\n    * 🐞 修复修改展示列后刷新表格，展示列还原问题，[uf-233](http://newicafe.baidu.com:80/issue/uf-233/show?from=page)\n    * 🐞 修复设置完分页后再次进行搜索，分页pageSize会自动重置的问题，[uf-232](http://newicafe.baidu.com:80/issue/uf-232/show?from=page)\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 `Form`组件修改join参数为函数时的参数列表\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题\n    * 🐞 修复组件中的`range-picker`表单项defaut置为current未转换问题\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Export`组件相关\n    * 🌟 增加`renders`属性，用于处理导出数据时的数据处理\n    * 🎨 优化剩余时间展示效果\n    * 🐞 修复不支持set data 的问题\n    * 🐞 修复同步导出不可用问题\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性\n    * 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性\n    * 🌟 新增属性`source.paramIndex`，用于更改发送请求前更改传给后端的参数名称，例如修改默认传递的分页参数的键名\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🌟 新增全局配置项`global.mockFiles`，提供文件Mock数据功能，[传送门](#/Develop/Config/-global-mockFiles-)\n    * 🎨 `global.mock`模拟数据功能升级，支持带动态参数的url\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用\n    * 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机\n    * 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）\n    * 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Ueditor`默认字号改为12px\n    * 🎨 修改`Menu`及`Sider`主题样式\n    * 🎨 `Iframe`修改loading效果，改为右上角小菊花转动\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题\n    * 🐞 修复`ajax.url`中只能使用一个变量的问题\n    * 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl\n    * 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n    * ⚙ 内部逻辑调整：将用户配置的全部函数的执行环境固定bind到配置本身承载函数的对象上，以支持函数可以使用`this`获取和自己同级的其他参数\n    * ⚙ 内部逻辑优化：移除部分无效`call(this)`函数\n    * ⚙ 调整检查是否更新的策略，解决仅更新函数时不生效问题\n    * ⚙ 调整内部实现，支持事件函数更新\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)\n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table`\n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.4.0\n\n`2019-02-28`\n\n* 🌟`Card`组件新增`size`属性，增加展示样式\n\n`2019-02-25`\n\n* 🐞 修复`Table`组件带翻译字段导出文件时，导出文件中需翻译字段未做翻译问题\n\n`2019-02-15`\n\n* 🐞 修复`Form`组件自定义rules提示信息无法展示bug，\n\n\n`2019-01-30`\n\n* 🌟 `Cascader`组件新增属性`level`，指定级联框固定最多能级联出几列\n* 🌟 `Button`组件`mode`属性增强，新增 `finish` `waiting` `active` `failure` 四种类型\n\n\n`2019-01-25`\n\n* 🌟 增加新组件`Markdown`，用于解析markdown内容并进行展示\n\n\n`2019-01-22`\n\n* 🌟 增加通用参数`api.singleUse`，支持设置组件的api发送请求功能只会触发一次\n* 🐞 修复`Echarts`组件重绘时栈溢出问题\n\n`2019-01-19`\n\n* 🌟 `Button`组件上通过`api`参数数据请求时，自动进行loading效果切换\n* 🎨 改造`Table`组件，将title提出来，使其不受loading效果的影响\n* 🎨 改造`Modal`组件，将弹框的默认按钮交换位置\n\n\n`2019-01-14`\n\n* 🌟 `Table`组件`展示字段`控件增加全选功能，可一键勾选全部列\n\n\n`2019-01-10`\n\n* 🐞 修复`Form`组件中表单项使用`authority`属性时报错问题\n\n\n`2019-01-04`\n\n* 🌟 UF上增加函数`UF.unrender`，用于主动销毁通过`UF.render`或`UF.init`渲染到页面上的组件，详见[交互API](#/Api)\n\n\n#### # 重要变化\n\n* `@ 2019-01-01`新年新气象，`UF 0.4.0` 版本上线啦~\n* 发布了新组件库 `uf-mobile`，用于手机端的开发，详见 [文档](#/Mobile)\n\n\n---\n\n\n### 0.3.0\n\n`2018-12-31`\n\n* ##### 新增组件\n    * 🌟 新增`Drawer`组件，Modal组件的变种，侧拉弹出，[传送门](#/Custom/Modal)\n    * 🌟 新增`IconPlus`组件，可用于引入并使用大量外部图标，[传送门](#/General/IconPlus)\n    * 🌟 新增`UeditorParse`组件，对通过Ueditor编辑的内容进行展示\n    * 🌟 新增`TreeSelect`组件，树形选择框\n    * 🌟 新增`Dashboard`组件【内测中，暂无文档】\n    * 🌟 新增`Html`组件，替换原解析`type: html`的逻辑，以支持set等功能呢\n    * 🌟 新增`AutoComplete`组件，支持异步获取信息并自动补全，[传送门](#/DataEntry/AutoComplete)\n    * 🌟 可以通过在组件type前面增加`o-`来强制使用原生标签，例如：`o-table`\n    * 🌟 新增`List`组件，对单条数据进展展示，[传送门](#/Custom/List)\n    * 🌟 新增`Upload`组件，并支持在Form组件中使用，[传送门](#/DataEntry/Upload)\n* ##### `Table`组件相关\n    * 🌟 增加`column.authority`属性，支持根据权限点控制是否展示列\n    * 🌟 增加`column.exportRender`属性，用于处理导出数据时的数据处理\n    * 🌟 新增支持表头合并功能\n    * 🌟 新增`column.cellRowSpan`、`column.cellColSpan`属性，支持单元格合并\n    * 🌟 新增`keysHandler`参数，支持对批量操作弹框中的数据进行格式化处理，详见demo，[传送门](#/Custom/TableCrud)\n    * 🌟 字段翻译增加实时翻译功能，每次切换分页时动态获取翻译的值，[传送门](#/Custom/Table/-column-enum-)\n    * 🌟 新增`colunm.style`属性，可以自定义每列的样式，并可以使用函数动态生成\n    * 🌟 增加API`getValues`，用于获取表格当前的全部数据（原数据）\n    * 🌟 增加API`getDisplayValues`，用于获取表格当前的全部数据（包含翻译数据）\n    * 🌟 对`crud`进行扩展，增加支持非弹框形式的表单内容（可定义展示在表格头的前面或后面），[传送门](#/Custom/TableCrud)\n    * 🌟 新增`rowTooltips`、`rowTooltipsIcon`属性，用于展示额外提示信息\n    * 🌟 新增表头单字段过滤功能可用于后端分页的情况\n    * 🌟 新增`rowTooltips`属性，支持给每一行配置一个信息提示按钮\n    * 🌟 新增属性`pagination.layout`，用于控制分页展示位置\n    * 🌟 新增属性`pagination.paramIndex`，用于更改传给后端的分页参数名称\n    * 🌟 增加`column.enum.allowEmpty`字段，可控制当数据不在枚举类型中时，展示源数据\n    * 🌟 翻译字段翻译的结果转存到原每行数据对象中（命名规则：`${dataIndex}_fyi`），可供模糊搜索或展示详情使用\n    * 🌟 增加`crud.details`，可通过简单配置实现展示详情效果（自动对翻译字段进行处理）\n    * 🌟 增加展开全部扩展项按钮。当配置了`expandedRowRender`时，自动在表头添加展开全部按钮\n    * 🌟 `crud`属性里的form表单，可以不用配置label属性，自动复用表格的columns.title属性\n    * 🌟 新增`title.switchTags.cache`属性，支持配置取消永久保存用户自己选择的展示字段（默认保存）\n    * 🌟 新增`colums.enum`属性，支持配置某些字段为枚举类型，字段展示的内容根据列表里的内容进行转换；同时，枚举的数据列表支持通过接口获取，[传送门](#/Custom/Table/-column-)\n    * 🌟 `colums.enum`属性功能增强，相应字段自动更新到新增/编辑的表单中的对应组件中；批量新增/批量编辑会自动对数据进行转换。\n    * 🌟 新增`doubleClickEdit`属性，配置双击行时进行编辑，需配合`crud.edit`\n    * 🎨 实时翻译功能，增加对翻译字段值进行去重处理\n    * 🎨 针对实时翻译字段，移除批量编辑后提交时将内容重新转换为ID的功能\n    * 🎨 调整params参数和source.params的合并逻辑\n    * 🎨 修改`rowKey`相关逻辑，当属性为函数时，依然可使用全选等功能\n    * 🎨 移除提交编辑表格时额外传给后端的翻译字段\n    * 🎨 增强属性`footer`，除函数外，也可以直接使用配置对象\n    * 🎨 对扩展内容相关属性进行归类，统一置于`expanded`属性下（兼容原用法）\n    * 🐞 修复`Table`组件中的`column.sorter`属性不可用问题\n    * 🐞 修复批量编辑弹框报错时，弹框直接关闭无法继续编辑问题\n    * 🐞 修复模糊搜索对某些复杂的数据结构的字段不支持的问题\n    * 🐞 修复修改展示列后刷新表格，展示列还原问题，[uf-233](http://newicafe.baidu.com:80/issue/uf-233/show?from=page)\n    * 🐞 修复设置完分页后再次进行搜索，分页pageSize会自动重置的问题，[uf-232](http://newicafe.baidu.com:80/issue/uf-232/show?from=page)\n    * 🐞 修复更新`params`参数时，仅删除字段表格不会自动刷新问题，[uf-157](http://newicafe.baidu.com:80/issue/uf-157/show?from=page)\n    * 🐞 修复组件的`crud`功能按钮点击无效问题\n    * 🐞 修复`Table`表格内编辑按钮弹框的数据不更新问题，[uf-144](http://newicafe.baidu.com:80/issue/uf-144/show?from=page)\n    * ⚙ 改造内部代码，更改获取source的时机，复用BaseComponent的逻辑\n* ##### `Form`和`Forms`相关\n    * 🌟 新增`operation`属性，支持自定义控制新增/删除的操作按钮，并可以绑定事件\n    * 🌟 增加API：`getDisplayValues()`，可用于获取整个表单中各项的展示值\n    * 🌟 增强`layout.column`布局用法，items中可以夹杂null作为占位符，[传送门](#/Custom/Form/-layout-)\n    * 🌟 `Form`组件联动功能增强，增加特殊值：`:value`/`:label`/`:old`，并可支持使用表达式，[传送门](#/Custom/Form/-join-)\n    * 🌟 新增支持使用非输入型组件做布局/展示等功能\n    * 🌟 新增`mode`属性，可以以表格的方式展示复制新增表单，[传送门](#/Custom/Forms)\n    * 🌟 增强`addType`属性，可以设置为`false`以关闭新增/删除功能\n    * 🌟 增加API: `resetItem()`，用于重新设置某个表单项的配置\n    * 🌟 表单项的值根据default或者rules.type自动格式化，例如select传入boolean型的值的情况\n    * 🎨 `Form`组件修改join参数为函数时的参数列表\n    * 🎨 优化布局逻辑，当使用`layout.column`进行布局时，当最后一行的列数不够时，自动补齐空的列\n    * 🎨 优化`resetItem`API，通过函数更新表单项时，会触发join效果\n    * 🐞 修复`Form`组件中按钮的onClick事件触发两次的问题\n    * 🐞 修复组件中的`range-picker`表单项defaut置为current未转换问题\n    * 🐞 修复同时设置`default`属性和`formData`时，formData的值不生效问题，[uf-180](http://newicafe.baidu.com:80/issue/uf-180/show?from=page)\n    * 🐞 修复更新`items`中的内容（传入新的参数）时，在表单中不生效问题，[uf-156](http://newicafe.baidu.com:80/issue/uf-156/show?from=page)\n    * 🐞 修复多级联动无效问题，[uf-147](http://newicafe.baidu.com:80/issue/uf-147/show?from=page)\n    * 🐞 修复resetValues给组件时，原display为false的字段无法设置入新值的bug，[uf-140](http://newicafe.baidu.com:80/issue/uf-140/show?from=page)\n    * 🐞 中使用级联框时，选择后失去焦点后输入框清空bugfix，[uf-135](http://newicafe.baidu.com:80/issue/uf-135/show?from=page)\n    * ⚙ 调整`Forms`组件内部逻辑，内部继承Form组件\n* ##### `Export`组件相关\n    * 🌟 增加`renders`属性，用于处理导出数据时的数据处理\n    * 🎨 优化剩余时间展示效果\n    * 🐞 修复不支持set data 的问题\n    * 🐞 修复同步导出不可用问题\n* ##### `Button`组件相关\n    * 🌟 新增属性：`activedChildren`、`unActivedChildren`，用于控制按钮的两种状态\n    * 🌟 新增属性`active`、`actived`，可给按钮增加状态控制，并可以通过点击来切换状态\n* ##### `Select`组件\n    * 🌟 增加API:`getSelectedOption`，用于获取当前选中选项上的全部属性\n    * 🌟 `Select`组件的`defaultFirst`属性支持在`combobox`和`multiple`模式下使用\n    * 🌟 增加属性:`extOptions`，增加options之外额外增加的选项（置于选择列表最前面），例如'ALL'选项\n    * 🌟 增加API:`selectAll`，多选模式下，可调用函数进行全选\n    * 🌟 `Select`/`CheckboxGroup`组件增加参数`defaultSelectAll`，异步获取options时，可以设置获取回数据后默认全选\n    * 🎨 优化组件，当通过`set`方式更新options属性时，也会进行是否需要清除当前选中数据的判断\n* ##### 通用属性或配置\n    * 🌟 新增`source`功能支持：当`target`为空时，同时设置多个属性\n    * 🌟 新增属性`source.paramIndex`，用于更改发送请求前更改传给后端的参数名称，例如修改默认传递的分页参数的键名\n    * 🌟 受控组件增加`controlled`属性，用户可通过设置属性为true阻止默认控制逻辑，使组件完全受用户控制\n    * 🌟 增加`ajax.interrupt`属性，用于中断请求自定义请求返回的数据的钩子函数，可以用户数据校验等功能\n    * 🌟 `Ajax`支持使用`axios`库发送数据，详见`useAxios`参数[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 新增`source.removeEmptyParams`参数，可配置自动移除为空的参数，默认开启，[传送门](#/Params/-source-)\n    * 🌟 新增通用属性`hidden`，所有组件可以配置`hidden`属性设置组件为隐藏，并可以是用`show()`函数展示出组件（或是用`set()`）\n    * 🌟 组件函数如`set`、`show`、`loading`等没返回值的函数支持链式调用，如：`uf('comp').show().loading()`\n    * 🌟 全部`输入型组件`增加API：`getDisplayValue()`，当实际值和展示值不一致时，可用于获取展示值（比如获取下拉框展示在页面上的值）\n    * 🌟 新增全局配置项`plugins`，指定加载额外插件，[传送门](#/Develop/Config/-plugins)\n    * 🌟 全局配置项`components`功能增强，支持异步加载组件配置\n    * 🌟 新增全局配置项`global.mock`，提供Mock数据功能，[传送门](#/Develop/Config/-global-mock-)\n    * 🌟 新增全局配置项`global.mockFiles`，提供文件Mock数据功能，[传送门](#/Develop/Config/-global-mockFiles-)\n    * 🎨 `global.mock`模拟数据功能升级，支持带动态参数的url\n    * 🎨 增强`source.autoReload`内部逻辑，增加对属性值`'never'`和`'set'`的支持\n    * 🎨 增强`uf.config.data`的应用场景，data中设置的全局变量，可以在url中作为动态参数使用，[传送门](#/Develop/Config/-data)\n    * ⚙ 调整API`show()`、`hide()`内部实现逻辑，使用`hidden`属性\n* ##### 其余更新\n    * 🌟 `Sider`组件、`Header`组件新增属性`theme`增加，可和`Menu`组件的theme配合使用\n    * 🌟 `AutoComplete`组件增加属性`startSign`，用于控制补全触发时机\n    * 🌟 `AutoComplete`组件属性`mode`增加可选值`select-only`，指定补全组件仅可选择（不可任意输入）\n    * 🌟 `UF.ajax`增加参数`localStorage`，可配置对某个请求的结果进行永久保存（localStorage），下次调用时，优先取缓存数据，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 `message`、`notification`组件新增属性`autoMerge`，默认自动合并内容相同的提示信息\n    * 🌟 `Collapse`组件增加API：`open`、`close`，可以用于便捷的控制某个面板的开关\n    * 🌟 `Modal`组件新增`posRank`属性，可自定义弹框中展示内容的排列顺序。[传送门](#/Custom/Modal/modal-)\n    * 🌟 `Tree`组件升级，支持通用source用法；且当异步获取子树返回为空时，当前节点自动置为叶子节点\n    * 🌟 `SiderTrigger`组件增加`reverse`属性\n    * 🌟 `Router`组件支持惰性加载，只需把`component`参数写成模块路径即可\n    * 🎨 `Ueditor`默认字号改为12px\n    * 🎨 修改`Menu`及`Sider`主题样式\n    * 🎨 `Iframe`修改loading效果，改为右上角小菊花转动\n    * 🎨 `Echarts`组件，改为自动惰性加载依赖库(支持 3.x 和 4.x 版本)，无需使用前手动script引入库文件\n    * 🎨 `Ueditor`组件，改为自动惰性加载依赖库，无需使用前手动script引入库文件\n    * 🐞 修复使用`beforeCreate`,`beforeRender`处理并返回参数时，事件函数会被覆盖的问题\n    * 🐞 修复`ajax.url`中只能使用一个变量的问题\n    * 🐞 修复`Modal`组件通过`create()`等函数直接创建的弹框中的配置，使用`source`等属性是，url不会复用config中定义的baseUrl\n    * 🐞 修复`message`、`notification`组件不会复用config中定义的baseUrl\n    * 🐞 修复`DatePicker`组件直接点确定按钮不会自动选中当前日期的问题，[uf-183](http://newicafe.baidu.com:80/issue/uf-183/show?from=page)\n    * 🐞 修复`Radio`等输入组件当value为以0为代表对应布尔值为false的值无效问题（会被置为undefined导致在form中设置的default无效），[uf-148](http://newicafe.baidu.com:80/issue/uf-148/show?from=page)\n    * ⚙ 内部逻辑优化：外部刷新时，也只过滤出变化的数据进行__setProps（修复了select通过source获取options，外部刷新时组件选项会被清空的问题）\n    * ⚙ 内部调整，调整生成主题文件逻辑\n    * ⚙ 内部逻辑调整：将用户配置的全部函数的执行环境固定bind到配置本身承载函数的对象上，以支持函数可以使用`this`获取和自己同级的其他参数\n    * ⚙ 内部逻辑优化：移除部分无效`call(this)`函数\n    * ⚙ 调整检查是否更新的策略，解决仅更新函数时不生效问题\n    * ⚙ 调整内部实现，支持事件函数更新\n* ##### 发布\n   * 📖 在 **`资产监控平台`** 项目中投入使用\n\n\n#### # 重要变化\n\n* 用法上升级，支持使用UF产生uf实例，即一个页面上可以产生多个uf实例，并互不影响。同时，UF本身也是一个默认实例。[传送门](#/Api/-uf)\n\n---\n\n\n\n### 0.2.5\n\n`2018-07-10`\n\n* ###### `Tabs` 标签页\n    * 🌟 新增`forceRefresh`属性，支持配置每次点击Tab页时都强制刷新内容\n    * 🎨 调整组件用法，增加了`items`属性，替代`tab-pane`子组件，目前兼容原用法，详见组件[文档](#/DataDisplay/Tabs)\n* ##### 其余更新\n    * 🌟 新增通用API: `refresh`，可以强制刷新组件\n    * 🌟 新增用API: `reload`，可以使组件重新拉取数据\n    * 🌟 增加通用参数`source.autoReload`，组件刷新时自动重新获取数据，[传送门](#/Params/-source-)\n    * 🌟 增加通用参数`source.showLoading`，组件配置通过source属性获取数据时，可以自动展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 新增公共API: `UF.getRouter`，用于随时随地或去当前页面的路由信息，[传送门](#/Api/-uf-getrouter-)\n    * 🌟 `Form`组件功能增强，`items`中支持配置非录入数据功能的组件（纯展示），[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 Ajax的`url`参数可以使用动态参数，参数值从`params`中获取，[传送门](#/Api/-uf-ajax-params-)\n    * 🌟 面包屑`Breadcrumb`支持使用路由中的动态参数，[传送门](#/Navigation/Breadcrumb/-breadcrumbname-)\n    * 🐞 修复 `Modal` 组件的弹框表单中，表单域的`default`属性无效问题，[uf-126](http://newicafe.baidu.com:80/issue/uf-126/show?from=page)\n    * 🐞 修复`Input`组件设置为 number 类型时无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复 `Menu` 组件侧边栏收起时展开的子菜单不收起BUG\n    * 🐞 修复使用 `show`/`hide` api时控制台报warning的问题\n    * ⚙ 更新内部解析顺序，组件默认配置在生成组件前就已经获取到并进行merge了；且自定义组件也是在生成组件前进行处理，并转换成基础组件。\n    * ⚙ 对二次解析的属性进行存储、重命名并传入组件，方便后续重新解析刷新等操作\n    * ⚙ 改造内部代码，cwr中对组件是否需要刷新进行了调整（增加区分是否为内部调用的字段），source.autoReload参数可以影响组件刷新\n    * 🙅 移除通用属性`configTpl`，并支持在 $uf.config({components:{}}) 中配置自定义组件，并在项目中和其他组件相同方式使用。传送门\n\n\n\n\n### 0.2.4\n\n`2018-06-29`\n\n* ##### 更新内容\n    * 🌟 `Select`组件增加默认搜索时忽略大小写\n    * 🌟 增加`Form`针对传入的`formData`进行处理的函数：`formDataHandler`\n    * 🌟 全部组件增加函数函数：`loading()`，用于控制是否展示loading效果，[传送门](#/Api/-component-loading-)\n    * 🎨 调整`Select`组件，增加对多选情况的处理，[uf-115](http://newicafe.baidu.com:80/issue/uf-115/show?from=page)\n    * 🐞 修复 number 类型的输入框无法输入小数点的问题，[uf-123](http://newicafe.baidu.com:80/issue/uf-123/show?from=page)\n    * 🐞 修复`Form`数字类型的表单域，当输入字母时，会出现NaN卡死的情况\n    * 🐞 修复高级`Modal`中`form`配置了`beforeSubmit`后，提交的数据中依然有原来的数据的bug\n    * 🐞 修复`Echarts`快速/同时绘制多个时，后面的图表无法绘出问题\n    * 🐞 修复`Form`中的 input 组件设置 rules.type 为`'number'`时报错问题，[uf-111](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n\n    * 📖 在 **`DCID 通报管理`** 项目中投入使用\n\n\n\n### 0.2.3\n\n`2018-06-12`\n\n* ##### 新增组件\n    * 🌟 增加`Forms`组件，自身具备复制新增功能\n* ##### `Table`组件相关\n    * 🌟 增加支持后端分页时的`模糊搜索`功能\n    * 🌟 增加函数函数：`export()`，支持手动调用导出功能\n    * 🌟 增加`title.extra`属性，支持在表格表头增加额外内容/组件\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🎨 属性名称调整（以下为调整前后的对照关系）\n        * `column.filterConfig` => `column.filter`\n        * `column.filterConfig.filterType` => `column.filter.type`\n        * `column.filterConfig.filters` => `column.filter.options`\n        * `title.basicControls` => `title.basicWidget`*（当前版本兼容两种，在下一版本中移除）*\n        * `title.menuControls` => `title.menuWidget`*（当前版本兼容两种，在下一版本中移除）*\n    * 🙅 移除`method`、`sourceHanlder`、`autoLoadSource`参数\n* ##### `Export`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致\n    * 🙅 移除`method`、`params`参数\n* ##### `Tree`组件相关\n    * 🎨 整合`source`系列参数，参数和通用的source系列参数保持一致。异步加载数据功能通过设置`source`实现\n    * 🙅 移除`loadData`参数，相应功能用`source`替换\n* ##### 其他更新\n    * 🌟 新增`Echars`同其他组件一样，支持`source`系列参数，并支持使用`set`等api\n    * 🌟 增加输入型组件使用`source`系列参数时，可以展示loading效果，[传送门](#/Params/-source-)\n    * 🌟 升级组件API`get`功能，支持取多层级下的配置参数 [传送门](#/Api/-component-get-)\n    * 🌟 增加`api.showLoading`参数，使用api系列参数提交数据时，展示loading效果\n    * 🌟 `CheckboxGroup`增加函数API：`checkAll()`，全选或取消全选\n    * 🌟 增加`global.ajax.data`参数，配置全部请求都携带的参数，例如：`token`\n    * 🌟 增加`source.cache`参数，可以开启**`数据缓存`**功能，[传送门](#/Params/-source-)\n    * 🌟 增加`source.requestMerge`参数，可以关闭**`请求合并`**功能，[传送门](#/Params/-source-)\n    * 🌟 `DatePicker`系列组件`value`参数增加特殊值`'current'`，当值为current时，会自动转换为当前日期/时间 （注意：`Form`中使用时，是在`default`属性上配置'current'）\n    * 🌟 `Export`组件增加函数API：`export()`，支持手动调用导出功能\n    * 🌟 增加通用 `control` 系列参数。全部组件都具备控制其他组件的能力，[传送门](#/Params/-control-)\n    * 🌟 增加 `uf.p.js` 文件，可使UF加载时不阻塞页面其他逻辑执行（尤其用于和其他框架/库混用时）\n    * 🎨 微调Ajax内部处理逻辑，如果用户配置了`global.ajax.error`，则全使用用户自定义的处理逻辑，error不再有默认报错的行为，如果需要，需用户自行在error函数里添加\n    * 🎨 通用`source`系列参数整理，聚合到一起（全部参数在`source`参数之下），[传送门](#/Params/-source-)\n    * 🎨 修改 Ajax 默认错误处理逻辑，只有当自定义错误处理函数显示的返回 false 时，才会阻止默认处理逻辑执行\n    * 🎨 改造路由，优化通过路由传递参数并在组件配置中获取参数的交互方式，见：[更多用法](#/Others)\n    * 🎨 `Modal`组件属性名称调整：`message` => `render`*（当前版本兼容两种，后面版本中移除）*\n    * 🐞 修复`Select`组件使用`source`参数时，数据返回后会提示内容不能为空的问题\n    * 🐞 修复`Form`组件中使用日期范围选择组件不能选择时间问题\n    * 🐞 修复自定义组件（如：Form）使用`source`系列参数时，后端返回的数据无法回填的问题\n    * 🐞 修复`Form`重新设置`formData`时（例如使用`source`异步获取Form内容），数据不更新问题，[uf-101](http://newicafe.baidu.com:80/issue/uf-101/show?from=page)\n    * 🐞 修复`Table`组件`expandedRowRender`属性功能，点击加号不能展示扩展内容BUG\n    * 🐞 修复`Table`组件`pagination`置为`false`时，报错的问题\n    * ⚙ 改造`Forms`内部逻辑，以支持嵌套到Form组件中使用\n    * ⚙ 改造内部代码，增加对销毁组件的处理：异步操作中对已销毁的组件的操作全部会被中断\n    * ⚙ 改造内部代码，默认参数全部走配置形式\n    * ⚙ 样式文件sass改为less，并增加主题配置，定制多份主题\n    * 🐞 修复因`Router`刷新两次造成的报错`called forceUpdate() on an unmounted component`的问题\n\n* ##### 发布\n    * 📖 在 **`IDP 世界杯`** 项目中投入使用\n\n\n\n### 0.2.2\n\n`2018-06-22` `upgrade`\n\n* 🌟 `Select`组件增加默认搜索时忽略大小写\n\n\n`2018-06-06`\n\n* 🐞 修复`Table`组件单行编辑，内容为0时数据不更新问题\n* 🌟 新增`api`系列参数，并聚合到一起（全部参数在`api`参数之下）\n* `Table`\n    * 🌟 增加单字段编辑功能\n    * 🙅 删除ajax传参中的分页参数 `index`、`offset`\n* 📖 在 **`RMS 网络零件库存预警`** 项目中投入使用\n\n\n\n\n### 0.2.1\n\n`2018-03-19`\n\n* 重写入门文档；文档排版调整，文档/组件分离\n* 增加`Ecahrts`组件的支持\n* 上线 0.2.1 版本，对框架进行整体优化\n* 📖 在 **`虚拟资源管理中心`** 项目中投入使用\n\n\n\n### 0.2\n\n`2017-10-13`\n\n* 上线 0.2 版本\n* 支持整个项目配置化\n* 📖 在 **`RMS GPU部件管理`** 项目中投入使用\n\n### 0.1.1\n\n`2017-09-22`\n\n* antd `2.12.2` 升级为 `2.13.7`\n* 增加 `Table`、`Form`、`Modal` 组件说明文档及Demo\n* 增加用于临时使用的 `Table2` 组件，后面 `Table` 组件功能完善后，会再次把 `Table2` 去掉\n\n### 0.1\n\n`2017-09-18`\n\n* 配置化页面一期上线\n"
 
 /***/ }),
 /* 255 */
@@ -28201,7 +28391,7 @@
 /* 256 */
 /***/ (function(module, exports) {
 
-	module.exports = "按钮用于开始一个即时操作。\n\n## 何时使用\n\n标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。\n\n## 组件&配置\n\n### # button\n\n通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`mode` -> `shape` -> `size` -> `loading` -> `disabled`\n\n属性 | 说明 | 类型 | 默认值\n-----|-----|-----|------\nmode | 设置按钮类型，可选值为 `primary` `dashed` `danger` 或者不设 | string | -\nhtmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button`\nicon | 设置按钮的图标类型 | string | -\nshape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -\nsize | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`\nloading | 设置按钮载入状态 | boolean &#124; { delay: number } | `false`\nonClick | `click` 事件的 handler | function | -\nghost | 幽灵属性，使按钮背景透明 | boolean | false\nlink | 如果配置了link属性，则按钮点击后会跳转到link指定的页面 | string | \nactive | 设置按钮当前状态是否为激活状态（仅`actived`为true时有效） | boolean | false\nactived | 按钮是否可以存在激活状态 | boolean | false\nactivedChildren | 按钮在激活状态时展示的内容，可以是以上任何属性 | `config` | false\nunActivedChildren | 按钮在非激活状态时展示的内容 | `config` | false\n\n### # button-group\n\n可以将多个 `button` 放入 `button-group` 的容器中，使按钮作为一组展示。\n\n属性 | 说明 | 类型 | 默认值\n-----|-----|-----|------\nsize | 设置按钮大小，可选值为 `small` `large` `mini` 或者不设 | string | `default`"
+	module.exports = "按钮用于开始一个即时操作。\n\n## 何时使用\n\n标记了一个（或封装一组）操作命令，响应用户点击行为，触发相应的业务逻辑。\n\n## 组件&配置\n\n### # button\n\n通过设置 Button 的属性来产生不同的按钮样式，推荐顺序为：`mode` -> `shape` -> `size` -> `loading` -> `disabled`\n\n属性 | 说明 | 类型 | 默认值\n-----|-----|-----|------\nmode | 设置按钮类型，可选值为 `primary` `dashed` `danger` `finish` `waiting` `active` `failure` 或者不设 | string | -\nhtmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#attr-type) | string | `button`\nicon | 设置按钮的图标类型 | string | -\nshape | 设置按钮形状，可选值为 `circle` 或者不设 | string | -\nsize | 设置按钮大小，可选值为 `small` `large` 或者不设 | string | `default`\nloading | 设置按钮载入状态 | boolean &#124; { delay: number } | `false`\nonClick | `click` 事件的 handler | function | -\nghost | 幽灵属性，使按钮背景透明 | boolean | false\nlink | 如果配置了link属性，则按钮点击后会跳转到link指定的页面 | string | \nactive | 设置按钮当前状态是否为激活状态（仅`actived`为true时有效） | boolean | false\nactived | 按钮是否可以存在激活状态 | boolean | false\nactivedChildren | 按钮在激活状态时展示的内容，可以是以上任何属性 | `config` | false\nunActivedChildren | 按钮在非激活状态时展示的内容 | `config` | false\n\n### # button-group\n\n可以将多个 `button` 放入 `button-group` 的容器中，使按钮作为一组展示。\n\n属性 | 说明 | 类型 | 默认值\n-----|-----|-----|------\nsize | 设置按钮大小，可选值为 `small` `large` `mini` 或者不设 | string | `default`"
 
 /***/ }),
 /* 257 */
@@ -28231,7 +28421,7 @@
 /* 261 */
 /***/ (function(module, exports) {
 
-	module.exports = "\n级联选择框。\n\n## 何时使用\n\n- 需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。\n- 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。\n- 比起 Select 组件，可以在同一个浮层中完成选择，有较好的体验。\n\n## 组件&配置\n\n### # cascader\n\n| 参数 | 说明 | 类型 | 默认值 |\n|------|------|------|--------|\n| options | 可选项数据源 [*默认异步属性*] | object | - |\n| defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |\n| value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)[] | - |\n| onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |\n| displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => UF.init({...})` | `label => label.join(' / ')` |\n| style | 自定义样式 | string | - |\n| className | 自定义类名 | string | - |\n| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示\t | boolean | false |\n| popupClassName | 自定义浮层类名 | string | - |\n| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |\n| placeholder | 输入框占位文本 | string | '请选择' |\n| size | 输入框大小，可选 `large` `default` `small` | string | `default` |\n| disabled | 禁用 | boolean | false |\n| allowClear | 是否支持清除 | boolean | true |\n| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |\n| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |\n| showSearch | 在选择框中显示搜索框 | boolean | false |\n| notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |\n| loadData  | 用于动态加载选项，无法与 `showSearch` 一起使用 | `(selectedOptions) => void`  | - |\n| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |\n\n`showSearch` 为对象时，其中的字段：\n\n| 参数 | 说明 | 类型 | 默认值 |\n|------|------|------|--------|\n| filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |\n| render | 用于渲染 filter 后的选项 | `function(inputValue, path): UF.init({...})` | |\n| sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |\n| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |\n\n> 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。\n"
+	module.exports = "\n级联选择框。\n\n## 何时使用\n\n- 需要从一组相关联的数据集合进行选择，例如省市区，公司层级，事物分类等。\n- 从一个较大的数据集合中进行选择时，用多级分类进行分隔，方便选择。\n- 比起 Select 组件，可以在同一个浮层中完成选择，有较好的体验。\n\n## 组件&配置\n\n### # cascader\n\n| 参数 | 说明 | 类型 | 默认值 |\n|------|------|------|--------|\n| options | 可选项数据源 [*默认异步属性*] | object | - |\n| defaultValue | 默认的选中项 | [CascaderOptionType](https://git.io/vMMoK)[]  |[] |\n| value | 指定选中项 | [CascaderOptionType](https://git.io/vMMoK)[] | - |\n| onChange | 选择完成后的回调 | `(value, selectedOptions) => void` | - |\n| displayRender | 选择后展示的渲染函数 | `(label, selectedOptions) => UF.init({...})` | `label => label.join(' / ')` |\n| style | 自定义样式 | string | - |\n| className | 自定义类名 | string | - |\n| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示\t | boolean | false |\n| popupClassName | 自定义浮层类名 | string | - |\n| popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |\n| placeholder | 输入框占位文本 | string | '请选择' |\n| size | 输入框大小，可选 `large` `default` `small` | string | `default` |\n| level | 指定级联框固定最多能级联出几列 | number | 5 |\n| disabled | 禁用 | boolean | false |\n| allowClear | 是否支持清除 | boolean | true |\n| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |\n| changeOnSelect | 当此项为 true 时，点选每级菜单选项值都会发生变化，具体见上面的演示 | boolean | false |\n| showSearch | 在选择框中显示搜索框 | boolean | false |\n| notFoundContent | 当下拉列表为空时显示的内容 | string | 'Not Found' |\n| loadData  | 用于动态加载选项，无法与 `showSearch` 一起使用 | `(selectedOptions) => void`  | - |\n| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](http://codepen.io/anon/pen/xVBOVQ?editors=001) | Function(triggerNode) | () => document.body |\n\n`showSearch` 为对象时，其中的字段：\n\n| 参数 | 说明 | 类型 | 默认值 |\n|------|------|------|--------|\n| filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |\n| render | 用于渲染 filter 后的选项 | `function(inputValue, path): UF.init({...})` | |\n| sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |\n| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |\n\n> 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。\n"
 
 /***/ }),
 /* 262 */
@@ -28453,7 +28643,7 @@
 /* 298 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.3","stableVersion":"0.4.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
 
 /***/ }),
 /* 299 */
@@ -30310,7 +30500,7 @@
 	        wrapperCol: 16
 	    },
 	    formData: {
-	        address: 123
+	        address: 12
 	    },
 	    onChange: function onChange(params) {
 	        console.log(params);
@@ -30483,10 +30673,21 @@
 	        }]
 	    }, {
 	        type: 'input',
-	        label: '地址',
-	        name: 'address',
-	        rules: { required: true, message: '地址不能为空', type: 'number' },
-	        default: ''
+	        label: '数量',
+	        name: 'number',
+	        required: true,
+	        rules: [{
+	            type: 'number',
+	            message: '请输入数字'
+	        }, {
+	            validator: function validator(rule, value, callback) {
+	                console.log(value);
+	                if (value.length > 6) {
+	                    callback("长度超过限制");
+	                }
+	                callback();
+	            }
+	        }]
 	    }], [{
 	        type: 'input',
 	        label: '百度侧IP',
@@ -30838,7 +31039,7 @@
 /* 329 */
 /***/ (function(module, exports) {
 
-	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局 | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n**注意：在使用column布局时**  \n默认会对`items`中的全部项进行计算并按设置的列进行布局。但是当表单项不被`column`整除时，展示并不友好。  \n例如：items中有4项，而column为3，这样最后一行只有一项，后面都以此为例子说明。\b此处有两种处理方式：  \n> * 使用`{type: 'empty'}`做“凑数”组件，以保证多余的表单项能和其余表单项保持在所在行中占比一致，即最后一项只占最后一行的三分之一；\n> * 使用`null`作为“凑数”组件，计算列时会把`null`计算到布局列中，实际展示时会剔除掉，即最后一项占据最后一行的整行（一般会搭配表单项的layout属性使用）\n\n```javascript\n// 方法1：\nlayout: {\n    column: 3\n},\nitems: [\n    {type: 'input', name: 'a'},\n    {type: 'input', name: 'b'},\n    {type: 'input', name: 'c'},\n    {type: 'input', name: 'd'},\n    {type: 'empty'},\n    {type: 'empty'}\n]\n\n// 方法2：\nlayout: {\n    column: 3,\n    labelCol: 9,\n    wrapperCol: 12\n},\nitems: [\n    {type: 'input', name: 'a'},\n    {type: 'input', name: 'b'},\n    {type: 'input', name: 'c'},\n    {type: 'input', name: 'd', layout: {labelCol: 3, wrapperCol: 20}},\n    null,\n    null\n]\n```\n> d表单项layout中的3和20的计算公式为：  \n> labelCol = 9 / 3  \n> wrapperCol = 24 - labelCol - (24 - (9 + 12)) / 3  \n> 以上数字：固定值 (24)，总layout.labelCol (9)，总layout.wrapperCol (12)，总layout.column (3)\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。**当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示（可在内部再嵌套输入组件）** | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\njoin | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部[示例](#/Custom/Form/-join-) | object | | \nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处虽然是个对象数组或者对象数组。具体配置见 `item.rules` | object | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n**注意：** 不配置name属性\n> 当组件不配置name时，组件会作为一个纯展示类组件进行解析展示，不会再对其获取数据和设置数据，也无法操作。同时，其内部可以再次嵌套具有name属性的输入型组件。见下面例子：\n\n```javascript\n{\n    items: [{\n        type: 'div',\n        style: {background: 'green'},\n        content: {\n            type: 'input',\n            name: 'name',\n            label: '名称'\n        }\n    }]\n}\n```\n更高级的用法，比如可使用表格布局表单；再比如使用Row/Col组件自定义布局。\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n**注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n下面介绍一个常用使用场景：\n\n首先是一个下拉列表，用于选择ID，选中后展示的也是ID；另外放置一个用于纯展示的组件（span），用于展示名称（组件虽为纯展示组件，但是组件展示内容和其他表单域组件一样随着受控属性content变化，即当Form中的item.name对应的字段值变化时，展示的内容随着变化）。\n\n```javascript\nitems: [\n    {\n        type: 'select',\n        name: 'chassisId',\n        label: '位置ID',\n        optionLabelProp: 'value',\n        join: {\n            chassisName: {\n                content: ':label'\n            }\n        }\n    },\n    {\n        type: 'span',\n        name: 'chassisName',\n        label: '位置名称'\n    }\n]\n```\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\ngetDisplayValues | 获取全部表单项展示给用户的值。比如下拉选择框，展示给用户的值和最终提交的内容不同。效果可见demo的自定义按钮 | getDisplayValues() |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\nclearValues | 清除表单。有别于重置 | clearValues() |\nresetItem | 重新设置某个表单项的配置 | resetItem(targetName, conf) |\n\n\n## 更多用法\n\n[!图片](/path/to/img.jpg \"Title\")\n\n### 组件联动 - join 属性的用法\n\njoin实现同一个form间的各表单项联动。\n\njoin的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value（`联动内容`）为的目标表单项需要更新的内容，下面主要介绍联动内容value的用法。\n\n联动内容为目标组件要更新的新配置列表，各个属性取值：可以是固定值；也可以是一个函数；同时为了方便，也可以是两个特殊值，如下：\n\n* **固定值**：例如 true、false 等，用于当组件变化时固定联动另一个组件的某个属性为一个固定值\n* **函数**：函数处理结果为联动组件待更新值，函数的参数依次为：当前组件值，目标组件原值，其他（包括目标组件引用、当前组件引用、Form的引用等），可见下面demo\n* **特殊值**：\n    * `:value` - 可以把当前组件的value值赋值给联动的目标组件的属性；\n    * `:label` - 例如Select等组件(每个选项既有value，又有用于展示的label)，将label值赋值给目标组件的属性\n    * `:old` - 目标属性的原值，常用语表达式中\n    * `表达式` - 也可以是使用上面两个变量的表达式，例如：'1 - :value > 0'、':value || :old'\n\n> 目标组件的配置项也可以直接书写层级关系，例如：'source.params.type': 1，见【示例二】\n\n```javascript\nitems: [\n    // 【示例1：】\n    {\n        type: 'select',\n        label: '接入方式',\n        name: 'access_type',\n        default: '0',\n        join: {\n            // 当 select 变化时，会联动name为bandwith的表单项\n            bandwith: {\n                // 更新表单项的display属性（控制是否展示）\n                // 属性的值可以直接为固定值，但更多情况下，值是根据当前选择的值动态变化的\n                // 所以也可以是一个函数，函数的返回值为目标组件待更新的新值\n                display: function (val, oValue, others) {\n                    // others.form.getValues() 可取得当前form全部属性值\n                    // others.self.getDisplayValue() 可取得当前下拉框选中项的展示内容\n                    return !!Number(val) ? true : false;\n                }\n\n                // 可将选中选项的值赋值给目标输入框bandwith的填入内容\n                // value: ':value',\n                // 如果新值不存在，使用原值\n                // value: ':value || :old',\n                // 可将选中选项的供用户看的中文赋值给目标输入框bandwith的填入内容\n                // value: ':label',\n                // 也可以是表达式\n                // display: '!:value',\n                // display: '1 - :value > 0',\n            },\n\n            // 可以同时联动多个\n            // line_type: {display: v=>!!+v},\n            // port_type: {display: v=>!!+v},\n            // is_converge: {display: v=>!!+v}\n        },\n        options: [\n            {value: '0', label: 'VPN'},\n            {value: '1', label: '专线'}\n        ]\n    },\n    {\n        type: 'input',\n        label: '专线带宽',\n        name: 'bandwith',\n        rules: [{required: true, message: '专线带宽不能为空'}],\n        display: false,\n        placeholder: 10,\n        addonAfter: 'M'\n    },\n\n    // 【示例2：】\n    // 另一个级联选择的例子，选择区域后，根据选择的区域动态的查询该区域的机房列表\n    {\n        type: 'select',\n        label: '区域',\n        name: 'area',\n        options: [\n            {value: 1, label: '华北'},\n            {value: 2, label: '华南'}\n        ],\n        join: {\n            idc_id: {\n                // 选择区域后，更新idc_id组件的source参数，组件会自动重新拉取数据\n                // * 使用多层级属性；\n                // * 使用特殊值:value进行取值；\n                'source.params.area_id': ':value'\n            }\n        }\n    },\n    {\n        type: 'select',\n        label: '机房',\n        name: 'idc_id',\n        source: {\n            autoLoad: false,\n            url: 'docs/php/data.php',\n            handler: data=>data.map(v=>{\n                return {value: v.name, label: v.name};\n            })\n        }\n    }\n]\n```"
+	module.exports = "## 功能介绍\n * 灵活可配置的表单\n * 支持多种表单类型：单选框、复选框、输入框、数字输入框、下拉选择框、级联下拉框、上传按钮等常用元素。\n * 支持多种排列方式\n * 灵活的校验规则\n * 可配置底部按钮\n\n> **声明：** 本组件底层使用的是 `Antd.Form`，所以疑惑的地方可以结合 [Antd文档](http://antd.uf.baidu.com/components/form-cn/) 使用\n\n## 组件&配置\n\n### # form\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n--------|-----|------|--------|----\nheader | form 标题 | string &#124; `config` |  | \nclassName | 增加 form 整体的 class 名称 | string |  | \nlayout | 表单布局，支持三种常见布局，见`# layout` | object | |\nsize | 控件大小。可选 `large` `default` `small` | string | `large` |\nitems | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须\nbuttons | 表单的按钮配置，见`# buttons` | object[] | |\nformData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |\nformDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |\nbeforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |\nbeforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |\nonSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |\nwrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |\n\n\n#### *layout*\n\n参数名称 | 说明 | 类型 | 默认值\n----- | --- | ---------| ---\ntype | 表单布局，有三种： 水平:`horizontal` 垂直:`vertical` 内联:`inline` | string | `horizontal` \ncolumn | 分成多列布局 | number | 1\nlabelCol | 仅 type 为`horizontal`时有效。使用24栅格系统布局，表单项中label所占栅格的值 | number | 6\nwrapperCol | 仅 type 为`horizontal`时有效。表单项中表单域所占栅格的值 | number |14\n\n**注意：在使用column布局时**  \n默认会对`items`中的全部项进行计算并按设置的列进行布局。但是当表单项不被`column`整除时，展示并不友好。  \n例如：items中有4项，而column为3，这样最后一行只有一项，后面都以此为例子说明。\b此处有两种处理方式：  \n> * 使用`{type: 'empty'}`做“凑数”组件，以保证多余的表单项能和其余表单项保持在所在行中占比一致，即最后一项只占最后一行的三分之一；\n> * 使用`null`作为“凑数”组件，计算列时会把`null`计算到布局列中，实际展示时会剔除掉，即最后一项占据最后一行的整行（一般会搭配表单项的layout属性使用）\n\n```javascript\n// 方法1：\nlayout: {\n    column: 3\n},\nitems: [\n    {type: 'input', name: 'a'},\n    {type: 'input', name: 'b'},\n    {type: 'input', name: 'c'},\n    {type: 'input', name: 'd'},\n    {type: 'empty'},\n    {type: 'empty'}\n]\n\n// 方法2：\nlayout: {\n    column: 3,\n    labelCol: 9,\n    wrapperCol: 12\n},\nitems: [\n    {type: 'input', name: 'a'},\n    {type: 'input', name: 'b'},\n    {type: 'input', name: 'c'},\n    {type: 'input', name: 'd', layout: {labelCol: 3, wrapperCol: 20}},\n    null,\n    null\n]\n```\n> d表单项layout中的3和20的计算公式为：  \n> labelCol = 9 / 3  \n> wrapperCol = 24 - labelCol - (24 - (9 + 12)) / 3  \n> 以上数字：固定值 (24)，总layout.labelCol (9)，总layout.wrapperCol (12)，总layout.column (3)\n\n#### *item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\ntype | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须\nname | 表单域名称，key，提交时以此名称为键。**当name不填时，组件不在当表单项处理，而是作为一个纯展示类组件进行解析展示（可在内部再嵌套输入组件）** | string | |\nlabel | 表单域左侧的label | string | | 必须\ndefault | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |\njoin | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部[示例](#/Custom/Form/-join-) | object | | \nhelp | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |\nextra | 额外提示信息，会显示在表单域之后或下方 | string | |\nrequired | 是否必选 | boolean | `false` \nrules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处可以是个对象或者对象数组（多条验证规则）。具体配置见 `item.rules` | object&#124;array | |\nregionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |\n\n**注意：** 不配置name属性\n> 当组件不配置name时，组件会作为一个纯展示类组件进行解析展示，不会再对其获取数据和设置数据，也无法操作。同时，其内部可以再次嵌套具有name属性的输入型组件。见下面例子：\n\n```javascript\n{\n    items: [{\n        type: 'div',\n        style: {background: 'green'},\n        content: {\n            type: 'input',\n            name: 'name',\n            label: '名称'\n        }\n    }]\n}\n```\n更高级的用法，比如可使用表格布局表单；再比如使用Row/Col组件自定义布局。\n\n\n#### *buttons*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\nlayout | 按钮的布局。可选值：`center`、`start`、`end` | string | center |\nitems | 按钮项。值为一个按钮配置数组，单个按钮配置见`buttons.item` | config[] | |\n\n##### *buttons.item*\n\n参数名称 | 说明 | 类型 | 默认值 | 是否必须\n----- | --- | ---------| --- | ---\naction | 可选值：`submit`、`reset`、`other`，其中 submit 和 reset 为特殊值，有内置的处理函数。submit会首先对数据进行校验，校验通过了才会触发回调函数；reset会先把表单重置，然后调用函数 | string | other | 必须\nvalue | 按钮上显示的内容 | string | | 必须\ntype | 按钮类型：`primary` `ghost` `default` | string | default |\nsize | 按钮大小：`large` `small` `default` | string | default |\nicon | 按钮图标，如 `delete`、`search` 等，详见`Icon`组件 | string | |\nonClick | 点击按钮时的回调函数，除`type=reset`，其他情况下函数都有一个参数，返回表单所有的数据。（注意，`type='submit'`时，onClick函数会覆盖`基本配置`里的onSubmit函数） | function(data) {} | |\n\n> 还有一些其他的配置，更多的配置见`Button`组件，此处调用的是Button组件，所以button组件的所有配置都可以在这里使用\n\n#### *item.rules*\n\n表单域中组件的校验规则\n\n参数  | 说明  | 类型 | 默认值 \n-----|------|------|------\nmessage | 校验文案 | string |\ntype | 内建校验类型，[可选项](https://github.com/yiminghe/async-validator#type) | string | 'string'\nrequired | 是否必选，如果在rules外设置了required，则以外面的required值为准 | boolean | `false` \nwhitespace | 必选时，空格是否会被视为错误 | boolean | `false`  \nlen | 字段长度 | number | \nmin | 最小长度 | number |\nmax | 最大长度 | number |\nenum | 枚举类型 | string |\npattern | 正则表达式校验 | RegExp |\ntransform | 校验前转换字段值 | function(value) => transformedValue:any |\nvalidator | 自定义校验（注意，[callback 必须被调用](https://github.com/ant-design/ant-design/issues/5155)） | function(rule, value, callback) |\n\n#### *item.regionConfig*\n表单域本身配置\n\n参数      | 说明                                     | 类型 | 默认值\n-----------|-----------------------------------------|-----|-------\nvaluePropName | 子节点的受控属性，如 `Switch` 的是 'checked' | string | 'value'\ntrigger | 收集子节点的值的时机 | string | 'onChange'\ngetValueFromEvent | 可以把 onChange 的参数转化为控件的值 | function(..args) | [reference](https://github.com/react-component/form#optiongetvaluefromevent)\nvalidateTrigger | 校验子节点值的时机 | string\\string[] | 'onBlur'\nvalidateFirst | 当某一规则校验不通过时，是否停止剩下的规则的校验\t | boolean | false\nexclusive | 是否和其他控件互斥，特别用于 Radio 单选控件 | boolean | false\nnormalize | 转换默认的 value 给控件. [一个选择全部的例子](https://codepen.io/afc163/pen/JJVXzG?editors=001) | function(value, prevValue, allValues): any | \n\n**注意：** 使用自定义组件时\n> * 提供受控属性 value 或其它与 valuePropName 的值同名的属性。\n> * 提供 onChange 事件或 trigger 的值同名的事件。\n> * 不能是函数式组件\n\n下面介绍一个常用使用场景：\n\n首先是一个下拉列表，用于选择ID，选中后展示的也是ID；另外放置一个用于纯展示的组件（span），用于展示名称（组件虽为纯展示组件，但是组件展示内容和其他表单域组件一样随着受控属性content变化，即当Form中的item.name对应的字段值变化时，展示的内容随着变化）。\n\n```javascript\nitems: [\n    {\n        type: 'select',\n        name: 'chassisId',\n        label: '位置ID',\n        optionLabelProp: 'value',\n        join: {\n            chassisName: {\n                content: ':label'\n            }\n        }\n    },\n    {\n        type: 'span',\n        name: 'chassisName',\n        label: '位置名称'\n    }\n]\n```\n\n\n### 函数调用\n> 组件自身带有的函数，调用方法如：`UF('my-form').getValues()`。\n\n函数名称 | 说明 | 参数 |  默认值\n---- | ---- | ----- | ----- \ngetValues | 获取全部表单的值，默认先校验再返回。该函数支持传入一个参数，如果想跳过校验，则传入参数`false` | getValues([boolean]) |\ngetDisplayValues | 获取全部表单项展示给用户的值。比如下拉选择框，展示给用户的值和最终提交的内容不同。效果可见demo的自定义按钮 | getDisplayValues() |\nresetValues | 重置全部表单的值。支持传入一个对象，把表单重置为对象里面对应的值 | resetValues([object]) |\nclearValues | 清除表单。有别于重置 | clearValues() |\nresetItem | 重新设置某个表单项的配置 | resetItem(targetName, conf) |\n\n\n## 更多用法\n\n[!图片](/path/to/img.jpg \"Title\")\n\n### 组件联动 - join 属性的用法\n\njoin实现同一个form间的各表单项联动。\n\njoin的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value（`联动内容`）为的目标表单项需要更新的内容，下面主要介绍联动内容value的用法。\n\n联动内容为目标组件要更新的新配置列表，各个属性取值：可以是固定值；也可以是一个函数；同时为了方便，也可以是两个特殊值，如下：\n\n* **固定值**：例如 true、false 等，用于当组件变化时固定联动另一个组件的某个属性为一个固定值\n* **函数**：函数处理结果为联动组件待更新值，函数的参数依次为：当前组件值，目标组件原值，其他（包括目标组件引用、当前组件引用、Form的引用等），可见下面demo\n* **特殊值**：\n    * `:value` - 可以把当前组件的value值赋值给联动的目标组件的属性；\n    * `:label` - 例如Select等组件(每个选项既有value，又有用于展示的label)，将label值赋值给目标组件的属性\n    * `:old` - 目标属性的原值，常用语表达式中\n    * `表达式` - 也可以是使用上面两个变量的表达式，例如：'1 - :value > 0'、':value || :old'\n\n> 目标组件的配置项也可以直接书写层级关系，例如：'source.params.type': 1，见【示例二】\n\n```javascript\nitems: [\n    // 【示例1：】\n    {\n        type: 'select',\n        label: '接入方式',\n        name: 'access_type',\n        default: '0',\n        join: {\n            // 当 select 变化时，会联动name为bandwith的表单项\n            bandwith: {\n                // 更新表单项的display属性（控制是否展示）\n                // 属性的值可以直接为固定值，但更多情况下，值是根据当前选择的值动态变化的\n                // 所以也可以是一个函数，函数的返回值为目标组件待更新的新值\n                display: function (val, oValue, others) {\n                    // others.form.getValues() 可取得当前form全部属性值\n                    // others.self.getDisplayValue() 可取得当前下拉框选中项的展示内容\n                    return !!Number(val) ? true : false;\n                }\n\n                // 可将选中选项的值赋值给目标输入框bandwith的填入内容\n                // value: ':value',\n                // 如果新值不存在，使用原值\n                // value: ':value || :old',\n                // 可将选中选项的供用户看的中文赋值给目标输入框bandwith的填入内容\n                // value: ':label',\n                // 也可以是表达式\n                // display: '!:value',\n                // display: '1 - :value > 0',\n            },\n\n            // 可以同时联动多个\n            // line_type: {display: v=>!!+v},\n            // port_type: {display: v=>!!+v},\n            // is_converge: {display: v=>!!+v}\n        },\n        options: [\n            {value: '0', label: 'VPN'},\n            {value: '1', label: '专线'}\n        ]\n    },\n    {\n        type: 'input',\n        label: '专线带宽',\n        name: 'bandwith',\n        rules: [{required: true, message: '专线带宽不能为空'}],\n        display: false,\n        placeholder: 10,\n        addonAfter: 'M'\n    },\n\n    // 【示例2：】\n    // 另一个级联选择的例子，选择区域后，根据选择的区域动态的查询该区域的机房列表\n    {\n        type: 'select',\n        label: '区域',\n        name: 'area',\n        options: [\n            {value: 1, label: '华北'},\n            {value: 2, label: '华南'}\n        ],\n        join: {\n            idc_id: {\n                // 选择区域后，更新idc_id组件的source参数，组件会自动重新拉取数据\n                // * 使用多层级属性；\n                // * 使用特殊值:value进行取值；\n                'source.params.area_id': ':value'\n            }\n        }\n    },\n    {\n        type: 'select',\n        label: '机房',\n        name: 'idc_id',\n        source: {\n            autoLoad: false,\n            url: 'docs/php/data.php',\n            handler: data=>data.map(v=>{\n                return {value: v.name, label: v.name};\n            })\n        }\n    }\n]\n```"
 
 /***/ }),
 /* 330 */
@@ -42303,7 +42504,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
 
 
-	var dataSource = [{ area: '北京', stock: 622, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 6232, futureSuply: '23123', totalSuply: '13243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }];
+	var dataSource = [{ area: '北京', stock: 622, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 6232, futureSuply: '23123', totalSuply: '13243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }, { area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333' }];
 
 	var demo1 = {
 	    title: '基本用法',
@@ -42312,7 +42513,11 @@
 	        type: 'table',
 	        name: 'newtable',
 	        rowKey: 'key',
-	        columns: [{ title: '区域', dataIndex: 'area' }, { title: '存量', dataIndex: 'stock' }, { title: '未来12月', dataIndex: 'futureSuply' }, { title: '总资源供给', dataIndex: 'totalSuply' }, { title: '总资源需求', dataIndex: 'totalRequied' }, { title: '区域冗余', dataIndex: 'areaStock' }],
+	        columns: [{ title: '区域', dataIndex: 'area' }, { title: '存量', dataIndex: 'stock' },
+	        // {title: '未来12月', dataIndex: 'futureSuply'},
+	        { title: '总资源供给', dataIndex: 'totalSuply' },
+	        // {title: '总资源需求', dataIndex: 'totalRequied'},
+	        { title: '区域冗余', dataIndex: 'areaStock' }],
 	        data: dataSource
 	    }
 	};
@@ -42348,6 +42553,305 @@
 /***/ (function(module, exports) {
 
 	module.exports = "自定义表格组件。\n\n## 组件&参数\n\n### # table\n\n参数 | 说明 | 类型 | 默认值 \n---- | ---- | ----- | -----\ndata    | 数据数组，见示例 | any[] |\ncolumns | 表格列的配置描述，具体项见下表 | object[] | -\nrowKey  | 表格行 key 的取值，每一行需唯一。可以是字符串或一个函数 | string &#124; row=>row.id | 'id'\n\n#### *column*\n\n列描述数据对象，是 `columns` 中的一项。\n\n| 参数       | 说明                       | 类型            |  默认值  |\n|-----------|----------------------------|-----------------|---------|\n| title      | 列头显示文字               | string &#124; `config` | - |\n| dataIndex  | 列数据在数据项中对应的 key | string | - |\n| render     | 生成复杂数据的渲染函数，参数分别为当前字段的值，当前行数据 | function(text, record) {} | - |\n"
+
+/***/ }),
+/* 487 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _BaseDoc2 = __webpack_require__(232);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _picker = __webpack_require__(488);
+
+	var _picker2 = _interopRequireDefault(_picker);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 选择框
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var Picker = function (_BaseDoc) {
+	    _inherits(Picker, _BaseDoc);
+
+	    function Picker(props) {
+	        _classCallCheck(this, Picker);
+
+	        var _this = _possibleConstructorReturn(this, (Picker.__proto__ || Object.getPrototypeOf(Picker)).call(this, props));
+
+	        _this.doc = _picker2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(Picker, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getMobileDemo();
+	        }
+	    }]);
+
+	    return Picker;
+	}(_BaseDoc3.default);
+
+	exports.default = Picker;
+
+/***/ }),
+/* 488 */
+/***/ (function(module, exports) {
+
+	module.exports = "\n在一组预设数据中进行选择，e.g. 省市区选择。\n\n### 规则\n- 多个选项一同选择\n\n## 组件&配置\n\n属性 | 说明 | 类型 | 默认值\n----|-----|------|------\noptions    | 数据列表  | `Array<{value, label, children: Array}>` |   - \nvalue   | 值, 格式是`[value1, value2, value3]`, 对应数据源的相应级层value    | Array  | -\n\n其他属性见`Select`组件"
+
+/***/ }),
+/* 489 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(108);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(232);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _updateLog = __webpack_require__(490);
+
+	var _updateLog2 = _interopRequireDefault(_updateLog);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 第三方组件列表
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var UpdateLogApp = function (_BaseDoc) {
+	    _inherits(UpdateLogApp, _BaseDoc);
+
+	    function UpdateLogApp(props) {
+	        _classCallCheck(this, UpdateLogApp);
+
+	        var _this = _possibleConstructorReturn(this, (UpdateLogApp.__proto__ || Object.getPrototypeOf(UpdateLogApp)).call(this, props));
+
+	        _this.doc = _updateLog2.default;
+	        _this.className = 'log';
+	        _this.__init();
+	        return _this;
+	    }
+
+	    return UpdateLogApp;
+	}(_BaseDoc3.default);
+
+	exports.default = UpdateLogApp;
+
+/***/ }),
+/* 490 */
+/***/ (function(module, exports) {
+
+	module.exports = "\n### 发布周期\n\n* 修订版本号：带有新特性的不向下兼容的版本\n* 次版本号：含有破坏性更新和新特性，不在发布周期内。\n* 主版本号：含有破坏性更新和新特性，不在发布周期内。\n\n* 🌟 新增\n* 🐞 修复\n* 🎨 调整\n* 📖 发布\n* 🙅 移除\n\n- - -\n\n### 0.4.0\n\n"
+
+/***/ }),
+/* 491 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * @file Markdown组件入口
+	 * **/
+
+	module.exports = __webpack_require__(492).default;
+
+/***/ }),
+/* 492 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _marked = __webpack_require__(114);
+
+	var _marked2 = _interopRequireDefault(_marked);
+
+	var _base = __webpack_require__(119);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 生成MarkDown样式
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
+
+
+	var Markdown = function (_BaseComponent) {
+	    _inherits(Markdown, _BaseComponent);
+
+	    function Markdown(props) {
+	        _classCallCheck(this, Markdown);
+
+	        var _this = _possibleConstructorReturn(this, (Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call(this, props));
+
+	        _this._filter.push('docs', 'highlight');
+	        _this.__init();
+	        _marked2.default.setOptions(_this.__props);
+	        return _this;
+	    }
+	    // componentDidMount() {
+	    //     // 代码高亮处理
+	    //     if (this.props.highlight) {
+	    //         this._factory.$requirejs(['highlight'], hl=>{
+	    //             if (hljs) {
+	    //                 marked.setOptions(Object.assign({}, this.__props, {
+	    //                     highlight: code => {
+	    //                         return hljs.highlightAuto(code).value;
+	    //                     }
+	    //                 }));
+	    //             }
+	    //         });
+	    //     }
+	    // }
+
+
+	    _createClass(Markdown, [{
+	        key: 'render',
+	        value: function render() {
+	            console.log(this.__filtered.docs);
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'uf-markdown' },
+	                _react2.default.createElement('div', { dangerouslySetInnerHTML: {
+	                        __html: (0, _marked2.default)(this.__filtered.docs || '')
+	                    } })
+	            );
+	        }
+	    }]);
+
+	    return Markdown;
+	}(_base.BaseComponent);
+
+	exports.default = Markdown;
+
+/***/ }),
+/* 493 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(107);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(108);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _BaseDoc2 = __webpack_require__(232);
+
+	var _BaseDoc3 = _interopRequireDefault(_BaseDoc2);
+
+	var _markdown = __webpack_require__(494);
+
+	var _markdown2 = _interopRequireDefault(_markdown);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Demo及文档说明
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * **/
+
+
+	var demo1 = {
+	    title: '基本用法',
+	    description: '当前文档的解析效果展示',
+	    config: {
+	        type: 'markdown',
+	        // tables: false,
+	        // highlight: true,
+	        docs: '' + _markdown2.default
+	    }
+	};
+
+	var MarkdownApp = function (_BaseDoc) {
+	    _inherits(MarkdownApp, _BaseDoc);
+
+	    function MarkdownApp(props) {
+	        _classCallCheck(this, MarkdownApp);
+
+	        var _this = _possibleConstructorReturn(this, (MarkdownApp.__proto__ || Object.getPrototypeOf(MarkdownApp)).call(this, props));
+
+	        _this.state = {};
+	        _this.doc = _markdown2.default;
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(MarkdownApp, [{
+	        key: 'render',
+	        value: function render() {
+	            return this.__getDemoSingle(demo1);
+	        }
+	    }]);
+
+	    return MarkdownApp;
+	}(_BaseDoc3.default);
+
+	exports.default = MarkdownApp;
+
+/***/ }),
+/* 494 */
+/***/ (function(module, exports) {
+
+	module.exports = "markdown 的增强版。\n\n## 组件&参数\n\n### # markdown\n\n参数 | 说明 | 类型 | 默认值 \n---- | ---- | ----- | -----\ndocs | markdown的文本内容 | String |\ngfm | 允许 Git Hub标准的[markdown](https://help.github.com/categories/writing-on-github/) | Boolean | true\ntables | 允许支持表格语法 | Boolean | true\nsmartLists | 使用比原生markdown更时髦的列表。 旧的列表将可能被作为pedantic的处理内容过滤掉. | Boolean | true\nsanitize | 对输出进行过滤（清理），将忽略任何已经输入的html代码（标签） | Boolean | true\npedantic | 尽可能地兼容 markdown.pl 的晦涩部分。不纠正原始模型任何的不良行为和错误。 | Boolean | \nsmartypants | 使用更为时髦的标点，比如在引用语法中加入破折号 | Boolean | \nbreaks | 允许回车换行。该选项要求`gfm`为true | Boolean | \nhighlight | 【功能暂不可用】对于代码块进行语法高亮 | Boolean | \nbaseUrl | 所有连接追加前缀 | String |\n\n更多属性可见：[marked.js](https://marked.js.org/#/USING_ADVANCED.md)"
 
 /***/ })
 /******/ ]);

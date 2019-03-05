@@ -53,6 +53,30 @@ const demo1 = {
             mode: 'danger',
             content: 'Danger',
             api: 'docs/php/submit.php'
+        },
+        {
+            type: 'div',
+            style: {marginTop: 10}
+        },
+        {
+            type: 'button',
+            mode: 'finish',
+            content: 'Finish'
+        },
+        {
+            type: 'button',
+            mode: 'waiting',
+            content: 'Waiting'
+        },
+        {
+            type: 'button',
+            mode: 'active',
+            content: 'Active'
+        },
+        {
+            type: 'button',
+            mode: 'failure',
+            content: 'Failure'
         }
     ]
 };

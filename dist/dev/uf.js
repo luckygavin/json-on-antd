@@ -151,7 +151,7 @@
 /* 11 */
 /***/ (function(module, exports) {
 
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.3","stableVersion":"0.4.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
 
 /***/ }),
 /* 12 */
@@ -635,6 +635,7 @@
 	// 其他自己实现/封装的组件
 	{
 	    Iframe: __webpack_require__(82),
+	    Fieldset: __webpack_require__(110),
 
 	    AutoComplete: __webpack_require__(84).AutoComplete,
 	    LocalComplete: __webpack_require__(84).LocalComplete,
@@ -646,11 +647,12 @@
 	    Modal: __webpack_require__(101).Modal,
 	    Dashboard: __webpack_require__(101).Dashboard,
 	    Drawer: __webpack_require__(101).Drawer,
+	    List: __webpack_require__(112),
+
 	    Ueditor: __webpack_require__(105).Ueditor,
 	    UeditorParse: __webpack_require__(105).UeditorParse,
 	    Echarts: __webpack_require__(108),
-	    Fieldset: __webpack_require__(110),
-	    List: __webpack_require__(112)
+	    Markdown: __webpack_require__(134)
 	});
 
 /***/ }),
@@ -2244,7 +2246,8 @@
 	                onSuccess = _filtered$api.onSuccess,
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
-	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
+	                singleUse = _filtered$api.singleUse,
+	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading', 'singleUse']);
 
 	            if (!others.url) {
 	                return;
@@ -2263,12 +2266,21 @@
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
 	                    }
+	                    // 当 singleUse === true 或者 singleUse === 'success'
+	                    // 将组件的api属性置为一次性，触发一次后会将当期组件置为 disabled 而不会二次触发，比如 button 按钮
+	                    if (singleUse) {
+	                        _this12.__setProps({ disabled: true });
+	                    }
 	                },
 	                error: function error(res) {
 	                    var result = onError && onError(res);
 	                    // onError有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.error(res.msg ? res.msg : '执行失败!', 3);
+	                    }
+	                    // 仅当 singleUse === true时
+	                    if (singleUse === true) {
+	                        _this12.__setProps({ disabled: true });
 	                    }
 	                    return result || false;
 	                },
@@ -2501,14 +2513,16 @@
 	        return retValue;
 	    },
 
-	    // 数据格式转换
+	    // 尝试进行数据格式转换
+	    // 如果无法处理，则不进行处理
 	    format: function format(value, type) {
 	        if (value === undefined) {
 	            return undefined;
 	        }
 	        switch (type) {
 	            case 'number':
-	                value = +value || 0;
+	                // 如果转换数字失败，则返回原值
+	                value = isNaN(+value) || value === '' ? value : +value;
 	                break;
 	            case 'string':
 	                value = '' + value;
@@ -2517,7 +2531,7 @@
 	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
-	                if (utils.typeof(value, 'undefined')) {
+	                if (utils.typeof(value, 'undefined') || value === '') {
 	                    value = [];
 	                }
 	                if (!utils.typeof(value, 'array')) {
@@ -2978,7 +2992,7 @@
 	        var forceUpdate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
 	        // 如果path不是已#/开头，且不是/开头，则加上#/
-	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 ? '#/' + path : path : path;
+	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 && path.indexOf('http') ? '#/' + path : path : path;
 	        var nowPath = window.location.hash;
 	        if (path !== nowPath && path !== '' || forceUpdate) {
 	            // 之所以不用hashHistory.push()是因为会自动执行两次push
@@ -3086,7 +3100,9 @@
 
 
 	    // 把数组、对象转换成select等需要的options标准格式
-	    toOptions: function toOptions(data) {
+	    // level 为向下遍历的层级，默认最多遍历5层
+	    toOptions: function toOptions(data, level) {
+	        level = level || 5;
 	        var result = [];
 	        if (utils.typeof(data, 'array')) {
 	            // ['value', 'value2']
@@ -3103,7 +3119,7 @@
 	                // {id: 1, name: 'a'}
 	            } else {
 	                result = data.map(function (v) {
-	                    return v.key !== undefined && v.value !== undefined ? v.children ? { label: v.value, value: v.key, children: utils.toOptions(v.children) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children ? { label: v.name, value: v.id, children: utils.toOptions(v.children) } : { label: v.name, value: v.id } : v;
+	                    return v.key !== undefined && v.value !== undefined ? v.children && level - 1 > 0 ? { label: v.value, value: v.key, children: utils.toOptions(v.children, level - 1) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children && level - 1 > 0 ? { label: v.name, value: v.id, children: utils.toOptions(v.children, level - 1) } : { label: v.name, value: v.id } : v;
 	                });
 	            }
 	        } else if (utils.typeof(data, 'object')) {
@@ -3142,6 +3158,58 @@
 	        }
 	    },
 
+	    // 从 options 中获取到 value 对应的 label 值
+	    transFromOptions: function transFromOptions(value, options) {
+	        var result = void 0;
+	        // 当value为数组时，依次翻译每一个（适用于级联框）
+	        if (utils.typeof(value, 'array')) {
+	            result = [];
+	            var list = options;
+	            var _iteratorNormalCompletion8 = true;
+	            var _didIteratorError8 = false;
+	            var _iteratorError8 = undefined;
+
+	            try {
+	                for (var _iterator8 = value[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+	                    var v = _step8.value;
+
+	                    var label = '';
+	                    if (list !== undefined) {
+	                        for (var i in list) {
+	                            if (list[i].value === v || list[i].value === v + '') {
+	                                label = list[i].label;
+	                                list = list[i]['children'];
+	                                break;
+	                            }
+	                        }
+	                    }
+	                    result.push(label);
+	                }
+	            } catch (err) {
+	                _didIteratorError8 = true;
+	                _iteratorError8 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+	                        _iterator8.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError8) {
+	                        throw _iteratorError8;
+	                    }
+	                }
+	            }
+	        } else {
+	            for (var _i in options) {
+	                if (options[_i].value === value || options[_i].value === value + '') {
+	                    result = options[_i].label;
+	                    break;
+	                }
+	            }
+	        }
+	        return result;
+	    },
+
 	    // 把数据格式化成json展示
 	    prettyJson: function prettyJson(data, origin) {
 	        if (origin) {
@@ -3160,52 +3228,15 @@
 	        var tData = value;
 	        // 如果 strc 为空，则返回 value 本身
 	        if (strc) {
-	            var _iteratorNormalCompletion8 = true;
-	            var _didIteratorError8 = false;
-	            var _iteratorError8 = undefined;
-
-	            try {
-	                for (var _iterator8 = strc.split('.').reverse()[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	                    var v = _step8.value;
-
-	                    tData = _defineProperty({}, v, tData);
-	                }
-	            } catch (err) {
-	                _didIteratorError8 = true;
-	                _iteratorError8 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
-	                        _iterator8.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError8) {
-	                        throw _iteratorError8;
-	                    }
-	                }
-	            }
-	        }
-	        return tData;
-	    },
-
-	    // 根据一个字符串，从一个深层的对象中取数据
-	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
-	    fromObject: function fromObject(strc, obj) {
-	        var target = obj;
-	        // 如果 strc 为空字符串，则返回 obj 本身
-	        if (strc) {
 	            var _iteratorNormalCompletion9 = true;
 	            var _didIteratorError9 = false;
 	            var _iteratorError9 = undefined;
 
 	            try {
-	                for (var _iterator9 = strc.split('.')[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+	                for (var _iterator9 = ('' + strc).split('.').reverse()[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
 	                    var v = _step9.value;
 
-	                    if (!target || !utils.typeof(target, 'object')) {
-	                        return undefined;
-	                    }
-	                    target = target[v];
+	                    tData = _defineProperty({}, v, tData);
 	                }
 	            } catch (err) {
 	                _didIteratorError9 = true;
@@ -3222,13 +3253,50 @@
 	                }
 	            }
 	        }
+	        return tData;
+	    },
+
+	    // 根据一个字符串，从一个深层的对象中取数据
+	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
+	    fromObject: function fromObject(strc, obj) {
+	        var target = obj;
+	        // 如果 strc 为空字符串，则返回 obj 本身
+	        if (strc) {
+	            var _iteratorNormalCompletion10 = true;
+	            var _didIteratorError10 = false;
+	            var _iteratorError10 = undefined;
+
+	            try {
+	                for (var _iterator10 = strc.split('.')[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+	                    var v = _step10.value;
+
+	                    if (!target || !utils.typeof(target, 'object')) {
+	                        return undefined;
+	                    }
+	                    target = target[v];
+	                }
+	            } catch (err) {
+	                _didIteratorError10 = true;
+	                _iteratorError10 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion10 && _iterator10.return) {
+	                        _iterator10.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError10) {
+	                        throw _iteratorError10;
+	                    }
+	                }
+	            }
+	        }
 	        return target;
 	    },
 
 	    // 根据一个字符串，把数据塞入一个深层的对象中
 	    toObject: function toObject(origin, strc, value) {
 	        var tData = utils.generateObject(strc, value);
-	        var level = strc.split('.').length;
+	        var level = ('' + strc).split('.').length;
 	        utils.merge(level, origin, tData);
 	    },
 
@@ -7850,7 +7918,7 @@
 	var errorMsg = {
 	    top: 24,
 	    message: '请求出错',
-	    description: '请求数据时出错，请稍后重试。',
+	    description: '获取数据时出现错误，请稍后重试。',
 	    duration: 3.5
 	};
 
@@ -7866,7 +7934,7 @@
 	                message = message.join('; ');
 	            }
 	        } else {
-	            message = JSON.stringify(error);
+	            message = error ? JSON.stringify(error) : '';
 	        }
 	    } catch (e) {
 	        _utils2.default.defer(console.error, 'Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
@@ -7874,12 +7942,38 @@
 	    return message;
 	}
 
+	function showErrorMsg(error) {
+	    _src2.default.Modal.create({
+	        title: [{ type: 'icon', mode: 'frown-o' }, ' 错误详情'],
+	        maskClosable: true,
+	        footer: null,
+	        content: JSON.stringify(error)
+	        // content: {
+	        //     type: 'markdown',
+	        //     docs: '```' + JSON.stringify(error) + '```'
+	        // }
+	    });
+	}
+
 	// 请求出错的提示信息函数
 	function errorMessage(error) {
 	    var message = getErrorMsg(error);
-	    _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
-	        description: message
-	    }));
+	    // 非200的错误信息处理
+	    if (error.status && error.status !== 200) {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, {
+	            description: ['服务器内部出错啦，', {
+	                type: 'a',
+	                content: '查看详情',
+	                onClick: function onClick() {
+	                    showErrorMsg(error);
+	                }
+	            }]
+	        }));
+	    } else {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
+	            description: message
+	        }));
+	    }
 	    return false;
 	}
 
@@ -9673,8 +9767,11 @@
 	    function OptionsDataEntry(props) {
 	        _classCallCheck(this, OptionsDataEntry);
 
+	        // level 指定options中children最多的层级为几层（更多层级会被过滤掉）
 	        var _this3 = _possibleConstructorReturn(this, (OptionsDataEntry.__proto__ || Object.getPrototypeOf(OptionsDataEntry)).call(this, props));
 
+	        _this3._filter.push('level');
+	        _this3.class.push('options-data-entry');
 	        _this3._openApi.push('getDisplayValue', 'getSelectedOption');
 	        return _this3;
 	    }
@@ -9685,11 +9782,24 @@
 	            _get(OptionsDataEntry.prototype.__proto__ || Object.getPrototypeOf(OptionsDataEntry.prototype), '_afterSetProps', this).call(this);
 	            // 把 options 格式化为统一固定格式
 	            if (nextProps.options) {
-	                this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	                this.__props.options = _utils.Utils.toOptions(this.__props.options, this.__filtered.level);
 	            }
 	            if (!this.__props.options) {
 	                this.__props.options = [];
 	            }
+	            // if (this.__props.notFoundContent !== null && this.__props.options.length === 0) {
+	            //     this.__props.options = [{
+	            //         disabled: true,
+	            //         label: this.__props.notFoundContent || 'Not Found',
+	            //         value: ''
+	            //     }]
+	            // }
+	        }
+	    }, {
+	        key: '_updateValue',
+	        value: function _updateValue(val) {
+	            this.__props[this.__controlled.key] = val;
+	            this.__props.onChange && this.__props.onChange(val);
 	        }
 	        // 处理多选情况
 
@@ -9702,13 +9812,13 @@
 	                var all = this.__props.options.map(function (v) {
 	                    return v.value;
 	                });
-	                this.__props.onChange && this.__props.onChange(all);
+	                this._updateValue(all);
 	                return;
 	            }
 	            // 默认选中第一个的处理逻辑
 	            if (this.__props.defaultFirst && _utils.Utils.empty(this.__props.value)) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange([first]);
+	                this._updateValue([first]);
 	            }
 	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
 	            var matchVal = this.__props.options.filter(function (v) {
@@ -9719,7 +9829,7 @@
 	            if (matchVal.length === current.length) {
 	                return;
 	            }
-	            this.__props.onChange && this.__props.onChange(matchVal);
+	            this._updateValue(matchVal);
 	        }
 	        // 处理默认选中
 
@@ -9743,11 +9853,11 @@
 	            // 否则把值设置为第一个或者清空
 	            if (this.__props.defaultFirst) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange(first);
+	                this._updateValue(first);
 	            } else if (allClear && this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
 	                // 为实现刷新组件时，清空原数据
 	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+	                this._updateValue(this.__controlled.defaultVal);
 	            }
 	        }
 
@@ -9757,15 +9867,10 @@
 	        key: 'getDisplayValue',
 	        value: function getDisplayValue() {
 	            var value = this.getValue();
-	            var result = value;
 	            var options = this.__props.options || [];
-	            for (var i in options) {
-	                if (options[i].value === value || options[i].value === value + '') {
-	                    result = options[i].label;
-	                    break;
-	                }
-	            }
-	            return result;
+	            var label = _utils.Utils.transFromOptions(value, options);
+	            // 如果能查到label，则返回label，否则返回value
+	            return label !== undefined ? label : value;
 	        }
 	        // 获取选中的option，针对select等类型的具备可选值的组件
 
@@ -10135,6 +10240,7 @@
 
 	        var _this3 = _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).call(this, props));
 
+	        _this3._filter.push('size');
 	        _this3.__init();
 	        return _this3;
 	    }
@@ -10142,7 +10248,11 @@
 	    _createClass(Card, [{
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement(Antd.Card, this.__props);
+	            var className = 'uf-card';
+	            if (this.__filtered.size === 'small') {
+	                className += ' uf-card-small';
+	            }
+	            return _react2.default.createElement(Antd.Card, _extends({}, this.__props, this.__getCommonProps({ className: className })));
 	        }
 	    }]);
 
@@ -10780,11 +10890,34 @@
 	                className += ' uf-btn-mini';
 	                size = 'small';
 	            }
+	            // 增加几个额外的 type
+	            var type = this.__props.type;
+	            if (type) {
+	                switch (type) {
+	                    case 'finish':
+	                        type = 'primary';
+	                        className += ' uf-btn-finish';
+	                        break;
+	                    case 'waiting':
+	                        type = 'primary';
+	                        className += ' uf-btn-waiting';
+	                        break;
+	                    case 'active':
+	                        type = 'primary';
+	                        className += ' uf-btn-active';
+	                        break;
+	                    case 'failure':
+	                        type = 'primary';
+	                        className += ' uf-btn-failure';
+	                        break;
+	                }
+	            }
 	            if (this.__filtered.active && !this.__filtered.activedChildren) {
 	                className += ' active';
 	            }
 	            return _react2.default.createElement(Antd.Button, _extends({}, this.__props, this.handlerOtherProps(), this.__getCommonProps({ className: className }), {
-	                size: size
+	                size: size,
+	                type: type
 	            }));
 	        }
 	    }]);
@@ -14340,7 +14473,7 @@
 	                return _react2.default.createElement(
 	                    TreeNode,
 	                    {
-	                        key: item.key,
+	                        key: item.key || item.value || item.id,
 	                        title: title,
 	                        value: item.value || item.key,
 	                        data: item,
@@ -15828,9 +15961,10 @@
 	                            // 处理复用相关参数
 	                            item.title = item.title || '高级查询：';
 	                            item.okText = item.okText || '查询';
+	                            var hasSelfForm = !!item.form;
 	                            item = _this2.handleReuse(item, tempConf['add']);
 	                            // 移除必填限制以及校验规则
-	                            if (item.form) {
+	                            if (!hasSelfForm && item.form) {
 	                                item.form.items.forEach(function (v) {
 	                                    delete v.disabled;
 	                                    delete v.rules;
@@ -18257,6 +18391,18 @@
 	                    row[item.dataIndex + '.fyi'] = display;
 	                    return orender ? orender.apply(undefined, [display, row].concat(params)) : display;
 	                };
+	                item.exportRender = function (v, row) {
+	                    var display = _this2.data[item.dataIndex][v];
+	                    // 无法翻译是是否允许为空，默认无法翻译是展示空
+	                    if (display === undefined) {
+	                        if (_utils.Utils.typeof(item.enum, 'object') && item.enum.allowEmpty === false) {
+	                            display = v;
+	                        } else {
+	                            display = '';
+	                        }
+	                    }
+	                    return display;
+	                };
 	            }
 	            return item;
 	        }
@@ -18891,8 +19037,8 @@
 	                        values[i] = values[i].format(this.itemsCache[i].format);
 	                    }
 	                    // 用 format 把数据格式化成 rules.type 要求的格式
-	                } else if (item.rules && item.rules.type) {
-	                    values[i] = _utils.Utils.format(values[i], item.rules.type);
+	                } else if (item.valueType) {
+	                    values[i] = _utils.Utils.format(values[i], item.valueType);
 	                }
 	                if (item && item.type !== 'button') {
 	                    result[i] = values[i];
@@ -19204,7 +19350,6 @@
 	                }
 	            }
 	            okey = okey !== null ? '-' + okey : '';
-	            var name = oitem.name;
 	            var key = oitem.name + okey;
 	            // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
 	            if (this.itemsCache[key]) {
@@ -19227,14 +19372,12 @@
 	            } else {
 	                itemLayout = this.__props.layout.type === 'horizontal' ? this.formItemLayout : null;
 	            }
-	            var item = Object.assign({ rules: {} }, oitem);
-	            if (_utils.Utils.typeof(item.rules, 'array')) {
-	                item.rules = item.rules[0] || {};
-	            }
+	            var item = Object.assign({}, oitem);
+	            var itemRules = {};
 	            delete item.layout;
 	            // 如果rules外单独设置了required属性，则以此值为准
 	            if (item.required !== undefined) {
-	                item.rules['required'] = item.required;
+	                itemRules['required'] = item.required;
 	            }
 	            // form中不允许表单域使用value，所以如果有value值，把值转换到default上
 	            item.default = item.value || item.default;
@@ -19242,7 +19385,7 @@
 	                this.oriDefaultValues[item.name] = item.default;
 	            }
 	            // 过滤掉一些字段后，剩余的就是组件本身需要的参数
-	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig']);
+	            var itemProps = _utils.Utils.filter(item, ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig', 'valueType']);
 	            // 额外配置的禁止更改的字段，设置disabled
 	            if ((this.__props.forbidden || []).indexOf(itemProps.name) > -1) {
 	                itemProps.disabled = true;
@@ -19268,7 +19411,7 @@
 	                        itemLayout = { labelCol: { span: 0 }, wrapperCol: { span: 24 } };
 	                    } else if (item.type === 'forms') {
 	                        // forms组件的formData为一个数组
-	                        item.rules['type'] = item.rules['type'] || 'array';
+	                        itemRules['type'] = 'array';
 	                        item.default = item.default || item.formData || [{}];
 	                    }
 	                    // 三种组件的通用个逻辑
@@ -19281,7 +19424,7 @@
 	                    };
 	                    item.default = item.default || item.formData || {};
 	                    delete itemProps.formData;
-	                    item.rules['type'] = item.rules['type'] || 'object';
+	                    itemRules['type'] = itemRules['type'] || 'object';
 	                    break;
 	                case 'input':
 	                    // 输入框增加回车事件监听
@@ -19289,33 +19432,33 @@
 	                        itemProps.onPressEnter = this.handleSubmit.bind(this);
 	                    }
 	                    // 收集值的时机改为onBlur
-	                    otherOptions.trigger = 'onBlur';
-	                    otherOptions.validateTrigger = 'onBlur';
+	                    // otherOptions.trigger = 'onBlur';
+	                    // otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'input-number':
 	                    // 数字输入框
-	                    item.rules['type'] = item.rules['type'] || 'number';
+	                    itemRules['type'] = 'number';
 	                    // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
-	                    otherOptions.trigger = 'onBlur';
+	                    // otherOptions.trigger = 'onBlur';
 	                    // 可减少一些输入过程中的报错信息
-	                    otherOptions.validateTrigger = 'onBlur';
+	                    // otherOptions.validateTrigger = 'onBlur';
 	                    break;
 	                case 'select':
 	                case 'radio':
 	                    if (item.type === 'select') {
 	                        if (item.mode && item.mode !== 'combobox') {
-	                            item.rules['type'] = item.rules['type'] || 'array';
+	                            itemRules['type'] = 'array';
 	                        }
 	                        // 当有required时，再加message，否则会产生默认type为string
-	                        if (item.rules['required']) {
-	                            item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                        if (itemRules['required']) {
+	                            itemRules['requiredMsg'] = '\u8BF7\u9009\u62E9' + (item.label || '');
 	                        }
 	                        // 默认选中第一个
 	                        if (!item.default && item.defaultFirst) {
 	                            item.default = _utils.Utils.getFirstOption(item.options);
 	                        }
 	                        // 限制使用clear按钮
-	                        if (item.rules['required']) {
+	                        if (itemRules['required']) {
 	                            itemProps.allowClear = false;
 	                        }
 	                    }
@@ -19327,25 +19470,10 @@
 	                                return value;
 	                            }
 	                            // 如果没有设置类型，则根据default定义类型做转换
-	                            var type = item.rules.type || (item.default !== undefined ? _utils.Utils.getType(item.default) : null);
+	                            var type = itemRules.type || (item.default !== undefined ? _utils.Utils.getType(item.default) : null);
 	                            return type ? _utils.Utils.format(value, type) : value;
 	                        }
 	                    };
-	                    // update at 2018/10/10 需避免无故增加的验证
-	                    // 两种组件的通用逻辑
-	                    // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
-	                    // otherOptions = {
-	                    //     getValueFromEvent(e, value) {
-	                    //         return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
-	                    //     }
-	                    // };
-	                    // 如果没有设置类型，则根据default定义类型
-	                    // if (!item.rules['type'] && item.default !== null) {
-	                    //     let type = Utils.getType(item.default);
-	                    //     if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
-	                    //         item.rules['type'] = type;
-	                    //     }
-	                    // }
 	                    break;
 	                case 'checkbox':
 	                case 'switch':
@@ -19353,11 +19481,11 @@
 	                    otherOptions = {
 	                        valuePropName: 'checked'
 	                    };
-	                    item.rules['type'] = item.rules['type'] || 'boolean';
+	                    itemRules['type'] = 'boolean';
 	                    break;
 	                case 'checkbox-group':
 	                    // 复选框组
-	                    item.rules['type'] = item.rules['type'] || 'array';
+	                    itemRules['type'] = 'array';
 	                    break;
 	                case 'ueditor':
 	                    // ueditor 输入框
@@ -19370,10 +19498,10 @@
 	                    itemProps = Object.assign({
 	                        showSearch: true
 	                    }, itemProps);
-	                    item.rules['type'] = item.rules['type'] || 'array';
-	                    item.rules['message'] = item.rules['message'] || '\u8BF7\u9009\u62E9' + (item.label || '');
+	                    itemRules['type'] = 'array';
+	                    itemRules['typeMsg'] = '\u8BF7\u9009\u62E9' + (item.label || '');
 	                    // 限制使用clear按钮
-	                    if (item.rules['required']) {
+	                    if (itemRules['required']) {
 	                        itemProps.allowClear = false;
 	                    }
 	                    break;
@@ -19395,7 +19523,7 @@
 	                    }
 	                case 'range-picker':
 	                    // range-picker 组件的value为一个数组
-	                    item.rules['type'] = item.rules['type'] || 'array';
+	                    itemRules['type'] = 'array';
 	                    // current转换为当前时间
 	                    if (!_utils.Utils.empty(item.default) && _utils.Utils.typeof(item.default, 'array')) {
 	                        item.default = item.default.map(function (val) {
@@ -19422,7 +19550,7 @@
 	                        item.default = _utils.Utils.moment({}).format(item.format || 'YYYY-MM-DD HH:mm:ss');
 	                    }
 	                    // 限制使用clear按钮
-	                    if (item.rules['required']) {
+	                    if (itemRules['required']) {
 	                        itemProps.allowClear = false;
 	                    }
 	                    break;
@@ -19440,21 +19568,53 @@
 	                    break;
 	            }
 	            // 通用的默认错误提示信息
-	            if (item.rules['required']) {
-	                item.rules['message'] = item.rules['message'] || (item.label || '') + '\u4E0D\u80FD\u4E3A\u7A7A';
+	            if (itemRules['required']) {
+	                itemRules['requiredMsg'] = itemRules['requiredMsg'] || (item.label || '') + '\u4E0D\u80FD\u4E3A\u7A7A';
 	            }
+	            if (itemRules['type']) {
+	                itemRules['typeMsg'] = itemRules['typeMsg'] || (item.label || '') + '\u6570\u636E\u683C\u5F0F\u6709\u8BEF';
+	                if (itemRules['type'] === 'array') {
+	                    itemRules['typeMsg'] += '，应为一个数组';
+	                }
+	                if (itemRules['type'] === 'number') {
+	                    itemRules['typeMsg'] += '，应为一个数字';
+	                }
+	            }
+	            // 处理rules
+	            var rules = item.rules;
+	            if (_utils.Utils.typeof(rules, 'object')) {
+	                rules = [rules];
+	            }
+	            var valueType = null;
+	            rules = (rules || []).map(function (rule) {
+	                if (rule.type) {
+	                    valueType = rule.type;
+	                }
+	                return rule;
+	            });
+	            // required放在验证最前面
+	            if (itemRules['required']) {
+	                rules.unshift({ required: true, message: itemRules['requiredMsg'] });
+	            }
+	            // 只有当用户未指定type时，默认type验证才有效
+	            if (!valueType && itemRules['type']) {
+	                valueType = itemRules['type'];
+	                rules.push({ type: itemRules['type'], message: itemRules['typeMsg'] });
+	            }
+	            // 对数据格式进行存储
+	            valueType && (item.valueType = valueType);
+
 	            // 进行类型进行强制转换
 	            // 只有 trigger 为 onChange/onBlur 有效
-	            var type = item.rules['type'];
 	            var trigger = item.regionConfig && item.regionConfig.trigger || otherOptions.trigger;
-	            if (['number', 'string', 'boolean'].indexOf(type) > -1 && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
+	            if (['number', 'string', 'boolean'].indexOf(valueType) > -1 && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
 	                otherOptions.getValueFromEvent = function (e, value) {
-	                    return _utils.Utils.format(value, type);
+	                    return _utils.Utils.format(value, valueType);
 	                };
 	            }
 	            // 保存默认值，以form渲染完成后执行initValues
 	            if (item.default !== undefined) {
-	                item.default = _utils.Utils.format(item.default, type);
+	                item.default = _utils.Utils.format(item.default, valueType);
 	                // this.oriDefaultValues[item.name] = item.default;
 	                if (this.defaultValues[item.name] === undefined) {
 	                    this.defaultValues[item.name] = item.default;
@@ -19480,7 +19640,7 @@
 	                _extends({}, fieldProps, itemLayout),
 	                getFieldDecorator(key, Object.assign({
 	                    initialValue: item.default,
-	                    rules: !_utils.Utils.empty(item.rules) ? [item.rules] : undefined
+	                    rules: rules
 	                    // 更改收集数据/验证触发事件为失去焦点时
 	                    // onBlur在radio，datepicker中不好用
 	                    // trigger: 'onBlur',
@@ -20790,21 +20950,25 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this2 = this;
+
 	            // 获取排序后的结果
 	            var children = this.getChildrenRank();
-	            var body = _react2.default.createElement(
-	                'div',
-	                this.__getCommonProps(),
-	                children[0],
-	                children[1],
-	                children[2],
-	                _react2.default.createElement(
+	            var getBody = function getBody(handleStyle) {
+	                return _react2.default.createElement(
 	                    'div',
-	                    { style: { overflow: 'hidden' } },
-	                    this.__props.footerContent
-	                )
-	            );
-	            return !this.__props.visible ? null : !this.__props.title && !this.__props.closable ? body : _react2.default.createElement(
+	                    handleStyle ? _this2.__getCommonProps() : {},
+	                    children[0],
+	                    children[1],
+	                    children[2],
+	                    _react2.default.createElement(
+	                        'div',
+	                        { style: { overflow: 'hidden' } },
+	                        _this2.__props.footerContent
+	                    )
+	                );
+	            };
+	            return !this.__props.visible ? null : !this.__props.title && !this.__props.closable ? getBody(true) : _react2.default.createElement(
 	                _antd.Collapse,
 	                _extends({ activeKey: 'active', bordered: !!this.__props.bordered
 	                }, this.__getCommonProps({ className: 'uf-dashboard' })),
@@ -20821,7 +20985,7 @@
 	                                '\u5173\u95ED'
 	                            )
 	                        ) },
-	                    body
+	                    getBody(false)
 	                )
 	            );
 	        }
@@ -21252,7 +21416,7 @@
 	                this.__setProps(this.chart.getOption());
 	            } else {
 	                // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
-	                this.chartOptionsQueue.push(nextProps);
+	                this.chartOptionsQueue.push(this.__filterProps(nextProps));
 	                this.startTry();
 	            }
 	        }
@@ -21356,27 +21520,17 @@
 	    }, {
 	        key: '_agencyFunction',
 	        value: function _agencyFunction(origin) {
-	            var _this4 = this;
-
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var i = _step.value;
 
-	                    if (_utils.Utils.typeof(origin[i], 'function')) {
-	                        _this4._inject(_this4, i, function () {
-	                            var _chart;
-
-	                            return (_chart = _this4.chart)[i].apply(_chart, arguments);
-	                        });
+	                    if (_utils.Utils.typeof(origin[i], 'function') && !this[i]) {
+	                        this[i] = this.chart[i];
 	                    }
-	                };
-
-	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -21403,7 +21557,9 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement('div', { id: this.chartId, className: this.props.className, style: this.props.style });
+	            var className = 'uf-echarts';
+	            className += this.props.className ? ' ' + this.props.className : '';
+	            return _react2.default.createElement('div', { id: this.chartId, className: className, style: this.props.style });
 	        }
 	    }]);
 
@@ -21861,6 +22017,11 @@
 	            }
 	        }
 	    },
+	    'options-data-entry': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
 
 	    /*************************************************************************************/
 	    /*********************** 其他PC、移动端共用组件  ****************************************/
@@ -22033,7 +22194,7 @@
 	        source: {
 	            // 自动加载数据
 	            autoLoad: true,
-	            autoReload: true
+	            autoReload: 'set'
 	        },
 	        data: []
 	    },
@@ -22058,6 +22219,7 @@
 	        }
 	    },
 	    'dashboard': {
+	        visible: true,
 	        closable: false
 	    },
 	    'drawer': {
@@ -22088,6 +22250,15 @@
 	            valueCol: 18,
 	            valueStyle: {}
 	        }
+	    },
+	    'markdown': {
+	        gfm: true,
+	        tables: true,
+	        sanitize: true,
+	        smartLists: true,
+	        breaks: false,
+	        pedantic: false,
+	        smartypants: false
 	    }
 	};
 
@@ -25608,6 +25779,1394 @@
 
 	// 用于生成已绑定实例的组件
 	notification.init = factory(notification);
+
+/***/ }),
+/* 132 */,
+/* 133 */,
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * @file Markdown组件入口
+	 * **/
+
+	module.exports = __webpack_require__(135).default;
+
+/***/ }),
+/* 135 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(13);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _marked = __webpack_require__(136);
+
+	var _marked2 = _interopRequireDefault(_marked);
+
+	var _base = __webpack_require__(18);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file 生成MarkDown样式
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * */
+
+
+	var Markdown = function (_BaseComponent) {
+	    _inherits(Markdown, _BaseComponent);
+
+	    function Markdown(props) {
+	        _classCallCheck(this, Markdown);
+
+	        var _this = _possibleConstructorReturn(this, (Markdown.__proto__ || Object.getPrototypeOf(Markdown)).call(this, props));
+
+	        _this._filter.push('docs', 'highlight');
+	        _this.__init();
+	        _marked2.default.setOptions(_this.__props);
+	        return _this;
+	    }
+	    // componentDidMount() {
+	    //     // 代码高亮处理
+	    //     if (this.props.highlight) {
+	    //         this._factory.$requirejs(['highlight'], hl=>{
+	    //             if (hljs) {
+	    //                 marked.setOptions(Object.assign({}, this.__props, {
+	    //                     highlight: code => {
+	    //                         return hljs.highlightAuto(code).value;
+	    //                     }
+	    //                 }));
+	    //             }
+	    //         });
+	    //     }
+	    // }
+
+
+	    _createClass(Markdown, [{
+	        key: 'render',
+	        value: function render() {
+	            console.log(this.__filtered.docs);
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'uf-markdown' },
+	                _react2.default.createElement('div', { dangerouslySetInnerHTML: {
+	                        __html: (0, _marked2.default)(this.__filtered.docs || '')
+	                    } })
+	            );
+	        }
+	    }]);
+
+	    return Markdown;
+	}(_base.BaseComponent);
+
+	exports.default = Markdown;
+
+/***/ }),
+/* 136 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/**
+	 * marked - a markdown parser
+	 * Copyright (c) 2011-2014, Christopher Jeffrey. (MIT Licensed)
+	 * https://github.com/chjj/marked
+	 */
+
+	;(function() {
+
+	/**
+	 * Block-Level Grammar
+	 */
+
+	var block = {
+	  newline: /^\n+/,
+	  code: /^( {4}[^\n]+\n*)+/,
+	  fences: noop,
+	  hr: /^( *[-*_]){3,} *(?:\n+|$)/,
+	  heading: /^ *(#{1,6}) *([^\n]+?) *#* *(?:\n+|$)/,
+	  nptable: noop,
+	  lheading: /^([^\n]+)\n *(=|-){2,} *(?:\n+|$)/,
+	  blockquote: /^( *>[^\n]+(\n(?!def)[^\n]+)*\n*)+/,
+	  list: /^( *)(bull) [\s\S]+?(?:hr|def|\n{2,}(?! )(?!\1bull )\n*|\s*$)/,
+	  html: /^ *(?:comment *(?:\n|\s*$)|closed *(?:\n{2,}|\s*$)|closing *(?:\n{2,}|\s*$))/,
+	  def: /^ *\[([^\]]+)\]: *<?([^\s>]+)>?(?: +["(]([^\n]+)[")])? *(?:\n+|$)/,
+	  table: noop,
+	  paragraph: /^((?:[^\n]+\n?(?!hr|heading|lheading|blockquote|tag|def))+)\n*/,
+	  text: /^[^\n]+/
+	};
+
+	block.bullet = /(?:[*+-]|\d+\.)/;
+	block.item = /^( *)(bull) [^\n]*(?:\n(?!\1bull )[^\n]*)*/;
+	block.item = replace(block.item, 'gm')
+	  (/bull/g, block.bullet)
+	  ();
+
+	block.list = replace(block.list)
+	  (/bull/g, block.bullet)
+	  ('hr', '\\n+(?=\\1?(?:[-*_] *){3,}(?:\\n+|$))')
+	  ('def', '\\n+(?=' + block.def.source + ')')
+	  ();
+
+	block.blockquote = replace(block.blockquote)
+	  ('def', block.def)
+	  ();
+
+	block._tag = '(?!(?:'
+	  + 'a|em|strong|small|s|cite|q|dfn|abbr|data|time|code'
+	  + '|var|samp|kbd|sub|sup|i|b|u|mark|ruby|rt|rp|bdi|bdo'
+	  + '|span|br|wbr|ins|del|img)\\b)\\w+(?!:/|[^\\w\\s@]*@)\\b';
+
+	block.html = replace(block.html)
+	  ('comment', /<!--[\s\S]*?-->/)
+	  ('closed', /<(tag)[\s\S]+?<\/\1>/)
+	  ('closing', /<tag(?:"[^"]*"|'[^']*'|[^'">])*?>/)
+	  (/tag/g, block._tag)
+	  ();
+
+	block.paragraph = replace(block.paragraph)
+	  ('hr', block.hr)
+	  ('heading', block.heading)
+	  ('lheading', block.lheading)
+	  ('blockquote', block.blockquote)
+	  ('tag', '<' + block._tag)
+	  ('def', block.def)
+	  ();
+
+	/**
+	 * Normal Block Grammar
+	 */
+
+	block.normal = merge({}, block);
+
+	/**
+	 * GFM Block Grammar
+	 */
+
+	block.gfm = merge({}, block.normal, {
+	  fences: /^ *(`{3,}|~{3,})[ \.]*(\S+)? *\n([\s\S]*?)\s*\1 *(?:\n+|$)/,
+	  paragraph: /^/,
+	  heading: /^ *(#{1,6}) +([^\n]+?) *#* *(?:\n+|$)/
+	});
+
+	block.gfm.paragraph = replace(block.paragraph)
+	  ('(?!', '(?!'
+	    + block.gfm.fences.source.replace('\\1', '\\2') + '|'
+	    + block.list.source.replace('\\1', '\\3') + '|')
+	  ();
+
+	/**
+	 * GFM + Tables Block Grammar
+	 */
+
+	block.tables = merge({}, block.gfm, {
+	  nptable: /^ *(\S.*\|.*)\n *([-:]+ *\|[-| :]*)\n((?:.*\|.*(?:\n|$))*)\n*/,
+	  table: /^ *\|(.+)\n *\|( *[-:]+[-| :]*)\n((?: *\|.*(?:\n|$))*)\n*/
+	});
+
+	/**
+	 * Block Lexer
+	 */
+
+	function Lexer(options) {
+	  this.tokens = [];
+	  this.tokens.links = {};
+	  this.options = options || marked.defaults;
+	  this.rules = block.normal;
+
+	  if (this.options.gfm) {
+	    if (this.options.tables) {
+	      this.rules = block.tables;
+	    } else {
+	      this.rules = block.gfm;
+	    }
+	  }
+	}
+
+	/**
+	 * Expose Block Rules
+	 */
+
+	Lexer.rules = block;
+
+	/**
+	 * Static Lex Method
+	 */
+
+	Lexer.lex = function(src, options) {
+	  var lexer = new Lexer(options);
+	  return lexer.lex(src);
+	};
+
+	/**
+	 * Preprocessing
+	 */
+
+	Lexer.prototype.lex = function(src) {
+	  src = src
+	    .replace(/\r\n|\r/g, '\n')
+	    .replace(/\t/g, '    ')
+	    .replace(/\u00a0/g, ' ')
+	    .replace(/\u2424/g, '\n');
+
+	  return this.token(src, true);
+	};
+
+	/**
+	 * Lexing
+	 */
+
+	Lexer.prototype.token = function(src, top, bq) {
+	  var src = src.replace(/^ +$/gm, '')
+	    , next
+	    , loose
+	    , cap
+	    , bull
+	    , b
+	    , item
+	    , space
+	    , i
+	    , l;
+
+	  while (src) {
+	    // newline
+	    if (cap = this.rules.newline.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      if (cap[0].length > 1) {
+	        this.tokens.push({
+	          type: 'space'
+	        });
+	      }
+	    }
+
+	    // code
+	    if (cap = this.rules.code.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      cap = cap[0].replace(/^ {4}/gm, '');
+	      this.tokens.push({
+	        type: 'code',
+	        text: !this.options.pedantic
+	          ? cap.replace(/\n+$/, '')
+	          : cap
+	      });
+	      continue;
+	    }
+
+	    // fences (gfm)
+	    if (cap = this.rules.fences.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'code',
+	        lang: cap[2],
+	        text: cap[3] || ''
+	      });
+	      continue;
+	    }
+
+	    // heading
+	    if (cap = this.rules.heading.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'heading',
+	        depth: cap[1].length,
+	        text: cap[2]
+	      });
+	      continue;
+	    }
+
+	    // table no leading pipe (gfm)
+	    if (top && (cap = this.rules.nptable.exec(src))) {
+	      src = src.substring(cap[0].length);
+
+	      item = {
+	        type: 'table',
+	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+	        cells: cap[3].replace(/\n$/, '').split('\n')
+	      };
+
+	      for (i = 0; i < item.align.length; i++) {
+	        if (/^ *-+: *$/.test(item.align[i])) {
+	          item.align[i] = 'right';
+	        } else if (/^ *:-+: *$/.test(item.align[i])) {
+	          item.align[i] = 'center';
+	        } else if (/^ *:-+ *$/.test(item.align[i])) {
+	          item.align[i] = 'left';
+	        } else {
+	          item.align[i] = null;
+	        }
+	      }
+
+	      for (i = 0; i < item.cells.length; i++) {
+	        item.cells[i] = item.cells[i].split(/ *\| */);
+	      }
+
+	      this.tokens.push(item);
+
+	      continue;
+	    }
+
+	    // lheading
+	    if (cap = this.rules.lheading.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'heading',
+	        depth: cap[2] === '=' ? 1 : 2,
+	        text: cap[1]
+	      });
+	      continue;
+	    }
+
+	    // hr
+	    if (cap = this.rules.hr.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'hr'
+	      });
+	      continue;
+	    }
+
+	    // blockquote
+	    if (cap = this.rules.blockquote.exec(src)) {
+	      src = src.substring(cap[0].length);
+
+	      this.tokens.push({
+	        type: 'blockquote_start'
+	      });
+
+	      cap = cap[0].replace(/^ *> ?/gm, '');
+
+	      // Pass `top` to keep the current
+	      // "toplevel" state. This is exactly
+	      // how markdown.pl works.
+	      this.token(cap, top, true);
+
+	      this.tokens.push({
+	        type: 'blockquote_end'
+	      });
+
+	      continue;
+	    }
+
+	    // list
+	    if (cap = this.rules.list.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      bull = cap[2];
+
+	      this.tokens.push({
+	        type: 'list_start',
+	        ordered: bull.length > 1
+	      });
+
+	      // Get each top-level item.
+	      cap = cap[0].match(this.rules.item);
+
+	      next = false;
+	      l = cap.length;
+	      i = 0;
+
+	      for (; i < l; i++) {
+	        item = cap[i];
+
+	        // Remove the list item's bullet
+	        // so it is seen as the next token.
+	        space = item.length;
+	        item = item.replace(/^ *([*+-]|\d+\.) +/, '');
+
+	        // Outdent whatever the
+	        // list item contains. Hacky.
+	        if (~item.indexOf('\n ')) {
+	          space -= item.length;
+	          item = !this.options.pedantic
+	            ? item.replace(new RegExp('^ {1,' + space + '}', 'gm'), '')
+	            : item.replace(/^ {1,4}/gm, '');
+	        }
+
+	        // Determine whether the next list item belongs here.
+	        // Backpedal if it does not belong in this list.
+	        if (this.options.smartLists && i !== l - 1) {
+	          b = block.bullet.exec(cap[i + 1])[0];
+	          if (bull !== b && !(bull.length > 1 && b.length > 1)) {
+	            src = cap.slice(i + 1).join('\n') + src;
+	            i = l - 1;
+	          }
+	        }
+
+	        // Determine whether item is loose or not.
+	        // Use: /(^|\n)(?! )[^\n]+\n\n(?!\s*$)/
+	        // for discount behavior.
+	        loose = next || /\n\n(?!\s*$)/.test(item);
+	        if (i !== l - 1) {
+	          next = item.charAt(item.length - 1) === '\n';
+	          if (!loose) loose = next;
+	        }
+
+	        this.tokens.push({
+	          type: loose
+	            ? 'loose_item_start'
+	            : 'list_item_start'
+	        });
+
+	        // Recurse.
+	        this.token(item, false, bq);
+
+	        this.tokens.push({
+	          type: 'list_item_end'
+	        });
+	      }
+
+	      this.tokens.push({
+	        type: 'list_end'
+	      });
+
+	      continue;
+	    }
+
+	    // html
+	    if (cap = this.rules.html.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: this.options.sanitize
+	          ? 'paragraph'
+	          : 'html',
+	        pre: !this.options.sanitizer
+	          && (cap[1] === 'pre' || cap[1] === 'script' || cap[1] === 'style'),
+	        text: cap[0]
+	      });
+	      continue;
+	    }
+
+	    // def
+	    if ((!bq && top) && (cap = this.rules.def.exec(src))) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.links[cap[1].toLowerCase()] = {
+	        href: cap[2],
+	        title: cap[3]
+	      };
+	      continue;
+	    }
+
+	    // table (gfm)
+	    if (top && (cap = this.rules.table.exec(src))) {
+	      src = src.substring(cap[0].length);
+
+	      item = {
+	        type: 'table',
+	        header: cap[1].replace(/^ *| *\| *$/g, '').split(/ *\| */),
+	        align: cap[2].replace(/^ *|\| *$/g, '').split(/ *\| */),
+	        cells: cap[3].replace(/(?: *\| *)?\n$/, '').split('\n')
+	      };
+
+	      for (i = 0; i < item.align.length; i++) {
+	        if (/^ *-+: *$/.test(item.align[i])) {
+	          item.align[i] = 'right';
+	        } else if (/^ *:-+: *$/.test(item.align[i])) {
+	          item.align[i] = 'center';
+	        } else if (/^ *:-+ *$/.test(item.align[i])) {
+	          item.align[i] = 'left';
+	        } else {
+	          item.align[i] = null;
+	        }
+	      }
+
+	      for (i = 0; i < item.cells.length; i++) {
+	        item.cells[i] = item.cells[i]
+	          .replace(/^ *\| *| *\| *$/g, '')
+	          .split(/ *\| */);
+	      }
+
+	      this.tokens.push(item);
+
+	      continue;
+	    }
+
+	    // top-level paragraph
+	    if (top && (cap = this.rules.paragraph.exec(src))) {
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'paragraph',
+	        text: cap[1].charAt(cap[1].length - 1) === '\n'
+	          ? cap[1].slice(0, -1)
+	          : cap[1]
+	      });
+	      continue;
+	    }
+
+	    // text
+	    if (cap = this.rules.text.exec(src)) {
+	      // Top-level should never reach here.
+	      src = src.substring(cap[0].length);
+	      this.tokens.push({
+	        type: 'text',
+	        text: cap[0]
+	      });
+	      continue;
+	    }
+
+	    if (src) {
+	      throw new
+	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+	    }
+	  }
+
+	  return this.tokens;
+	};
+
+	/**
+	 * Inline-Level Grammar
+	 */
+
+	var inline = {
+	  escape: /^\\([\\`*{}\[\]()#+\-.!_>])/,
+	  autolink: /^<([^ >]+(@|:\/)[^ >]+)>/,
+	  url: noop,
+	  tag: /^<!--[\s\S]*?-->|^<\/?\w+(?:"[^"]*"|'[^']*'|[^'">])*?>/,
+	  link: /^!?\[(inside)\]\(href\)/,
+	  reflink: /^!?\[(inside)\]\s*\[([^\]]*)\]/,
+	  nolink: /^!?\[((?:\[[^\]]*\]|[^\[\]])*)\]/,
+	  strong: /^__([\s\S]+?)__(?!_)|^\*\*([\s\S]+?)\*\*(?!\*)/,
+	  em: /^\b_((?:[^_]|__)+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,
+	  code: /^(`+)\s*([\s\S]*?[^`])\s*\1(?!`)/,
+	  br: /^ {2,}\n(?!\s*$)/,
+	  del: noop,
+	  text: /^[\s\S]+?(?=[\\<!\[_*`]| {2,}\n|$)/
+	};
+
+	inline._inside = /(?:\[[^\]]*\]|[^\[\]]|\](?=[^\[]*\]))*/;
+	inline._href = /\s*<?([\s\S]*?)>?(?:\s+['"]([\s\S]*?)['"])?\s*/;
+
+	inline.link = replace(inline.link)
+	  ('inside', inline._inside)
+	  ('href', inline._href)
+	  ();
+
+	inline.reflink = replace(inline.reflink)
+	  ('inside', inline._inside)
+	  ();
+
+	/**
+	 * Normal Inline Grammar
+	 */
+
+	inline.normal = merge({}, inline);
+
+	/**
+	 * Pedantic Inline Grammar
+	 */
+
+	inline.pedantic = merge({}, inline.normal, {
+	  strong: /^__(?=\S)([\s\S]*?\S)__(?!_)|^\*\*(?=\S)([\s\S]*?\S)\*\*(?!\*)/,
+	  em: /^_(?=\S)([\s\S]*?\S)_(?!_)|^\*(?=\S)([\s\S]*?\S)\*(?!\*)/
+	});
+
+	/**
+	 * GFM Inline Grammar
+	 */
+
+	inline.gfm = merge({}, inline.normal, {
+	  escape: replace(inline.escape)('])', '~|])')(),
+	  url: /^(https?:\/\/[^\s<]+[^<.,:;"')\]\s])/,
+	  del: /^~~(?=\S)([\s\S]*?\S)~~/,
+	  text: replace(inline.text)
+	    (']|', '~]|')
+	    ('|', '|https?://|')
+	    ()
+	});
+
+	/**
+	 * GFM + Line Breaks Inline Grammar
+	 */
+
+	inline.breaks = merge({}, inline.gfm, {
+	  br: replace(inline.br)('{2,}', '*')(),
+	  text: replace(inline.gfm.text)('{2,}', '*')()
+	});
+
+	/**
+	 * Inline Lexer & Compiler
+	 */
+
+	function InlineLexer(links, options) {
+	  this.options = options || marked.defaults;
+	  this.links = links;
+	  this.rules = inline.normal;
+	  this.renderer = this.options.renderer || new Renderer;
+	  this.renderer.options = this.options;
+
+	  if (!this.links) {
+	    throw new
+	      Error('Tokens array requires a `links` property.');
+	  }
+
+	  if (this.options.gfm) {
+	    if (this.options.breaks) {
+	      this.rules = inline.breaks;
+	    } else {
+	      this.rules = inline.gfm;
+	    }
+	  } else if (this.options.pedantic) {
+	    this.rules = inline.pedantic;
+	  }
+	}
+
+	/**
+	 * Expose Inline Rules
+	 */
+
+	InlineLexer.rules = inline;
+
+	/**
+	 * Static Lexing/Compiling Method
+	 */
+
+	InlineLexer.output = function(src, links, options) {
+	  var inline = new InlineLexer(links, options);
+	  return inline.output(src);
+	};
+
+	/**
+	 * Lexing/Compiling
+	 */
+
+	InlineLexer.prototype.output = function(src) {
+	  var out = ''
+	    , link
+	    , text
+	    , href
+	    , cap;
+
+	  while (src) {
+	    // escape
+	    if (cap = this.rules.escape.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += cap[1];
+	      continue;
+	    }
+
+	    // autolink
+	    if (cap = this.rules.autolink.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      if (cap[2] === '@') {
+	        text = cap[1].charAt(6) === ':'
+	          ? this.mangle(cap[1].substring(7))
+	          : this.mangle(cap[1]);
+	        href = this.mangle('mailto:') + text;
+	      } else {
+	        text = escape(cap[1]);
+	        href = text;
+	      }
+	      out += this.renderer.link(href, null, text);
+	      continue;
+	    }
+
+	    // url (gfm)
+	    if (!this.inLink && (cap = this.rules.url.exec(src))) {
+	      src = src.substring(cap[0].length);
+	      text = escape(cap[1]);
+	      href = text;
+	      out += this.renderer.link(href, null, text);
+	      continue;
+	    }
+
+	    // tag
+	    if (cap = this.rules.tag.exec(src)) {
+	      if (!this.inLink && /^<a /i.test(cap[0])) {
+	        this.inLink = true;
+	      } else if (this.inLink && /^<\/a>/i.test(cap[0])) {
+	        this.inLink = false;
+	      }
+	      src = src.substring(cap[0].length);
+	      out += this.options.sanitize
+	        ? this.options.sanitizer
+	          ? this.options.sanitizer(cap[0])
+	          : escape(cap[0])
+	        : cap[0]
+	      continue;
+	    }
+
+	    // link
+	    if (cap = this.rules.link.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      this.inLink = true;
+	      out += this.outputLink(cap, {
+	        href: cap[2],
+	        title: cap[3]
+	      });
+	      this.inLink = false;
+	      continue;
+	    }
+
+	    // reflink, nolink
+	    if ((cap = this.rules.reflink.exec(src))
+	        || (cap = this.rules.nolink.exec(src))) {
+	      src = src.substring(cap[0].length);
+	      link = (cap[2] || cap[1]).replace(/\s+/g, ' ');
+	      link = this.links[link.toLowerCase()];
+	      if (!link || !link.href) {
+	        out += cap[0].charAt(0);
+	        src = cap[0].substring(1) + src;
+	        continue;
+	      }
+	      this.inLink = true;
+	      out += this.outputLink(cap, link);
+	      this.inLink = false;
+	      continue;
+	    }
+
+	    // strong
+	    if (cap = this.rules.strong.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.strong(this.output(cap[2] || cap[1]));
+	      continue;
+	    }
+
+	    // em
+	    if (cap = this.rules.em.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.em(this.output(cap[2] || cap[1]));
+	      continue;
+	    }
+
+	    // code
+	    if (cap = this.rules.code.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.codespan(escape(cap[2], true));
+	      continue;
+	    }
+
+	    // br
+	    if (cap = this.rules.br.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.br();
+	      continue;
+	    }
+
+	    // del (gfm)
+	    if (cap = this.rules.del.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.del(this.output(cap[1]));
+	      continue;
+	    }
+
+	    // text
+	    if (cap = this.rules.text.exec(src)) {
+	      src = src.substring(cap[0].length);
+	      out += this.renderer.text(escape(this.smartypants(cap[0])));
+	      continue;
+	    }
+
+	    if (src) {
+	      throw new
+	        Error('Infinite loop on byte: ' + src.charCodeAt(0));
+	    }
+	  }
+
+	  return out;
+	};
+
+	/**
+	 * Compile Link
+	 */
+
+	InlineLexer.prototype.outputLink = function(cap, link) {
+	  var href = escape(link.href)
+	    , title = link.title ? escape(link.title) : null;
+
+	  return cap[0].charAt(0) !== '!'
+	    ? this.renderer.link(href, title, this.output(cap[1]))
+	    : this.renderer.image(href, title, escape(cap[1]));
+	};
+
+	/**
+	 * Smartypants Transformations
+	 */
+
+	InlineLexer.prototype.smartypants = function(text) {
+	  if (!this.options.smartypants) return text;
+	  return text
+	    // em-dashes
+	    .replace(/---/g, '\u2014')
+	    // en-dashes
+	    .replace(/--/g, '\u2013')
+	    // opening singles
+	    .replace(/(^|[-\u2014/(\[{"\s])'/g, '$1\u2018')
+	    // closing singles & apostrophes
+	    .replace(/'/g, '\u2019')
+	    // opening doubles
+	    .replace(/(^|[-\u2014/(\[{\u2018\s])"/g, '$1\u201c')
+	    // closing doubles
+	    .replace(/"/g, '\u201d')
+	    // ellipses
+	    .replace(/\.{3}/g, '\u2026');
+	};
+
+	/**
+	 * Mangle Links
+	 */
+
+	InlineLexer.prototype.mangle = function(text) {
+	  if (!this.options.mangle) return text;
+	  var out = ''
+	    , l = text.length
+	    , i = 0
+	    , ch;
+
+	  for (; i < l; i++) {
+	    ch = text.charCodeAt(i);
+	    if (Math.random() > 0.5) {
+	      ch = 'x' + ch.toString(16);
+	    }
+	    out += '&#' + ch + ';';
+	  }
+
+	  return out;
+	};
+
+	/**
+	 * Renderer
+	 */
+
+	function Renderer(options) {
+	  this.options = options || {};
+	}
+
+	Renderer.prototype.code = function(code, lang, escaped) {
+	  if (this.options.highlight) {
+	    var out = this.options.highlight(code, lang);
+	    if (out != null && out !== code) {
+	      escaped = true;
+	      code = out;
+	    }
+	  }
+
+	  if (!lang) {
+	    return '<pre><code>'
+	      + (escaped ? code : escape(code, true))
+	      + '\n</code></pre>';
+	  }
+
+	  return '<pre><code class="'
+	    + this.options.langPrefix
+	    + escape(lang, true)
+	    + '">'
+	    + (escaped ? code : escape(code, true))
+	    + '\n</code></pre>\n';
+	};
+
+	Renderer.prototype.blockquote = function(quote) {
+	  return '<blockquote>\n' + quote + '</blockquote>\n';
+	};
+
+	Renderer.prototype.html = function(html) {
+	  return html;
+	};
+
+	Renderer.prototype.heading = function(text, level, raw) {
+	  return '<h'
+	    + level
+	    + ' id="'
+	    + this.options.headerPrefix
+	    + raw.toLowerCase().replace(/[^\w]+/g, '-')
+	    + '">'
+	    + text
+	    + '</h'
+	    + level
+	    + '>\n';
+	};
+
+	Renderer.prototype.hr = function() {
+	  return this.options.xhtml ? '<hr/>\n' : '<hr>\n';
+	};
+
+	Renderer.prototype.list = function(body, ordered) {
+	  var type = ordered ? 'ol' : 'ul';
+	  return '<' + type + '>\n' + body + '</' + type + '>\n';
+	};
+
+	Renderer.prototype.listitem = function(text) {
+	  return '<li>' + text + '</li>\n';
+	};
+
+	Renderer.prototype.paragraph = function(text) {
+	  return '<p>' + text + '</p>\n';
+	};
+
+	Renderer.prototype.table = function(header, body) {
+	  return '<table>\n'
+	    + '<thead>\n'
+	    + header
+	    + '</thead>\n'
+	    + '<tbody>\n'
+	    + body
+	    + '</tbody>\n'
+	    + '</table>\n';
+	};
+
+	Renderer.prototype.tablerow = function(content) {
+	  return '<tr>\n' + content + '</tr>\n';
+	};
+
+	Renderer.prototype.tablecell = function(content, flags) {
+	  var type = flags.header ? 'th' : 'td';
+	  var tag = flags.align
+	    ? '<' + type + ' style="text-align:' + flags.align + '">'
+	    : '<' + type + '>';
+	  return tag + content + '</' + type + '>\n';
+	};
+
+	// span level renderer
+	Renderer.prototype.strong = function(text) {
+	  return '<strong>' + text + '</strong>';
+	};
+
+	Renderer.prototype.em = function(text) {
+	  return '<em>' + text + '</em>';
+	};
+
+	Renderer.prototype.codespan = function(text) {
+	  return '<code>' + text + '</code>';
+	};
+
+	Renderer.prototype.br = function() {
+	  return this.options.xhtml ? '<br/>' : '<br>';
+	};
+
+	Renderer.prototype.del = function(text) {
+	  return '<del>' + text + '</del>';
+	};
+
+	Renderer.prototype.link = function(href, title, text) {
+	  if (this.options.sanitize) {
+	    try {
+	      var prot = decodeURIComponent(unescape(href))
+	        .replace(/[^\w:]/g, '')
+	        .toLowerCase();
+	    } catch (e) {
+	      return '';
+	    }
+	    if (prot.indexOf('javascript:') === 0 || prot.indexOf('vbscript:') === 0) {
+	      return '';
+	    }
+	  }
+	  var out = '<a href="' + href + '"';
+	  if (title) {
+	    out += ' title="' + title + '"';
+	  }
+	  out += '>' + text + '</a>';
+	  return out;
+	};
+
+	Renderer.prototype.image = function(href, title, text) {
+	  var out = '<img src="' + href + '" alt="' + text + '"';
+	  if (title) {
+	    out += ' title="' + title + '"';
+	  }
+	  out += this.options.xhtml ? '/>' : '>';
+	  return out;
+	};
+
+	Renderer.prototype.text = function(text) {
+	  return text;
+	};
+
+	/**
+	 * Parsing & Compiling
+	 */
+
+	function Parser(options) {
+	  this.tokens = [];
+	  this.token = null;
+	  this.options = options || marked.defaults;
+	  this.options.renderer = this.options.renderer || new Renderer;
+	  this.renderer = this.options.renderer;
+	  this.renderer.options = this.options;
+	}
+
+	/**
+	 * Static Parse Method
+	 */
+
+	Parser.parse = function(src, options, renderer) {
+	  var parser = new Parser(options, renderer);
+	  return parser.parse(src);
+	};
+
+	/**
+	 * Parse Loop
+	 */
+
+	Parser.prototype.parse = function(src) {
+	  this.inline = new InlineLexer(src.links, this.options, this.renderer);
+	  this.tokens = src.reverse();
+
+	  var out = '';
+	  while (this.next()) {
+	    out += this.tok();
+	  }
+
+	  return out;
+	};
+
+	/**
+	 * Next Token
+	 */
+
+	Parser.prototype.next = function() {
+	  return this.token = this.tokens.pop();
+	};
+
+	/**
+	 * Preview Next Token
+	 */
+
+	Parser.prototype.peek = function() {
+	  return this.tokens[this.tokens.length - 1] || 0;
+	};
+
+	/**
+	 * Parse Text Tokens
+	 */
+
+	Parser.prototype.parseText = function() {
+	  var body = this.token.text;
+
+	  while (this.peek().type === 'text') {
+	    body += '\n' + this.next().text;
+	  }
+
+	  return this.inline.output(body);
+	};
+
+	/**
+	 * Parse Current Token
+	 */
+
+	Parser.prototype.tok = function() {
+	  switch (this.token.type) {
+	    case 'space': {
+	      return '';
+	    }
+	    case 'hr': {
+	      return this.renderer.hr();
+	    }
+	    case 'heading': {
+	      return this.renderer.heading(
+	        this.inline.output(this.token.text),
+	        this.token.depth,
+	        this.token.text);
+	    }
+	    case 'code': {
+	      return this.renderer.code(this.token.text,
+	        this.token.lang,
+	        this.token.escaped);
+	    }
+	    case 'table': {
+	      var header = ''
+	        , body = ''
+	        , i
+	        , row
+	        , cell
+	        , flags
+	        , j;
+
+	      // header
+	      cell = '';
+	      for (i = 0; i < this.token.header.length; i++) {
+	        flags = { header: true, align: this.token.align[i] };
+	        cell += this.renderer.tablecell(
+	          this.inline.output(this.token.header[i]),
+	          { header: true, align: this.token.align[i] }
+	        );
+	      }
+	      header += this.renderer.tablerow(cell);
+
+	      for (i = 0; i < this.token.cells.length; i++) {
+	        row = this.token.cells[i];
+
+	        cell = '';
+	        for (j = 0; j < row.length; j++) {
+	          cell += this.renderer.tablecell(
+	            this.inline.output(row[j]),
+	            { header: false, align: this.token.align[j] }
+	          );
+	        }
+
+	        body += this.renderer.tablerow(cell);
+	      }
+	      return this.renderer.table(header, body);
+	    }
+	    case 'blockquote_start': {
+	      var body = '';
+
+	      while (this.next().type !== 'blockquote_end') {
+	        body += this.tok();
+	      }
+
+	      return this.renderer.blockquote(body);
+	    }
+	    case 'list_start': {
+	      var body = ''
+	        , ordered = this.token.ordered;
+
+	      while (this.next().type !== 'list_end') {
+	        body += this.tok();
+	      }
+
+	      return this.renderer.list(body, ordered);
+	    }
+	    case 'list_item_start': {
+	      var body = '';
+
+	      while (this.next().type !== 'list_item_end') {
+	        body += this.token.type === 'text'
+	          ? this.parseText()
+	          : this.tok();
+	      }
+
+	      return this.renderer.listitem(body);
+	    }
+	    case 'loose_item_start': {
+	      var body = '';
+
+	      while (this.next().type !== 'list_item_end') {
+	        body += this.tok();
+	      }
+
+	      return this.renderer.listitem(body);
+	    }
+	    case 'html': {
+	      var html = !this.token.pre && !this.options.pedantic
+	        ? this.inline.output(this.token.text)
+	        : this.token.text;
+	      return this.renderer.html(html);
+	    }
+	    case 'paragraph': {
+	      return this.renderer.paragraph(this.inline.output(this.token.text));
+	    }
+	    case 'text': {
+	      return this.renderer.paragraph(this.parseText());
+	    }
+	  }
+	};
+
+	/**
+	 * Helpers
+	 */
+
+	function escape(html, encode) {
+	  return html
+	    .replace(!encode ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+	    .replace(/</g, '&lt;')
+	    .replace(/>/g, '&gt;')
+	    .replace(/"/g, '&quot;')
+	    .replace(/'/g, '&#39;');
+	}
+
+	function unescape(html) {
+		// explicitly match decimal, hex, and named HTML entities 
+	  return html.replace(/&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/g, function(_, n) {
+	    n = n.toLowerCase();
+	    if (n === 'colon') return ':';
+	    if (n.charAt(0) === '#') {
+	      return n.charAt(1) === 'x'
+	        ? String.fromCharCode(parseInt(n.substring(2), 16))
+	        : String.fromCharCode(+n.substring(1));
+	    }
+	    return '';
+	  });
+	}
+
+	function replace(regex, opt) {
+	  regex = regex.source;
+	  opt = opt || '';
+	  return function self(name, val) {
+	    if (!name) return new RegExp(regex, opt);
+	    val = val.source || val;
+	    val = val.replace(/(^|[^\[])\^/g, '$1');
+	    regex = regex.replace(name, val);
+	    return self;
+	  };
+	}
+
+	function noop() {}
+	noop.exec = noop;
+
+	function merge(obj) {
+	  var i = 1
+	    , target
+	    , key;
+
+	  for (; i < arguments.length; i++) {
+	    target = arguments[i];
+	    for (key in target) {
+	      if (Object.prototype.hasOwnProperty.call(target, key)) {
+	        obj[key] = target[key];
+	      }
+	    }
+	  }
+
+	  return obj;
+	}
+
+
+	/**
+	 * Marked
+	 */
+
+	function marked(src, opt, callback) {
+	  if (callback || typeof opt === 'function') {
+	    if (!callback) {
+	      callback = opt;
+	      opt = null;
+	    }
+
+	    opt = merge({}, marked.defaults, opt || {});
+
+	    var highlight = opt.highlight
+	      , tokens
+	      , pending
+	      , i = 0;
+
+	    try {
+	      tokens = Lexer.lex(src, opt)
+	    } catch (e) {
+	      return callback(e);
+	    }
+
+	    pending = tokens.length;
+
+	    var done = function(err) {
+	      if (err) {
+	        opt.highlight = highlight;
+	        return callback(err);
+	      }
+
+	      var out;
+
+	      try {
+	        out = Parser.parse(tokens, opt);
+	      } catch (e) {
+	        err = e;
+	      }
+
+	      opt.highlight = highlight;
+
+	      return err
+	        ? callback(err)
+	        : callback(null, out);
+	    };
+
+	    if (!highlight || highlight.length < 3) {
+	      return done();
+	    }
+
+	    delete opt.highlight;
+
+	    if (!pending) return done();
+
+	    for (; i < tokens.length; i++) {
+	      (function(token) {
+	        if (token.type !== 'code') {
+	          return --pending || done();
+	        }
+	        return highlight(token.text, token.lang, function(err, code) {
+	          if (err) return done(err);
+	          if (code == null || code === token.text) {
+	            return --pending || done();
+	          }
+	          token.text = code;
+	          token.escaped = true;
+	          --pending || done();
+	        });
+	      })(tokens[i]);
+	    }
+
+	    return;
+	  }
+	  try {
+	    if (opt) opt = merge({}, marked.defaults, opt);
+	    return Parser.parse(Lexer.lex(src, opt), opt);
+	  } catch (e) {
+	    e.message += '\nPlease report this to https://github.com/chjj/marked.';
+	    if ((opt || marked.defaults).silent) {
+	      return '<p>An error occured:</p><pre>'
+	        + escape(e.message + '', true)
+	        + '</pre>';
+	    }
+	    throw e;
+	  }
+	}
+
+	/**
+	 * Options
+	 */
+
+	marked.options =
+	marked.setOptions = function(opt) {
+	  merge(marked.defaults, opt);
+	  return marked;
+	};
+
+	marked.defaults = {
+	  gfm: true,
+	  tables: true,
+	  breaks: false,
+	  pedantic: false,
+	  sanitize: false,
+	  sanitizer: null,
+	  mangle: true,
+	  smartLists: false,
+	  silent: false,
+	  highlight: null,
+	  langPrefix: 'lang-',
+	  smartypants: false,
+	  headerPrefix: '',
+	  renderer: new Renderer,
+	  xhtml: false
+	};
+
+	/**
+	 * Expose
+	 */
+
+	marked.Parser = Parser;
+	marked.parser = Parser.parse;
+
+	marked.Renderer = Renderer;
+
+	marked.Lexer = Lexer;
+	marked.lexer = Lexer.lex;
+
+	marked.InlineLexer = InlineLexer;
+	marked.inlineLexer = InlineLexer.output;
+
+	marked.parse = marked;
+
+	if (true) {
+	  module.exports = marked;
+	} else if (typeof define === 'function' && define.amd) {
+	  define(function() { return marked; });
+	} else {
+	  this.marked = marked;
+	}
+
+	}).call(function() {
+	  return this || (typeof window !== 'undefined' ? window : global);
+	}());
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ })
 /******/ ]);

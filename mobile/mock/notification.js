@@ -6,9 +6,16 @@
  */
 
 import {Toast} from 'antd-mobile';
+import {Utils} from 'src/utils';
 
 function notificationHandler(type, config) {
-    Toast[type](config.description.length > 20 ? config.description.slice(0, 20) + '...' : config.description);
+    let description = config.description;
+    if (Utils.typeof(config.description, 'array')) {
+        description = config.description[0];
+    }
+    if (Utils.typeof(description, 'string')) {
+        Toast[type](description.length > 20 ? description.slice(0, 20) + '...' : description);
+    }
 }
 
 export default {

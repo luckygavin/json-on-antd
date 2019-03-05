@@ -15,6 +15,7 @@ module.exports = Object.assign(
     // 其他自己实现/封装的组件
     {
         Iframe: require('./iframe'),
+        Fieldset: require('./fieldset'),
 
         AutoComplete: require('./auto-complete').AutoComplete,
         LocalComplete: require('./auto-complete').LocalComplete,
@@ -26,10 +27,11 @@ module.exports = Object.assign(
         Modal: require('./modal').Modal,
         Dashboard: require('./modal').Dashboard,
         Drawer: require('./modal').Drawer,
+        List: require('./list'),
+
         Ueditor: require('./ueditor').Ueditor,
         UeditorParse: require('./ueditor').UeditorParse,
         Echarts: require('./echarts'),
-        Fieldset: require('./fieldset'),
-        List: require('./list')
+        Markdown: require('./markdown')
     }
 );

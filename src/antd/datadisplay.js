@@ -39,10 +39,16 @@ export class Badge extends DataDisplay {
 export class Card extends DataDisplay {
     constructor(props) {
         super(props);
+        this._filter.push('size');
         this.__init();
     }
     render() {
-        return <Antd.Card {...this.__props}/>;
+        let className = 'uf-card';
+        if (this.__filtered.size === 'small') {
+            className += ' uf-card-small'
+        }
+        return <Antd.Card {...this.__props}
+            {...this.__getCommonProps({className})}/>;
     }
 }
 

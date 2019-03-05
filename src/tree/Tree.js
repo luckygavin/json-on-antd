@@ -396,7 +396,7 @@ export default class OriginTree extends BaseComponent {
                 ) : <span>{item.name}</span>;
             }
             return <TreeNode
-                    key={item.key}
+                    key={item.key || item.value || item.id}
                     title={title}
                     value={item.value || item.key}
                     data={item}

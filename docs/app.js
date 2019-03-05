@@ -108,13 +108,15 @@ export const ComponentList = [
         {path: 'Backtop', name: 'Backtop 回到顶部', component: require('src/antd/docs/antd-backtop').default},
         {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
         {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
-        {path: 'Fieldset', name: 'Fieldset 文字块', component: require('src/fieldset/docs').default}
+        {path: 'Fieldset', name: 'Fieldset 文字块', component: require('src/fieldset/docs').default},
+        {path: 'Markdown', name: 'Markdown 解析', component: require('src/markdown/docs').default}
     ]}
 ];
 
 // 组件文档列表
 export const MobileComponent = [
     {path: 'Mobile/Guide', name: '写在最前面', component: require('./app/mobile/guide').default},
+    {path: 'Mobile/UpdateLog', name: '更新日志', component: require('./app/mobile/update-log').default},
     {path: 'Mobile/Custom', name: '定制组件', children: [
         {path: 'Table', name: 'Table 表格', component: require('mobile/table/docs').default},
     ]},
@@ -141,6 +143,7 @@ export const MobileComponent = [
         {path: 'Checkbox', name: 'Checkbox 复选框', component: require('mobile/antd/docs/checkbox').default},
         {path: 'Input', name: 'Input 输入框', component: require('mobile/antd/docs/input').default},
         {path: 'Select', name: 'Select 选择器', component: require('mobile/antd/docs/select').default},
+        {path: 'Picker', name: 'Picker 选择器', component: require('mobile/antd/docs/picker').default},
         {path: 'Calendar', name: 'Calendar 日历选择', component: require('mobile/antd/docs/calendar').default},
         {path: 'Radio', name: 'Radio 单选', component: require('mobile/antd/docs/radio').default},
         {path: 'DatePicker', name: 'DatePicker 日期选择器', component: require('mobile/antd/docs/date-picker').default},

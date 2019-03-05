@@ -136,7 +136,7 @@ export default {
         source: {
             // 自动加载数据
             autoLoad: true,
-            autoReload: true
+            autoReload: 'set'
         },
         data: []
     },
@@ -159,6 +159,7 @@ export default {
         }
     },
     'dashboard': {
+        visible: true,
         closable: false
     },
     'drawer': {
@@ -189,5 +190,14 @@ export default {
             valueCol: 18,
             valueStyle: {}
         }
+    },
+    'markdown': {
+        gfm: true,
+        tables: true,
+        sanitize: true,
+        smartLists: true,
+        breaks: false,
+        pedantic: false,
+        smartypants: false
     }
 };

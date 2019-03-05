@@ -49,3 +49,52 @@
         display: none;
     }
 }
+
+// 按钮样式，增加 finish waiting failure 三种模式
+.ant-btn.uf-btn-finish {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+    &:hover {
+        background-color: #41b341;
+        border-color: #41b341;
+    }
+}
+.ant-btn.uf-btn-waiting {
+    background-color: #f0ad4e;
+    border-color: #f0ac4e;
+    &:hover {
+        background-color: #eda135;
+        border-color: #eda135;
+    }
+}
+.ant-btn.uf-btn-active {
+    background-color: #49a9ee;
+    border-color: #49a9ee;
+    &:hover {
+        background-color: #108ee9;
+        border-color: #108ee9;
+    }
+}
+.ant-btn.uf-btn-failure {
+    background-color: #f04134;
+    border-color: #f04134;
+    &:hover {
+        background-color: #ff4134;
+        border-color: #ff4134;
+    }
+}
+
+// Card组件自定义样式
+// size: small 功能支持
+.uf-card {
+    &.uf-card-small {
+        .ant-card-head {
+            padding: 0 10px;
+            height: 32px;
+            line-height: 32px;
+        }
+        .ant-card-body {
+            padding: 6px 10px;
+        }
+    }
+}

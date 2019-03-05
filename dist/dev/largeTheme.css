@@ -19142,6 +19142,12 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
   padding: 0px;
   margin-bottom: -1px;
 }
+.uf-table:not(.uf-table-no-title) .ant-table {
+  border-radius: 0;
+}
+.uf-table:not(.uf-table-no-title) .ant-table table {
+  border-radius: 0;
+}
 .uf-table .ant-table-thead > tr > th.ant-table-selection-column:not(.ant-table-selection-column-custom),
 .uf-table .ant-table-tbody > tr > td.ant-table-selection-column:not(.ant-table-selection-column-custom) {
   text-align: center;
@@ -19219,6 +19225,13 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 .uf-table-modal .ant-modal-footer {
   border-top: 0px;
   padding: 6px 16px 18px 10px;
+}
+.uf-modal-default-footer .ant-modal-footer {
+  overflow: hidden;
+}
+.uf-modal-default-footer .ant-modal-footer > .ant-btn {
+  float: right;
+  margin-left: 10px;
 }
 .uf-dashboard.ant-collapse > .ant-collapse-item .ant-collapse-header {
   background-color: #eee;
@@ -19360,6 +19373,9 @@ li.ant-select-tree-treenode-disabled > .ant-select-tree-node-content-wrapper:hov
 }
 .uf-form.uf-form-inline .ant-form-item {
   margin-bottom: 10px;
+}
+.uf-form.ant-form-horizontal .ant-calendar-picker {
+  display: block;
 }
 .uf-form.uf-form-default .ant-form-item {
   margin-bottom: 12px;

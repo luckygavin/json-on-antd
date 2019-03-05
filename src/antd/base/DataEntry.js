@@ -111,17 +111,31 @@ export default class DataEntry extends Antd {
 DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
     constructor(props) {
         super(props);
+        // level 指定options中children最多的层级为几层（更多层级会被过滤掉）
+        this._filter.push('level');
+        this.class.push('options-data-entry');
         this._openApi.push('getDisplayValue', 'getSelectedOption');
     }
     _afterSetProps(nextProps) {
         super._afterSetProps();
         // 把 options 格式化为统一固定格式
-        if (nextProps.options) {            
-            this.__props.options = Utils.toOptions(this.__props.options);
+        if (nextProps.options) {
+            this.__props.options = Utils.toOptions(this.__props.options, this.__filtered.level);
         }
         if (!this.__props.options) {
             this.__props.options = [];
         }
+        // if (this.__props.notFoundContent !== null && this.__props.options.length === 0) {
+        //     this.__props.options = [{
+        //         disabled: true,
+        //         label: this.__props.notFoundContent || 'Not Found',
+        //         value: ''
+        //     }]
+        // }
+    }
+    _updateValue(val) {
+        this.__props[this.__controlled.key] = val;
+        this.__props.onChange && this.__props.onChange(val);
     }
     // 处理多选情况
     _handleMultipleSelect() {
@@ -129,20 +143,20 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         // 当设置默认全选时，更新当前内容为全选
         if (this.__props.defaultSelectAll) {
             let all = this.__props.options.map(v=>v.value);
-            this.__props.onChange && this.__props.onChange(all);
+            this._updateValue(all);
             return;
         }
         // 默认选中第一个的处理逻辑
         if (this.__props.defaultFirst && Utils.empty(this.__props.value)) {
             let first = Utils.getFirstOption(this.__props.options);
-            this.__props.onChange && this.__props.onChange([first]);
+            this._updateValue([first]);
         }
         // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
         let matchVal = this.__props.options.filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
         if (matchVal.length === current.length) {
             return;
         }
-        this.__props.onChange && this.__props.onChange(matchVal);
+        this._updateValue(matchVal);
     }
     // 处理默认选中
     _handleDefaultSelect(allClear = true) {
@@ -159,27 +173,22 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         // 否则把值设置为第一个或者清空
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(this.__props.options);
-            this.__props.onChange && this.__props.onChange(first);
+            this._updateValue(first);
         } else if (allClear && this.__props.value !== undefined
             && !Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
             // 为实现刷新组件时，清空原数据
             // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-            this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+            this._updateValue(this.__controlled.defaultVal);
         }
     }
 
     // 获取页面展示内容，针对select等类型的展示和实际提交的内容不一致的组件
     getDisplayValue() {
         const value = this.getValue();
-        let result = value;
         let options = this.__props.options || [];
-        for (let i in options) {
-            if (options[i].value === value || options[i].value === (value + '')) {
-                result = options[i].label;
-                break;
-            }
-        }
-        return result;
+        let label = Utils.transFromOptions(value, options);
+        // 如果能查到label，则返回label，否则返回value
+        return label !== undefined ? label : value;
     }
     // 获取选中的option，针对select等类型的具备可选值的组件
     getSelectedOption() {

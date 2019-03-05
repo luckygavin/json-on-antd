@@ -25,6 +25,7 @@
 | popupPlacement | 浮层预设位置：`bottomLeft` `bottomRight` `topLeft` `topRight` | Enum | `bottomLeft` |
 | placeholder | 输入框占位文本 | string | '请选择' |
 | size | 输入框大小，可选 `large` `default` `small` | string | `default` |
+| level | 指定级联框固定最多能级联出几列 | number | 5 |
 | disabled | 禁用 | boolean | false |
 | allowClear | 是否支持清除 | boolean | true |
 | expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | 'click' |

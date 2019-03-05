@@ -92,6 +92,28 @@ export class Button extends Genaral {
             className += ' uf-btn-mini';
             size = 'small';
         }
+        // 增加几个额外的 type
+        let type = this.__props.type;
+        if (type) {
+            switch (type) {
+                case 'finish':
+                    type = 'primary';
+                    className += ' uf-btn-finish';
+                    break;
+                case 'waiting':
+                    type = 'primary';
+                    className += ' uf-btn-waiting';
+                    break;
+                case 'active':
+                    type = 'primary';
+                    className += ' uf-btn-active';
+                    break;
+                case 'failure':
+                    type = 'primary';
+                    className += ' uf-btn-failure';
+                    break;
+            }
+        }
         if (this.__filtered.active && !this.__filtered.activedChildren) {
             className += ' active';
         }
@@ -99,6 +121,7 @@ export class Button extends Genaral {
                 {...this.handlerOtherProps()}
                 {...this.__getCommonProps({className})}
                 size={size}
+                type={type}
             />;
     }
 }

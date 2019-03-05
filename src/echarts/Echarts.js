@@ -30,7 +30,7 @@ export default class Echarts extends BaseComponent {
             this.__setProps(this.chart.getOption());
         } else {
             // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
-            this.chartOptionsQueue.push(nextProps);
+            this.chartOptionsQueue.push(this.__filterProps(nextProps));
             this.startTry();
         }
     }
@@ -113,10 +113,8 @@ export default class Echarts extends BaseComponent {
     }
     _agencyFunction(origin) {
         for (let i of Object.keys(origin)) {
-            if (Utils.typeof(origin[i], 'function')) {
-                this._inject(this, i, (...p)=>{
-                    return this.chart[i](...p);
-                });
+            if (Utils.typeof(origin[i], 'function') && !this[i]) {
+                this[i] = this.chart[i];
             }
         }
     }
@@ -126,6 +124,8 @@ export default class Echarts extends BaseComponent {
         // this._unsetTransmitComponent();
     }
     render() {
-        return <div id={this.chartId} className={this.props.className} style={this.props.style}></div>;
+        let className = 'uf-echarts';
+        className += this.props.className ? ' ' + this.props.className : '';
+        return <div id={this.chartId} className={className} style={this.props.style}></div>;
     }
 }

@@ -45,7 +45,7 @@ export class Card extends DataDisplay {
     render() {
         let className = 'uf-card';
         if (this.__filtered.size === 'small') {
-            className += ' uf-card-small'
+            className += ' uf-card-small';
         }
         return <Antd.Card {...this.__props}
             {...this.__getCommonProps({className})}/>;

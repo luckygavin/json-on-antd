@@ -26,7 +26,7 @@ export default class Dashboard extends NewModal {
     render() {
         // 获取排序后的结果
         let children = this.getChildrenRank();
-        let getBody = (handleStyle) => <div {...(handleStyle ? this.__getCommonProps() : {})}>
+        let getBody = handleStyle => <div {...(handleStyle ? this.__getCommonProps() : {})}>
             {children[0]}
             {children[1]}
             {children[2]}

@@ -643,7 +643,8 @@ export class OriginForm extends BaseComponent {
         // 进行类型进行强制转换
         // 只有 trigger 为 onChange/onBlur 有效
         let trigger = (item.regionConfig && item.regionConfig.trigger) || otherOptions.trigger;
-        if (['number', 'string', 'boolean'].indexOf(valueType) > -1 && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
+        if (valueType && ['number', 'string', 'boolean'].indexOf(valueType) > -1
+            && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
             otherOptions.getValueFromEvent = (e, value) => Utils.format(value, valueType);
         }
         // 保存默认值，以form渲染完成后执行initValues
@@ -668,10 +669,7 @@ export class OriginForm extends BaseComponent {
         return <Form.Item {...fieldProps} {...itemLayout}>
             {getFieldDecorator(key, Object.assign({
                 initialValue: item.default,
-                rules: rules,
-                // 更改收集数据/验证触发事件为失去焦点时
-                // onBlur在radio，datepicker中不好用
-                // trigger: 'onBlur',
+                rules: rules
             }, otherOptions, item.regionConfig))(
                 // 作为子组件解析
                 this.__analysis(itemProps)

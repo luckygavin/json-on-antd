@@ -21,6 +21,7 @@ const Step1 = [{
         labelCol: 6,
         wrapperCol: 16
     },
+    filterExtraFieldExcept: 'address',
     formData: {
         address: 12
     },
@@ -223,7 +224,7 @@ const Step1 = [{
                     {
                         validator(rule, value, callback) {
                             console.log(value);
-                            if (value.length > 6) {
+                            if (value && value.length > 6) {
                                 callback("长度超过限制");
                             }
                             callback();

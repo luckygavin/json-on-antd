@@ -20,6 +20,7 @@ size | 控件大小。可选 `large` `default` `small` | string | `large` |
 items | 表单项的详细配置参数，首先是一个数组，数组里面每一项可以是对象，也可以是数组。如果是数组的话，则启动了『分组』功能，数组作为一个整体放在一行；如果为一个对象，见`# item` | object[]/array[] |  | 必须
 buttons | 表单的按钮配置，见`# buttons` | object[] | |
 formData | form 表单的默认值对象，和`items`里面配置的值对应的数据会设置成form的默认值，其他值会在点击提交时随表单数据一起返回，常用于“编辑”功能。如果需要为表单传入一个数组渲染出多个表单，请参考组件Forms的配置 | object | |
+filterExtraFieldExcept | 当设置了`formData`时，默认提交数据时会将formData中的字段全部提交（可能会包含未在items中指定的字段）。当`filterExtraFieldExcept`不为空时，提交数据时会过滤出`items`定义的字段以及`filterExtraFieldExcept`指定的字段，其余字段会被过虑掉不提交。 | 逗号分隔的字符串 |  |
 formDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |
 beforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |
 beforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |

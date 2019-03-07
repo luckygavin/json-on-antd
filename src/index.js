@@ -207,6 +207,7 @@ const create = ({name})=>{
                 conf.precondition = (conf.precondition || []).concat(
                     componentsLoader.map(path => {
                         return resovle => {
+                            // 防止报错，即使未加载成功也不阻止页面继续加载
                             Requirejs([path], foo=>{
                                 foo && this.config({components: foo});
                                 resovle();

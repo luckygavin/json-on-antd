@@ -24,9 +24,9 @@ export default class Echarts extends BaseComponent {
             delete this.__filtered.afterCreate;
         }
     }
-    setOption(nextProps) {
+    setOption(nextProps, ...p) {
         if (this.chart) {
-            this.chart.setOption(this.__filterProps(nextProps));
+            this.chart.setOption(this.__filterProps(nextProps), ...p);
             this.__setProps(this.chart.getOption());
         } else {
             // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
@@ -53,7 +53,7 @@ export default class Echarts extends BaseComponent {
         // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
         //     this.chart.setOption(this.__filterProps(nextProps));
         // }
-        this.setOption(nextProps);
+        this.setOption(nextProps, true);
     }
     // 修改获取数据的时机，初始化时不进行数据获取，等chart初始化完成后
     _handleAsyncData() {

@@ -13,7 +13,7 @@ export class OriginForm extends BaseComponent {
     constructor(props) {
         super(props);
         // 过滤掉Form.create传入的form属性
-        this._filter.push('form');
+        this._filter.push('form', 'filterExtraFieldExcept');
         this._innerFilter.push('form');
         this._openApi.push('getValues', 'resetValues', 'clearValues', 'resetItem', 'getDisplayValues');
         // 不复杂的属性，即无需merge处理直接覆盖的属性
@@ -127,6 +127,22 @@ export class OriginForm extends BaseComponent {
         }
         return result;
     }
+    // 过滤掉多余字段
+    _filterExtraField(values) {
+        // 过滤除 filterExtraFieldExcept 之外的多余字段
+        let whiteListStr = this.__filtered.filterExtraFieldExcept;
+        let whiteList = [];
+        if (Utils.typeof(whiteListStr, 'string')) {
+            whiteList = whiteListStr.split(',');
+        }
+        let result = {};
+        for (let i in values) {
+            if (this.itemsCache[i] || whiteList.indexOf(i) > -1) {
+                result[i] = values[i];
+            }
+        }
+        return result;
+    }
 
 
     /* 外部调用函数 **********************************************************************/
@@ -141,6 +157,9 @@ export class OriginForm extends BaseComponent {
         values = Object.assign({}, this.defaultValues, values);
         if (this.__props.beforeSubmit) {
             values = this.__props.beforeSubmit(values);
+        }
+        if (this.__filtered.filterExtraFieldExcept) {
+            values = this._filterExtraField(values);
         }
         return values;
     }
@@ -258,9 +277,12 @@ export class OriginForm extends BaseComponent {
         // 实现联动
         if (item.join) {
             for (let i in item.join) {
-                // 本组件的ref
-                let self = this.itemRef[item.name];
-                this.joinSetValue(i, item.join[i], val, self);
+                // 改为异步处理联动
+                Utils.defer(()=>{
+                    // 本组件的ref
+                    let self = this.itemRef[item.name];
+                    this.joinSetValue(i, item.join[i], val, self);
+                });
             }
             // this.forceUpdate();
         }

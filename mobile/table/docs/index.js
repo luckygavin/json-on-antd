@@ -11,6 +11,8 @@ const dataSource = [
     {area: '北京', stock: 622, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333'},
     {area: '北京', stock: 6232, futureSuply: '23123', totalSuply: '13243', totalRequied: 2343, areaStock: '2333'},
     {area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333'},
+    {area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333'},
+    {area: '北京', stock: 322, futureSuply: '23123', totalSuply: '12243', totalRequied: 2343, areaStock: '2333'}
 ];
 
 let demo1 = {
@@ -23,9 +25,9 @@ let demo1 = {
         columns: [
             {title: '区域', dataIndex: 'area'},
             {title: '存量', dataIndex: 'stock'},
-            {title: '未来12月', dataIndex: 'futureSuply'},
+            // {title: '未来12月', dataIndex: 'futureSuply'},
             {title: '总资源供给', dataIndex: 'totalSuply'},
-            {title: '总资源需求', dataIndex: 'totalRequied'},
+            // {title: '总资源需求', dataIndex: 'totalRequied'},
             {title: '区域冗余', dataIndex: 'areaStock'}
         ],
         data: dataSource,

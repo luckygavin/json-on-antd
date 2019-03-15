@@ -23,5 +23,15 @@ export default {
             autoReload: true
         },
         data: []
+    },
+    'select': {
+        source: {
+            target: 'options'
+        }
+    },
+    'picker': {
+        source: {
+            target: 'options'
+        }
     }
 };

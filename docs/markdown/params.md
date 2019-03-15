@@ -194,6 +194,7 @@ api 参数可以是字符串，直接声明提交数据的地址，其余参数�
 url    | 提交数据的接口 | string | 必填
 method    | ajax方式 | string | 'post'
 showLoading  | 展示loading效果 | boolean | `true`
+singleUse  | 一次性请求，发送完成后，组件会更新状态。只要组件不销毁，就不会再次触发请求（有些组件还会有`disable`效果，例如`Button`组件） | boolean | false
 params | 提交数据时发送的默认参数（注意：这只是初始化参数。例如和form弹框配合时，会被form的录入的数据覆盖。） | object |
 paramsHandler | 提交数据前对数据进行处理，函数返回的结果作为ajax的参数发送 | function(params) {} |
 removeEmptyParams | 自动移除为空的属性 | boolean | true

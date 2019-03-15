@@ -58,10 +58,10 @@
 	    // 这个要保留，Antd 内部也在用
 	    Immutable: __webpack_require__(242),
 	    // Antd 内部也在用
-	    CoreJs: __webpack_require__(243),    
+	    CoreJs: __webpack_require__(243),
 	    moment: __webpack_require__(587),
 	    // 使用moment时，需指定locale，会导致重新打包
-	    moment_zh_cn: __webpack_require__(702)
+	    'moment_zh_cn': __webpack_require__(702)
 	};
 
 /***/ }),

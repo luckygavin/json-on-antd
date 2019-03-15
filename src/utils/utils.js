@@ -103,14 +103,16 @@ const utils = Object.assign({}, underscore, {
         }
         return retValue;
     },
-    // 数据格式转换
+    // 尝试进行数据格式转换
+    // 如果无法处理，则不进行处理
     format(value, type) {
         if (value === undefined) {
             return undefined;
         }
         switch (type) {
             case 'number':
-                value = +value || 0;
+                // 如果转换数字失败，则返回原值
+                value = (isNaN(+value) || value === '') ? value : +value;
                 break;
             case 'string':
                 value = '' + value;
@@ -119,7 +121,7 @@ const utils = Object.assign({}, underscore, {
                 value = value === 'false' || value === 'FALSE' ? false : !!value;
                 break;
             case 'array':
-                if (utils.typeof(value, 'undefined')) {
+                if (utils.typeof(value, 'undefined') || value === '') {
                     value = [];
                 }
                 if (!utils.typeof(value, 'array')) {
@@ -424,7 +426,7 @@ const utils = Object.assign({}, underscore, {
     goto(path, forceUpdate = false) {
         // 如果path不是已#/开头，且不是/开头，则加上#/
         path = path.indexOf('#/') !== 0
-            ? (path.indexOf('/') !== 0 ? '#/' + path : path)
+            ? ((path.indexOf('/') !== 0 && path.indexOf('http')) ? '#/' + path : path)
             : path;
         let nowPath = window.location.hash;
         if ((path !== nowPath && path !== '') || forceUpdate) {
@@ -498,7 +500,9 @@ const utils = Object.assign({}, underscore, {
     },
 
     // 把数组、对象转换成select等需要的options标准格式
-    toOptions(data) {
+    // level 为向下遍历的层级，默认最多遍历5层
+    toOptions(data, level) {
+        level = level || 5;
         let result = [];
         if (utils.typeof(data, 'array')) {
             // ['value', 'value2']
@@ -514,12 +518,12 @@ const utils = Object.assign({}, underscore, {
             } else {
                 result = data.map(v => (
                     (v.key !== undefined && v.value !== undefined)
-                        ? v.children
-                            ? {label: v.value, value: v.key, children: utils.toOptions(v.children)}
+                        ? (v.children && level - 1 > 0)
+                            ? {label: v.value, value: v.key, children: utils.toOptions(v.children, level - 1)}
                             : {label: v.value, value: v.key}
                         : (v.id !== undefined && v.name !== undefined)
-                            ? v.children
-                                ? {label: v.name, value: v.id, children: utils.toOptions(v.children)}
+                            ? (v.children && level - 1 > 0)
+                                ? {label: v.name, value: v.id, children: utils.toOptions(v.children, level - 1)}
                                 : {label: v.name, value: v.id}
                             : v
                 )
@@ -559,6 +563,36 @@ const utils = Object.assign({}, underscore, {
             return format[0].value;
         }
     },
+    // 从 options 中获取到 value 对应的 label 值
+    transFromOptions(value, options) {
+        let result;
+        // 当value为数组时，依次翻译每一个（适用于级联框）
+        if (utils.typeof(value, 'array')) {
+            result = [];
+            let list = options;
+            for (let v of value) {
+                let label = '';
+                if (list !== undefined) {
+                    for (let i in list) {
+                        if (list[i].value === v || list[i].value === (v + '')) {
+                            label = list[i].label;
+                            list = list[i]['children'];
+                            break;
+                        }
+                    }
+                }
+                result.push(label);
+            }
+        } else {
+            for (let i in options) {
+                if (options[i].value === value || options[i].value === (value + '')) {
+                    result = options[i].label;
+                    break;
+                }
+            }
+        }
+        return result;
+    },
     // 把数据格式化成json展示
     prettyJson(data, origin) {
         if (origin) {
@@ -576,7 +610,7 @@ const utils = Object.assign({}, underscore, {
         let tData = value;
         // 如果 strc 为空，则返回 value 本身
         if (strc) {
-            for (let v of strc.split('.').reverse()) {
+            for (let v of ('' + strc).split('.').reverse()) {
                 tData = {[v]: tData};
             }
         }
@@ -600,7 +634,7 @@ const utils = Object.assign({}, underscore, {
     // 根据一个字符串，把数据塞入一个深层的对象中
     toObject(origin, strc, value) {
         let tData = utils.generateObject(strc, value);
-        let level = strc.split('.').length;
+        let level = ('' + strc).split('.').length;
         utils.merge(level, origin, tData);
     },
     // 根据一个字符串，把数据从一个深层的对象中删除

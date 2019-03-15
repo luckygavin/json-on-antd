@@ -118,8 +118,8 @@ export class OriginForm extends BaseComponent {
                     values[i] = values[i].format(this.itemsCache[i].format);
                 }
                 // 用 format 把数据格式化成 rules.type 要求的格式
-            } else if (item.rules && item.rules.type) {
-                values[i] = Utils.format(values[i], item.rules.type);
+            } else if (item.valueType) {
+                values[i] = Utils.format(values[i], item.valueType);
             }
             if (item && item.type !== 'button') {
                 result[i] = values[i];
@@ -388,7 +388,6 @@ export class OriginForm extends BaseComponent {
             }
         }
         okey = okey !== null ? `-${okey}` : '';
-        let name = oitem.name;
         let key = oitem.name + okey;
         // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
         if (this.itemsCache[key]) {
@@ -411,14 +410,12 @@ export class OriginForm extends BaseComponent {
         } else {
             itemLayout = this.__props.layout.type === 'horizontal' ? this.formItemLayout : null;
         }
-        let item = Object.assign({rules: {}}, oitem);
-        if (Utils.typeof(item.rules, 'array')) {
-            item.rules = item.rules[0] || {};
-        }
+        let item = Object.assign({}, oitem);
+        let itemRules = {};
         delete item.layout;
         // 如果rules外单独设置了required属性，则以此值为准
         if (item.required !== undefined) {
-            item.rules['required'] = item.required;
+            itemRules['required'] = item.required;
         }
         // form中不允许表单域使用value，所以如果有value值，把值转换到default上
         item.default = item.value || item.default;
@@ -428,7 +425,7 @@ export class OriginForm extends BaseComponent {
         // 过滤掉一些字段后，剩余的就是组件本身需要的参数
         let itemProps = Utils.filter(
             item,
-            ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig']
+            ['label', 'default', 'value', 'help', 'extra', 'rules', 'join', 'regionConfig', 'valueType']
         );
         // 额外配置的禁止更改的字段，设置disabled
         if ((this.__props.forbidden || []).indexOf(itemProps.name) > -1) {
@@ -453,18 +450,18 @@ export class OriginForm extends BaseComponent {
                     itemLayout = {labelCol: {span: 0}, wrapperCol: {span: 24}};
                 } else if (item.type === 'forms') {
                     // forms组件的formData为一个数组
-                    item.rules['type'] = item.rules['type'] || 'array';
+                    itemRules['type'] = 'array';
                     item.default = item.default || item.formData || [{}];
                 }
                 // 三种组件的通用个逻辑
                 itemProps.wrappedComponentRef = inst => (this.formRef[key] = inst);
                 delete itemProps.ref;
                 otherOptions = {
-                    valuePropName: 'formData',
+                    valuePropName: 'formData'
                 };
                 item.default = item.default || item.formData || {};
                 delete itemProps.formData;
-                item.rules['type'] = item.rules['type'] || 'object';
+                itemRules['type'] = itemRules['type'] || 'object';
                 break;
             case 'input':
                 // 输入框增加回车事件监听
@@ -472,33 +469,33 @@ export class OriginForm extends BaseComponent {
                     itemProps.onPressEnter = this.handleSubmit.bind(this);
                 }
                 // 收集值的时机改为onBlur
-                otherOptions.trigger = 'onBlur';
-                otherOptions.validateTrigger = 'onBlur';
+                // otherOptions.trigger = 'onBlur';
+                // otherOptions.validateTrigger = 'onBlur';
                 break;
             case 'input-number':
                 // 数字输入框
-                item.rules['type'] = item.rules['type'] || 'number';
+                itemRules['type'] = 'number';
                 // 收集值的时机改为onBlur，防止强制转换导致的不可输入情况
-                otherOptions.trigger = 'onBlur';
+                // otherOptions.trigger = 'onBlur';
                 // 可减少一些输入过程中的报错信息
-                otherOptions.validateTrigger = 'onBlur';
+                // otherOptions.validateTrigger = 'onBlur';
                 break;
             case 'select':
             case 'radio':
                 if (item.type === 'select') {
                     if (item.mode && item.mode !== 'combobox') {
-                        item.rules['type'] = item.rules['type'] || 'array';
+                        itemRules['type'] = 'array';
                     }
                     // 当有required时，再加message，否则会产生默认type为string
-                    if (item.rules['required']) {
-                        item.rules['message'] = item.rules['message'] || `请选择${item.label || ''}`;
+                    if (itemRules['required']) {
+                        itemRules['requiredMsg'] = `请选择${item.label || ''}`;
                     }
                     // 默认选中第一个
                     if (!item.default && item.defaultFirst) {
                         item.default = Utils.getFirstOption(item.options);
                     }
                     // 限制使用clear按钮
-                    if (item.rules['required']) {
+                    if (itemRules['required']) {
                         itemProps.allowClear = false;
                     }
                 }
@@ -510,25 +507,10 @@ export class OriginForm extends BaseComponent {
                             return value;
                         }
                         // 如果没有设置类型，则根据default定义类型做转换
-                        let type = item.rules.type || (item.default !== undefined ? Utils.getType(item.default) : null);
+                        let type = itemRules.type || (item.default !== undefined ? Utils.getType(item.default) : null);
                         return type ? Utils.format(value, type) : value;
                     }
                 };
-                // update at 2018/10/10 需避免无故增加的验证
-                // 两种组件的通用逻辑
-                // 更改获onchange时form获取组件值的逻辑，把数据格式化为需要的格式
-                // otherOptions = {
-                //     getValueFromEvent(e, value) {
-                //         return (item.rules.type && value !== '' && value !== undefined) ? Utils.format(value) : value;
-                //     }
-                // };
-                // 如果没有设置类型，则根据default定义类型
-                // if (!item.rules['type'] && item.default !== null) {
-                //     let type = Utils.getType(item.default);
-                //     if (['number', 'string', 'boolean', 'array'].indexOf(type) > -1) {
-                //         item.rules['type'] = type;
-                //     }
-                // }
                 break;
             case 'checkbox':
             case 'switch':
@@ -536,11 +518,11 @@ export class OriginForm extends BaseComponent {
                 otherOptions = {
                     valuePropName: 'checked'
                 };
-                item.rules['type'] = item.rules['type'] || 'boolean';
+                itemRules['type'] = 'boolean';
                 break;
             case 'checkbox-group':
                 // 复选框组
-                item.rules['type'] = item.rules['type'] || 'array';
+                itemRules['type'] = 'array';
                 break;
             case 'ueditor':
                 // ueditor 输入框
@@ -553,10 +535,10 @@ export class OriginForm extends BaseComponent {
                 itemProps = Object.assign({
                     showSearch: true
                 }, itemProps);
-                item.rules['type'] = item.rules['type'] || 'array';
-                item.rules['message'] = item.rules['message'] || `请选择${item.label || ''}`;
+                itemRules['type'] = 'array';
+                itemRules['typeMsg'] = `请选择${item.label || ''}`;
                 // 限制使用clear按钮
-                if (item.rules['required']) {
+                if (itemRules['required']) {
                     itemProps.allowClear = false;
                 }
                 break;
@@ -577,7 +559,7 @@ export class OriginForm extends BaseComponent {
             }
             case 'range-picker':
                 // range-picker 组件的value为一个数组
-                item.rules['type'] = item.rules['type'] || 'array';
+                itemRules['type'] = 'array';
                 // current转换为当前时间
                 if (!Utils.empty(item.default) && Utils.typeof(item.default, 'array')) {
                     item.default = item.default.map(val => {
@@ -604,7 +586,7 @@ export class OriginForm extends BaseComponent {
                     item.default = Utils.moment({}).format(item.format || 'YYYY-MM-DD HH:mm:ss');
                 }
                 // 限制使用clear按钮
-                if (item.rules['required']) {
+                if (itemRules['required']) {
                     itemProps.allowClear = false;
                 }
                 break;
@@ -622,21 +604,52 @@ export class OriginForm extends BaseComponent {
                 break;
         }
         // 通用的默认错误提示信息
-        if (item.rules['required']) {
-            item.rules['message'] = item.rules['message'] || `${item.label || ''}不能为空`;
+        if (itemRules['required']) {
+            itemRules['requiredMsg'] = itemRules['requiredMsg'] || `${item.label || ''}不能为空`;
         }
+        if (itemRules['type']) {
+            itemRules['typeMsg'] = itemRules['typeMsg'] || `${item.label || ''}数据格式有误`;
+            if (itemRules['type'] === 'array') {
+                itemRules['typeMsg'] += '，应为一个数组';
+            }
+            if (itemRules['type'] === 'number') {
+                itemRules['typeMsg'] += '，应为一个数字';
+            }
+        }
+        // 处理rules
+        let rules = item.rules;
+        if (Utils.typeof(rules, 'object')) {
+            rules = [rules];
+        }
+        let valueType = null;
+        rules = (rules || []).map(rule=>{
+            if (rule.type) {
+                valueType = rule.type;
+            }
+            return rule;
+        });
+        // required放在验证最前面
+        if (itemRules['required']) {
+            rules.unshift({required: true, message: itemRules['requiredMsg']});
+        }
+        // 只有当用户未指定type时，默认type验证才有效
+        if (!valueType && itemRules['type']) {
+            valueType = itemRules['type'];
+            rules.push({type: itemRules['type'], message: itemRules['typeMsg']});
+        }
+        // 对数据格式进行存储
+        valueType && (item.valueType = valueType);
+
         // 进行类型进行强制转换
         // 只有 trigger 为 onChange/onBlur 有效
-        let type = item.rules['type'];
         let trigger = (item.regionConfig && item.regionConfig.trigger) || otherOptions.trigger;
-        if (['number', 'string', 'boolean'].indexOf(type) > -1
-            && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1
-        ) {
-            otherOptions.getValueFromEvent = (e, value) => Utils.format(value, type);
+        if (valueType && ['number', 'string', 'boolean'].indexOf(valueType) > -1
+            && ['onChange', 'onBlur', undefined].indexOf(trigger) > -1) {
+            otherOptions.getValueFromEvent = (e, value) => Utils.format(value, valueType);
         }
         // 保存默认值，以form渲染完成后执行initValues
         if (item.default !== undefined) {
-            item.default = Utils.format(item.default, type);
+            item.default = Utils.format(item.default, valueType);
             // this.oriDefaultValues[item.name] = item.default;
             if (this.defaultValues[item.name] === undefined) {
                 this.defaultValues[item.name] = item.default;
@@ -656,10 +669,7 @@ export class OriginForm extends BaseComponent {
         return <Form.Item {...fieldProps} {...itemLayout}>
             {getFieldDecorator(key, Object.assign({
                 initialValue: item.default,
-                rules: !Utils.empty(item.rules) ? [item.rules] : undefined,
-                // 更改收集数据/验证触发事件为失去焦点时
-                // onBlur在radio，datepicker中不好用
-                // trigger: 'onBlur',
+                rules: rules
             }, otherOptions, item.regionConfig))(
                 // 作为子组件解析
                 this.__analysis(itemProps)

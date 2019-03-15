@@ -12,7 +12,7 @@ const ajaxQueue = {};
 const errorMsg = {
     top: 24,
     message: '请求出错',
-    description: '请求数据时出错，请稍后重试。',
+    description: '获取数据时出现错误，请稍后重试。',
     duration: 3.5
 };
 
@@ -28,7 +28,7 @@ function getErrorMsg(error) {
                 message = message.join('; ');
             }
         } else {
-            message = JSON.stringify(error);
+            message = error ? JSON.stringify(error) : '';
         }
     } catch (e) {
         Utils.defer(console.error, `Error: There is something wrong in function \`getErrorMsg\` of \`ajax\`: ${e}`);
@@ -36,12 +36,44 @@ function getErrorMsg(error) {
     return message;
 }
 
+function showErrorMsg(error) {
+    UF.Modal.create({
+        title: [
+            {type: 'icon', mode: 'frown-o'},
+            ' 错误详情'
+        ],
+        maskClosable: true,
+        footer: null,
+        content: JSON.stringify(error)
+        // content: {
+        //     type: 'markdown',
+        //     docs: '```' + JSON.stringify(error) + '```'
+        // }
+    });
+}
+
 // 请求出错的提示信息函数
 export function errorMessage(error) {
     let message = getErrorMsg(error);
-    UF.notification.error(Object.assign({}, errorMsg, !message ? null : {
-        description: message
-    }));
+    // 非200的错误信息处理
+    if (error.status && error.status !== 200) {
+        UF.notification.error(Object.assign({}, errorMsg, {
+            description: [
+                '服务器内部出错啦，',
+                {
+                    type: 'a',
+                    content: '查看详情',
+                    onClick() {
+                        showErrorMsg(error);
+                    }
+                }
+            ]
+        }));
+    } else {
+        UF.notification.error(Object.assign({}, errorMsg, !message ? null : {
+            description: message
+        }));
+    }
     return false;
 }
 

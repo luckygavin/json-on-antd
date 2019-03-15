@@ -26,7 +26,7 @@ export default class Dashboard extends NewModal {
     render() {
         // 获取排序后的结果
         let children = this.getChildrenRank();
-        let body = <div {...this.__getCommonProps()}>
+        let getBody = handleStyle => <div {...(handleStyle ? this.__getCommonProps() : {})}>
             {children[0]}
             {children[1]}
             {children[2]}
@@ -37,7 +37,7 @@ export default class Dashboard extends NewModal {
         return !this.__props.visible
             ? null
             : (!this.__props.title && !this.__props.closable)
-                ? body
+                ? getBody(true)
                 : <Collapse activeKey={'active'} bordered={!!this.__props.bordered}
                     {...this.__getCommonProps({className: 'uf-dashboard'})}>
                     <Collapse.Panel key="active" header={
@@ -48,7 +48,7 @@ export default class Dashboard extends NewModal {
                                 )}
                             </div>
                         }>
-                        {body}
+                        {getBody(false)}
                     </Collapse.Panel>
                 </Collapse>;
     }

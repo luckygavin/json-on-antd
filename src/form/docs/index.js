@@ -22,7 +22,7 @@ const Step1 = [{
         wrapperCol: 16
     },
     formData: {
-        address: 123
+        address: 12
     },
     onChange(params) {
         console.log(params);
@@ -212,10 +212,24 @@ const Step1 = [{
             },
             {
                 type: 'input',
-                label: '地址',
-                name: 'address',
-                rules: {required: true, message: '地址不能为空', type: 'number'},
-                default: ''
+                label: '数量',
+                name: 'number',
+                required: true,
+                rules: [
+                    {
+                        type: 'number',
+                        message: '请输入数字'
+                    },
+                    {
+                        validator(rule, value, callback) {
+                            console.log(value);
+                            if (value.length > 6) {
+                                callback("长度超过限制");
+                            }
+                            callback();
+                        }
+                    }
+                ]
             }
         ],
         [

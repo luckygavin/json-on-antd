@@ -101,9 +101,10 @@ export default class Crud extends BaseComponent {
                         // 处理复用相关参数
                         item.title = item.title || '高级查询：';
                         item.okText = item.okText || '查询';
+                        let hasSelfForm = !!item.form;
                         item = this.handleReuse(item, tempConf['add']);
                         // 移除必填限制以及校验规则
-                        if (item.form) {
+                        if (!hasSelfForm && item.form) {
                             item.form.items.forEach(v => {
                                 delete v.disabled;
                                 delete v.rules;

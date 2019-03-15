@@ -53,10 +53,10 @@
 	 */
 
 	// 样式入口
-	__webpack_require__(66);
+	__webpack_require__(67);
 
 	// UF 组件库构建入口
-	window['UF'] = __webpack_require__(70).default;
+	window['UF'] = __webpack_require__(71).default;
 
 /***/ }),
 /* 1 */,
@@ -124,16 +124,17 @@
 /* 63 */,
 /* 64 */,
 /* 65 */,
-/* 66 */
+/* 66 */,
+/* 67 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 67 */,
 /* 68 */,
 /* 69 */,
-/* 70 */
+/* 70 */,
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/**
@@ -146,21 +147,21 @@
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-	var _require = __webpack_require__(71),
+	var _require = __webpack_require__(72),
 	    version = _require.version;
 
 	module.exports = _extends({
 	  VERSION: version
-	}, __webpack_require__(72));
-
-/***/ }),
-/* 71 */
-/***/ (function(module, exports) {
-
-	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.0","stableVersion":"0.3.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
+	}, __webpack_require__(73));
 
 /***/ }),
 /* 72 */
+/***/ (function(module, exports) {
+
+	module.exports = {"name":"uf","versionList":["0.2","0.2.1","0.2.2","0.2.3","0.2.4","0.2.5","0.3.0"],"version":"0.4.0","fixedVersion":"0.4.0.3","stableVersion":"0.4.0","description":"new uf","author":"liuzechun","license":"ISC","repository":{"type":"git","url":"http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"},"main":"index.js","dependencies":{"antd":"^2.13.7","antd-mobile":"^2.2.8","immutable":"^3.8.1","moment":"^2.17.1","react":"^15.6.2","react-dom":"^15.6.2","react-router":"^3.0.0"},"devDependencies":{"autoprefixer":"^6.5.4","axios":"^0.18.0","babel-core":"^6.18.2","babel-loader":"^6.2.8","babel-plugin-import":"^1.4.0","babel-preset-es2015":"^6.18.0","babel-preset-react":"^6.16.0","babel-preset-stage-0":"^6.24.1","clipboard":"^2.0.4","css-loader":"^0.26.1","extract-text-webpack-plugin":"^1.0.1","history":"^4.4.1","html2canvas":"^0.5.0-beta4","json-loader":"^0.5.4","less":"^2.7.1","less-loader":"^2.2.3","marked":"^0.3.6","postcss-loader":"^1.2.1","sass-loader":"^4.0.2","style-loader":"^0.13.1","text-loader":"0.0.1","underscore":"^1.9.1","webpack":"^1.14.0"},"scripts":{"plugins":"webpack --config plugins/webpack.plugins.js --watch","build-watch":"webpack --config dist/config/webpack.build.js --watch","antd-watch":"webpack --config dist/config/webpack.antd.js --watch","build":"webpack --config dist/config/webpack.build.js","antd":"webpack --config dist/config/webpack.antd.js","dll":"webpack --config dist/config/webpack.dll.js","react":"webpack --config dist/config/webpack.react.js","all":"npm run dll & npm run antd & npm run build && npm run all-mobile","build-mobile-watch":"webpack --config mobile/build/webpack.build.js --watch","build-mobile":"webpack --config mobile/build/webpack.build.js","antd-mobile":"webpack --config mobile/build/webpack.antd.js","dll-mobile":"webpack --config mobile/build/webpack.dll.js","all-mobile":"npm run dll-mobile & npm run antd-mobile & npm run build-mobile","start":"webpack --watch"}}
+
+/***/ }),
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -170,51 +171,51 @@
 	});
 	exports.WhiteList = exports.Loader = exports.Factory = undefined;
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _lib = __webpack_require__(75);
+	var _lib = __webpack_require__(76);
 
 	var _lib2 = _interopRequireDefault(_lib);
 
-	var _env = __webpack_require__(153);
+	var _env = __webpack_require__(158);
 
 	var _env2 = _interopRequireDefault(_env);
 
-	var _moment = __webpack_require__(89);
+	var _moment = __webpack_require__(90);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	__webpack_require__(154);
+	__webpack_require__(159);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _cache = __webpack_require__(155);
+	var _cache = __webpack_require__(160);
 
 	var _cache2 = _interopRequireDefault(_cache);
 
-	var _factory = __webpack_require__(163);
+	var _factory = __webpack_require__(168);
 
 	var _factory2 = _interopRequireDefault(_factory);
 
-	var _loader = __webpack_require__(165);
+	var _loader = __webpack_require__(169);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(125);
+	var _whitelist = __webpack_require__(126);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _init = __webpack_require__(168);
+	var _init = __webpack_require__(172);
 
 	var _init2 = _interopRequireDefault(_init);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -609,19 +610,19 @@
 	exports.WhiteList = _whitelist2.default;
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.React;
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactDOM;
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -635,37 +636,37 @@
 
 	module.exports = Object.assign({
 	    '_env': 'uf-mobile'
-	}, __webpack_require__(76),
+	}, __webpack_require__(77),
 	// 路由组件
-	__webpack_require__(129),
+	__webpack_require__(130),
 	// IconPlus
 
 	// antd-mobile 组件统一封装
-	__webpack_require__(132),
+	__webpack_require__(133),
 
 	// 其他自己实现/封装的组件
 	{
-	    Iframe: __webpack_require__(146),
-	    Ueditor: __webpack_require__(148).Ueditor,
-	    UeditorParse: __webpack_require__(148).UeditorParse,
-	    Echarts: __webpack_require__(151),
+	    Iframe: __webpack_require__(149),
+	    Ueditor: __webpack_require__(151).Ueditor,
+	    UeditorParse: __webpack_require__(151).UeditorParse,
+	    Echarts: __webpack_require__(154),
 
-	    Table: __webpack_require__(171)
+	    Table: __webpack_require__(156)
 	});
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Dom: __webpack_require__(77).default,
-	    Html: __webpack_require__(128).default
+	    Dom: __webpack_require__(78).default,
+	    Html: __webpack_require__(129).default
 	};
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -680,11 +681,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -761,19 +762,19 @@
 	exports.default = Dom;
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    BaseComponent: __webpack_require__(79).default,
-	    BaseConf: __webpack_require__(79),
-	    ExtendComponent: __webpack_require__(127)
+	    BaseComponent: __webpack_require__(80).default,
+	    BaseConf: __webpack_require__(80),
+	    ExtendComponent: __webpack_require__(128)
 	};
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -789,19 +790,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(80);
+	var _antd = __webpack_require__(81);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _authority = __webpack_require__(124);
+	var _authority = __webpack_require__(125);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _whitelist = __webpack_require__(125);
+	var _whitelist = __webpack_require__(126);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -2244,7 +2245,8 @@
 	                onSuccess = _filtered$api.onSuccess,
 	                onError = _filtered$api.onError,
 	                showLoading = _filtered$api.showLoading,
-	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading']);
+	                singleUse = _filtered$api.singleUse,
+	                others = _objectWithoutProperties(_filtered$api, ['params', 'onSuccess', 'onError', 'showLoading', 'singleUse']);
 
 	            if (!others.url) {
 	                return;
@@ -2263,12 +2265,21 @@
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.success('执行成功' + (res.msg ? '：' + res.msg : _utils.Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'), 2);
 	                    }
+	                    // 当 singleUse === true 或者 singleUse === 'success'
+	                    // 将组件的api属性置为一次性，触发一次后会将当期组件置为 disabled 而不会二次触发，比如 button 按钮
+	                    if (singleUse) {
+	                        _this12.__setProps({ disabled: true });
+	                    }
 	                },
 	                error: function error(res) {
 	                    var result = onError && onError(res);
 	                    // onError有返回值，则执行默认提示
 	                    if (result === undefined || result === true) {
 	                        _this12.__message.error(res.msg ? res.msg : '执行失败!', 3);
+	                    }
+	                    // 仅当 singleUse === true时
+	                    if (singleUse === true) {
+	                        _this12.__setProps({ disabled: true });
 	                    }
 	                    return result || false;
 	                },
@@ -2348,7 +2359,7 @@
 	exports.default = BaseComponent;
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2361,13 +2372,13 @@
 	 */
 
 	module.exports = {
-	  message: __webpack_require__(81).default,
-	  notification: __webpack_require__(83).default,
-	  Spin: __webpack_require__(84).default
+	  message: __webpack_require__(82).default,
+	  notification: __webpack_require__(84).default,
+	  Spin: __webpack_require__(85).default
 	};
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2376,7 +2387,7 @@
 	    value: true
 	});
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	exports.default = {
 	    success: _antdMobile.Toast.success,
@@ -2393,13 +2404,13 @@
 	    */
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.AntdMobile;
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2408,16 +2419,26 @@
 	    value: true
 	});
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
+
+	var _utils = __webpack_require__(86);
+
+	/**
+	 * @file 假的 notification 组件
+	 *
+	 * Author: liuzechun (liuzechun@baidu.com)
+	 * Created: 2019-01-09 20:28:09
+	 */
 
 	function notificationHandler(type, config) {
-	    _antdMobile.Toast[type](config.description.length > 20 ? config.description.slice(0, 20) + '...' : config.description);
-	} /**
-	   * @file 假的 notification 组件
-	   *
-	   * Author: liuzechun (liuzechun@baidu.com)
-	   * Created: 2019-01-09 20:28:09
-	   */
+	    var description = config.description;
+	    if (_utils.Utils.typeof(config.description, 'array')) {
+	        description = config.description[0];
+	    }
+	    if (_utils.Utils.typeof(description, 'string')) {
+	        _antdMobile.Toast[type](description.length > 20 ? description.slice(0, 20) + '...' : description);
+	    }
+	}
 
 	exports.default = {
 	    success: notificationHandler.bind(null, 'info'),
@@ -2432,7 +2453,7 @@
 	};
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2445,13 +2466,13 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2494,18 +2515,18 @@
 	exports.default = Spin;
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Utils: __webpack_require__(86).default,
-	    Ajax: __webpack_require__(90).default
+	    Utils: __webpack_require__(87).default,
+	    Ajax: __webpack_require__(91).default
 	};
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2516,11 +2537,11 @@
 
 	var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var _underscore = __webpack_require__(87);
+	var _underscore = __webpack_require__(88);
 
 	var _underscore2 = _interopRequireDefault(_underscore);
 
-	var _moment2 = __webpack_require__(89);
+	var _moment2 = __webpack_require__(90);
 
 	var _moment3 = _interopRequireDefault(_moment2);
 
@@ -2641,14 +2662,16 @@
 	        return retValue;
 	    },
 
-	    // 数据格式转换
+	    // 尝试进行数据格式转换
+	    // 如果无法处理，则不进行处理
 	    format: function format(value, type) {
 	        if (value === undefined) {
 	            return undefined;
 	        }
 	        switch (type) {
 	            case 'number':
-	                value = +value || 0;
+	                // 如果转换数字失败，则返回原值
+	                value = isNaN(+value) || value === '' ? value : +value;
 	                break;
 	            case 'string':
 	                value = '' + value;
@@ -2657,7 +2680,7 @@
 	                value = value === 'false' || value === 'FALSE' ? false : !!value;
 	                break;
 	            case 'array':
-	                if (utils.typeof(value, 'undefined')) {
+	                if (utils.typeof(value, 'undefined') || value === '') {
 	                    value = [];
 	                }
 	                if (!utils.typeof(value, 'array')) {
@@ -3118,7 +3141,7 @@
 	        var forceUpdate = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
 	        // 如果path不是已#/开头，且不是/开头，则加上#/
-	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 ? '#/' + path : path : path;
+	        path = path.indexOf('#/') !== 0 ? path.indexOf('/') !== 0 && path.indexOf('http') ? '#/' + path : path : path;
 	        var nowPath = window.location.hash;
 	        if (path !== nowPath && path !== '' || forceUpdate) {
 	            // 之所以不用hashHistory.push()是因为会自动执行两次push
@@ -3226,7 +3249,9 @@
 
 
 	    // 把数组、对象转换成select等需要的options标准格式
-	    toOptions: function toOptions(data) {
+	    // level 为向下遍历的层级，默认最多遍历5层
+	    toOptions: function toOptions(data, level) {
+	        level = level || 5;
 	        var result = [];
 	        if (utils.typeof(data, 'array')) {
 	            // ['value', 'value2']
@@ -3243,7 +3268,7 @@
 	                // {id: 1, name: 'a'}
 	            } else {
 	                result = data.map(function (v) {
-	                    return v.key !== undefined && v.value !== undefined ? v.children ? { label: v.value, value: v.key, children: utils.toOptions(v.children) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children ? { label: v.name, value: v.id, children: utils.toOptions(v.children) } : { label: v.name, value: v.id } : v;
+	                    return v.key !== undefined && v.value !== undefined ? v.children && level - 1 > 0 ? { label: v.value, value: v.key, children: utils.toOptions(v.children, level - 1) } : { label: v.value, value: v.key } : v.id !== undefined && v.name !== undefined ? v.children && level - 1 > 0 ? { label: v.name, value: v.id, children: utils.toOptions(v.children, level - 1) } : { label: v.name, value: v.id } : v;
 	                });
 	            }
 	        } else if (utils.typeof(data, 'object')) {
@@ -3282,6 +3307,58 @@
 	        }
 	    },
 
+	    // 从 options 中获取到 value 对应的 label 值
+	    transFromOptions: function transFromOptions(value, options) {
+	        var result = void 0;
+	        // 当value为数组时，依次翻译每一个（适用于级联框）
+	        if (utils.typeof(value, 'array')) {
+	            result = [];
+	            var list = options;
+	            var _iteratorNormalCompletion8 = true;
+	            var _didIteratorError8 = false;
+	            var _iteratorError8 = undefined;
+
+	            try {
+	                for (var _iterator8 = value[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+	                    var v = _step8.value;
+
+	                    var label = '';
+	                    if (list !== undefined) {
+	                        for (var i in list) {
+	                            if (list[i].value === v || list[i].value === v + '') {
+	                                label = list[i].label;
+	                                list = list[i]['children'];
+	                                break;
+	                            }
+	                        }
+	                    }
+	                    result.push(label);
+	                }
+	            } catch (err) {
+	                _didIteratorError8 = true;
+	                _iteratorError8 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+	                        _iterator8.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError8) {
+	                        throw _iteratorError8;
+	                    }
+	                }
+	            }
+	        } else {
+	            for (var _i in options) {
+	                if (options[_i].value === value || options[_i].value === value + '') {
+	                    result = options[_i].label;
+	                    break;
+	                }
+	            }
+	        }
+	        return result;
+	    },
+
 	    // 把数据格式化成json展示
 	    prettyJson: function prettyJson(data, origin) {
 	        if (origin) {
@@ -3300,52 +3377,15 @@
 	        var tData = value;
 	        // 如果 strc 为空，则返回 value 本身
 	        if (strc) {
-	            var _iteratorNormalCompletion8 = true;
-	            var _didIteratorError8 = false;
-	            var _iteratorError8 = undefined;
-
-	            try {
-	                for (var _iterator8 = strc.split('.').reverse()[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	                    var v = _step8.value;
-
-	                    tData = _defineProperty({}, v, tData);
-	                }
-	            } catch (err) {
-	                _didIteratorError8 = true;
-	                _iteratorError8 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion8 && _iterator8.return) {
-	                        _iterator8.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError8) {
-	                        throw _iteratorError8;
-	                    }
-	                }
-	            }
-	        }
-	        return tData;
-	    },
-
-	    // 根据一个字符串，从一个深层的对象中取数据
-	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
-	    fromObject: function fromObject(strc, obj) {
-	        var target = obj;
-	        // 如果 strc 为空字符串，则返回 obj 本身
-	        if (strc) {
 	            var _iteratorNormalCompletion9 = true;
 	            var _didIteratorError9 = false;
 	            var _iteratorError9 = undefined;
 
 	            try {
-	                for (var _iterator9 = strc.split('.')[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+	                for (var _iterator9 = ('' + strc).split('.').reverse()[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
 	                    var v = _step9.value;
 
-	                    if (!target || !utils.typeof(target, 'object')) {
-	                        return undefined;
-	                    }
-	                    target = target[v];
+	                    tData = _defineProperty({}, v, tData);
 	                }
 	            } catch (err) {
 	                _didIteratorError9 = true;
@@ -3362,13 +3402,50 @@
 	                }
 	            }
 	        }
+	        return tData;
+	    },
+
+	    // 根据一个字符串，从一个深层的对象中取数据
+	    // 例如：根据 a.b.c 从对象 {a:{b:{c: 1}}} 中取出 1
+	    fromObject: function fromObject(strc, obj) {
+	        var target = obj;
+	        // 如果 strc 为空字符串，则返回 obj 本身
+	        if (strc) {
+	            var _iteratorNormalCompletion10 = true;
+	            var _didIteratorError10 = false;
+	            var _iteratorError10 = undefined;
+
+	            try {
+	                for (var _iterator10 = strc.split('.')[Symbol.iterator](), _step10; !(_iteratorNormalCompletion10 = (_step10 = _iterator10.next()).done); _iteratorNormalCompletion10 = true) {
+	                    var v = _step10.value;
+
+	                    if (!target || !utils.typeof(target, 'object')) {
+	                        return undefined;
+	                    }
+	                    target = target[v];
+	                }
+	            } catch (err) {
+	                _didIteratorError10 = true;
+	                _iteratorError10 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion10 && _iterator10.return) {
+	                        _iterator10.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError10) {
+	                        throw _iteratorError10;
+	                    }
+	                }
+	            }
+	        }
 	        return target;
 	    },
 
 	    // 根据一个字符串，把数据塞入一个深层的对象中
 	    toObject: function toObject(origin, strc, value) {
 	        var tData = utils.generateObject(strc, value);
-	        var level = strc.split('.').length;
+	        var level = ('' + strc).split('.').length;
 	        utils.merge(level, origin, tData);
 	    },
 
@@ -3581,7 +3658,7 @@
 	exports.default = utils;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {//     Underscore.js 1.9.1
@@ -5277,10 +5354,10 @@
 	  }
 	}());
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(88)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(89)(module)))
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports) {
 
 	module.exports = function(module) {
@@ -5296,13 +5373,13 @@
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment;
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5311,21 +5388,21 @@
 	    value: true
 	});
 
-	var _reqwest = __webpack_require__(91);
+	var _reqwest = __webpack_require__(92);
 
 	var _reqwest2 = _interopRequireDefault(_reqwest);
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _axios = __webpack_require__(93);
+	var _axios = __webpack_require__(94);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _ajaxPlugin = __webpack_require__(121);
+	var _ajaxPlugin = __webpack_require__(122);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5545,7 +5622,7 @@
 	 * **/
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -5569,7 +5646,7 @@
 	  } else {
 	    var XHR2
 	    try {
-	      XHR2 = __webpack_require__(92)
+	      XHR2 = __webpack_require__(93)
 	    } catch (ex) {
 	      throw new Error('Peer dependency `xhr2` required! Please npm install xhr2')
 	    }
@@ -6181,13 +6258,13 @@
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports) {
 
 	/* (ignored) */
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6206,32 +6283,32 @@
 	    });
 	};
 
-	var _axios = __webpack_require__(94);
+	var _axios = __webpack_require__(95);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(95);
+	module.exports = __webpack_require__(96);
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
-	var bind = __webpack_require__(97);
-	var Axios = __webpack_require__(99);
-	var defaults = __webpack_require__(100);
+	var utils = __webpack_require__(97);
+	var bind = __webpack_require__(98);
+	var Axios = __webpack_require__(100);
+	var defaults = __webpack_require__(101);
 
 	/**
 	 * Create an instance of Axios
@@ -6264,15 +6341,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(118);
-	axios.CancelToken = __webpack_require__(119);
-	axios.isCancel = __webpack_require__(115);
+	axios.Cancel = __webpack_require__(119);
+	axios.CancelToken = __webpack_require__(120);
+	axios.isCancel = __webpack_require__(116);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(120);
+	axios.spread = __webpack_require__(121);
 
 	module.exports = axios;
 
@@ -6281,13 +6358,13 @@
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(97);
-	var isBuffer = __webpack_require__(98);
+	var bind = __webpack_require__(98);
+	var isBuffer = __webpack_require__(99);
 
 	/*global toString:true*/
 
@@ -6590,7 +6667,7 @@
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -6607,7 +6684,7 @@
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports) {
 
 	/*!
@@ -6634,15 +6711,15 @@
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(100);
-	var utils = __webpack_require__(96);
-	var InterceptorManager = __webpack_require__(112);
-	var dispatchRequest = __webpack_require__(113);
+	var defaults = __webpack_require__(101);
+	var utils = __webpack_require__(97);
+	var InterceptorManager = __webpack_require__(113);
+	var dispatchRequest = __webpack_require__(114);
 
 	/**
 	 * Create a new instance of Axios
@@ -6719,13 +6796,13 @@
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(96);
-	var normalizeHeaderName = __webpack_require__(102);
+	var utils = __webpack_require__(97);
+	var normalizeHeaderName = __webpack_require__(103);
 
 	var DEFAULT_CONTENT_TYPE = {
 	  'Content-Type': 'application/x-www-form-urlencoded'
@@ -6741,10 +6818,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(103);
+	    adapter = __webpack_require__(104);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(103);
+	    adapter = __webpack_require__(104);
 	  }
 	  return adapter;
 	}
@@ -6819,10 +6896,10 @@
 
 	module.exports = defaults;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(101)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(102)))
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports) {
 
 	// shim for using process in browser
@@ -7012,12 +7089,12 @@
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -7030,18 +7107,18 @@
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(96);
-	var settle = __webpack_require__(104);
-	var buildURL = __webpack_require__(107);
-	var parseHeaders = __webpack_require__(108);
-	var isURLSameOrigin = __webpack_require__(109);
-	var createError = __webpack_require__(105);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(110);
+	var utils = __webpack_require__(97);
+	var settle = __webpack_require__(105);
+	var buildURL = __webpack_require__(108);
+	var parseHeaders = __webpack_require__(109);
+	var isURLSameOrigin = __webpack_require__(110);
+	var createError = __webpack_require__(106);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(111);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -7138,7 +7215,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(111);
+	      var cookies = __webpack_require__(112);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -7214,15 +7291,15 @@
 	  });
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(101)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(102)))
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(105);
+	var createError = __webpack_require__(106);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -7249,12 +7326,12 @@
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(106);
+	var enhanceError = __webpack_require__(107);
 
 	/**
 	 * Create an Error with the specified message, config, error code, request and response.
@@ -7273,7 +7350,7 @@
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7300,12 +7377,12 @@
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -7372,12 +7449,12 @@
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	// Headers whose duplicates are ignored by node
 	// c.f. https://nodejs.org/api/http.html#http_message_headers
@@ -7431,12 +7508,12 @@
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -7505,7 +7582,7 @@
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7547,12 +7624,12 @@
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -7606,12 +7683,12 @@
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -7664,17 +7741,17 @@
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
-	var transformData = __webpack_require__(114);
-	var isCancel = __webpack_require__(115);
-	var defaults = __webpack_require__(100);
-	var isAbsoluteURL = __webpack_require__(116);
-	var combineURLs = __webpack_require__(117);
+	var utils = __webpack_require__(97);
+	var transformData = __webpack_require__(115);
+	var isCancel = __webpack_require__(116);
+	var defaults = __webpack_require__(101);
+	var isAbsoluteURL = __webpack_require__(117);
+	var combineURLs = __webpack_require__(118);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -7756,12 +7833,12 @@
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(96);
+	var utils = __webpack_require__(97);
 
 	/**
 	 * Transform the data for a request or a response
@@ -7782,7 +7859,7 @@
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7793,7 +7870,7 @@
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7813,7 +7890,7 @@
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7833,7 +7910,7 @@
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7858,12 +7935,12 @@
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(118);
+	var Cancel = __webpack_require__(119);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -7921,7 +7998,7 @@
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -7954,7 +8031,7 @@
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7969,11 +8046,11 @@
 	exports.checkMock = checkMock;
 	exports.checkInterrupt = checkInterrupt;
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _src = __webpack_require__(72);
+	var _src = __webpack_require__(73);
 
 	var _src2 = _interopRequireDefault(_src);
 
@@ -7990,7 +8067,7 @@
 	var errorMsg = {
 	    top: 24,
 	    message: '请求出错',
-	    description: '请求数据时出错，请稍后重试。',
+	    description: '获取数据时出现错误，请稍后重试。',
 	    duration: 3.5
 	};
 
@@ -8006,7 +8083,7 @@
 	                message = message.join('; ');
 	            }
 	        } else {
-	            message = JSON.stringify(error);
+	            message = error ? JSON.stringify(error) : '';
 	        }
 	    } catch (e) {
 	        _utils2.default.defer(console.error, 'Error: There is something wrong in function `getErrorMsg` of `ajax`: ' + e);
@@ -8014,12 +8091,38 @@
 	    return message;
 	}
 
+	function showErrorMsg(error) {
+	    _src2.default.Modal.create({
+	        title: [{ type: 'icon', mode: 'frown-o' }, ' 错误详情'],
+	        maskClosable: true,
+	        footer: null,
+	        content: JSON.stringify(error)
+	        // content: {
+	        //     type: 'markdown',
+	        //     docs: '```' + JSON.stringify(error) + '```'
+	        // }
+	    });
+	}
+
 	// 请求出错的提示信息函数
 	function errorMessage(error) {
 	    var message = getErrorMsg(error);
-	    _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
-	        description: message
-	    }));
+	    // 非200的错误信息处理
+	    if (error.status && error.status !== 200) {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, {
+	            description: ['服务器内部出错啦，', {
+	                type: 'a',
+	                content: '查看详情',
+	                onClick: function onClick() {
+	                    showErrorMsg(error);
+	                }
+	            }]
+	        }));
+	    } else {
+	        _src2.default.notification.error(Object.assign({}, errorMsg, !message ? null : {
+	            description: message
+	        }));
+	    }
 	    return false;
 	}
 
@@ -8210,12 +8313,12 @@
 	}
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _BaseCache = __webpack_require__(123);
+	var _BaseCache = __webpack_require__(124);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
@@ -8354,7 +8457,7 @@
 	module.exports = ins;
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8371,7 +8474,7 @@
 	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
 
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
@@ -8426,7 +8529,7 @@
 	;
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8435,9 +8538,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	/**
 	 * @file 权限控制模块
@@ -8498,7 +8601,7 @@
 	exports.default = authority;
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8507,9 +8610,9 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _AnalysisList = __webpack_require__(126);
+	var _AnalysisList = __webpack_require__(127);
 
 	var _AnalysisList2 = _interopRequireDefault(_AnalysisList);
 
@@ -8611,7 +8714,7 @@
 	};
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -8661,7 +8764,7 @@
 	};
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8672,19 +8775,19 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _BaseComponent2 = __webpack_require__(79);
+	var _BaseComponent2 = __webpack_require__(80);
 
 	var _BaseComponent3 = _interopRequireDefault(_BaseComponent2);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8775,7 +8878,7 @@
 	exports.default = ExtendComponent;
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8788,11 +8891,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _Dom2 = __webpack_require__(77);
+	var _Dom2 = __webpack_require__(78);
 
 	var _Dom3 = _interopRequireDefault(_Dom2);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8838,12 +8941,12 @@
 	exports.default = Html;
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _Router = __webpack_require__(130);
+	var _Router = __webpack_require__(131);
 
 	var Router = _interopRequireWildcard(_Router);
 
@@ -8854,7 +8957,7 @@
 	// module.exports = require('./Router.js').default;
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8868,21 +8971,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRouter = __webpack_require__(131);
+	var _reactRouter = __webpack_require__(132);
 
 	var OriRouter = _interopRequireWildcard(_reactRouter);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _src = __webpack_require__(72);
+	var _src = __webpack_require__(73);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -9164,55 +9267,10 @@
 	}(BaseRouter);
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.ReactRouter;
-
-/***/ }),
-/* 132 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _dataentry = __webpack_require__(133);
-
-	var DataEntry = _interopRequireWildcard(_dataentry);
-
-	var _datadisplay = __webpack_require__(136);
-
-	var DataDisplay = _interopRequireWildcard(_datadisplay);
-
-	var _genaral = __webpack_require__(138);
-
-	var Genaral = _interopRequireWildcard(_genaral);
-
-	var _navigation = __webpack_require__(140);
-
-	var Navigation = _interopRequireWildcard(_navigation);
-
-	var _feedback = __webpack_require__(142);
-
-	var Feedback = _interopRequireWildcard(_feedback);
-
-	var _layout = __webpack_require__(144);
-
-	var Layout = _interopRequireWildcard(_layout);
-
-	var _message = __webpack_require__(164);
-
-	var Message = _interopRequireWildcard(_message);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Message, Layout);
-	// 直接复用PC端开发的message类组件，并通过compat对antd模块进行处理(改为Toast实现)，以达到message代码逻辑的复用
-	/**
-	 * @file antd组件统一封装，实现几个基础抽象类做继承
-	 *
-	 * Author: liuzechun (liuzechun@baidu.com)
-	 * Created: 2019-01-10 00:01:26
-	 */
 
 /***/ }),
 /* 133 */
@@ -9220,26 +9278,71 @@
 
 	'use strict';
 
+	var _dataentry = __webpack_require__(134);
+
+	var DataEntry = _interopRequireWildcard(_dataentry);
+
+	var _datadisplay = __webpack_require__(137);
+
+	var DataDisplay = _interopRequireWildcard(_datadisplay);
+
+	var _genaral = __webpack_require__(139);
+
+	var Genaral = _interopRequireWildcard(_genaral);
+
+	var _navigation = __webpack_require__(141);
+
+	var Navigation = _interopRequireWildcard(_navigation);
+
+	var _feedback = __webpack_require__(143);
+
+	var Feedback = _interopRequireWildcard(_feedback);
+
+	var _layout = __webpack_require__(145);
+
+	var Layout = _interopRequireWildcard(_layout);
+
+	var _message = __webpack_require__(147);
+
+	var Message = _interopRequireWildcard(_message);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	module.exports = Object.assign({}, DataEntry, DataDisplay, Genaral, Navigation, Feedback, Message, Layout); /**
+	                                                                                                             * @file antd组件统一封装，实现几个基础抽象类做继承
+	                                                                                                             *
+	                                                                                                             * Author: liuzechun (liuzechun@baidu.com)
+	                                                                                                             * Created: 2019-01-10 00:01:26
+	                                                                                                             */
+
+/***/ }),
+/* 134 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.SearchBar = exports.Stepper = exports.Switch = exports.RadioButtons = exports.RadioItem = exports.Radio = exports.ImagePicker = exports.Textarea = exports.Input = exports.SliderRange = exports.Slider = exports.DatePickerView = exports.DatePicker = exports.Calendar = exports.SelectView = exports.Select = exports.Checkbox = undefined;
+	exports.SearchBar = exports.Stepper = exports.Switch = exports.RadioButtons = exports.RadioItem = exports.Radio = exports.ImagePicker = exports.Textarea = exports.Input = exports.SliderRange = exports.Slider = exports.DatePickerView = exports.DatePicker = exports.Calendar = exports.SelectView = exports.Picker = exports.Select = exports.Checkbox = undefined;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _DataEntry18 = __webpack_require__(134);
+	var _DataEntry18 = __webpack_require__(135);
 
 	var _DataEntry19 = _interopRequireDefault(_DataEntry18);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -9287,22 +9390,66 @@
 
 	/************* Picker 选择器 ****************************************************************** */
 
-	// Select 选择器
+	// Select 选择器，单个选项
 
 
-	var Select = exports.Select = function (_DataEntry2) {
-	    _inherits(Select, _DataEntry2);
+	var Select = exports.Select = function (_OptionsDataEntry) {
+	    _inherits(Select, _OptionsDataEntry);
 
 	    function Select(props) {
 	        _classCallCheck(this, Select);
 
 	        var _this2 = _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).call(this, props));
 
+	        _this2.__controlled.event = 'onOk';
 	        _this2.__init();
 	        return _this2;
 	    }
 
 	    _createClass(Select, [{
+	        key: '_afterSetProps',
+	        value: function _afterSetProps(newProps) {
+	            _get(Select.prototype.__proto__ || Object.getPrototypeOf(Select.prototype), '_afterSetProps', this).call(this, newProps);
+	            if (newProps.options) {
+	                this._handleDefaultSelect();
+	            }
+	        }
+	    }, {
+	        key: 'eventHandler',
+	        value: function eventHandler(type, val) {
+	            this.__props[type] && this.__props[type](val && val[0]);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(Antd.Picker, _extends({}, _utils.Utils.filter(this.__props, ['options', 'value', 'onChange', 'onPickerChange', 'onOk']), {
+	                value: this.__props.value !== undefined ? [this.__props.value] : [],
+	                data: [this.__props.options],
+	                onChange: this.eventHandler.bind(this, 'onChange'),
+	                onPickerChange: this.eventHandler.bind(this, 'onPickerChange'),
+	                onOk: this.eventHandler.bind(this, 'onOk') }));
+	        }
+	    }]);
+
+	    return Select;
+	}(OptionsDataEntry);
+	// 多个选择，options为二维数组
+
+
+	var Picker = exports.Picker = function (_DataEntry2) {
+	    _inherits(Picker, _DataEntry2);
+
+	    function Picker(props) {
+	        _classCallCheck(this, Picker);
+
+	        var _this3 = _possibleConstructorReturn(this, (Picker.__proto__ || Object.getPrototypeOf(Picker)).call(this, props));
+
+	        _this3.__controlled.event = 'onOk';
+	        _this3.__init();
+	        return _this3;
+	    }
+
+	    _createClass(Picker, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(Antd.Picker, _extends({}, _utils.Utils.filter(this.__props, ['options']), {
@@ -9310,7 +9457,7 @@
 	        }
 	    }]);
 
-	    return Select;
+	    return Picker;
 	}(_DataEntry19.default);
 	// SelectView 选择器
 
@@ -9321,10 +9468,11 @@
 	    function SelectView(props) {
 	        _classCallCheck(this, SelectView);
 
-	        var _this3 = _possibleConstructorReturn(this, (SelectView.__proto__ || Object.getPrototypeOf(SelectView)).call(this, props));
+	        var _this4 = _possibleConstructorReturn(this, (SelectView.__proto__ || Object.getPrototypeOf(SelectView)).call(this, props));
 
-	        _this3.__init();
-	        return _this3;
+	        _this4.__controlled.event = 'onOk';
+	        _this4.__init();
+	        return _this4;
 	    }
 
 	    _createClass(SelectView, [{
@@ -9345,11 +9493,12 @@
 	    function Calendar(props) {
 	        _classCallCheck(this, Calendar);
 
-	        // this.__controlled.defaultVal = [];
-	        var _this4 = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
+	        var _this5 = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
 
-	        _this4.__init();
-	        return _this4;
+	        _this5.__controlled.event = 'onOk';
+	        // this.__controlled.defaultVal = [];
+	        _this5.__init();
+	        return _this5;
 	    }
 
 	    _createClass(Calendar, [{
@@ -9370,11 +9519,12 @@
 	    function DatePicker(props) {
 	        _classCallCheck(this, DatePicker);
 
-	        // this.__controlled.defaultVal = [];
-	        var _this5 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
+	        var _this6 = _possibleConstructorReturn(this, (DatePicker.__proto__ || Object.getPrototypeOf(DatePicker)).call(this, props));
 
-	        _this5.__init();
-	        return _this5;
+	        _this6.__controlled.event = 'onOk';
+	        // this.__controlled.defaultVal = [];
+	        _this6.__init();
+	        return _this6;
 	    }
 
 	    _createClass(DatePicker, [{
@@ -9395,11 +9545,12 @@
 	    function DatePickerView(props) {
 	        _classCallCheck(this, DatePickerView);
 
-	        // this.__controlled.defaultVal = [];
-	        var _this6 = _possibleConstructorReturn(this, (DatePickerView.__proto__ || Object.getPrototypeOf(DatePickerView)).call(this, props));
+	        var _this7 = _possibleConstructorReturn(this, (DatePickerView.__proto__ || Object.getPrototypeOf(DatePickerView)).call(this, props));
 
-	        _this6.__init();
-	        return _this6;
+	        _this7.__controlled.event = 'onOk';
+	        // this.__controlled.defaultVal = [];
+	        _this7.__init();
+	        return _this7;
 	    }
 
 	    _createClass(DatePickerView, [{
@@ -9420,10 +9571,10 @@
 	    function Slider(props) {
 	        _classCallCheck(this, Slider);
 
-	        var _this7 = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
+	        var _this8 = _possibleConstructorReturn(this, (Slider.__proto__ || Object.getPrototypeOf(Slider)).call(this, props));
 
-	        _this7.__init();
-	        return _this7;
+	        _this8.__init();
+	        return _this8;
 	    }
 
 	    _createClass(Slider, [{
@@ -9444,10 +9595,10 @@
 	    function SliderRange(props) {
 	        _classCallCheck(this, SliderRange);
 
-	        var _this8 = _possibleConstructorReturn(this, (SliderRange.__proto__ || Object.getPrototypeOf(SliderRange)).call(this, props));
+	        var _this9 = _possibleConstructorReturn(this, (SliderRange.__proto__ || Object.getPrototypeOf(SliderRange)).call(this, props));
 
-	        _this8.__init();
-	        return _this8;
+	        _this9.__init();
+	        return _this9;
 	    }
 
 	    _createClass(SliderRange, [{
@@ -9468,10 +9619,10 @@
 	    function Input(props) {
 	        _classCallCheck(this, Input);
 
-	        var _this9 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
+	        var _this10 = _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).call(this, props));
 
-	        _this9.__init();
-	        return _this9;
+	        _this10.__init();
+	        return _this10;
 	    }
 
 	    _createClass(Input, [{
@@ -9492,10 +9643,10 @@
 	    function Textarea(props) {
 	        _classCallCheck(this, Textarea);
 
-	        var _this10 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
+	        var _this11 = _possibleConstructorReturn(this, (Textarea.__proto__ || Object.getPrototypeOf(Textarea)).call(this, props));
 
-	        _this10.__init();
-	        return _this10;
+	        _this11.__init();
+	        return _this11;
 	    }
 
 	    _createClass(Textarea, [{
@@ -9516,10 +9667,10 @@
 	    function ImagePicker(props) {
 	        _classCallCheck(this, ImagePicker);
 
-	        var _this11 = _possibleConstructorReturn(this, (ImagePicker.__proto__ || Object.getPrototypeOf(ImagePicker)).call(this, props));
+	        var _this12 = _possibleConstructorReturn(this, (ImagePicker.__proto__ || Object.getPrototypeOf(ImagePicker)).call(this, props));
 
-	        _this11.__init();
-	        return _this11;
+	        _this12.__init();
+	        return _this12;
 	    }
 
 	    _createClass(ImagePicker, [{
@@ -9540,10 +9691,10 @@
 	    function Radio(props) {
 	        _classCallCheck(this, Radio);
 
-	        var _this12 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
+	        var _this13 = _possibleConstructorReturn(this, (Radio.__proto__ || Object.getPrototypeOf(Radio)).call(this, props));
 
-	        _this12.__init();
-	        return _this12;
+	        _this13.__init();
+	        return _this13;
 	    }
 
 	    _createClass(Radio, [{
@@ -9562,10 +9713,10 @@
 	    function RadioItem(props) {
 	        _classCallCheck(this, RadioItem);
 
-	        var _this13 = _possibleConstructorReturn(this, (RadioItem.__proto__ || Object.getPrototypeOf(RadioItem)).call(this, props));
+	        var _this14 = _possibleConstructorReturn(this, (RadioItem.__proto__ || Object.getPrototypeOf(RadioItem)).call(this, props));
 
-	        _this13.__init();
-	        return _this13;
+	        _this14.__init();
+	        return _this14;
 	    }
 
 	    _createClass(RadioItem, [{
@@ -9586,12 +9737,12 @@
 	    function RadioButtons(props) {
 	        _classCallCheck(this, RadioButtons);
 
-	        var _this14 = _possibleConstructorReturn(this, (RadioButtons.__proto__ || Object.getPrototypeOf(RadioButtons)).call(this, props));
+	        var _this15 = _possibleConstructorReturn(this, (RadioButtons.__proto__ || Object.getPrototypeOf(RadioButtons)).call(this, props));
 
-	        _this14.__controlled.defaultVal = props.options && props.options[0];
-	        _this14.__controlled.event = 'onValueChange';
-	        _this14.__init();
-	        return _this14;
+	        _this15.__controlled.defaultVal = props.options && props.options[0];
+	        _this15.__controlled.event = 'onValueChange';
+	        _this15.__init();
+	        return _this15;
 	    }
 	    // 计算原组件需要的index
 
@@ -9628,10 +9779,10 @@
 	    function Switch(props) {
 	        _classCallCheck(this, Switch);
 
-	        var _this15 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
+	        var _this16 = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this, props));
 
-	        _this15.__init();
-	        return _this15;
+	        _this16.__init();
+	        return _this16;
 	    }
 
 	    _createClass(Switch, [{
@@ -9652,10 +9803,10 @@
 	    function Stepper(props) {
 	        _classCallCheck(this, Stepper);
 
-	        var _this16 = _possibleConstructorReturn(this, (Stepper.__proto__ || Object.getPrototypeOf(Stepper)).call(this, props));
+	        var _this17 = _possibleConstructorReturn(this, (Stepper.__proto__ || Object.getPrototypeOf(Stepper)).call(this, props));
 
-	        _this16.__init();
-	        return _this16;
+	        _this17.__init();
+	        return _this17;
 	    }
 
 	    _createClass(Stepper, [{
@@ -9676,10 +9827,10 @@
 	    function SearchBar(props) {
 	        _classCallCheck(this, SearchBar);
 
-	        var _this17 = _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this, props));
+	        var _this18 = _possibleConstructorReturn(this, (SearchBar.__proto__ || Object.getPrototypeOf(SearchBar)).call(this, props));
 
-	        _this17.__init();
-	        return _this17;
+	        _this18.__init();
+	        return _this18;
 	    }
 
 	    _createClass(SearchBar, [{
@@ -9693,7 +9844,7 @@
 	}(_DataEntry19.default);
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -9706,17 +9857,17 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _moment = __webpack_require__(89);
+	var _moment = __webpack_require__(90);
 
 	var _moment2 = _interopRequireDefault(_moment);
 
@@ -9882,8 +10033,11 @@
 	    function OptionsDataEntry(props) {
 	        _classCallCheck(this, OptionsDataEntry);
 
+	        // level 指定options中children最多的层级为几层（更多层级会被过滤掉）
 	        var _this3 = _possibleConstructorReturn(this, (OptionsDataEntry.__proto__ || Object.getPrototypeOf(OptionsDataEntry)).call(this, props));
 
+	        _this3._filter.push('level');
+	        _this3.class.push('options-data-entry');
 	        _this3._openApi.push('getDisplayValue', 'getSelectedOption');
 	        return _this3;
 	    }
@@ -9894,11 +10048,24 @@
 	            _get(OptionsDataEntry.prototype.__proto__ || Object.getPrototypeOf(OptionsDataEntry.prototype), '_afterSetProps', this).call(this);
 	            // 把 options 格式化为统一固定格式
 	            if (nextProps.options) {
-	                this.__props.options = _utils.Utils.toOptions(this.__props.options);
+	                this.__props.options = _utils.Utils.toOptions(this.__props.options, this.__filtered.level);
 	            }
 	            if (!this.__props.options) {
 	                this.__props.options = [];
 	            }
+	            // if (this.__props.notFoundContent !== null && this.__props.options.length === 0) {
+	            //     this.__props.options = [{
+	            //         disabled: true,
+	            //         label: this.__props.notFoundContent || 'Not Found',
+	            //         value: ''
+	            //     }]
+	            // }
+	        }
+	    }, {
+	        key: '_updateValue',
+	        value: function _updateValue(val) {
+	            this.__props[this.__controlled.key] = val;
+	            this.__props.onChange && this.__props.onChange(val);
 	        }
 	        // 处理多选情况
 
@@ -9911,13 +10078,13 @@
 	                var all = this.__props.options.map(function (v) {
 	                    return v.value;
 	                });
-	                this.__props.onChange && this.__props.onChange(all);
+	                this._updateValue(all);
 	                return;
 	            }
 	            // 默认选中第一个的处理逻辑
 	            if (this.__props.defaultFirst && _utils.Utils.empty(this.__props.value)) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange([first]);
+	                this._updateValue([first]);
 	            }
 	            // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
 	            var matchVal = this.__props.options.filter(function (v) {
@@ -9928,7 +10095,7 @@
 	            if (matchVal.length === current.length) {
 	                return;
 	            }
-	            this.__props.onChange && this.__props.onChange(matchVal);
+	            this._updateValue(matchVal);
 	        }
 	        // 处理默认选中
 
@@ -9952,11 +10119,11 @@
 	            // 否则把值设置为第一个或者清空
 	            if (this.__props.defaultFirst) {
 	                var first = _utils.Utils.getFirstOption(this.__props.options);
-	                this.__props.onChange && this.__props.onChange(first);
+	                this._updateValue(first);
 	            } else if (allClear && this.__props.value !== undefined && !_utils.Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
 	                // 为实现刷新组件时，清空原数据
 	                // 同时会带来问题，不能为空的字段会导致出现提示（已解决）
-	                this.__props.onChange && this.__props.onChange(this.__controlled.defaultVal);
+	                this._updateValue(this.__controlled.defaultVal);
 	            }
 	        }
 
@@ -9966,15 +10133,10 @@
 	        key: 'getDisplayValue',
 	        value: function getDisplayValue() {
 	            var value = this.getValue();
-	            var result = value;
 	            var options = this.__props.options || [];
-	            for (var i in options) {
-	                if (options[i].value === value || options[i].value === value + '') {
-	                    result = options[i].label;
-	                    break;
-	                }
-	            }
-	            return result;
+	            var label = _utils.Utils.transFromOptions(value, options);
+	            // 如果能查到label，则返回label，否则返回value
+	            return label !== undefined ? label : value;
 	        }
 	        // 获取选中的option，针对select等类型的具备可选值的组件
 
@@ -10053,7 +10215,7 @@
 	}(DataEntry);
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10066,15 +10228,15 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10240,7 +10402,7 @@
 	exports.default = Antd;
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10256,21 +10418,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _DataDisplay13 = __webpack_require__(137);
+	var _DataDisplay13 = __webpack_require__(138);
 
 	var _DataDisplay14 = _interopRequireDefault(_DataDisplay13);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -10424,12 +10586,16 @@
 
 	            _get(List.prototype.__proto__ || Object.getPrototypeOf(List.prototype), '_afterInitProps', this).call(this);
 	            // 改造原组件的 renderHeader、renderFooter 接口
-	            this.__props.renderHeader = function () {
-	                return _this6.__analysis(_this6.__filtered.header);
-	            };
-	            this.__props.renderFooter = function () {
-	                return _this6.__analysis(_this6.__filtered.footer);
-	            };
+	            if (this.__filtered.header) {
+	                this.__props.renderHeader = function () {
+	                    return _this6.__analysis(_this6.__filtered.header);
+	                };
+	            }
+	            if (this.__filtered.footer) {
+	                this.__props.renderFooter = function () {
+	                    return _this6.__analysis(_this6.__filtered.footer);
+	                };
+	            }
 	        }
 	    }, {
 	        key: 'render',
@@ -10704,7 +10870,7 @@
 	}(_DataDisplay14.default);
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10713,15 +10879,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10755,7 +10921,7 @@
 	exports.default = DataDisplay;
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10769,17 +10935,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _Genaral6 = __webpack_require__(139);
+	var _Genaral6 = __webpack_require__(140);
 
 	var _Genaral7 = _interopRequireDefault(_Genaral6);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -10919,7 +11085,7 @@
 	}(_Genaral7.default);
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10928,15 +11094,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -10970,7 +11136,7 @@
 	exports.default = Genaral;
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -10982,15 +11148,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Navigation8 = __webpack_require__(141);
+	var _Navigation8 = __webpack_require__(142);
 
 	var _Navigation9 = _interopRequireDefault(_Navigation8);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -11180,7 +11346,7 @@
 	}(_Navigation9.default);
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11189,15 +11355,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11231,7 +11397,7 @@
 	exports.default = Navigation;
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11245,23 +11411,23 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Feedback5 = __webpack_require__(143);
+	var _Feedback5 = __webpack_require__(144);
 
 	var _Feedback6 = _interopRequireDefault(_Feedback5);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _src = __webpack_require__(72);
+	var _src = __webpack_require__(73);
 
 	var _src2 = _interopRequireDefault(_src);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -11418,7 +11584,7 @@
 	}(_Feedback6.default);
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11427,15 +11593,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11469,7 +11635,7 @@
 	exports.default = Feedback;
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11483,17 +11649,17 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Layout = __webpack_require__(145);
+	var _Layout = __webpack_require__(146);
 
 	var _Layout2 = _interopRequireDefault(_Layout);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _antdMobile = __webpack_require__(82);
+	var _antdMobile = __webpack_require__(83);
 
 	var Antd = _interopRequireWildcard(_antdMobile);
 
@@ -11643,7 +11809,7 @@
 	}(_Layout2.default);
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11652,15 +11818,15 @@
 	  value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactDom = __webpack_require__(74);
+	var _reactDom = __webpack_require__(75);
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Antd2 = __webpack_require__(135);
+	var _Antd2 = __webpack_require__(136);
 
 	var _Antd3 = _interopRequireDefault(_Antd2);
 
@@ -11694,15 +11860,206 @@
 	exports.default = Layout;
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(147).default;
+	var _message = __webpack_require__(148);
+
+	var Message = _interopRequireWildcard(_message);
+
+	var _antdMobile = __webpack_require__(83);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	/**
+	 * @file 移动端的message消息提醒组件
+	 *  直接复用PC端开发的message类组件，并通过mock/message.js中对antd模块进行处理(改为Toast实现)，以达到message代码逻辑的复用
+	 * Author: liuzechun (liuzechun@baidu.com)
+	 * Created: 2019-01-22 15:34:01
+	 */
+
+	var message = Message.message;
+
+	// 将Toast原生api暴露出来，并和message进行merge
+	Message.message = Object.assign({}, _antdMobile.Toast, message);
+
+	module.exports = Message;
 
 /***/ }),
-/* 147 */
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.notification = exports.message = undefined;
+
+	var _utils = __webpack_require__(86);
+
+	var _src = __webpack_require__(73);
+
+	var _src2 = _interopRequireDefault(_src);
+
+	var _whitelist = __webpack_require__(126);
+
+	var _whitelist2 = _interopRequireDefault(_whitelist);
+
+	var _instance = __webpack_require__(123);
+
+	var _antd = __webpack_require__(81);
+
+	var Antd = _interopRequireWildcard(_antd);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/************* message 提示 ************************************************************************** */
+
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentMessageHandle = {}; /**
+	                                * @file Layout 类组件
+	                                * @author liuzechun
+	                                */
+
+	var messageAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function messageHandler(type, insName, config, duration, onClose) {
+	    var _Antd$message;
+
+	    // key 相同的提示信息只展示一个
+	    var key = _utils.Utils.hash({ type: type, config: config });
+	    if (messageAutoMerge && currentMessageHandle[key]) {
+	        // 先创建，再销毁
+	        _utils.Utils.defer(currentMessageHandle[key]);
+	    }
+	    // 重写onClose函数
+	    var closeHandler = function closeHandler() {
+	        delete currentMessageHandle[key];
+	        onClose && onClose.apply(undefined, arguments);
+	    };
+	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
+	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
+	    }
+	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
+
+	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
+	        params[_key - 5] = arguments[_key];
+	    }
+
+	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, closeHandler].concat(params));
+	    currentMessageHandle[key] = distroy;
+	    return distroy;
+	}
+	// 拦截 message.config ，加入自定义参数处理
+	function messageConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        messageAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var message = exports.message = Object.assign({}, Antd.message, {
+	    success: messageHandler.bind(null, 'success'),
+	    error: messageHandler.bind(null, 'error'),
+	    info: messageHandler.bind(null, 'info'),
+	    warning: messageHandler.bind(null, 'warning'),
+	    warn: messageHandler.bind(null, 'warn'),
+	    loading: messageHandler.bind(null, 'loading'),
+	    config: messageConfHandler.bind(null)
+	});
+	// 用于生成已绑定实例的组件
+	function factory(comp) {
+	    return function (insName) {
+	        return _utils.Utils.each(comp, function (item) {
+	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, insName) : item;
+	        });
+	    };
+	}
+	message.init = factory(message);
+
+	/************* notification 提示 ************************************************************************** */
+	// 保存当前未销毁的提示信息的销毁函数
+	var currentNotificationHandle = {};
+	var notificationAutoMerge = true;
+	// 统一处理config（某些属性需要二次解析）
+	function notificationHandler(type, insName, config) {
+	    if (notificationAutoMerge) {
+	        // key 相同的提示信息只展示一个
+	        if (config.key) {
+	            Antd.notification.close(config.key);
+	        } else {
+	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
+	            var hashKey = _utils.Utils.hash({ type: type, config: config });
+	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
+	            var key = _utils.Utils.uniqueId();
+	            currentNotificationHandle[hashKey] = key;
+	            config.key = key;
+	        }
+	    }
+	    var list = _whitelist2.default.get(config, 'notification');
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
+
+	    try {
+	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	            var v = _step.value;
+
+	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
+	        }
+	    } catch (err) {
+	        _didIteratorError = true;
+	        _iteratorError = err;
+	    } finally {
+	        try {
+	            if (!_iteratorNormalCompletion && _iterator.return) {
+	                _iterator.return();
+	            }
+	        } finally {
+	            if (_didIteratorError) {
+	                throw _iteratorError;
+	            }
+	        }
+	    }
+
+	    return Antd.notification[type](config);
+	}
+	// 拦截 notification.config ，加入自定义参数处理
+	function notificationConfHandler(insName, conf) {
+	    if (conf.autoMerge !== undefined) {
+	        notificationAutoMerge = conf.autoMerge;
+	    }
+	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
+	}
+
+	var notification = exports.notification = Object.assign({}, Antd.notification, {
+	    success: notificationHandler.bind(null, 'success'),
+	    error: notificationHandler.bind(null, 'error'),
+	    info: notificationHandler.bind(null, 'info'),
+	    warning: notificationHandler.bind(null, 'warning'),
+	    warn: notificationHandler.bind(null, 'warn'),
+	    open: notificationHandler.bind(null, 'open'),
+	    config: notificationConfHandler.bind(null)
+	});
+
+	// 用于生成已绑定实例的组件
+	notification.init = factory(notification);
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	module.exports = __webpack_require__(150).default;
+
+/***/ }),
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11715,15 +12072,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _antd = __webpack_require__(80);
+	var _antd = __webpack_require__(81);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11861,18 +12218,18 @@
 	exports.default = Iframe;
 
 /***/ }),
-/* 148 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	module.exports = {
-	    Ueditor: __webpack_require__(149).default,
-	    UeditorParse: __webpack_require__(150).default
+	    Ueditor: __webpack_require__(152).default,
+	    UeditorParse: __webpack_require__(153).default
 	};
 
 /***/ }),
-/* 149 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -11883,13 +12240,13 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12037,7 +12394,7 @@
 	exports.default = Ueditor;
 
 /***/ }),
-/* 150 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12050,7 +12407,7 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _dom = __webpack_require__(76);
+	var _dom = __webpack_require__(77);
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -12116,7 +12473,7 @@
 	exports.default = UeditorParse;
 
 /***/ }),
-/* 151 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12125,10 +12482,10 @@
 	 * Echarts 入口
 	 */
 
-	module.exports = __webpack_require__(152).default;
+	module.exports = __webpack_require__(155).default;
 
 /***/ }),
-/* 152 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12141,13 +12498,13 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12196,7 +12553,7 @@
 	                this.__setProps(this.chart.getOption());
 	            } else {
 	                // 如果set时还没有创建chart，则先将内容缓存起来，等chart创建后再进行set处理
-	                this.chartOptionsQueue.push(nextProps);
+	                this.chartOptionsQueue.push(this.__filterProps(nextProps));
 	                this.startTry();
 	            }
 	        }
@@ -12300,27 +12657,17 @@
 	    }, {
 	        key: '_agencyFunction',
 	        value: function _agencyFunction(origin) {
-	            var _this4 = this;
-
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
 	            var _iteratorError = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var i = _step.value;
 
-	                    if (_utils.Utils.typeof(origin[i], 'function')) {
-	                        _this4._inject(_this4, i, function () {
-	                            var _chart;
-
-	                            return (_chart = _this4.chart)[i].apply(_chart, arguments);
-	                        });
+	                    if (_utils.Utils.typeof(origin[i], 'function') && !this[i]) {
+	                        this[i] = this.chart[i];
 	                    }
-	                };
-
-	                for (var _iterator = Object.keys(origin)[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    _loop();
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -12347,7 +12694,9 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return _react2.default.createElement('div', { id: this.chartId, className: this.props.className, style: this.props.style });
+	            var className = 'uf-echarts';
+	            className += this.props.className ? ' ' + this.props.className : '';
+	            return _react2.default.createElement('div', { id: this.chartId, className: className, style: this.props.style });
 	        }
 	    }]);
 
@@ -12357,7 +12706,188 @@
 	exports.default = Echarts;
 
 /***/ }),
-/* 153 */
+/* 156 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	/**
+	 * @file Table 组件入口
+	 *
+	 * Author: liuzechun (liuzechun@baidu.com)
+	 * Created: 2019-01-20 17:23:00
+	 */
+
+	module.exports = __webpack_require__(157).default;
+
+/***/ }),
+/* 157 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(74);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _base = __webpack_require__(79);
+
+	var _utils = __webpack_require__(86);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Table 组件封装
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: liuzechun (liuzechun@baidu.com)
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created: 2019-01-20 17:23:12
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+	// import RcTable from 'rc-table';
+
+
+	var Table = function (_BaseComponent) {
+	    _inherits(Table, _BaseComponent);
+
+	    function Table(props) {
+	        _classCallCheck(this, Table);
+
+	        var _this = _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).call(this, props));
+
+	        _this.__init();
+	        return _this;
+	    }
+
+	    _createClass(Table, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                this.__getCommonProps({ className: 'uf-mobile-table' }),
+	                _react2.default.createElement(
+	                    'table',
+	                    null,
+	                    _react2.default.createElement(TableHeader, { columns: this.__props.columns }),
+	                    _react2.default.createElement(TableBody, { columns: this.__props.columns,
+	                        data: this.__props.data,
+	                        rowKey: this.__props.rowKey })
+	                )
+	            );
+	        }
+	        // render() {
+	        //     return <RcTable {...this.__props}></RcTable>;
+	        // }
+
+	    }]);
+
+	    return Table;
+	}(_base.BaseComponent);
+
+	exports.default = Table;
+
+	var TableHeader = function (_React$Component) {
+	    _inherits(TableHeader, _React$Component);
+
+	    function TableHeader() {
+	        _classCallCheck(this, TableHeader);
+
+	        return _possibleConstructorReturn(this, (TableHeader.__proto__ || Object.getPrototypeOf(TableHeader)).apply(this, arguments));
+	    }
+
+	    _createClass(TableHeader, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'thead',
+	                null,
+	                _react2.default.createElement(
+	                    'tr',
+	                    null,
+	                    (this.props.columns || []).map(function (column) {
+	                        return _react2.default.createElement(
+	                            'th',
+	                            { key: column.dataIndex },
+	                            column.title
+	                        );
+	                    })
+	                )
+	            );
+	        }
+	    }]);
+
+	    return TableHeader;
+	}(_react2.default.Component);
+
+	var TableBody = function (_React$Component2) {
+	    _inherits(TableBody, _React$Component2);
+
+	    function TableBody() {
+	        _classCallCheck(this, TableBody);
+
+	        return _possibleConstructorReturn(this, (TableBody.__proto__ || Object.getPrototypeOf(TableBody)).apply(this, arguments));
+	    }
+
+	    _createClass(TableBody, [{
+	        key: 'getRowKey',
+	        value: function getRowKey(row) {
+	            if (_utils.Utils.typeof(this.props.rowKey, 'function')) {
+	                return this.props.rowKey(row);
+	            } else if (_utils.Utils.typeof(this.props.rowKey, 'string')) {
+	                return row[this.props.rowKey];
+	            } else {
+	                return _utils.Utils.hash(row);
+	            }
+	        }
+	    }, {
+	        key: 'getTdContent',
+	        value: function getTdContent(column, row) {
+	            var value = row[column.dataIndex];
+	            var result = value;
+	            if (column.render) {
+	                result = column.render(value, row);
+	            }
+	            return result;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this4 = this;
+
+	            return _react2.default.createElement(
+	                'tbody',
+	                null,
+	                (this.props.data || []).map(function (row) {
+	                    return _react2.default.createElement(
+	                        'tr',
+	                        { key: _this4.getRowKey(row) },
+	                        (_this4.props.columns || []).map(function (column) {
+	                            return _react2.default.createElement(
+	                                'td',
+	                                { key: column.dataIndex },
+	                                _this4.getTdContent(column, row)
+	                            );
+	                        })
+	                    );
+	                })
+	            );
+	        }
+	    }]);
+
+	    return TableBody;
+	}(_react2.default.Component);
+
+/***/ }),
+/* 158 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12380,34 +12910,34 @@
 	};
 
 /***/ }),
-/* 154 */
+/* 159 */
 /***/ (function(module, exports) {
 
 	module.exports = window.DLL.moment_zh_cn;
 
 /***/ }),
-/* 155 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _config = __webpack_require__(156);
+	var _config = __webpack_require__(161);
 
 	var _config2 = _interopRequireDefault(_config);
 
-	var _components = __webpack_require__(160);
+	var _components = __webpack_require__(165);
 
 	var _components2 = _interopRequireDefault(_components);
 
-	var _model = __webpack_require__(161);
+	var _model = __webpack_require__(166);
 
 	var _model2 = _interopRequireDefault(_model);
 
-	var _ajax = __webpack_require__(162);
+	var _ajax = __webpack_require__(167);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12434,7 +12964,7 @@
 	};
 
 /***/ }),
-/* 156 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12447,19 +12977,19 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(123);
+	var _BaseCache2 = __webpack_require__(124);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _default = __webpack_require__(157);
+	var _default = __webpack_require__(162);
 
 	var _default2 = _interopRequireDefault(_default);
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12509,7 +13039,7 @@
 	});
 
 /***/ }),
-/* 157 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12518,15 +13048,15 @@
 	    value: true
 	});
 
-	var _env = __webpack_require__(153);
+	var _env = __webpack_require__(158);
 
 	var _env2 = _interopRequireDefault(_env);
 
-	var _baseComponents = __webpack_require__(158);
+	var _baseComponents = __webpack_require__(163);
 
 	var _baseComponents2 = _interopRequireDefault(_baseComponents);
 
-	var _components = __webpack_require__(159);
+	var _components = __webpack_require__(164);
 
 	var _components2 = _interopRequireDefault(_components);
 
@@ -12573,7 +13103,7 @@
 	};
 
 /***/ }),
-/* 158 */
+/* 163 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12626,6 +13156,11 @@
 	            }
 	        }
 	    },
+	    'options-data-entry': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
 
 	    /*************************************************************************************/
 	    /*********************** 其他PC、移动端共用组件  ****************************************/
@@ -12649,7 +13184,7 @@
 	};
 
 /***/ }),
-/* 159 */
+/* 164 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -12681,11 +13216,21 @@
 	            autoReload: true
 	        },
 	        data: []
+	    },
+	    'select': {
+	        source: {
+	            target: 'options'
+	        }
+	    },
+	    'picker': {
+	        source: {
+	            target: 'options'
+	        }
 	    }
 	};
 
 /***/ }),
-/* 160 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12698,11 +13243,11 @@
 
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-	var _BaseCache2 = __webpack_require__(123);
+	var _BaseCache2 = __webpack_require__(124);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12757,7 +13302,7 @@
 	});
 
 /***/ }),
-/* 161 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12766,13 +13311,13 @@
 	  value: true
 	});
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _BaseCache = __webpack_require__(123);
+	var _BaseCache = __webpack_require__(124);
 
 	var _BaseCache2 = _interopRequireDefault(_BaseCache);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12787,7 +13332,7 @@
 	     */
 
 /***/ }),
-/* 162 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12798,15 +13343,15 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _BaseCache2 = __webpack_require__(123);
+	var _BaseCache2 = __webpack_require__(124);
 
 	var _BaseCache3 = _interopRequireDefault(_BaseCache2);
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12918,7 +13463,7 @@
 	});
 
 /***/ }),
-/* 163 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -12929,35 +13474,35 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _message = __webpack_require__(164);
+	var _message = __webpack_require__(148);
 
-	var _loader = __webpack_require__(165);
+	var _loader = __webpack_require__(169);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _adaptor = __webpack_require__(166);
+	var _adaptor = __webpack_require__(170);
 
 	var _adaptor2 = _interopRequireDefault(_adaptor);
 
-	var _authority = __webpack_require__(124);
+	var _authority = __webpack_require__(125);
 
 	var _authority2 = _interopRequireDefault(_authority);
 
-	var _validator = __webpack_require__(167);
+	var _validator = __webpack_require__(171);
 
 	var _validator2 = _interopRequireDefault(_validator);
 
-	var _whitelist = __webpack_require__(125);
+	var _whitelist = __webpack_require__(126);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13264,170 +13809,7 @@
 	exports.default = Factory;
 
 /***/ }),
-/* 164 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	exports.notification = exports.message = undefined;
-
-	var _utils = __webpack_require__(85);
-
-	var _src = __webpack_require__(72);
-
-	var _src2 = _interopRequireDefault(_src);
-
-	var _whitelist = __webpack_require__(125);
-
-	var _whitelist2 = _interopRequireDefault(_whitelist);
-
-	var _instance = __webpack_require__(122);
-
-	var _antd = __webpack_require__(80);
-
-	var Antd = _interopRequireWildcard(_antd);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/************* message 提示 ************************************************************************** */
-
-	// 保存当前未销毁的提示信息的销毁函数
-	var currentMessageHandle = {}; /**
-	                                * @file Layout 类组件
-	                                * @author liuzechun
-	                                */
-
-	var messageAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function messageHandler(type, insName, config, duration, onClose) {
-	    var _Antd$message;
-
-	    // key 相同的提示信息只展示一个
-	    var key = _utils.Utils.hash({ type: type, config: config });
-	    if (messageAutoMerge && currentMessageHandle[key]) {
-	        // 先创建，再销毁
-	        _utils.Utils.defer(currentMessageHandle[key]);
-	    }
-	    // 重写onClose函数
-	    var closeHandler = function closeHandler() {
-	        delete currentMessageHandle[key];
-	        onClose && onClose.apply(undefined, arguments);
-	    };
-	    if (_utils.Utils.typeof(config, ['object', 'array'])) {
-	        config = ((0, _instance.getInstance)(insName) || _src2.default).render(config);
-	    }
-	    // 保存销毁函数，当key相同时，先销毁旧的，重新创建新的
-
-	    for (var _len = arguments.length, params = Array(_len > 5 ? _len - 5 : 0), _key = 5; _key < _len; _key++) {
-	        params[_key - 5] = arguments[_key];
-	    }
-
-	    var distroy = (_Antd$message = Antd.message)[type].apply(_Antd$message, [config, duration, closeHandler].concat(params));
-	    currentMessageHandle[key] = distroy;
-	    return distroy;
-	}
-	// 拦截 message.config ，加入自定义参数处理
-	function messageConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        messageAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.message.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var message = exports.message = Object.assign({}, Antd.message, {
-	    success: messageHandler.bind(null, 'success'),
-	    error: messageHandler.bind(null, 'error'),
-	    info: messageHandler.bind(null, 'info'),
-	    warning: messageHandler.bind(null, 'warning'),
-	    warn: messageHandler.bind(null, 'warn'),
-	    loading: messageHandler.bind(null, 'loading'),
-	    config: messageConfHandler.bind(null)
-	});
-	// 用于生成已绑定实例的组件
-	function factory(comp) {
-	    return function (insName) {
-	        return _utils.Utils.each(comp, function (item) {
-	            return _utils.Utils.typeof(item, 'function') ? item.bind(null, insName) : item;
-	        });
-	    };
-	}
-	message.init = factory(message);
-
-	/************* notification 提示 ************************************************************************** */
-	// 保存当前未销毁的提示信息的销毁函数
-	var currentNotificationHandle = {};
-	var notificationAutoMerge = true;
-	// 统一处理config（某些属性需要二次解析）
-	function notificationHandler(type, insName, config) {
-	    if (notificationAutoMerge) {
-	        // key 相同的提示信息只展示一个
-	        if (config.key) {
-	            Antd.notification.close(config.key);
-	        } else {
-	            // 如果没有key，则生成一个唯一key。并根据配置生成一个hash值，保存生成的唯一key（用于销毁）
-	            var hashKey = _utils.Utils.hash({ type: type, config: config });
-	            _utils.Utils.defer(Antd.notification.close, currentNotificationHandle[hashKey]);
-	            var key = _utils.Utils.uniqueId();
-	            currentNotificationHandle[hashKey] = key;
-	            config.key = key;
-	        }
-	    }
-	    var list = _whitelist2.default.get(config, 'notification');
-	    var _iteratorNormalCompletion = true;
-	    var _didIteratorError = false;
-	    var _iteratorError = undefined;
-
-	    try {
-	        for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	            var v = _step.value;
-
-	            config[v] = ((0, _instance.getInstance)(insName) || _src2.default).render(config[v]);
-	        }
-	    } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	    } finally {
-	        try {
-	            if (!_iteratorNormalCompletion && _iterator.return) {
-	                _iterator.return();
-	            }
-	        } finally {
-	            if (_didIteratorError) {
-	                throw _iteratorError;
-	            }
-	        }
-	    }
-
-	    return Antd.notification[type](config);
-	}
-	// 拦截 notification.config ，加入自定义参数处理
-	function notificationConfHandler(insName, conf) {
-	    if (conf.autoMerge !== undefined) {
-	        notificationAutoMerge = conf.autoMerge;
-	    }
-	    return Antd.notification.config(_utils.Utils.filter(conf, ['autoMerge']));
-	}
-
-	var notification = exports.notification = Object.assign({}, Antd.notification, {
-	    success: notificationHandler.bind(null, 'success'),
-	    error: notificationHandler.bind(null, 'error'),
-	    info: notificationHandler.bind(null, 'info'),
-	    warning: notificationHandler.bind(null, 'warning'),
-	    warn: notificationHandler.bind(null, 'warn'),
-	    open: notificationHandler.bind(null, 'open'),
-	    config: notificationConfHandler.bind(null)
-	});
-
-	// 用于生成已绑定实例的组件
-	notification.init = factory(notification);
-
-/***/ }),
-/* 165 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13436,21 +13818,21 @@
 	    value: true
 	});
 
-	var _react = __webpack_require__(73);
+	var _react = __webpack_require__(74);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lib = __webpack_require__(75);
+	var _lib = __webpack_require__(76);
 
 	var _lib2 = _interopRequireDefault(_lib);
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _dom = __webpack_require__(76);
+	var _dom = __webpack_require__(77);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13543,7 +13925,7 @@
 	};
 
 /***/ }),
-/* 166 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13560,19 +13942,19 @@
 	// import Model from './model.js';
 
 
-	var _base = __webpack_require__(78);
+	var _base = __webpack_require__(79);
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
-	var _Antd = __webpack_require__(135);
+	var _Antd = __webpack_require__(136);
 
 	var _Antd2 = _interopRequireDefault(_Antd);
 
-	var _loader = __webpack_require__(165);
+	var _loader = __webpack_require__(169);
 
 	var _loader2 = _interopRequireDefault(_loader);
 
-	var _whitelist = __webpack_require__(125);
+	var _whitelist = __webpack_require__(126);
 
 	var _whitelist2 = _interopRequireDefault(_whitelist);
 
@@ -13783,7 +14165,7 @@
 	};
 
 /***/ }),
-/* 167 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -13792,7 +14174,7 @@
 	    value: true
 	});
 
-	var _utils = __webpack_require__(85);
+	var _utils = __webpack_require__(86);
 
 	exports.default = {
 	    // 检查对象上的某个(些)属性是否符合指定类型
@@ -13850,24 +14232,24 @@
 	    */
 
 /***/ }),
-/* 168 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ajax = __webpack_require__(90);
+	var _ajax = __webpack_require__(91);
 
 	var _ajax2 = _interopRequireDefault(_ajax);
 
-	var _requirejs = __webpack_require__(169);
+	var _requirejs = __webpack_require__(173);
 
 	var _requirejs2 = _interopRequireDefault(_requirejs);
 
-	var _precondition = __webpack_require__(170);
+	var _precondition = __webpack_require__(174);
 
 	var _precondition2 = _interopRequireDefault(_precondition);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13892,7 +14274,7 @@
 	};
 
 /***/ }),
-/* 169 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var require;var require;'use strict';
@@ -13913,11 +14295,11 @@
 	/*jslint regexp: true, nomen: true, sloppy: true */
 	/*global window, navigator, document, importScripts, setTimeout, opera */
 
-	var _utils = __webpack_require__(86);
+	var _utils = __webpack_require__(87);
 
 	var _utils2 = _interopRequireDefault(_utils);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16122,7 +16504,7 @@
 	window['_define'] = define;
 
 /***/ }),
-/* 170 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16131,9 +16513,9 @@
 	    value: true
 	});
 
-	var _antd = __webpack_require__(80);
+	var _antd = __webpack_require__(81);
 
-	var _instance = __webpack_require__(122);
+	var _instance = __webpack_require__(123);
 
 	/**
 	 * @file 执行阻塞页面加载的函数（init之前执行的函数，多为调用api）
@@ -16201,187 +16583,6 @@
 	        }
 	    };
 	});
-
-/***/ }),
-/* 171 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	/**
-	 * @file Table 组件入口
-	 *
-	 * Author: liuzechun (liuzechun@baidu.com)
-	 * Created: 2019-01-20 17:23:00
-	 */
-
-	module.exports = __webpack_require__(172).default;
-
-/***/ }),
-/* 172 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(73);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _base = __webpack_require__(78);
-
-	var _utils = __webpack_require__(85);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @file Table 组件封装
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Author: liuzechun (liuzechun@baidu.com)
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created: 2019-01-20 17:23:12
-	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-	// import RcTable from 'rc-table';
-
-
-	var Table = function (_BaseComponent) {
-	    _inherits(Table, _BaseComponent);
-
-	    function Table(props) {
-	        _classCallCheck(this, Table);
-
-	        var _this = _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).call(this, props));
-
-	        _this.__init();
-	        return _this;
-	    }
-
-	    _createClass(Table, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                this.__getCommonProps({ className: 'uf-mobile-table' }),
-	                _react2.default.createElement(
-	                    'table',
-	                    null,
-	                    _react2.default.createElement(TableHeader, { columns: this.__props.columns }),
-	                    _react2.default.createElement(TableBody, { columns: this.__props.columns,
-	                        data: this.__props.data,
-	                        rowKey: this.__props.rowKey })
-	                )
-	            );
-	        }
-	        // render() {
-	        //     return <RcTable {...this.__props}></RcTable>;
-	        // }
-
-	    }]);
-
-	    return Table;
-	}(_base.BaseComponent);
-
-	exports.default = Table;
-
-	var TableHeader = function (_React$Component) {
-	    _inherits(TableHeader, _React$Component);
-
-	    function TableHeader() {
-	        _classCallCheck(this, TableHeader);
-
-	        return _possibleConstructorReturn(this, (TableHeader.__proto__ || Object.getPrototypeOf(TableHeader)).apply(this, arguments));
-	    }
-
-	    _createClass(TableHeader, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'thead',
-	                null,
-	                _react2.default.createElement(
-	                    'tr',
-	                    null,
-	                    (this.props.columns || []).map(function (column) {
-	                        return _react2.default.createElement(
-	                            'th',
-	                            { key: column.dataIndex },
-	                            column.title
-	                        );
-	                    })
-	                )
-	            );
-	        }
-	    }]);
-
-	    return TableHeader;
-	}(_react2.default.Component);
-
-	var TableBody = function (_React$Component2) {
-	    _inherits(TableBody, _React$Component2);
-
-	    function TableBody() {
-	        _classCallCheck(this, TableBody);
-
-	        return _possibleConstructorReturn(this, (TableBody.__proto__ || Object.getPrototypeOf(TableBody)).apply(this, arguments));
-	    }
-
-	    _createClass(TableBody, [{
-	        key: 'getRowKey',
-	        value: function getRowKey(row) {
-	            if (_utils.Utils.typeof(this.props.rowKey, 'function')) {
-	                return this.props.rowKey(row);
-	            } else if (_utils.Utils.typeof(this.props.rowKey, 'string')) {
-	                return row[this.props.rowKey];
-	            } else {
-	                return _utils.Utils.hash(row);
-	            }
-	        }
-	    }, {
-	        key: 'getTdContent',
-	        value: function getTdContent(column, row) {
-	            var value = row[column.dataIndex];
-	            var result = value;
-	            if (column.render) {
-	                result = column.render(value, row);
-	            }
-	            return result;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            var _this4 = this;
-
-	            return _react2.default.createElement(
-	                'tbody',
-	                null,
-	                (this.props.data || []).map(function (row) {
-	                    return _react2.default.createElement(
-	                        'tr',
-	                        { key: _this4.getRowKey(row) },
-	                        (_this4.props.columns || []).map(function (column) {
-	                            return _react2.default.createElement(
-	                                'td',
-	                                { key: column.dataIndex },
-	                                _this4.getTdContent(column, row)
-	                            );
-	                        })
-	                    );
-	                })
-	            );
-	        }
-	    }]);
-
-	    return TableBody;
-	}(_react2.default.Component);
 
 /***/ })
 /******/ ]);

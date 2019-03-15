@@ -25,10 +25,36 @@ export class Checkbox extends DataEntry {
 
 /************* Picker 选择器 ****************************************************************** */
 
-// Select 选择器
-export class Select extends DataEntry {
+// Select 选择器，单个选项
+export class Select extends OptionsDataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.event = 'onOk';
+        this.__init();
+    }
+    _afterSetProps(newProps) {
+        super._afterSetProps(newProps);
+        if (newProps.options) {
+            this._handleDefaultSelect();
+        }
+    }
+    eventHandler(type, val) {
+        this.__props[type] && this.__props[type](val && val[0]);
+    }
+    render() {
+        return <Antd.Picker {...Utils.filter(this.__props, ['options', 'value', 'onChange', 'onPickerChange', 'onOk'])}
+            value={this.__props.value !== undefined ? [this.__props.value] : []}
+            data={[this.__props.options]}
+            onChange={this.eventHandler.bind(this, 'onChange')}
+            onPickerChange={this.eventHandler.bind(this, 'onPickerChange')}
+            onOk={this.eventHandler.bind(this, 'onOk')}/>;
+    }
+}
+// 多个选择，options为二维数组
+export class Picker extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__controlled.event = 'onOk';
         this.__init();
     }
     render() {
@@ -40,6 +66,7 @@ export class Select extends DataEntry {
 export class SelectView extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.event = 'onOk';
         this.__init();
     }
     render() {
@@ -50,6 +77,7 @@ export class SelectView extends DataEntry {
 export class Calendar extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.event = 'onOk';
         // this.__controlled.defaultVal = [];
         this.__init();
     }
@@ -61,6 +89,7 @@ export class Calendar extends DataEntry {
 export class DatePicker extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.event = 'onOk';
         // this.__controlled.defaultVal = [];
         this.__init();
     }
@@ -72,6 +101,7 @@ export class DatePicker extends DataEntry {
 export class DatePickerView extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.event = 'onOk';
         // this.__controlled.defaultVal = [];
         this.__init();
     }

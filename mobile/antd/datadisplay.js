@@ -86,12 +86,16 @@ export class List extends DataDisplay {
     _afterInitProps() {
         super._afterInitProps();
         // 改造原组件的 renderHeader、renderFooter 接口
-        this.__props.renderHeader = ()=>{
-            return this.__analysis(this.__filtered.header);
-        };
-        this.__props.renderFooter = ()=>{
-            return this.__analysis(this.__filtered.footer);
-        };
+        if (this.__filtered.header) {
+            this.__props.renderHeader = ()=>{
+                return this.__analysis(this.__filtered.header);
+            };
+        }
+        if (this.__filtered.footer) {
+            this.__props.renderFooter = ()=>{
+                return this.__analysis(this.__filtered.footer);
+            };
+        }
     }
     render() {
         return <Antd.List {...this.__props}/>;

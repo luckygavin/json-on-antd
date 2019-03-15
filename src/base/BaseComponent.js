@@ -942,7 +942,7 @@ export default class BaseComponent extends Component {
 
     // 提交数据功能
     _apiHandler(oParams) {
-        let {params = oParams, onSuccess, onError, showLoading, ...others} = this.__filtered.api;
+        let {params = oParams, onSuccess, onError, showLoading, singleUse, ...others} = this.__filtered.api;
         if (!others.url) {
             return;
         }
@@ -964,12 +964,21 @@ export default class BaseComponent extends Component {
                             Utils.typeof(res.data, 'number') ? '，影响 ' + res.data + ' 条数据' : '!'
                         )), 2);
                 }
+                // 当 singleUse === true 或者 singleUse === 'success'
+                // 将组件的api属性置为一次性，触发一次后会将当期组件置为 disabled 而不会二次触发，比如 button 按钮
+                if (singleUse) {
+                    this.__setProps({disabled: true});
+                }
             },
             error: res => {
                 let result = onError && onError(res);
                 // onError有返回值，则执行默认提示
                 if (result === undefined || result === true) {
                     this.__message.error(res.msg ? res.msg : '执行失败!', 3);
+                }
+                // 仅当 singleUse === true时
+                if (singleUse === true) {
+                    this.__setProps({disabled: true});
                 }
                 return result || false;
             },

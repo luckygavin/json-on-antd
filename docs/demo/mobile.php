@@ -31,7 +31,7 @@ $root = '../../';
         <?php } else { ?>
             <link rel="stylesheet" type="text/css" href="<?php echo $root;?>v/<?php echo $_VERSION;?>/theme-mobile.css<?php echo $_FIXED;?>"/>
             <script src="<?php echo $root;?>v/<?php echo $_VERSION;?>/dll-mobile.min.js<?php echo $_FIXED;?>"></script>
-            <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/antd.min.js<?php echo $_FIXED;?>"></script>
+            <script src="<?php echo $root;?>v/<?php echo $_VERSION;?>/antd.min.js<?php echo $_FIXED;?>"></script>
             <script src="<?php echo $root;?>v/<?php echo $_VERSION;?>/antd-mobile.js<?php echo $_FIXED;?>"></script>
             <script src="<?php echo $root;?>v/<?php echo $_VERSION;?>/uf-mobile.js<?php echo $_FIXED;?>"></script>
         <?php }?>

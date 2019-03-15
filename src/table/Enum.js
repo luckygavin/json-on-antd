@@ -137,6 +137,18 @@ export default class Enum {
                 row[`${item.dataIndex}.fyi`] = display;
                 return orender ? orender(display, row, ...params) : display;
             };
+            item.exportRender = (v, row) => {
+                let display = this.data[item.dataIndex][v];
+                // 无法翻译是是否允许为空，默认无法翻译是展示空
+                if (display === undefined) {
+                    if (Utils.typeof(item.enum, 'object') && item.enum.allowEmpty === false) {
+                        display = v;
+                    } else {
+                        display = '';
+                    }
+                }
+                return display;
+            };
         }
         return item;
     }

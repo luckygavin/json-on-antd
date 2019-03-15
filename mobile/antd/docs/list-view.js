@@ -26,10 +26,10 @@ const demo1 = {
         source: '../php/download.php?sleep=0.2',
         // data: [],
         pageSize: 7,
-        onScroll: () => { console.log('scroll'); },
+        onScroll: () => {console.log('scroll');},
         scrollRenderAheadDistance: 500,
         endReachedThreshold: 1000,
-        onEndReached: () => { console.log('onEndReached'); },
+        onEndReached: () => {console.log('onEndReached');},
         useBodyScroll: true
     }
 };

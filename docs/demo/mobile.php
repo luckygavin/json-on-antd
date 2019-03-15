@@ -12,7 +12,15 @@ $root = '../../';
         <link rel="shortcut icon" href="<?php echo $root;?>public/img/favicon.ico"/>
         <style>
             #container {padding: 0px 2px;}
-            .flex-demo-block {padding: 20px 6px;margin: 5px;background: rgb(224, 224, 224);}
+            .flex-demo-block {
+                margin: 5px;
+                background-color: #ebebef;
+                color: #bbb;
+                text-align: center;
+                height: 30px;
+                line-height: 30px;
+                width: 100%;
+            }
         </style>
         <?php if (ENV == 'dev') { ?>
             <link rel="stylesheet" type="text/css" href="<?php echo $root;?>dist/<?php echo $_VERSION;?>/theme-mobile.css<?php echo $_FIXED;?>"/>

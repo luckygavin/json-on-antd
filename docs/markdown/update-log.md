@@ -15,6 +15,24 @@
 
 ### 0.4.0
 
+`2019-03-28`
+
+* 🐞 修复`Form`组件中异步下拉框数据返回后不会重新触发join的问题
+* 🐞 修复`UeditorParse`组件报错问题
+* 🎨 优化ajax的`requestMerge`功能，过滤掉自定义属性后，再进行比较
+
+`2019-03-26`
+* 🌟 增加`Card`组件新属性值:`size: 'compact'`，展示的是自定义的样式
+* 🎨 支持获取组件的`content`属性，并且当通过`source`属性获取获取数据并返回到content上时，支持返回组件配置并自动解析
+* 🌟 `Forms`组件新增属性：`showSerialNumber`/`serialNumberStart`，支持配置每行展示行号
+* 🌟 `RequireJs`增加配置属性`urlHandler`，支持用户自定义在拉取模块文件之前修改模块的url
+
+`2019-03-15`
+
+* 🐞 修复`Echarts`组件调用`setOption`函数时，第二个参数不生效问题
+* 🌟 `Table`组件增加属性`emptyFieldPlaceholder`，配置当数据为空时的默认展示信息
+* 🌟 `Table`组件增加属性`colomn.textType`的可选值`thousandseparator`，配置此字段数据展示位千位分隔的财务计数法
+
 `2019-03-05`
 
 * 🐞 修复`Form`组件中级联组件联动时设置默认值（formData中的值）不成功问题

@@ -84,7 +84,12 @@ export default class OriginTree extends BaseComponent {
         let objProps = this.props;
         // 过滤出变化的属性
         if (nextProps) {
-            objProps = Utils.getChange(nextProps, objProps);
+            // 通过set调用时，直接放行
+            if (nextProps._selfCalling) {
+                objProps = nextProps._selfCalling;
+            } else {
+                objProps = Utils.getChange(nextProps, objProps);
+            }
         }
         if (Utils.empty(objProps)) {
             return;
@@ -153,6 +158,7 @@ export default class OriginTree extends BaseComponent {
     }
     componentWillReceiveProps(nextProps) {
         // 就算props没有改变，当父组件重新渲染时，也会进这里，所以需要在这里判断是否需要重新渲染组件
+        // 但是，props是个二维的数据，两个会一起改变
         if (this.__shouldUpdate(this.props, nextProps)) {
             this.initTree(nextProps);
         }
@@ -197,20 +203,21 @@ export default class OriginTree extends BaseComponent {
             autoExpandParent: false
         });
         const item = e && e.node && e.node.props.data;
-        this.expand.onExpand(expandedKeys, e, item);
+        this.expand.onExpand(expandedKeys, e, item, this);
     }
     onCheck(checkedKeys, e) {
         this.setState({
             checkedKeys
         });
-        this.checkbox.onCheck(checkedKeys, e);
+        const item = e && e.node && e.node.props.data;
+        this.checkbox.onCheck(checkedKeys, e, item, this);
     }
     onSelect(selectedKeys, e) {
         this.setState({
             selectedKeys
         });
         const item = e && e.node && e.node.props.data;
-        this.select.onSelect(selectedKeys, e, item);
+        this.select.onSelect(selectedKeys, e, item, this);
     }
     // 展示树形到哪一层，expandLeavals为数组，表示展示到哪些层
     showToLeval(expandLeavals) {

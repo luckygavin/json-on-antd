@@ -131,8 +131,6 @@ export default class Echarts extends BaseComponent {
     render() {
         let className = 'uf-echarts';
         className += this.props.className ? ' ' + this.props.className : '';
-        return <div id={this.chartId} className={className} style={this.props.style}
-            onresize={this.chart && this.chart.resize()}
-        ></div>;
+        return <div id={this.chartId} className={className} style={this.props.style}></div>;
     }
 }

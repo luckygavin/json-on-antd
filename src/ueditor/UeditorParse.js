@@ -10,9 +10,17 @@ export default class UeditorParse extends Html {
     }
     // 解析
     parse() {
-        window.uParse(`#${this.ueditorId}`, {
-            rootPath: window.UEDITOR_HOME_URL
-        });
+        if (window.uParse) {
+            window.uParse(`#${this.ueditorId}`, {
+                rootPath: window.UEDITOR_HOME_URL
+            });
+        } else {
+            this._factory.$requirejs(['ueditor'], UE=>{
+                if (window.uParse) {
+                    this.parse();
+                }
+            });
+        }
     }
     _beforeInit() {
         super._beforeInit();
@@ -23,9 +31,7 @@ export default class UeditorParse extends Html {
     // 加载ueditor相关文件
     _componentDidMount() {
         super._componentDidMount();
-        this._factory.$requirejs(['ueditor'], UE=>{
-            this.parse();
-        });
+        this.parse();
     }
     _componentDidUpdate(prevProps, prevState) {
         super._componentDidUpdate();

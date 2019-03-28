@@ -3,3 +3,7 @@
 node_modules/
 npm-debug.log
 output/
+dist/0.*
+dist/dev
+public/0.*
+public/dev

@@ -6,6 +6,12 @@
 import Utils from './utils.js';
 import UF from 'src';
 
+const selfProps = [
+    'cache', 'localStorage', 'requestMerge', 'target', 'paramsHandler', 'paramsIndex',
+    'interrupt', 'removeEmptyParams', 'handler', 'onSuccess', 'onError', 'autoLoad',
+    'autoReload', 'showLoading'
+];
+
 // Ajajx队列，用于缓存待执行的 ajax 回调函数相关内容
 const ajaxQueue = {};
 
@@ -164,7 +170,8 @@ function executeQueue(key, result, ...params) {
  * @return {boolean} 如果有，则返回true，否则返回false
  */
 export function checkQueue(config) {
-    let key = Utils.hash(config, 32);
+    // 过滤掉自定义属性
+    let key = Utils.hash(Utils.filter(config, selfProps), 32);
     // 如果有则代表有相同请求在进行中，直接把当前的config缓存起来
     if (ajaxQueue[key]) {
         ajaxQueue[key].push(config);

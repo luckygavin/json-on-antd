@@ -33,6 +33,7 @@ export default class Crud extends BaseComponent {
         return false;
     }
     componentWillReceiveProps(nextProps) {
+        this.parent = nextProps.parent;
         let newEnum = JSON.stringify(nextProps.enum.data);
         let newConf = JSON.stringify(nextProps.config);
         // TODO: 这里如果函数变化是检测不到的

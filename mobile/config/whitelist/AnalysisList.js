@@ -17,7 +17,7 @@ export default {
     },
     Input: {basic: ['moneyKeyboardHeader']},
     List: {basic: ['renderHeader', 'renderFooter']},
-    Item: {basic: ['thumb', 'extra']},
+    ListItem: {basic: ['thumb', 'extra']},
     ListViewIndex: {basic: ['delayActivityIndicator']},
     ListView: {
         funcs: [

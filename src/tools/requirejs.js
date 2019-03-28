@@ -1695,8 +1695,12 @@ export default generate(function (insName) {
                         // url += (url.indexOf('?') === -1 ? '?' : '&') + 'okey=' + hashName
                     }
 
-                    return config.urlArgs && !/^blob\:/.test(url) ?
-                        url + config.urlArgs(moduleName, url) : url;
+                    var urlPath = config.urlArgs && !/^blob\:/.test(url) ? url + config.urlArgs(moduleName, url) : url;
+
+                    // url请求之前，支持自己再次修改url的形式
+                    config.urlHandler && (urlPath = config.urlHandler(urlPath));
+
+                    return urlPath;
                 },
 
                 //Delegates to req.load. Broken out as a separate function to

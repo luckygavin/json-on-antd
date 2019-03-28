@@ -276,15 +276,17 @@ export class OriginForm extends BaseComponent {
         }
         // 实现联动
         if (item.join) {
-            for (let i in item.join) {
-                // 改为异步处理联动
-                Utils.defer(()=>{
+            // 改为异步处理联动(否则联动的下拉框中，option还未设置是联动的value不生效)
+            // 但是异步时，需要完成联动后刷新form，否则不会产生效果
+            // TODO: 待斟酌
+            Utils.defer(()=>{
+                for (let i in item.join) {
                     // 本组件的ref
                     let self = this.itemRef[item.name];
                     this.joinSetValue(i, item.join[i], val, self);
-                });
-            }
-            // this.forceUpdate();
+                }
+                this.forceUpdate();
+            });
         }
     }
     // 前两个参数必填，后两个参数选填
@@ -440,7 +442,7 @@ export class OriginForm extends BaseComponent {
             itemRules['required'] = item.required;
         }
         // form中不允许表单域使用value，所以如果有value值，把值转换到default上
-        item.default = item.value || item.default;
+        item.default = item.value || item.default || item.defaultValue;
         if (item.default !== undefined) {
             this.oriDefaultValues[item.name] = item.default;
         }
@@ -818,6 +820,16 @@ export class OriginForm extends BaseComponent {
         let items = this.__props.items;
         if (column) {
             let merge = [];
+            // Add at 2019-03-27，display: 'none'时，组件不规划到布局中，直接把组件剔除。其他情况暂不做考虑
+            // 不知为啥，会导致有些组件的值获取不到。暂时先删除吧
+            // items = items.filter(v => {
+            //     // 由于 display:none 是更新到 this.itemsCache 中，所以要在这上面取
+            //     if (v && v.name && this.itemsCache[v.name] && this.itemsCache[v.name].display === 'none') {
+            //         return false;
+            //     }
+            //     return true;
+            // });
+            // 布局计算
             items.forEach((v, i) => {
                 let index = Math.floor(i / column);
                 merge[index] = merge[index] || [];

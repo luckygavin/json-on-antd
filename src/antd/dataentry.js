@@ -250,6 +250,7 @@ export class Radio extends OptionsDataEntry {
 export class Select extends OptionsDataEntry {
     constructor(props, options = {}) {
         super(props);
+        this._filter.push('extOptions', 'autoClear');
         this._openApi.push('selectAll');
         if (!options.preventInit) {
             this.__init();
@@ -277,19 +278,22 @@ export class Select extends OptionsDataEntry {
                 item.value += '';
                 return item;
             });
-            // 根据是否多选做区别处理
-            if (this.isMultiple) {
-                this._handleMultipleSelect();
-            } else if (this.__props.type === 'combobox') {
-                // combobox 模式下，由于可以任意输入，所以及时取不到也不清空数据
-                this._handleDefaultSelect(false);
-            } else {
-                this._handleDefaultSelect();
+            // autoClear 指定是否自动清理不匹配（不在options中的value）的选项
+            if (this.__filtered.autoClear !== false) {
+                // 根据是否多选做区别处理
+                if (this.isMultiple) {
+                    this._handleMultipleSelect();
+                } else if (this.__props.type === 'combobox') {
+                    // combobox 模式下，由于可以任意输入，所以及时取不到也不清空数据
+                    this._handleDefaultSelect(false);
+                } else {
+                    this._handleDefaultSelect();
+                }
             }
         }
     }
     getAllOptions(data = this.__props.options) {
-        return [].concat(this.__props.extOptions || [], data || []);
+        return [].concat(this.__filtered.extOptions || [], data || []);
     }
     render() {
         let formatType = Utils.getType(this.__controlled.defaultVal);

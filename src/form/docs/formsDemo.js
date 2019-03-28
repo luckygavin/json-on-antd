@@ -15,6 +15,7 @@ let demo1 = {
         type: 'forms',
         name: 'forms-test',
         addType: 'add',
+        serialNumberStart: 1,
         buttons: {
             layout: 'center',
             items: [
@@ -137,6 +138,7 @@ const demo2 = {
     config: {
         type: 'forms',
         mode: 'table',
+        showSerialNumber: true,
         operation: (row, index) => {
             if (index === 0) {
                 return [
@@ -154,7 +156,6 @@ const demo2 = {
                 {
                     type: 'date-picker',
                     label: '盘点时间',
-                    style: {width: 60},
                     name: 'inventory-time',
                     format: 'YYYYMMDD',
                 },

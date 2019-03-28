@@ -80,14 +80,6 @@ export default class Factory extends PureComponent {
             return null;
         }
 
-        // 如果是 html 类型，使用 html 模板解析器来解析，然后直接返回
-        // if (item.type === 'html') {
-        //     // 按照正常流程走
-        //     item.type = 'section';
-        //     item.className = 'uf-html ' + (item.className || '');
-        //     item.dangerouslySetInnerHTML = {__html: item.content};
-        //     delete item.content;
-        // }
         // 从loader中获取到相应的组件
         let Item = Loader.get(item);
         if (!Item) {

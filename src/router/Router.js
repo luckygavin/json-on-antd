@@ -22,7 +22,8 @@ function setRouter(props) {
     let {params, location, route, routes} = props;
     lastRouter = {
         params: params,
-        detials: {params, location, route, routes}
+        detials: {params, location, route, routes},
+        currentRoute: routes && routes.length > 0 ? routes[routes.length - 1] : null
     };
 }
 

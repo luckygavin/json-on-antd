@@ -11,6 +11,7 @@ export default {
     'auto-complete': {
         style: {minWidth: 160},
         mode: 'combobox',
+        autoClear: false,
         options: [],
         startSign: 1,
         source: {
@@ -63,6 +64,8 @@ export default {
         delay: 150
     },
     'select': {
+        // 自动清理不匹配（不在options中的value）的选项
+        autoClear: true,
         optionFilterProp: 'children',
         source: {
             target: 'options'
@@ -123,7 +126,9 @@ export default {
         }
     },
     'forms': {
-        addType: 'copy'
+        addType: 'copy',
+        showSerialNumber: false,
+        serialNumberStart: 1
     },
     'table': {
         rowKey: 'id',

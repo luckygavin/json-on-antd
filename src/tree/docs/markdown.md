@@ -57,7 +57,7 @@
 | defaultSelectedKeys | 默认选中节点 | Array | [] |  |
 | selectedKeys | （受控）设置选中的树节点，此配置项将屏蔽`defaultSelectedKeys`配置 | Array | [] |  |
 | multiple | 支持点选多个节点（节点本身) | Bealoon | false |  |
-| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}) | - | . |
+| onSelect | 点击树节点触发，`selectedKeys`, `e`为两个默认参数 | function(selectedKeys, e:{selected: bool, selectedNodes, node, event}, nodeData) | - | . |
 
 #### widthResize
 | 参数 | 说明 | 类型 | 默认值 | 是否必填 |

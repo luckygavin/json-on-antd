@@ -12,7 +12,7 @@ import {OriginForm} from './Form.js';
 // export default class Forms extends BaseComponent {
 export default class Forms extends OriginForm {
     constructor(props) {
-        super(props);
+        super(props, {type: 'forms'});
         // __init 由父组件执行
         // this.__init();
         this.setDefaultValues();
@@ -184,6 +184,7 @@ export default class Forms extends OriginForm {
 
     // 使用表格的方式展示
     renderTableForms() {
+        console.log(this.__props);
         let formData = this.__props.formData;
         // form 属性被Form组件过滤到了 __filtered 中
         let formConfig = Object.assign({}, this.__filtered.form);
@@ -193,6 +194,9 @@ export default class Forms extends OriginForm {
         this.formRef = {};
         return <div className="table-forms">
             <div className="thead-div">
+                {this.__props.showSerialNumber && (
+                    <div key="serial-number" className="th-div">序号</div>
+                )}
                 {formConfig.items.map((item, index)=>(
                     <div key={index} className="th-div">{item.label}</div>)
                 )}
@@ -219,28 +223,39 @@ export default class Forms extends OriginForm {
                         onChange: this.handleChange.bind(this, index),
                         formData: v,
                         // 增加操作列
-                        items: formConfig.items.concat(this.__props.addType === false
-                            ? []
-                            : {
-                                type: 'div',
-                                key: this.key + '-' + index,
-                                className: 'operate',
-                                content: this.operationHandler(v, index, [
-                                    {
-                                        type: 'icon',
-                                        key: 'add',
-                                        mode: 'plus-circle',
-                                        action: this.__props.addType === 'add' ? 'add' : 'copy'
-                                    },
-                                    {
-                                        type: 'icon',
-                                        key: 'delete',
-                                        mode: 'minus-circle',
-                                        action: 'delete'
-                                    }
-                                ])
-                            }
-                        )
+                        items: []
+                            .concat(!this.__props.showSerialNumber ? [] : [
+                                {
+                                    type: 'div',
+                                    key: 'serial-number',
+                                    style: {width: 40},
+                                    className: 'ant-row ant-form-item serial-number',
+                                    content: index + (this.__props.serialNumberStart || 1)
+                                }
+                            ])
+                            .concat(formConfig.items)
+                            .concat(this.__props.addType === false
+                                ? []
+                                : {
+                                    type: 'div',
+                                    key: this.key + '-' + index,
+                                    className: 'uf-forms-operate',
+                                    content: this.operationHandler(v, index, [
+                                        {
+                                            type: 'icon',
+                                            key: 'add',
+                                            mode: 'plus-circle',
+                                            action: this.__props.addType === 'add' ? 'add' : 'copy'
+                                        },
+                                        {
+                                            type: 'icon',
+                                            key: 'delete',
+                                            mode: 'minus-circle',
+                                            action: 'delete'
+                                        }
+                                    ])
+                                }
+                            )
                     }));
                 })}
             </div>

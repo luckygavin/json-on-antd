@@ -161,6 +161,10 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
     // 处理默认选中
     _handleDefaultSelect(allClear = true) {
         let current = this.__props.value;
+        // 当组件正在获取 options，则暂时不进行处理
+        if (this.__gettingSource && this.__filtered.source && this.__filtered.source.target === 'options') {
+            return;
+        }
         // 如果当前值再列表中，则不做任何处理
         let alldata = this.__props.options;
         // 追加上extOptions中的内容，仅select组件有
@@ -168,6 +172,8 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
             alldata = this.getAllOptions(alldata);
         }
         if (alldata.some(v=>(v.value + '') === (current + ''))) {
+            // upate at 2019-03-27, 请求结束后，如果能匹配到，也重新触发一次onChange（比如form中有join联动时）
+            this._updateValue(current);
             return;
         }
         // 否则把值设置为第一个或者清空

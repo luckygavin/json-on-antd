@@ -25,6 +25,7 @@ name | 实例名称，根据不同的名称产生不同的实例 | String | defa
 [plugins](#/Develop/Config/-plugins) | 额外加载插件。见：`plugins` | Object[]&#124;String[] |  | 
 [global](#/Develop/Config/-global) | 其他一些全局配置。见：`global`表 | Object |  | 
 [data](#/Develop/Config/-data) | 用于存放一些全局的公用数据，可以直接在组件中使用，或**作为url的动态参数使用** | Object |  | 
+dataFiles | 当`data`预设内容较多时，可用于通过文件的方式引入 | String[] |  | 
 [authority](#/Develop/Config/-authority) | 权限控制。见：`authority`表 | Object |  | 
 [precondition](#/Develop/Config/-precondition) | 预加载函数列表，会阻塞页面初始化（init之前执行的函数，多为调用api获取基础数据），列表中的函数全部执行完成后才会执行页面初始化。见：`precondition` | Function[] |  | 
 

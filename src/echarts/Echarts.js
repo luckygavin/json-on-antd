@@ -53,7 +53,12 @@ export default class Echarts extends BaseComponent {
         // if (Utils.isChange(this.__prevProps, this.__filterProps(nextProps))) {
         //     this.chart.setOption(this.__filterProps(nextProps));
         // }
-        this.setOption(nextProps, true);
+        // 通过set调用时，不清空（配置进行merge）
+        if (nextProps._selfCalling) {
+            this.setOption(nextProps);
+        } else {
+            this.setOption(nextProps, true);
+        }
     }
     // 修改获取数据的时机，初始化时不进行数据获取，等chart初始化完成后
     _handleAsyncData() {
@@ -126,6 +131,8 @@ export default class Echarts extends BaseComponent {
     render() {
         let className = 'uf-echarts';
         className += this.props.className ? ' ' + this.props.className : '';
-        return <div id={this.chartId} className={className} style={this.props.style}></div>;
+        return <div id={this.chartId} className={className} style={this.props.style}
+            onresize={this.chart && this.chart.resize()}
+        ></div>;
     }
 }

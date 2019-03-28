@@ -36,7 +36,7 @@ class NewModal extends BaseComponent {
         if (this.__props.form) {
             let formConf = this.__props.form;
             if (Utils.typeof(formConf, 'function')) {
-                formConf = formConf();
+                formConf = formConf(this.__props.params);
                 // 如果form为函数，则认为用户想要每次都刷新form整个配置，所以此处给form.key一个随机值，使form强制刷新
                 if (formConf.key === undefined) {
                     formConf.key = Utils.uniqueId();
@@ -217,7 +217,7 @@ class NewModal extends BaseComponent {
             title={
                 Utils.typeof(this.__props.title, 'function')
                 ? this.__props.titleContent
-                : this.__props.title
+                : this.__analysis(this.__props.title)
             }>
             {children[0]}
             {children[1]}

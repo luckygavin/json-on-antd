@@ -81,7 +81,7 @@ export default class NewAutoComplete extends Select {
     constructor(props) {
         super(props, {preventInit: true});
         this.class.push('select');
-        this._injectEvent = ['onSearch', 'onChange'];
+        this._injectEvent = ['onSearch', 'onChange', 'onSelect', 'onDeselect'];
         // 延迟150ms执行
         this._onSearch = Utils.debounce(this._onSearch, props.delay || 150);
         this.requestIndex = 0;
@@ -94,7 +94,7 @@ export default class NewAutoComplete extends Select {
         Object.assign(this.__filtered.source, {
             autoLoad: false,
             autoReload: 'set',
-            requestMerge: false,
+            merge: false,
             cache: true
         });
     }
@@ -141,6 +141,17 @@ export default class NewAutoComplete extends Select {
             });
         }
     }
+    // 多选时，选择完成后保存当前选中的选项，并下下拉框中展示出来
+    // 感觉交互不太友好，待斟酌
+    // _onSelect(value, option) {
+    //     this.__filtered.extOptions = this.__filtered.extOptions || [];
+    //     this.__filtered.extOptions.push({value: value, label: option.props.children});
+    //     this.__setProps({extOptions: this.__filtered.extOptions});
+    // }
+    // _onDeselect(value) {
+    //     this.__filtered.extOptions = this.__filtered.extOptions.filter(item => item.value !== value);
+    //     this.__setProps({extOptions: this.__filtered.extOptions});
+    // }
     _onChange(value) {
         this.loading(false, 'simple');
         if (Utils.typeof(value, 'array') && value.length === 0) {

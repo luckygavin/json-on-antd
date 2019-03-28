@@ -38,6 +38,8 @@ export default {
         props = this.formatCS(props);
         // 如果是基于BaseComponent的组件内部要用到的属性处理
         if (Utils.isExtendsOf(Item, BaseComponent)) {
+            // 保留content传入到组件内，方便组件通过get方法获取子组件配置
+            props['content'] = item.content;
             props['__type'] = item.type;
             props['__key'] = props['key'];
             // 如果有name的话，把组件放到缓存池里

@@ -33,6 +33,7 @@
 | crud | 表格的扩展功能，增加简单的配置即可拥有常用的增删改查等功能。详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) | Object |  | 
 | rowTooltips   | 表格行的额外提示信息，展示位置固定。返回空时不展示提示图标  | Function(record, index):string | - |
 | rowTooltipsIcon | 表格行的额外提示信息图标  | string | - |
+| emptyFieldPlaceholder  | 字段不存在或为空时展示的展示位符，比如`-` | string |   |
 | onChange      | 分页、排序、筛选变化时触发 | Function(pagination, filters, sorter) |  |
 | onRowClick    | 点击行时触发 | Function(record, index, event)   | - |
 | onRowDoubleClick| 双击行时触发 | Function(record, index, event)   | - |
@@ -74,7 +75,7 @@
 | cellColSpan | 单元格列合并，需要单元格上下配合，避免单元格冗余或缺失。函数返回结果即为合并列数 | function(text, record, index)      |      
 | cellRowSpan | 单元格行合并，需要单元格左右配合，避免单元格冗余或缺失。函数返回结果即为合并行数 | function(text, record, index)      |      
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
-| textType | 字段表现形式。可选 `html` `json` `duration` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时) | String | `default` |
+| textType | 字段表现形式。可选 `html` `json` `duration` `thousandSeparator` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时)；`thousandSeparator`-进行千位分隔（每3位进行逗号分隔） | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
 | editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object&#124;function | - |
 

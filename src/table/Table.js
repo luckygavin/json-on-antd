@@ -598,6 +598,12 @@ export default class NewTable extends BaseComponent {
         };
 
         getNeedObject(defaultColumn, item);
+        // 字段不存在或为空时展示的内容
+        if (!item.render && this.__props.emptyFieldPlaceholder) {
+            item.render = v => {
+                return (v === undefined || v === '') ? this.__props.emptyFieldPlaceholder : v;
+            };
+        }
         if (Utils.typeof(defaultColumn.title, 'object')) {
             defaultColumn.title = this.__analysis(defaultColumn.title);
         }
@@ -682,6 +688,10 @@ export default class NewTable extends BaseComponent {
                         newText = item.render
                             ? this.__analysis(item.render(tdData, record, index))
                             : tdData;
+                        break;
+                    }
+                    case 'thousandseparator': {
+                        newText = Utils.thousandSeparator(item.render ? item.render(text) : text);
                         break;
                     }
                     case 'json': {

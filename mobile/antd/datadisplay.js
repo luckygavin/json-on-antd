@@ -20,6 +20,15 @@ export class Collapse extends DataDisplay {
         return <Antd.Accordion {...this.__props}/>;
     }
 }
+export class Panel extends DataDisplay {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Accordion.Panel {...this.__props}/>;
+    }
+}
 
 /************* Badge 徽标数 ************************************************************************** */
 

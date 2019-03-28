@@ -16,6 +16,8 @@ addType | 新增的两种方式：`add`为简单新增；`copy`为复制新增�
 operation | 自行控制`每行`的操作按钮（新增/删除等），属性为一个函数，函数返回结果为操作按钮的配置。各项中`action`为按钮的默认操作。当函数返回`false`时，表示禁用当前行的操作；当返回`true`时，表示复用默认的操作按钮 | function (row, index) {return `config[]`;} | | `addType`不为`false`时有效
 buttons | 表单的按钮配置，见`# buttons` | object[] | |
 formData | 传递给表单的数据，当为对象时则根据配置的`form`渲染出一个表单，当为数组时渲染出多个表单 | object[] | |
+showSerialNumber | 每行第一列展示展示当前行的序号 | boolean | false |
+serialNumberStart | 序号从几开始计数 | number | 1 |
 form | 需渲染的表单内容，详细配置可参考`Form`组件的配置，注意，`buttons`只需在`Forms`组件配置一次就行，不需要在`form`中再次配置 | object | |
 onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
 

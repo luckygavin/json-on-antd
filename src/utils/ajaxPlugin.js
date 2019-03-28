@@ -169,7 +169,7 @@ export function checkQueue(config) {
     if (ajaxQueue[key]) {
         ajaxQueue[key].push(config);
         return true;
-    } else if (config.merge !== false) {
+    } else if (config.requestMerge !== false) {
         ajaxQueue[key] = [];
         // 给 success、error 函数插入逻辑：ajax完成后调用队列中全部待执行逻辑，并依次执行
         Utils.inject(config, 'success', (...params)=>{

@@ -68,15 +68,13 @@ export default class BaseComponent extends Component {
         // _factory 是最初 Factory 的 this
         this._factory = this.props._factory;
         this.insName = this._factory.insName;
-        // 信息提示
-        this.__message = this._factory.$message;
         // 供用户使用，例如获取路由信息/参数等
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
         this._injectEvent = [];
         this._filter = (Utils.copy(FilterProps)).concat(
             // 一些隐藏的属性
-            ['__cache', '__type', '__key', '_factory', '_selfCalling'],
+            ['content', '__cache', '__type', '__key', '_factory', '_selfCalling'],
             // 二次解析白名单里的属性的原值存储在 _${v} 中
             WhiteList.getall(this.type).map(v => `_${v}`),
             // 需要先执行函数得到组件配置并需要重新解析配置的属性
@@ -99,6 +97,10 @@ export default class BaseComponent extends Component {
         this.__prevProps = {};
         // 用于存放被过滤掉的props上的属性，使用户重新set也可以生效（如果直接在props上取的话，set不会触发props更新，被过滤掉的属性就无法再更新了）
         this.__filtered = {};
+        // 信息提示
+        this.__message = this._factory.$message;
+        // 正在通过source获取数据标志
+        this.__gettingSource = false;
     }
 
     _getDefautlProps() {
@@ -527,14 +529,19 @@ export default class BaseComponent extends Component {
             ...others,
             // 验证返回结果是否为空
             verifyData: true,
-            onchange: !showLoading ? onchange : status => {
-                this._handleSourceLoading(status, showLoading);
+            onchange: status => {
+                // 不能放onchange里，merge的接口不会调用onchange
+                // this.__gettingSource = status;
+                if (showLoading) {
+                    this._handleSourceLoading(status, showLoading);
+                }
                 onchange && onchange(status);
             }
-        });
+        }, false, 'source');
     }
-    // 处理source系列接口参数的通用逻辑（例如handler处理）
-    __execAjax(conf, usePromise = false) {
+    // 处理source/api系列接口参数的通用逻辑（例如handler处理）
+    // source，请求来源
+    __execAjax(conf, usePromise = false, source) {
         let {url, params, _paramsHandler, paramsHandler, paramIndex = {}, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
         if (url) {
             // 额外增加对参数预处理逻辑，不暴露给用户使用
@@ -568,6 +575,8 @@ export default class BaseComponent extends Component {
                     }
                 }
             }
+            // source 获取数据时，置为true
+            (source === 'source') && (this.__gettingSource = true);
             return new Promise((resolve, reject) => {
                 this.__ajax({
                     // 其他参数直接传入
@@ -575,6 +584,7 @@ export default class BaseComponent extends Component {
                     url: url,
                     params: params,
                     success: (data, res) => {
+                        this.__gettingSource = false;
                         if (false === (_handler && (data = _handler(data, res)))) {
                             return false;
                         }
@@ -912,9 +922,21 @@ export default class BaseComponent extends Component {
             this.__getSourceData({
                 success: data => {
                     // 如果用户自己配置了 target 属性，则按照用户定义的赋值
-                    target = target === 'content' ? 'children' : target;
+                    // target = target === 'content' ? 'children' : target;
                     // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
-                    let tData = Utils.generateObject(target, data);
+                    // let tData = Utils.generateObject(target, data);
+                    let tData;
+                    // 如果用户自己配置了 target 属性，则按照用户定义的赋值
+                    if (target === 'content' && Utils.typeof(data, ['array', 'object'])) {
+                        // 对属性进行解析，并同时保存一份原始配置到content属性里
+                        tData = {
+                            content: data,
+                            children: this.__analysis(data)
+                        };
+                    } else {
+                        // 目标元素可以有层级,可以给更深层的属性设置,例如：pagination.count
+                        tData = Utils.generateObject(target, data);
+                    }
                     // __setProps在table、form等自定义组件不适用
                     this.set(tData);
                 }

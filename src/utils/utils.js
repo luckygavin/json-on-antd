@@ -65,9 +65,27 @@ const utils = Object.assign({}, underscore, {
     /*********************************************************************************/
 
     // 数字前面补充0
-    padNum(num, n) {
+    padNum(num, n = 0) {
         let len = ('' + num).length;
         return Array(n > len ? (n - len + 1) : 0).join(0) + num;
+    },
+    // 小数点后取几位，缺位自动补0
+    cutNum(num, n) {
+        let floatNum = parseFloat(num);
+        if (isNaN(floatNum)) {
+            return num;
+        }
+        floatNum = Math.round(num * Math.pow(10, n)) / Math.pow(10, n);
+        let strNum = floatNum.toString();
+        let posDecimal = strNum.indexOf('.');
+        if (n !== 0 && posDecimal < 0) {
+            posDecimal = strNum.length;
+            strNum += '.';
+        }
+        while (strNum.length <= posDecimal + n) {
+            strNum += '0';
+        }
+        return strNum;
     },
     // 生成随机唯一ID，32位
     uniqueId() {
@@ -780,6 +798,13 @@ const utils = Object.assign({}, underscore, {
         }
         result += seconds + '秒';
         return result;
+    },
+    // 千位分隔
+    thousandSeparator(s = '') {
+        s = s.toString();
+        return s.replace(/(^|\s)\d+/g, function (m) {
+            return m.replace(/(?=(?!\b)(\d{3})+$)/g, ',');
+        });
     },
 
     /************************************************************************/

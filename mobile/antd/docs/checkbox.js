@@ -9,7 +9,7 @@ const demo1 = {
     config: [
         {
             type: 'list',
-            header: 'checkbox-item demo',
+            header: 'checkbox demo',
             content: [
                 {
                     type: 'checkbox-item',
@@ -27,6 +27,10 @@ const demo1 = {
                     content: '选项三'
                 }
             ]
+        },
+        {
+            type: 'checkbox-agree-item',
+            content: '已阅读'
         }
     ]
 };

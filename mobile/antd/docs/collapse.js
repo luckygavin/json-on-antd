@@ -13,18 +13,89 @@ const demo1 = {
             content: [
                 {
                     type: 'panel',
+                    header: 'Title1',
                     key: 1,
-                    content: '选项一'
+                    content: {
+                        type: 'list',
+                        content: [
+                            {type: 'list-item', content: 'content1', key: '1-1'},
+                            {type: 'list-item', content: 'content1', key: '1-2'},
+                            {type: 'list-item', content: 'content1', key: '1-3'}
+                        ]
+                    }
                 },
                 {
                     type: 'panel',
+                    header: 'Title2',
                     key: 2,
-                    content: '选项二'
+                    content: {
+                        type: 'div',
+                        style: {
+                            padding: '10px'
+                        },
+                        content: 'this is panel content2 or other'
+                    }
                 },
                 {
                     type: 'panel',
+                    header: 'Title3',
                     key: 3,
-                    content: '选项三'
+                    content: {
+                        type: 'div',
+                        style: {
+                            padding: '10px'
+                        },
+                        content: 'text text text text text text text text text text text text text text text'
+                    }
+                }
+            ]
+        }
+    ]
+};
+const demo2 = {
+    title: '手风琴模式',
+    description: '通过accordion字段设定是否选用手风琴模式',
+    config: [
+        {
+            type: 'collapse',
+            accordion: true,
+            content: [
+                {
+                    type: 'panel',
+                    header: 'Title1',
+                    key: 1,
+                    content: {
+                        type: 'list',
+                        content: [
+                            {type: 'list-item', content: 'content1', key: '1-1'},
+                            {type: 'list-item', content: 'content1', key: '1-2'},
+                            {type: 'list-item', content: 'content1', key: '1-3'}
+                        ]
+                    }
+                },
+                {
+                    type: 'panel',
+                    header: 'Title2',
+                    key: 2,
+                    content: {
+                        type: 'div',
+                        style: {
+                            padding: '10px'
+                        },
+                        content: 'this is panel content2 or other'
+                    }
+                },
+                {
+                    type: 'panel',
+                    header: 'Title3',
+                    key: 3,
+                    content: {
+                        type: 'div',
+                        style: {
+                            padding: '10px'
+                        },
+                        content: 'text text text text text text text text text text text text text text text'
+                    }
                 }
             ]
         }
@@ -37,6 +108,6 @@ export default class Collapse extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getMobileDemo(demo1);
+        return this.__getMobileDemo(demo1, demo2);
     }
 }

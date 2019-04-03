@@ -21,11 +21,25 @@ $root = '../../';
                 line-height: 30px;
                 width: 100%;
             }
+            .my-drawer {
+                position: relative;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .my-drawer .am-drawer-sidebar {
+                background-color: #fff;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            .my-drawer .am-drawer-sidebar .am-list {
+                width: 300px;
+                padding: 0;
+            }
         </style>
         <?php if (ENV == 'dev') { ?>
             <link rel="stylesheet" type="text/css" href="<?php echo $root;?>dist/<?php echo $_VERSION;?>/theme-mobile.css<?php echo $_FIXED;?>"/>
             <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/dll-mobile.js<?php echo $_FIXED;?>"></script>
-            <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/antd.min.js<?php echo $_FIXED;?>"></script>
+            <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/antd.js<?php echo $_FIXED;?>"></script>
             <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/antd-mobile.js<?php echo $_FIXED;?>"></script>
             <script src="<?php echo $root;?>dist/<?php echo $_VERSION;?>/uf-mobile.js<?php echo $_FIXED;?>"></script>
         <?php } else { ?>

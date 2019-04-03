@@ -165,23 +165,23 @@ export class Menu extends Navigation {
                 v.key = v.link;
             }
             if (v.title) {
-                v.title = <span>{this.__analysis(v.title)}</span>;
+                let otherProps = {};
+                if (v.onClick) {
+                    otherProps.onClick = e => v.onClick(e, v);
+                }
+                v.title = <span {...otherProps}>{this.__analysis(v.title)}</span>;
             }
             if (v.icon) {
                 v.title = <span><Antd.Icon type={v.icon}/>{v.title}</span>
             }
             // 当没有子菜单时，才增加链接
             if (v.link && !v.childItems) {
-                let otherProps = {};
-                if (v.onClick) {
-                    otherProps.onClick = e => v.onClick(e, v);
-                }
                 // 如果是http链接，则改用 a 标签
                 // to 可以是函数
                 if (!Utils.typeof(v.link, 'function') && v.link.indexOf('http') === 0) {
-                    v.title = <a href={v.link} target={v._target} {...otherProps}>{v.title}</a>;
+                    v.title = <a href={v.link} target={v._target}>{v.title}</a>;
                 } else {
-                    v.title = <Link to={v.link} {...otherProps}>{v.title}</Link>;
+                    v.title = <Link to={v.link}>{v.title}</Link>;
                 }
             }
             // 菜单项类型，默认为单个 菜单项组件

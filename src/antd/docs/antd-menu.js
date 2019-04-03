@@ -28,6 +28,9 @@ const demo1 = {
             {
                 key: 'mail',
                 icon: 'mail',
+                onClick() {
+                    console.log('mail');
+                },
                 title: 'Navigation One'
             },
             {

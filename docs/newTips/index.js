@@ -4,7 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DemoCard from 'docs/app/base/DemoCard.js';
-import UF from 'src';
 
 import Mapping from './mapping.js';
 
@@ -38,7 +37,6 @@ const config = {
 export default class NewTips extends React.Component {
     
     componentDidMount() {
-        // UF.init(config, '#new-tips');
     }
     
     render() {

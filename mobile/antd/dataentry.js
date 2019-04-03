@@ -11,7 +11,6 @@ const OptionsDataEntry = DataEntry.OptionsDataEntry;
 const BasePicker = DataEntry.BasePicker;
 
 /************* Checkbox 复选框 ************************************************************************** */
-
 export class Checkbox extends DataEntry {
     constructor(props) {
         super(props);
@@ -22,7 +21,26 @@ export class Checkbox extends DataEntry {
         return <Antd.Checkbox {...this.__props}/>;
     }
 }
-
+export class CheckboxItem extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__controlled.defaultVal = [];
+        this.__init();
+    }
+    render() {
+        return <Antd.Checkbox.CheckboxItem {...this.__props}/>;
+    }
+}
+export class CheckboxAgreeItem extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__controlled.defaultVal = [];
+        this.__init();
+    }
+    render() {
+        return <Antd.Checkbox.AgreeItem {...this.__props}/>;
+    }
+}
 /************* Picker 选择器 ****************************************************************** */
 
 // Select 选择器，单个选项
@@ -45,6 +63,8 @@ export class Select extends OptionsDataEntry {
         return <Antd.Picker {...Utils.filter(this.__props, ['options', 'value', 'onChange', 'onPickerChange', 'onOk'])}
             value={this.__props.value !== undefined ? [this.__props.value] : []}
             data={[this.__props.options]}
+            cols={1}
+            cascade={false}
             onChange={this.eventHandler.bind(this, 'onChange')}
             onPickerChange={this.eventHandler.bind(this, 'onPickerChange')}
             onOk={this.eventHandler.bind(this, 'onOk')}/>;
@@ -221,6 +241,8 @@ export class RadioButtons extends DataEntry {
 export class Switch extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.key = 'checked';
+        this.__controlled.defaultVal = false;
         this.__init();
     }
     render() {
@@ -233,6 +255,7 @@ export class Switch extends DataEntry {
 export class Stepper extends DataEntry {
     constructor(props) {
         super(props);
+        this.__controlled.key = 'value';
         this.__init();
     }
     render() {

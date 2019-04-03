@@ -22,8 +22,6 @@ onAfterChange   | 与 `ontouchend` 触发时机一致，把当前值作为参数
 marks   | 刻度标记，key 的类型必须为 `Number` 且取值在闭区间 [min, max] 内  |  Object{Number:String}     | 
 dots    | 是否只能拖拽到刻度上 |  Boolean     | false 
 included   | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 |  Boolean     | true   
-maximumTrackStyle  | 未选中 track 的样式(`将被废弃，请使用 railStyle 代替`)  |  Object     | 
-minimumTrackStyle   | 选中部分的 track 样式 (`将被废弃，请使用 trackStyle 代替`) |  Object  |
 handleStyle  | 滑块的样式   |  Object    |   
 trackStyle | 选中部分滑动条的样式  | Object     |    
 railStyle  | 未选中部分 |  Object     |  

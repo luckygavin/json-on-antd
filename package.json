@@ -32,6 +32,7 @@
   "devDependencies": {
     "autoprefixer": "^6.5.4",
     "axios": "^0.18.0",
+    "reqwest": "2.0.5",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-plugin-import": "^1.4.0",

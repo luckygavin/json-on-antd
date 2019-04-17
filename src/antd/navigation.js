@@ -174,7 +174,11 @@ export class Menu extends Navigation {
                 v.key = v.link;
             }
             if (v.title) {
-                v.title = <span>{this.__analysis(v.title)}</span>;
+                let otherProps = {};
+                if (v.onClick) {
+                    otherProps.onClick = e => v.onClick(e, v);
+                }
+                v.title = <span {...otherProps}>{this.__analysis(v.title)}</span>;
             }
             if (v.icon) {
                 v.title = <span><Antd.Icon type={v.icon}/>{v.title}</span>

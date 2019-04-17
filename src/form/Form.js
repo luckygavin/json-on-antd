@@ -116,17 +116,15 @@ export class OriginForm extends BaseComponent {
             // 如果有 formatter 属性，则使用 formatter 进行格式化，否则进行
             if (item.formatter) {
                 values[i] = item.formatter(values[i], item);
-            } else {
+            } else if (values[i] instanceof moment) {
                 // datepicker等返回的是moment对象，返回前先格式化成字符串
                 // 理论上已经不存在这种情况，暂时先保留
-                if (values[i] instanceof moment) {
-                    if (this.itemsCache[i] && this.itemsCache[i].format) {
-                        values[i] = values[i].format(this.itemsCache[i].format);
-                    }
-                    // 用 format 把数据格式化成 rules.type 要求的格式
-                } else if (item.valueType) {
-                    values[i] = Utils.format(values[i], item.valueType);
+                if (this.itemsCache[i] && this.itemsCache[i].format) {
+                    values[i] = values[i].format(this.itemsCache[i].format);
                 }
+            } else if (item.valueType) {
+                // 用 format 把数据格式化成 rules.type 要求的格式
+                values[i] = Utils.format(values[i], item.valueType);
             }
             if (item && item.type !== 'button') {
                 result[i] = values[i];
@@ -198,7 +196,7 @@ export class OriginForm extends BaseComponent {
     }
     // 更新多个表单项
     resetItems(config) {
-        for (i in config) {
+        for (let i in config) {
             this.resetItem(i, Utils.filter(config[i]));
         }
     }
@@ -464,7 +462,9 @@ export class OriginForm extends BaseComponent {
             itemRules['required'] = item.required;
         }
         // form中不允许表单域使用value，所以如果有value值，把值转换到default上
-        item.default = item.value !== undefined ? item.value : (item.default !== undefined ? item.default : item.defaultValue);
+        item.default = item.value !== undefined
+                ? item.value
+                : (item.default !== undefined ? item.default : item.defaultValue);
         if (item.default !== undefined) {
             this.oriDefaultValues[item.name] = item.default;
         }

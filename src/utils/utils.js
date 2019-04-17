@@ -372,7 +372,7 @@ const utils = Object.assign({}, underscore, {
     getChange(newVal, oldVal) {
         let result = {};
         if (!oldVal) {
-           return utils.copy(newVal);
+            return utils.copy(newVal);
         }
         for (let i of Object.keys(newVal)) {
             if (!utils.equals(newVal[i], oldVal[i], false)) {

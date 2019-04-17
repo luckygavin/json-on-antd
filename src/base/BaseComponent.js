@@ -264,7 +264,7 @@ export default class BaseComponent extends Component {
     //  2、适用于更新一个参数的情况，options为一个字符串，指明组件的一个属性，ghost为属性的值
     set(options, ghost) {
         if (Utils.typeof(options, 'string') && Utils.typeof(ghost, 'object')) {
-            options = Utils.generateObject(options, ghost);;
+            options = Utils.generateObject(options, ghost);
         }
         // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
         options = this._factory.handleProps(Object.assign({type: this.type}, options));

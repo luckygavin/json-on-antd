@@ -48,9 +48,10 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
             return;
         }
         // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
-        if (checkQueue(config)) {
-            return;
-        }
+        // update at 2019-04-09, 移到后面，使loading效果（onchange）能生效
+        // if (checkQueue(config)) {
+        //     return;
+        // }
 
         // onchange 为请求前后执行，开始执行请求返回参数true，请求完成返回参数false
         let onchange = config.onchange || (()=>{});
@@ -164,6 +165,12 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         // }
 
         onchange(true, 'sending');
+
+        // 检查当前是否已有相同的请求正在进行中，如果有，则进行请求合并并中断
+        // update at 2019-04-09, 移到onchange之后，使loading效果能生效
+        if (checkQueue(final)) {
+            return;
+        }
 
         // 检查是否有mock数据接口
         if (checkMock(final, mockMap)) {

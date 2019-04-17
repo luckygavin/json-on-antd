@@ -20,4 +20,4 @@ Radio要为一组数据。
 | showAsButton   | 以一组按钮展示单选组合           | boolean            |  | 无 |
 | size           | 大小，只对按钮样式生效           | string            | `large` `default` `small` | `default` |
 | options        | 以配置形式设置子元素 [*默认异步属性*]   | string[] &#124; Array<{ label: string value: string disabled?: boolean style?: {}}>            | 无     | 无     |
-
+| extOptions | 额外的选项，options之外额外增加的选项（置于选择列表最前面）。例如下拉列表增加值为all的选项，无需后端接口额外增加all | Array<{ label: [string], value: [string], disabled?: [boolean], style?: {}}> | |

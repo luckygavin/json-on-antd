@@ -19,14 +19,7 @@ const demo1 = {
                 {
                     title: '名称',
                     dataIndex: 'idcId',
-                    enum: {
-                        url: 'http://uf.baidu.com/docs/php/data.php',
-                        handler: function (data) {
-                            return data.map(item=>(
-                                {key: item.id, value: item.name}
-                            ));
-                        }
-                    }
+                    enum: 'http://uf.baidu.com/docs/php/data.php'
                 },
                 {title: '地区', dataIndex: 'region'},
                 {title: '描述', dataIndex: 'description'},
@@ -160,7 +153,7 @@ const demo1 = {
                         // 源数据转换成字符串展示到页面的批量编辑框时，对每个字段的处理逻辑
                         stringify: function (key, text, record) {
                             if (key === 'description') {
-                                return '就是这么任性';
+                                return '改掉了，就是这么任性';
                             }
                             return text;
                         },

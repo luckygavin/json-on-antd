@@ -15,7 +15,7 @@ export class OriginForm extends BaseComponent {
         // 过滤掉Form.create传入的form属性
         this._filter.push('form', 'filterExtraFieldExcept');
         this._innerFilter.push('form');
-        this._openApi.push('getValues', 'resetValues', 'clearValues', 'resetItem', 'getDisplayValues');
+        this._openApi.push('getValues', 'resetValues', 'clearValues', 'resetItem', 'resetItems', 'getDisplayValues');
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex.push('formData');
         this.__init();
@@ -35,6 +35,7 @@ export class OriginForm extends BaseComponent {
         // 用于记录当前form是否变换过（原来单个form通过复制新增等变为了多个）
         // this.isArrayForm = false;
         this.init();
+        this.originItems = {};
         this.itemsCache = {};
     }
     init(nextProps) {
@@ -53,21 +54,22 @@ export class OriginForm extends BaseComponent {
             nextProps && this.initValues();
         }
         // 如果items改变了，则把变化更新到 this.itemsCache 中
-        if (nextProps && nextProps.items && !Utils.equals(this.props.items, nextProps.items)) {
-            let oldItems = {};
-            this.props.items && this.props.items.forEach(item => {
-                (item && item.name) && (oldItems[item.name] = item);
-            });
-            // 分别对每一项进行对比，仅更新需要更新的选项
-            nextProps.items.forEach(item => {
-                if (item && item.name && this.itemsCache[item.name] && !Utils.isChange(item, oldItems[item.name])) {
-                    let changedConf = Utils.getChange(item, oldItems[item.name]);
-                    // 如果有type，需要重新处理type
-                    changedConf.type && (changedConf = this.__getConf(changedConf));
-                    Utils.merge(this.itemsCache[item.name], changedConf);
-                }
-            });
-        }
+        // 这样写不严谨，不是直接放在items上的表单项无法遍历到
+        // if (nextProps && nextProps.items && !Utils.equals(this.props.items, nextProps.items)) {
+        //     let oldItems = {};
+        //     this.props.items && this.props.items.forEach(item => {
+        //         (item && item.name) && (oldItems[item.name] = item);
+        //     });
+        //     // 分别对每一项进行对比，仅更新需要更新的选项
+        //     nextProps.items.forEach(item => {
+        //         if (item && item.name && this.itemsCache[item.name] && Utils.isChange(item, oldItems[item.name])) {
+        //             let changedConf = Utils.getChange(item, oldItems[item.name]);
+        //             // 如果有type，需要重新处理type
+        //             changedConf.type && (changedConf = this.__getConf(changedConf));
+        //             Utils.merge(this.itemsCache[item.name], changedConf);
+        //         }
+        //     });
+        // }
         nextProps && this.forceUpdate();
     }
     componentWillReceiveProps(nextProps) {
@@ -111,15 +113,20 @@ export class OriginForm extends BaseComponent {
         let result = {};
         for (let i in values) {
             let item = this.itemsCache[i];
-            // datepicker等返回的是moment对象，返回前先格式化成字符串
-            // 理论上已经不存在这种情况，暂时先保留
-            if (values[i] instanceof moment) {
-                if (this.itemsCache[i] && this.itemsCache[i].format) {
-                    values[i] = values[i].format(this.itemsCache[i].format);
+            // 如果有 formatter 属性，则使用 formatter 进行格式化，否则进行
+            if (item.formatter) {
+                values[i] = item.formatter(values[i], item);
+            } else {
+                // datepicker等返回的是moment对象，返回前先格式化成字符串
+                // 理论上已经不存在这种情况，暂时先保留
+                if (values[i] instanceof moment) {
+                    if (this.itemsCache[i] && this.itemsCache[i].format) {
+                        values[i] = values[i].format(this.itemsCache[i].format);
+                    }
+                    // 用 format 把数据格式化成 rules.type 要求的格式
+                } else if (item.valueType) {
+                    values[i] = Utils.format(values[i], item.valueType);
                 }
-                // 用 format 把数据格式化成 rules.type 要求的格式
-            } else if (item.valueType) {
-                values[i] = Utils.format(values[i], item.valueType);
             }
             if (item && item.type !== 'button') {
                 result[i] = values[i];
@@ -155,11 +162,11 @@ export class OriginForm extends BaseComponent {
         let values = this.form.getFieldsValue();
         values = this._formatValues(values);
         values = Object.assign({}, this.defaultValues, values);
-        if (this.__props.beforeSubmit) {
-            values = this.__props.beforeSubmit(values);
-        }
         if (this.__filtered.filterExtraFieldExcept) {
             values = this._filterExtraField(values);
+        }
+        if (this.__props.beforeSubmit) {
+            values = this.__props.beforeSubmit(values);
         }
         return values;
     }
@@ -188,6 +195,12 @@ export class OriginForm extends BaseComponent {
         // }
         this.joinSetValue(target, conf);
         this.forceUpdate();
+    }
+    // 更新多个表单项
+    resetItems(config) {
+        for (i in config) {
+            this.resetItem(i, Utils.filter(config[i]));
+        }
     }
     // 获取表单中输入/选择完成后端展示内容
     getDisplayValues() {
@@ -413,6 +426,15 @@ export class OriginForm extends BaseComponent {
         }
         okey = okey !== null ? `-${okey}` : '';
         let key = oitem.name + okey;
+        // 将当前传入的item和之前缓存（originItems）的item的原始值进行对比，如果有更新的内容，则将更新的值更新到itemsCache中
+        //  待观察
+        if (this.originItems[key] && this.itemsCache[key]) {
+            let changedConf = Utils.getChange(oitem, this.originItems[key]);
+            // 如果有type，需要重新处理type
+            changedConf.type && (changedConf = this.__getConf(changedConf));
+            Utils.merge(this.itemsCache[key], changedConf);
+        }
+        this.originItems[key] = oitem;
         // 把表单项额外存起来，方便后面各种联动的控制（需要改配置里的参数）
         if (this.itemsCache[key]) {
             oitem = this.itemsCache[key];
@@ -442,7 +464,7 @@ export class OriginForm extends BaseComponent {
             itemRules['required'] = item.required;
         }
         // form中不允许表单域使用value，所以如果有value值，把值转换到default上
-        item.default = item.value || item.default || item.defaultValue;
+        item.default = item.value !== undefined ? item.value : (item.default !== undefined ? item.default : item.defaultValue);
         if (item.default !== undefined) {
             this.oriDefaultValues[item.name] = item.default;
         }
@@ -662,7 +684,7 @@ export class OriginForm extends BaseComponent {
             rules.push({type: itemRules['type'], message: itemRules['typeMsg']});
         }
         // 对数据格式进行存储
-        valueType && (item.valueType = valueType);
+        valueType && !item.valueType && (item.valueType = valueType);
 
         // 进行类型进行强制转换
         // 只有 trigger 为 onChange/onBlur 有效

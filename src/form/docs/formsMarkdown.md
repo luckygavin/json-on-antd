@@ -20,6 +20,7 @@ showSerialNumber | 每行第一列展示展示当前行的序号 | boolean | fal
 serialNumberStart | 序号从几开始计数 | number | 1 |
 form | 需渲染的表单内容，详细配置可参考`Form`组件的配置，注意，`buttons`只需在`Forms`组件配置一次就行，不需要在`form`中再次配置 | object | |
 onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
+form.items.width | 仅当`mode`为`table`时，控制每一列的宽度 | number | |
 
 > **声明：** 本组件提交时的返回结果为一个数组，数组的每个元素都为一个对象，每个对象对应一个表单的值，如[{'name': 'ZhangSan', 'city': 'Beijing', 'birthDay': '1992-11-02'},{'name': 'LiSi', 'city': 'Shanghai', 'birthDay': '1988-09-02'}]
 

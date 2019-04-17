@@ -7,6 +7,7 @@ import Utils from './utils.js';
 import UF from 'src';
 
 const selfProps = [
+    'originConf',
     'cache', 'localStorage', 'requestMerge', 'target', 'paramsHandler', 'paramsIndex',
     'interrupt', 'removeEmptyParams', 'handler', 'onSuccess', 'onError', 'autoLoad',
     'autoReload', 'showLoading'

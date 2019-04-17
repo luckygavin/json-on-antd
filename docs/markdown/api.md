@@ -321,9 +321,19 @@ UF.init(config, '#demo');
 
 ## # component.set()
 
-`component.set(object)`重新设置组件的参数。object 为组件的参数列表。用法如上面的demo中用法。
+重新设置组件的参数。
 
-> tips： 需要注意的一点是，部分属性是一次性的，例如声明周期函数`afterCreate`、`source`系列属性等，一旦组件渲染完成，再次调用`set`函数设置新值不会生效。
+#### 用法1:
+
+`component.set(object)` 
+
+适用于更新多个参数的情况，只传一个options，options为一个对象，为待更新的组件属性
+
+#### 用法2:
+
+`component.set(target, value)` 
+
+适用于更新一个参数的情况，target为一个字符串，指明组件的一个属性(可以是一个深层属性，用法类似`UF.set`)，value为属性的值
 
 
 ## # component.hide()

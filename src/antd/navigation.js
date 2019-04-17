@@ -122,8 +122,11 @@ export class Menu extends Navigation {
             event: 'onSelect',
             defaultVal: []
         };
+        this._injectEvent.push('onClick');
         // 收集全部可用的key值
         this.allKeys = {};
+        // 缓存全部items项中的onClick函数
+        this.itemsClickMap = {};
         this.__init();
     }
     // __setProps 后，增加附加处理逻辑
@@ -146,6 +149,12 @@ export class Menu extends Navigation {
     componentDidMount() {
         this.followRoute();
         this.forceUpdate();
+    }
+    _onClick({item, key}) {
+        if (this.itemsClickMap[key]) {
+            let item = this.itemsClickMap[key];
+            item.onClick({}, item);
+        }
     }
     // 解析子组件结构
     handleItems(items, parentKey) {
@@ -170,18 +179,19 @@ export class Menu extends Navigation {
             if (v.icon) {
                 v.title = <span><Antd.Icon type={v.icon}/>{v.title}</span>
             }
+            // onClick 设置在item上不生效，提到menu的onClick中处理
+            if (v.onClick) {
+                this.itemsClickMap[v.key] = v;
+            }
             // 当没有子菜单时，才增加链接
             if (v.link && !v.childItems) {
-                let otherProps = {};
-                if (v.onClick) {
-                    otherProps.onClick = e => v.onClick(e, v);
-                }
                 // 如果是http链接，则改用 a 标签
                 // to 可以是函数
                 if (!Utils.typeof(v.link, 'function') && v.link.indexOf('http') === 0) {
-                    v.title = <a href={v.link} target={v._target} {...otherProps}>{v.title}</a>;
+                    v.title = <a href={v.link} target={v._target}>{v.title}</a>;
                 } else {
-                    v.title = <Link to={v.link} {...otherProps}>{v.title}</Link>;
+                    // Link貌似会阻止内部组件onClick的捕获？
+                    v.title = <Link to={v.link}>{v.title}</Link>;
                 }
             }
             // 菜单项类型，默认为单个 菜单项组件

@@ -89,7 +89,9 @@ export default class Crud extends BaseComponent {
                         }
                         return params;
                     };
-                    item = this.handleReuse(item, tempConf['add']);
+                    if (action === i) {
+                        item = this.handleReuse(item, tempConf['add']);
+                    }
                     break;
                 // 搜索弹框的配置
                 case 'search':
@@ -103,7 +105,9 @@ export default class Crud extends BaseComponent {
                         item.title = item.title || '高级查询：';
                         item.okText = item.okText || '查询';
                         let hasSelfForm = !!item.form;
-                        item = this.handleReuse(item, tempConf['add']);
+                        if (action === i) {
+                            item = this.handleReuse(item, tempConf['add']);
+                        }
                         // 移除必填限制以及校验规则
                         if (!hasSelfForm && item.form) {
                             item.form.items.forEach(v => {
@@ -156,7 +160,9 @@ export default class Crud extends BaseComponent {
                     item.api.method = item.api.method || 'put';
                     this._bindParamsHandler(i, item);
                     // batchEdit 可以复用 batchAdd 的配置，可以减少配置书写
-                    item = this.handleReuse(item, tempConf['batchAdd']);
+                    if (action === i) {
+                        item = this.handleReuse(item, tempConf['batchAdd']);
+                    }
                     break;
                 // 批量删除确认框的配置
                 case 'batchDelete':
@@ -270,6 +276,7 @@ export default class Crud extends BaseComponent {
             item = Object.assign(Utils.clone(reuseConf), item);
             // 如果未配置api.url，则复用api配置
             if (!item.api.url) {
+                item.api.onSuccess = item.api.onSuccess || (() => {});
                 item.api = Object.assign({}, reuseConf.api, item.api);
             }
         }
@@ -326,7 +333,7 @@ export default class Crud extends BaseComponent {
                 case 'batchDelete':
                     this._showBatchDelete(key, visible);
                     break;
-                case '_showBatchShow':
+                case 'batchShow':
                     this._showBatchShow(key, visible);
                     break;
                 default:

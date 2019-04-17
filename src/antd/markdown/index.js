@@ -16,6 +16,8 @@ module.exports = {
     'antd-tree-select.md': require('./antd-tree-select.md'),
     'antd-switch.md': require('./antd-switch.md'),
     'antd-upload.md': require('./antd-upload.md'),
+    'antd-slider.md': require('./antd-slider.md'),
+    'antd-transfer.md': require('./antd-transfer.md'),
 
     'antd-avatar.md': require('./antd-avatar.md'),
     'antd-badge.md': require('./antd-badge.md'),

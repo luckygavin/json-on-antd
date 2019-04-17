@@ -249,7 +249,7 @@ export default class OriginTree extends BaseComponent {
             if (this.expand['expandedKeys']) {
                 // 展开用户说明的指定节点
                 this.setState({
-                    expandedKeys: this.expand['expandedKeys'],
+                    expandedKeys: this.expand['expandedKeys'] || this.expand['defaultExpandedKeys'],
                     autoExpandParent: this.expand['autoExpandParent']
                 });
             } else if (this.expand['expandLeavals']) {

@@ -259,7 +259,13 @@ export default class BaseComponent extends Component {
     /* 暴露给用户的方法 ***********************************************************************/
 
     // 暴露给用户刷新组件的接口
-    set(options) {
+    // 支持两种传参格式：
+    //  1、适用于更新多个参数的情况，只传一个options，options为一个对象
+    //  2、适用于更新一个参数的情况，options为一个字符串，指明组件的一个属性，ghost为属性的值
+    set(options, ghost) {
+        if (Utils.typeof(options, 'string') && Utils.typeof(ghost, 'object')) {
+            options = Utils.generateObject(options, ghost);;
+        }
         // 使用 factory.handleProps 函数处理用户配置的参数，并生成组件需要使用的 props
         options = this._factory.handleProps(Object.assign({type: this.type}, options));
         // 要保证调用cwr时传入的nextProps的完整性

@@ -56,6 +56,9 @@ class NewModal extends BaseComponent {
             // 可以写其他内容在content中，置于form之上
             this.__props.formContent = this.__analysis(formConf);
         }
+        // if (this.__props.params && this.__props.render) {
+        //     this.__props.renderContent = this.__analysis(this.__props.render(this.__props.params));
+        // }
     }
 
     /********** 外部调用函数 *************************************************/

@@ -28,7 +28,10 @@ const demo1 = {
             {
                 key: 'mail',
                 icon: 'mail',
-                title: 'Navigation One'
+                title: 'Navigation One',
+                onClick() {
+                    console.log('onclick test');
+                }
             },
             {
                 key: 'app',

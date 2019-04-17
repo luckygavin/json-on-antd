@@ -81,6 +81,8 @@ export const ComponentList = [
         {path: 'Select', name: 'Select 选择器', component: require('src/antd/docs/antd-select').default},
         {path: 'TreeSelect', name: 'TreeSelect 树选择', component: require('src/antd/docs/antd-tree-select').default},
         {path: 'Switch', name: 'Switch 开关', component: require('src/antd/docs/antd-switch').default},
+        {path: 'Transfer', name: 'Transfer 穿梭框', component: require('src/antd/docs/antd-transfer').default},
+        {path: 'Slider', name: 'Slider 滑动输入', component: require('src/antd/docs/antd-slider').default},
         {path: 'Upload', name: 'Upload 上传', component: require('src/antd/docs/antd-upload').default}
     ]},
     {path: 'DataDisplay', name: '数据展示', children: [

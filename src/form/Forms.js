@@ -184,7 +184,6 @@ export default class Forms extends OriginForm {
 
     // 使用表格的方式展示
     renderTableForms() {
-        console.log(this.__props);
         let formData = this.__props.formData;
         // form 属性被Form组件过滤到了 __filtered 中
         let formConfig = Object.assign({}, this.__filtered.form);
@@ -195,11 +194,14 @@ export default class Forms extends OriginForm {
         return <div className="table-forms">
             <div className="thead-div">
                 {this.__props.showSerialNumber && (
-                    <div key="serial-number" className="th-div">序号</div>
+                    <div key="serial-number" className="th-div" style={{width: 40}}>序号</div>
                 )}
                 {formConfig.items.map((item, index)=>(
-                    <div key={index} className="th-div">{item.label}</div>)
-                )}
+                    <div key={index} className="th-div" style={item.width ? {width: item.width} : {}}>
+                        {item.required && (<span style={{color: '#f04134', fontFamily: 'SimSun'}}>* </span>)}
+                        {item.label}
+                    </div>
+                ))}
                 {this.__props.addType !== false && (
                     <div key="operate" className="th-div">
                         操作
@@ -222,13 +224,13 @@ export default class Forms extends OriginForm {
                         wrappedComponentRef: inst=>(this.formRef[key] = inst),
                         onChange: this.handleChange.bind(this, index),
                         formData: v,
+                        // items: formConfig.items
                         // 增加操作列
                         items: []
                             .concat(!this.__props.showSerialNumber ? [] : [
                                 {
                                     type: 'div',
                                     key: 'serial-number',
-                                    style: {width: 40},
                                     className: 'ant-row ant-form-item serial-number',
                                     content: index + (this.__props.serialNumberStart || 1)
                                 }
@@ -277,33 +279,33 @@ export default class Forms extends OriginForm {
         }
         return operateBtns.map(v => {
             let item = Utils.clone(v);
-            switch (v.action) {
-                case 'add':
-                    item.onClick = e => {
-                        this.addForm(index);
-                        v.onClick && v.onClick(e, row, index);
-                    }
-                    break;
-                case 'copy':
-                    item.onClick = e => {
-                        this.copyForm(index);
-                        v.onClick && v.onClick(e, row, index);
-                    }
-                    break;
-                case 'delete':
-                    item.onClick = e => {
-                        this.deleteForm(index);
-                        v.onClick && v.onClick(e, row, index);
-                    }
-                    break;
-                default:
-                    item.onClick = e => {
-                        v.onClick && v.onClick(e, row, index);
-                    }
-                    break;
-            }
+            // TODO: 直接使用函数，在mode=table的模式下，只要函数更新，就会导致不断刷新死循环，暂时未解
+            //  原因是table模式下按钮也作为了item进行解析，item的onChange每次刷新都会变化，导致不断刷新
+            item.control = {
+                type: 'bind',
+                trigger: 'onClick',
+                target: this.operationOnClick,
+                params: [this, v, row, index]
+            };
             return item
         });
+    }
+    operationOnClick(self, item, row, index, e) {
+        switch (item.action) {
+            case 'add':
+                self.addForm(index);
+                break;
+            case 'copy':
+                self.copyForm(index);
+                break;
+            case 'delete':
+                self.deleteForm(index);
+                break;
+            default:
+                break;
+        }
+        item.onClick && item.onClick(e, row, index);
+        return item;
     }
     render() {
         return <div {...this.__getCommonProps({className: 'uf-forms'})}>

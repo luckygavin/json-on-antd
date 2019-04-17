@@ -371,6 +371,9 @@ const utils = Object.assign({}, underscore, {
     // 获取变化的内容
     getChange(newVal, oldVal) {
         let result = {};
+        if (!oldVal) {
+           return utils.copy(newVal);
+        }
         for (let i of Object.keys(newVal)) {
             if (!utils.equals(newVal[i], oldVal[i], false)) {
                 result[i] = newVal[i];

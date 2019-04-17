@@ -215,6 +215,7 @@ export class CheckboxGroup extends OptionsDataEntry {
 export class Radio extends OptionsDataEntry {
     constructor(props) {
         super(props);
+        this._filter.push('extOptions');
         this.__init();
     }
     _afterSetProps(newProps) {
@@ -227,6 +228,14 @@ export class Radio extends OptionsDataEntry {
             this._handleDefaultSelect();
         }
     }
+    // 重写 OptionsDataEntry 的函数，因为Radio的onChange返回的为event
+    _updateValue(val) {
+        this.__props[this.__controlled.key] = val;
+        this.__props.onChange && this.__props.onChange({target: {value: val}});
+    }
+    getAllOptions(data = this.__props.options) {
+        return [].concat(this.__filtered.extOptions || [], data || []);
+    }
     render() {
         // 增加了一个配置项，来控制是否以button的形式展示
         let Item = Antd.Radio;
@@ -235,12 +244,12 @@ export class Radio extends OptionsDataEntry {
         }
         return <Antd.Radio.Group {...Utils.filter(this.__props, 'options')} value={
                 this.__props.value !== undefined ? '' + this.__props.value : undefined
-            }>{
-            this.__props.options.map(item=>
+            }>
+            {this.getAllOptions().map(item=>
                 <Item key={item.value} disabled={item.disabled} style={item.style}
                     value={item.value}>{item.label}</Item>
-            )
-        }</Antd.Radio.Group>;
+            )}
+        </Antd.Radio.Group>;
     }
 }
 
@@ -273,7 +282,7 @@ export class Select extends OptionsDataEntry {
     // 改为每次set值时检查，如果更新了options，则进行是否清空或者重置为默认值的处理
     _afterSetProps(newProps) {
         super._afterSetProps(newProps);
-        if (newProps.options) {
+        if (newProps.options && Utils.isChange(this.__prevProps.options, newProps.options)) {
             this.__props.options = this.__props.options.map(item => {
                 item.value += '';
                 return item;
@@ -300,6 +309,14 @@ export class Select extends OptionsDataEntry {
         let value = this.__props.value;
         if (formatType === 'array') {
             value = Utils.format(this.__props.value, formatType);
+            if (Utils.typeof(value, 'array')) {
+                value = value.map(v => {
+                    if (Utils.typeof(v, ['number', 'boolean'])) {
+                        v += '';
+                    }
+                    return v;
+                });
+            }
         } else if (Utils.typeof(value, ['number', 'boolean'])) {
             value += '';
         }
@@ -342,28 +359,28 @@ export class TreeSelect extends DataEntry {
 
 /************* Transfer 穿梭框 ************************************************************************** */
 
-// export class Transfer extends DataEntry {
-//     constructor(props) {
-//         super(props);
-//         this.__init();
-//     }
-//     render() {
-//         return <Antd.Transfer {...this.__props}/>;
-//     }
-// }
+export class Transfer extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Transfer {...this.__props}/>;
+    }
+}
 
 
 /************* Slider 滑动输入 ************************************************************************** */
 
-// export class Slider extends DataEntry {
-//     constructor(props) {
-//         super(props);
-//         this.__init();
-//     }
-//     render() {
-//         return <Antd.Slider {...this.__props}/>;
-//     }
-// }
+export class Slider extends DataEntry {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.Slider {...this.__props}/>;
+    }
+}
 
 
 /************* Switch 开关 ************************************************************************** */

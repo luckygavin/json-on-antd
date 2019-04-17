@@ -81,7 +81,7 @@ export default class NewTable extends BaseComponent {
     _afterSetProps(changeProps) {
         super._afterSetProps();
         // 当只改了source.params参数，未更改params，则将source.params更新的值覆盖到params上
-        if (!changeProps.params && changeProps.source && changeProps.source.params) {
+        if (!changeProps.params && changeProps.source && (changeProps.source.params || changeProps.source.url)) {
             this.__props.params = Utils.merge(this.__props.params, changeProps.source.params);
         }
     }
@@ -576,6 +576,15 @@ export default class NewTable extends BaseComponent {
                     target: this.showCrud,
                     params: [v.action, record]
                 };
+            }
+            // 下拉菜单 Dropdown 组件，特殊处理
+            if (v.type === 'dropdown' && v.overlay && v.overlay.type === 'menu' && v.overlay.items) {
+                v.overlay.items = v.overlay.items.map(item => {
+                    item.action && (item.onClick = () => {
+                        this.showCrud(item.action, record);
+                    });
+                    return item;
+                });
             }
         }
         return config;

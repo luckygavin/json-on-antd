@@ -10,8 +10,10 @@ const menu = {
     items: [
         {
             key: 1,
-            link: 'http://www.baidu.com/',
-            title: 'this is the 1st menu item'
+            title: 'this is the 1st menu item',
+            onClick() {
+                console.log('onclick test');
+            }
         },
         {
             key: 2,

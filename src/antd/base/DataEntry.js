@@ -140,6 +140,15 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
     // 处理多选情况
     _handleMultipleSelect() {
         let current = this.__props.value || [];
+        // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
+        current = current.map(v => v + '');
+        let matchVal = this.__props.options.filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
+        if (matchVal.length > 0) {
+            if (matchVal.length !== current.length) {
+                this._updateValue(matchVal);
+            }
+            return;
+        }
         // 当设置默认全选时，更新当前内容为全选
         if (this.__props.defaultSelectAll) {
             let all = this.__props.options.map(v=>v.value);
@@ -151,12 +160,6 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
             let first = Utils.getFirstOption(this.__props.options);
             this._updateValue([first]);
         }
-        // 如果是多选型的，且当前有值，首先判断是否还有能匹配上的，如果全部匹配则跳过，否则更新
-        let matchVal = this.__props.options.filter(v=>current.indexOf(v.value) > -1).map(v=>v.value);
-        if (matchVal.length === current.length) {
-            return;
-        }
-        this._updateValue(matchVal);
     }
     // 处理默认选中
     _handleDefaultSelect(allClear = true) {

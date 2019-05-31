@@ -835,7 +835,7 @@ export default class NewTable extends BaseComponent {
                         {display: this.expandLoading[record[this.rowKey]] ? 'inline-block' : 'none'}
                     }/>,
                     displayStr
-                ]
+                ];
             };
         }
         // 处理 cellColSpan 和 cellRowSpan 参数

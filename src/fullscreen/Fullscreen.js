@@ -17,7 +17,9 @@ export default class Fullscreen extends BaseComponent {
         this.setState({fullscreen: !this.state.fullscreen});
     }
     render() {
-        return <div {...this.__getCommonProps({className: 'uf-fullscreen' + (this.state.fullscreen ? ' fullscreen' : '')})}>
+        return <div {...this.__getCommonProps({
+                className: 'uf-fullscreen' + (this.state.fullscreen ? ' fullscreen' : '')
+            })}>
             {this.state.fullscreen
                 ? <Icon type="close-square" className="close-fullscreen" onClick={this.toggleFullScreen.bind(this)}/>
                 : <Icon type="scan" className="show-fullscreen" onClick={this.toggleFullScreen.bind(this)}/>

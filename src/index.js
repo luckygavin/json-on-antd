@@ -232,7 +232,7 @@ const create = ({name})=>{
                             Requirejs([path], foo=>{
                                 foo && this.config({components: foo});
                                 resovle();
-                            // 自定义组件未成功加载不影响页面继续渲染 
+                            // 自定义组件未成功加载不影响页面继续渲染
                             }, error=>{
                                 resovle();
                                 console.warn('自定义组件未成功加载, 无法在项目中使用。组件路径为: ' + path);
@@ -268,7 +268,7 @@ const create = ({name})=>{
                                     Loader.add(foo);
                                 }
                                 resovle();
-                            // 自定义组件未成功加载不影响页面继续渲染 
+                            // 自定义组件未成功加载不影响页面继续渲染
                             }, error=>{
                                 resovle();
                                 console.warn('部分`plugins`未成功加载, 无法在项目中使用。组件路径为: ' + path);

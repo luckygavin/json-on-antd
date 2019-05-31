@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Tree, Input} from 'antd';
+import {Tree, Input, Icon} from 'antd';
 
 const TreeNode = Tree.TreeNode;
 const Search = Input.Search;
@@ -401,6 +401,14 @@ export default class OriginTree extends BaseComponent {
                         {afterStr}
                     </span>
                 ) : <span>{item.name}</span>;
+            }
+            if (item.icon) {
+                title = [
+                    Utils.typeof(item.icon, 'string')
+                        ? <Icon type={item.icon}/>
+                        : this.__analysis(item.icon),
+                    title
+                ];
             }
             return <TreeNode
                     key={item.key || item.value || item.id}

@@ -111,7 +111,8 @@ export const ComponentList = [
         {path: 'Anchor', name: 'Anchor 锚点', component: require('src/antd/docs/antd-anchor').default},
         {path: 'Iframe', name: 'Iframe 子页面', component: require('src/iframe/docs').default},
         {path: 'Fieldset', name: 'Fieldset 文字块', component: require('src/fieldset/docs').default},
-        {path: 'Markdown', name: 'Markdown 解析', component: require('src/markdown/docs').default}
+        {path: 'Markdown', name: 'Markdown 解析', component: require('src/markdown/docs').default},
+        {path: 'Fullscreen', name: 'Fullscreen 全屏展示', component: require('src/fullscreen/docs').default}
     ]}
 ];
 

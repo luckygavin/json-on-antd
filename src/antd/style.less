@@ -123,3 +123,27 @@
     height: 50px;
     line-height: 50px;
 }
+
+// Tabs 组件样式调整
+// card形式的tab页，active样式
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab-active {
+    background: @primary-color;
+    border-color: @primary-color;
+    color: #fff;
+    text-shadow: 1px 1px 1px #555;
+}
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    margin-right: 0;
+    // border-radius: 0;
+    // &:first-child {
+    //     border-top-left-radius: @border-radius-base;
+    // }
+    // &:last-child {
+    //     border-top-right-radius: @border-radius-base;
+    // }
+}
+
+// Popover 样式
+.ant-popover-inner {
+    box-shadow: 0 1px 6px 4px rgba(0, 0, 0, 0.2);
+}

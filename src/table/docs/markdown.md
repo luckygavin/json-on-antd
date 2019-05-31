@@ -21,8 +21,9 @@
 | rowClassName  | 表格行的类名      | Function(record, index):string | - |
 | indentSize    | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number   | 15 |
 | bordered  | 是否展示外边框和列边框 | boolean | false      |
+| align      | 列对齐方式，可选值`left`、`right` | string | `left` |
 | showHeader  | 是否显示表头 | boolean          | true      |
-| expanded  | 配置额外的展开行，具体见下面配置[`expanded`](#/Custom/Table/-expand-) | object          | true      |
+| expanded  | 配置额外的展开行，具体见下面配置[`expanded`](#/Custom/Table/-expanded-) | object          | true      |
 | footer | 表格尾部         | Function(currentPageData) &#124; `config`  | |
 | scroll | 横向或纵向支持滚动，也可用于指定滚动区域的宽高度：`{{ x: true, y: 300 }}` | object   | -  |
 | source        | 获取数据接口，如果传入此字段，则表格数据通过url获取。此字段用法和全组件通用的`source`一致，具体可见 [通用参数](#/Params/-source-) 中的 # source系列  | string &#124; object | - |
@@ -48,7 +49,7 @@
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
-| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | |
+| onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | - |
 
 #### *column*
 
@@ -63,6 +64,7 @@
 | enum      | 字段内容翻译，详见下方[`columns.enum`](#/Custom/Table/-column-enum-) | array&#124;`source` | -  |
 | width      | 列宽度 | string&#124;number | -  |
 | minWidth   | 列最小宽度 | string&#124;number | -  |
+| align      | 列对齐方式，可选值`left`、`right` | string | `left`  |
 | style      | 自定义样式。当为函数时，函数参数同render，函数返回一个样式对象 | object&#124;function | -  |
 | className  | 列的 className | string          |  -      |
 | fixed      | 列是否固定，可选 `true`(等效于 left) `'left'` `'right'` | boolean&#124;string | false |
@@ -145,7 +147,12 @@ enum为对象时，除[`source`](#/Params/-source-)系列参数外，还需要�
 
 #### *column._operation*
 
-当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现表格中对单行的编辑、删除等功能。crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) 
+当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现如下功能：
+
+> * 表格中对单行的编辑、删除等功能；
+> * 触发行展开功能（需配合`expanded`属性使用），同时`actionParams`可用于给expanded的请求增加参数
+
+crud配置详见：[`Table Crud 表格扩展`](#/Custom/TableCrud) 
 
 例如：
 
@@ -157,6 +164,7 @@ columns: [
         dataIndex: '_operation',
         width: 100,
         render: ()=>([
+            {type: 'a', content: '查看子节点', action: 'expand', actionParams: {dimesion: 'pdb'}},
             {type: 'a', content: '日志', action: 'showLog'},
             {type: 'a', content: '编辑', action: 'edit'},
             {type: 'a', content: '删除', action: 'delete'}

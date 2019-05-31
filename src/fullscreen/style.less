@@ -1,0 +1,49 @@
+.uf-fullscreen {
+    position: relative;
+    &.fullscreen {
+        position: fixed;
+        background: #fff;
+        z-index: 999;
+        left: 10px;
+        right: 10px;
+        bottom: 8px;
+        top: 8px;
+        padding: 10px;
+        overflow: auto;
+        border-radius: 3px;
+        box-shadow: 0 0 50px 10px #666;
+    }
+    .show-fullscreen {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 1;
+        color: #8a84ff;
+        margin: -2px;
+        transition: all 0.2s ease-in-out;
+        opacity: .8;
+        &:hover {
+            opacity: 1;
+            font-size: 24px;
+        }
+    }
+    .close-fullscreen {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 1;
+        color: #595959;
+        margin: -2px;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+            font-size: 30px;
+            transform: rotateZ(90deg);
+        }
+    }
+}

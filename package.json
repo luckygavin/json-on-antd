@@ -10,7 +10,7 @@
     "0.3.0"
   ],
   "version": "0.4.0",
-  "fixedVersion": "0.4.0.6",
+  "fixedVersion": "0.4.0.8",
   "stableVersion": "0.4.0",
   "description": "new uf",
   "author": "liuzechun",
@@ -64,13 +64,11 @@
     "dll": "webpack --config dist/config/webpack.dll.js",
     "react": "webpack --config dist/config/webpack.react.js",
     "all": "npm run dll & npm run antd & npm run build && npm run all-mobile",
-
     "build-mobile-watch": "webpack --config mobile/build/webpack.build.js --watch",
     "build-mobile": "webpack --config mobile/build/webpack.build.js",
     "antd-mobile": "webpack --config mobile/build/webpack.antd.js",
     "dll-mobile": "webpack --config mobile/build/webpack.dll.js",
     "all-mobile": "npm run dll-mobile & npm run antd-mobile & npm run build-mobile",
-
     "start": "webpack --watch"
   }
 }

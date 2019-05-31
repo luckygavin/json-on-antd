@@ -130,6 +130,7 @@ const create = ({name})=>{
         set: ModelCache.set.bind(ModelCache),
         del: ModelCache.delete.bind(ModelCache),
         delete: ModelCache.delete.bind(ModelCache),
+        getConfig: Config.get.bind(Config),
         // 获取当前页面路由信息
         getRouter: Lib.Router.getRouter,
         // 根据组件配置 生成&渲染组件实例
@@ -231,6 +232,10 @@ const create = ({name})=>{
                             Requirejs([path], foo=>{
                                 foo && this.config({components: foo});
                                 resovle();
+                            // 自定义组件未成功加载不影响页面继续渲染 
+                            }, error=>{
+                                resovle();
+                                console.warn('自定义组件未成功加载, 无法在项目中使用。组件路径为: ' + path);
                             });
                         };
                     })
@@ -263,6 +268,10 @@ const create = ({name})=>{
                                     Loader.add(foo);
                                 }
                                 resovle();
+                            // 自定义组件未成功加载不影响页面继续渲染 
+                            }, error=>{
+                                resovle();
+                                console.warn('部分`plugins`未成功加载, 无法在项目中使用。组件路径为: ' + path);
                             });
                         };
                     }
@@ -290,6 +299,16 @@ const create = ({name})=>{
             // 用户自定义 UF 别名
             if (conf.alias) {
                 window[conf.alias] = window.UF;
+            }
+            // 权限处理
+            // 如果是数组，自动将数组转换成对象
+            if (conf.authority && Utils.typeof(conf.authority, 'array')) {
+                let data = conf.authority;
+                let obj = {};
+                for (let i in data) {
+                    obj[data[i]] = 1;
+                }
+                conf.authority = obj;
             }
             // 设置默认公用数据，存入 model 中
             if (conf.data) {

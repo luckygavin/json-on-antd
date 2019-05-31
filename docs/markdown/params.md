@@ -12,6 +12,7 @@
 [className](#/Params/-classname-class)  |  样式类名称  | string
 [childrenHolder](#/Params/-childrenholder)  |  子模块展示位置  | true
 [authority](#/Params/-authority)  |  权限绑定  | string
+authorityPlaceholder |  当没权限时展示的内容  | string&#124;config
 [controlled](#/Params/-controlled)  |  声明组件为完全受控组件  | boolean
 [source](#/Params/-source-)  |  异步获取数据  | url[string]&#124;object
 [api](#/Params/-api-)  |  异步提交数据  | url[string]&#124;object
@@ -122,8 +123,8 @@ paramIndex  | 更改请求中的参数键名，处理顺序在执行`paramsHandl
 interrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} | 
 removeEmptyParams | 自动移除为空的属性 | boolean | true
 target | 定义数据处理好后赋值的属性（一般有默认的初始值，除非需要自己定制，否则不需要设置此属性）。当为空时，结果直接作为set的参数设置个组件（同时设置多个属性） | string | 不同组件的默认属性不同，可视情况主动声明
-handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。 | function(data, res) {} |
-onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res) {} |
+handler | 接口数据返回后的处理函数（如果数据无需格式化可以不设置此属性），函数最终返回格式化后的数据。参数列表中，后面两个参数为方便数据处理所追加的额外参数，形参`this`为当前组件的引用，形参`ajaxConf`为最终发送请求前的ajax配置 | function(data, res, this, ajaxConf) {} |
+onSuccess | 请求数据成功后的回调函数（与handler的区别是，handler用于处理返回数据，处理完后即执行绑定的默认处理逻辑，onSuccess为默认处理逻辑处理完后执行的额外操作） | function(data, res, this, ajaxConf) {} |
 onError | 请求数据失败的回调函数 | function(res) {} |
 autoLoad | 组件首次渲染时自动获取数据，仅创建组件时有效。组件创建完成后，通过 autoReload 属性控制 | boolean | true
 autoReload | 自动重新获取数据。不同取值时，自动获取数据的时机不同，详见表格下面说明 | boolean&#124;`'never'`&#124;`'set'` | false

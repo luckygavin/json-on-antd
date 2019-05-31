@@ -11,7 +11,7 @@ const authority = {
     check(item, insName = item.insName) {
         let conf = getConfig(insName);
         let result = true;
-        if (conf && !Utils.typeof(item.authority, 'undefined')) {
+        if (conf && item.authority !== undefined && item.authority !== '') {
             let authorityMap = conf.get('authority');
             if (authorityMap) {
                 result = false;

@@ -68,13 +68,13 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
         // errorHandler
         // 如果是null或者false等，则不执行错误处理；如果是true，则执行默认错误处理
         let tmpError = config.error;
-        if ([null, false].indexOf(tmpError) > -1) {
+        if ([null, false, undefined].indexOf(tmpError) > -1) {
             tmpError = ()=>{};
         }
-        tmpError = config.error === true ? errorMessage : config.error;
+        tmpError = config.error === true ? errorMessage : tmpError;
         let errorHandler = (...p) => {
             onchange(false, 'error');
-            return tmpError(...p);
+            return tmpError && tmpError(...p);
         };
         // onerror 处理逻辑
         const onerror = err => {
@@ -135,7 +135,7 @@ export default generate(['Config', 'AjaxCache', 'ModelCache'], (Config, AjaxCach
                         res.message = res.message || res.msg;
                         res.msg = res.message;
                         if (+res.status === 0) {
-                            successHandler(res.data, res);
+                            successHandler(res.data, res, final);
                         } else {
                             onerror(res);
                         }

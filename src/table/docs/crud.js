@@ -127,7 +127,14 @@ const demo1 = {
                 },
                 delete: {
                     title: '删除机房:',
-                    api: 'docs/php/submit.php?sleep=1',
+                    api: {
+                        url: 'docs/php/submit.php?sleep=1',
+                        method: 'post',
+                        headers: {'Content-Type': 'application/json'},
+                        paramsHandler: function (params) {
+                            return JSON.stringify(params);
+                        }
+                    },
                     render: row=>{
                         return {
                             type: 'html',

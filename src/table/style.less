@@ -30,6 +30,9 @@
         cursor: not-allowed;
         color: @disabled-color;
     }
+    .close-fullscreen {
+        display: none;
+    }
     &.retract {
         .uf-header-widget {
             display: none;
@@ -38,15 +41,33 @@
             display: none;
         }
     }
-    &.uf-fullscreen {
+    &.uf-table-fullscreen {
         position: fixed;
         z-index: 999;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        top: 0;
+        left: 10px;
+        right: 10px;
+        bottom: 8px;
+        top: 8px;
         padding: 10px;
         overflow: auto;
+        border-radius: 3px;
+        box-shadow: 0 0 50px 10px #666;
+        .close-fullscreen {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 1;
+            color: #595959;
+            margin: -2px;
+            transition: all 0.2s ease-in-out;
+            &:hover {
+                font-size: 30px;
+                transform: rotateZ(90deg);
+            }
+        }
     }
     &.panel {
         border: 0;
@@ -298,6 +319,10 @@
             }
         }
     }
+    td:first-child > .anticon-loading-3-quarters {
+        margin-right: 8px;
+        color: @primary-color;
+    }
 }
 // 弹框样式
 .uf-table-modal {
@@ -423,5 +448,10 @@
     .ant-table-row-expand-icon-cell+.uf-row-tooltips,
     .ant-table-selection-column+.uf-row-tooltips {
         padding-left: 0;
+    }
+    // 整体靠右对齐
+    &.uf-table-align-right th,
+    &.uf-table-align-right td {
+        text-align: right;
     }
 }

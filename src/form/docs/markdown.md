@@ -24,6 +24,7 @@ filterExtraFieldExcept | 当设置了`formData`时，默认提交数据时会将
 formDataHandler | formData格式化函数。数据会先经过此函数处理，再传给form使用 | function(data){return data;} | |
 beforeSubmit | 点击提交按钮时，校验完成后传出数据前对数据进行处理，一般用于对表单数据进行格式化 | function(data){} | |
 beforeSetValues | 传入数据后，在给表单设置默认数据前，对数据进行格式化，一般用于“编辑功能”，传入的数据不符合表单要求格式时（比如checkbox要的是数组，但是传入的是字符串，就可以用这个函数先处理数据然后在传给Form） | function(data){} | |
+onChange | 数据变化时，触发onChange，不过只会返回变化的数据项... | function(data){} | |
 onSubmit | 点击提交时，数据校验成功时的回调函数（会被`type='submit'`的按钮的 onClick 参数覆盖） | function(data){} | |
 wrappedComponentRef | 获取Form表单的引用和其他组件不太相同，不能直接在refs上获取到，所以需要通过回调函数获得，`this.formRef`即为form组件的引用，用法如下 | wrappedComponentRef={inst=>this.formRef = inst} | |
 
@@ -87,12 +88,13 @@ label | 表单域左侧的label | string | | 必须
 default | 默认值，注意表单域需要的值是字符串还是数组（例如checkbox-group需要array）| | |
 join | 实现同一个form间的各表单项联动。join的值为一个多层级的对象，第一层的key为需要与之联动的其他表单项的name，value为的目标表单项需要更新的内容，具体用法可见底部[示例](#/Custom/Form/-join-) | object | | 
 help | 额外提示信息，会在label后面增加一个问号，鼠标移上去时提示 | string | |
-extra | 额外提示信息，会显示在表单域之后或下方 | string | |
+extra | 额外提示信息，会显示在表单域之后或下方 | string&#124;`config` | |
 required | 是否必选 | boolean | `false` | 
 rules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处可以是个对象或者对象数组（多条验证规则）。具体配置见 `item.rules` | object&#124;array | |
 formatter | 对表单项的`value`进行格式化处理 | function(value, item) {} |  |
 valueType | 根据指定的基础数据类型对当前表单项的`value`进行格式化，仅未定义`formatter`时有效。可选值：`boolean`/`number`/`string` | string |  |
 regionConfig | 表单域本身的配置，『极少用』。一般只有自定义组件且特殊情况下需要配置此值，具体参数见`# item.regionConfig` | object | |
+notFormItem | 有些用于做布局的展示型组件，也要使用name（用于获取&操作组件）时，可以加此属性显示声明不作为表单项 | boolean | false | 
 
 **注意：** 不配置name属性
 > 当组件不配置name时，组件会作为一个纯展示类组件进行解析展示，不会再对其获取数据和设置数据，也无法操作。同时，其内部可以再次嵌套具有name属性的输入型组件。见下面例子：

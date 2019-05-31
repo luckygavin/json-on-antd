@@ -309,6 +309,12 @@ export class OriginForm extends BaseComponent {
         let attrName = nameArr[1];
         let parentTarget = this.formRef[parentName];
 
+        // 整个联动组件配置支持为一个函数
+        if (Utils.typeof(props, 'function')) {
+            // 参数：value, 目标组件配置, 当前联动组件配置
+            props = props(val, parentTarget, self);
+        }
+
         // 处理属性
         let newConf = {};
         for (let j in props) {
@@ -402,7 +408,7 @@ export class OriginForm extends BaseComponent {
             // 这里只有第一次进入而且没name的时候才会进到这里，后面重新render回跳过这儿
             oitem = this.__getConf(oitem);
         }
-        if (!oitem.name) {
+        if (!oitem.name || oitem.notFormItem) {
             // button类型可以不写name，这里生成一个随机的
             if (oitem.type === 'button') {
                 oitem.name = Utils.uniqueId();
@@ -415,6 +421,11 @@ export class OriginForm extends BaseComponent {
                         // 非对象的不再解析直接返回
                         if (Utils.typeof(content, 'object')) {
                             return this.getFormItem(content);
+                        }
+                        if (Utils.typeof(content, 'array')) {
+                            return content.map(it => {
+                                return this.getFormItem(it);
+                            });
                         }
                         return content;
                     });
@@ -710,7 +721,7 @@ export class OriginForm extends BaseComponent {
                         <Icon type="question-circle-o" />
                     </Tooltip>
                 </span>,
-            extra: item.extra
+            extra: this.__analysis(item.extra)
         };
         return <Form.Item {...fieldProps} {...itemLayout}>
             {getFieldDecorator(key, Object.assign({
@@ -1003,7 +1014,7 @@ const ReactForm = Form.create({
         if (props.onChange) {
             if (typeof props.formData === 'object') {
                 if (Utils.isChange(values, props.formData) || props.onChange.valuesStr !== JSON.stringify(values)) {
-                    // 缓存上传传入的结果
+                    // 缓存上次传入的结果
                     props.onChange.valuesStr = JSON.stringify(values);
                     props.onChange(Object.assign({}, props.formData, values));
                 }

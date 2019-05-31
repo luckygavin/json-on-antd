@@ -77,6 +77,10 @@ export default class Factory extends PureComponent {
 
         // 校验权限，没权限的元素返回 null
         if (!Authority.check(item)) {
+            // authorityPlaceholder 定义没权限时展示的内容
+            if (item.authorityPlaceholder) {
+                return this.generateElement(item.authorityPlaceholder);
+            }
             return null;
         }
 

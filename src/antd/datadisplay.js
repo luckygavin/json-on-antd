@@ -212,7 +212,7 @@ export class Tabs extends DataDisplay {
         }
     }
     _afterSetProps() {
-        // 如果是使用items属性配置子tab，则做额外处理
+        // 如果是使用items属性配置子tab，则做额外处理（支持权限控制）
         if (this.__props.items) {
             this.__props.children = this.__analysis(this.__props.items.map(v=>{
                 v.type = 'tab-pane';

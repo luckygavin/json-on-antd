@@ -345,6 +345,11 @@ UF.init(config, '#demo');
 
 `component.hide()`可以重新展示组件。
 
+## # component.remove()
+
+`component.remove()`彻底移除组件，同样可以通过`show`重新展示回来。
+
+
 ## # component.reload()
 
 `component.reload()`可以控制组件重新获取数据（和`source`属性配合）。

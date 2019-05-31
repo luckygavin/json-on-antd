@@ -59,6 +59,7 @@ export default class NewTable extends BaseComponent {
         this.requestIndex = null;
         this.rowKeyFunc = null;
         this.rowSelection = null;
+        this.expandLoading = {};
         this.filter = new Filter(this);
         this.enum = new Enum({
             execAjax: this.__execAjax.bind(this),
@@ -151,6 +152,9 @@ export default class NewTable extends BaseComponent {
         // 为了层级清晰，把扩展行相关的属性聚合到了expended属性中。此处兼容放属性里和属性外两种用法
         if (this.__props.expanded) {
             getNeedObject(defaultCif, this.__props.expanded);
+            if (this.__props.expanded.source) {
+                this._inject(defaultCif, 'onExpand', this.handleSyncExpand.bind(this));
+            }
         }
         getNeedObject(defaultCif, this.__props);
         // 关于表头
@@ -230,6 +234,38 @@ export default class NewTable extends BaseComponent {
         // 添加展开全部功能按钮
         this.handleExpandAllIcon();
     }
+    // props.expanded.source 异步获取展开项功能
+    handleSyncExpand(expanded, record, forceRefresh) {
+        if (expanded) {
+            if (forceRefresh === true || !record.children || record.children.length === 0) {
+                let source = this.__props.expanded.source;
+                if (record['_tmp$actionParams']) {
+                    source = Utils.merge({}, source, {params: record['_tmp$actionParams']});
+                    delete record['_tmp$actionParams'];
+                }
+                this.expandLoading[record[this.rowKey]] = true;
+                this.forceUpdate();
+                this.__execAjax({
+                    ...source,
+                    onSuccess: data => {
+                        record.children = data;
+                        this.expandLoading[record[this.rowKey]] = false;
+                        this.setState({expandedRowKeys: Utils.distinct(
+                            this.state.expandedRowKeys.concat([record[this.rowKey]])
+                        )});
+                    },
+                    onError: error => {
+                        this.expandLoading[record[this.rowKey]] = false;
+                        this.forceUpdate();
+                    }
+                });
+            } else {
+                this.setState({expandedRowKeys: Utils.distinct(
+                    this.state.expandedRowKeys.concat([record[this.rowKey]])
+                )});
+            }
+        }
+    }
 
     /* 供用户调用接口 ***********************************************************************/
     // 手动拉取数据
@@ -241,8 +277,12 @@ export default class NewTable extends BaseComponent {
         this.refreshTable(page);
     }
     // 展示增删改查等弹框，具体实现逻辑见 Crud.js
-    showCrud(...params) {
-        this.crudRef && this.crudRef.showCrud(...params);
+    showCrud(action, record, ...params) {
+        if (action === 'expand') {
+            this.handleSyncExpand(true, record, true);
+        } else {
+            this.crudRef && this.crudRef.showCrud(action, record, ...params);
+        }
     }
     // 获取当前全部选中行的数据
     getSelected() {
@@ -567,14 +607,23 @@ export default class NewTable extends BaseComponent {
             arr = [config];
         }
         for (let v of arr) {
+            if (!v) {
+                continue;
+            }
             // action的值与crud中的配置的key一一对应
             if (v.action && !v.control) {
                 // BaseComponet不接受更新函数，使用control作为临时解决方案
-                v.control = {
-                    type: 'bind',
-                    trigger: 'onClick',
-                    target: this.showCrud,
-                    params: [v.action, record]
+                // v.control = {
+                //     type: 'bind',
+                //     trigger: 'onClick',
+                //     target: this.showCrud.bind(this),
+                //     params: [v.action, record]
+                // };
+                v.onClick = () => {
+                    if (v.action === 'expand' && v.actionParams) {
+                        record['_tmp$actionParams'] = v.actionParams;
+                    }
+                    this.showCrud(v.action, record);
                 };
             }
             // 下拉菜单 Dropdown 组件，特殊处理
@@ -590,7 +639,7 @@ export default class NewTable extends BaseComponent {
         return config;
     }
     // 对用户传入数据进行处理
-    getColumnConfig(item) {
+    getColumnConfig(item, isFirst) {
         let defaultColumn = {
             title: '',
             key: '',
@@ -607,28 +656,42 @@ export default class NewTable extends BaseComponent {
         };
 
         getNeedObject(defaultColumn, item);
+        let itemRender = item.render;
+
         // 字段不存在或为空时展示的内容
-        if (!item.render && this.__props.emptyFieldPlaceholder) {
-            item.render = v => {
+        if (!itemRender && this.__props.emptyFieldPlaceholder) {
+            itemRender = v => {
                 return (v === undefined || v === '') ? this.__props.emptyFieldPlaceholder : v;
             };
         }
         if (Utils.typeof(defaultColumn.title, 'object')) {
             defaultColumn.title = this.__analysis(defaultColumn.title);
+        } else if (Utils.typeof(defaultColumn.title, 'array')) {
+            defaultColumn.title = this.__analysis({type: 'span', content: defaultColumn.title});
+        }
+        if (item.align) {
+            defaultColumn.title = <div style={{textAlign: item.align}}>{defaultColumn.title}</div>;
         }
         if (defaultColumn.dataIndex === '_operation') {
             defaultColumn.className += ' uf-operation';
         }
         // 自定义样式参数
-        if (item.minWidth || item.style) {
+        if (item.minWidth || item.align || item.style) {
             let style = item.style || {};
-            let orender = item.render;
-            item.render = (v, row, ...params) => {
+            let orender = itemRender;
+            itemRender = (v, row, ...params) => {
                 if (Utils.typeof(style, 'function')) {
                     style = style(v, row);
                 }
+                if (!style.display) {
+                    style.display = 'inline-block';
+                }
                 if (item.minWidth) {
                     Object.assign(style, {minWidth: item.minWidth});
+                }
+                if (item.align) {
+                    Object.assign(style, {textAlign: item.align});
+                    // item.className = (item.className ? item.className : '') + 'td-align-' + item.align;
                 }
                 return {
                     type: 'div',
@@ -638,10 +701,10 @@ export default class NewTable extends BaseComponent {
             };
         }
         // 用户配置的render是一个uf组件配置，在此转为dom
-        if (!!item.render) {
+        if (!!itemRender) {
             defaultColumn.render = (text, record, index) => {
                 // 配置中的render返回的是配置，配置再解析后才是真正的元素
-                let config = item.render(text, record, index);
+                let config = itemRender(text, record, index);
                 // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
                 if (defaultColumn.dataIndex === '_operation') {
                     config = this.handleAction(config, record);
@@ -660,8 +723,8 @@ export default class NewTable extends BaseComponent {
         // 文字过长，鼠标移入时进行气泡展示
         if (!!item.ellipsis) {
             defaultColumn.render = (text, record, index) => {
-                let newText = item.render
-                    ? this.__analysis(item.render(text, record, index))
+                let newText = itemRender
+                    ? this.__analysis(itemRender(text, record, index))
                     : text;
                 let returnText = (
                     <Popover content={newText}>
@@ -694,13 +757,13 @@ export default class NewTable extends BaseComponent {
                             && secTime > 0 && timeArr.push(secTime + '秒');
                         let tdData = timeArr.join('');
                         // 若用户配置了render，则将转换之后的数据给用户的render
-                        newText = item.render
-                            ? this.__analysis(item.render(tdData, record, index))
+                        newText = itemRender
+                            ? this.__analysis(itemRender(tdData, record, index))
                             : tdData;
                         break;
                     }
                     case 'thousandseparator': {
-                        newText = Utils.thousandSeparator(item.render ? item.render(text) : text);
+                        newText = Utils.thousandSeparator(itemRender ? itemRender(text, record, index) : text);
                         break;
                     }
                     case 'json': {
@@ -722,8 +785,8 @@ export default class NewTable extends BaseComponent {
                     // 默认将格式进行一下转换然后输出
                     default:
                         text = this._getKeyDataOfObject(text);
-                        newText = item.render
-                            ? this.__analysis(item.render(text, record, index))
+                        newText = itemRender
+                            ? this.__analysis(itemRender(text, record, index))
                             : text;
                         break;
                 }
@@ -762,6 +825,19 @@ export default class NewTable extends BaseComponent {
                 />;
             };
         }
+        // 异步获取展开内容
+        if (isFirst && this.__props.expanded && this.__props.expanded.source) {
+            let oRender = defaultColumn.render;
+            defaultColumn.render = (text, record, index) => {
+                let displayStr = !oRender ? text : oRender(text, record, index);
+                return [
+                    <Icon type={'loading-3-quarters'} spin={true} style={
+                        {display: this.expandLoading[record[this.rowKey]] ? 'inline-block' : 'none'}
+                    }/>,
+                    displayStr
+                ]
+            };
+        }
         // 处理 cellColSpan 和 cellRowSpan 参数
         defaultColumn = this.colSpanHandler(defaultColumn, item);
         // 处理表头合并,如果有children字段，则进行递归处理
@@ -787,7 +863,7 @@ export default class NewTable extends BaseComponent {
                 // 在展示部分字段下过滤掉不展示的列数据
                 continue;
             }
-            antdColumnConfig.push(this.getColumnConfig(item));
+            antdColumnConfig.push(this.getColumnConfig(item, antdColumnConfig.length === 0));
         }
         // 提示信息，主要用于行不可选是勾选框那里的提示
         if (this.__props.rowTooltips) {
@@ -907,7 +983,7 @@ export default class NewTable extends BaseComponent {
     }
     getClassName() {
         let className = 'uf-table';
-        className += this.state.fullScreen ? ' uf-fullscreen' : '';
+        className += this.state.fullScreen ? ' uf-table-fullscreen' : '';
         // 额外加一个mini类型的size和一个crowd类型的size
         let size = this.state.antdConfig.size;
         if (size === 'mini' || size === 'crowd') {
@@ -927,6 +1003,9 @@ export default class NewTable extends BaseComponent {
         if (this.__props.rowTooltips && this.rowSelection) {
             className += ' uf-table-special-tooltips';
         }
+        if (this.__props.align === 'right') {
+            className += ' uf-table-align-right';
+        }
         return className;
     }
     render() {
@@ -939,6 +1018,9 @@ export default class NewTable extends BaseComponent {
         let expandedRowKeys = this.state.expandedRowKeys;
         let footer = this.state.antdConfig.footer;
         return <div {...this.__getCommonProps({className: this.getClassName()})}>
+            {this.state.fullScreen && (
+                <Icon type="close-square" className="close-fullscreen" onClick={this.toggleFullScreen.bind(this)}/>
+            )}
             <div className={'ant-table ' + (this.state.antdConfig.bordered ? 'ant-table-bordered' : '')}>
                 <div className="ant-table-title">
                     {this.renderTitle()}

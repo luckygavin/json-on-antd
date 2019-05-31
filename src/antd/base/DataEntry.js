@@ -151,7 +151,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         }
         // 当设置默认全选时，更新当前内容为全选
         if (this.__props.defaultSelectAll) {
-            let all = this.__props.options.map(v=>v.value);
+            let all = this.__props.options.filter(v=>!v.disabled).map(v=>v.value);
             this._updateValue(all);
             return;
         }

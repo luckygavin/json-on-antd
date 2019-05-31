@@ -32,6 +32,7 @@ module.exports = Object.assign(
         Ueditor: require('./ueditor').Ueditor,
         UeditorParse: require('./ueditor').UeditorParse,
         Echarts: require('./echarts'),
-        Markdown: require('./markdown')
+        Markdown: require('./markdown'),
+        Fullscreen: require('./fullscreen')
     }
 );

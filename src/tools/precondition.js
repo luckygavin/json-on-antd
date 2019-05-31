@@ -11,7 +11,7 @@ export default generate(function (insName) {
     return {
         count: 0,
         // 设置预处理超时时间 30s
-        delay: 60000,
+        delay: 30000,
         timer: null,
         reduce() {
             

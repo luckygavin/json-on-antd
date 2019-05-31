@@ -45,7 +45,8 @@ export const FilterProps = Object.keys(ForUserApi).concat(PreventCoverageMap, [
     // 组件额外动作及组件关联相关属性
     'control',
     // 隐藏组件
-    'hidden'
+    'hidden',
+    'removed'
 ]);
 
 
@@ -312,12 +313,18 @@ export default class BaseComponent extends Component {
     // 展示组件
     show() {
         let style = Object.assign({}, this.__props.style);
-        if (this._tempData.display && this._tempData.display !== 'none') {
-            style.display = this._tempData.display;
-        } else {
-            style.display = undefined;
+        if (style.display) {
+            if (this._tempData.display && this._tempData.display !== 'none') {
+                style.display = this._tempData.display;
+            } else {
+                style.display = undefined;
+            }
         }
-        this.__setProps({style, hidden: false});
+        this.__setProps({style, hidden: false, removed: false});
+    }
+    // 移除组件（非隐藏）
+    remove() {
+        this.__setProps({removed: true});
     }
     // 展示 loading 效果
     loading(__showLoading = true) {
@@ -549,6 +556,7 @@ export default class BaseComponent extends Component {
     // source，请求来源
     __execAjax(conf, usePromise = false, source) {
         let {url, params, _paramsHandler, paramsHandler, paramIndex = {}, removeEmptyParams, _handler, handler, success, onSuccess, error, onError, ...others} = conf;
+        params = Utils.clone(params);
         if (url) {
             // 额外增加对参数预处理逻辑，不暴露给用户使用
             if (_paramsHandler && (false === (params = _paramsHandler(params)))) {
@@ -589,13 +597,13 @@ export default class BaseComponent extends Component {
                     ...others,
                     url: url,
                     params: params,
-                    success: (data, res) => {
+                    success: (data, res, ...p) => {
                         this.__gettingSource = false;
                         if (false === (_handler && (data = _handler(data, res)))) {
                             return false;
                         }
                         // 如果用户定义了数据处理函数，先对数据进行处理
-                        handler && (data = handler(data, res, this));
+                        handler && (data = handler(data, res, this, ...p));
                         // 两个handler都可以通过return false 阻止后续逻辑
                         // 注意，存在返回数据本身为data的情况。所以需要确认当data为handler处理结果时，再阻止
                         if (data === false && (_handler || handler)) {
@@ -604,7 +612,7 @@ export default class BaseComponent extends Component {
                         // 实际的调用处传入的成功处理逻辑
                         success && success(data, res);
                         // 成功后的额外操作
-                        onSuccess && onSuccess(data, res, this);
+                        onSuccess && onSuccess(data, res, this, ...p);
                         usePromise && resolve();
                     },
                     error: res => {
@@ -1033,6 +1041,9 @@ export default class BaseComponent extends Component {
     }
     // 插入额外render处理逻辑
     _render(render) {
+        if (this.__filtered.removed) {
+            return null;
+        }
         // 如果设置了__showLoading，则在组件外额外追加一个loading组件
         if (this.state.__showLoading !== undefined) {
             let loadingConf = this.state.__showLoading;

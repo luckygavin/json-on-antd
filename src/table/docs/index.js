@@ -272,10 +272,10 @@ const demo2 = {
 };
 
 // 下拉框数据字典
-const selectData = {
-    "1" : "男",
-    "2" : "女"
-}
+const sexOptions = [
+    {label: "男", value: '0'},
+    {label: "女", value: '1'}
+]
 
 const columns3 = [
     {
@@ -303,6 +303,7 @@ const columns3 = [
         title: '性别',
         dataIndex: 'sex',
         key: 'sex',
+        enum: sexOptions,
         editable: {
             api: {
                 url: 'docs/php/submit.php',
@@ -314,22 +315,7 @@ const columns3 = [
                 equired: true,
                 message: "必选项"
             },
-            options: [
-                {
-                    label: "男",
-                    value: '1',
-                },
-                {
-                    label: "女",
-                    value: '2',
-                }
-            ]
-        },
-        render: (text, record, index) => {
-            return {
-                type: "p",
-                content: selectData[text]
-            }
+            options: sexOptions
         }
     },{
         title: '年龄',
@@ -381,15 +367,15 @@ const columns3 = [
 ];
 
 const editDataSource = [
-    {key: '1', name: '胡彦斌', age: 30, sex: '1', agreement: true, data: [{id: 111111, company: "baidu"}]},
-    {key: '2', name: '胡彦祖', age: 42, sex: '2', agreement: false, data: [{id: 222222, company: "baidu"}]},
-    {key: '3', name: '胡彦祖彦斌', age: 52, sex: '2', agreement: true, data: [{id: 33333}, {company: "baidu"}]},
-    {key: '4', name: '胡彦祖彦斌', age: 62,sex: '1', agreement: false, data: [{id: 444444, company: "baidu"}]}
+    {key: '1', name: '胡彦斌', age: 30, sex: '0', agreement: true, data: [{id: 111111, company: "baidu"}]},
+    {key: '2', name: '胡彦祖', age: 42, sex: '1', agreement: false, data: [{id: 222222, company: "baidu"}]},
+    {key: '3', name: '胡彦祖彦斌', age: 52, sex: '1', agreement: true, data: [{id: 33333}, {company: "baidu"}]},
+    {key: '4', name: '胡彦祖彦斌', age: 62,sex: '0', agreement: false, data: [{id: 444444, company: "baidu"}]}
 ];
 
 const demo3 = {
-    title: '创建一个可行内编辑的表格',
-    description: '可行内编辑的表格.',
+    title: '一个可行内编辑的表格',
+    description: '可行内编辑的表格。编辑完单元格后立即提交给后端保存',
     config: [
         {
             type: 'table',
@@ -409,6 +395,72 @@ const demo3 = {
     ]
 
 };
+
+const demo4 = {
+    title: '另一个可行内编辑的表格',
+    description: '编辑完单元格后直接修改本地的data中的数据，可编辑完整个表格后，一起提交给后端',
+    config: [
+        {
+            type: 'button',
+            mode: 'primary',
+            style: {marginBottom: 10},
+            content: '获取表格内容',
+            onClick() {
+                console.log(UF('newtable4').getValues());
+            }
+        },
+        {
+            type: 'table',
+            name: 'newtable4',
+            size: 'small',
+            rowKey: 'key',
+            columns: [
+                {
+                    title: '姓名',
+                    dataIndex: 'name',
+                    key: 'name',
+                    editconf: {
+                        type: 'input',
+                        required: true,
+                        rules: {
+                            type: 'string',
+                            max: 5,
+                            message: '长度不得超过5个字符'
+                        }
+                    }
+                },
+                {
+                    title: '性别',
+                    dataIndex: 'sex',
+                    key: 'sex',
+                    enum: sexOptions,
+                    editconf: {
+                        type: 'select',
+                        options: sexOptions
+                    }
+                },
+                {
+                    title: '年龄',
+                    dataIndex: 'age',
+                    key: 'age',
+                    editconf: {
+                        type: 'input-number'
+                    }
+                },
+                {
+                    title: '本行内容',
+                    dataIndex: 'description',
+                    render(v, record) {
+                        return record.name + '-' + sexOptions[+record.sex].label + '-' + record.age;
+                    }
+                }
+            ],
+            bordered: true,
+            data: editDataSource
+        }
+    ]
+};
+
 export default class TableApp extends BaseDoc {
     constructor(props) {
         super(props);
@@ -416,6 +468,6 @@ export default class TableApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo1, demo2, demo3);
+        return this.__getDemoSingle(demo4, demo1, demo2, demo3);
     }
 }

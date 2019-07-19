@@ -4,6 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseDoc from 'docs/app/base/BaseDoc.js';
+import UF from 'src';
 
 const content = [
     {
@@ -26,10 +27,38 @@ const content = [
 const demo1 = {
     title: '基本',
     description: '最简单的用法。',
-    config: {
-        type: 'carousel',
-        content: content
-    }
+    config: [
+        {
+            type: 'carousel',
+            name: 'carousel1',
+            content: content
+        },
+        {type: 'div', style: {marginBottom: 10}},
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '上一个',
+            onClick() {
+                UF('carousel1').prev();
+            }
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '下一个',
+            onClick() {
+                UF('carousel1').next();
+            }
+        },
+        {
+            type: 'button',
+            mode: 'primary',
+            content: '跳转到3',
+            onClick() {
+                UF('carousel1').goto(2);
+            }
+        }
+    ]
 };
 
 const demo2 = {

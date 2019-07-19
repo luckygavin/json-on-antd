@@ -9,7 +9,14 @@ import Utils from './utils.js';
 
 export default function (config) {
     let conf = Utils.filter(config, ['baseUrl', 'success', 'error', 'interrupt']);
-    conf.data = conf.params;
+    if (!!conf.method && conf.method !== 'get') {
+        conf.data = conf.data || conf.params;
+        delete conf.params;
+    } else {
+        conf.params = conf.params || conf.data;
+        delete conf.data;
+    }
+
     return axios(conf).then(response => {
         config.success(response.data);
     }, err => {

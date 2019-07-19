@@ -11,6 +11,7 @@ export default class TableExport extends Component {
     constructor(props) {
         super(props);
         this.parent = props.parent;
+        this.findTitleExportConf();
     }
     componentDidMount() {
         // 把export组件抛出，供外部调用
@@ -42,37 +43,14 @@ export default class TableExport extends Component {
             exportAll = true;
         }
         this.parent.titleExportAll = exportAll;
-        return exportAll;
     }
     // 获取要下载导出数据的配置
     _getExportConfig() {
-        let columns = this.parent.columns;
-        let headers = [];
-        let exportAll = this.findTitleExportConf();
-        for (let column of columns) {
-            // 只导出展示的字段，如果配置了exportAll，则导出时导出全部
-            if (exportAll || column.display !== false || (this.parent.titleRef && this.parent.titleRef.state.showAllTags)) {
-                // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
-                if (!!column.children) {
-                    headers = headers.concat(this.getExportHeader(column.children, column.title));
-                } else {
-                    let item = {
-                        key: column.dataIndex || column.key,
-                        title: column.title
-                    };
-                    // 导出专用render函数
-                    if (column.exportRender) {
-                        item.render = column.exportRender;
-                    }
-                    headers.push(item);
-                }
-            }
-        }
         // 如果为后端分页，则传递 source 配置
         if (this.parent.serverPaging) {
             return {
                 type: 'asyn',
-                headers: headers,
+                headers: this.getExportHeader(this.parent.columns),
                 source: {
                     ...this.parent.__filtered.source,
                     params: this.parent.getSourceParams()
@@ -86,10 +64,50 @@ export default class TableExport extends Component {
         let newData = this.generateExportSyncData(data);
         return {
             type: 'sync',
-            headers: headers,
+            headers: this.getExportHeader(this.parent.columns),
             data: newData,
             total: data.length
         };
+    }
+    getTitle(title) {
+        if (Utils.typeof(title, 'array')) {
+            var titleStr = '';
+            for (var v of title) {
+                Utils.typeof(v, 'string') && (titleStr += v.trim());
+            }
+            title = titleStr;
+        } else if (Utils.typeof(title, 'object')) {
+            if (Utils.typeof(title.content, 'string')) {
+                title = title.content;
+            } else {
+                title = '??';
+            }
+        }
+        return title;
+    }
+    // 取出columns中配置的表头，用作导出headers
+    getExportHeader(columns, preTitle = '') {
+        let headers = [];
+        for (let column of columns) {
+            // 只导出展示的字段，如果配置了exportAll，则导出时导出全部
+            if (this.parent.titleExportAll || column.display !== false
+                || (this.parent.titleRef && this.parent.titleRef.state.showAllTags)
+            ) {
+                let titleStr = (preTitle ? preTitle + '-' : '') + this.getTitle(column.title);
+                // 考虑表头行合并的情况，及column中含有children,则需要取出children中内容
+                if (!!column.children) {
+                    headers = headers.concat(this.getExportHeader(column.children, titleStr));
+                } else {
+                    let item = {title: titleStr, key: column.dataIndex || column.key};
+                    // 导出专用render函数
+                    if (column.exportRender) {
+                        item.render = column.exportRender;
+                    }
+                    headers.push(item);
+                }
+            }
+        }
+        return headers;
     }
 
     // 取出数据中children部分
@@ -102,27 +120,6 @@ export default class TableExport extends Component {
             }
         }
         return exportData;
-    }
-    // 取出columns中配置的表头，用作导出headers
-    getExportHeader(columnChildren, preTitle) {
-        let exportHeader = [];
-        for (let item of columnChildren) {
-            if (!!item.children) {
-                let childrenRes = this.getExportHeader(item.children, preTitle + '-' + item['title']);
-                exportHeader = exportHeader.concat(childrenRes);
-            } else {
-                let itemConf = {
-                    title: preTitle + '-' + item['title'],
-                    key: item['dataIndex'] || item['key']
-                };
-                // 导出专用render函数
-                if (item.exportRender) {
-                    itemConf.render = item.exportRender;
-                }
-                exportHeader.push(itemConf);
-            }
-        }
-        return exportHeader;
     }
     render() {
         return <Export key="export" _factory={this.parent._factory} style={{display: 'none'}}

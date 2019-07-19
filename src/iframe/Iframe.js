@@ -18,6 +18,7 @@ export default class Iframe extends BaseComponent {
         this.state = {
             loading: true
         };
+        this.setTimeout();
         this.__init();
     }
     componentWillReceiveProps(nextProps) {
@@ -31,7 +32,14 @@ export default class Iframe extends BaseComponent {
                 return;
             }
             this.setState({loading: true});
+            this.setTimeout();
         }
+    }
+    // 10s超时时间，超时后取消loading效果
+    setTimeout() {
+        setTimeout(()=> {
+            this.setState({loading: false});
+        }, 10000);
     }
     componentDidMount() {
         if (!this.ifr.height) {
@@ -52,13 +60,17 @@ export default class Iframe extends BaseComponent {
                 <iframe {...Utils.filter(this.__props, ['showLoading', 'delay', 'className', 'style', 'height', 'width'])}
                     ref={ele=>this.ifr = ele}
                     onLoad={even => {
+                        // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
+                        // 当 mode 为 false时，将取消高度调整的尝试（以屏蔽跨域的warning）
+                        let mode = this.__props.mode;
+                        if (mode === false) {
+                            return;
+                        }
                         try {
                             this.setState({loading: false});
                             let ifr = even.target;
                             let iDoc = ifr.contentWindow.document;
                             let iWindow = ifr.contentWindow;
-                            // Iframe高度根据内容高度变化的三种模式: auto / max / fixed
-                            let mode = this.__props.mode;
                             if (mode !== 'fixed') {
                                 let setIfrHeight = ()=>{
                                     let iDocHight;
@@ -99,6 +111,7 @@ export default class Iframe extends BaseComponent {
 
                             this.__props.onLoad && this.__props.onLoad(even);
                         } catch (e) {
+                            this.setState({loading: false});
                             console.warn(e);
                         }
                     }

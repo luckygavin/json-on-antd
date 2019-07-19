@@ -60,7 +60,24 @@ export class Card extends DataDisplay {
 export class Carousel extends DataDisplay {
     constructor(props) {
         super(props);
+        this._openApi.push('next', 'prev', 'goto');
+        this.slick = null;
         this.__init();
+    }
+    _componentDidMount(...p) {
+        super._componentDidMount(...p);
+        if (this._component && this._component.innerSlider) {
+            this.slick = this._component.innerSlider;
+        }
+    }
+    next() {
+        this.slick && this.slick.slickNext();
+    }
+    prev() {
+        this.slick && this.slick.slickPrev();
+    }
+    goto(index) {
+        this.slick && this.slick.slickGoTo(index);
     }
     render() {
         return <Antd.Carousel {...this.__props}/>;
@@ -230,6 +247,7 @@ export class Tabs extends DataDisplay {
 export class TabPane extends DataDisplay {
     constructor(props) {
         super(props);
+        this._innerFilter.push('wrappedComponentRef');
         this.__init();
     }
     componentDidMount() {

@@ -12,16 +12,20 @@ const demo1 = {
     name: 'demo1',
     config: {
         type: 'anchor',
-        content: [
+        mode: 'scroll',
+        scrollOffset: 100,
+        items: [
             {
-                type: 'anchor-link',
-                href: '#demo1',
-                title: 'demo1'
+                targetId: '-',
+                title: '何时使用'
             },
             {
-                type: 'anchor-link',
-                href: '#demo2',
-                title: 'demo2'
+                targetId: '-anchor',
+                title: '# anchor'
+            },
+            {
+                targetId: '-item-',
+                title: 'item'
             }
         ]
     }

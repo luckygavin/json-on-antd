@@ -40,8 +40,9 @@
 | 参数 | 说明 | 类型 | 默认值 |
 |------|------|------|--------|
 | filter | 接收 `inputValue` `path` 两个参数，当 `path` 符合筛选条件时，应返回 true，反之则返回 false。 | `function(inputValue, path): boolean` | |
-| render | 用于渲染 filter 后的选项 | `function(inputValue, path): UF.init({...})` | |
+| ignoreCase | 搜索时忽略大小写（内部通过重写`filter`函数实现，如果自定义了filter函数，则此属性无效。注：设为true会降低性能） | `boolean` | false |
+| render | 用于渲染 filter 后的选项 | `function(inputValue, path): {...}` | |
 | sort | 用于排序 filter 后的选项 | `function(a, b, inputValue)` | |
-| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | |
+| matchInputWidth | 搜索结果列表是否与输入框同宽 | boolean | - |
 
 > 注意，如果需要获得中国省市区数据，可以参考 [china-division](https://gist.github.com/afc163/7582f35654fd03d5be7009444345ea17)。

@@ -36,6 +36,7 @@ export const DocsList = [
     {path: 'Params', name: '通用参数', component: require('./app/params').default},
     {path: 'Lifecycle', name: '生命周期', component: require('./app/lifecycle').default},
     {path: 'Load', name: '特殊组件', component: require('./app/load').default},
+    {path: 'Utils', name: '工具函数', component: require('./app/utils').default},
     {path: 'Others', name: '更多用法', component: require('./app/others').default}
 ];
 

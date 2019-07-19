@@ -18,6 +18,30 @@ export class Cascader extends OptionsDataEntry {
         this.__controlled.defaultVal = [];
         this.__init();
     }
+    _afterInitProps() {
+        super._afterInitProps();
+        if (this.__props.showSearch === true) {
+            this.__props.showSearch = {};
+        }
+        if (this.__props.showSearch && !this.__props.showSearch.filter
+            && this.__props.showSearch.ignoreCase) {
+            this.__props.showSearch.filter = (inputValue, path) => {
+                for (let v of path) {
+                    if ((v.label && v.label.toLowerCase()).indexOf(inputValue.toLowerCase()) > -1) {
+                        return true;
+                    }
+                }
+                return false;
+            };
+        }
+        if (this.__props.showSearch && this.__props.showSearch.render) {
+            let oRender = this.__props.showSearch.render;
+            this.__props.showSearch.render = (...p) => {
+                let result = oRender(...p);
+                return this.__analysis(result);
+            }
+        }
+    }
     render() {
         return <Antd.Cascader {...this.__props}/>;
     }
@@ -221,10 +245,11 @@ export class Radio extends OptionsDataEntry {
     _afterSetProps(newProps) {
         super._afterSetProps(newProps);
         if (newProps.options) {
-            this.__props.options = this.__props.options.map(item=>{
-                item.value += '';
-                return item;
-            });
+            // 会影响scu中的是否变化对比，如果没影响则删除，at 2019-07-08
+            // this.__props.options = this.__props.options.map(item=>{
+            //     item.value += '';
+            //     return item;
+            // });
             this._handleDefaultSelect();
         }
     }
@@ -233,7 +258,7 @@ export class Radio extends OptionsDataEntry {
         this.__props[this.__controlled.key] = val;
         this.__props.onChange && this.__props.onChange({target: {value: val}});
     }
-    getAllOptions(data = this.__props.options) {
+    _getAllOptions(data = this.__props.options) {
         return [].concat(this.__filtered.extOptions || [], data || []);
     }
     render() {
@@ -245,9 +270,9 @@ export class Radio extends OptionsDataEntry {
         return <Antd.Radio.Group {...Utils.filter(this.__props, 'options')} value={
                 this.__props.value !== undefined ? '' + this.__props.value : undefined
             }>
-            {this.getAllOptions().map(item=>
-                <Item key={item.value} disabled={item.disabled} style={item.style}
-                    value={item.value}>{item.label}</Item>
+            {this._getAllOptions().map(item=>
+                <Item key={item.value + ''} disabled={item.disabled} style={item.style}
+                    value={item.value + ''}>{item.label}</Item>
             )}
         </Antd.Radio.Group>;
     }
@@ -283,10 +308,11 @@ export class Select extends OptionsDataEntry {
     _afterSetProps(newProps) {
         super._afterSetProps(newProps);
         if (newProps.options && Utils.isChange(this.__prevProps.options, newProps.options)) {
-            this.__props.options = this.__props.options.map(item => {
-                item.value += '';
-                return item;
-            });
+            // 会影响scu中的是否变化对比，如果没影响则删除，at 2019-07-08
+            // this.__props.options = this.__props.options.map(item => {
+            //     item.value += '';
+            //     return item;
+            // });
             // autoClear 指定是否自动清理不匹配（不在options中的value）的选项
             if (this.__filtered.autoClear !== false) {
                 // 根据是否多选做区别处理
@@ -298,10 +324,13 @@ export class Select extends OptionsDataEntry {
                 } else {
                     this._handleDefaultSelect();
                 }
+            // 当不自动清理不匹配选项时，为了能把此选项提示出来，重新触发一次onChange（可以触发Form的rules校验规则）
+            } else if (this.__props.value) {
+                this.__props.onChange && this.__props.onChange(this.__props.value);
             }
         }
     }
-    getAllOptions(data = this.__props.options) {
+    _getAllOptions(data = this.__props.options) {
         return [].concat(this.__filtered.extOptions || [], data || []);
     }
     render() {
@@ -321,9 +350,9 @@ export class Select extends OptionsDataEntry {
             value += '';
         }
         return <Antd.Select {...Utils.filter(this.__props, 'options')} value={value}>
-            {this.getAllOptions().map(item=>
-                <Antd.Select.Option key={item.value} disabled={item.disabled} style={item.style}
-                    value={item.value}>{item.label}</Antd.Select.Option>
+            {this._getAllOptions().map(item=>
+                <Antd.Select.Option key={item.value + ''} disabled={item.disabled} style={item.style}
+                    value={item.value + ''}>{item.label}</Antd.Select.Option>
             )}
         </Antd.Select>;
     }

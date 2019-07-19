@@ -20,3 +20,11 @@
 | easing | 动画效果 | string   | linear |
 | beforeChange      | 切换面板的回调                              | function(from, to) | 无
 | afterChange       | 切换面板的回调                              | function(current)  | 无
+
+### 函数调用
+
+函数名称 | 说明 | 参数 |  默认
+---- | ---- | ----- | ----- 
+next | 切换到下一面板 | next() |
+prev | 切换到上一面板 | prev() |
+goto | 切换到指定index的面板 | goto(index) |

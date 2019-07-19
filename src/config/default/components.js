@@ -146,7 +146,7 @@ export default {
         data: []
     },
     // table 的编辑插件
-    'table-edit': {
+    'table-sync-edit': {
         api: {
             trigger: 'onSubmit'
         }

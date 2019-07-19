@@ -11,9 +11,13 @@ export default class UeditorParse extends Html {
     // 解析
     parse() {
         if (window.uParse) {
-            window.uParse(`#${this.ueditorId}`, {
-                rootPath: window.UEDITOR_HOME_URL
-            });
+            try {
+                window.uParse(`#${this.ueditorId}`, {
+                    rootPath: window.UEDITOR_HOME_URL
+                });
+            } catch (error) {
+                console.warn('`Ueditor`库加载/执行出现异常，无法进行解析。错误信息如下：' + error.toString());
+            }
         } else {
             this._factory.$requirejs(['ueditor'], UE=>{
                 if (window.uParse) {

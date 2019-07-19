@@ -41,17 +41,20 @@
 | onRowMouseEnter | 鼠标移入行时触发 | Function(record, index, event)   | - |
 | onRowMouseLeave | 鼠标移出行时触发 | Function(record, index, event)   | - |
 
-#### *expanded*
+#### expanded
 
 | 参数       | 说明                       | 类型    |  默认值  |
 |-----------|----------------------------|--------|---------|
 | expandedRowRender  | 额外的展开行 | Function | - |
 | defaultExpandedRowKeys | 默认展开的行 | string[] | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false |
+| source | 异步获取展开项功能，属性和通用source保持一致。当配置了source，点击展开时，会自动获取数据并将数据追加到当前行的children中并展开 | object | - |
 | onExpand      | 点击展开图标时触发 | Function(expanded, record) | |
 | onExpandedRowsChange | 展开的行变化时触发 | Function(expandedRows) | - |
 
-#### *column*
+> tips: 可配合的[`column._operation`](#/Custom/Table/-column-_operation-)使用，`action`值为`'expand'`，并支持使用属性`actionParams`传参
+
+#### column
 
 列描述数据对象，是 `columns` 中的一项。
 
@@ -79,9 +82,11 @@
 | onCellClick | 单元格点击回调 | Function(record, event) | - |
 | textType | 字段表现形式。可选 `html` `json` `duration` `thousandSeparator` `default`。其中：`html`-一段html，直接展示在页面上；`json`-会经过一些样式上的处理之后展示到页面上；`duration`-传入的是日期时间串(2016-12-28 10:00:00),返回据现在(1天14小时)；`thousandSeparator`-进行千位分隔（每3位进行逗号分隔） | String | `default` |
 | ellipsis | 文字过长截断，鼠标移上去时，展示一个气泡, 如示例中的爱好字段 | Boolean | false |
-| editable | 此单元格是否可编辑,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object&#124;function | - |
+| editable | 单元格编辑功能（编辑后需提交）,详见下方[`columns.editable`](#/Custom/Table/-column-editable-) | Object&#124;function(text, record, index) | - |
+| editconf | 另一种单元格编辑功能（本地编辑）,详见下方[`columns.editconf`](#/Custom/Table/-column-editconf-) | Object&#124;function(text, record, index) | - |
 
-#### *column.enum*
+
+#### column.enum
 
 将字段根据枚举的列表、或者通过接口获取的列表、或者实时查询，将字段翻译成另一个字段。
 
@@ -124,28 +129,44 @@ enum为对象时，除[`source`](#/Params/-source-)系列参数外，还需要�
 }
 ```
 
-#### *column.filter*
+#### column.filter
 
 | 参数       | 说明                       | 类型            |  默认值  |
 |-----------|----------------------------|-----------------|---------|
 | type      | 筛选形式，共三种`checkbox`, `radio`, `input`               | string | - |
 | options      | 当筛选形式为`checkbox`或`radio`时，该字段用于指定通过哪些值作为筛选条件               | string[] | 默认为所有可能出现的值 |
 
-#### *column.editable*
 
-主要为Form组件的item配置项, 图标配置主要为Icon组件配置项, 下面只是列出常用配置项, 其余的可参照相应组件的配置。
+#### column.editable
+
+可行内编辑功能，编辑完单元格后立即提交给后端保存。
 
 | 参数       | 说明                       | 类型            |  默认值  | 是否必须 |
 |-----------|----------------------------|-----------------|---------|--------|
 | type | 即为输入类型组件的type。除type外，可以使用一切输入型组件的参数 | string | - | 必须 |
 | name | 表单域名称，key，提交时以此名称为键 | string | - | 必须 |
-| rules | 验证规则,详见Form组件的item.rules配置项 | string | - |  |
+| rules | 验证规则, 详见`Form`组件的 [`item.rules`](#/Custom/Form/-item-rules-) 配置项 | string | - |  |
 | icon | 编辑单元格相应图标, 固定为三个属性 `icon: { editIcon: { mode: 'edit'}, submitIcon: null, closeIcon: {mode: 'close-circle'}}`. 如需去除则将相应属性赋值为null, 当不设置某一属性时则为默认. 当submitIcon为null时自动添加点击其它地方关闭编辑框功能. 当直接把icon设置为null时，则editIcon为默认值，其余两个设置为null | Object &#124; null | 默认图标样式 |  |
 | api | 待定 | string | - | 必须 |
 
-> `editable`也可以为一个函数，函数的参数和render的参数一致，返回结果为以上的配置对象。以此可以动态设置 editable 的配置
+> `editable`也可以为一个函数，函数的参数和render的参数一致，返回结果为以上的配置对象。以此可以动态设置 editable 的配置。当返回`false`时，展示原内容
 
-#### *column._operation*
+
+#### column.editconf
+
+另一个可行内编辑的表格。编辑完单元格后直接修改本地的data中的数据，可编辑完整个表格后，一起提交给后端（调用`getValues`函数获取表格数据，然后自己实现提交逻辑）
+
+以下为几个比较关键的属性，其他组件属性请参考相应组件文档
+
+参数名称 | 说明 | 类型 | 默认值 | 是否必须
+----- | --- | ---------| --- | ---
+type | 即为输入类型组件的`type`。**除`type`外，可以使用一切输入型组件的参数** | string | | 必须
+extra | 额外提示信息，会显示在表单域之后或下方 | string&#124;`config` | |
+required | 是否必选 | boolean | `false` | 
+rules | 除是否必选外，其他验证规则，表单在提交时会根据验证规则对数据进行校验，只有全部通过才会调用提交的回调函数。此处可以是个对象或者对象数组（多条验证规则）。详见`Form`组件的 [`item.rules`](#/Custom/Form/-item-rules-) 配置项 | object&#124;array | |
+
+
+#### column._operation
 
 当 `dataIndex` 为 _operation 时，指定此列为操作列，其render函数返回值为操作按钮配置数组，且操作按钮配置中可以使用`action`属性和crud配置做关联，以实现如下功能：
 
@@ -174,7 +195,7 @@ columns: [
 ```
 
 
-#### *rowSelection*
+#### rowSelection
 
 选择功能的配置。
 
@@ -190,7 +211,7 @@ columns: [
 | onSelectAll | 用户手动选择/取消选择当前页所有列的回调    | Function(selected, selectedRows, changeRows) |   -   |
 | onSelectInvert | 用户手动选择反选当前页的回调 | Function(selectedRows) | - |
 
-#### *rowSelection.selection*
+##### rowSelection.selection
 
 | 参数              | 说明                     | 类型             |  默认值   |
 |------------------|--------------------------|-----------------|---------------------|
@@ -198,7 +219,7 @@ columns: [
 | text | 选择项显示的文字 | string &#124; `UF.init({...})` | -  |
 | onSelect | 选择项点击回调 | Function(changeableRowKeys) | -   |
 
-#### *pagination*
+#### pagination
 
 | 参数             | 说明                               | 类型          | 默认值                   |
 |------------------|------------------------------------|---------------|--------------------------|
@@ -218,7 +239,7 @@ columns: [
 | paramIndex       | 更改请求中的分页参数名称，推荐使用`source.paramIndex`参数进行修改  | object        | {page: 'page', size: 'size'} |
 
 
-#### *title*
+#### title
 
 参数              | 说明                     | 类型             |  默认值
 -----------------|--------------------------|-----------------|--------

@@ -218,7 +218,7 @@ export default generate(function (insName) {
                     //Defaults. Do not set a default for map
                     //config to speed up normalize(), which
                     //will run faster if there is no default.
-                    waitSeconds: 7,
+                    waitSeconds: 20,
                     baseUrl: './',
                     paths: {},
                     bundles: {},
@@ -552,6 +552,7 @@ export default generate(function (insName) {
                         var mod = getOwn(registry, id);
                         if (mod) {
                             //Set error on module, so it skips timeout checks.
+                            // TODO: 文件加载超时后，会记录error，后面再次需要用到此文件时，不会再次尝试发送请求
                             mod.error = err;
                             if (mod.events.error) {
                                 notified = true;

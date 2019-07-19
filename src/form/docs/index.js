@@ -23,7 +23,8 @@ const Step1 = [{
     },
     filterExtraFieldExcept: 'address',
     formData: {
-        address: 12
+        address: 12,
+        'idc_id': 'GZJS'
     },
     onChange(params) {
         console.log(params);
@@ -61,7 +62,20 @@ const Step1 = [{
                     type: 'select',
                     label: '机房',
                     name: 'idc_id',
-                    rules: {required: true, message: '机房不能为空'},
+                    autoClear: false,
+                    rules: [
+                        {required: true, message: '机房不能为空'},
+                        {
+                            type: 'enum',
+                            enum: ['TC', 'JX', 'DB', 'BB', 'CDN', 'YF'],
+                            message: '当前值不在可选项中，请重新选择'
+                        }
+                    ],
+                    // options: [
+                    //     {value: 's',label: 'YQ01'},
+                    //     {value: 'd',label: 'BJYZ'},
+                    //     {value: 'f',label: 'BB'}
+                    // ],
                     source: {
                         autoLoad: false,
                         url: 'docs/php/data.php',

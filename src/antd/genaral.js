@@ -16,6 +16,37 @@ export class Anchor extends Genaral {
         super(props);
         this.__init();
     }
+    // __setProps 后，增加附加处理逻辑
+    _afterSetProps(...p) {
+        super._afterSetProps(...p);
+        if (this.__props.items) {
+            this.__props.children = this.handleItems(this.__props.items);
+            delete this.__props.items;
+        }
+    }
+    handleItems(items) {
+        let mode = this.__props.type;
+        return items.map((item, index) => {
+            // 增加滚动模式，支持在路由使用 hashHistory 的情况下使用
+            if (mode === 'scroll') {
+                item.title = <div key={item.title} onClick={e=>{
+                    e && e.preventDefault();
+                    e && e.stopPropagation();
+
+                    let scrollOffset = this.__props.scrollOffset || 0;
+                    let id = item.targetId;
+                    if (id && document.getElementById(id)) {
+                        let offset = document.getElementById(id).offsetTop - scrollOffset;
+                        // 使用滚动动画
+                        Utils.windowScroll(offset);
+                    }
+
+                    return false;
+                }}>{item.title}</div>;
+            }
+            return <Antd.Anchor.Link key={index} {...item}/>;
+        });
+    }
     render() {
         return <Antd.Anchor {...this.__props}/>;
     }

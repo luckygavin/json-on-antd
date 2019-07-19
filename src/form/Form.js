@@ -14,7 +14,7 @@ export class OriginForm extends BaseComponent {
         super(props);
         // 过滤掉Form.create传入的form属性
         this._filter.push('form', 'filterExtraFieldExcept');
-        this._innerFilter.push('form');
+        this._innerFilter.push('form', 'wrappedComponentRef');
         this._openApi.push('getValues', 'resetValues', 'clearValues', 'resetItem', 'resetItems', 'getDisplayValues');
         // 不复杂的属性，即无需merge处理直接覆盖的属性
         this._uncomplex.push('formData');
@@ -203,6 +203,9 @@ export class OriginForm extends BaseComponent {
     // 获取表单中输入/选择完成后端展示内容
     getDisplayValues() {
         let result = Utils.each(Object.assign({}, this.itemRef, this.formRef), (item, name) => {
+            if (!item) {
+                return;
+            }
             let getDisplay = item.getDisplayValue || item.getDisplayValues;
             return getDisplay ? getDisplay() : this.form.getFieldValue(name);
         });
@@ -495,7 +498,9 @@ export class OriginForm extends BaseComponent {
         // 触发Change时实现联动功能
         this._inject(itemProps, 'onChange', this.onChange.bind(this, item), true)
         // 存储ref
-        itemProps.ref = inst => (this.itemRef[key] = inst);
+        if (item.type !== 'button') {
+            itemProps.ref = inst => (this.itemRef[key] = inst);
+        }
         let otherOptions = {};
         switch (item.type) {
             case 'group':
@@ -681,7 +686,15 @@ export class OriginForm extends BaseComponent {
         let valueType = null;
         rules = (rules || []).map(rule=>{
             if (rule.type) {
-                valueType = rule.type;
+                // enum类型，一般用于Select组件，未定义enum属性，自动追加options的value
+                // TODO: 通过source获取的options，如何在form中获取到
+                // if (rule.type === 'enum' && (!rule.enum || rule.noEnum)) {
+                //     rule.noEnum = true;
+                //     rule.enum = Utils.optionValues(item.options);
+                if (rule.type === 'enum') {
+                } else {
+                    valueType = rule.type;
+                }
             }
             return rule;
         });

@@ -10,6 +10,10 @@ const demo1 = {
     description: '最简单的用法。',
     config: {
         type: 'upload',
+        beforeUpload(file, fileList) {
+            console.log(file, fileList);
+            return false;
+        },
         defaultFileList: [
             {
                 uid: 1,

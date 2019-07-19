@@ -13,6 +13,7 @@ const s4 = () => {
 
 // 引入了underscore的功能，并在其上增加了自定义的一些函数
 const utils = Object.assign({}, underscore, {
+    id: 0,
     // 如果要使用原生的功能，可通过 _ 来访问
     _: underscore,
 
@@ -64,6 +65,28 @@ const utils = Object.assign({}, underscore, {
     /* 自定义工具函数 ******************************************************************/
     /*********************************************************************************/
 
+    // 页面滚动动画
+    windowScroll(targetY) {
+        var timer = setInterval(function () {
+            // 当前及滑动中任意时刻位置
+            var currentY = document.documentElement.scrollTop || document.body.scrollTop;
+            var currentCH = document.documentElement.clientHeight || document.body.clientHeight;
+            var currentSH = document.documentElement.scrollHeight || document.body.clientHeight;
+            // 剩余距离
+            var distance = targetY > currentY ? targetY - currentY : currentY - targetY;
+            // 每时刻速度
+            var speed = Math.ceil(distance / 10);
+            if (currentY === targetY || currentY + currentCH + 10 >= currentSH) {
+                clearInterval(timer);
+            } else {
+                window.scrollTo(0,targetY > currentY ? currentY + speed : currentY - speed);
+            }
+        }, 10);
+    },
+    // 整数不会在小数点后补充0（区别于Number.toFixed）
+    toFixed(num, n = 1) {
+        return Math.round(num * Math.pow(10, n)) / Math.pow(10, n);
+    },
     // 数字前面补充0
     padNum(num, n = 0) {
         let len = ('' + num).length;
@@ -86,6 +109,10 @@ const utils = Object.assign({}, underscore, {
             strNum += '0';
         }
         return strNum;
+    },
+    // 自增ID
+    incrementId() {
+        return utils.id++;
     },
     // 生成随机唯一ID，32位
     uniqueId() {
@@ -570,6 +597,9 @@ const utils = Object.assign({}, underscore, {
             }
         }
         return result;
+    },
+    optionValues(data = []) {
+        return data.map(v => v.value);
     },
     // 从options结构中取值并形成一个新的数组（或者是类似于options的结构）
     // 可以取value或label

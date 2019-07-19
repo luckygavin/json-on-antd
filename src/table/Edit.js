@@ -1,20 +1,91 @@
 /**
- * @file: Table扩展 - 单元格内编辑等功能
- * @author: JihangGuo
- * @last Modified time: 2018-04-25 22:56:04
- * @email: guojihang@baidu.com
+ * @file Table扩展 - 单元格内编辑等功能
+ *
+ * Author: liuzechun (liuzechun@baidu.com)
+ * Created: 2019-07-08 19:43:50
  */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Schema from 'async-validator';
 import {BaseComponent} from 'src/base';
 import {Utils} from 'src/utils';
-import {Input, InputNumber, Button, Icon, Dropdown, Checkbox, message, Option} from 'antd';
+import {Icon, Form} from 'antd';
 
-// 为每个单元格创建一个包装父类组件
-export default class TableEdit extends BaseComponent {
+// 编辑完仅更新本地的data，不会提交后端。
+export class LocalEdit extends React.PureComponent {
     constructor(props) {
-        super(props, {type: 'table-edit'});
+        super(props);
+        this.parent = props.parent;
+        this._factory = props._factory;
+        this.state = {
+            validateStatus: null,
+            help: null
+        };
+        this.validator = this.getValidator(props);
+    }
+    getValidator(props) {
+        let conf = props.editConf;
+        let rules = [];
+        if (conf.required) {
+            rules.push({required: true, message: '此列不能为空'});
+        }
+        if (conf.rules) {
+            if (Utils.typeof(conf.rules, 'object')) {
+                rules.push(conf.rules);
+            } else {
+                rules = rules.concat(conf.rules);
+            }
+        }
+        return new Schema({field: rules});
+    }
+    onChange(e, value) {
+        this.validator.validate({field: value}, {first: true}, (errors, fields) => {
+            if (errors && errors.length > 0) {
+                // console.log(errors);
+                let firstError = errors[0];
+                this.setState({
+                    validateStatus: 'error',
+                    help: firstError.message
+                });
+            } else {
+                this.setState({
+                    validateStatus: null,
+                    help: null
+                });
+                Utils.toObject(this.props.record, this.props.field, value);
+                this.parent.forceUpdate();
+            }
+        })
+    }
+    render() {
+        let editConf = this.props.editConf;
+        let fieldConf = Utils.filter(editConf, ['required', 'extra', 'rules']);
+        fieldConf.value = this.props.value;
+        fieldConf.onChange = this.onChange.bind(this);
+        return <Form.Item label={null} labelCol={{span: 0, offset: 0}}
+            extra={editConf.extra}
+            hasFeedback={false}
+
+            required={editConf.required}
+            help={this.state.help}
+            validateStatus={this.state.validateStatus}
+        >
+            {this._factory.generateElement(fieldConf)}
+        </Form.Item>;
+    }
+}
+
+
+/**
+ * @author: JihangGuo
+ * @last Modified time: 2018-04-25 22:56:04
+ * @email: guojihang@baidu.com
+ */
+// 编辑完直接提交数据
+export class SyncEdit extends BaseComponent {
+    constructor(props) {
+        super(props, {type: 'table-sync-edit'});
         // 自己制定组件类型
         this.__init();
 
@@ -118,6 +189,8 @@ export default class TableEdit extends BaseComponent {
             editConf['onBlur'] = () => this.editChange(false);
         }
         editConf['autoFocus'] = true;
+        // editConf.style = editConf.style || {};
+        // editConf.style.width = editConf.style.width || '100%';
         // 整合配置
         let formConf = {
             type: 'form',

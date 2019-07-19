@@ -12,7 +12,7 @@ iframe 的增强版。
 参数 | 说明 | 类型 | 默认值 | 是否必填
 ---- | ---- | ----- | ----- | -----
 src | 子页面的url。可以是全路径，也可以是相对路径 | string |  | 必填
-mode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条） | string | 'auto' | 
+mode | 文档加载完成后iframe的高度自动重新设定，支持三种模式： `auto` - 自动调整，监听内部文档高度变化，不断调整iframe的高度（默认）；`max` - 总是展示最大高度，iframe会逐渐被撑大；`fixed` - 高度固定，需自行设定iframe的height（同iframe默认效果，容易出现滚动条）。当设置为`false`时，会取消高度调整的尝试（以屏蔽跨域的warning） | string | 'auto' | 
 delay | 子页面高度变化时，延迟重新设定iframe高度，可防止高度闪烁 | number | 0 |
 
 其他属性同原生的 iframe，例如：`height`、`width`等

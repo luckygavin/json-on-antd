@@ -10,7 +10,7 @@ import {Table, Popover, Tooltip, Icon} from 'antd';
 // 扩展功能 - 增删改查等
 import Crud from './Crud.js';
 import Title from './Title.js';
-import Edit from './Edit.js';
+import {LocalEdit, SyncEdit} from './Edit.js';
 import Enum from './Enum.js';
 import TableExport from './Export.js';
 import {Filter} from './Filters.js';
@@ -90,7 +90,7 @@ export default class NewTable extends BaseComponent {
     // 需使用params的地方，直接调用此函数
     // 参数逻辑为，params为直接覆盖，source.params为增量更新；params > source.params
     getSourceParams() {
-        return Utils.merge({}, this.__filtered.source.params, this.__props.params);
+        return Utils.merge({}, this.__filtered.source.params, this.__props.params || {});
     }
     initTable(isFirst) {
         let objProps = this.__props;
@@ -477,6 +477,7 @@ export default class NewTable extends BaseComponent {
     // 清空某些控制状态
     // TODO: 清空的时机待考量，特别针对filter的情况，当前处理不太准确
     clearState() {
+        this.selectedRows = [];
         this.setState({
             selectedRowKeys: []
         });
@@ -568,37 +569,6 @@ export default class NewTable extends BaseComponent {
         }
         return val;
     }
-    _syntaxHighlight(json) {
-        if (typeof json !== 'string') {
-            json = JSON.stringify(json, undefined, 2);
-        }
-        json = json.replace(/&/g, '&').replace(/</g, '<').replace(/>/g, '>');
-        let reg = /("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+-]?\d+)?)/g;
-        return json.replace(reg, match => {
-            let cls = 'number';
-            if (/^"/.test(match)) {
-                if (/:$/.test(match)) {
-                    cls = 'key';
-                } else {
-                    try {
-                        let type = JSON.parse(match);
-                        if (typeof (JSON.parse(type)) === 'object') {
-                            return this._syntaxHighlight(JSON.parse(type));
-                        } else {
-                            cls = 'string';
-                        }
-                    } catch (e) {
-                        cls = 'string';
-                    }
-                }
-            } else if (/true|false/.test(match)) {
-                cls = 'boolean';
-            } else if (/null/.test(match)) {
-                cls = 'null';
-            }
-            return '<span class="' + cls + '">' + match + '</span>';
-        });
-    }
     // _operation 为一个特殊属性，此属性中可以使用特定的action，关联table的crud等功能
     handleAction(oConfig, record) {
         let config = Utils.clone(oConfig);
@@ -611,6 +581,8 @@ export default class NewTable extends BaseComponent {
                 continue;
             }
             // action的值与crud中的配置的key一一对应
+            // 坑1：不能判断onClick是否存在，或者再次使用onClick，因为再次进入此函数时，会存在上一次处理得到的onClick
+            // 坑2
             if (v.action && !v.control) {
                 // BaseComponet不接受更新函数，使用control作为临时解决方案
                 // v.control = {
@@ -671,12 +643,14 @@ export default class NewTable extends BaseComponent {
         }
         if (item.align) {
             defaultColumn.title = <div style={{textAlign: item.align}}>{defaultColumn.title}</div>;
+            defaultColumn.className = (item.className ? item.className : '') + ' td-align-' + item.align;
         }
         if (defaultColumn.dataIndex === '_operation') {
             defaultColumn.className += ' uf-operation';
         }
+        
         // 自定义样式参数
-        if (item.minWidth || item.align || item.style) {
+        if (item.minWidth || item.style) {
             let style = item.style || {};
             let orender = itemRender;
             itemRender = (v, row, ...params) => {
@@ -688,10 +662,6 @@ export default class NewTable extends BaseComponent {
                 }
                 if (item.minWidth) {
                     Object.assign(style, {minWidth: item.minWidth});
-                }
-                if (item.align) {
-                    Object.assign(style, {textAlign: item.align});
-                    // item.className = (item.className ? item.className : '') + 'td-align-' + item.align;
                 }
                 return {
                     type: 'div',
@@ -763,14 +733,20 @@ export default class NewTable extends BaseComponent {
                         break;
                     }
                     case 'thousandseparator': {
-                        newText = Utils.thousandSeparator(itemRender ? itemRender(text, record, index) : text);
+                        newText = itemRender ? itemRender(text, record, index) : text;
+                        newText = Utils.thousandSeparator(newText);
+                        break;
+                    }
+                    case 'tofixed': {
+                        newText = itemRender ? itemRender(text, record, index) : text;
+                        newText = isNaN(+newText) ? newText : Utils.toFixed(+newText, item.fixedNumber);
                         break;
                     }
                     case 'json': {
                         // 会出现重复json字符串编码现象,加入类型判断
                         let json = typeof text === 'string' ? text : JSON.stringify(text, null, 2);
                         if (text && json !== '""') {
-                            let html = this._syntaxHighlight(json);
+                            let html = Utils.syntaxHighlight(json);
                             newText = <Popover content={<pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>}>
                                 <pre className="json" dangerouslySetInnerHTML={{__html: html}}></pre>
                             </Popover>;
@@ -793,15 +769,8 @@ export default class NewTable extends BaseComponent {
                 return newText;
             };
         }
-        // 支持传入type，自定义数据展示组件
-        // if (item.type) {
-        //     let oriRender = defaultColumn.render;
-        //     defaultColumn.render = (text, record, index) => {
-        //         let oriResult = oriRender ? oriRender(text, record, index) : text;
-        //         return this.__analysis(Object.assign({content: oriResult}, item.type));
-        //     }
-        // }
         // 根据是否可编辑状态来判断是否包裹编辑组件
+        // 编辑后提交到后端
         if (item.editable) {
             // 声明获取前面设置过的配置
             let oRender = defaultColumn.render;
@@ -816,12 +785,31 @@ export default class NewTable extends BaseComponent {
                 if (!editableConf) {
                     return displayStr;
                 }
-                return <Edit parent={this} _factory={this._factory}
-                    value={text}
-                    columnChild={displayStr}
-                    editConf={editableConf}
+                return <SyncEdit parent={this} _factory={this._factory}
+                    value={text} columnChild={displayStr}
+                    editConf={Utils.filter(editableConf, ['api'])}
                     api={editableConf.api}
                     cellSubmit={this._cellSubmit.bind(this, record[this.rowKey], defaultColumn.dataIndex)}
+                />;
+            };
+        }
+        // 本地编辑，直接修改data
+        if (item.editconf) {
+            // 声明获取前面设置过的配置
+            let oRender = defaultColumn.render;
+            defaultColumn.render = (text, record, index) => {
+                let editConf = item.editconf;
+                // 支持配置为一个函数
+                if (Utils.typeof(editConf, 'function')) {
+                    editConf = editConf(text, record, index);
+                }
+                // 如果editConf返回为false，则直接返回原render
+                if (!editConf) {
+                    return !oRender ? text : oRender(text, record, index);
+                }
+                return <LocalEdit parent={this} _factory={this._factory} item={item}
+                    value={text} record={record} field={item.dataIndex}
+                    editConf={editConf}
                 />;
             };
         }

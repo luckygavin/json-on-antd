@@ -228,6 +228,7 @@
     }
     // 单元格编辑图标样式
     .editable-cell-text-wrapper, .editable-cell-input-wrapper {
+        display: inline-block;
         & > * {
             display: inline-block;
         }
@@ -235,7 +236,7 @@
             margin: 0;
         }
         .uf-form {
-            width: 100%;
+            // width: 100%;
             padding-right: 40px;
         }
         .edit-cell {
@@ -243,7 +244,7 @@
         }
     }
     .editable-icon-group {
-        margin-left: 4px;
+        margin-left: -34px;
     }
     .editable-cell-icon-edit {
         margin-left: -16px;
@@ -323,6 +324,14 @@
         margin-right: 8px;
         color: @primary-color;
     }
+    .ant-table-tbody td {
+        &.td-align-left {
+            text-align: left;
+        }
+        &.td-align-right {
+            text-align: right;
+        }
+    }
 }
 // 弹框样式
 .uf-table-modal {
@@ -368,6 +377,10 @@
         .ant-table-body > table {
             padding: 0;
         }
+        .ant-form-item {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
     }
     &.uf-table-mini {
         .ant-table-title {
@@ -380,6 +393,10 @@
         .ant-table-small .ant-table-tbody > tr > td {
             padding: 4px 4px;
         }
+        .ant-form-item {
+            margin-top: -2px;
+            margin-bottom: -2px;
+        }
     }
     &.uf-table-crowd {
         .ant-table-title {
@@ -391,9 +408,10 @@
         }
     }
     // 原始title没有内容时的样式
-    &.uf-table-no-title .ant-table-title {
-        padding: 0px;
-        margin-bottom: -1px;
+    &.uf-table-no-title {
+        &>.ant-table {
+            display: none;
+        }
     }
     // 将头部内容提取出来，修改默认头部样式
     &:not(.uf-table-no-title) {
@@ -453,5 +471,10 @@
     &.uf-table-align-right th,
     &.uf-table-align-right td {
         text-align: right;
+    }
+    // form-item 的样式
+    .ant-form-item {
+        margin-top: -6px;
+        margin-bottom: -6px;
     }
 }

@@ -73,7 +73,10 @@ export default class BaseComponent extends Component {
         this._root = this._factory;
         // 开发时自定义的需注入到事件中的函数，例如 AutoComplete 组件中的 'onSearch' 函数
         this._injectEvent = [];
-        this._filter = (Utils.copy(FilterProps)).concat(
+        // 组件自定义属性，不添加到 _filtered 中，以提升性能
+        this._notFiltered = ['_factory', '_selfCalling'];
+        // 需过滤的属性
+        this._filter = [].concat(FilterProps,
             // 一些隐藏的属性
             ['content', '__cache', '__type', '__key', '_factory', '_selfCalling'],
             // 二次解析白名单里的属性的原值存储在 _${v} 中
@@ -441,8 +444,10 @@ export default class BaseComponent extends Component {
         // this.__prevProps = this.__props;
         // this.__props = this.__mergeProps({}, this.__props, __props);
         // __props一直是用同一个对象，__prevProps为复制来的，这样方便程序里使用深层对象的引用
-        // TODO: 待观察是否有问题
-        this.__prevProps = Utils.clone(this.__props);
+        // 此处过滤掉自定义的无用属性，例如_factory，增强性能。
+        this.__prevProps = Utils.clone(
+            Utils.filter(this.__props, this._innerFilter)
+        );
         this.__props = this.__mergeProps(this.__props, __props);
         // 执行附加逻辑
         this._afterSetProps(nextProps);
@@ -673,7 +678,12 @@ export default class BaseComponent extends Component {
                     if (['api', 'source', 'control'].indexOf(i) > -1) {
                         value = this._varietyPropsFormat(i, value);
                     }
-                    this.__filtered[i] = Utils.merge(this.__filtered[i] || {}, value);
+                    // this._notFiltered 中定义的属性不参与处理，不进行merge操作，提升性能
+                    if (this._notFiltered.indexOf(i) === -1) {
+                        this.__filtered[i] = Utils.merge(this.__filtered[i] || {}, value);
+                    } else {
+                        this.__filtered[i] = value;
+                    }
                 }
             }
         }

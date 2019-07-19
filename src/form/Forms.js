@@ -21,6 +21,7 @@ export default class Forms extends OriginForm {
     _beforeInit(...p) {
         super._beforeInit && super._beforeInit(...p);
         this._filter.push('operation');
+        this._notFiltered.push('form');
     }
     // 覆盖原Form初始化逻辑
     init() {}
@@ -52,7 +53,11 @@ export default class Forms extends OriginForm {
 
     // 获取所有表单的值
     getValues(...params) {
-        return Utils.map(this.formRef, item=>item.getValues(...params));
+        return Utils.map(this.formRef, item=>{
+            let data = item.getValues(...params);
+            data && (delete data._pk);
+            return data;
+        });
     }
     // 重置所有表单的值
     resetValues(o) {
@@ -100,8 +105,10 @@ export default class Forms extends OriginForm {
     copyForm(index) {
         // 获取已经填写的form内容
         let formData = this.getValues(false);
+        let newData = Utils.clone(formData[index]);
+        delete newData._pk;
         // 为formData增加一个元素并重新渲染
-        formData.splice(index + 1, 0, formData[index]);
+        formData.splice(index + 1, 0, newData);
         this.__setProps({formData});
         this.onChange(formData);
     }
@@ -143,7 +150,9 @@ export default class Forms extends OriginForm {
                 icon="plus-circle-o"
                 onClick={this.addForm.bind(this, null)}/>
             : formData.map((v, index) => {
-                let key = this.key + '-' + index;
+                // 给每一行追加一个唯一自增键作为key，不能使用index
+                v._pk === undefined && (v._pk = Utils.incrementId());
+                let key = this.key + '-' + v._pk;
                 // form 属性被Form组件过滤到了 __filtered 中
                 let formConfig = Object.assign({}, this.__filtered.form, {
                     type: 'form',
@@ -196,12 +205,12 @@ export default class Forms extends OriginForm {
                 {this.__props.showSerialNumber && (
                     <div key="serial-number" className="th-div" style={{width: 40}}>序号</div>
                 )}
-                {formConfig.items.map((item, index)=>(
+                {formConfig.items.map((item, index)=>(item && (
                     <div key={index} className="th-div" style={item.width ? {width: item.width} : {}}>
                         {item.required && (<span style={{color: '#f04134', fontFamily: 'SimSun'}}>* </span>)}
                         {item.label}
                     </div>
-                ))}
+                )))}
                 {this.__props.addType !== false && (
                     <div key="operate" className="th-div">
                         操作
@@ -216,7 +225,9 @@ export default class Forms extends OriginForm {
             <div className="tbody-div">
                 {/* 渲染多个form */}
                 {formData.map((v, index) => {
-                    let key = this.key + '-' + index;
+                    // 给每一行追加一个唯一自增键作为key，不能使用index
+                    v._pk === undefined && (v._pk = Utils.incrementId());
+                    let key = this.key + '-' + v._pk;
                     return this.__analysis(Object.assign({}, formConfig, {
                         type: 'form',
                         layout: {type: 'inline'},

@@ -50,9 +50,10 @@ $suffix = '';
             });
             // 双击复制链接
             var copyFunc = function(e) {
-                if (window.location.href.indexOf('8000')) {
-                    window.location.hash += '/' + e.target.id;
-                }
+                // if (window.location.href.indexOf('8000')) {
+                //     window.location.hash += '/' + e.target.id;
+                // }
+                console.log(e.target.id);
             };
             $(document).on('dblclick', 'h3', copyFunc);
             $(document).on('dblclick', 'h4', copyFunc);

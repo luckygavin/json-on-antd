@@ -17,6 +17,7 @@ module.exports = {
     'develop-build.md': require('./develop-build.md'),
 
     'api.md': require('./api.md'),
+    'utils.md': require('./utils.md'),
     'params.md': require('./params.md'),
     'lifecycle.md': require('./lifecycle.md'),
     'load.md': require('./load.md'),

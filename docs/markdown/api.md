@@ -258,7 +258,7 @@ UF.init({
 
 ## # UF.utils
 
-工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。
+工具函数。包含`typeof`、`uniqueId`、`hash`、`copy`、`clone`、`merge`、`filter`等。详见[`工具函数`](#/Utils)
 
 
 ---

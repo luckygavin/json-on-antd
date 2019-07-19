@@ -161,19 +161,19 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
             this._updateValue([first]);
         }
     }
+    // 有些组件会重写此函数，追加上extOptions中的内容，例如Select组件
+    _getAllOptions(data = this.__props.options) {
+        return data || [];
+    }
     // 处理默认选中
-    _handleDefaultSelect(allClear = true) {
+    _handleDefaultSelect(aotoClear = true) {
         let current = this.__props.value;
         // 当组件正在获取 options，则暂时不进行处理
         if (this.__gettingSource && this.__filtered.source && this.__filtered.source.target === 'options') {
             return;
         }
         // 如果当前值再列表中，则不做任何处理
-        let alldata = this.__props.options;
-        // 追加上extOptions中的内容，仅select组件有
-        if (this.getAllOptions) {
-            alldata = this.getAllOptions(alldata);
-        }
+        let alldata = this._getAllOptions(alldata);
         if (alldata.some(v=>(v.value + '') === (current + ''))) {
             // upate at 2019-03-27, 请求结束后，如果能匹配到，也重新触发一次onChange（比如form中有join联动时）
             this._updateValue(current);
@@ -183,7 +183,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         if (this.__props.defaultFirst) {
             let first = Utils.getFirstOption(this.__props.options);
             this._updateValue(first);
-        } else if (allClear && this.__props.value !== undefined
+        } else if (aotoClear && this.__props.value !== undefined
             && !Utils.equals(this.__controlled.defaultVal, this.__props.value)) {
             // 为实现刷新组件时，清空原数据
             // 同时会带来问题，不能为空的字段会导致出现提示（已解决）

@@ -15,6 +15,25 @@
 
 ### 0.4.0
 
+`2019-07-19`
+
+* 🌟 新增[`UF.utils`](#/Utils)文档
+* 🌟 `Select`组件新增`showSearch.ignoreCase`属性，支持搜索时忽略大小写
+
+
+`2019-07-11`
+
+* 🌟 `Table`组件增加本地行内编辑功能，具体可见新属性`column.editconf`
+* 🌟 `Carousel`走马灯组件增加API: `prev()`、`next()`、`goto()`
+
+
+`2019-06-27`
+
+* 🌟 `Anchor`组件增加`mode: scorll`模式，支持在路由使用 hashHistory 的情况下使用
+* 🎨 `UeditorParse`当加载失败时，屏蔽错误信息
+* 🐞 修复`Forms`组件，删除中间行时，下面的行全部需要刷新的问题
+
+
 `2019-04-23`
 
 * 🌟 增加通用API:`remove`，用于彻底移除组件，并可以通过`show`函数重新渲染

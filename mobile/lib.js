@@ -1,7 +1,7 @@
 /**
  * @file 汇总所有组件
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-06 18:04:22
  */
 

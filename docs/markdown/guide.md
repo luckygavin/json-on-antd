@@ -6,8 +6,6 @@ UF 致力于解放业务中各类简单枯燥的前端交互开发工作。直�
 
 Demo 演示请点击左侧各组件示例
 
-> 如有疑问可以加群 **`1615792`** 咨询。
-
 ## 特性
 
 ##### 1、界面配置化
@@ -48,24 +46,24 @@ Demo 演示请点击左侧各组件示例
 #### UF组件库
 
 dev:
-* http://antd.uf.baidu.com:8099/v/dev/theme.css
-* http://antd.uf.baidu.com:8099/v/dev/dll.js
-* http://antd.uf.baidu.com:8099/v/dev/antd.js
-* http://antd.uf.baidu.com:8099/v/dev/uf.js
+* %{devUrl}%/theme.css
+* %{devUrl}%/dll.js
+* %{devUrl}%/antd.js
+* %{devUrl}%/uf.js
 
 beta:
-* http://uf.baidu.com/v/%{version}%/theme.css
-* http://uf.baidu.com/v/%{version}%/dll.js
-* http://uf.baidu.com/v/%{version}%/antd.js
-* http://uf.baidu.com/v/%{version}%/uf.js
+* %{betaUrl}%/%{version}%/theme.css
+* %{betaUrl}%/%{version}%/dll.js
+* %{betaUrl}%/%{version}%/antd.js
+* %{betaUrl}%/%{version}%/uf.js
 
 stable:
-* http://uf.baidu.com/v/%{stableVersion}%/theme.min.css
-* http://uf.baidu.com/v/%{stableVersion}%/dll.min.js
-* http://uf.baidu.com/v/%{stableVersion}%/antd.min.js
-* http://uf.baidu.com/v/%{stableVersion}%/uf.min.js
+* %{stableUrl}%/%{version}%/theme.min.css
+* %{stableUrl}%/%{version}%/dll.min.js
+* %{stableUrl}%/%{version}%/antd.min.js
+* %{stableUrl}%/%{version}%/uf.min.js
 
 
 ## 加入我们
 
-欢迎各位大神贡献自己的代码，框架/组件开发请联系[`Umpfe`](mailto:umpfe@baidu.com?cc=liuzechun@baidu.com)、[`Hi`](baidu://message/?id=861260447)
+欢迎各位大神贡献自己的代码，框架/组件开发请联系[`liuzechun`](mailto:liuzechun2015@163.com)

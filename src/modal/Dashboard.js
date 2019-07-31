@@ -1,6 +1,6 @@
 /**
  * @file Dashboard 自己造一个使用modal处理逻辑但是不是弹框而是直接放在页面上的组件
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React from 'react';
 import {Collapse, Button} from 'antd';

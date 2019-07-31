@@ -1,6 +1,6 @@
 /**
  * @file Table扩展 - 增删改查等功能
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React from 'react';
 import {message, Modal} from 'antd';

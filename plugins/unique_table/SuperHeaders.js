@@ -1,6 +1,6 @@
 /**
  * @file 表格组件的SuperHeader部分
- * @auhor huzaibin@baidu.com
+ * @auhor huzaibin
  */
 import React, {PureComponent} from 'react';
 

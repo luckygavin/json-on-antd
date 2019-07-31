@@ -25,9 +25,8 @@
                 icon: "minus",
                 onClick: function onClick(v) {
 	                var progress = UF('my-progress2');
-	                var current = progress.get('percent');
 	                progress.set({
-	                    percent: current - 10
+	                    percent: progress.get('percent') - 10
 	                });
 	            }
             },
@@ -36,9 +35,8 @@
                 icon: "plus",
                 onClick: function onClick(v) {
 	                var progress = UF('my-progress2');
-	                var current = progress.get('percent');
 	                progress.set({
-	                    percent: current + 10
+	                    percent: progress.get('percent') + 10
 	                });
 	            }
             }

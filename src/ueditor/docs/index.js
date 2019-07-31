@@ -9,7 +9,7 @@ import md from './markdown.md';
 
 let demo1 = {
     title: '基本用法',
-    description: '默认高度自动根据内容调整',
+    description: '组件为惰性加载，使用到时才会动态加载所需库。使用`ueditor`组件进行编辑，用`ueditor-parse`进行展示',
     config: [
         {
             type: 'ueditor',

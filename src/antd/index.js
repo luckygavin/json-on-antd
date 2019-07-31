@@ -1,6 +1,6 @@
 /**
  * @file antd组件统一封装，实现几个基础抽象类做继承
- * @author liuzechun@baidu.com
+ * @author liuzechun
  */
 import * as DataEntry from './dataentry.js';
 import * as DataDisplay from './datadisplay.js';

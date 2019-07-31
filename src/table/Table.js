@@ -1,6 +1,6 @@
 /**
  * @file 表格组件:antd Table的基础上增加了原来uf Table中的一些功能
- * @author susisi@baidu.com
+ * @author susisi
  * */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -149,14 +149,15 @@ export default class NewTable extends BaseComponent {
             onRowMouseEnter: () => {},
             onRowMouseLeave: () => {}
         };
+        getNeedObject(defaultCif, this.__props);
         // 为了层级清晰，把扩展行相关的属性聚合到了expended属性中。此处兼容放属性里和属性外两种用法
         if (this.__props.expanded) {
             getNeedObject(defaultCif, this.__props.expanded);
             if (this.__props.expanded.source) {
-                this._inject(defaultCif, 'onExpand', this.handleSyncExpand.bind(this));
+                this._inject(defaultCif, 'onExpand', this.handleSyncExpand.bind(this), true);
             }
         }
-        getNeedObject(defaultCif, this.__props);
+        this.emitOnExpand = defaultCif.onExpand;
         // 关于表头
         if (!!objProps.title) {
             let titleConfig = objProps.title;
@@ -279,7 +280,9 @@ export default class NewTable extends BaseComponent {
     // 展示增删改查等弹框，具体实现逻辑见 Crud.js
     showCrud(action, record, ...params) {
         if (action === 'expand') {
-            this.handleSyncExpand(true, record, true);
+            // this.handleSyncExpand(true, record, true);
+            // 同时触发 onChange 和 handleSyncExpand
+            this.emitOnExpand(true, record, true);
         } else {
             this.crudRef && this.crudRef.showCrud(action, record, ...params);
         }

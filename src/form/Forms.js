@@ -1,6 +1,6 @@
 /**
  * @file 可提供表单复制新增的组件
- * @author susisi@baidu.com 2018-05-12
+ * @author susisi 2018-05-12
  * **/
 
 import React from 'react';

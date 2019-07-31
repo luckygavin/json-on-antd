@@ -1,6 +1,6 @@
 /**
  * @file Ajax 的插件，包含 数据缓存、请求合并、生成错误信息 等功能
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * **/
 
 import Utils from './utils.js';

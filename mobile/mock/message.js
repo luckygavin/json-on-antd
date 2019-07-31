@@ -1,7 +1,7 @@
 /**
  * @file message 组件
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-09 20:28:09
  */
 

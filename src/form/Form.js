@@ -401,8 +401,7 @@ export class OriginForm extends BaseComponent {
     }
     // TODO: 函数太长了，需要整理下
     // 生成单个表单项
-    // key 为表单name后缀，表单项循环时需要使用
-    getFormItem(oitem, okey = null) {
+    getFormItem(oitem) {
         // 增加权限过滤
         if (!oitem || !oitem.type || oitem.type === 'empty' || !this.__authority(oitem)) {
             return;
@@ -436,8 +435,7 @@ export class OriginForm extends BaseComponent {
                 return this.__analysis(Utils.filter(oitem, 'content'));
             }
         }
-        okey = okey !== null ? `-${okey}` : '';
-        let key = oitem.name + okey;
+        let key = oitem.name;
         // 将当前传入的item和之前缓存（originItems）的item的原始值进行对比，如果有更新的内容，则将更新的值更新到itemsCache中
         //  待观察
         if (this.originItems[key] && this.itemsCache[key]) {
@@ -655,7 +653,7 @@ export class OriginForm extends BaseComponent {
             case 'button':
                 // 带有各种功能的按钮
                 itemProps.content = itemProps.content || item.label;
-                return this.getButtonItem(itemProps, okey);
+                return this.getButtonItem(itemProps, itemLayout);
             default:
                 let Item = this._factory.getComp(item);
                 // 如果不是输入型组件，且没有content属性，设置受控属性为content
@@ -788,21 +786,21 @@ export class OriginForm extends BaseComponent {
         callback && callback(this);
     }
     // 获取表单项中的 button 类型的按钮
-    getButtonItem(item, key) {
+    getButtonItem(item, itemLayout = {}) {
         let handleClick;
         let icon;
         switch (item.action) {
             case 'clear':
                 icon = 'delete';
-                handleClick = this.clearClick.bind(this, item.onClick, key);
+                handleClick = this.clearClick.bind(this, item.onClick);
                 break;
             case 'reset':
                 icon = 'reload';
-                handleClick = this.resetClick.bind(this, item.onClick, key);
+                handleClick = this.resetClick.bind(this, item.onClick);
                 break;
             case 'submit':
                 icon = 'search';
-                handleClick = this.handleSubmit.bind(this, null, item.onClick, key);
+                handleClick = this.handleSubmit.bind(this, null, item.onClick);
                 break;
             default:
                 handleClick = this.othersClick.bind(this, item.onClick);
@@ -818,9 +816,13 @@ export class OriginForm extends BaseComponent {
             onClick: handleClick
         });
         return this.__analysis(props);
+        // 多个按钮时不合适
+        // return <Form.Item key={item.name} {...itemLayout}>
+        //     {this.__analysis(props)}
+        // </Form.Item>;
     }
     // 处理表单组
-    generateFormItemsGroup(gitem, key) {
+    generateFormItemsGroup(gitem) {
         if (!gitem.length) {
             return;
         }
@@ -833,9 +835,9 @@ export class OriginForm extends BaseComponent {
             }
             let formItem;
             if (item instanceof Array) {
-                formItem = <Row>{this.generateFormItemsGroup(item, key)}</Row>;
+                formItem = <Row>{this.generateFormItemsGroup(item)}</Row>;
             } else {
-                formItem = this.getFormItem(item, key);
+                formItem = this.getFormItem(item);
                 (item.type === 'button') && (layout = null);
             }
             result.push(
@@ -845,16 +847,16 @@ export class OriginForm extends BaseComponent {
         return result;
     }
     // 生成表单项列表
-    generateFormItems(items, key) {
+    generateFormItems(items) {
         let result = [];
         let index = 0;
         for (let item of items) {
             if (item instanceof Array) {
                 result.push(
-                    <Row key={`items-${index}`}>{this.generateFormItemsGroup(item, key)}</Row>
+                    <Row key={`items-${index}`}>{this.generateFormItemsGroup(item)}</Row>
                 );
             } else {
-                result.push(this.getFormItem(item, key));
+                result.push(this.getFormItem(item));
             }
             index++;
         }

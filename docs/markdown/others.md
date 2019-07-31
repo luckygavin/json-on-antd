@@ -79,3 +79,5 @@ define(function (require) {
     }
 }
 ```
+
+组件文档请见：[组件](#/Custom/Export)

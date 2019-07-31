@@ -1,6 +1,6 @@
 /**
  * @file 表格组件的Td部分
- * @auhor huzaibin@baidu.com
+ * @auhor huzaibin
  */
 import React, {PureComponent, Component} from 'react';
 import {notification} from 'antd';

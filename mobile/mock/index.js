@@ -1,7 +1,7 @@
 /**
  * @file 伪装原来Antd提供的功能，以兼容uf框架通用逻辑
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-09 20:25:23
  */
 

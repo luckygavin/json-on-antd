@@ -11,7 +11,7 @@
  *                      请求完成时执行 onchange 参数为 (false, 'success'/'error')
  *              complete:
  *
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * **/
 
 import reqwest from 'reqwest';

@@ -1,6 +1,6 @@
 /**
  * @file Table扩展 - 搜索/过滤相关逻辑实现
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React, {Component} from 'react';
 import {Input, Icon} from 'antd';
@@ -276,7 +276,7 @@ export class FuzzyFilter extends Component {
                 let result = true;
                 let keys = strVal.split(/\s+/);
                 for (let key of keys) {
-                    // update by liuzechun@baidu.com @2016-12-11
+                    // update by liuzechun @2016-12-11
                     let orResult = false;
                     // 支持指定字段过滤(如 id:123)，先选出关键词对应的字段，再对字段内容进行检索
                     let [kWord, kVal] = key.split(':');

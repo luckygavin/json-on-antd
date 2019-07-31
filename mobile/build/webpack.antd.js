@@ -1,6 +1,6 @@
 /**
  * @file 库文件单独打包
- * @author liuzechun@baidu.com
+ * @author liuzechun
  */
 
 const webpack = require('webpack');

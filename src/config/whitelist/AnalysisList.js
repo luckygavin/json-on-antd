@@ -4,7 +4,7 @@
  *          1、属性为子组件配置的情况，需对子组件再次解析
  *          2、属性为函数，函数的执行结果为一个组件配置，需要再次解析的情况
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-11 17:57:44
  */
 

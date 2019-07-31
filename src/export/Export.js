@@ -1,6 +1,6 @@
 /**
  * @file 导出表格数据组件
- * @SuSisi <susisi@baidu.com>
+ * @SuSisi <susisi>
  * @date 2017-08-25
  */
 import React from 'react';

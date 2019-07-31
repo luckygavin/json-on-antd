@@ -43,7 +43,7 @@ const demo1 = {
                     {type: 'button', mode: 'primary', content: '新增', action: 'add'},
                     {type: 'button', mode: 'primary', content: '批量编辑', action: 'batchEdit'},
                     {type: 'button', mode: 'primary', content: '批量删除', action: 'batchDelete'},
-                    {type: 'button', mode: 'primary', content: '批量查询', action: 'batchSearch', actived: true}
+                    {type: 'button', mode: 'primary', content: '批量查询', action: 'batchSearch'}
                 ]
             },
             // source: 'docs/php/data.php',
@@ -106,6 +106,7 @@ const demo1 = {
                 },
                 batchSearch: {
                     position: 'afterHeader',
+                    visible: false,
                     size: 'default',
                     title: [
                         {type: 'span', content: '批量查询', style: {display: 'inline-block', marginRight: 10, fontWeight: 700}},
@@ -177,7 +178,7 @@ const demo1 = {
                 },
                 batchDelete: {
                     title: '批量删除:',
-                    api: '?r=batchDelete',
+                    api: 'docs/php/submit.php?sleep=1',
                     okText: '批量删除',
                     render: rows=>{
                         return {

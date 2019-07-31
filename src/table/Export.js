@@ -1,6 +1,6 @@
 /**
  * @file Table扩展 - 导出组件配置处理逻辑
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';

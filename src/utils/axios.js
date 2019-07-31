@@ -9,7 +9,7 @@ import Utils from './utils.js';
 
 export default function (config) {
     let conf = Utils.filter(config, ['baseUrl', 'success', 'error', 'interrupt']);
-    if (!!conf.method && conf.method !== 'get') {
+    if (!!conf.method && conf.method !== 'get' && !conf.useUrlParams) {
         conf.data = conf.data || conf.params;
         delete conf.params;
     } else {

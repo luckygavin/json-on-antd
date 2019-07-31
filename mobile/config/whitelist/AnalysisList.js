@@ -1,7 +1,7 @@
 /**
  * @file 解析组件时，属性为子组件配置的情况，需对子组件再次解析
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-11 17:57:44
  */
 

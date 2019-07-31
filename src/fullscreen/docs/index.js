@@ -14,11 +14,8 @@ let demo1 = {
         type: 'fullscreen',
         content: {
             type: 'div',
-            mode: 'simple',
             style: {
                 padding: 10,
-                width: '100%',
-                height: '100%',
                 background: '#ffffdd'
             },
             content: '任意内容'

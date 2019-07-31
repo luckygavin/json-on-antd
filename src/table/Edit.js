@@ -1,7 +1,7 @@
 /**
  * @file Table扩展 - 单元格内编辑等功能
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-07-08 19:43:50
  */
 
@@ -80,7 +80,7 @@ export class LocalEdit extends React.PureComponent {
 /**
  * @author: JihangGuo
  * @last Modified time: 2018-04-25 22:56:04
- * @email: guojihang@baidu.com
+ * @email: guojihang
  */
 // 编辑完直接提交数据
 export class SyncEdit extends BaseComponent {

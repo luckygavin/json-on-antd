@@ -1,6 +1,6 @@
 /**
  * @file ReactModal 适用于弹出层快速提交表单
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React from 'react';
 import {Modal, Button} from 'antd';

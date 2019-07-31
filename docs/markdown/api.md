@@ -150,6 +150,7 @@ paramsHandler | 请求数据前，对全部参数进行处理。应用场景如�
 interrupt | 中断请求的钩子函数。具体用法见下面介绍 | function(conf) {} |
 type | 声明返回的数据格式。可以是：`html`, `xml`, `json`, `jsonp` | string | `json` 
 useAxios | 改为使用`axios`库进行ajax请求 | boolean | false 
+useUrlParams | 使用`axios`库时，强制使用`params`进行进行传参（即无论`method`为什么，参数始终通过url传递参数） | boolean | false 
 success | 成功时的处理逻辑 | function(data, res){} |  
 error | 失败时的处理逻辑 | function(res){} | 默认处理逻辑，见如下说明 
 complete | 不管请求成功还是失败，都会调用。可以应用于按照REST规范开发的情况 | function | 

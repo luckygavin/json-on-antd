@@ -1,6 +1,6 @@
 /**
  * @file Drawer 抽屉组件，属性及功能和Modal一致，展示效果为侧拉展示
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 import React from 'react';
 import NewModal from './Modal.js';

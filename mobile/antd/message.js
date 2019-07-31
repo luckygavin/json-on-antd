@@ -1,7 +1,7 @@
 /**
  * @file 移动端的message消息提醒组件
  *  直接复用PC端开发的message类组件，并通过mock/message.js中对antd模块进行处理(改为Toast实现)，以达到message代码逻辑的复用
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-22 15:34:01
  */
 

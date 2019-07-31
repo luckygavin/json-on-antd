@@ -1,6 +1,6 @@
 /**
  * @file index.js 汇总所有 src 里对用户暴露的组件
- * @author liuzechun@baidu.com
+ * @author liuzechun
  */
 
 module.exports = Object.assign(

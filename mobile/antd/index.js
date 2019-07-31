@@ -1,7 +1,7 @@
 /**
  * @file antd组件统一封装，实现几个基础抽象类做继承
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-10 00:01:26
  */
 

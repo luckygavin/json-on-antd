@@ -1,7 +1,7 @@
 /**
  * @file 输入文件路径、版本号等控制
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-09 14:11:40
  */
 

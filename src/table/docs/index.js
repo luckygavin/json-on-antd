@@ -468,6 +468,6 @@ export default class TableApp extends BaseDoc {
         this.__init();
     }
     render() {
-        return this.__getDemoSingle(demo4, demo1, demo2, demo3);
+        return this.__getDemoSingle(demo1, demo2, demo3, demo4);
     }
 }

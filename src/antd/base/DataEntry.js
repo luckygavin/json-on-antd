@@ -197,7 +197,8 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         let options = this.__props.options || [];
         let label = Utils.transFromOptions(value, options);
         // 如果能查到label，则返回label，否则返回value
-        return label !== undefined ? label : value;
+        // 不能返回value，没啥意义，更容易造成困惑
+        return label;
     }
     // 获取选中的option，针对select等类型的具备可选值的组件
     getSelectedOption() {
@@ -205,7 +206,7 @@ DataEntry.OptionsDataEntry = class OptionsDataEntry extends DataEntry {
         let result;
         let options = this.__props.options || [];
         for (let i in options) {
-            if (options[i].value === value || options[i].value === (value + '')) {
+            if (options[i].value === value || (options[i].value + '') === (value + '')) {
                 result = options[i];
                 break;
             }

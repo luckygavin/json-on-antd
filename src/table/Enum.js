@@ -1,6 +1,6 @@
 /**
  * @file Table扩展 - 枚举类型字段翻译相关逻辑实现
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 
 import {Utils} from 'src/utils';

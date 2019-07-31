@@ -1,6 +1,6 @@
 /**
  * @file 文档 - 打包编译配置文件
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 const webpack = require('webpack');
 const path = require('path');

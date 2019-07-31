@@ -1,6 +1,6 @@
 /**
  * @file React等库文件单独打包
- * @author liuzechun@baidu.com
+ * @author liuzechun
  */
 
 // 公共库

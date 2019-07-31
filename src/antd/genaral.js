@@ -225,3 +225,14 @@ export class Col extends Genaral {
         return <Antd.Col {...this.__props}/>;
     }
 }
+
+// LocaleProvider 国际化
+export class LocaleProvider extends Genaral {
+    constructor(props) {
+        super(props);
+        this.__init();
+    }
+    render() {
+        return <Antd.LocaleProvider {...this.__props}/>;
+    }
+}

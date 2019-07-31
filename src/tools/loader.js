@@ -1,7 +1,7 @@
 /**
  * @file 载入组件，供 Factory 获取
  *      根据配置的 type，转换成对应组件并返回
- * @author liuzechun@baidu.com
+ * @author liuzechun
  */
 import React from 'react';
 import Lib from 'variety/lib.js';

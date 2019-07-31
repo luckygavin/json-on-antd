@@ -490,6 +490,7 @@ const utils = Object.assign({}, underscore, {
     // 包括：object、array、function、null、undefined、regexp、number、string、boolean、date ...
     // 推荐使用 utils.typeof 函数
     getType(value) {
+        // Object.prototype.toString
         return ({}).toString.call(value).match(/\s([a-zA-Z]+)/)[1].toLowerCase();
     },
     // 判断 value 是否为指定类型
@@ -625,7 +626,7 @@ const utils = Object.assign({}, underscore, {
                 let label = '';
                 if (list !== undefined) {
                     for (let i in list) {
-                        if (list[i].value === v || list[i].value === (v + '')) {
+                        if (list[i].value === v || (list[i].value + '') === (v + '')) {
                             label = list[i].label;
                             list = list[i]['children'];
                             break;
@@ -636,7 +637,7 @@ const utils = Object.assign({}, underscore, {
             }
         } else {
             for (let i in options) {
-                if (options[i].value === value || options[i].value === (value + '')) {
+                if (options[i].value === value || (options[i].value + '') === (value + '')) {
                     result = options[i].label;
                     break;
                 }

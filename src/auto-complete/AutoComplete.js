@@ -47,6 +47,8 @@ export class LocalComplete extends Select {
         }
         this.__setProps({options});
     }
+    // 覆盖Select的函数，不自动触发onChange
+    _selfChange() {}
     // 当选择时，只触发onChange
     // 默认对应的是 onChange
     _onControlEvent(...params) {
@@ -152,6 +154,8 @@ export default class NewAutoComplete extends Select {
     //     this.__filtered.extOptions = this.__filtered.extOptions.filter(item => item.value !== value);
     //     this.__setProps({extOptions: this.__filtered.extOptions});
     // }
+    // 覆盖Select的函数，不自动触发onChange
+    _selfChange() {}
     _onChange(value) {
         this.loading(false, 'simple');
         if (Utils.typeof(value, 'array') && value.length === 0) {

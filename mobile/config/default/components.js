@@ -1,7 +1,7 @@
 /**
  * @file 普通组件默认配置
  *
- * Author: liuzechun (liuzechun@baidu.com)
+ * Author: liuzechun (liuzechun)
  * Created: 2019-01-11 14:06:24
  */
 

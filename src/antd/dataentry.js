@@ -326,9 +326,13 @@ export class Select extends OptionsDataEntry {
                 }
             // 当不自动清理不匹配选项时，为了能把此选项提示出来，重新触发一次onChange（可以触发Form的rules校验规则）
             } else if (this.__props.value) {
-                this.__props.onChange && this.__props.onChange(this.__props.value);
+                this._selfChange();
             }
         }
+    }
+    // 被AutoComplete继承
+    _selfChange(value = this.__props.value) {
+        this.__props.onChange && this.__props.onChange(value);
     }
     _getAllOptions(data = this.__props.options) {
         return [].concat(this.__filtered.extOptions || [], data || []);

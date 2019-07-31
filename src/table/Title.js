@@ -1,6 +1,6 @@
 /**
  * @file Table扩展 - 表格上方的title以及其全部可选控件实现
- * @author liuzechun@baidu.com
+ * @author liuzechun
  * */
 
 import React from 'react';

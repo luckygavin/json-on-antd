@@ -10,11 +10,14 @@
     "0.3.0"
   ],
   "version": "0.4.0",
-  "fixedVersion": "0.4.0.12",
+  "fixedVersion": "0.4.0.15",
   "stableVersion": "0.4.0",
   "description": "new uf",
   "author": "liuzechun",
   "license": "ISC",
+  "devUrl": "http://uf.btools.fun/v/dev",
+  "betaUrl": "http://uf.btools.fun/v",
+  "stableUrl": "http://uf.btools.fun/v",
   "repository": {
     "type": "git",
     "url": "http://icode.baidu.com/files/view/baidu/atm/uf/@tree/master"

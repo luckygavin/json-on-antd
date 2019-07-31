@@ -1,6 +1,6 @@
 /**
  * @file 表格组件，满足在任意位置合并，减少不必要的合并需要在数据的dontMerge字段做配置
- * @auhor huzaibin@baidu.com
+ * @auhor huzaibin
  */
 import React, {PureComponent, Component} from 'react';
 import {Button, Spin, notification} from 'antd';
